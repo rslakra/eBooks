@@ -1,0 +1,793 @@
+﻿Welcome to ABC Pronunciary, an American English pronunciation dictionary. It is set up to teach clear and effective pronunciation of the English language. All of the letters of the English alphabet are introduced here. Since some of the letters have several sounds, especially the vowels, each sound is given its own name, such as long A, hard C, or "schwa" E. In addition to the vowels and consonants, digraphs, which are 2 consecutive letters forming a single sound when spoken together are included. For each sound the mouth formation is described in detail, then examples of words containing that sound are articulated. After all of the sounds have been presented, consonant blends and silent letters are explained. At the end vowel contrasts and consonant contrasts as well as practice sentences are offered for reinforcement. Learning to speak English correctly is made easy in ABC Pronunciary. Listen carefully!
+
+Letters of the alphabet 
+short a
+\æ\
+The short a sound is made by opening the mouth wide. The teeth are apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the bottom back teeth.
+\æ\
+Africa \ˈæfrɪkə\
+apple \ˈæpəl\
+astronaut \ˈæstrəˌnɔt\
+
+medium a
+\ɔ\
+The medium a sound is made by opening the mouth and pushing the lips outward to form an oval. The teeth are apart, with some of the top and bottom front teeth shown. The tongue is in the middle of the mouth.
+\ɔ\
+almanac \ˈɔlməˌnæk\
+almond \ˈɔmənd\
+auto \ˈɔtoʊ\
+
+long a
+\eɪ\
+The long a sound is made by opening the mouth and lowering the bottom lip. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The sides of the tongue touch all of the back teeth.
+\eɪ\
+acorn \ˈeɪˌkɔrn\
+ape \ˈeɪp\
+apron \ˈeɪprən\
+
+b
+\b\
+The b sound is made by closing the mouth and pushing the lips apart (as in blowing a bubble). The teeth are apart, but not shown. The tongue is in the middle of the mouth.
+\b\
+barn \ˈbɑrn\
+bell \ˈbel\
+butterfly \ˈbətəˌflaɪ\
+
+hard c
+\k\
+The hard c sound is made by opening the mouth medium wide. The teeth are slightly apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the top back teeth. Air is blown through quickly.
+\k\
+calendar \ˈkæləndər\
+clock \ˈklɑk\
+corn \ˈkɔrn\
+
+soft c
+\s\
+The soft c sound is made by opening the mouth medium wide. The teeth are shown clenched together. The tongue touches all of the bottom teeth. Air is blown through slowly.
+\s\
+cellular \ˈseljələr\
+city \ˈsɪtiː\
+cymbals \ˈsɪmbəlz\
+
+d
+\d\
+The d sound is made by opening the mouth and lowering the bottom lip. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tip of the tongue touches the top of the mouth.
+\d\
+daisy \ˈdeɪziː\
+desk \ˈdesk\
+dog \ˈdɔg\
+
+short e
+\e\
+The short e sound is made by opening the mouth medium wide. The teeth are slightly apart, with some of the top and bottom front teeth shown. The sides of the tongue barely touch the bottom back teeth.
+\e\
+egg \ˈeg\
+elephant \ˈeləfənt\
+envelope \ˈenvəˌloʊp\
+
+"schwa" e
+\ə\
+The schwa e sound is made by opening the mouth and lowering the bottom lip a bit. The teeth are just barely apart, with more of the bottom than the top front teeth shown. The tongue is in the middle of the mouth.
+\ə\
+eleven \ɪˈlevən\
+equestrian \ɪˈkwestriːən\
+eraser \ɪˈreɪsər\
+
+long e
+\iː\
+The long e sound is made by opening the mouth and lowering the bottom lip. The teeth are just barely apart, with more of the bottom than the top front teeth shown. The sides of the tongue touch all of the back teeth.
+\iː\
+eagle \ˈiːgəl\
+e-mail \ˈiːˌmeɪl\
+equal \ˈiːkwəl\
+
+f
+\f\
+The f sound is made by closing the mouth almost all the way. The top teeth are shown biting down on the lower lip. The tongue is in the middle of the mouth. Air is blown through slowly.
+\f\
+face \ˈfeɪs\
+flag \ˈflæg\
+forest \ˈfɔrəst\
+
+hard g
+\g\
+The hard g sound is made by opening the mouth and and pushing the lips out a bit. The teeth are apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the top back teeth.
+\g\
+garden \ˈgɑrdən\
+goat \ˈgoʊt\
+guitar \gəˈtɑr\
+
+soft g
+\dʒ\
+The soft g sound is made by opening the mouth and pushing the lips outward. The teeth are shown clenched together. The tip of the tongue touches the top of the mouth.
+\dʒ\
+gem \ˈdʒem\
+giraffe \dʒəˈræf\
+gymnastics \dʒɪmˈnæstɪks\
+
+h
+\h\
+The h sound is made by opening the mouth medium wide. The teeth are apart, with some of the top and bottom front teeth shown. The tongue is in the middle of the mouth. Air is blown through quickly.
+\h\
+handshake \ˈhændˌʃeɪk\
+helicopter \ˈheləˌkɑptər\
+house \ˈhæʊs\
+
+short i
+\ɪ\
+The short i sound is made by opening the mouth medium wide. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tongue touches all of the bottom teeth.
+\ɪ\
+igloo \ˈɪgluː\
+infant \ˈɪnfənt\
+Italy \ˈɪtəliː\
+
+medium i
+\iː\
+The medium i sound is made by opening the mouth and lowering the bottom lip. The teeth are just barely apart, with more of the bottom than the top front teeth shown. The sides of the tongue touch all of the back teeth.
+\iː\
+kiwi \ˈkiːwiː\
+police \pəˈliːs\
+ski \ˈskiː\
+
+long i
+\aɪ\
+The long i sound is made by opening the mouth wide. The teeth are apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the top back teeth.
+\aɪ\
+ice cream \ˈaɪsˌkriːm\
+island \ˈaɪlənd\
+ivy \ˈaɪviː\
+
+j
+\dʒ\
+The j sound is made by opening the mouth and pushing the lips outward. The teeth are shown clenched together. The tip of the tongue touches the top of the mouth.
+\dʒ\
+jacket \ˈdʒækət\
+jet \ˈdʒet\
+juggle \ˈdʒəgəl\
+
+k
+\k\
+The k sound is made by opening the mouth medium wide. The teeth are slightly apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the top back teeth. Air is blown through quickly.
+\k\
+kangaroo \ˌkæŋgəˈruː\
+key \ˈkiː\
+kite \ˈkaɪt\
+
+l
+\l\
+The l sound is made by opening the mouth a bit. The teeth are slightly apart, with only the bottom front teeth shown. The tip of the tongue touches the top front teeth.
+\l\
+ladder \ˈlædər\
+lemon \ˈlemən\
+lighthouse \ˈlaɪtˌhæʊs\
+
+m
+\m\
+The m sound is made by tightly closing the mouth. The teeth, gently biting down on the lips, are not shown. The tongue is in the middle of the mouth.
+\m\
+maze \ˈmeɪz\
+money \ˈməniː\
+music \ˈmjuːzɪk\
+
+n
+\n\
+The n sound is made by opening the mouth medium wide. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tip of the tongue touches the top of the mouth.
+\n\
+necktie \ˈnekˌtaɪ\
+notepad \ˈnoʊtˌpæd\
+nurse \ˈnərs\
+
+short o
+\ɑ\
+The short o sound is made by opening the mouth wide. The teeth are apart, with some of the top and bottom front teeth shown. The tongue is in the middle of the mouth.
+\ɑ\
+octopus \ˈɑktəpəs\
+office \ˈɑfəs\
+opera \ˈɑprə\
+
+medium o
+\ə\
+The medium o sound is made by opening the mouth and lowering the bottom lip a bit. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tongue is in the middle of the mouth.
+\ə\
+onion \ˈənjən\
+oregano \əˈregəˌnoʊ\
+oven \ˈəvən\
+
+long o
+\oʊ\
+The long o sound is made by puckering the mouth to form a circle with the lips. The teeth are apart, but not shown. The tongue is in the middle of the mouth.
+\oʊ\
+oatmeal \ˈoʊtˌmiːl\
+ocean \ˈoʊʃən\
+overalls \ˌoʊvərˈɔlz\
+
+p
+\p\
+The p sound is made by closing the mouth and pushing the lips apart. The teeth are apart but not shown. The tongue is in the middle of the mouth. Air is blown through quickly.
+\p\
+parrot \ˈperət\
+pencil \ˈpensəl\
+piano \piːˈænoʊ\
+
+q[u]
+\kw\
+The q[u] sound is made by briefly puckering the lips to form a small circle, then letting the mouth open a bit. The teeth are slightly apart, but not shown. The sides of the tongue touch the top back teeth. Air is blown through quickly.
+\kw\
+quail \ˈkweɪl\
+quartet \kwɔrˈtet\
+queen \ˈkwiːn\
+
+r
+\r\
+The r sound is made by opening the mouth and pushing the lips outward to form an oval, while gently biting their edges. The teeth are slightly apart, with more of the top than the bottom front teeth shown. The tongue is in the middle of the mouth.
+\r\
+rainbow \ˈreɪnˌboʊ\
+robot \ˈroʊˌbɑt\
+rose \ˈroʊz\
+
+s
+\s\
+The s sound is made by opening the mouth medium wide. The teeth are shown clenched together. The tongue touches all of the bottom teeth. Air is blown through slowly.
+\s\
+sailboat \ˈseɪlˌboʊt\
+sofa \ˈsoʊfə\
+sun \ˈsən\
+
+t
+\t\
+The t sound is made by opening the mouth and lowering the bottom lip. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tip of the tongue touches the top of the mouth. Air is blown through quickly.
+\t\
+telescope \ˈteləˌskoʊp\
+tiger \ˈtaɪgər\
+truck \ˈtrək\
+
+short u
+\ə\
+The short u sound is made by opening the mouth and lowering the bottom lip a bit. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tongue is in the middle of the mouth.
+\ə\
+umbrella \ˌəmˈbrelə\
+umpire \ˈəmˌpaɪr\
+unhappy \ˌənˈhæpiː\
+
+medium u
+\uː\
+The medium u sound is made by puckering the mouth to form a small circle with the lips. The teeth are slightly apart, but not shown. The tongue is in the middle of the mouth.
+\uː\
+flute \ˈfluːt\
+Peru \pəˈruː\
+sushi \ˈsuːʃiː\
+
+long u
+\juː\
+The long u sound is made by opening the mouth and pushing the lips outward, while gently biting their edges. The teeth are apart, with some of the top and bottom front teeth shown. The tongue is curled against the bottom teeth.
+\juː\
+unicorn \ˈjuːnəˌkɔrn\
+U.S.A. \ˈjuːˈes ˈeɪ\
+utensil \juːˈtensəl\
+
+v
+\v\
+The v sound is made by closing the mouth almost all the way. The top teeth are shown biting down on the lower lip. The tongue is in the middle of the mouth.
+\v\
+vase \ˈveɪs\
+violin \ˌvaɪəˈlɪn\
+volcano \vɑlˈkeɪnoʊ\
+
+w
+\w\
+The w sound is made by briefly puckering the lips to form a small circle, then letting the mouth open a bit. The teeth are slightly apart, but not shown. The tongue is in the middle of the mouth.
+\w\
+watch \ˈwɑtʃ\
+web \ˈweb\
+windmill \ˈwɪndˌmɪl\
+
+x
+\ks\
+The x sound is made by opening the mouth medium wide. The teeth are shown closing together. The tongue touches the bottom front and all of the back teeth. Air is blown through slowly.
+\ks\
+x-ray \ˈeksˌreɪ\
+fox \ˈfɑks\
+saxophone \ˈsæksəˌfoʊn\
+
+consonant y
+\j\
+The consonant y sound is made by opening the mouth medium wide. The teeth are slightly apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the top back teeth.
+\j\
+yacht \ˈjɑt\
+yo-yo \ˈjoʊjoʊ\
+yucca \ˈjəkə\
+
+As a vowel, y has three sounds: short y, medium y and long y, each having the same sound as the corresponding vowel i sound.
+
+short y
+\ɪ\
+The short y sound is made by opening the mouth medium wide. The teeth are slightly apart, with more of the bottom than the top front teeth shown. The tongue touches all of the bottom teeth.
+\ɪ\
+bicycle \ˈbaɪsɪkəl\
+
+medium y
+\iː\
+The medium y sound is made by opening the mouth and lowering the bottom lip. The teeth are just barely apart, with more of the bottom than the top front teeth shown. The sides of the tongue touch all of the back teeth.
+\iː\
+cherry \ˈtʃeriː\
+
+long y
+\aɪ\
+The long y sound is made by opening the mouth wide. The teeth are apart, with some of the top and bottom front teeth shown. The sides of the tongue touch the top back teeth.
+\aɪ\
+fry \ˈfraɪ\
+
+z
+\z\
+The z sound is made by opening the mouth medium wide. The teeth are shown clenched together. The tongue touches all of the top teeth.
+\z\
+zebra \ˈziːbrə\
+zipper \ˈzɪpər\
+zoo \ˈzuː\
+
+R-controlled vowels
+ar
+\ɑr\
+The ar sound is made by opening the mouth and pushing the lips outward to form an oval, while gently biting their edges. The teeth are apart, with some of the top and bottom front teeth shown. The tongue is in the middle of the mouth.
+\ɑr\
+archery \ˈɑrtʃəriː\
+arm \ˈɑrm\
+artist \ˈɑrtɪst\
+
+er / ir / ur
+\ər\
+The er / ir / ur sound is made by opening the mouth and pushing the lips outward to form an oval, while gently biting their edges. The teeth are slightly apart, with more of the top than the bottom front teeth shown. The tongue is in the middle of the mouth.
+\ər\
+bugler \ˈbjuːglər\
+circus \ˈsərkəs\
+purse \ˈpərs\
+
+or
+\ɔr\
+The or sound is made by puckering the mouth to form a small oval with the lips, while gently biting their edges. The teeth are apart, but not shown. The tongue is in the middle of the mouth.
+\ɔr\
+orange \ˈɔrəndʒ\
+oriole \ˈɔriːˌəl\
+ornament \ˈɔrnəmənt\
+
+Vowel digraphs
+oi / oy
+\ɔɪ\
+The oi / oy sound is made by opening the mouth and pushing the lips outward to form a small oval, while gently biting the edges (which curl up slightly). The teeth are apart, but not shown. The tongue is in the middle of the mouth.
+\ɔɪ\
+oil \ˈɔɪl\
+ointment \ˈɔɪntmənt\
+oyster \ˈɔɪstər\
+
+ou / ow
+\æʊ\
+The ou / ow sound is made by briefly opening the mouth medium wide and then puckering the lips to form a small circle. The teeth are slightly apart, but not shown. The tongue is in the middle of the mouth.
+\æʊ\
+cloud \ˈklæʊd\
+outlaw \ˈæʊtˌlɔ\
+owl \ˈæʊl\
+
+Consonant digraphs
+ch
+\tʃ\
+The ch sound is made by opening the mouth and pushing the lips outward. The teeth are shown clenched together. The tip of the tongue touches the top of the mouth. Air is blown through quickly.
+\tʃ\
+chair \ˈtʃer\
+chicken \ˈtʃɪkən\
+chopsticks \ˈtʃɑpˌstɪks\
+
+ph
+\f\
+The ph sound is made by closing the mouth almost all the way. The top teeth are shown biting down on the lower lip. The tongue is in the middle of the mouth. Air is blown through slowly.
+\f\
+phone \ˈfoʊn\
+photograph \ˈfoʊtəˌgræf\
+pheasant \ˈfezənt\
+
+sh
+\ʃ\
+The sh sound is made by opening the mouth and pushing the lips outward. The teeth are shown clenched together. The sides of the tongue touch the top back teeth. Air is blown through slowly.
+\ʃ\
+shamrock \ˈʃæmˌrɑk\
+shovel \ˈʃəvəl\
+shell \ˈʃel\
+
+th
+\θ\
+The th sound is made by opening the mouth medium wide. The teeth are apart, with only some of the top front teeth shown. The tongue sticks out of the mouth between the front teeth. Air is blown through slowly (except in some common th words, such as "the", "that" and "then").
+\θ\
+theater \ˈθiːətər\
+thermos \ˈθərməs\
+thread \ˈθred\
+
+wh
+\hw\
+The wh sound is made by briefly puckering the lips to form a small circle, then letting the mouth open a bit. The teeth are slightly apart, but not shown. The tongue is in the middle of the mouth. Air is blown through quickly.
+\hw\
+whale \ˈhweɪl\
+wheelchair \ˈhwiːlˌtʃer\
+whistle \ˈhwɪsəl\
+
+Consonant blends
+A consonant blend is a group of two or three consonants, each of which is pronounced.
+bl
+\bl\
+br
+\br\
+cl
+\kl\
+cr
+\kr\
+dr
+\dr\
+fl
+\fl\
+fr
+\fr\
+gl
+\gl\
+gr
+\gr\
+pl
+\pl\
+pr
+\pr\
+sc
+\sk\
+scr
+\skr\
+sk
+\sk\
+sl
+\sl\
+sm
+\sm\
+sn
+\sn\
+sp
+\sp\
+spl
+\spl\
+spr
+\spr\
+squ
+\skw\
+st
+\st\
+str
+\str\
+sw
+\sw\
+tr
+\tr\
+tw
+\tw\
+
+Silent letters
+Certain letters, when paired with other letters, are silent and not pronounced.
+gn
+\n\
+kn
+\n\
+rh
+\r\
+wr
+\r\
+mb (at the end of a word)
+\m\
+mn (at the end of a word)
+\m\
+
+Vowel contrasts
+long a \eɪ\ – shot e \e\
+\eɪ\ – \e\
+bait – bet
+\ˈbeɪt\ – \ˈbet\
+lace – less
+\ˈleɪs\ – \ˈles\
+pain – pen
+\ˈpeɪn\ – \ˈpen\
+rake – wreck
+\ˈreɪk\ – \ˈrek\
+sale – sell
+\ˈseɪl\ – \ˈsel\
+
+long e \iː\ – short i \ɪ\
+\iː\ – \ɪ\
+deep – dip
+\ˈdiːp\ – \ˈdɪp\
+feet – fit
+\ˈfiːt\ – \ˈfɪt\
+peel – pill
+\ˈpiːl\ – \ˈpɪl\
+seat – sit
+\ˈsiːt\ – \ˈsɪt\
+teen – tin
+\ˈtiːn\ – \ˈtɪn\
+
+short i \ɪ\ – short u \ə\
+\ɪ\ – \ə\
+dill – dull
+\ˈdɪl\ – \ˈdəl\
+fizz – fuzz
+\ˈfɪz\ – \ˈfəz\
+knit – nut
+\ˈnɪt\ – \ˈnət\
+lick – luck
+\ˈlɪk\ – \ˈlək\
+pin – pun
+\ˈpɪn\ – \ˈpən\
+
+short o \ɑ\ – short u \ə\
+\ɑ\ – \ə\
+box – bucks
+\ˈbɑks\ – \ˈbəks\
+doll – dull
+\ˈdɑl\ – \ˈdəl\
+lock – luck
+\ˈlɑk\ – \ˈlək\
+long – lung
+\ˈlɔŋ\ – \ˈləŋ\
+not – nut
+\ˈnɑt\ – \ˈnət\
+
+long o \oʊ\ – medium u \uː\
+\oʊ\ – \uː\
+coal – cool
+\ˈkoʊl\ – \ˈkuːl\
+float – flute
+\ˈfloʊt\ – \ˈfluːt\
+rode – rude
+\ˈroʊd\ – \ˈruːd\
+sow – sue
+\ˈsoʊ\ – \ˈsuː\
+tone – tune
+\ˈtoʊn\ – \ˈtuːn\
+
+medium a \ɔ\ – ou \æʊ\
+\ɔ\ – \æʊ\
+all – owl
+\ˈɔl\ – \ˈæʊl\
+brawn – brown
+\ˈbrɔn\ – \ˈbræʊn\
+haul – howl
+\ˈhɔl\ – \ˈhæʊl\
+laud – loud
+\ˈlɔd\ – \ˈlæʊd\
+tall – towel
+\ˈtɔl\ – \ˈtæʊl\
+
+Consonant contrasts
+b \b\ – p \p\
+\b\ – \p\
+ban – pan
+\ˈbæn\ – \ˈpæn\
+bee – pea
+\ˈbiː\ – \ˈpiː\
+beg – peg
+\ˈbeg\ – \ˈpeg\
+bowl – pole
+\ˈboʊl\ – \ˈpoʊl\
+buy – pie
+\ˈbaɪ\ – \ˈpaɪ\
+
+hard c \k\ – hard g \g\
+\k\ – \g\
+cap – gap
+\ˈkæp\ – \ˈgæp\
+cave – gave
+\ˈkeɪv\ – \ˈgeɪv\
+class – glass
+\ˈklæs\ – \ˈglæs\
+cot – got
+\ˈkɑt\ – \ˈgɑt\
+curl – girl
+\ˈkərl\ – \ˈgərl\
+
+d \d\ – t \t\
+\d\ – \t\
+dab – tab
+\ˈdæb\ – \ˈtæb\
+den – ten
+\ˈden\ – \ˈten\
+dip – tip
+\ˈdɪp\ – \ˈtɪp\
+dot – tot
+\ˈdɑt\ – \ˈtɑt\
+duck – tuck
+\ˈdək\ – \ˈtək\
+
+f \f\ – v \v\
+\f\ – \v\
+fast – vast
+\ˈfæst\ – \ˈvæst\
+fault – vault
+\ˈfɔlt\ – \ˈvɔlt\
+ferry – very
+\ˈferiː\ – \ˈveriː\
+fine – vine
+\ˈfaɪn\ – \ˈvaɪn\
+folly – volley
+\ˈfɑliː\ – \ˈvɑliː\
+
+l \l\ – n \n\
+\l\ – \n\
+lap – nap
+\ˈlæp\ – \ˈnæp\
+let – net
+\ˈlet\ – \ˈnet\
+light – night
+\ˈlaɪt\ – \ˈnaɪt\
+low – no
+\ˈloʊ\ – \ˈnoʊ\
+lull – null
+\ˈləl\ – \ˈnəl\
+
+s \s\ – z \z\
+\s\ – \z\
+sap – zap
+\ˈsæp\ – \ˈzæp\
+seal – zeal
+\ˈsiːl\ – \ˈziːl\
+sink – zinc
+\ˈsɪŋk\ – \ˈzɪŋk\
+sip – zip
+\ˈsɪp\ – \ˈzɪp\
+sue – zoo
+\ˈsuː\ – \ˈzuː\
+
+Practice Sentences
+short a \æ\
+Al had the answer in Math class.
+\ˈæl ˈhæd ðə ˈænsər ˈɪn ˈmæθ ˈklæs.\
+medium a \ɔ\
+Wanda always talks with her Aunt.
+\ˈwəndə ˈɔlweɪz ˈtɔks ˈwɪð hər ˈɑnt.\
+long a \eɪ\
+May I take the latest train today?
+\ˈmeɪ ˈaɪ ˈteɪk ðə leɪtəst ˈtreɪn təˈdeɪ?\
+b \b\
+A big ball bounced on the beach.
+\ə ˈbɪg ˈbɔl ˈbæʊnst ˈɑn ðə ˈbiːtʃ.\
+hard c \k\
+Can Colleen cut the carrot cake?
+\ˈkæn kɑˈliːn ˈkət ðə ˈkerət ˈkeɪk?\
+soft c \s\
+The city is certainly exciting!
+\ðə ˈsɪtiː ˈɪz ˈsərtənliː ɪkˈsaɪtɪŋ!\
+d \d\
+Dan drank diet soda yesterday.
+\ˈdæn ˈdræŋk ˈdaɪət ˈsoʊdə ˈjestərdeɪ.\
+short e \e\
+Every egg has a yellow center.
+\ˈevriː ˈeg ˈhæz ə ˈjeloʊ ˈsentər.\
+"schwa" e \ə\
+The forest was beautiful in April.
+\ðə ˈfɔrəst ˈwəz ˈbjuːtɪfəl ɪn ˈeɪprəl.\
+long e \iː\
+We can eat turkey and cheese.
+\ˈwiː kən ˈiːt ˈtərkiː ənd ˈtʃiːz.\
+f \f\
+First, focus on the firm facts.
+\ˈfərst, ˈfoʊkəs ˈɔn ðə ˈfərm ˈfækts.\
+hard g \g\
+The girl gave the dog a big bone.
+\ðə ˈgərl ˈgeɪv ðə ˈdɔg ə ˈbɪg ˈboʊn.\
+soft g \dʒ\
+George is a generous gentleman.
+\ˈdʒɔrdʒ ˈɪz ə ˈdʒenərəs ˈdʒentəlmən.\
+h \h\
+How happy I am to have a horse!
+\ˈhæʊ ˈhæpiː ˈaɪ əm tə ˈhæv ə ˈhɔrs!\
+short i \ɪ\
+It is a bit chilly during the winter.
+\ˈɪt ˈɪz ə ˈbɪt ˈtʃɪliː ˈdʊrɪŋ ðə ˈwɪntər.\
+medium i \iː\
+Tina skied in the Austrian Alps.
+\Tiːnə ˈskiːd ˈɪn ðə ˈɔstriːən ˈælps.\
+long i \aɪ\
+I'd like to get ice cream tonight.
+\ˈaɪd ˈlaɪk tə ˈget ˈaɪsˌkriːm təˈnaɪt.\
+j \dʒ\
+Jim took a jet to Japan in January.
+\dʒɪm ˈtʊk ə ˈdʒet tə dʒəˈpæn ˈɪn ˈdʒænjəˌweriː.\
+k \k\
+Ken took his kite to the park.
+\ˈken ˈtʊk hɪz ˈkaɪt tə ðə ˈpɑrk.\
+l \l\
+A little luck will help Larry a lot.
+\ə ˈlɪtəl ˈlək wəl ˈhelp ˈlæriː ə ˈlɑt.\
+m \m\
+My mother will make lemonade.
+\ˈmaɪ ˈməðər wəl ˈmeɪk ˌleməˈneɪd.\
+n \n\
+Nell is in need of a new nurse.
+\ˈnel ˈɪz ˈɪn ˈniːd əv ə ˈnuː ˈnərs.\
+short o \ɑ\
+The doctor got a job in a hospital.
+\ðə ˈdɑktər ˈgɑt ə ˈdʒɑb ˈɪn ə ˈhɑspɪtəl.\
+medium o \ə\
+Sonny's brother has some onions.
+\ˈsəniːz ˈbrəðər ˈhæz ˈsəm ˈənjənz.\
+long o \oʊ\
+The only boat goes at six o'clock.
+\ðiː ˈoʊnliː ˈboʊt ˈgoʊz ət ˈsɪks oʊˈklɑk.\
+p \p\
+Pass a piece of apple pie, please.
+\ˈpæs ə ˈpiːs əv ˈæpəl ˈpaɪ, ˈpliːz.\
+q[u] \kw\
+The queen quietly asked a question.
+\ðə ˈkwiːn ˈkwaɪətliː ˈæskt ə ˈkwestʃən.\
+r \r\
+Railroad trains run rapidly.
+\ˈreɪlˌroʊd ˈtreɪnz ˈrən ˈræpədliː.\
+s \s\
+Snacks were sold at the bus stop.
+\ˈsnæks ˈwər ˈsoʊld ət ðə ˈbəs ˈstɑp.\
+t \t\
+Tell Tom to turn the light on.
+\ˈtel ˈtɑm tə ˈtərn ðə ˈlaɪt ˈɔn.\
+short u \ə\
+Uncle Gus traveled to Russia.
+\ˈəŋkəl ˈgəs ˈtrævəld tə ˈrəʃə.\
+medium u \uː\
+The blue lagoon was truly scenic.
+\ðə ˈbluː ləˈguːn ˈwəz ˈtruːliː ˈsiːnɪk.\
+long u \juː\
+Is a university education valuable?
+\ˈɪz ə ˌjuːnəˈvərsətiː ˌedʒəˈkeɪʃən ˈvæljuːəbəl?\
+v \v\
+Val was brave to visit the volcano.
+\ˈvæl ˈwəz ˈbreɪv tə ˈvɪzət ðə vɑlˈkeɪnoʊ.\
+w \w\
+The weather was warm Wednesday.
+\ðə ˈweðər ˈwəz ˈwɔrm ˈwenzdeɪ.\
+x \ks\
+Max was excited to visit Texas.
+\ˈmæks ˈwəz ɪkˈsaɪtɪd tə ˈvɪzət ˈteksəs.\
+consonant y \j\
+Did you eat yogurt yesterday?
+\ˈdɪd ˈjuː ˈiːt ˈjoʊgərt ˈjestərdeɪ?\
+short y \ɪ\
+Sylvia's symptoms are mysterious.
+\ˈsɪlviːəz ˈsɪmtəmz ˈɑr mɪsˈtɪriːəs.\
+medium y \iː\
+Mary didn't have any candy left.
+\ˈmeriː ˈdɪdənt ˈhæv ˈeniː ˈkændiː ˈleft.\
+long y \aɪ\
+My house will be built by July.
+\ˈmaɪ ˈhæʊs wəl ˈbiː ˈbɪlt ˈbaɪ dʒʊˈlaɪ.\
+z \z\
+Brazilian zinnias are amazing!
+\brəˈzɪljən ˈzɪniːəz ˈɑr əˈmeɪzɪŋ!\
+ar \ɑr\
+The large dog started barking.
+\ðə ˈlɑrdʒ ˈdɔg ˈstɑrtɪd ˈbɑrkɪŋ.\
+er / ir / ur \ər\
+Shirley burned her finger.
+\ˈʃərliː ˈbərnd hər ˈfɪŋgər.\
+or \ɔr\
+Nora bought oranges at the store.
+\ˈnɔrə ˈbɔt ˈɔrəndʒɪz ət ðə ˈstɔr.\
+oi / oy \ɔɪ\
+The boy's toys were noisy!
+\ðə ˈbɔɪz ˈtɔɪz ˈwər ˈnɔɪziː!\
+ou / ow \æʊ\
+A loud crowd is outside my house.
+\ə ˈlæʊd ˈkræʊd ˈɪz ˌæʊtˈsaɪd ˈmaɪ ˈhæʊs.\
+ch \tʃ\
+I chatted with the Chinese teacher.
+\ˈaɪ ˈtʃætɪd ˈwɪð ðə tʃaɪˈniːz ˈtiːtʃər.\
+ph \f\
+Ralph phoned the pharmacy.
+\ˈrælf ˈfoʊnd ðə ˈfɑrməsiː.\
+sh \ʃ\
+She wished to see the show.
+\ˈʃiː ˈwɪʃt tə ˈsiː ðə ˈʃoʊ.\
+th \θ\
+Thank you for the birthday gift!
+\ˈθæŋk ˈjuː fər ðə ˈbərθˌdeɪ ˈgɪft!\
+wh \w\
+When was the wheel invented?
+\ˈwen ˈwəz ðə ˈwiːl ɪnˈventɪd?\
+ 
