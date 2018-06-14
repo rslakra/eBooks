@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Messages>
+<Message>
+    <To>rohtash.singh@gmail.com</To>
+    <From>rohtash.singh@rsystems.com</From>
+    <Subject>XML Is Really Cool</Subject>
+    <Text>
+       How many ways is XML cool? Let me count the ways...
+    </Text>
+</Message>
+<Message>
+    <To>rs_lakra@rediffmail.com</To>
+    <From>rohtashlakra@yahoo.com</From>
+    <Subject>It's fantastic and realistic</Subject>
+    <Text>
+       In so many was, the XML is cool...
+    </Text>
+</Message>
+</Messages>

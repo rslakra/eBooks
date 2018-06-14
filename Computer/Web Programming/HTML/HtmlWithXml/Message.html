@@ -1,0 +1,16 @@
+<HTML>
+<TITLE>Using Data Binding To Create a Web Page</TITLE>
+<BODY>
+<XML ID="Messages" SRC="Message.xml"></XML>
+<P>Write a mail in the below given format:<br>
+To : <DIV ID="Send To" DATASRC="#Messages" DATAFLD="To"></DIV><br>
+From: <DIV ID="Sent By" DATASRC="#Messages" DATAFLD="From"></DIV><br>
+Subject	: <DIV ID="Subject" DATASRC="#Messages" DATAFLD="Subject"></DIV><br>
+Message	: <DIV ID="Message" DATASRC="#Messages" DATAFLD="Text"></DIV><br>
+<HR>
+<INPUT TYPE="BUTTON" VALUE="|&lt First" onClick="Messages.recordset.moveFirst()">
+<INPUT TYPE="BUTTON" VALUE="&lt Previous" onClick="Messages.recordset.movePrevious()">
+<INPUT TYPE="BUTTON" VALUE="Next &gt" onClick="Messages.recordset.moveNext()">
+<INPUT TYPE="BUTTON" VALUE="Last &gt|" onClick="Messages.recordset.moveLast()">
+</BODY>
+</HTML>
