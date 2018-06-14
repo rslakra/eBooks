@@ -1,0 +1,1 @@
+This is a collection of white papers from Intel, detailing the specifications of Intel programming methods and specifications for developers for systems based upon Intel architecture. It also specifies optimisation methods for the PIII processor.

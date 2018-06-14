@@ -1,0 +1,1 @@
+This is a collection of white papers outlining the architecture and technology insights of three AMD processors - the Athlon Thunderbird, the Duron and the new 64-bit Sledgehammer.

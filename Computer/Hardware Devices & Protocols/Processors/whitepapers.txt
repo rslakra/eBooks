@@ -1,0 +1,30 @@
+Processors
+This is a collection of white papers that have been culled from AMD, Intel and Crusoe. This collection serves as a good reference material and provides specification outlines of the Duron, the Athlon and the Spitfire processors from AMD, Transmeta's Crusoe processor and Intel's PIII processor.
+
+Intel(http://www.intel.com)
+This collection of white papers from Intel details the specifications of Intel programming methods and specifications for developers for systems based upon Intel architecture. It also specifies optimisation methods for the PIII processor.
+
+1. Intel Architecture Optimization - Reference Manual (\mindmatters\wpapers\intel\Intel Architechture_optimization.pdf)
+2. Intel Architecture Software Developer’s Manual, Volume 1: Basic Architecture (\mindmatters\wpapers\intel\Intel Architechture_sdmanual1.pdf)
+3. Intel Architecture Software Developer’s Manual, Volume 2: Instruction Set Reference (\mindmatters\wpapers\intel\Intel Architechture_sdmanual2.pdf)
+4. Intel Architecture Software Developer’s Manual, Volume 3: System Programming (\mindmatters\wpapers\intel\Intel Architechture_sdmanual3.pdf)
+
+Crusoe(http://www.crusoe.com)
+This white paper deals with the design and technology specifications of the mobile x86-compliant Crusoe processor from Transmeta.
+
+1. The Technology Behind Crusoe Processors (\mindmatters\wpapers\crusoe\crusoetechwp.pdf)
+
+Advanced Micro Devices(http://www.amd.com)
+These white papers outline the architecture and technology insights of three AMD processors--the Athlon Thunderbird, the Duron and the new 64-bit Sledgehammer.
+
+1. AMD Extensions to the 3DNow! and MMX Instruction Sets Manual (\mindmatters\wpapers\amd\AMDExtensionsTo3DNow.pdf)
+2. AMD 64-Bit Technology - The AMD x86-64 Architecture Programmers Overview (\mindmatters\wpapers\amd\x86_64\AMDx86-64ArchitectureOverview.pdf)
+3. AMD-750 Chipset Overview (\mindmatters\wpapers\amd\athlon\AMD750ChipsetOverview.pdf)
+4. AMD Athlon - Processor Technical Brief (\mindmatters\wpapers\amd\athlon\AthlonProcessorTechBrief.pdf)
+5. AMD Athlon Processor Model 4 Data Sheet (\mindmatters\wpapers\amd\athlon\AthlonProcessorTechBrief.pdf)
+6. AMD Duron - Processor Model 3 Data Sheet (\mindmatters\wpapers\amd\duron\DuronProcessorModel3Datasheet.pdf)
+
+
+
+
+

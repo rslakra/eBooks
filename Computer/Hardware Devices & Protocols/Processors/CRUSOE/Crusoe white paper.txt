@@ -1,0 +1,2 @@
+
+This white paper deals with the design and technology specifications of the mobile x86-compliant Crusoe processor from Transmeta.
