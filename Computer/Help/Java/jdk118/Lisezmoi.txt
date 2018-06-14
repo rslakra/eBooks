@@ -1,0 +1,28 @@
+Bonjour !
+
+Pour utiliser cette version Winhelp de la documentation
+du JDK 1.1.8, dé-zippez le fichier dans un répertoire
+quelconque de votre disque dur.
+
+Il ne reste plus alors qu'à double-cliquer jdk118.hlp
+pour lancer l'aide.
+
+Mettre un raccourci sur jdk118.hlp dans votre menu
+Démarrer est un bonne idée, je crois...
+
+Utilisez l'icône présente dans la distribution comme vous le voulez. En
+changeant l'icône du raccourci, par exemple...
+
+Merci d'envoyer vos commentaires et suggestions à 
+f.allimant@confluent.fr
+
+Récupérez la dernière version a http://www.confluent.fr/javadoc
+
+---------------------------------------------------------------
+Pour créer vous-même des fichiers WinHelp à partir de fichiers
+HTML, utilisez HtmlToHlp, l'outil qui m'a permi de créer cette
+documentation. Il est disponible à l'URL ci-dessus.
+---------------------------------------------------------------
+
+Merci beaucoup à Piet Jonas (jonas@physik.uni-greifswald.de) pour 
+son excellente classe de conversion d'images GIF en BMP Windows.
