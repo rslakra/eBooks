@@ -1,0 +1,1575 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx05.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx06.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx06.htm">
+
+<LINK REL="Previous" HREF="unx04.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx04.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx04.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx04.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx06.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx06.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">5</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I2">Popular Tools</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Pete Holsberg</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">Making Calculations with dc and bc</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Calculating with bc</A></LI>
+
+<LI>
+
+<A HREF="#I7">Calculating with dc</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">Finding the Date and Time</A></LI>
+
+<LI>
+
+<A HREF="#I9">Displaying a Monthly or Yearly Calendar with cal</A></LI>
+
+<LI>
+
+<A HREF="#I10">Getting Information About Users</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">The who Command</A></LI>
+
+<LI>
+
+<A HREF="#I12">The id Command</A></LI></UL>
+
+<LI>
+
+<A HREF="#I13">Switching Accounts with su</A></LI>
+
+<LI>
+
+<A HREF="#I14">Learnig More About Commands with man</A></LI>
+
+<LI>
+
+<A HREF="#I15">Finding Information About Disk Utilization with du and df</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Summarizing Disk Usage with du</A></LI>
+
+<LI>
+
+<A HREF="#I17">Reporting Blocks and Files with df</A></LI></UL>
+
+<LI>
+
+<A HREF="#I18">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><B>5</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I2" NAME="I2">
+
+<FONT SIZE=5><B>Popular Tools</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Pete Holsberg</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P><A ID="I4" NAME="I4"></A>UNIX is known not only for its longevity and versatility as an operating system, but also for the variety and number of utility programs that UNIX publishers provide. UNIX users have long called these programs tools because of 
+the neat little things each one does and for their capability to be combined into more specialized utilities. (See Chapters 11, 12, and 13 for information on shell programming.)
+
+<BR></P>
+
+<P>Tools usually provide information or manipulate files and their contents. This chapter deals with the most general of information-provider tools&#151;a pocketful of handy things that you use all the time and those special few that you keep at hand for 
+certain special jobs. These tools enable you to do mathematical calculations without your pocket or desk calculator, check the time and date, get information about yourself and other users, find out details about commands on your system, and check your 
+disk space. After dealing with these tools for a while, you'll find yourself using them without thinking, just as you might use one of the attachments on your Swiss Army knife.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Making Calculations with </B><B><I>dc</I></B><B> and </B><B><I>bc</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX has two calculator programs that you can use from the command line: dc and bc. The dc (desk calculator) program uses Reverse Polish Notation (RPN), familiar to everyone who has used Hewlett-Packard pocket calculators, and the bc (basic calculator) 
+
+program uses the more familiar algebraic notation. Both programs perform essentially the same calculations.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Calculating with </B><B><I>bc</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The basic calculator, bc, can do calculations to any precision that you specify. Therefore, if you know how to calculate pi and want to know its value to 20, 50, or 200 places, for example, use bc. This tool can add, subtract, multiply, divide, and 
+raise a number to a power. It can take square roots, compute sines and cosines of angles, calculate exponentials and logarithms, and handle arctangents and Bessel functions. In addition, it contains a programming language whose syntax looks much like that 
+
+of the C programming language (see Chapter 17, &quot;C Language&quot;). This means that you can use the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Simple and array variables
+
+<BR>
+
+<BR></LI>
+
+<LI>Expressions
+
+<BR>
+
+<BR></LI>
+
+<LI>Tests and loops
+
+<BR>
+
+<BR></LI>
+
+<LI>Functions that you define
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Also, bc can take input from the keyboard, from a file, or from both.
+
+<BR></P>
+
+<P>Here are some examples of bc receiving input from the keyboard:
+
+<BR></P>
+
+<PRE>$ <B>bc</B>
+
+2*3
+
+6</PRE>
+
+<P>To do multiplication, all you have to do is enter the two values with an asterisk between them. To exit from bc, just type <B>Ctrl+d</B>. However, you can also continue giving bc more calculations to do.
+
+<BR></P>
+
+<P>Here's a simple square root calculation (as a continuation of the original bc command):
+
+<BR></P>
+
+<PRE>sqrt(11)
+
+3</PRE>
+
+<P>Oops! The default behavior of bc is to treat all numbers as integers. To get floating-point numbers (that is, numbers with decimal points in them), use the scale command. For example, the following input tells bc that you want it to set four decimal 
+places and then try the square root example again:
+
+<BR></P>
+
+<PRE>scale=4
+
+sqrt(11)
+
+3.3166</PRE>
+
+<P>In addition to setting the number of decimal places with scale, you can set the number of significant digits with length.
+
+<BR></P>
+
+<P>You need not always use base-10 for all your calculations, either. For example, suppose that you want to calculate the square root of the base-8 (octal) number, 11. First change the input base to 8 and then enter the same square root command as before 
+to do the calculation:
+
+<BR></P>
+
+<PRE>ibase=8
+
+sqrt(11)
+
+3.0000
+
+Ctrl+D
+
+$</PRE>
+
+<P>This result is correct because octal 11 is decimal 9 and the square root of 9 is 3 in both octal and decimal.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you want to change back to base 10, you must supply the octal value of 10 to the ibase command. It's simpler to exit from bc&#151;by pressing <B>Ctrl+D</B>&#151;and then restart the program.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can use a variable even without a program:
+
+<BR></P>
+
+<PRE>$ <B>bc</B>
+
+x=5
+
+10*x
+
+50</PRE>
+
+<P>Here's a simple loop in bc's C-like syntax:
+
+<BR></P>
+
+<PRE>y=1
+
+while(y&lt;5){
+
+y^2
+
+y=y+1
+
+}
+
+1
+
+4
+
+9
+
+16</PRE>
+
+<P>The first line sets y to the value 1. The next four lines establish a loop: the middle two lines repeat as long as the value of y is less than 5 (while(y&lt;5)). Those two repeated lines cause bc to print the value of y-squared and then add one to the 
+value of y. Note that bc doesn't display the value of a variable when it's on a line with an equals sign (or a while statement). Also, note the positions of the braces.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Because bc is fussy about spaces and the placement of parentheses and braces, you may not get what you want the first time that you enter it. Unfortunately, the bc tool that you have and the one 
+
+used for the examples in this book may differ.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Here's another, more compact kind of loop. It sets the initial value for y, tests the value of y, and adds one to the value of y, all on one line:
+
+<BR></P>
+
+<PRE>for (y = 1; y &lt;= 5; y = y + 1){
+
+3*y
+
+}
+
+3
+
+6
+
+9
+
+12
+
+15</PRE>
+
+<P>Initially, y is set to 1. Then the loop tests whether the variable is less than or equal to 5. Because it is, bc performs the calculation 3*y and prints 3. Next, 1 is added to the present value of y, making it 2. That's also less than 5, so bc performs 
+
+the 3*y calculation, which results in 6 being printed. y is incremented to 3, which is then tested; because 3 is less than 5, 3*y is calculated again. At some point, bc increments y to 6, which is neither less than 5 nor equal to it, so that the loop 
+terminates with no further calculation or display.
+
+<BR></P>
+
+<P>You can define and use new functions for the bc program. A bc function is a device that can take in one or more numbers and calculate a result. For example, the following function, s, adds three numbers:
+
+<BR></P>
+
+<PRE>define s(x,y,z){
+
+return(x+y+z)
+
+}</PRE>
+
+<P>To use the s function, you enter a command such as the following:
+
+<BR></P>
+
+<PRE>s(5,9,22)
+
+36</PRE>
+
+<P>Each variable name and each function name must be a single lowercase letter. If you are using the math library, bc -l, (discussed below), the letters a, c, e, j, l, and s are already used.
+
+<BR></P>
+
+<P>If you have many functions that you use fairly regularly, you can type them into a text file and start bc by entering bc myfile.bc (where myfile is the name of text file). The bc program then knows those functions and you can invoke them without having 
+
+to type their definitions again. If you use a file to provide input to bc, you can put comments in that file. When bc reads the file, it ignores anything that you type between /* and */.
+
+<BR></P>
+
+<P>If scale is 0, the bc program does modulus division (using the % symbol), which provides the remainder that results from the division of two integers, as in the following example:
+
+<BR></P>
+
+<PRE>scale=4
+
+5/2
+
+2.5000
+
+5%2
+
+0
+
+scale=0
+
+5/2
+
+2
+
+5%2
+
+1</PRE>
+
+<P>If scale is not 0, the numbers are treated as floating point even if they are typed as integers.
+
+<BR></P>
+
+<P>In addition to including C's increment operators (++ and &#151;), bc also provides some special assignment operators: +=, -=, *=, /=, and ^=. See Chapter 17, &quot;C Language,&quot; for further explanation.
+
+<BR></P>
+
+<P>The built-in math functions include the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Function</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Returns</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>a(<I>x</I>)</P>
+
+<TD>
+
+<P>The arc tangent of x</P>
+
+<TR>
+
+<TD>
+
+<P>c(<I>x</I>)</P>
+
+<TD>
+
+<P>The cosine of x</P>
+
+<TR>
+
+<TD>
+
+<P>e(<I>x</I>)</P>
+
+<TD>
+
+<P>e raised to the x power</P>
+
+<TR>
+
+<TD>
+
+<P>j(n,<I>x</I>)</P>
+
+<TD>
+
+<P>The Bessel function of n and x, where n is an integer and x is any real number</P>
+
+<TR>
+
+<TD>
+
+<P>l(<I>x</I>)</P>
+
+<TD>
+
+<P>The natural logarithm of x</P>
+
+<TR>
+
+<TD>
+
+<P>s(<I>x</I>)</P>
+
+<TD>
+
+<P>The sine of x</P></TABLE>
+
+<P>To use these math functions, you must invoke bc with the -l option, as follows:
+
+<BR></P>
+
+<PRE>$ bc -l</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Calculating with </B><B><I>dc</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As mentioned earlier, the desk calculator, dc, uses RPN, so unless you're comfortable with that notation, you should stick with bc. Also, dc does not provide a built-in programming language, built-in math functions, or the capability to define 
+functions. It can, however, take its input from a file.
+
+<BR></P>
+
+<P>If you are familiar with stack-oriented calculators, you'll find that dc is an excellent tool. It can do all the calculations that bc can and it also lets you manipulate the stack directly.
+
+<BR></P>
+
+<P>To display values, you must enter the p command. For example, to add and print the sum of 5 and 9, enter
+
+<BR></P>
+
+<PRE>5
+
+9
+
++p
+
+14</PRE>
+
+<P>See your UNIX reference manual (different versions use different titles), or if you have them, view the on-line man pages for details on dc.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Finding the Date and Time</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When used by an ordinary user, the date command does only one thing: it displays the date and the time. The system administrator can use date to set the date and the time.
+
+<BR></P>
+
+<P>Here's how you use date to find out the current date and time:
+
+<BR></P>
+
+<PRE>$ date
+
+Sat Sep 28 1:45:58 EDT 1991</PRE>
+
+<P>This is the simplest form of executing the date command, but not the most useful. This command has many options that let you extract any part of the usual output and display that part alone or with other parts.
+
+<BR></P>
+
+<P>First, look at the individual options. Unlike most UNIX commands, which usually have single letters as options, date's options are strings of characters. The option string begins with a plus sign (+) and each option is preceded with a percent sign (%). 
+
+You can include ordinary text in the option string, as you will see in the next example.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You should enclose the option string in either single or double quotation marks so that the shell won't interpret any characters in the ordinary text portion that it believes are special.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The a option outputs the abbreviated name of the day, and the A option provides the unabbreviated name:
+
+<BR></P>
+
+<PRE>$ date +%a
+
+Sat
+
+$ date +%A
+
+Saturday</PRE>
+
+<P>The b option outputs the abbreviated name of the month, and the B option provides the unabbreviated name:
+
+<BR></P>
+
+<PRE>$ date +%b
+
+Sep
+
+$ date +%B
+
+September</PRE>
+
+<P>The d option provides the day of the month in two-digit numeric form, and the e option outputs the day of the month with a space preceding the day for days 1 to 9. In the following example, the date is the 28th day of the month:
+
+<BR></P>
+
+<PRE>$ date +%d
+
+28
+
+$ date +%e
+
+28</PRE>
+
+<P>If you execute these two commands again early the next month&#151;on the fourth, for example&#151;you would see the following:
+
+<BR></P>
+
+<PRE>$ date +%d
+
+4
+
+$ date +%e
+
+4</PRE>
+
+<P>The D option outputs the common numerical date format (month/day/year) used in the United States:
+
+<BR></P>
+
+<PRE>$ date +%D
+
+09/28/91</PRE>
+
+<P>Other options&#151;c, x, and X&#151;output the date in the format for whichever country was specified when SVR4 was installed. If you designated a country other than the United States during installation, try these options on your own; their output 
+differs for different countries.
+
+<BR></P>
+
+<P>The options H and I output the hour in numeric form: H in 24 hour or military form, and I in 12 hour form.
+
+<BR></P>
+
+<PRE>$ date +%H
+
+13
+
+$ date +%I
+
+1</PRE>
+
+<P>The j option is rather interesting. It outputs the so-called &quot;Julian&quot; date&#151;the day as one of the 365 days of the year (or 366 in a leap year). The following example shows the j option returning the date for September 28:
+
+<BR></P>
+
+<PRE>$ date +%j
+
+271</PRE>
+
+<P>This option is useful when calculating the elapsed time between two dates.
+
+<BR></P>
+
+<P>The U and W options both output the week as one of the 52 weeks of the year (or 53 in a leap year). They differ in that U begins the week with Sunday and W begins the week with Monday. When executed on September 29, 1991, date produces the following:
+
+<BR></P>
+
+<PRE>$ date +%U
+
+39
+
+$ date +%W
+
+39</PRE>
+
+<P>The m option outputs the month as one of the 12 months of the year:
+
+<BR></P>
+
+<PRE>$ date +%m
+
+09</PRE>
+
+<P>The M option gives the minutes value in the range of 00 to 59, and the S option shows the seconds value in the range of 00 to 61 (to allow for a &quot;leap second&quot; or two):
+
+<BR></P>
+
+<PRE>$ date +%M
+
+48
+
+$ date +%S
+
+41</PRE>
+
+<P>The R option combines the H and M options, and the T option combines H, M, and S:
+
+<BR></P>
+
+<PRE>$ date +%R
+
+13:48
+
+$ date +%T
+
+13:48:51</PRE>
+
+<P>The p option outputs either AM or PM, and r combines I, M, S, and p:
+
+<BR></P>
+
+<PRE>$ date +%p
+
+AM
+
+$ date +%r
+
+1:48:25 AM</PRE>
+
+<P>The w option shows the day of the week as a number between 0 and 6, with 0 representing Sunday:
+
+<BR></P>
+
+<PRE>$ date +%w
+
+6</PRE>
+
+<P>The y option shows the year as a number between 00 and 99, and the Y option shows the year as a four-digit value:
+
+<BR></P>
+
+<PRE>$ date +%y
+
+91
+
+$ date +%Y
+
+1991</PRE>
+
+<P>The Z option outputs the abbreviated time zone name for your computer. In the following example, the computer is located in the Eastern time zone, but during Daylight Savings Time:
+
+<BR></P>
+
+<PRE>$ date +%Z
+
+EDT</PRE>
+
+<P>You can combine two or more options along with text strings to produce more descriptive outputs, such as the following:
+
+<BR></P>
+
+<PRE>$ date &quot;+Today is %A, the %e of %B, %Y&quot;
+
+Today is Saturday, the 28 of September, 1991</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Displaying a Monthly or Yearly Calendar with </B><B><I>cal</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The cal command is very simple but quite handy when you need to see the calendar of any month (or all 12) in any given year. Used with no arguments, cal simply prints a calendar of the current month:
+
+<BR></P>
+
+<PRE>$ cal
+
+February 1994
+
+S  M Tu  W Th  F  S
+
+1  2  3  4  5
+
+6  7  8  9 10 11 12
+
+13 14 15 16 17 18 19
+
+20 21 22 23 24 25 26
+
+27 28
+
+$</PRE>
+
+<P>If you specify a year, as in cal 1993, you get a calendar for all 12 months, but if you specify a month and a year, as in cal 4 1992, you get just that month.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>If you specify a year as a two-digit number, cal gives you the calendar for that year. In other words, cal 93 produces a calendar for the year 93, not the year 1993.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>Historical Note: </B> In 1752 the calendar was adjusted to account for the &quot;discovery&quot; of leap year by eliminating 11 days (September 3 through September 13). Type cal 9 1752 to see the strangest 
+month of all!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Getting Information About Users</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>To get information about users (including yourself), you can use several commands. The who command reports on users who are presently logged in, and finger reports on anyone who has an account on the computer. The id command reports information about 
+the user who invokes it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>The </B><B><I>who</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The who command normally reports certain information about logged-in users. By using its options, you can specify that it report information about the processes initiated by init, and that it report reboots, changes to the system clock, and logoffs. 
+(See chapters 18 and 35 for more information on processes and init.) If you invoke who with no options or arguments, you get the following output:
+
+<BR></P>
+
+<PRE>$ who
+
+juucp      tty00        Sep 28 11:13
+
+pjh        slan05       Sep 28 12:08</PRE>
+
+<P>The output shows that two users are currently logged in: the user juucp, who logged in at 11:13, and the user pjh, who logged in at 12:08. Notice that juucp is logged in on a tty line (actually, juucp is a neighboring site that is called in over a 
+modem) and that pjh logged in over a network (STARLAN, which is shortened to slan in who's output).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The term tty is short for teletypewriter, the first kind of terminal to be connected to a UNIX computer system. Even though terminals have advanced significantly, the terminology has not changed. A 
+&quot;neighboring site&quot; is a computer that is located nearby.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The -u option adds the &quot;time since the last activity&quot; (also called the idle time) and the process ID number for each logged-in user. A &quot;process ID number&quot; or PID is an interger number assigned by UNIX to uniquely identify a given 
+process (usually, a process is a program that is running). PIDs are needed in UNIX because they allow&#151;yea, encourage&#151;simultaneous running of multiple processes. (See Part IV, &quot;Process Control,&quot; for more information.)
+
+<BR></P>
+
+<PRE>$ who -u
+
+juucp      tty00        Sep 28 11:13   .     5890
+
+pjh        slan05       Sep 28 12:08   .     7354</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If the user has been active within the last minute, who displays a dot (.) for the idle time.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The -T option reports a plus sign (+) if you are able to send messages to the user's terminal, or a minus sign (-) if it is not:
+
+<BR></P>
+
+<PRE>$ who -T
+
+juucp    + tty00        Sep 28 11:13
+
+pjh      + slan05       Sep 28 12:08</PRE>
+
+<P>The -q (quick) option simply shows login IDs and a count of the logged-in users:
+
+<BR></P>
+
+<PRE>$ who -q
+
+juucp    pjh
+
+# users=2</PRE>
+
+<P>There's a special case for who: who am i. This case is useful if you are logged in from several terminals under different accounts, and you forget which one you are currently using:
+
+<BR></P>
+
+<PRE>$ who am i
+
+pjh        slan05       Sep 28 12:08</PRE>
+
+<P><B>The </B><B><I>finger</I></B><B> Command</B>
+
+<BR></P>
+
+<P>You can use the finger command with or without arguments. Without arguments, finger's output looks a little like who's:
+
+<BR></P>
+
+<PRE>$ finger
+
+Login       Name               TTY          Idle    When    Where
+
+pjh      Pete Holsberg         pts000         6d Mon 13:03
+
+ajh      Alan Holsberg         sxt/002           Sat 15:00</PRE>
+
+<P>This output lists all currently logged users&#151;with a heading line&#151;plus the user's full name and the name of the remote computer (in the &quot;Where&quot; column) if the person is logging in over a network.
+
+<BR></P>
+
+<P>This command is more useful if you give it a person's login ID as an argument, as in the following example:
+
+<BR></P>
+
+<PRE>$ finger lam
+
+Login name: lam                         In real life: Pak Lam dp168
+
+Directory: /home/stu/lam                Shell: /usr/bin/ksh
+
+On since Feb 23 19:07:31 on pts016       from pc2
+
+2 days 21 hours Idle Time
+
+No unread mail
+
+No Plan.</PRE>
+
+<P>Here, finger displays personal information for the user lam: his real name, home directory, which shell he uses, and when he last logged in and from which computer (pc2). The last line indicates that he does not have a text file called .plan in his home 
+
+directory. The finger command displays the contents of .plan and .project if they exist. As you can see, users can reveal as much or as little of themselves as they choose.
+
+<BR></P>
+
+<P>If your computer is on a network and you know another person's e-mail address, you can display information about that person by issuing a command such as the following:
+
+<BR></P>
+
+<PRE>$ finger holsberg@pilot.njin.net</PRE>
+
+<P>The finger command provides many options that can suppress one or more fields of the normal, long output. However, because finger responds so quickly, simply disregarding that extra information when it appears onscreen is easier than learning the 
+appropriate option.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>The </B><B><I>id</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The id command reports four things: the user ID number, login name, group ID number, and group name of the person who invokes it. If the real and effective IDs (see Chapter 44, &quot;System Security&quot;) are not the same, id prints both sets of 
+values.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> id is often used in shell scripts to restart the use of a shell by a certain user or group of users.
+
+<BR>
+
+<BR>When a system administrator creates an account for a user, that user is given a login ID and also placed in a group. This is important because UNIX provides access to files according to whether the user is the owner of the file and whether the user 
+belongs to the group that has been granted access to the file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>In the following example, the user ID is 102, the login name is pjh, and the user belongs to the root group, which is group number 0:
+
+<BR></P>
+
+<PRE>$ id
+
+uid=102(pjh) gid=0(root)</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Switching Accounts with </B><B><I>su</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you have more than one account on a system, you need not log out of one and then log into the second to use the second account. Instead, you can simply use the su (switch user) command. The system administrator uses su frequently to check a user's 
+complaint, because su enables the administrator to become that user and run the programs that were causing problems.
+
+<BR></P>
+
+<P>The usual su command syntax is
+
+<BR></P>
+
+<PRE>su - <I>userID</I></PRE>
+
+<P>The minus sign tells su to cause the current user to take on the identity, <I>userID</I>. To do this, su executes the user's shell&#151;as specified in the shell field of /etc/passwd&#151;and invokes /etc/profile and that user's .profile file. The su 
+command then displays the user's normal environment. If the user omits the minus sign, su invokes the user's shell, but the environment is the same as before. Of course, before you can switch to another user, you must know that user's password&#151;unless 
+
+you are the system administrator, in which case your privileges enable you to assume identities without using passwords.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> /etc/profile and .profile are files that control the working environment of each user.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Suppose, the system administrator wishes to become user lam:
+
+<BR></P>
+
+<PRE>#su - lam
+
+$</PRE>
+
+<P>To reassume identity as sysadm, he merely logs out of lam's account.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Learnig More About Commands with </B><B><I>man</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX supplies information about its commands in two forms: reference manuals (printed documentation called man pages) and online files. To use the man pages, you simply find the appropriate reference manual and look up the command. However, reference 
+manuals seem to have lives of their own and are never to be found where you last put them. That's when online man pages&#151;and the man command&#151;become useful.
+
+<BR></P>
+
+<P>The simplest form of the man command takes a single argument: the name of the command in which you are interested. For example, here's the man page for man:
+
+<BR></P>
+
+<PRE>NAME
+
+cat - concatenate and print files
+
+SYNOPSIS
+
+cat [<B>-u</B>] [<B>-s</B>] [<B>-v</B> [[<B>-t</B>] [<B>-e</B>]] <I>file . . .</I>
+
+DESCRIPTION
+
+cat reads each <I>file</I> in sequence and writes it on  the  standard output.
+
+Thus
+
+cat file
+
+prints the contents of file on your terminal, and
+
+cat file1 file2 &gt;file3
+
+concatenates <B>file1</B> and <B>file2</B>,  and  writes  the  results  in <B>file3</B>.   If 
+
+no input file is given, or if the argument - is encountered, <B>cat</B>  reads  from 
+
+the  standard  input.    <B>cat </B>processes supplementary code set characters
+
+according to the locale specified in the <B>LC_CTYPE</B> environment  variable  [see
+
+LANG on environ(5)].
+
+The following options apply to <B>cat</B>:
+
+<B>-u</B>        The output is not buffered.  (The default  is  buffered output.)
+
+<B>-s</B>        <B>cat</B> is silent about non-existent files.
+
+<B>-v</B>        Causes non-printing characters (with the  exception  of  tabs,
+
+new-lines, and form-feeds) to be      printed visibly. <B>ASCII</B> control characters
+
+ (octal 000 - 037) are  printed as  ^n, where n is the      corresponding <B>ASCII</B>
+
+character in the range octal 100 - 137 (@, A, B, C, . . ., X, Y,  Z,          
+
+ [,       \,  ], ^, and _); the DEL character (octal 0177) is printed <B>^?</B>.  Other
+
+non-printable characters are      printed as <B>M-</B>x, where x is the <B>ASCII</B>
+
+character specified by the low-order seven bits.  All      supplementary code
+
+set characters are considered to be printable.
+
+The following options may be used with the <B>-v</B> option:
+
+<B>-t</B>        Causes tabs to be printed as <B>^I</B>'s and formfeeds  to  be printed
+
+as <B>^L</B>'s.
+
+<B>-e</B>        Causes a <B>$</B> character to be printed at the end  of  each  line
+
+ (prior to the new-line).
+
+The <B>-t</B> and <B>-e</B> options are ignored if the <B>-v</B>  option  is  not specified.
+
+FILES
+
+/usr/lib/locale/<I>locale</I>/LC_MESSAGES/uxcore.abi 
+
+language-specific   message   file   [See <B>LANG</B> on <B>environ</B>(5).]
+
+SEE ALSO
+
+<B>cp</B>(1), <B>pg</B>(1), <B>pr</B>(1)
+
+The <B>NAME</B> section gives the name of the command and a brief description of
+
+what it does.
+
+The <B>SYNOPSIS</B> section shows the command's syntax by listing all possible
+
+options and arguments. Arguments to <B>cat</B> are the names of one or more files. The
+
+fact that <I>file</I> is written in italic type means that <I>file</I> is merely a
+
+placeholder for the name of an actual file. The <B>cat</B> command has three options
+
+and one of them has two &quot;sub-options&quot;. The brackets around options indicate
+
+that they are optional. For example, the command could be any one of the
+
+following:
+
+cat file
+
+cat -u file
+
+cat -s file
+
+cat -u -s file (or cat -s -u file)
+
+cat -us file (or cat -su file)
+
+cat -v file
+
+cat -v -t file (or cat -vt file)
+
+cat -v -e file (or cat -ve file)
+
+cat -v -t -e file (or cat -vte file)
+
+cat -u -v -t file (or cat -uvt file)
+
+and so on. With three options and two suboptions, there are many possible
+
+combinations. Note that the order of writing the options doesn't matter and
+
+options can be combined so that only one dash (-) need be written. While these
+
+are generally true, there are some Unix commands that require a particular
+
+order, some that do not permit combinations and even a few that require a
+
+specific order and deny any combinations.
+
+The <B>DESCRIPTION</B> section is the heart of the manual page. It describes each
+
+option and argument, and frequently contains one or more examples. However, its
+
+explanations are frequently sprinked with referenced to other commands, so that
+
+in general it is difficult to learn about a command from its man page.
+
+The <B>FILES</B> section lists other files that are used or related to the
+
+command.
+
+The <B>SEE ALSO</B> section lists related commands. The numbers in parentheses
+
+refer to the section of the manual in which the command will be found. Among
+
+the most important are:
+
+Section 1 - User Commands
+
+Section 1C - Basic Networking Commands
+
+Section 1M - Administration Commands
+
+Section 2 - System Calls
+
+Section 3 - BSD Routines
+
+Section 3C - C Library Functions
+
+Section 3M - Math Library Functions
+
+Section 3S - Standard I/O Functions
+
+Section 4 - File Formats
+
+Section 5 - Miscellaneous
+
+Section 6 - (not included)
+
+Section 7 - Special Files
+
+Section 8 - System Maintenance Procedures</PRE>
+
+<P>As a user or adminstrator, you will be most interested in section 1 (which contains 1, 1C and 1M). Programmers will be interested in 2, 3 and possibly 4.
+
+<BR></P>
+
+<P>Some man pages have the following additional sections:
+
+<BR></P>
+
+<P>The NOTES section is self-explanatory.
+
+<BR></P>
+
+<P>The DIAGNOSTICS sections contains explanations of error messages that the command may cause to be displayed. Not enough commands have a DIAGNOSTICS section!
+
+<BR></P>
+
+<P>The WARNINGS section describes anything that may limit the use of a command.
+
+<BR></P>
+
+<P>The BUGS section tells of known problems that have not been fixed in the current version of the command.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Finding Information About Disk Utilization with </B><B><I>du</I></B><B> and </B><B><I>df</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Occasionally, a user needs to know how much disk space his or her files occupy&#151;perhaps the system administrator has sent e-mail requesting that the user is approaching some sort of limit. Frequently, the system administrator needs the same 
+information for all users or on all parts of one or more disks, and frequently needs information on the overall utilization in all file systems. UNIX provides two commands that report that information: du and df.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Summarizing Disk Usage with </B><B><I>du</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The du command reports the number of disk blocks used for each directory and subdirectory, and the files found there. It has an option to display the number of blocks of just the &quot;top level&quot; directory.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A block is the smallest piece of a disk that can be allocated to a file. Frequently, the size of a block is 512 bytes (but the size depends on things that the system administrator did when setting up 
+
+the disks). A file that is 1 byte long and a file that is 511 bytes long each occupies one block. A 513 byte file and a 1,023 byte file each occupies two blocks. That is, every 512 bytes of a file occupy a disk block, plus one block for the last piece that 
+
+less than 512 bytes.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Here are some sample executions. First, issue the command to display what you have in the directory hierarchy, from the current directory on down:
+
+<BR></P>
+
+<PRE>$ ls -lR
+
+total 259
+
+drwxr-xr-x   2 pjh      other         48 Oct 17  1990 unixbin
+
+-rw-r&#151;r&#151;   1 pjh      root      130137 May 10  1993 vpix.img
+
+./unixbin:
+
+total 16
+
+-rw-rw-rw-   1 pjh      other       7576 Apr  8  1993 rununix.exe</PRE>
+
+<P>The current directory has one regular file (vpix.img) and one directory file (unixbin), and the subdirectory has one regular file (rununix.exe).
+
+<BR></P>
+
+<P>Now find out the total disk usage:
+
+<BR></P>
+
+<PRE>$ du -s
+
+274     .</PRE>
+
+<P>That's 274 blocks, or somewhere between 13,312 and 13,823 bytes.
+
+<BR></P>
+
+<P>Use the following command to find out how many blocks are in the subdirectory:
+
+<BR></P>
+
+<PRE>$ du
+
+17      ./unixbin
+
+274     .</PRE>
+
+<P>Then find out how many blocks each file has:
+
+<BR></P>
+
+<PRE>$ du -a
+
+16      ./unixbin/rununix.exe
+
+17      ./unixbin
+
+256     ./vpix.img
+
+274     .</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The total for a directory or directory hierarchy includes the blocks that the directory files themselves occupy.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Reporting Blocks and Files with </B><B><I>df</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The df command helps the system administrator maintain the file systems on the disks. The command displays information about mounted and unmounted resources, types of file systems, and numbers of inodes. It also deals with special devices rather than 
+easily identifiable directory paths. Most of these terms have little meaning to the ordinary user, but they are discussed in Chapter 35. However, if a user wants to see what's going on with the disk's file systems, the system permits it.
+
+<BR></P>
+
+<P>Multiple options are available with df. In this section, you'll see some of these options demonstrated and explained. But first, here is a typical result that you get when you invoke df with no options:
+
+<BR></P>
+
+<PRE>$ df
+
+/                  (/dev/root       ):  381964 blocks   58845 files
+
+/proc              (/proc           ):       0 blocks     128 files
+
+/dev/fd            (/dev/fd         ):       0 blocks       0 files
+
+/stand             (/dev/dsk/c0t0d0sa):   12643 blocks     194 files
+
+/var               (/dev/dsk/c0t0d0sb):  961502 blocks   64499 files
+
+/tmp               (/dev/dsk/c0t0d0sd):  191308 blocks   24560 files
+
+/usr               (/dev/dsk/c0t1d0s3):  772900 blocks   53842 files
+
+/home              (/dev/dsk/c0t1d0s4):  923256 blocks   63303 files
+
+/.NetWare          (/.NetWare       ):       0 blocks     499 files</PRE>
+
+<P>The first column is the path name of the file system. This system's special device name appears in the second column. The third column reports the number of disk blocks available on each disk partition. Finally, the last column displays the number of 
+files that can be added to each partition. When setting up a new disk, the system administrator partitions it into file systems and allocates several blocks and inodes (or files) to each file system according to how that partition will be used. For 
+details, see Chapter 35, &quot;File System Administration.&quot;
+
+<BR></P>
+
+<P>The -b option shows the free space in kilobytes rather than blocks:
+
+<BR></P>
+
+<PRE>$ df -b
+
+Filesystem             avail
+
+/dev/root              190982
+
+/proc                  0
+
+/dev/fd                0
+
+/dev/dsk/c0t0d0sa       6321
+
+/dev/dsk/c0t0d0sb       480751
+
+/dev/dsk/c0t0d0sd       95654
+
+/dev/dsk/c0t1d0s3       386450
+
+/dev/dsk/c0t1d0s4       461628
+
+/.NetWare              0</PRE>
+
+<P>The -k option shows some details about allocated space&#151;how much has been used and how much is available&#151;in kilobytes:
+
+<BR></P>
+
+<PRE>$ df -k
+
+filesystem         kbytes   used     avail    capacity  mounted on
+
+/dev/root          316416   125434   190982   40%       /
+
+/proc              0        0        0         0%       /proc
+
+/dev/fd            0        0        0         0%       /dev/fd
+
+/dev/dsk/c0t0d0sa  10240    3918     6321     38%       /stand
+
+/dev/dsk/c0t0d0sb  509952   29201    480751    6%       /var
+
+/dev/dsk/c0t0d0sd  102368   6714     95654     7%       /tmp
+
+/dev/dsk/c0t1d0s3  512000   125550   386450   25%       /usr
+
+/dev/dsk/c0t1d0s4  512976   51348    461628   10%       /home
+
+/.NetWare          0        0        0         0%       /.NetWare</PRE>
+
+<P>If you are curious about file systems, the -n option tells you the name of the file system type used for each partition. (Again, see Chapter 35 for details.)
+
+<BR></P>
+
+<PRE>$ df -n
+
+/                  : vxfs
+
+/proc              : proc
+
+/dev/fd            : fdfs
+
+/stand             : bfs
+
+/var               : vxfs
+
+/tmp               : vxfs
+
+/usr               : vxfs
+
+/home              : vxfs
+
+/.NetWare          : nucam</PRE>
+
+<P>Finally, the -t option shows used blocks and files, and the total allocation for each file system:
+
+<BR></P>
+
+<PRE>$ df -t
+
+/                  (/dev/root       ):    381964 blocks   58845 files
+
+total:    632832 blocks   65520 files
+
+/proc              (/proc           ):         0 blocks     128 files
+
+total:         0 blocks     202 files
+
+/dev/fd            (/dev/fd         ):         0 blocks       0 files
+
+total:         0 blocks      50 files
+
+/stand             (/dev/dsk/c0t0d0sa):     12643 blocks     194 files
+
+total:     20480 blocks     200 files
+
+/var               (/dev/dsk/c0t0d0sb):    961502 blocks   64499 files
+
+total:   1019904 blocks   65536 files
+
+/tmp               (/dev/dsk/c0t0d0sd):    191308 blocks   24560 files
+
+total:    204736 blocks   24576 files
+
+/usr               (/dev/dsk/c0t1d0s3):    772900 blocks   53842 files
+
+total:   1024000 blocks   65536 files
+
+/home              (/dev/dsk/c0t1d0s4):    923256 blocks   63303 files
+
+total:   1025952 blocks   65536 files
+
+/.NetWare          (/.NetWare       ):         0 blocks     499 files
+
+total:         0 blocks     500 files</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX provides several small programs that you can use to quickly obtain information that you frequently need. These programs include the following:
+
+<BR></P>
+
+<UL>
+
+<LI>bc, dc&#151;calculator programs 
+
+<BR>
+
+<BR></LI>
+
+<LI>date and cal&#151;to display time and date
+
+<BR>
+
+<BR></LI>
+
+<LI>finger, who and id&#151;provide user information
+
+<BR>
+
+<BR></LI>
+
+<LI>man and apropos&#151;explains commands
+
+<BR>
+
+<BR></LI>
+
+<LI>su&#151;&quot;switch user&quot;
+
+<BR>
+
+<BR></LI>
+
+<LI>du and df&#151;display information about disk contents
+
+<BR>
+
+<BR></LI></UL>
+
+<P>These commands are rather specialized commands that, in general, retrieve information about different parts of the system: users, files, directories, clock, and so on. The basis of information storage in UNIX is the file, so Chapter 6, &quot;Popular 
+File Tools,&quot; explores the somewhat more specialized commands for working with files&#151;particularly text files.</P>
+
+<P><A HREF="unx04.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx04.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx06.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx06.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

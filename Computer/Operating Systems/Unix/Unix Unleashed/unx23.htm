@@ -1,0 +1,1011 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx23.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx24.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx24.htm">
+
+<LINK REL="Previous" HREF="unx22.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx22.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx22.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx22.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx24.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx24.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">23 &#151; Formatting Tables with tbl</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">tbl Requirements</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">tbl Macros</A></LI>
+
+<LI>
+
+<A HREF="#I6">Minimal Format Options</A></LI>
+
+<LI>
+
+<A HREF="#I7">Table Data</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">tbl Options</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Format Options</A></LI>
+
+<LI>
+
+<A HREF="#I10">Global Options</A></LI></UL>
+
+<LI>
+
+<A HREF="#I11">Advanced tbl Formatting</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I12">Column Headings</A></LI>
+
+<LI>
+
+<A HREF="#I13">Horizontal and Vertical Spanning</A></LI>
+
+<LI>
+
+<A HREF="#I14">Text Blocks</A></LI>
+
+<LI>
+
+<A HREF="#I15">Spacing and Lines</A></LI>
+
+<LI>
+
+<A HREF="#I16">Changing Format Options</A></LI>
+
+<LI>
+
+<A HREF="#I17">A Fancy Table</A></LI></UL>
+
+<LI>
+
+<A HREF="#I18">Troubleshooting</A></LI>
+
+<LI>
+
+<A HREF="#I19">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>23 &#151; Formatting Tables with </B><B><I>tbl</I></B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Meet tbl, the troff and nroff table preprocessor.
+
+<BR></P>
+
+<P>tbl is not a popular troff tool. It is cursed and vilified and mocked, but it is used. The people who hate tbl rarely take the time to learn even the basics of formatting a table. Instead, they have two or three reliable samples that they just keep 
+copying over and over, changing the data each time. When something goes wrong, they ask a friend or a colleague&#151;maybe even an enemy&#151;for help.
+
+<BR></P>
+
+<P>You don't have to do that. tbl isn't that hard to learn. As with all UNIX utilities and programs, you can learn as much or as little as you like. You can learn the rudiments of tbl in an hour. This chapter includes some sample tables to enlarge your 
+collection.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B><I>tbl</I></B><B> Requirements</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>tbl is a troff preprocessor. This means that the tbl code you write is processed by tbl before troff gets anywhere near it. Typically, you send a file through tbl and pipe the output to troff. The syntax is
+
+<BR></P>
+
+<PRE>tbl filename | troff options</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B><I>tbl</I></B><B> Macros</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>troff recognizes tbl output by the macros that begin and end a table: .TS and .TE. (The .TS H and .TH macros are discussed in the &quot;Column Headings&quot; section later in this chapter.)
+
+<BR></P>
+
+<P>The code that produces a simple table is
+
+<BR></P>
+
+<PRE>.TS
+
+box;
+
+cB cB cB
+
+l l l.
+
+Days[TAB]Months[TAB]Years
+
+Monday[TAB]January[TAB]1990
+
+Tuesday[TAB]February[TAB]1991
+
+Wednesday[TAB]March[TAB]1992
+
+.TE</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Minimal Format Options</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In addition to the macros, a table must include at least one line of format options. These options tell tbl whether you want your columns left-justified, centered, or right-justified&#151;in short, how you want each column to look. The rule is one 
+option per column. Therefore, a three-column table with all columns left-justified has the following format options:
+
+<BR></P>
+
+<PRE>l l l.</PRE>
+
+<P>The last line of format options must end with a period.
+
+<BR></P>
+
+<P>These are the minimum options you need for a three-column table. With these options, every row in your table has left-justified columns. If you want centered column headings with left-justified data, then you need two rows of format options:
+
+<BR></P>
+
+<PRE>c c c
+
+l l l.</PRE>
+
+<P>tbl uses the first format line to format the first row of your table. It uses the second format line to format the second row of your table. When it runs out of format lines, as it does in row 3 in this example, tbl formats the rest of your table 
+according to the last format line.
+
+<BR></P>
+
+<P>You can't format a complex table with the bare minimum; you need to use more of the options that tbl provides.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Table Data</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Table data is entered with a tab between each column. If a line is too long for your terminal and, therefore, wraps, you can use the continuation character (\). Each new line starts a new row in the table.
+
+<BR></P>
+
+<P>To leave a cell empty, use a tab. For example, to enter a row that contains no entries in the first, second, and fourth columns but contains an entry in the third column, do this:
+
+<BR></P>
+
+<PRE>[TAB][TAB]entry</PRE>
+
+<P>You don't need to enter the last tab&#151;the one for the fourth column. tbl doesn't mind if you specify too little data. It complains only if you specify too much.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B><I>tbl</I></B><B> Options</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In addition to format options, tbl enables you to use global options. Global options affect the appearance of your table as a whole. tbl provides a wide range of format and global options.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Format Options</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Format options include more than just instructions on how to justify columns. The tbl format options include
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>l (or L)</P>
+
+<TD>
+
+<P>Left-justifies the column.</P>
+
+<TR>
+
+<TD>
+
+<P>r (or R)</P>
+
+<TD>
+
+<P>Right-justifies the column.</P>
+
+<TR>
+
+<TD>
+
+<P>c (or C)</P>
+
+<TD>
+
+<P>Centers the column.</P>
+
+<TR>
+
+<TD>
+
+<P>n (or N)</P>
+
+<TD>
+
+<P>Specifies a numeric column. It lines up the column on decimal points&#151;or units digits if there are no decimal points.</P>
+
+<TR>
+
+<TD>
+
+<P>a (or A)</P>
+
+<TD>
+
+<P>Specifies an alphabetic column. It indents text one em.</P>
+
+<TR>
+
+<TD>
+
+<P>s (or S)</P>
+
+<TD>
+
+<P>Spans the column horizontally.</P>
+
+<TR>
+
+<TD>
+
+<P>^</P>
+
+<TD>
+
+<P>Spans the column vertically.</P></TABLE>
+
+<P>Spanning is explained in the &quot;Horizontal and Vertical Spanning&quot; section later in this chapter.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The a option doesn't work properly in older versions of tbl. Use \0\0 instead.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Two more format options enable you to adjust the width of your columns. You can use them in conjunction with any of the options listed above.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>e</P>
+
+<TD>
+
+<P>Equalizes the width of the indicated columns.</P>
+
+<TR>
+
+<TD>
+
+<P>w</P>
+
+<TD>
+
+<P>Enables you to specify a width for a column.</P></TABLE>
+
+<P>lw(1i), for example, creates a left-justified column that is one inch wide.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Be sure to specify a unit with the w (width) option. The default unit is ens. The width you specify does not include the gap between columns. To set the column gap, refer to the &quot;Spacing and 
+Lines&quot; section later in this chapter.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Other format options enable you to change the font and the point size. You can also change vertical spacing.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>f (or F)</P>
+
+<TD>
+
+<P>Changes the font. The font is specified immediately after f, as in fCW.</P>
+
+<TR>
+
+<TD>
+
+<P>b (or B)</P>
+
+<TD>
+
+<P>Changes to bold font.</P>
+
+<TR>
+
+<TD>
+
+<P>i (or I)</P>
+
+<TD>
+
+<P>Changes to italic font.</P>
+
+<TR>
+
+<TD>
+
+<P>p (or P)</P>
+
+<TD>
+
+<P>Changes the point size. The size is specified immediately after p, as in p9.</P>
+
+<TR>
+
+<TD>
+
+<P>v (or V)</P>
+
+<TD>
+
+<P>Changes vertical spacing. The spacing is specified immediately after v, as in v10.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Global Options</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>tbl's global options affect the placement of your table on the page and its appearance. They are specified on a single line that ends with a semicolon (;). The options must be separated by spaces, tabs, or commas.
+
+<BR></P>
+
+<P>One global option, for example, enables you to change the default column separator, the tab, to another character. The exclamation point is typically used in technical writing. Because there's nothing to get excited about in the text, tbl doesn't get 
+confused.
+
+<BR></P>
+
+<P>The global options are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>expand</P>
+
+<TD>
+
+<P>Expands the table to the full width of the page. It cannot be used with center.</P>
+
+<TR>
+
+<TD>
+
+<P>box</P>
+
+<TD>
+
+<P>Puts a box around the table.</P>
+
+<TR>
+
+<TD>
+
+<P>doublebox</P>
+
+<TD>
+
+<P>Puts a double box&#151;a box drawn with two lines&#151;around the table.</P>
+
+<TR>
+
+<TD>
+
+<P>allbox</P>
+
+<TD>
+
+<P>Puts each item in the table in a box.</P>
+
+<TR>
+
+<TD>
+
+<P>tab(<I>x</I>)</P>
+
+<TD>
+
+<P>Changes the column separation character to x.</P>
+
+<TR>
+
+<TD>
+
+<P>linesize(<I>n</I>)</P>
+
+<TD>
+
+<P>Sets the point size of lines under column heads or of lines that make up boxes to n points.</P>
+
+<TR>
+
+<TD>
+
+<P>delim(<I>xy</I>)</P>
+
+<TD>
+
+<P>Uses x and y as eqn delimiters. (eqn is discussed in Chapter 24, &quot;Formatting Equations with eqn.&quot;)</P></TABLE>
+
+<P>The center and expand options are straightforward and do exactly what you would expect.
+
+<BR></P>
+
+<P>By default, tables are left-justified. The center option centers your table with respect to the defined line length. The table might not always look centered. It depends on what indents are used before the table and after it. You can use .in with a 
+positive or negative value to adjust the horizontal placement of the table. Remember, though, to reset the indent that comes after the table.
+
+<BR></P>
+
+<P>The reasons for using expand are less obvious. expand makes the width of your table equal to the defined line length. You might want to do this for a special effect. It also comes in handy if you're working with a custom macro package that has outdented 
+
+headings with text indented an inch or more. expand enables you to take advantage of the unused left margin.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Occasionally, you get an error message from tbl that reads table too wide. Processing doesn't stop, though. The table is printed. Chances are, though, that it will be too wide. tbl does not respect 
+margins. You can often use this feature to your advantage, however.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>tbl provides three global options that you you can use to draw boxes around tables. Figure 23.1 shows an example of each option.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="23unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/23unx01.gif">Figure 23.1.  The </B><B><I>box</I></B><B> options.</A></B>
+
+<BR></P>
+
+<P>allbox is useful when you have many narrow columns (perhaps with numeric data). The lines make the table easier to read. In most other situations, the lines are distracting and unattractive.
+
+<BR></P>
+
+<P>The tab option enables you to specify a different character as the column separator. Many people do this routinely. Just be careful to choose a character that doesn't appear in your table.
+
+<BR></P>
+
+<P>There is a benefit to changing the tab character to a single character such as # or !. If your input line is long, you might exceed the wrap margin, and your input line will become two lines. If you then join the two lines, your tab turns into a space. 
+
+If you change the space to a tab, the line might split again. This is annoying. It is also less likely to happen if you are using # or !. # and ! are single characters, not 4 to 8 characters like the tab.
+
+<BR></P>
+
+<P>The linesize option affects all the lines in your table. If you use it to draw a heavy box around the whole table, you must adjust the point size for internal lines.
+
+<BR></P>
+
+<P>If your table contains equations, you can set the eqn delimiters in a tbl global option. These delimiters must not appear elsewhere in the table, except as eqn delimiters. They also can't be the same as the tab character. (Refer to Chapter 24, 
+&quot;Formatting Equations with eqn,&quot; for more information.) 
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Advanced </B><B><I>tbl</I></B><B> Formatting</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>tbl gives you control over almost every aspect of table formatting, including column headings, horizontal and vertical spanning, text blocks, spacing options and lines, and changing format options.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Column Headings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To make column headings stand out, underline them. tbl provides several styles to choose from.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>_</P>
+
+<TD>
+
+<P>Draws a continuous single underscore the width of the table. When it used with allbox, it draws a double underscore under the column headings. The code line containing _ must have no other entries.</P>
+
+<TR>
+
+<TD>
+
+<P>=</P>
+
+<TD>
+
+<P>Draws a continuous double underscore the width of the table. The code line containing = must have no other entries.</P>
+
+<TR>
+
+<TD>
+
+<P>_[TAB]_</P>
+
+<TD>
+
+<P>Two or more underscores separated by tabs. _[TAB]_ draws a single underscore the width of the contents of each column.</P>
+
+<TR>
+
+<TD>
+
+<P>=[TAB]=</P>
+
+<TD>
+
+<P>Two or more equals signs separated by tabs. =[TAB]= draws a double underscore the width of the contents of each column.</P>
+
+<TR>
+
+<TD>
+
+<P>\_[TAB]\_</P>
+
+<TD>
+
+<P>Backslash underscores separated by tabs. \_ draws a single underscore the width of each column. (Does not work with newer versions of tbl.)</P>
+
+<TR>
+
+<TD>
+
+<P>\=[TAB]\=</P>
+
+<TD>
+
+<P>Backslash equals signs separated by tabs. \= draws a double underscore the width of each column. (Does not work with newer versions of tbl.)</P></TABLE>
+
+<P>To specify column headings that will appear on every page of a multipage table, use the .TS H and .TH macros.
+
+<BR></P>
+
+<P>Use .TS H to start your table if you are going to specify a column heading. Then use .TH after the lines that constitute the heading. Be sure to include underscores and spaces if they are part of the heading.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Horizontal and Vertical Spanning</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>tbl accommodates both horizontal and vertical spanning. Use horizontal spanning to center a column heading over more than one column, as in
+
+<BR></P>
+
+<PRE>c s s</PRE>
+
+<P>Figure 23.2 illustrates horizontal spanning.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="23unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/23unx02.gif">Figure 23.2.  A table with horizontal </B><B>spanning.</A></B>
+
+<BR></P>
+
+<P>You can code vertical spanning in the tbl format options or in the table data. Vertical spanning in the column headings is produced by using ^ in the format specifications. Vertical spanning in the table data is produced by using \^.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Text Blocks</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A text block is a block of text&#151;a paragraph&#151;used as a table entry. Figure 23.3 shows a table with text blocks.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="23unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/23unx03.gif">Figure 23.3. A table with text blocks.</A></B>
+
+<BR></P>
+
+<P>The text block is coded as part of the table entry:
+
+<BR></P>
+
+<PRE>1990-1991[TAB]T{
+
+.na
+
+Writer. \f2Jurassic Park II\fP, \f2Daughter of the Firm\fP, \f2The
+
+Cat in the Hat Spends a Year in Provence\fP. Took best-selling ideas
+
+and capitalized on them. Raised my income 576% in just one year.
+
+T}
+
+.sp .5
+
+1991-date[TAB]T{
+
+.na
+
+Law Student. Attending Harvard Law School; expect to receive degree
+
+this year.
+
+T}</PRE>
+
+<P>Because tbl right-justifies text blocks, you might want to turn off adjustment inside the text blocks, as in the previous example. Use .na to do this.
+
+<BR></P>
+
+<P>The number of text blocks that can be used within a single table varies, depending on the tbl version. If you're using a recent version, don't worry about this. Even if you're using an old version, don't worry. tbl will complain loudly if you use too 
+many text blocks. Your only remedy is to break the table into smaller tables.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Text blocks affect vertical spacing. There's a little more space between text block rows than there is between ordinary rows. If you notice this in a table, you might have to make even your short 
+columns into text blocks.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Text blocks complicate a table. The first time you use them, you're almost certain to leave out the beginning or ending T-brace or to use an opening brace instead of a closing one. If you do this, tbl assumes your unmatched T-brace is data and prints 
+it, so the error is easy to find.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Spacing and Lines</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The default gap between columns is 3 ens. You can adjust this gap by putting a number between your format options, as in
+
+<BR></P>
+
+<PRE>cB 2 lB 2 lB 1 cB</PRE>
+
+<P>You can even set the gap to 0.
+
+<BR></P>
+
+<P>You can use .sp to put more space between table rows. (Don't use macros; use the troff primitive.) Using .sp .25 before and after an underscore and with column headings usually improves the appearance of the table.
+
+<BR></P>
+
+<P>If you have some two-line column heads and some one-line column heads, the allbox global option looks really awful. Similarly, if you've spanned any column, allbox doesn't work correctly. You can insert vertical lines between columns by using the pipe 
+character (|). You can even combine vertical lines with changes in the column gap.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Changing Format Options</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can change format options in the middle of a table. You can't change the number of columns, but you can change anything else. Use spanning to change the apparent number of columns.
+
+<BR></P>
+
+<P>To change tbl format options, use the .T&amp; macro and insert a line (or several lines) of format options.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>A Fancy Table</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The following code illustrates the advanced formatting techniques described in the previous sections. It produces the table shown in Figure 23.4.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="23unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/23unx04.gif">Figure 23.4. A fancy table.</A></B>
+
+<BR></P>
+
+<PRE>.TS
+
+center;
+
+c s s s
+
+lB cB cB cB
+
+l l l l.
+
+\fb\s14Old Garden Roses\s0\fP
+
+.sp .25
+
+Type[TAB]Examples[TAB]Color[TAB]Date
+
+.sp .25
+
+\_[TAB]\_[TAB]\_[TAB]\_
+
+.sp .25
+
+Alba[TAB]Celestial[TAB]milky peach[TAB]before1848
+
+\^[TAB]Felicite Parmentier[TAB]pale pink[TAB]before 1834
+
+.sp .5
+
+Bourbon[TAB]La Reine Victoria[TAB]rich pink[TAB]1872
+
+\^[TAB]Louise Odier[TAB]deep pink[TAB]1851
+
+\^[TAB]Souvenir de la Malmaison[TAB]soft pink[TAB]1843
+
+.sp .5
+
+.Centifolia[TAB]Fantin-Latour[TAB]rich pink[TAB]unknown
+
+.sp .5
+
+China[TAB]Mutabilis[TAB]warm pink[TAB]unknown
+
+.sp .5
+
+Damask[TAB]Celsiana[TAB]soft pink[TAB]before 1750
+
+\^[TAB]Mme. Hardy[TAB]white[TAB]1832
+
+.sp .5
+
+Gallica[TAB]Cardinal de Richelieu[TAB]rosy violet[TAB]1840
+
+\^[TAB]Rosa Mundi[TAB]striped crimson[TAB]before 1581
+
+[TAB][TAB][TAB]\0\0and pale pink
+
+.TE</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Troubleshooting</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When you use tbl, keep the following points in mind:
+
+<BR></P>
+
+<UL>
+
+<LI>Don't use macros in tables. They don't get digested properly. It's tempting to put in a .P. You do it without thinking, but often a single .P can wreck your table. Don't try to embed lists in tables. At the very least, don't try it when you're on a 
+tight deadline. Macros and tables don't mix.
+
+<BR>
+
+<BR></LI>
+
+<LI>Don't mix your font changes. If you use B in a format option line to get bold text, don't use f2 for italics. However, escape sequences in your table data are fine. Likewise, don't use macros.
+
+<BR>
+
+<BR></LI>
+
+<LI>If you can't get the a format option to work, indent with \0. \0 inserts a space the width of a numeral.
+
+<BR>
+
+<BR></LI>
+
+<LI>A common source of error in tables is a space after a T-brace. For some reason, it really makes tables crazy. The space is invisible, too, so you don't see it.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Use the ex command :se list (from vi). list turns each tab into a Ctrl-I, which shows up as ^I in your file but is actually a single character. You can count them to see whether you've put in too many. 
+
+list also puts the line end symbol ($) at the end of each line in the file. A space between T{ and $ is easy to see. To turn list off, use :se nolist.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI>If you specify a column width and the contents of that column are longer than the specified width, your width setting is ignored. Think of it as a minimum width, not a maximum.
+
+<BR>
+
+<BR></LI>
+
+<LI>If you omit a T-brace, tbl gets confused about your columns and might, for example, put column 2 in column 1. This plays havoc with your column width. You might not even see column 2 if this happens. Don't worry; column 2 isn't lost. It simply printed 
+
+somewhere out in the middle of the Atlantic Ocean. When you fix your table, it will come back and behave.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>tbl is one of the most used, yet least liked programs, offered by the UNIX system. It is well worth the effort to learn at least the rudiments of tbl, because you can use tables to your advantage in unexpected situations. You can also make friends and 
+influence supervisors if you take the time to learn tbl thoroughly. A good tbl debugger is hard to find.
+
+<BR></P>
+
+<P><A HREF="unx22.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx22.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx24.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx24.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

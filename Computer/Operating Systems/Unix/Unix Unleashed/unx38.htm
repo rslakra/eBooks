@@ -1,0 +1,1465 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx38.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx39.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx39.htm">
+
+<LINK REL="Previous" HREF="unx37.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx37.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx37.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx37.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx39.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx39.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">38 &#151; UNIX System Accounting</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Scott Allen Parker</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">How Does System Accounting Work?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">At the Start</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">acctwtmp</A></LI>
+
+<LI>
+
+<A HREF="#I7">turnacct</A></LI>
+
+<LI>
+
+<A HREF="#I8">remove</A></LI></UL>
+
+<LI>
+
+<A HREF="#I9">Login, Run What You Will, and Logout</A></LI>
+
+<LI>
+
+<A HREF="#I10">System Shutdown</A></LI></UL>
+
+<LI>
+
+<A HREF="#I11">Setting Up and Turning On the System Accounting Option</A></LI>
+
+<LI>
+
+<A HREF="#I12">The Accounting System Programs</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I13">runacct</A></LI>
+
+<LI>
+
+<A HREF="#I14">dodisk</A></LI>
+
+<LI>
+
+<A HREF="#I15">chargefee</A></LI>
+
+<LI>
+
+<A HREF="#I16">monacct</A></LI>
+
+<LI>
+
+<A HREF="#I17">acctcom</A></LI>
+
+<LI>
+
+<A HREF="#I18">Daily Reports</A></LI>
+
+<LI>
+
+<A HREF="#I19">Daily Report</A></LI>
+
+<LI>
+
+<A HREF="#I20">Daily Usage Report</A></LI>
+
+<LI>
+
+<A HREF="#I21">Daily Command Summary Report and Total Command Summary Report</A></LI>
+
+<LI>
+
+<A HREF="#I22">Last Login Report</A></LI></UL>
+
+<LI>
+
+<A HREF="#I23">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>38 &#151; UNIX System Accounting</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Scott Allen Parker</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As you have learned by now, UNIX is a very complex operating system with many types of files, utilities, and programs. Your users are logging in and out, storing files, and running programs. One of the problems you may run into is keeping track of usage 
+
+of the system. UNIX system accounting was created to assist you in keeping track of your users and processes. UNIX system accounting can help you troubleshoot and tune your system performance. You can even give a value to the resources on your system. This 
+
+means that you can charge your users money or a fee for storing files and running processes. In this chapter, you will learn:
+
+<BR></P>
+
+<UL>
+
+<LI>What is UNIX system accounting?
+
+<BR>
+
+<BR></LI>
+
+<LI>How do I set up and turn on the system accounting option?
+
+<BR>
+
+<BR></LI>
+
+<LI>How to generate report?
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>How Does System Accounting Work?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The moment the UNIX system is up and running, the system accounting is tracking information about the system. Information is tracked until the system shutdown. The information that is tracked is as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>Users logging in and out of the system
+
+<BR>
+
+<BR></LI>
+
+<LI>How much and many resources a user processes has taken
+
+<BR>
+
+<BR></LI>
+
+<LI>How much disk space has been used by the users' files
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Several processes and the UNIX kernel help the system track this usage. Several of these daemons have been covered in previous chapters.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>At the Start</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you boot the UNIX system into multiuser mode, UNIX runs a program called /usr/lib/acct/startup. startup is a shell script that runs other accounting programs and sets flags in the system to make the kernel and other processes to start recording 
+information. Some of the accounting programs that are run by the startup shell script are as follows:
+
+<BR></P>
+
+<PRE>
+
+<BR>acctwtmp
+
+
+
+<BR>turnacct
+
+
+
+<BR>remove</PRE>
+
+<P>These programs are discussed in the following sections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>acctwtmp</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The /usr/lib/acct/acctwtmp program writes a record into the file called /var/adm/wtmp. wtmp is a key file of the accounting system, containing records about users connecting to the system, date changes, reboots, and system startup and shutdowns. 
+Specifically, /var/adm/wtmp has information about the following:
+
+<BR></P>
+
+<UL>
+
+<LI>A user's login name
+
+<BR>
+
+<BR></LI>
+
+<LI>The device the user is logging in on
+
+<BR>
+
+<BR></LI>
+
+<LI>The user's process id (PID)
+
+<BR>
+
+<BR></LI>
+
+<LI>How the user is logging in
+
+<BR>
+
+<BR></LI>
+
+<LI>The date and time the login was made
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The record created by acctwtmp is a &quot;boot&quot; record containing the name of the system and the date and time the accounting system was started. You might see this information referred to as reasons in your man pages. In the startup and shutdown 
+script, you could see:
+
+<BR></P>
+
+<PRE>/usr/lib/acct/acctwtmp &quot;Accounting System ON&quot; &gt;&gt; /var/adm/wtmp</PRE>
+
+<P>or
+
+<BR></P>
+
+<PRE>/usr/lib/acct/acctwtmp &quot;Accounting System OFF&quot; &gt;&gt; /var/adm/wtmp</PRE>
+
+<P>If you were to list the /var/adm/wtmp file you would find entries for the two examples above. The wording might be slightly different depending upon your Operating System.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>turnacct</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The /usr/lib/acct/turnacct program turns on the accounting system. If you look inside the startup shell script, you will see the line containing:
+
+<BR></P>
+
+<PRE>/usr/lib/acct/turnacct on</PRE>
+
+<P>This program will run a special process called accton.
+
+<BR></P>
+
+<PRE>/usr/lib/acct/accton /var/adm/pacct</PRE>
+
+<P>/var/adm/pacct has information about processes that are running the system. Specifically, /var/adm/pacct has information about the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Who is using the process
+
+<BR>
+
+<BR></LI>
+
+<LI>Group ID's of users using the process
+
+<BR>
+
+<BR></LI>
+
+<LI>The start and elapsed time of the process
+
+<BR>
+
+<BR></LI>
+
+<LI>The CPU timed used
+
+<BR>
+
+<BR></LI>
+
+<LI>The memory used
+
+<BR>
+
+<BR></LI>
+
+<LI>The commands run
+
+<BR>
+
+<BR></LI>
+
+<LI>The tty used to run or use the process.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You will find a number of /var/adm/pacct files on your system over a period time. The reason for this is that UNIX runs a program called /usr/lib/acct/ckpacct. ckpacct will be discussed later in this 
+
+chapter, but for now suffice it to say that ckpacct checks the /var/adm/pacct for its size. If the /var/adm/pacct file is more than 500 blocks, ckpacct runs turnacct to move the current pacct file to /var/adm/pacct with an incremented version number 
+attached. For instance, /var/adm/pacct would be moved to the free name in /var/adm/pacct<I>#</I> (where <I>#</I> starts with the number 1 and is incremented by one every time an additional /var/adm/pacct is needed). The next time ckpacct runs turnacct, it 
+
+will move the /var/adm/pacct file to /var/adm/pacct1, and so on. This increment insures that the /var/adm/pacct file is kept in sequence and never overwritten.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>remove</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>/usr/lib/acct/remove will wipe out the /var/adm/acct/sum/pacct and /var/adm/acct/sum/wtmp files. The /var/adm/acct/sum directory contains accumulated summary files for most of the daily files tracked by the accounting system. You wouldn't want the file 
+
+to remain between &quot;reboots&quot; of the accounting system or even the operating system. These files are relevant only from one boot of the accounting system to the next. We will discuss the /var/adm/acct directory later in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Login, Run What You Will, and Logout</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In a matter of minutes after the system comes up in multiuser mode, someone logs onto the system. No need to fear: the login and init programs are ready for them. login and init record the user's session by adding a record to the /var/adm/wtmp file. 
+Next, the user runs a process, and the UNIX kernel monitors the process and writes a record about this to the /var/adm/pacct file.
+
+<BR></P>
+
+<P>There are other programs that help the accounting periodically. The /usr/lib/acct/ckpacct file, which checks /var/adm/pacct for its size, is run every hour. The ckpacct shell script runs
+
+<BR></P>
+
+<PRE>/usr/lib/acct/turnacct switch</PRE>
+
+<P>to switch the current /var/adm/pacct to an archived file with a version number such as /var/adm/pacct1, /var/adm/pacct2, and so on. These archives will become important when you are recovering from a failure to process these files.
+
+<BR></P>
+
+<P>On a daily basis, the /usr/lib/acct/runacct program is run to create daily and cumulative totals for connections, fees, disk storage, and processes. You will learn more about runacct later in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>System Shutdown</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When the UNIX system is shut down, the shutdown utility invokes several shell scripts found in the /sbin/rc0.d directory. One of the shells, called k22acct, runs the utility
+
+<BR></P>
+
+<PRE>/usr/lib/acct/shutacct</PRE>
+
+<P>which will write a record into /var/adm/wtmp. The record is called the &quot;reason&quot; record. After this reason is written, the accounting system is then shutdown. Then the shutdown program finishes the system shutdown. See Chapter 34, 
+&quot;Starting Up and Shutting Down,&quot; for more information about the shutdown program.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Setting Up and Turning On the System Accounting Option</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are several things that you need to brush up on before starting the accounting system. The /sbin contains directories that the boot and the shutdown program use. We are concerned with only three of these directories.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>/etc/rc0.d</P>
+
+<TD>
+
+<P>Contains the scripts that are executed during the shutdown process</P>
+
+<TR>
+
+<TD>
+
+<P>/etc/rc2.d</P>
+
+<TD>
+
+<P>Contains the scripts that are executed during the boot process to multiuser mode</P>
+
+<TR>
+
+<TD>
+
+<P>/sbin/init.d/acct</P>
+
+<TD>
+
+<P>Contains the programs (links to shell scripts) that are executed as the UNIX system is being initialized</P></TABLE>
+
+<P>The /etc/rc0.d/K22acct is a shell script that shuts the accounting system down when the system is shutting down. The /etc/rc2.d/S22acct is the shell script that turns on the accounting system. Here is what you do to set up these files:
+
+<BR></P>
+
+<UL>
+
+<LI>Link the /sbin/init.d/acct file to the /etc/rc0.d/K22acct.
+
+<BR>
+
+<BR><B>$ link /etc/rc0.d/K22acct /sbin/init.d/acct</B>
+
+<BR>$ 
+
+<BR></LI></UL>
+
+<OL>
+
+<LI>Link the /sbin/init.d/acct file to the /etc/rc2.d/S22acct.
+
+<BR>
+
+<BR>$ <B>link /etc/rc2.d/S22acct /sbin/init.d/acct</B>
+
+<BR>$ 
+
+<BR>
+
+<BR>When the system is booted, the init process will run these scripts to start the system accounting option. The last thing you need to do is add entries in the crontab file. The crontab file is used by cron to run programs at predetermined times. See 
+Chapter 20, &quot;Scheduling Processes,&quot; for more details on cron. We need to add ckpacct, runacct, monacct, and dodisk to the crontab file to finish the accounting system setup.
+
+<BR></LI>
+
+<LI>Edit the crontab file to add these utilities.
+
+<BR>
+
+<BR>$ <B>crontab -e</B>
+
+<BR></LI>
+
+<LI>Add /usr/lib/acct/ckpacct to check /var/adm/pacct every hour to archive the pacct file after its size is more than 500 blocks.
+
+<BR>
+
+<BR>0 * * * *    /usr/lib/acct/ckpacct
+
+<BR></LI>
+
+<LI>Add /usr/lib/acct/runacct to run daily to process the accounting files to prepare daily and cumulative summary files. It is recommended that you run this file at off-hours of the morning. You can pick any time. For this example, we will use 1:30 a.m.
+
+<BR>
+
+<BR>30 1 * * *   /usr/lib/acct/runacct 2&gt; /var/adm/acct/nite/fd2log
+
+<BR>
+
+<BR>/var/adm/acct/nite/fd2log is a log file that you look at to verify that runacct is running cleanly.
+
+<BR>
+
+<BR></LI>
+
+<LI>Add /usr/lib/acct/monacct to run monthly. The monacct file takes data stored in the /var/adm/acct/sum directory and creates a monthly report of all daily totals.
+
+<BR>
+
+<BR>30 3 * 1 *   /usr/lib/acct/monacct
+
+<BR></LI>
+
+<LI>Add /usr/lib/acct/dodisk program to do disk usage accounting. It is recommended that you run this program once a week and before runacct is executed daily.
+
+<BR>
+
+<BR>00 22 * * 4  /usr/lib/acct/dodisk
+
+<BR></LI>
+
+<LI>Shutdown and reboot your system to activate the accounting system.
+
+<BR>
+
+<BR></LI></OL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>The Accounting System Programs</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Remember the processes that you add to the crontab file. Those processes are essential to keep track of your system usage.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>runacct</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>/usr/lib/acct/runacct is a shell program that is executed every day to process system usage. It will create daily summary files for the /usr/lib/acct/prdaily and /usr/lib/acct/monacct programs. prdaily is run by runacct to write daily accounting 
+information to the /var/adm/acct/sum/rprtMMDD file. MMDD is the month and day the file was created. monacct is the month usage report, which will be covered later in this chapter. There can be one of these files for every day of the week. runacct actually 
+
+writes information to several files.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>/var/adm/pacct?</P>
+
+<TD>
+
+<P>Contains process information. ? represents the incremented /var/adm/pacct file.</P>
+
+<TR>
+
+<TD>
+
+<P>/var/adm/wtmp</P>
+
+<TD>
+
+<P>Contains user information</P>
+
+<TR>
+
+<TD>
+
+<P>/var/adm/fee</P>
+
+<TD>
+
+<P>Contains fees accessed for usage</P>
+
+<TR>
+
+<TD>
+
+<P>/var/adm/acct/nite/disktacct</P>
+
+<TD>
+
+<P>Contains the disk space usage</P></TABLE>
+
+<P>You can find the output of the runacct program in the /var/adm/acct/nite directory. Other files in the /var/adm/acct/nite directory are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>lock and lock1</P>
+
+<TD>
+
+<P>These files may or may not exist. If they do exist, runacct will not run. It will &quot;think&quot; that it is already running. If you get an error concerning these files during an attempted execute of runacct, remove them with rm (remove command).</P>
+
+<TR>
+
+<TD>
+
+<P>lastdate</P>
+
+<TD>
+
+<P>This file records the last date that runacct was executed. This file is checked to prevent runacct from being executed more than once daily.</P>
+
+<TR>
+
+<TD>
+
+<P>fd2log</P>
+
+<TD>
+
+<P>This file contains the message generated by runacct. It will contain important error information in case runacct fails to run.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If runacct does have an error, root will be notified by mail. It will write information to /var/adm/acct/nite/fd2log and remove the lock files.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>dodisk</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The /usr/lib/acct/dodisk shell script cumulates disk usage information. This shell script program runs three programs.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>diskusg</P>
+
+<TD>
+
+<P>Collects file data by reading the file INODES</P>
+
+<TR>
+
+<TD>
+
+<P>acctdusg</P>
+
+<TD>
+
+<P>Collects file statistics in the file system</P>
+
+<TR>
+
+<TD>
+
+<P>acctdisk</P>
+
+<TD>
+
+<P>Formats the data from diskusg or acctdusg</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Only one of the file data accounting programs needs to run. /usr/lib/acct/diskusg and /usr/lib/acct/acctdusg output the same information, but how they approach the information differs. diskusg is much 
+
+faster than acctdusg because it looks at the lowest level of file information in the INODE. To toggle between the two, the dodisk can invoke the -o option. The following script:
+
+<BR>
+
+<BR>/usr/lib/acct/dodisk <I>/dev/dsk/c1t0d0s2</I>
+
+<BR>
+
+<BR>will run the diskusg method against the device file name of /dev/dsk/c1t0d0s2. If the device name is not specified, then diskusg will look in the /etc/vfstab file and process all the devices. This is very similar to the fsck command that looks at the 
+file system's INODE's when it checks the file system at boot time. This is much faster. The following script:
+
+<BR>
+
+<BR>/usr/lib/acct/dodisk -o <I>/user</I>
+
+<BR>
+
+<BR>will run the acctdusg method against the /user file system mounting point. If the mount point is not specified, the root mounting point is used.
+
+<BR>
+
+<BR>Remember, if you want to use acctdusg, add the -o option to the dodisk line in the crontab file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>acctdisk will write the formatted output to the /var/adm/acct/nite/disktacct file. This file will have the following information about users' files on the system:
+
+<BR></P>
+
+<UL>
+
+<LI>The user's login name
+
+<BR>
+
+<BR></LI>
+
+<LI>The user's id number
+
+<BR>
+
+<BR></LI>
+
+<LI>The number of blocks in use in the user's files
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35>WARNING:<B> </B>dodisk stores all this information in /var/adm/acct/nite/disktacct. Each and every time dodisk is executed, it overwrites the /var/adm/acct/nite/disktacct file. Executing dodisk more than once 
+daily should be avoided.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>chargefee</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are in a Computer Services department or part of a service provider, you may elect to charge other departments or users for the resource they use. UNIX has provided a program called chargefee that will charge your user for a number of services. 
+The charges that are generated by chargefee are stored in /var/adm/fee. Say that carolynp sends me a message to mount a tape for her on my system and I charge $1.50 for every mount.
+
+<BR></P>
+
+<PRE>$ chargefee carolynp 1.50
+
+$</PRE>
+
+<P>An entry in /var/adm/fee would be made having carolynp, her user id number, and 1.50. Later in my monthly accounting report charges for mounting tapes, restoring files, etc. can be polled into an invoice billed to the user. Most places will normally 
+charge for processor time and disk space on a monthly basis. The monacct program, which you can read about next, will generate a nice report to run charge-back scripts against the invoice users.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>monacct</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>monacct runs monthly, or you can run it whenever your fiscal period ends, to generate files that summarize the statistic files created by dodisk and runacct. These files are stored in the /var/adm/acct/fiscal directory. After the monacct program is run, 
+
+the files created by dodisk and runacct removed and reset for the next fiscal period.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>acctcom</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The acctcom utility allows you to see the accounting system at any given time. You can execute this command from the command line with several different options.
+
+<BR></P>
+
+<PRE>$ acctmon -a</PRE>
+
+<P>This will show the average statistics about processes.
+
+<BR></P>
+
+<PRE>$ acctmon -r</PRE>
+
+<P>This will show the amount of user time per total time (system time plus user time).
+
+<BR></P>
+
+<PRE>$ acctmon -u zachp</PRE>
+
+<P>This will show all the processes belonging to the user zachp.
+
+<BR></P>
+
+<PRE>$ acctmon -O 20</PRE>
+
+<P>This will show all the processes running longer than 20 seconds.
+
+<BR></P>
+
+<P>To see more options for the acctcom command, please refer to your man pages. acctcom will look in the /var/adm/pacct? files for these little records.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Daily Reports</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>runacct generates a number of reports.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>The Daily</P>
+
+<TD>
+
+<P>Shows the usage of ports on your system.</P>
+
+<TR>
+
+<TD>
+
+<P>The Daily Usage</P>
+
+<TD>
+
+<P>Shows the system resource used by your users during the daily period.</P>
+
+<TR>
+
+<TD>
+
+<P>The Daily Command Summary</P>
+
+<TD>
+
+<P>Shows the commands run on your system and resources those commands used. This report can be essential in helping you determine the process that might bottleneck your system.</P>
+
+<TR>
+
+<TD>
+
+<P>The Last Login</P>
+
+<TD>
+
+<P>Tells you the last time a login id was used by a user. This report can help you remove unused login id's and directories associated with those id's.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Daily Report</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Daily Report can be found in the /var/adm/acct/nite/lineuse file.
+
+<BR></P>
+
+<PRE>$ cat /var/adm/acct/nite/lineuse
+
+Apr 06 01:33 1994  DAILY REPORT FOR excelsior Page 1
+
+from Tue Apr 05 05:10:41 1994
+
+to   Wed Apr 06 01:31:20 1994
+
+1        runacct
+
+1        accton
+
+TOTAL DURATION IS 5155 MINUTES
+
+LINE     MINUTES   PERCENT  # SESS   # ON     #OFF
+
+ttyp01   1541      30       4        9        5
+
+ttyp10   2564      50       25       8        6
+
+ttyp13   1050      20       15       3        4
+
+TOTALS   5155      100      44       20       10
+
+$</PRE>
+
+<P>The detail of this report column by column are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>LINE</P>
+
+<TD>
+
+<P>The port that was accessing the system.</P>
+
+<TR>
+
+<TD>
+
+<P>MINUTES</P>
+
+<TD>
+
+<P>The number of minutes the line was in usage during the daily period.</P>
+
+<TR>
+
+<TD>
+
+<P>PERCENT</P>
+
+<TD>
+
+<P>The number of minutes in use divided by TOTAL DURATION. TOTAL DURATION is the number of minutes the system was in multiuser mode.</P>
+
+<TR>
+
+<TD>
+
+<P># SESS</P>
+
+<TD>
+
+<P>The number of times the port was accessed to log in to the system.</P>
+
+<TR>
+
+<TD>
+
+<P># ON</P>
+
+<TD>
+
+<P>The number of times the port was used to log in the user into the system. Hey, if you see that the # SESS is very large compared to the # ON, then you have a problem. There might be someone hacking your system on that port.</P>
+
+<TR>
+
+<TD>
+
+<P># OFF</P>
+
+<TD>
+
+<P>The number of logoffs that occurred at that port and the number of interrupts like Ctrl-c, EOF, etc.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Daily Usage Report</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Daily Usage Report can be found in the /var/adm/acct/nite/daytacct file.
+
+<BR></P>
+
+<PRE>$ cat /var/adm/acct/nite/daytacct
+
+Apr 06 01:33 1994  DAILY USAGE REPORT FOR excelsior Page 1
+
+     LOGIN   CPU (MINS)  KCORE-MINS   CONNECT (MINS)  DISK    # OF   # OF  # DISK  FEE
+
+UID  NAME   PRIME NPRIME PRIME NPRIME  PRIME  NPRIME  BLOCKS  PROCS  SESS  SAMPLES
+
+0    TOTAL   6     13     7     14      165      67      0     1020     6      0    0
+
+0    root    3      7     1      8        0       0      0      400     0      0    0
+
+3    sys     0      3     0      1        0       0      0       51     0      0    0
+
+4    adm     0      1     0      1        0       0      0      251     0      0    0
+
+5    uucp    0      0     0      0        0       0      0       60     0      0    0
+
+1091 carolyn 2      1     4      3      140      47      0      249     2      0    0
+
+2155 zach    1      1     2      1       25      20      0        9     4      0    0
+
+$</PRE>
+
+<P>Here it is column by column:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>UID</P>
+
+<TD>
+
+<P>The user's identification number.</P>
+
+<TR>
+
+<TD>
+
+<P>LOGIN NAME</P>
+
+<TD>
+
+<P>The user's name.</P>
+
+<TR>
+
+<TD>
+
+<P>CPU (MINS)</P>
+
+<TD>
+
+<P>The amount of time the user's program required the use of CPU. This is rounded up to the nearest minute.</P>
+
+<TR>
+
+<TD>
+
+<P>KCORE-MINS</P>
+
+<TD>
+
+<P>The amount of memory per minute used to run the programs. This is rounded up to the nearest kilobyte.</P>
+
+<TR>
+
+<TD>
+
+<P>CONNECT (MINS)</P>
+
+<TD>
+
+<P>Total time the user was actually connected to the system.</P>
+
+<TR>
+
+<TD>
+
+<P>DISK BLOCKS</P>
+
+<TD>
+
+<P>The number of disk blocks used. This sum is placed by dodisk.</P>
+
+<TR>
+
+<TD>
+
+<P># OF PROCS</P>
+
+<TD>
+
+<P>The number of processes the user executed.</P>
+
+<TR>
+
+<TD>
+
+<P># OF SESS</P>
+
+<TD>
+
+<P>The number of sessions the user incurred by logging in to the system.</P>
+
+<TR>
+
+<TD>
+
+<P># DISK SAMPLES</P>
+
+<TD>
+
+<P>The number of times acctdusg or diskusg was run to cumulate the average number of DISK BLOCKS.</P>
+
+<TR>
+
+<TD>
+
+<P>FEE</P>
+
+<TD>
+
+<P>The total amount of usage charges accessed to the user for this given period.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You might have noticed that I didn't mention PRIME and NPRIME in the above list. PRIME is the prime-time hours for processing, and NPRIME is the non-prime hours for processing. For instance, holidays 
+
+would not be considered prime-time hours. You would expect that a majority of your users would not be on the system during the holiday. The file /etc/acct/holidays allows you to tailor the non-prime times for your company. Why would this be important? I 
+want to bill my customer a premium rate for using my system during the days or during the heavy processing hours. I will charge a lower rate at non-prime hours. For example, my prime-time hours are from 8:00 a.m. (800 hours) to 6:30 p.m. (1830 hours) for 
+1994. I would add the following entry in the /etc/acct/holidays file.
+
+<BR>
+
+<BR># Prime Time Hours for 1994
+
+<BR>1994  0800  1830
+
+<BR>
+
+<BR>Here is a sampling of my /etc/acct/holidays file:
+
+<BR>
+
+<BR>$ cat /etc/acct/holidays
+
+<BR>#
+
+<BR># Holidays
+
+<BR>#
+
+<BR>0101  New Year's Day
+
+<BR>0528  Memorial Day
+
+<BR>0704  Independence Day
+
+<BR>#
+
+<BR># Prime Time Hours for 1994
+
+<BR>#
+
+<BR>1994  0800  1830
+
+<BR>$
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Daily Command Summary Report and Total Command Summary Report</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Daily Command Summary Report can be found in the /var/adm/acct/nite/daycms file.
+
+<BR></P>
+
+<PRE>$ cat /var/adm/acct/nite/daycms
+
+Apr 06 01:32 1994  DAILY COMMAND SUMMARY REPORT FOR excelsior Page 1
+
+                                     TOTAL COMMAND SUMMARY
+
+COMMAND NUMBER    TOTAL  TOTAL    TOTAL   MEAN   MEAN     HOG    CHARS  BLOCKS
+
+NAME     CMDS  KCOREMIN CPU-MIN REAL-MIN SIZE-K CPU-MIN  FACTOR  TRNSFD   READ
+
+TOTALS   2050      3.57   21.59   157.57   0.21    0.02   0.14  6570519   2726
+
+csh       171      2.50    2.56    10.71   0.45    0.02   0.05   257429    212
+
+grep       14      0.10     .56     2.71   0.40    0.01   0.34    17537     42
+
+more        5      0.04    0.09     1.01   0.59    0.01   0.45    25414      2
+
+awk         2      0.01    0.12     1.71   0.15    0.01   0.55      529      5
+
+  .
+
+  .
+
+  .
+
+$</PRE>
+
+<P>The Total Command Summary Report looks like the preceding report with one exception. It is a monthly summary showing total accumulated since last month or execution of monacct. This report can be seen in the /var/adm/acct/sum/cms file. Here are the 
+column-by-column details.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>COMMAND NAME</P>
+
+<TD>
+
+<P>The name of the command.</P>
+
+<TR>
+
+<TD>
+
+<P>NUMBER COMMANDS</P>
+
+<TD>
+
+<P>The total number of times the command has been executed.</P>
+
+<TR>
+
+<TD>
+
+<P>KCOREMIN</P>
+
+<TD>
+
+<P>The total cumulative kilobytes segments used by the command. </P>
+
+<TR>
+
+<TD>
+
+<P>TOTAL CPU-MIN</P>
+
+<TD>
+
+<P>The total processing time in minutes.</P>
+
+<TR>
+
+<TD>
+
+<P>REAL-MIN</P>
+
+<TD>
+
+<P>The actual processing time in minutes.</P>
+
+<TR>
+
+<TD>
+
+<P>MEAN SIZE-K</P>
+
+<TD>
+
+<P>The mean of TOTAL KCOREMIN divided by execution.</P>
+
+<TR>
+
+<TD>
+
+<P>MENU CPU-MIN</P>
+
+<TD>
+
+<P>The mean of executions divided by total processing time in minutes.</P>
+
+<TR>
+
+<TD>
+
+<P>HOG FACTOR</P>
+
+<TD>
+
+<P>The total processing time divided by elapsed time. This is the utilization ratio of the system.</P>
+
+<TR>
+
+<TD>
+
+<P>CHARS TRNSFD</P>
+
+<TD>
+
+<P>The total number of reads and writes to the file system.</P>
+
+<TR>
+
+<TD>
+
+<P>BLOCKS READ</P>
+
+<TD>
+
+<P>The total number of physical block reads and writes.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> For purposes of illustration, I have deleted the PRIME and NPRIME column from this report. On your system, these will be there for you to view. See the previous note box about what PRIME and NPRIME 
+represent.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Last Login Report</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Last Login Report can be found in the /var/adm/acct/sum/loginlog file. This report has the last login that your users have made on your system. Any entry that you find that is several months old could be a candidate to purge from your system.
+
+<BR></P>
+
+<PRE>$ cat /var/adm/acct/nite/daycms
+
+Apr 06 01:32 1994  LAST LOGIN Page 1
+
+   ...
+
+93-01-05 briano    94-01-11 philp     94-02-21 deanm     94-03-01 stacyh    
+
+93-01-13 jordang   94-01-11 kittyw    94-02-21 richards  94-03-01 zachp     
+
+93-10-03 bradj     94-01-11 cindym    94-02-21 davidb    94-03-01 jimg      
+
+93-10-07 deborahf  94-01-11 franh     94-02-21 seanm     94-03-11 mitzig    
+
+93-11-05 gaylej    94-01-21 gregc     94-02-21 maryi     94-03-12 chrisd    
+
+93-12-05 keithd    94-01-21 wayneb    94-02-24 kristih   94-03-17 lynetteq  
+
+93-12-11 markt     94-01-21 matthewu  94-02-24 sandrad   94-03-20 sharonc   
+
+93-12-13 robh      94-01-21 philk     94-02-24 gregb     94-03-21 margaret  
+
+93-12-25 cindyk    94-01-21 dianah    94-02-24 daniels   94-03-21 paulas    
+
+94-01-05 deniseo   94-01-21 richc     94-02-24 lauric    94-03-22 mikes     
+
+94-01-05 gingera   94-02-05 carolynp  94-02-24 keitho    94-03-25 scottp    
+
+94-01-05 greggb    94-02-13 jimg      94-02-24 joew      94-04-01 kathye    
+
+94-01-05 katyo     94-02-15 matthewh  94-02-24 virgilp   94-04-05 daveh     
+
+94-01-05 viginiap  94-02-15 douga     94-03-01 briant    94-04-08 stepht    
+
+94-01-05 mollyp    94-02-15 cameront  94-03-01 sneakerp  94-04-10 sugerp    
+
+94-01-05 bwhitmer  94-02-17 beths     94-03-01 carola    94-04-11 rosemari  
+
+   .
+
+   .
+
+   .
+
+$</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter, you learned how to set up the accounting system to track your users and the processes they run. UNIX System Accounting can be a useful tool to help you tune your system and to plan for future expansion of hard disks, memory, and 
+processors. This is the most common usage of the accounting system. If you are a provider for UNIX resource, such as connections to the Internet, the accounting system allows you to bill those users for the use of your system.
+
+<BR></P>
+
+<P><A HREF="unx37.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx37.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx39.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx39.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

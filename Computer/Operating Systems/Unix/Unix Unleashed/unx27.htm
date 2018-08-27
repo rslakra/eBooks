@@ -1,0 +1,2705 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx27.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx28.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx28.htm">
+
+<LINK REL="Previous" HREF="unx26.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx26.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx26.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx26.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx28.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx28.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">27 &#151; Writing Your Own Macros</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Why Would Anyone Write a Macro?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Macro Review and Overview</A></LI>
+
+<LI>
+
+<A HREF="#I6">A Heading Macro, Dissected and Explained</A></LI>
+
+<LI>
+
+<A HREF="#I7">Number Registers</A></LI>
+
+<LI>
+
+<A HREF="#I8">Defined Strings</A></LI></UL>
+
+<LI>
+
+<A HREF="#I9">Getting Started</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">Defining a Macro</A></LI>
+
+<LI>
+
+<A HREF="#I11">Removing a Macro</A></LI>
+
+<LI>
+
+<A HREF="#I12">Renaming a Macro</A></LI>
+
+<LI>
+
+<A HREF="#I13">Adding to a Macro</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">A Simple Example</A></LI>
+
+<LI>
+
+<A HREF="#I15">Arguments</A></LI>
+
+<LI>
+
+<A HREF="#I16">Conditional Statements</A></LI>
+
+<LI>
+
+<A HREF="#I17">Arithmetic and Logical Expressions</A></LI>
+
+<LI>
+
+<A HREF="#I18">Diversions</A></LI>
+
+<LI>
+
+<A HREF="#I19">Traps</A></LI>
+
+<LI>
+
+<A HREF="#I20">Environments</A></LI>
+
+<LI>
+
+<A HREF="#I21">Debugging</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">troff Output</A></LI>
+
+<LI>
+
+<A HREF="#I23">PostScript Output</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">Hints for Creating a Macro Package</A></LI>
+
+<LI>
+
+<A HREF="#I25">Beyond Macro Packages</A></LI>
+
+<LI>
+
+<A HREF="#I26">Predefined Number Registers (nroff/troff)</A></LI>
+
+<LI>
+
+<A HREF="#I27">Predefined Read-Only Number Registers (nroff/troff)</A></LI>
+
+<LI>
+
+<A HREF="#I28">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>27 &#151; Writing Your Own Macros</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Why Would Anyone Write a Macro?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you work with macros every day, sooner or later you'll get the urge to write one. Sometimes it's a mild case of the disease: You're creating a document with mm, but you want paragraphs with a first-line indent and no extra space between paragraphs. 
+Occasionally you want to do something more elaborate&#151;like create a macro package for formatting that screen play.
+
+<BR></P>
+
+<P>Before you start, make sure you're familiar with the building blocks. troff provides you with the following: troff primitives (discussed in detail in Chapter 21, &quot;Basic Formatting with troff/nroff&quot;); escape sequences, such as \e and \^ (also 
+discussed in detail in Chapter 21); other macros, either from a standard macro package, or ones you've written; number registers; and defined strings.
+
+<BR></P>
+
+<P>The next section reviews just what a macro is made of and introduces you to concepts that will be explained in detail later in the chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Macro Review and Overview</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>With embedded troff primitives, you can format a page just about any way you want. The trouble is you have to reinvent the wheel every time you write a new document. And every time you format a first-level heading, you have to remember just what 
+sequence of primitives you used to produce that centered 14-point Helvetica Bold heading. Then you have to type three or four troff requests, the heading itself, and another three or four requests to return to your normal body style. (This is practical 
+only if you're being paid by the line.) It's a laborious process and one that makes it difficult&#151;perhaps impossible&#151;to maintain consistency over a set of files.
+
+<BR></P>
+
+<P>Good news: You can use macros to simplify formatting and ensure consistency.
+
+<BR></P>
+
+<P>Macros take advantage of one of the UNIX system's distinguishing characteristics&#151;the ability to build complex processes from basic (primitive) units. A macro is nothing more than a series of troff requests, specified and named, that perform a 
+special formatting task.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The expression &quot;troff request&quot; is often used as a synonym for troff primitive. When I say &quot;troff request,&quot; I mean any or all of the facilities provided by troff: primitives, escape 
+
+sequences, strings, registers, and special characters.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Macros can be simple or complex, short or long, straightforward or cryptic. For example, a new paragraph macro might entail
+
+<BR></P>
+
+<PRE>.sp .5
+
+.ti .5i</PRE>
+
+<P>This produces spacing of half a line space (nroff) or half an em (troff) between paragraphs, and indents the first line of each paragraph half an inch.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You can use just about any unit of measurement you want&#151;inches, centimeters, points, picas&#151;as long as you specify the units.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Macro names consist of a period followed by one or two characters. Traditionally, these characters are uppercase, to distinguish them from primitives. (The me package is the exception to this rule.) The paragraph macro above could be called .P or .PP or 
+
+.XX.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> In general, macro names, like primitive names, are mnemonic; there's some relationship, however farfetched, between the macro name and its function. Thus .P or .PP would be reasonable names for a 
+paragraph macro, and .XX wouldn't.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Macros are invoked in a text file by typing their names. (The period must be in the first position on the line.) Macros can also be invoked with an apostrophe (single quote) instead of a period as the first character. This delays processing of the macro 
+
+until the current line has been filled.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>A Heading Macro, Dissected and Explained</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A fairly straightforward example of a macro is that centered heading I mentioned earlier. To create it, you need to provide spacing information before and after the heading, font information, size information, and position information (centering).
+
+<BR></P>
+
+<P>You could do this as follows:
+
+<BR></P>
+
+<PRE>.sp 2    \&quot;space before the heading
+
+.ce 99   \&quot;turns on centering for the next 99 lines
+
+.        \&quot;to accommodate headings that might start 
+
+.        \&quot;out as 1 line and then get longer
+
+.ft HB   \&quot;changes the font to Helvetica Bold
+
+.ps 14   \changes the point size to 14 points
+
+.vs 16   \&quot;changes vertical spacing to 16 points
+
+first line of heading
+
+second line of heading (optional)
+
+third line of heading (optional)
+
+.sp      \&quot;space after the heading
+
+.ce 0    \turns off centering
+
+.ft      \&quot;returns to default font
+
+.ps      \returns to default point size
+
+.vs      \&quot;returns to default vertical space</PRE>
+
+<P>That simple series of troff primitives illustrates several important points.
+
+<BR></P>
+
+<P>Most important, it is full of comments. Comments are identified by the sequence.\&quot;
+
+<BR></P>
+
+<P>Note, however, that you can have as many spaces as you want between the initial period and the backslash. In this way, you can put a comment on a line by itself or you can add a comment at the end of a line of troff requests. You can use spaces to line 
+
+up your comments so they're easy to read.
+
+<BR></P>
+
+<P>Another useful technique, illustrated in the sample above might be called generalization or thinking ahead. Instead of providing for a 1-line heading with a simple .ce, which centers the next line of text, the sample code turns centering on by 
+requesting .ce 99 (which centers the next 99 lines of text). Most headings are not much longer than that. After the heading lines are specified, the code turns centering off with a .ce 0.
+
+<BR></P>
+
+<P>All of that code could be combined into a single pair of macros, called .H1 (for first-level heading) and .HE (for heading end), so that all you need type is
+
+<BR></P>
+
+<PRE>.H1
+
+heading
+
+.HE</PRE>
+
+<P>A big improvement!
+
+<BR></P>
+
+<P>But wait. What if the heading came near the bottom of the page? There's nothing in the .H1 macro to prevent the heading from printing all by itself just before a page break. You need at least three lines of text after the heading. Fortunately there's a 
+
+troff primitive trained for just this job&#151;.ne.
+
+<BR></P>
+
+<P>.ne (for need) says &quot;I need the number of lines specified right after me or else I'm going to start a new page.&quot; (This is similar to the &quot;Keep with Next&quot; feature of the better word processors and desktop publishing software.) 
+Perfect. How many lines do you need? Three (so there will be at least three lines of text after the heading), plus one for the heading itself, two more for the spaces before the heading, and one last line for the space after the heading. So a real working 
+
+version of the sample heading macro might have .ne 7 at the top.
+
+<BR></P>
+
+<P>This may seem like a lot of detail. (It gets worse.) If all you want to do is use a macro package to format documents, you may not want to learn how macros work. But, even if you have no intention of writing a macro yourself, it can be useful to 
+understand how they work. (It can save you a lot of debugging time.) The more you know about the way macros are written, the easier it is to format a document.
+
+<BR></P>
+
+<P>What else might be done with a heading macro like .H1? Well, most often it would be combined with the .HE macro, so all you must type is
+
+<BR></P>
+
+<PRE>.H1 &quot;heading&quot;</PRE>
+
+<P>Simple for the user, a bit harder for the macro writer.
+
+<BR></P>
+
+<P>To provide this kind of service, the .H1 macro would have to allow an argument. (An argument provides additional information for the macro or primitive&#151;like the 7 specified for the .ne primitive. The section &quot;Arguments,&quot; later in this 
+chapter goes into more detail.)
+
+<BR></P>
+
+<P>An argument is coded in a special way. troff recognizes $1 as the first argument following the invocation of the macro. (This is a common UNIX convention.) There can be several (up to nine) arguments to a single macro (again, a common UNIX convention).
+
+<BR></P>
+
+<P>The code would look something like this:
+
+<BR></P>
+
+<PRE>.ne 7     \&quot;need 7 spaces on page or start new page
+
+.sp 2     \&quot;space down 2 spaces before the heading
+
+.ce 99    \&quot;turn centering on
+
+\f(HB\s+2\\$1\fP\s0
+
+.         \&quot;the font is Helvetica Bold, 2 points larger than 
+
+.         \&quot;the body type, the heading itself - $1 -and then return to
+
+.         \&quot;previous font and default point size
+
+.ce 0     \&quot;turn centering off
+
+.sp       \&quot;space down after the heading</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Don't worry about all the backslashes just yet. They are explained in the section &quot;Arguments,&quot; too. For now, just concentrate on the code and the comments.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>This macro is beginning to get complicated. (That means it's beginning to look like the kind of macro you'll see in a macro package.) But all it really says is the same old thing in a different way. UNIX is famous for providing 75 ways to do everything. 
+
+troff code is no exception to this rule.
+
+<BR></P>
+
+<P>In the example above, the font change is accomplished by an escape sequence (\f(HB), instead of the .ft primitive. The point size is accomplished the same way (\s+2 instead of .ps), but note that a relative point size&#151;the current point size plus 
+2&#151;is specified. Next comes the heading itself, the first argument to .H1, specified as $1.
+
+<BR></P>
+
+<P>To return to the previous font, use the escape sequence \fP. In many cases, \f1 works just as well. \f1 returns you to the default body type. To return to your original point size, use \s0 (or \s-2). \s0 returns you to the default point size. Since you 
+
+don't always know what this is, \s0 can be very useful.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> When you use a heading macro, make a habit of surrounding the heading with quotation marks, even if it's a one-word heading. If you forget the quotes, your heading will be exactly one word long. troff 
+simply disregards the rest of the line.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>There's just one more concept you need: conditional execution (if statements). Details on conditional statements can be found later in this chapter in the section, &quot;Conditional Statements.&quot; How would that work with the heading macro?
+
+<BR></P>
+
+<P>For one thing, you could change the macro name to plain .H and then use an argument to specify the heading level.
+
+<BR></P>
+
+<PRE>.H 1 &quot;first-level heading&quot;
+
+.H 2 &quot;second-level heading&quot;
+
+.
+
+.
+
+.
+
+.H 7 &quot;seventh-level heading&quot;</PRE>
+
+<P>And this is just what most macro packages do. They provide a general heading macro, and you supply the level and the text for the heading.
+
+<BR></P>
+
+<P>What would the code look like?
+
+<BR></P>
+
+<PRE>if \\$1 1 {     \&quot;if the heading level is 1, do everything within the
+
+.               \&quot;curly braces; otherwise skip everything within them
+
+.
+
+.
+
+.
+
+\f(HB\s+2\\$fP\s0
+
+.
+
+.
+
+.
+
+}</PRE>
+
+<P>Similarly,
+
+<BR></P>
+
+<PRE>if \\$1 2 {</PRE>
+
+<P>for a second-level heading, and so on.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Number Registers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Number registers are locations that store values. They store only whole numbers which can, but need not, have units attached to them. There are three things you can do with a number register:
+
+<BR></P>
+
+<UL>
+
+<LI>set (or define or initialize) it
+
+<BR>
+
+<BR></LI>
+
+<LI>interpolate it (that is, examine the contents and, optionally, compare the contents to a specified number or even to the contents of a different number register)
+
+<BR>
+
+<BR></LI>
+
+<LI>remove it
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Number registers are used very frequently in macro definitions. They contain such information as line length, page offset, current font number, previous font number, current indent, current list item number, and so on.
+
+<BR></P>
+
+<P>For example, if you're formatting an automatic list (with mm), you would find the following information in number registers: current indent; current nesting level (That is, is the list a list-within-a-list?); item number; format of item number (that is, 
+
+Arabic, uppercase roman numeral, lowercase roman numeral, uppercase alphabetic, or lowercase alphabetic).
+
+<BR></P>
+
+<P>Every time troff processes a .LI, the number registers that control these characteristics are interpolated. Some of them (the list item number, for example) are also incremented.
+
+<BR></P>
+
+<P>This information can be useful if you are formatting what I call a &quot;discontinuous list&quot; (a list that has ordinary text between two of the list items).
+
+<BR></P>
+
+<P>Before you insert the ordinary text, you must end the current list. When you want to continue the list, another .AL and .LI will start the list at 1. However, you want it to start at 5. If you know which number register stores this information, you can 
+
+reset it.
+
+<BR></P>
+
+<P>To set a number register:
+
+<BR></P>
+
+<PRE>.nr a 0
+
+.nr aa 0
+
+.nr AA 1i
+
+.nr b +1i</PRE>
+
+<P>The units are optional&#151;and very tricky. If you specify a unit of measurement (called a scaling factor) with a number register, the value is stored by troff in troff units (u), no matter what unit you specify. Thus, (for a 300dpi device) 1i is 
+stored as 300u. When you add 1 to the register, you are adding 1 troff unit&#151;unless you specify units. Note the following:
+
+<BR></P>
+
+<PRE>.nr x 21    \&quot;has a value of 600u
+
+.nr x +1    \&quot;now has a value of 601u
+
+.nr x 2i   \&quot;has a value of 600u
+
+.nr x +1   \&quot;now has a value of 900u</PRE>
+
+<P>You also have the option of specifying the increment/decrement to the register when you define it:
+
+<BR></P>
+
+<PRE>.nr b 10 1
+
+.nr bb 0 2</PRE>
+
+<P>Note that you do not specify whether 1 (in the first instance) or 2 (in the second instance) is to be an increment or a decrement. That is done when you interpolate the register.
+
+<BR></P>
+
+<P>To interpolate the contents of a number register:
+
+<BR></P>
+
+<PRE>\\na       \&quot;one-character name
+
+\\n(aa     \&quot;two-character name
+
+\\n+a      \&quot;increments register b
+
+\\n-(bb    \&quot;decrements register bb</PRE>
+
+<P>Number registers contain numbers. They are often used in arithmetic expressions:
+
+<BR></P>
+
+<PRE>.if \\na&lt;1
+
+.if \\na=\\nb
+
+.if \\na+\\nb&lt;\\nc</PRE>
+
+<P>There is another arithmetic expression, common in troff, that looks unfinished:
+
+<BR></P>
+
+<PRE>.if \\na         \&quot;if a is greater than 0
+
+.if \\na-\\nb    \&quot;if a minus b is greater than 0
+
+.if !\\na        \&quot;if a is not greater than 0</PRE>
+
+<P>To increment or decrement a number register, use
+
+<BR></P>
+
+<PRE>.nr a \\na+1
+
+.nr a \\na-1</PRE>
+
+<P>(Note that you don't use an equal sign when you set a register.)
+
+<BR></P>
+
+<P>You can define a number register in terms of another number register (or two):
+
+<BR></P>
+
+<PRE>.nr z (\\nx+\\ny)</PRE>
+
+<P>Toward the end of this chapter there are two tables of number registers predefined by troff. You will not want to use those names for your own number registers. If you are working with a macro package like ms or mm, however, you must also check the 
+number registers used by your macro package because you don't want to overwrite the contents of the number register that numbers lists or stores indents. 
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>Using Number Registers for Automatic Numbering</B>
+
+<BR>
+
+<BR>Every now and then you work on a document that cries out for automatic numbering. The examples that come to mind (because they're documents I've worked on) are storyboards for training materials. Each &quot;board&quot; represents a screen (in 
+computer-based tutorials) or a viewgraph (in ordinary courses). Each board consists of graphics, text, and possibly animation or sound instructions.
+
+<BR>
+
+<BR>I've found that you need to number the boards, both for your own convenience and to make things simple for your reviewers. I've also found that the order of the boards changes with depressing frequency.
+
+<BR>
+
+<BR>If you explicitly number the boards, you have to explicitly change the numbers every time you switch 7 and 8 or 30 and 54. This is not fun and not an efficient way to spend your time.
+
+<BR>
+
+<BR>You can use number registers to provide automatic numbers for the boards. (You can also write an awk program, but, if you don't know awk, this isn't an efficient solution either.)
+
+<BR>
+
+<BR>To use number registers for automatic numbering, do the following:
+
+<OL>
+
+<LI>Select a number register that is not being used by troff or by your macro package. (For this example, I'm using vv.)
+
+<BR>
+
+<BR></LI>
+
+<LI>Initialize the register at the top of your file: .nr vv 0.
+
+<BR>
+
+<BR></LI>
+
+<LI>Whenever you want a number, interpolate vv : \n(vv+1. (Remember, you're doing this in your text file. You don't have to hide the register from troff.)
+
+<BR>
+
+<BR></LI></OL>
+
+You can do this even more elegantly by defining an autoincrementing/decrementing number register:
+
+<BR>
+
+<BR>.nr vv 0 1
+
+<BR>
+
+<BR>The initial value in vv is 0; the autoincrement/decrement is 1. At this point, troff doesn't know whether you want the register contents to be incremented or decremented. You specify that when you interpolate the register.
+
+<BR>
+
+<BR>\n+(vv
+
+<BR>
+
+<BR>(The plus sign tells troff to increment the register.)
+
+<BR>
+
+<BR>You can refine this to include a unit number, giving you compound folios, but this is practical only if you're using a macro package with chapter numbers (or some similar device like section or unit numbers) and you're using these numbers in your 
+files.
+
+<BR>
+
+<BR>Assuming you're using chapter numbers and the register for chapter numbers is cn, you can specify your board numbers like this:
+
+<BR>
+
+<BR>.\n(cn-\n+(vv
+
+<BR>
+
+<BR>If your chapter numbers are stored in a string called cn, do this:
+
+<BR>
+
+<BR>\*(cn-\n+(vv
+
+<BR>
+
+<BR>There is one disadvantage to using automatic numbering in this way. It's the same disadvantage you may have experienced with mm's automatic lists. When you look at your file, you have no idea what your current step (or board) is. And, if you have to 
+refer to a previous step or board, you probably end up writing &quot;Repeat Steps 1 through ???,&quot; printing your file, and inserting the correct numbers later.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Sometimes you need to remove registers. This is especially necessary if your macros use a large number of registers. It's a good idea to get into the habit of removing temporary registers as soon as you're done with them. To remove a register, use the 
+.rr primitive:
+
+<BR></P>
+
+<PRE>.rr a     \&quot;remove register a</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Defined Strings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A defined string is a set of characters to which you assign a name. The string is always treated as a literal, and you cannot perform any arithmetic operation on it. You can, however, compare it to another string, or even compare the string 
+&quot;2&quot; to the contents of a number register.
+
+<BR></P>
+
+<P>A string definition looks a lot like a macro definition:
+
+<BR></P>
+
+<PRE>.ds name value
+
+.ds name &quot;value that has a lot of separate words in it
+
+.dsU U\s-1NIX\s0
+
+.dsUU &quot;UNIX Unleashed</PRE>
+
+<P>String names consist of one or two characters. The names come from the same pool as macro names, so be careful to choose a unique name for your string. In the examples above, note that the .ds can (but does not have to be) followed by a space. Note also 
+
+that you use only the opening quotation marks when your string consists of multiple words. (If you forget and include a closing quotation mark, it will be printed as part of the string).
+
+<BR></P>
+
+<P>To invoke the string:
+
+<BR></P>
+
+<PRE>\\*a      \&quot;one-character name
+
+\\*(aa    \&quot;two-character name</PRE>
+
+<P>Sometimes a string is a better choice than a number register. If you're dealing with alphabetic characters, a string may be your only choice.
+
+<BR></P>
+
+<P>Consider the following: You want to define something to hold the number of your current chapter. If you use a number register, you can increment these numbers very easily. You'll only have to set the value once, at the beginning of the book. Unless you 
+
+have appendixes. If you have appendixes, you'll have to reset to 1 when you reach Appendix A, and then you'll have to translate that number into a letter.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To use a number register for chapter numbers, use .af (alter format) to produce uppercase letters for your appendixes. .af recognizes the following formats:
+
+<BR>
+
+<BR>1  Arabic numerals
+
+<BR>
+
+<BR>i  lowercase roman numerals
+
+<BR>
+
+<BR>I  uppercase roman numerals
+
+<BR>
+
+<BR>a  lowercase alphabetic characters
+
+<BR>
+
+<BR>A  uppercase alphabetic characters
+
+<BR>
+
+<BR>To use the letter A in a compound page number (where the number register storing chapter numbers is cn), specify the following:  .af cn A.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Perhaps a string would be simpler. You'll have to redefine the string at the beginning of each chapter, but you won't have to do any diddling.
+
+<BR></P>
+
+<P>Strings can be used as general purpose abbreviations, although this is not their primary purpose, nor even the best use of strings. A better use is to define a string containing the preliminary name of the product you are documenting. Then, when the 
+marketing people finally decide to call their new brainchild &quot;XYZZY Universal Widget,&quot; you don't have to do any searching or grepping to replace the temporary name. You can just redefine the string.
+
+<BR></P>
+
+<P>Define a string near the top of your file as the preliminary name of the product:
+
+<BR></P>
+
+<PRE>.ds Pn &quot;Buzzy     \&quot;code name for product</PRE>
+
+<P>Remember that strings cannot share names with macros.
+
+<BR></P>
+
+<P>When the ugly duckling &quot;Buzzy&quot; becomes the swan &quot;XYZZY Universal Widget,&quot; just change the definition:
+
+<BR></P>
+
+<PRE>.ds Pn &quot;XYZZY Universal Widget     \&quot;official name for product</PRE>
+
+<P>Like macros, strings can have information appended. To add to a string, use the troff primitive .as. Although it's hard to imagine a use for this primitive, consider the following:
+
+<BR></P>
+
+<P>You are documenting three versions of the XYZZY Universal Widget in three separate documents. For the first document, you could add &quot;Version 1.0&quot; to the string:
+
+<BR></P>
+
+<PRE>.as Pn &quot;(Version 1.0)</PRE>
+
+<P>The other versions can be similarly identified in their documents as &quot;Version 2.0&quot; and &quot;Version 3.0.&quot;
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>Listing Names of Existing Macros, Strings, and Number </B><B>Registers</B>
+
+<BR>
+
+<BR>If you are using mm or ms and adding macros to either of these packages, you need to know what names (for macros, strings, and number registers) are available and what names have already been used.
+
+<BR>
+
+<BR>To create a file called sortmac containing the macro names used in mm (assuming mm to be where it ought&#151;namely in /usr/lib/tmac/tmac.m):
+
+<BR>
+
+<BR>grep &quot;^\.de&quot; /usr/lib/tmac/tmac.m | sort | uniq &gt; sortmac
+
+<BR>
+
+<BR>(That code also assumes that you are executing grep from the directory in which you want sortmac to end up.)
+
+<BR>
+
+<BR>Strings are listed pretty much the same way:
+
+<BR>
+
+<BR>grep &quot;^\.ds&quot; /usr/lib/tmac/tmac.m | sort | uniq &gt; sortstr
+
+<BR>
+
+<BR>To list number registers defined in the mm macro package, execute the following sed script in the directory with the macros (/usr/lib/tmac):
+
+<BR>
+
+<BR>sed -n -e 's/.*.nr *\(..\).*/\1/p' tmac.m | sort |uniq &gt; $HOME/sortnum
+
+<BR>
+
+<BR>The standard macro packages should all be in /usr/lib/tmac. The macro filenames are as follows:
+
+<BR>
+
+<BR>tmac.m  mm macros
+
+<BR>
+
+<BR>tmac.s  ms macros
+
+<BR>
+
+<BR>tmac.e  me macros (don't hold your breath looking for this one)
+
+<BR>
+
+<BR>tmac.an  man macros
+
+<BR>
+
+<BR>Remember that troff and nroff&#151;and each macro package&#151;use predefined number registers, and these may not be set within the package.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Getting Started</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>To define a macro, you use the .de primitive and end the definition with two periods. A macro to indent the first line of a paragraph could be defined like this:
+
+<BR></P>
+
+<PRE>.dePX     \&quot;macro to create indented paragraphs, no space between
+
+.ti 3P
+
+..</PRE>
+
+<P>This is a very simple example. A &quot;real&quot; paragraph macro would check to make sure there was room for two or three lines and, if not, go to the next page. Nevertheless, this simple definition illustrates some important points. The macro name can 
+
+consist of one or two characters. If you use a name that's already assigned to a macro, the definition in your text file overrides the definition in a macro package. The macro name follows the .de. It can be separated from the .de by a space, but a space 
+is not necessary.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Although the space following the .de doesn't matter, consistency does. Some-day, you'll want to list and sort your macro definitions, and you can't sort them as easily unless you can rely on a space (or 
+
+no space) between the .de and the macro name.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>A macro definition can include troff primitives and other macros. A brief description of the macro is included on the definition line. This is crucial. You can forget more about macros in two weeks that you can learn in two years. Comment lavishly. And 
+
+make sure you include a comment on the definition line to identify the macro. This helps when you grep for macro definitions and then sort them. 
+
+<BR></P>
+
+<P>There is one more constraint on macro names: A macro cannot have the same name as a defined string. (Macros are perfectly happy sharing names with number registers, however.)
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> By the way, there's no law against giving a macro the same names as a primitive. In fact, it sounds like an excellent April Fool. If you should be foolish enough to try this, bear in mind that the 
+primitive will, for all intents and purposes, cease to exist. All that will remain will be your macro. So make it a good one.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If, instead of defining a new macro, you want to redefine an existing one, then you use the existing macro's name:
+
+<BR></P>
+
+<PRE>.deP
+
+.ti 3P
+
+..</PRE>
+
+<P>If you redefine the .P macro, the old definition is no longer used (although it's still sitting there in the mm macro package). To return to the old definition, you must get rid of your new definition (delete it from the top of your file or delete the 
+file containing the definition).
+
+<BR></P>
+
+<P>The benefit to writing a new macro with a new name is that the old definition is still usable. The drawback is that you're used to typing .P, so you'll probably forget to type .PX when you want to use your new macro.
+
+<BR></P>
+
+<P>In addition to defining a new macro and redefining an existing macro, you can remove a macro, and you can add to an existing macro.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Defining a Macro</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To define a macro, use .de. You can end the definition, as shown above, with .., or you can use the delimiters of your choice, like this:
+
+<BR></P>
+
+<PRE>,deP!!
+
+.ti 3P
+
+!!</PRE>
+
+<P>(I've never actually known anyone who used this form of the definition primitive, but it's there, if you want it. You know how UNIX always provides you with many roads to the same end.)
+
+<BR></P>
+
+<P>Once you have written your macro definition, you can add it to an existing macro package, add it to your own file of new macros, and source the file into your text files with .so, or just put the macro definition in your text file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Creating an add-on file of macros is the least desirable way of incorporating your macros. If your current macro package needs that much help, someone should rewrite the package. The purpose of a macro 
+
+package is to ensure a consistent look to documents prepared with the package. If everyone defines her or his own set of paragraph macros, this purpose is defeated.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Removing a Macro</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To remove a macro, use the .rm primitive:
+
+<BR></P>
+
+<PRE>.rmP</PRE>
+
+<P>Again, the space between the .rm and the macro name is optional.
+
+<BR></P>
+
+<P>This is not something that you do on a whim. Removing a macro requires serious, mature consideration. You might do it if you were experimenting with a better version of an existing macro&#151;a list end macro (.LE) that left the right amount of space 
+after it, for example. Your new, improved macro might be called .lE, or .Le. You could encourage people to use your new macro by removing .LE. (This is unlikely to be wise; you always forget to tell your department head who is working on a weekend on a 
+crucial document, and&#151;well, you can imagine the rest.) A safer way to use your new .Le might be to substitute the definition of .Le for .LE (after it's been tested and found to be truly superior), but to leave the .LE macro definition in the package 
+and remove it at the end of the macro package file. (Even better, you could comment it out.)
+
+<BR></P>
+
+<P>Unless you are very knowledgeable about macros and are in charge of maintaining one or more macro packages, you will never remove a macro.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Renaming a Macro</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To rename a macro, use the .rn primitive:
+
+<BR></P>
+
+<PRE>.rnP Pp</PRE>
+
+<P>As usual, the space between the .rn and the macro name is optional. The space between the old name and the new name is not optional.
+
+<BR></P>
+
+<P>Renaming a macro is almost as serious as removing it. And it can be a great deal more complicated. For example, you might want to fix mm's list macro by adding some space after the .LE. You can do this by renaming. Here's what you do:
+
+<BR></P>
+
+<OL>
+
+<LI>Rename the .LE macro. (.rn LE Le)
+
+<BR>
+
+<BR></LI>
+
+<LI>Define a new .LE.
+
+<BR>
+
+<BR>.deLE     \&quot;This is a new improved version of LE - adds space
+
+<BR>.Le
+
+<BR>.sp .5
+
+<BR>..
+
+<BR>
+
+<BR></LI>
+
+<LI>Invoke .LE as usual.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>The new .LE (which is the old .LE plus a half-line space) takes the place of the old .LE.
+
+<BR></P>
+
+<P>You might think of using .rn so that you could include the .TH (table column heading) macro in a man file. (.TH is the basic title heading macro used in all man files.)
+
+<BR></P>
+
+<P>This seems to be a reasonable idea. If this sort of thing interests you, you can think through the process with me. (Otherwise, skip to &quot;Adding to a Macro.&quot;)
+
+<BR></P>
+
+<P>The first thing to establish is the conditions for each of the .TH macros: When should .TH mean table heading, and when should it mean title?
+
+<BR></P>
+
+<P>That's easy to answer. You want the normal .TH to mean title all the time except following a .TS H. So when do you rename .TH&#151;and which .TH do you rename? And, if you boldly put .rnTH Th in your file, to which .TH does it refer?
+
+<BR></P>
+
+<P>Think about that, and you'll begin to see that maybe .TH is not the ideal candidate for renaming.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Adding to a Macro</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To add to a macro definition, use .am:
+
+<BR></P>
+
+<PRE>.amP
+
+.ne 2     \&quot;of course this isn't the right place for this request
+
+..</PRE>
+
+<P>(Yes, the space after the .am is optional.)
+
+<BR></P>
+
+<P>Adding to a macro, while not a task for beginners, is a lot more straightforward. .am is often used to collect information for a table of contents. Whenever the file has a .H (of any level, or of specified levels) you want to write that information into 
+
+a data file which will be processed and turned into a TOC.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>A Simple Example</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Suppose you've found yourself in the unenviable position of typing a term paper for your child, spouse, or self. It's easy enough to double space the paper&#151;just use .ls 2. But, if you're not using ms, you don't have an easy way of handling long 
+quotes (which are supposed to be single spaced and indented from the left and right). What do you have to do every time you type a long quotation?
+
+<BR></P>
+
+<PRE>.in +1i
+
+.ll -2i
+
+.ls 1</PRE>
+
+<P>And at the end of the quotation, you have to reverse that coding:
+
+<BR></P>
+
+<PRE>.in -1i
+
+.ll +2i
+
+.ls 2</PRE>
+
+<P>Instead of typing those three lines, you could define a .Qb and a .Qe macro. Those two sets of three lines are the definitions. All you need to add is a .deQb (or .deQe) to start the macro definition and two dots to end it. If you want to refine the 
+definition, you can add some space before and after the quotation and a .ne 2 so you don't get one line of the quotation at the bottom of page 5 and the other six lines on page 6:
+
+<BR></P>
+
+<PRE>.deQb
+
+.sp
+
+.ls 1
+
+.ne 2
+
+.in +1i
+
+.ll -2i
+
+..
+
+.deOe
+
+.br
+
+.ls 2
+
+.sp
+
+.ne 2
+
+.in -1i
+
+.ll +2i
+
+..</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> There's no rule that says user-defined macros have to consist of an uppercase character followed by a lowercase character. It just makes things easier when you have guidelines.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>troff</B><B> Copy Mode</B>
+
+<BR>
+
+<BR>troff processes each file twice. The first time, called &quot;copy mode,&quot; consists of copying without much interpretation. There is some interpretation, however. In copy mode, troff interprets the following immediately: the contents of number 
+registers (\n); strings (\*); and arguments (\$1).
+
+<BR>
+
+<BR>You do not want this to happen. troff will find \ns and \*s and \$1s in your macro package file&#151;before the number register or string or argument has any meaningful contents. Fortunately, troff also interprets \\ as \, so you can &quot;hide&quot; 
+these constructs by preceding them with an extra backslash. \\n copies as \n&#151;which is what you want when the macro using that number register is invoked.
+
+<BR>
+
+<BR>Note, however, that this rule does not apply to number registers invoked in your text file. When you invoke a number register in your text file, you want it interpreted then and there. So you don't use the extra backslash.
+
+<BR>
+
+<BR>This seems simple. In fact, it is simple in theory. In practice, it's a horrible nuisance. A glance at a macro package like ms or mm will show you triple, even quad-ruple, backslashes. If you don't enjoy thinking through processes step by painful step, 
+
+you will not enjoy this aspect of macro writing.
+
+<BR>
+
+<BR>troff does not interpret ordinary escape sequences in copy mode. \h, \&amp;, \d are all safe and do not have to be hidden.
+
+<BR>
+
+<BR>During copy mode, troff eliminates comments following \&quot;.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Arguments</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Macros, like other UNIX constructs, can take arguments. You specify an argument every time you type a heading after a .H 1 or a .NH. You specify arguments to primitives, too, like .sp .5 or .in +3P. In a macro definition, arguments are represented by 
+\$1 through \$9. (Yes, you are limited to nine arguments.)
+
+<BR></P>
+
+<P>A couple of examples of arguments are:
+
+<BR></P>
+
+<PRE>.deCo     \&quot;computer output (CW) font
+
+\f(CW\\$1\fP
+
+..
+
+.dePi     \&quot;paragraph indented amount specified by $1
+
+.br
+
+.ne 2
+
+.ti \\$1
+
+..</PRE>
+
+<P>(Note that you must hide the argument (with the extra backslash) in order to survive copy mode.)
+
+<BR></P>
+
+<P>If you omit an argument, troff treats it as a null argument. In the case of the .Co macro, nothing at all would happen. In the case of the .Pi macro, the paragraph would not be indented. If you specify too many arguments (which would happen if you had 
+.Co Press Enter in your file), troff merrily throws away the extras. You'd get &quot;Press&quot; in CW font; &quot;Enter&quot; would disappear. Use double quotation marks (.Co &quot;Press Enter&quot;) to hide spaces from troff.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Conditional Statements</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A conditional statement says, &quot;Do this under certain (specified) conditions.&quot; It may add, &quot;and under any other conditions, do that.&quot; You know the conditional statement as an &quot;if&quot; or an &quot;if-else.&quot; The troff 
+versions are .if (if) and .ie (if-else). The troff if has a different syntax from the shell if, but the principle is the same.
+
+<BR></P>
+
+<P>A simple if is coded like this:
+
+<BR></P>
+
+<PRE>.if condition simple-action
+
+.if condition \{
+
+complex-action
+
+\}</PRE>
+
+<P>The backslash-brace combinations delimit the actions to be taken when the condition is true.
+
+<BR></P>
+
+<P>The if-else works like this:
+
+<BR></P>
+
+<PRE>.ie condition simple-action
+
+.el simple-action
+
+.ie condition \{
+
+complex-action
+
+\}
+
+.el \{
+
+complex-action
+
+\}</PRE>
+
+<P>You use the conditional statement whenever you want to test for a condition. Is this an even page? Okay, then use the even-page footer. Are these files being nroffed (as opposed to troffed)? Okay, then make the next few lines bold instead of increasing 
+
+the point size.
+
+<BR></P>
+
+<P>Believe it or not, troff has four built-in conditions to test for just those conditions:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>o</P>
+
+<TD>
+
+<P>current page is odd</P>
+
+<TR>
+
+<TD>
+
+<P>e</P>
+
+<TD>
+
+<P>current page is even</P>
+
+<TR>
+
+<TD>
+
+<P>t</P>
+
+<TD>
+
+<P>file is being formatted by troff</P>
+
+<TR>
+
+<TD>
+
+<P>n</P>
+
+<TD>
+
+<P>file is being formatted by nroff</P></TABLE>
+
+<P>The odd-even conditions simplify writing page header and footer macros. You can simply say:
+
+<BR></P>
+
+<PRE>.if o .tl '''%'     \&quot;if odd - page no. on right
+
+.if e .tl '%'''     \&quot;if even - page no. on left</PRE>
+
+<P>The single quotation marks delimit fields (left, center, and right). Thus, '''%' places the page number on the right side of the page and '%''' places it on the left side.
+
+<BR></P>
+
+<P>You could do the same thing with .ie:
+
+<BR></P>
+
+<PRE>.ie o .tl '''%'     \&quot;if odd - page no. on right
+
+.el .tl '%'''       \&quot;else if even - page no. on left</PRE>
+
+<P>The .if, even when it requires a seemingly endless list of conditions, is easier to use.
+
+<BR></P>
+
+<P>Suppose you are writing that heading macro discussed earlier in this chapter. You want to specify different spacing and different point sizes, depending on the level of the heading. You might start like this:
+
+<BR></P>
+
+<PRE>.deH
+
+.if \\$1=1 \{
+
+.bp
+
+\s14\f(HB\\$1\fP\s0
+
+.sp
+
+\}
+
+.if \\$1=2 \{
+
+.sp 2
+
+\s12\f(HB\\$1\fP\s0
+
+.sp
+
+|}
+
+.
+
+.
+
+.</PRE>
+
+<P>You can compare strings, but you use delimiters instead of an equal sign:
+
+<BR></P>
+
+<PRE>.if &quot;\\$1&quot;A&quot;
+
+.if '\\$2'Index'</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> The bell character, made by pressing Ctrl+G, is often used as a delimiter because it's not much use in a text file. It looks like ^G in a file, but don't be fooled. This is a non-printing character. 
+Before you print out every macro file on your system, check them for ^Gs. Unless you want to spend a lot of time drawing little bells or printing ^G, try substituting another character for the bell before you print. (Try this on small portions of the file 
+
+at a time.)
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>In addition to comparing numbers and strings, you can also test for inverse conditions. troff recognizes the exclamation mark (!) as the reverse of an expression, for example:
+
+<BR></P>
+
+<PRE>.if !o        \&quot;same as .if e
+
+.if !\\$1=0   \&quot;if $1 is not equal to 0
+
+.if !&quot;\\$1&quot;&quot;</PRE>
+
+<P>(The last example above tests for a null argument.)
+
+<BR></P>
+
+<P>Be careful when you use !. It must precede the expression being reversed. For example, to check for an unequal condition, you must write .if !\\na=\\nb. You cannot write .if \\na!=\\nb.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>Units of Measurement</B>
+
+<BR>
+
+<BR>troff allows you to use just about any units you want (except rods and kilometers):
+
+<BR>
+
+<BR>i&#151;inch          p&#151;point      u&#151;troff unit
+
+<BR>
+
+<BR>c&#151;centimeter    m&#151;em         v&#151;verticaspace
+
+<BR>
+
+<BR>P&#151;Pica          n&#151;en
+
+<BR>
+
+<BR>Unfortunately, it is impossible to be 100 percent certain of the default units for any given primitive. For the most part, the troff default for horizontal measurements is the em and for vertical measurements is the line space. The nroff default for 
+horizontal measurement is device-dependent, but it's usually 1/10 or 1/12 of an inch.
+
+<BR>
+
+<BR>If you use arithmetic expressions, you will soon find that none of those defaults work the way they are supposed to. The culprit is the troff unit (u). A troff unit is about 1/300 of an inch (for a 300 dpi printer). Because this is a very much smaller 
+
+unit than any of the others troff accepts, you can expect loony output from time to time. (Your text will print, but not on the paper.)
+
+<BR>
+
+<BR>Always specify units.
+
+<BR>
+
+<BR>If you want to divide 37 inches by 2, you are far safer doing the arithmetic in your head and specifying 18.5P than letting troff decide how to process 37P/2. troff will not do what you expect. troff will divide 37 picas by 2 ems. You will not like the 
+
+result. If, in desperation, you try 37/2P, you will still not like the result because troff will divide 37 ems by 2 picas. You have to specify 37P/2u. The u acts as a sort of pacifier and lets troff perform the arithmetic correctly.
+
+<BR>
+
+<BR>When you're unsure of the units, use troff units. It's sort of like adding backslashes. A few more will probably fix the problem.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Arithmetic and Logical Expressions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As you see, conditional statements are often combined with arithmetic expressions. You can also use logical expressions. troff understands all of the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>+ - * /
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>plus, minus, multiplied by, divided by
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>%
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>modulo
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>&gt; &lt;
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>greater than, less than
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>&gt;= &lt;=
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>greater than or equal to, less than or equal to
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>=
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>equal (== is a synonym)
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>&amp;
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>AND
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>:
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>OR</PRE></TABLE>
+
+<P>Unlike other UNIX programs, troff has no notion of precedence. An expression like \\$1+\\$2*\\$3-\\$4 is evaluated strictly from left to right. Thus, to troff, 2+3*5-10\2 equals 7.5. This is hard to get used to and easy to forget.
+
+<BR></P>
+
+<P>Always specify units.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Diversions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Diversions let you store text in a particular location (actually a macro that you define), from which the text can be retrieved when you need it. Diversions are used in the &quot;keep&quot; macros and in footnotes.
+
+<BR></P>
+
+<P>The diversion command is .di followed by the name of the macro in which the ensuing text is to be stored. A diversion is ended by .di on a line by itself.
+
+<BR></P>
+
+<P>Diverted text is processed (formatted) before it is stored, so when you want to print the stored text, all you have to do is specify the macro name. Since there is virtually no limit either to the number of diversions you can have in a file or to the 
+length of any diversion, you can use diversions to store repeated text.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Storing repeated text in a diversion isn't necessarily a good idea. You can avoid typing the repeated text just as easily by putting it in a file and reading that file into your text file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For example, suppose the following text is repeated many, many times in your document:
+
+<BR></P>
+
+<PRE>.AL 1
+
+,LI
+
+Log in as root.
+
+.LI
+
+Invoke the UNIX system administrative menu by
+
+typing \f(CWsysadm\fP and pressing Enter.
+
+.P
+
+The system administrative menu is displayed.
+
+.LI
+
+Select \f(CWEquine Systems\fP by highlighting
+
+the line and pressing Enter.
+
+.P
+
+The Equine Systems menu is displayed</PRE>
+
+<P>You could store this text in .Em (for Equine Menu) by prefacing it with .diEm and ending it with .di.
+
+<BR></P>
+
+<P>Note that your diversion contains an unterminated list. If this is likely to cause problems, add .LE to the diverted text.
+
+<BR></P>
+
+<P>To print the Equine Systems text, just put .Em in your file.
+
+<BR></P>
+
+<P>In addition to .di, there is a .da (diversion append) primitive that works like .am. .da is used to add text to an existing diversion. It can be used over and over, each time adding more text to the diversion. (To overwrite the text in a given 
+diversion, just define it again with a .diEm.) The .am primitive can be used, like .am, to create TOC data.
+
+<BR></P>
+
+<P>You can even have a diversion within a diversion. The &quot;inside&quot; diversion can be used on its own, as well.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Traps</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>troff provides several kinds of traps: page traps (.wh and .ch); diversion traps (.dt); and input line traps (.it).
+
+<BR></P>
+
+<P>Page traps usually invoke macros. For example, when troff gets near the bottom of a page, the trap that produces the page footer is sprung. A simple illustration of this is the following.
+
+<BR></P>
+
+<P>Suppose you wanted to print the current date one inch from the bottom of every page in your document. Use the .wh primitive:
+
+<BR></P>
+
+<PRE>.deDa                   \&quot;define date macro
+
+\\n(mo/\\n(dy/18\\n(yr  \&quot;set date
+
+..
+
+.wh 1i Da               \&quot;set the trap</PRE>
+
+<P>The order of the arguments is important.
+
+<BR></P>
+
+<P>To remove this kind of trap, invoke it with the position, but without the macro name: .wh 1i.
+
+<BR></P>
+
+<P>The .ch primitive changes a trap. If you wanted the date an inch from the bottom of the page on page 1 of your document, but an inch and a half from the bottom of the page on all subsequent pages, you could use .ch Da 1.5i.
+
+<BR></P>
+
+<P>(Note that the argument order is different.)
+
+<BR></P>
+
+<P>Diversion traps are set with the .dt primitive, for example:
+
+<BR></P>
+
+<PRE>.dt 1i Xx</PRE>
+
+<P>This diversion trap, set within the diversion, invokes the .Xx macro when (if) the diversion comes within one inch of the bottom of the page.
+
+<BR></P>
+
+<P>Input text traps are set with the .it primitive. This trap is activated after a specified number of lines in your text file.
+
+<BR></P>
+
+<P>There is a fourth kind of trap, though it isn't usually thought of as a trap. This is the end macro (.em) primitive. .em is activated automatically at the end of your text file. It can be used to print overflow footnotes, TOCs, bibliographies, etc.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=4><B>Environments</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The .ev (environment) primitive gives you the ability to switch to a completely new and independent set of parameters, such as line length, point size, font, and so forth. It lets you return to your original set of parameters just as easily. This 
+process is known as environment switching. The concept is used in page headers, for example, where the font and point size are always the same&#151;and always different from the font and point size in the rest of the document.
+
+<BR></P>
+
+<P>Three environments are available: ev 0 (the normal, or default, environment); ev 1; and ev 2.
+
+<BR></P>
+
+<P>To switch from the normal environment, just enter .ev 1 or .ev 2 on a line by itself and specify the new parameters. These new parameters will be in effect until you specify a different environment. To return to your normal environment, use .ev or .ev 
+0.
+
+<BR></P>
+
+<P>You could use environment switching instead of writing the .Qb and .Qe macros. Here's how it would work:
+
+<BR></P>
+
+<PRE>.ev 1     \&quot;long quote begins
+
+.sp
+
+.ls 1
+
+.in +1i
+
+.ll -2i
+
+text of quotation
+
+.sp
+
+.ev</PRE>
+
+<P>Environments are often used with diversions or with footnotes where the text is set in a smaller point size than body type. It is to accommodate diversions within diversions that the third environment is provided.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Debugging</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Debugging macros is slow and often painful. If you have a version of troff that includes a trace option, use it&#151;but be warned: It produces miles of paper. If you don't have a trace option, you can use the .tm primitive (for terminal message) to 
+print the value of a number register at certain points in your file. The value is sent to standard error, which is probably your screen. Use .tm like this:
+
+<BR></P>
+
+<PRE>.tm Before calling the Xx macro, the value of xX is \n(xX.
+
+.Xx
+
+.tm After calling the Xx macro, the value of xX is \n(xX.</PRE>
+
+<P>(Note that you don't hide the number register from copy mode because you put these lines right in your text file. Remember to delete them before the document goes to the printer.)
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B><I>troff</I></B><B> Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Sometimes you have to look at troff output. It's not a pretty sight, but after the first few files, it begins to make sense. Here's the troff code produced by a file with two words in it: UNIX Unleashed.
+
+<BR></P>
+
+<P>(By the way, use troff -o &gt; outputfile to produce this output.)
+
+<BR></P>
+
+<PRE>x T post
+
+x res 720 1 1
+
+x init
+
+v0
+
+p1
+
+x font 1 R
+
+x font 2 I
+
+x font 3 B
+
+x font 4 BI
+
+x font 5 CW
+
+x font 6 H
+
+x font 7 HI
+
+x font 8 HB
+
+x font 9 S1
+
+x font 10 S
+
+s10
+
+f1
+
+H720
+
+V120
+
+cU
+
+72N72I33Xw97U72n50l28e44as39h50e44dn120 0
+
+x trailer
+
+v7920
+
+x stop</PRE>
+
+<P>If you look hard, you can pick out the text in the long line. The numbers are horizontal motions reflecting the width of the letters. You can also see where the font positions are defined. The s10 on a line by itself is the point size. f1 is the font in 
+
+position 1 (in this case, Times-Roman). The H and V numbers following the font definition specify the starting horizontal and vertical position on the page.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>PostScript Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>PostScript output is a little easier to read, but the set-up lines are endless. Where UNIX Unleashed generates 24 lines of troff code, the same two words generate more than 800 lines of PostScript code. The significant lines are at the beginning and the 
+
+end. The last 17 lines of the PostScript file are as follows:
+
+<BR></P>
+
+<PRE>setup
+
+2 setdecoding
+
+%%EndSetUp
+
+%%Page: 1 1
+
+/saveobj save def
+
+mark
+
+1 pagesetup
+
+10 R f
+
+(\255 1 \255)2 166 1 2797 490 t
+
+(UNIX Uleashed) 1 695 1 720 960 t
+
+cleartomark
+
+showpage
+
+saveobj restore
+
+%%EndPage: 1 1\%%Trailer
+
+done
+
+%%Pages: 1
+
+%%DocumentFonts: Times-Roman</PRE>
+
+<P>Font and point size are specified as 10 R f (10 point Roman). Text is enclosed in parentheses (which makes it easy to find). The showpage is crucial. Every page in your document needs a showpage in the PostScript file. Occasionally, PostScript output is 
+
+truncated and the last showpage is lost. No showpage means no printed page.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>Hints for Creating a Macro Package</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The following suggestions may be helpful. Most of them are very obvious, but, since I've made all these mistakes myself at one time or another, I pass on this advice:
+
+<BR></P>
+
+<P>Starting from scratch is necessary if you intend to sell your macro package. If you just want to provide a nice format for your group, use ms or mm as a basis. Remove all the macros you don't need and add the ones you do need (lists from mm, if you're 
+using ms, boxes from ms, if you're using mm). Don't reinvent the wheel. Copy, steal, and plagiarize.
+
+<BR></P>
+
+<P>Make sure to include autoindexing and automatic generation of master and chapter TOCs.
+
+<BR></P>
+
+<P>Write a format script for your users to send their files to the printer, preferably one that will prompt for options if they aren't given on the command line.
+
+<BR></P>
+
+<P>Write&#151;and use&#151;a test file that includes all the difficult macros you can think of (lists, tables, headers and footers, etc.).
+
+<BR></P>
+
+<P>Try to enlist one or two reliable friends to pre-test your package.
+
+<BR></P>
+
+<P>You'll never be able to anticipate all the weird things users do to macro packages. Start with a reasonable selection. Save lists within tables within diversions within lists for later.
+
+<BR></P>
+
+<P>Don't replace your current macro package with the new one while people are working. Do it at night or after sufficient warning.
+
+<BR></P>
+
+<P>Make sure the old macro package is accessible to your users (but not easily accessible, or they won't use your new one).
+
+<BR></P>
+
+<P>Don't use PostScript shading if most of your documents are Xeroxed rather than typeset. Copiers wreak havoc on shading. Also, there's always one person in your group who doesn't use a PostScript printer.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>Beyond Macro Packages</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you've gone to the trouble of creating an entire macro package, you want it to be easy to use, and you want it to do everything your users could possible desire. This means that you should provide users with a format script. Although actual programs 
+
+for these tools are beyond the scope of this chapter, the following hints should get you started:
+
+<BR></P>
+
+<UL>
+
+<LI>The command format, entered with no arguments, should prompt users for each option; a version for experienced users should allow options to be entered on the command line.
+
+<BR>
+
+<BR></LI>
+
+<LI>Your format program should invoke all the preprocessors (tbl, eqn, pic, and grap). If the file to be formatted has no pics or graps, no harm is done and very little time is wasted.
+
+<BR>
+
+<BR></LI>
+
+<LI>Your program should allow users to specify the standard macro packages as well as your shiny new one. (But make your shiny new one the default.)
+
+<BR>
+
+<BR></LI>
+
+<LI>Users should be able to specify a destination printer (assuming you have more than one printer available). Useful additional destinations are null and postscript.
+
+<BR>
+
+<BR></LI>
+
+<LI>Users should not have to specify anything (or know anything) about a postprocessor.
+
+<BR>
+
+<BR></LI>
+
+<LI>Users should see a message when their file is done processing (file sent to printer is adequate).
+
+<BR>
+
+<BR></LI>
+
+<LI>Users should be able to select portrait or landscape page orientation&#151;and possibly page size.
+
+<BR>
+
+<BR></LI>
+
+<LI>Your format command should be documented, and all your users should have a copy of the documentation. (If you can arrange to have your documentation added to UNIX's online manual, accessed with the man command, so much the better.)
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=4><B>Predefined Number Registers (</B><B><I>nroff/troff</I></B><B>)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Table 26.1 lists the number registers that are predefined by troff. You can change the contents of these registers, but, whatever you do, don't use these names for your own number registers.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 26.1. Predefined Number Registers</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Register Name</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>%</P>
+
+<TD>
+
+<P>current page number</P>
+
+<TR>
+
+<TD>
+
+<P>ct</P>
+
+<TD>
+
+<P>character type (set by \w)</P>
+
+<TR>
+
+<TD>
+
+<P>dl</P>
+
+<TD>
+
+<P>(maximum) width of last completed</P>
+
+<TR>
+
+<TD>
+
+<P>dn</P>
+
+<TD>
+
+<P>height (vertical size) of last completed diversion</P>
+
+<TR>
+
+<TD>
+
+<P>dw</P>
+
+<TD>
+
+<P>current day of the week (1-7)</P>
+
+<TR>
+
+<TD>
+
+<P>dy</P>
+
+<TD>
+
+<P>current day of the month (1-31)</P>
+
+<TR>
+
+<TD>
+
+<P>ln</P>
+
+<TD>
+
+<P>output line number</P>
+
+<TR>
+
+<TD>
+
+<P>mo</P>
+
+<TD>
+
+<P>current month (1-12)</P>
+
+<TR>
+
+<TD>
+
+<P>nl</P>
+
+<TD>
+
+<P>vertical position of last printed baseline</P>
+
+<TR>
+
+<TD>
+
+<P>sb</P>
+
+<TD>
+
+<P>depth of string below baseline (generated by \w)</P>
+
+<TR>
+
+<TD>
+
+<P>st</P>
+
+<TD>
+
+<P>height of string above baseline (generated by \w)</P>
+
+<TR>
+
+<TD>
+
+<P>yr</P>
+
+<TD>
+
+<P>last 2 digits of current year</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Predefined Read-Only Number Registers (</B><B><I>nroff/troff</I></B><B>)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Table 26.2 lists the read-only number registers that are predefined by troff. You cannot change the contents of these registers, but you can inspect them and use their contents in condition statements and arithmetic expressions.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 26.2. Predefined Read-Only Number Registers</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Register Name</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>$$</P>
+
+<TD>
+
+<P>process id of troff or nroff</P>
+
+<TR>
+
+<TD>
+
+<P>.$</P>
+
+<TD>
+
+<P>number of arguments available at the current macro level</P>
+
+<TR>
+
+<TD>
+
+<P>.a</P>
+
+<TD>
+
+<P>post-line extra line-space most recently used in \x'N'</P>
+
+<TR>
+
+<TD>
+
+<P>.A</P>
+
+<TD>
+
+<P>set to 1 in troff if -a option used; always 1 in nroff</P>
+
+<TR>
+
+<TD>
+
+<P>.b</P>
+
+<TD>
+
+<P>emboldening level</P>
+
+<TR>
+
+<TD>
+
+<P>.c</P>
+
+<TD>
+
+<P>number of lines read from current input file</P>
+
+<TR>
+
+<TD>
+
+<P>.d</P>
+
+<TD>
+
+<P>current vertical place in current diversion; equal to n1 if no diversion</P>
+
+<TR>
+
+<TD>
+
+<P>.f</P>
+
+<TD>
+
+<P>current font number</P>
+
+<TR>
+
+<TD>
+
+<P>.F</P>
+
+<TD>
+
+<P>current input filename</P>
+
+<TR>
+
+<TD>
+
+<P>.h</P>
+
+<TD>
+
+<P>text baseline high-water mark on current page or diversion</P>
+
+<TR>
+
+<TD>
+
+<P>.H</P>
+
+<TD>
+
+<P>available horizontal resolution in basic (troff) units</P>
+
+<TR>
+
+<TD>
+
+<P>.I</P>
+
+<TD>
+
+<P>current indent</P>
+
+<TR>
+
+<TD>
+
+<P>.j</P>
+
+<TD>
+
+<P>current ad mode</P>
+
+<TR>
+
+<TD>
+
+<P>.k</P>
+
+<TD>
+
+<P>current output horizontal position</P>
+
+<TR>
+
+<TD>
+
+<P>.l</P>
+
+<TD>
+
+<P>current line length</P>
+
+<TR>
+
+<TD>
+
+<P>.L</P>
+
+<TD>
+
+<P>current ls value</P>
+
+<TR>
+
+<TD>
+
+<P>.n</P>
+
+<TD>
+
+<P>length of text portion on previous output line</P>
+
+<TR>
+
+<TD>
+
+<P>.o</P>
+
+<TD>
+
+<P>current page offset</P>
+
+<TR>
+
+<TD>
+
+<P>.p</P>
+
+<TD>
+
+<P>current page length</P>
+
+<TR>
+
+<TD>
+
+<P>.R</P>
+
+<TD>
+
+<P>number of unused number registers</P>
+
+<TR>
+
+<TD>
+
+<P>.T</P>
+
+<TD>
+
+<P>set to 1 in nroff, if -T option used; always 0 in troff</P>
+
+<TR>
+
+<TD>
+
+<P>.s</P>
+
+<TD>
+
+<P>current point size</P>
+
+<TR>
+
+<TD>
+
+<P>.t</P>
+
+<TD>
+
+<P>distance to the next trap</P>
+
+<TR>
+
+<TD>
+
+<P>.u</P>
+
+<TD>
+
+<P>equal to 1 in fill mode and 0 in no-fill mode</P>
+
+<TR>
+
+<TD>
+
+<P>.v</P>
+
+<TD>
+
+<P>current vertical line spacing</P>
+
+<TR>
+
+<TD>
+
+<P>.V</P>
+
+<TD>
+
+<P>available vertical resolution in basic (troff) units</P>
+
+<TR>
+
+<TD>
+
+<P>.w</P>
+
+<TD>
+
+<P>width of previous character</P>
+
+<TR>
+
+<TD>
+
+<P>.x</P>
+
+<TD>
+
+<P>reserved version-dependent register</P>
+
+<TR>
+
+<TD>
+
+<P>.y</P>
+
+<TD>
+
+<P>reserved version-dependent register</P>
+
+<TR>
+
+<TD>
+
+<P>.z</P>
+
+<TD>
+
+<P>name of current diversion</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Writing one or two macros can be fun and can greatly simplify your life. Start small and easy&#151;no number registers defined by other number registers, no renaming, and (if you can manage it) no traps or diversions. Writing macros helps to understand 
+
+macro processing, which makes you a more valuable employee.
+
+<BR></P>
+
+<P>Writing an entire macro package is a long, difficult process, one that continues for months, even years, after you write that last macro, because someday some user will combine a couple of macros in ways you never dreamed of. Don't write a macro package 
+
+unless you're prepared to maintain it, provide documentation and user support, and modify it.</P>
+
+<P><A HREF="unx26.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx26.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx28.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx28.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

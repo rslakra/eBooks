@@ -1,0 +1,3993 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx30.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx31.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx31.htm">
+
+<LINK REL="Previous" HREF="unxpt6au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt6au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt6au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt6au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">30 &#151; Source Control with SCCS and RCS</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Rachel and Robert Startin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">What Is Source Control?</A></LI>
+
+<LI>
+
+<A HREF="#I5">Basic Source Control Concepts</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Interacting with Source Control</A></LI>
+
+<LI>
+
+<A HREF="#I7">Locks&#151;Mediating Conflict</A></LI>
+
+<LI>
+
+<A HREF="#I8">Revising the Trunk&#151;Straight up the Tree</A></LI>
+
+<LI>
+
+<A HREF="#I9">Branches&#151;Complicating the Tree</A></LI>
+
+<LI>
+
+<A HREF="#I10">Revision Numbers</A></LI>
+
+<LI>
+
+<A HREF="#I11">Merges&#151;Controlling Parallel Changes</A></LI>
+
+<LI>
+
+<A HREF="#I12">Symbolic Names, Baselines, and Releases</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I13">Using Releases to Replace Symbolic Names</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I14">Introduction to RCS</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">Interacting with RCS</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Initial Revisions</A></LI>
+
+<LI>
+
+<A HREF="#I17">RCS files</A></LI>
+
+<LI>
+
+<A HREF="#I18">Checking Out a File</A></LI>
+
+<LI>
+
+<A HREF="#I19">Checking In a File</A></LI>
+
+<LI>
+
+<A HREF="#I20">Examining Revision Details and History</A></LI>
+
+<LI>
+
+<A HREF="#I21">rcsdiff</A></LI>
+
+<LI>
+
+<A HREF="#I22">Keywords</A></LI></UL>
+
+<LI>
+
+<A HREF="#I23">Locks&#151;Mediating Conflict</A></LI>
+
+<LI>
+
+<A HREF="#I24">Branches&#151;Complicating the Tree</A></LI>
+
+<LI>
+
+<A HREF="#I25">Merges&#151;Controlling Parallel Changes</A></LI>
+
+<LI>
+
+<A HREF="#I26">Symbolic Names, Baselines, and Releases</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">Introduction to SCCS</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">Interacting with SCCS</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I29">Initial Revisions</A></LI>
+
+<LI>
+
+<A HREF="#I30">SCCS files</A></LI>
+
+<LI>
+
+<A HREF="#I31">Checking Out a File</A></LI>
+
+<LI>
+
+<A HREF="#I32">Checking In a File</A></LI>
+
+<LI>
+
+<A HREF="#I33">Examining Revision Details and History</A></LI>
+
+<LI>
+
+<A HREF="#I34">Keywords</A></LI></UL>
+
+<LI>
+
+<A HREF="#I35">Locks&#151;Mediating Conflict</A></LI>
+
+<LI>
+
+<A HREF="#I36">Branches&#151;Complicating the Tree</A></LI>
+
+<LI>
+
+<A HREF="#I37">Merges&#151;Controlling Parallel Changes</A></LI>
+
+<LI>
+
+<A HREF="#I38">Extra SCCS Features</A></LI></UL>
+
+<LI>
+
+<A HREF="#I39">Using Source Control for Backups</A></LI>
+
+<LI>
+
+<A HREF="#I40">A Simple Example</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I41">Starting to Use Source Control</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I42">Creating an Empty Source Control File and Adding the Initial Revision</A></LI>
+
+<LI>
+
+<A HREF="#I43">Creating a Full Source Control File with Manually Supplied Comments</A></LI>
+
+<LI>
+
+<A HREF="#I44">Creating a Full Source Control File with Command Line Comments</A></LI></UL>
+
+<LI>
+
+<A HREF="#I45">Modifying Files</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I46">Lock, Modify, Check In</A></LI>
+
+<LI>
+
+<A HREF="#I47">Modify (Oops!), Lock, Check In&#151;Recovering from a Mistake</A></LI></UL>
+
+<LI>
+
+<A HREF="#I48">Shipping a Prerelease</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I49">Recording a Configuration with RCS</A></LI>
+
+<LI>
+
+<A HREF="#I50">Using SCCS for a Prerelease</A></LI></UL>
+
+<LI>
+
+<A HREF="#I51">Release 1</A></LI></UL>
+
+<LI>
+
+<A HREF="#I52">A Complex Example</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I53">Beginning Changes for Release 2</A></LI>
+
+<LI>
+
+<A HREF="#I54">Creating Patches for Release 1 and Alpha</A></LI>
+
+<LI>
+
+<A HREF="#I55">Merging Patches into the Trunk</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I56">Merging with rcsmerge</A></LI>
+
+<LI>
+
+<A HREF="#I57">Merging with SCCS and merge</A></LI></UL>
+
+<LI>
+
+<A HREF="#I58">Receiving Patches from Others and Merging Them</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I59">Merging with co</A></LI>
+
+<LI>
+
+<A HREF="#I60">Using SCCS and merge</A></LI></UL>
+
+<LI>
+
+<A HREF="#I61">Requiring Proper Authorization for Changes (SCCS Only)</A></LI>
+
+<LI>
+
+<A HREF="#I62">Shutting Down Development on Release 1 (SCCS Only)</A></LI></UL>
+
+<LI>
+
+<A HREF="#I63">Using make with Source Control</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I64">Default Rules</A></LI>
+
+<LI>
+
+<A HREF="#I65">Rules Using Time Stamps</A></LI></UL>
+
+<LI>
+
+<A HREF="#I66">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>30 &#151; Source Control with SCCS and RCS</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Rachel and Robert Startin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This chapter covers the basic concepts of source control. These concepts apply to almost any system that does source control and should help you even if you use a system for source control other than the ones described here. You will learn the specific 
+
+structure and commands used by two widely available source control systems: Revision Control System (RCS) and Source Code Control System (SCCS).
+
+<BR></P>
+
+<P>You will also learn, through examples, how source control can be used. One example covers the use of source control on a simple software project that has only a single active version. Another covers the complexity added when you continue to make 
+revisions to a prior release while still doing development. Yet another example covers how you can use source control to work on documents. Finally, you will learn how to use source control to perform simple backups of critical files.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What Is Source Control?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Source control refers to controlling the process of modifying software by mediating changes. It lets you control who can make changes and when. It helps to prevent conflict that could arise when many people edit the same file. It lets you save multiple 
+
+versions of a file and choose the one you would like to use. It lets you review the history of changes made to a file. It lets you save configurations, or baselines, which are lists of collections of files and revisions that are part of a common release.
+
+<BR></P>
+
+<P>This section introduces some of the functions of source control and the need for those functions. It helps answer the question What are the advantages of source control?
+
+<BR></P>
+
+<P>Normally, you want to use the most recent version of a file, but using source control gives you flexibility and the ability to examine the history of changes that went into a file. There are some important advantages to this.
+
+<BR></P>
+
+<P>If you are using UNIX to do software development, you may need to support older releases of your product. Using source control, you can recall the exact sources that were used to build the older release and use those files to track down and fix the 
+problem. After you fix the problem in the old release, you can merge the changes, as appropriate, into the current release.
+
+<BR></P>
+
+<P>Source control also gives you the ability to review the history of changes to a file. This is useful for almost any evolving file, be it source code or the files used to create a book.
+
+<BR></P>
+
+<P>You can also use source control to perform a limited personalized backup of critical files. If your system is backed up once a week and you write daily progress notes, you can check the notes into a source control system and have a safe copy in case you 
+
+accidentally erase or damage the file. This is not a replacement for doing system backups because you will still be vulnerable to system or disk problems, but it does give you finer control over recovering from your own mistakes.
+
+<BR></P>
+
+<P>By saving the history of revisions to a file, you give yourself the ability to analyze that history later. This can be invaluable for software projects because it gives you the ability to see the logic of each incremental change that led from the 
+original source to the current source.
+
+<BR></P>
+
+<P>The ability to recreate old versions of a single file or a group of files allows you to use source control as a simple backup system and to recover and modify earlier releases of a product or document.
+
+<BR></P>
+
+<P>Source control systems usually allow some form of branching (see the section &quot;Basic Source Control Concepts&quot;) that gives you the ability to produce variants of a file. This gives you the capability to perform parallel development of two 
+different variants of the same file. For example, while working on the 2.0 release of your product you can produce a maintenance update to the 1.0 release of your product by modifying one or more of the source files from the 1.0 release. You can merge the 
+
+changes to the 1.0 release into the 2.0 release if you desire.
+
+<BR></P>
+
+<P>Source control systems are good tools for controlling all sorts of files, not just source code. This chapter was edited and produced using source control with one file containing each section. The final copy of the chapter was produced using make<B> 
+</B>to merge the sections together and reformat them to meet the publisher's submission guidelines. This allowed both authors to work independently to a certain extent and to merge changes after reviews.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Basic Source Control Concepts</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Source control systems store files as a series of revisions (in SCCS they're called deltas), a set of documents that evolved from each other, as a tree. See Figure 30.1 for a generic example. Refer to this figure as you read this section on source 
+control concepts. Each node in the tree represents a revision of the same file.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx01.gif">Figure 30.1. A tree of revisions.</A></B>
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> RCS uses the term revision and SCCS uses the term delta. The two terms can be used interchangeably. This chapter uses the RCS terms except when explicitly discussing SCCS. Definitions of terms used in 
+
+RCS include the SCCS term in parenthetic comments.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The tree has a root, which is the original text of the file. In Figure 30.1, the node labeled root is the root. The trunk of the revision tree is the main sequence of revisions of the file that were derived from the root. In Figure 30.1, the node root 
+and all of the nodes in a straight line above it (branch_start, a_revision, and head) are the trunk of the tree. The simplest form of revision control will have only a root and a trunk. For example, if you are developing a single document and want to save 
+
+the development history, you are likely to only use the trunk for storing edits.
+
+<BR></P>
+
+<P>A branch occurs where a single revision has two or more revisions derived from it. In Figure 30.1, the node labeled branch_start is a trunk node that has a descendent on the trunk and a branch starting at node branch_node. Each branch and the trunk have 
+
+a head, which is the latest revision on the branch. In Figure 30.1, the nodes head and branch_head are the respective heads of the trunk and a branch. Branches are useful when you need to split into parallel development paths for your file. You will learn 
+
+more about branches in the section &quot;Branches&#151;Complicating the Tree.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Interacting with Source Control</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are several common interactions with a source control system that everyone who uses source control needs to understand.
+
+<BR></P>
+
+<P>In order to use a copy of a file, you need to check out (in SCCS, get) the file, or ask the source control system for a copy of a particular revision of a file. You will need to check out a file if you want to read its contents, print it out, or use it 
+
+as part of a make.
+
+<BR></P>
+
+<P>In order to modify a copy of a file, you need to check out with a lock (in SCCS, get for edit) to tell the source control system that you intend to make a modification to the file. See the section &quot;Locks&#151;Mediating Conflict&quot; for more 
+information on how and why locks are useful.
+
+<BR></P>
+
+<P>In order to register your changes with the source control system, you need to check in (in SCCS, delta) the file. This registers your changes with the source control system and makes them available for anyone else using the source control system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Locks&#151;Mediating Conflict</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Source control systems enable you to place a lock on a revision, which indicates that you intend to modify the file. This helps to prevent loss of changes when two people attempt to modify a file at the same time. For other possible solutions to this 
+problem, see the sections &quot;Branches&#151;Complicating the Tree&quot; and &quot;Merges&#151;Controlling Parallel Changes.&quot;
+
+<BR></P>
+
+<P>Although both RCS and SCCS use locks, some source control systems do not explicitly use locks. Notably (and perhaps confusingly), the free CVS, which uses RCS for managing revisions, does not use locks; many commercial source control or configuration 
+management systems also do not use locks. Instead they include tools that allow you to deal with problems after the fact. This usually includes some form of automatic merging with a manual review of conflicts. The section &quot;Merges&#151;Controlling 
+Parallel Changes&quot; describes this alternative in greater detail.
+
+<BR></P>
+
+<P>See Figures 30.2 and Figure 30.3 for the progression of a typical conflict.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx02.gif">Figure 30.2. Unresolved conflicting changes.</A></B>
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx03.gif">Figure 30.3. Using locks to prevent conflicts.</A></B>
+
+<BR></P>
+
+<P>In the first time line (Figure 30.2) there is no revision locking. Arthur grabs a copy of revision root of foo and begins editing it. While he is making changes, Beverly also grabs a copy of revision root of foo and begins making her changes, 
+independently of Arthur. Arthur checks in his changes as revision root+a, reports to his manager that the changes are complete, and confidently flies to Belize for his two-week scuba diving vacation. Beverly checks in her changes as revision root+b, which 
+
+now contains none of Arthur's changes! Charlie, their manager, discovers that Arthur's changes are not in the weekly release and calls Arthur to find out why, completely ruining Arthur's vacation. Note that even though revision root+b is the descendent of 
+
+root+a, it doesn't contain the changes Arthur made.
+
+<BR></P>
+
+<P>Compare this with the second time line (Figure 30.3). Arthur grabs a copy of revision root of foo, setting a lock on that revision, and begins editing it. While he is making changes, Beverly tries to grab a copy of revision root of foo, but the source 
+control system informs her that the revision is locked and that she is not allowed to check it out. Beverly waits for Arthur to finish, or if her changes are urgent, she contacts Arthur to work out a way to get her changes done quickly. Arthur checks in 
+his changes as revision root+a, reports to his manager that the changes are complete, and blissfully flies to Australia for his four-week scuba diving vacation, on which he is spending the bonus he received for implementing a source control system for the 
+
+company. Beverly learns that foo is no longer locked and checks out revision root+a with lock. Beverly checks in her changes as revision root+a+b, which contains both her modifications and Arthur's. Charlie notices that Arthur's changes are in the weekly 
+release and remembers what a great thing it was that they finally implemented that source control system after Arthur's previous vacation.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Revising the Trunk&#151;Straight up the Tree</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Many efforts that use source control require only the use of modifications to the trunk. If your needs do not require parallel efforts (see the section &quot;Branches&#151;Complicating the Tree&quot;) you should be able to manage your revisions without 
+
+any of the complications introduced by branches. If you develop on the trunk, you will create an initial root revision of your file and then each time you change the file, you will check in a new trunk revision of the file.
+
+<BR></P>
+
+<P>See Figure 30.4 for a sample tree that uses modifications to the trunk only. In the sample tree, each revision was created by modifying the previous revision, and all modifications were done serially; there was no overlap between edits on the file.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx04.gif">Figure 30.4. Straight up the tree.</A></B>
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Branches&#151;Complicating the Tree</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you have learned, branches are used when you need to split into parallel modification paths for your file. Often this happens when you need to produce patches for a released version of the file (or product built using the file). It can also happen 
+when you wish to create a parallel track for doing a major long-term effort. For example, if you are creating an internationalized version of your application while doing development on the application itself, you might want to make the 
+internationalization changes on a stable base and check them in as branches. You would then merge them into the trunk development. See the section on &quot;Merges&#151;Controlling Parallel Changes&quot; for information on how to merge changes from branches 
+
+back into the main trunk.
+
+<BR></P>
+
+<P>See Figure 30.5 for an example of a revision tree that has branches. For this project, there is a main line of development that is targeting the next product release and a branch on product development that is producing patches to the previous release. 
+
+The previous release patches are made as a branch based on the revision of the file that was released. Often, you will want to merge changes from a branch back into the trunk. See the section &quot;Merges&#151;Controlling Parallel Changes&quot; for more 
+information on how this works. (This example will be given in greater detail in the section &quot;A Complex Example.&quot;)
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx05.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx05.gif">Figure 30.5. A revision tree with branches.</A></B>
+
+<BR></P>
+
+<P>RCS actually supports an even more flexible branching scheme. See &quot;Introduction to RCS&quot; for more information.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Revision Numbers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most source control systems, including both RCS and SCCS, name revisions using revision numbers, which describe where the revision is in the tree of revisions. See Figure 30.6 for an example of how both RCS and SCCS number a revision tree. Notice that 
+this figure is the same tree as Figure 30.5, with revision numbers replacing the earlier names. A revision on the main trunk is identified by a pair of numbers. The release number is often used to specify an internal release number for the product. The 
+level number  specifies which revision within a release is being referenced. The release and level numbers are there to allow a structure that has the release number incremented each time the product is released.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx06.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx06.gif">Figure 30.6. Revision numbers. </A></B>
+
+<BR></P>
+
+<P>Branches extend this naming structure using the same release and level as the branchpoint, the revision on which the branch is based (nodes 1.1 and 1.2 in the figure). Branches add a branch number to identify the particular branch and a sequence number 
+
+to identify the revision within the branch. The first branch from revision R.L is numbered R.L.1.1.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  The terms branch and sequence for revision numbers in branches are actually from SCCS. The RCS documentation does not use specific terms here. Because RCS largely uses the same revision model as 
+SCCS, this chapter uses the SCCS terms.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Merges&#151;Controlling Parallel Changes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You may also be effectively performing parallel development by releasing your files (rather than access to the source control system) to other people. This can happen when you send out preliminary versions of a document for review or when you do a 
+release of the source code for a project or product. After you have made your own postrelease changes, you may find that people with access to the released files suggest changes to you. One way to deal with this is to use merge facilities of your source 
+control system, which support merging sets of changes that have a common base.
+
+<BR></P>
+
+<P>See Figure 30.7 for an example of parallel revisions and merging them. In this example, instead of using a source control system you use the merge command. Many source control systems use merge or a similar program to perform the merging task. If your 
+source control system does not explicitly support merges, you can use the merge command to perform merges manually.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="30unx07.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx07.gif">Figure 30.7. Merging parallel changes. </A></B>
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The source for merge is included in the RCS package on the CD-ROM. If your system doesn't have merge, you may want to install merge even if you don't plan to use RCS.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For this example, you should create three files, called base, revmain, and revbranch. The first is the base from which both of the others are created. The common ancestor revision is needed so the merge program can determine the changes from base to 
+revbase and from base to revmain and merge the changes together. The file base should contain the following:
+
+<BR></P>
+
+<PRE>A line in the base file
+
+Another line in the base file
+
+A third line in the base file
+
+The final line of the base file</PRE>
+
+<P>The file revmain should contain the following:
+
+<BR></P>
+
+<PRE>A line in the base file
+
+A line added in revmain
+
+Another line in the base file
+
+A third line in the base file
+
+The final line of the base file</PRE>
+
+<P>The file revbranch should contain the following:
+
+<BR></P>
+
+<PRE>A line in the base file
+
+Another line in the base file
+
+A third line in the base file
+
+A line added in revbranch
+
+The final line of the base file</PRE>
+
+<P>After you create these three files, type merge -p revmain base revbranch &gt; merged. When you look at the resulting file merged, you should see the following:
+
+<BR></P>
+
+<PRE>A line in the base file
+
+A line added in revmain
+
+Another line in the base file
+
+A third line in the base file
+
+A line added in revbranch
+
+The final line of the base file</PRE>
+
+<P>Because the merge process is automated and not intelligent, it can run into problems trying to merge changes that are in conflict. Try rerunning the merge command after changing the contents of revbranch to the following:
+
+<BR></P>
+
+<PRE>A line in the base file
+
+A line added in revbranch
+
+Another line in the base file
+
+A third line in the base file
+
+The final line of the base file</PRE>
+
+<P>This time you should wind up with significantly different results. First, you should get a warning message from merge that says something like this: merge warning: overlaps or other problems during merge. Second, the file merged should look something 
+like this:
+
+<BR></P>
+
+<PRE>A line in the base file
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; revmain
+
+A line added in revmain
+
+=======
+
+A line added in revbranch
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; revbranch
+
+Another line in the base file
+
+A third line in the base file
+
+The final line of the base file</PRE>
+
+<P>When you try to merge files that have overlaps of the changed areas of the file, you will need to resolve the conflicts. You will need to manually review the merged file for all of the conflict areas marked. Some commercial source control systems and 
+other products include graphical tools to help perform and verify merges.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Symbolic Names, Baselines, and Releases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A symbolic name is a name that is attached to a particular revision of a file and that you can use to check out the desired revision of a file without having to know the exact revision number. For example, if you send out for review copies of your great 
+
+American novel, you might want to attach symbolic names to the revisions of the chapters you sent out so you can effectively use any editorial comments you get back.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35>SCCS does not support symbolic names. Some uses of symbolic names can be replaced by using SCCS release numbers. For other uses it is possible to replicate the behavior of symbolic names by keeping the 
+correspondence between names, files, and revision numbers in an outside file or database and implementing scripts that will perform SCCS operations based on that configuration information.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>See Figure 30.8 for an example of how you might use symbolic names to record reviews of your novel. Your novel in this example has three chapters. For the first review, you sent revision 1.3 of Chapter 1 and only had the original outlines for Chapters 2 
+
+and 3 (both revision 1.1). You used the name REVIEW1 for this review. For the second review, you had made minor changes to Chapter 1 (in revision 1.4) and had written Chapter 2 (revision 1.3) and drafted Chapter 3 (revision 1.2). This review was marked 
+REVIEW2. You can now use the REVIEW1 and REVIEW2 names to refer to the correct versions of the novel to remember which revision of which chapter that meant. Revision names are a powerful tool for performing baselines and releases.
+
+<BR></P>
+
+<BR><B><A HREF="30unx08.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/30unx08.gif">Figure 30.8. Symbolic names.</A></B>
+
+<BR>
+
+<P>A baseline is a captured set of revisions that have some special property. That property might be &quot;sent out for review,&quot; &quot;compiles successfully,&quot; &quot;passes lint successfully,&quot; &quot;released for alpha testing,&quot; or 
+anything that you find useful. In the example on symbolic names, the files of REVIEW1 and REVIEW2 were baselines. A release is really a special kind of baseline with the property &quot;released,&quot; and you can decide exactly what you mean by released. 
+Often, when you declare a release, you will check in new trunk revisions of all of your files so that you can use release numbers on source control commands.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Using Releases to Replace Symbolic Names</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Without symbolic names you can achieve a similar effect using release numbers. Every time you ship out your novel for review, you increase the revision number of all files after the release. This allows you to use checkout commands that name the 
+release, which in both RCS and SCCS check out the highest level within a release. In this example, after shipping release, you check in the next revision of the file as release 2, level 1. Therefore, instead of REVIEW1, you use release 1, which includes 
+chap1 revision 1.3, chap2 revision 1.1, and chap3 revision 1.1. When you make you minor revisions to chap1, you check them in as revision 2.1. When you write and then rewrite chap2, you check it in as revision 2.1 and then as 2.2. When you draft chap3 you 
+
+check it in as revision 2.1. Instead of REVIEW2, you use release 2, which includes chap1 revision 2.1, chap2 revision 2.2, and chap3 revision 2.1. This achieves the same effect (but with slightly more effort) as using symbolic names. Unfortunately, this 
+approach is not always able to replace symbolic names. If you have checked in a new revision of a file using the old release number before deciding that you want to release the files, you may face some difficulties using this method.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Introduction to RCS</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>RCS was originally designed and developed by Walter Tichy of Purdue University as a version control system intended primarily for source code, documents, and test cases. Since its original release, the system has evolved somewhat over the years, but it 
+
+maintains a great deal of backward compatibility with the initial release. The most popular current version is probably GNU RCS 5.6. RCS addresses several areas that are not well covered by SCCS, such as merging branches and marking baselines and 
+configurations.
+
+<BR></P>
+
+<P>RCS is not available by default on all platforms, and only old versions are available on others. The 5.6.0.1 version of GNU RCS is included on the CD-ROM in case you need (a newer version of) RCS on your system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Interacting with RCS</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The basics of RCS are simply checking in a version of your file (ci), and checking out a version of your file (co). If you are a first-time user working alone, you may never need to do more. Viewing the history (rlog) and comparing changes from one 
+revision to another (rcsdiff) may be useful to you. As your needs grow, you can start using branches and merging. If you are in a multiperson project, you should start using locking. Depending on the level of detail you need, RCS can be peripheral or 
+central to your development environment.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Initial Revisions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In order to start using RCS to control revisions of a particular file, you need to create an initial revision, which is the root of the revision tree for this file. Maybe you have already created and edited a file. Now you realize that your development 
+
+will be enhanced by using RCS. Or you may be planning ahead, just trying to get a project started, and you have no file contents yet. You would like to create an RCS file and you will check in an initial revision later.
+
+<BR></P>
+
+<P>In the first case, you have a file with contents. In RCS terminology, this is your working file. You can create an initial revision by using the RCS check-in command, ci. RCS will save the working file as the initial revision and prompt for a 
+description of the revision group. Your working file is then removed from your directory.
+
+<BR></P>
+
+<P>In the second case, you have a file name but no contents. You can create an RCS file with the command rcs -i. RCS will prompt for the revision group description. Later, when you have some file contents, you can do an initial check in using ci. For now, 
+
+there is no initial revision.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>RCS files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>RCS views your file as a pair of files. The file that you have named and to which you make changes is called the working file. You create this file in a directory of your choosing. When you check in this file, RCS creates an RCS file (if this is the 
+first check in) or adds to an existing RCS file. The RCS filename is simply your working filename with a suffix added to the end. The default suffix on UNIX systems is usually v. You can control the suffix of a file via the -x option during check in. This 
+
+option lets you specify a list of possible suffixes that will be tried, in order, during check in and check out.
+
+<BR></P>
+
+<P>RCS commands enable you to specify one of or both the working file and the RCS file. It is common to specify only the working file and let RCS handle the placement of the RCS file. If the RCS file is not specified, RCS first tries to deposit the 
+revision in a subdirectory, RCS. If no such directory exists, the revision is placed in the current working directory. Creating a directory called RCS in your working directory helps to organize your work. All the RCS files are kept in this directory, out 
+
+of sight.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Checking Out a File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To use a file you have under RCS control, you must check it out via the RCS command co, which causes RCS to copy the revision of the specified file into a working file. Then you can use the file, for example, for printing or compiling. But if you want 
+to make changes to this file, you must obtain a lock for the file. You can check out a file with a lock via co -l. See the section &quot;Locks&#151;Mediating Conflict&quot; for details of using locks.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Checking In a File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To save a version of your working file after making changes, use the ci command. If you want to keep a copy of the working file around to use, you can add the -u option. This is just like doing a ci, followed by a co. Whenever you do a ci, you will be 
+asked to enter a log message, a description of the changes you have made. This is for your (and your co-workers') use. Keep in mind that a short phrase might be very meaningful now, but these logs may be perused down the road. The more specific you are 
+now, the easier it will be to figure out revision contents later.
+
+<BR></P>
+
+<P>It is common to check in several files at once, perhaps ones that are related to one another. For example, you are fixing a defect in your product, and several files must be modified to solve the problem. You check out the files as needed and work in 
+your working directory until the product defect is fixed. You test your solution. When you are convinced that everything works, you want to check in the changes. It could be tedious to enter a log message for each file as it's checked in. When you check in 
+
+more than one file at once, after the first file, RCS asks if you want to use the same log as the previous file. This speeds things up a bit. To totally automate the check in, you can specify the log message via the check in command's -m option. So if the 
+
+log message is to be the same for each file, using the -m option to specify the log message, along with shell metacharacters to specify all the working files, can shorten a huge job so that it takes only a single command.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you have a lengthy log message that is common to more than one file, enter the text of the message into a file. Then on the check in command line, use -m'cat <I>filename</I>' to specify that the 
+contents of the file <I>filename</I> should be used as the log message
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Examining Revision Details and History</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you need to examine the history and status of an RCS file, you can use the rlog command. This displays each revision log, ordered from highest number to lowest. This can help you see the progress of changes that have been made during development 
+history. These logs can be very helpful for locating a specific revision of the file that you want to examine in complete detail.
+
+<BR></P>
+
+<P>The rlog command shows you other details besides just the log messages. The first several lines are called the header and contain details about the revision group. Included in this header is the RCS pathname, the working pathname, the head revision, the 
+
+default branch, the access list, locks, symbolic names, the suffix, and a few other items. If you are interested in header information only, and no log messages, use the -h option to limit the output to only the header. rlog has other useful options to 
+limit the data it displays. Refer to the man page for details.
+
+<BR></P>
+
+<P>If you do find a particular revision that you would like to examine or use, you can check out the revision by specifying the revision number on the co command line. Keep in mind, though, that performing co will overwrite your existing working file. This 
+
+may be okay with you. If not, you can ask RCS to check out a file to standard out. Then you can use UNIX redirection of standard output to place the old revision contents wherever you would like. Using the command 
+
+<BR></P>
+
+<PRE>co -r2.4 -p the_file &gt; the_file.2.4 </PRE>
+
+<P>will put (old) revision 2.4 into a file called the_file.2.4.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>rcsdiff</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you are familiar with the UNIX diff command, the RCS command rcsdiff will be familiar to you. rcsdiff compares two revisions of the same file and displays the differences between the two versions. RCS manages the retrieval of the versions while 
+rcsdiff uses the UNIX diff to perform the actual comparison. The two versions are compared line-by-line, and if any character in the line is different between the two files, a message is displayed to standard out describing the place where the difference 
+occurs.
+
+<BR></P>
+
+<P>To use the rcsdiff command, you need to specify the two revisions that are to be compared. You can explicitly specify each with two instances of the -r option. If you specify only one revision on the command line, this revision is compared against your 
+
+working file. If you omit both revisions from the command line, your working file is compared against the head revision on the default branch (usually the trunk). Here are some examples:
+
+<BR></P>
+
+<PRE>rcsdiff -r2.3 -r2.6 the_file</PRE>
+
+<P>compares revisions 2.3 and 2.6 of the_file.
+
+<BR></P>
+
+<PRE>rcsdiff -r2.3 the_file</PRE>
+
+<P>compares revision 2.3 of the_file with the working file the_file.
+
+<BR></P>
+
+<PRE>rcsdiff the_file</PRE>
+
+<P>compares the head of the default branch of the_file with the working file the_file.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Keywords</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>RCS allows the user to imbed certain words into the working file. These words, keywords, have special meaning to RCS. Each keyword is initially inserted into the working file, then later the current value is placed after the keyword, with a colon 
+separator. When keywords are in the file during a check out, the co command updates the value of each keyword.
+
+<BR></P>
+
+<P>There are many keywords available. You should check which will be most useful to you by examining the co man page. The $Header:$ 30unxor2.adj,v 1.7 94/04/05 18:24:08 sartin Exp $ keyword contains a composite of most of the individual keywords. If you 
+include the $Header:$ 30unxor2.adj,v 1.7 94/04/05 18:24:08 sartin Exp $ keyword, the value that is inserted will contain the RCS file, the revision number, the date, the author, the state, and the locker (if the file is locked).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you are using the $Revision:$ keyword to identify revisions distributed to other people, make sure you do a clean check out (co) of all files before distributing (or that you build source code). If 
+you fail to check out a file, the revision number will not be up-to-date because only co updates the keyword values.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Locks&#151;Mediating Conflict</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>RCS has two kinds of locking mechanisms: strict and nonstrict. If you are the only person who will be modifying this file, you can turn off strict locking via rcs -U. This will allow you, the file owner, to make changes without obtaining a lock. Anyone 
+
+else must obtain a lock in order to modify the file.
+
+<BR></P>
+
+<P>If you are one of several people who can modify this file, you should set the locking to strict. This is done via rcs -L. In this case, anyone wanting to modify the file should obtain a lock before making changes. This should be done during the check 
+out with the -l option. This way, the revision is copied to your working file and the revision is locked, all at the same time.
+
+<BR></P>
+
+<P>Sometimes you will find yourself in the situation of modifying a file without first obtaining a lock. You usually find this out when you go to check in your changes and you get a ci error message saying that your user name does not have a lock set. If 
+this happens, all is not lost, but you need to do a little investigation before you can resolve the situation.
+
+<BR></P>
+
+<P>First, you need to find out if anyone else has checked in any revisions since you last checked out this file. Look at the revision number at the top of your working file to find the revision that is the basis of your changes. If you have the keyword 
+$Revision:$ in your file, RCS will substitute the revision number after this keyword. If you do not have this keyword in your file, it is much more difficult to figure out what revision you started editing. You can try looking at the RCS logs, using the 
+rcsdiff command to examine changes between revisions, or use the rcs -P command to obtain temporary copies of old revisions. Hopefully you will be able to recognize the revision you started with! If someone has made changes and checked them in since the 
+version you started with, you should check in your changes as a branch off your basis revision. Then do a merge of your file at the top of the other changes. See the sections &quot;Merges&#151;Controlling Parallel Changes&quot; and 
+&quot;Branches&#151;Complicating the Tree&quot; for details.
+
+<BR></P>
+
+<P>If nobody has checked in any changes since your version was checked out, all you need to do is lock the file and check it in. Be careful here. Do not use co -l to obtain the lock. This will overwrite your working file and you'll lose all your changes. 
+Instead, use the rcs -l command. This simply manipulates the file lock&#151;no copying is involved. After obtaining the lock, check in the file as usual.
+
+<BR></P>
+
+<P>In either of these possible scenarios, someone else could have the file locked. You can always check on the status of a file lock with the rlog -h command. This shows the header information for the specified file. If someone holds the lock, the header 
+will contain a message stating which user has it locked. If this is the case, you can work out with that person a strategy to deal with the conflict. Once again, using the RCS merging facility can help this resolution. In an emergency, or if the user 
+holding the lock is no longer available, you may break the lock with the rcs command. You first use the rcs -u command to unlock the revision. When you unlock someone else's lock, you are asked to enter a comment about breaking the lock that is forwarded 
+to the user via electronic mail. After breaking the lock, you can then obtain the lock for yourself via rcs -l.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Branches&#151;Complicating the Tree</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>RCS has a very flexible branching scheme. It allows you to make branches off the main trunk. You can also make branches that branch off an existing branch. For example, main trunk file revision 2.3 has a branch. This branch is 2.3.1 and has revisions 
+2.3.1.1, 2.3.1.2, and so on. At some point during this branch's development, say at 2.3.1.7, you need to branch off again. You create branch 2.3.1.7.1, which has revisions 2.3.1.7.1.1, 2.3.1.7.1.2, and so on. You get the idea. As you can see, the revision 
+
+numbers get long quite quickly. For this reason it is probably good to limit the branching as much as is reasonable.
+
+<BR></P>
+
+<P>In order to create and refer to files on a branch, you need to explicitly reference the revision of the file. Look at how this works. Start with trunk revisions including 2.3 already checked in. Now you want to create branch 2.3.1. First check out with 
+
+a lock revision 2.3. Next do your edits. Now when you go to check in your changes, specify the branch revision number. This creates revision number 2.3.1.1. Similar commands will create the next branch.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Merges&#151;Controlling Parallel Changes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you have parallel development of a single file, for whatever reason, and you need to roll all the changes together into a single revision, you should use the rcsmerge command. Say you have branched off the main trunk of development at revision 2.3. 
+Revisions 2.4 through 2.7 represent your main development efforts, whereas 2.3.1.1 through 2.3.1.4 represent defect fixes to your released (2.3) product. Now you would like to merge your changes together and check them in as revision 2.8.
+
+<BR></P>
+
+<P>Using rcsmerge to do this, you must specify the common base revision, in this case 2.3, via option -r. One set of the changes can be specified with a second -r option. If you do not specify this option, the default revision (usually the top of the main 
+
+trunk) is assumed. In this example, 2.7 is one of the revisions that holds changes. You can either let this be the default or explicitly specify -r2.7. Alternatively, you could specify -r2.3.1.4 to denote the branch revision. The other set of changes that 
+
+should be merged in are taken from the working file specified. Therefore, you must be aware of the contents of this file. It is also important to remember that this file is overwritten with the merged file. Use the -p option to make the output go to 
+standard out, which you can redirect to a file if you don't want your working file modified.
+
+<BR></P>
+
+<P>Now look at a couple of ways to put together all the options with rcsmerge. If you are developing on the main branch, check out revision 2.7 with a lock: 
+
+<BR></P>
+
+<PRE>co -l2.7 the_file</PRE>
+
+<P>merge together the changes:
+
+<BR></P>
+
+<PRE>rcsmerge -r2.3 -r2.3.1.4 the_file</PRE>
+
+<P>and check in the changes to the main trunk: 
+
+<BR></P>
+
+<PRE>ci -u the_file</PRE>
+
+<P>The command in step 2 could be changed to
+
+<BR></P>
+
+<PRE>rcsmerge -p -r2.3 -r2.3.1.4 the_file &gt; the_file.merged</PRE>
+
+<P>to preserve the contents of file the_file. If you are working on the branched releases
+
+<BR></P>
+
+<P>obtain a lock on the main trunk (to check in the merge results):
+
+<BR></P>
+
+<PRE>rcs -l2.7 the_file</PRE>
+
+<P>check out a copy of revision 2.3.1.4 without a lock:
+
+<BR></P>
+
+<PRE>co -u2.3.1.4 the_file</PRE>
+
+<P>merge together the changes: 
+
+<BR></P>
+
+<PRE>rcsmerge -p -r2.3 -r2.7 the_file &gt; the_file.merged</PRE>
+
+<P>when you wish to check in the changes, move the merged file into the working file:
+
+<BR></P>
+
+<PRE>mv the_file.merged the_file</PRE>
+
+<P>and check in your changes as revision 2.8: 
+
+<BR></P>
+
+<PRE>ci -u the_file</PRE>
+
+<P>These are only two variations of many possible ways to use the rcsmerge command to merge together two set of changes. These are the basic things you need to remember: The first revision specified is the common base. The second revision specified is one 
+
+setof changes and can be implied. The working file specified includes the other changes. The working file will be overwritten with the merged file unless -p is specified.
+
+<BR></P>
+
+<P>There is a second way to merge together changes. The co command has an option, -j, that specifies pairs of files whose changes should be merged (joined) to the specified revision during the check out. Repeating the merge example with the co command 
+gives the following possible solution:
+
+<BR></P>
+
+<PRE>co -l2.7 -j2.3:2.3.1.4 the_file</PRE>
+
+<P>The first revision specified (-l2.7) is checked out. The changes that occurred between the two revisions specified in the join list, 2.3 and 2.3.1.4, are merged into revision 2.7. The resulting merged file is placed in the working file the_file. Then 
+you may check in the changes using the following command:
+
+<BR></P>
+
+<PRE>ci -u the_file</PRE>
+
+<P>The merging/joining abilities of RCS are quite flexible. You have seen several possible methods of combining your parallel development using the rcsmerge command and the co command. Each of these commands may not be able to resolve all types of merges. 
+
+During the merge process, if RCS has conflicts you will be notified and must examine the resulting file. The conflicts will be denoted and you must choose the desired solution. See the man page for merge for details on conflicts.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Symbolic Names, Baselines, and Releases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>So far, this section on RCS has used numeric revision numbers. However, RCS enables you to use symbolic revision numbers as well as symbolic branches. Two commands, rcs and ci, allow you to set these symbolic names. After you have created these names, 
+you can use them in place of numeric revision numbers in all of the RCS commands. First look at how you set up symbolic names.
+
+<BR></P>
+
+<P>During check in, you can set or change the symbolic name associated with that revision number. If you have just added a new bit of functionality to your product, you may want to associate a symbolic name that you can advertise to your co-workers. Say 
+you call it ERR-MUSIC, because your product plays a little music when the user makes an error. When you check in your changes, use the -n option to add this symbolic name: 
+
+<BR></P>
+
+<PRE>ci -u -nERR-MUSIC the_file</PRE>
+
+<P>If you later need to fix a defect in your new music routines, make the change and check it in. However, this time you must use a capital -N as the option. This will override the previous value of the ERR-MUSIC symbol.
+
+<BR></P>
+
+<P>The rcs command can also be used to manipulate symbolic names. To add a symbolic name initially, use -n followed by : and then a revision number. The revision number is optional, and if left unspecified, the default revision will be used. Be careful, 
+because if you omit the : the symbolic name will be deleted. The -N option has the same behavior except that it will override an existing symbol.
+
+<BR></P>
+
+<P>The rcs command is also used to create and manipulate the symbolic branch names. Say you are using a branch off revision 3.4 to do patches for an internal release. You have created branch 3.4.1 and checked in revision 3.4.1.1 as the first patch changes. 
+
+To make interacting with this branch easier, you can name the branch (not a particular revision, but the branch as a whole) via rcs -nPATCH:3.4.1. Now when you want to check in and out off the head of the PATCH branch, simply use the symbolic name PATCH.
+
+<BR></P>
+
+<P>Here are some specific examples:
+
+<BR></P>
+
+<PRE>
+
+<BR>rcs -nERR-MUSIC: the_file creates a new symbolic name, ERR-MUSIC, for the default revision of the_file.
+
+
+
+<BR>rcs -NERR-MUSIC: the_file moves the symbolic name, ERR-MUSIC, to the default revision of the_file.
+
+
+
+<BR>rcs -nERR-MUSIC:2.3 the_file creates a new symbolic name, ERR-MUSIC, for the 2.3 revision of the_file.
+
+
+
+<BR>rcs -NERR-MUSIC:2.5 the_file moves the symbolic name, ERR-MUSIC, to the 2.5 revision of the_file.
+
+
+
+<BR>rcs -NERR-MUSIC:RELEASE1 the_file moves the symbolic name, ERR-MUSIC, to the RELEASE1 revision of the_file.
+
+
+
+<BR>rcs -nERR-MUSIC the_file deletes the symbolic name, ERR-MUSIC, from the_file.
+
+
+
+<BR>co -lPATCH the_file checks out and locks the head of branch PATCH.</PRE>
+
+<P>Now that you have created symbolic version numbers and branches, you can use these names in any places where you would use their numeric equivalents.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Introduction to SCCS</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>SCCS was developed by AT&amp;T as a system to control source code development. It has features in it that help support a production environment, including freezing of released code and hooks for integration of a problem-tracking system. This section 
+includes a brief introduction to SCCS, primarily as a contrast to RCS. Refer to the sections &quot;A Simple Example&quot; and &quot;A Complex Example&quot; for detailed samples of SCCS command usage.
+
+<BR></P>
+
+<P>Some systems ship with SCCS, but without the sccs command that was introduced by BSD. This book's CD-ROM includes a version of the sccs command as available on the free source from BSD.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Interacting with SCCS</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS includes the admin command for interacting with the source control system. It can be used to create source control files, control availability of revisions, and change the rules about requirements for submitting a revision. SCCS also uses several 
+temporary files to indicate internal state and temporary locks. SCCS files are named s.<I>filename</I>. All SCCS commands take the name of the SCCS file itself rather than allowing a working filename as RCS commands do. It also has get and delta, which are 
+
+similar in function to the RCS commands co and ci.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Initial Revisions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>SCCS files require explicit initialization using the admin command before you can perform any other action. There are two different ways to initialize an SCCS file. First, you can create an SCCS file with an empty initial revision by executing admin -n 
+
+s.<I>filename</I>. This will create s.<I>filename</I> with the appropriate SCCS file structure and an empty revision 1.1. You can then use the get and delta commands to add text; unlike in RCS, the empty revision 1.1 will always remain. Second, you can 
+create an SCCS file with initial contents from another file using admin -i<I> filename</I> s.<I>filename</I>. The two occurrences of <I>filename</I> are not required to be the same, but it is generally useful to do so because other SCCS commands assume 
+that the working file for s.<I>filename</I> is <I>filename</I>.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>SCCS files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Like RCS, SCCS has an implicit notion of working files, but SCCS always requires the command line to use the s-file, which is the s.<I>filename</I> source control file. SCCS uses a file format completely different from that of RCS.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> It is a common misconception that SCCS uses forward deltas that save the root revision and build all later revisions using deltas from there. This leads to the incorrect conclusion that SCCS checks 
+out new revisions more slowly than it checks out old ones. In truth, SCCS uses a technique called interleaved deltas, which stores blocks of delta changes in such a way that a single pass over the entire SCCS file can produce any revision using fairly 
+straightforward techniques. The result is that SCCS get performance slows as the SCCS file gets large, but has similar performance regardless of which revision is retrieved. In a study by Walter F. Tichy, the original author of RCS, the RCS command co is 
+faster than the SCCS command get unless 10 or more deltas are being applied to derive a revision.
+
+<BR>
+
+<BR>This note is brought to you courtesy of RCS&#151;A System for Version Control by Tichy, which includes descriptions of RCS and the algorithms used by RCS and SCCS. A postscript version of this paper is on this book's CD-ROM.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Checking Out a File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>SCCS enables you to get a read-only copy of a revision with the get command. Using get -p will output the revision contents to the standard output. You can also supply a revision number using the -r option. Partial revision numbers for the -r option 
+will usually do what is desired. See the get man page entry for more details. You can specify a cutoff date (get the last delta before the cutoff) with -cYY[MM[DD[HH[MM[SS]]]]].
+
+<BR></P>
+
+<P>You can use the get command to set a lock, by doing a get for edit, or get -e, which locks the SCCS file and disables keyword expansion.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Checking In a File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>SCCS uses the delta command to submit changed revisions, which is also called creating a delta.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you have a lengthy log message that is common to more than one file, enter the text of the message into a file. Then on the check in command line, use  -y'cat <I>filename</I>' to specify that the 
+contents of the file <I>filename</I> should be used as the log message.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Examining Revision Details and History</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The prs command enables you to print reports on the SCCS file. It has somewhat more flexibility than the rlog command in RCS. It enables you to supply a format specification using the -d option that will control the printing of information about the 
+SCCS file. This can be used to created customized reports. prs shows you other details besides just the log messages.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Keywords</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>SCCS has a keyword substitution method that's different from that of RCS. SCCS keywords are of the form <I>%x%</I> and are expanded when you do a get with the -k (or -e) option. See the get man page entry for a full list of keywords. Expanded keyboards 
+
+have advantages and disadvantages. Expanded keywords need no processing to be easily human readable (for example, printf(&quot;Revision %I%\n&quot;); in C code will print out as Revision 1.1 for revision 1.1 checked out with the keywords expanded). 
+Expanded keywords are difficult to recover. If someone sends you a modified version of one of your sources, you will need to find all of the expanded keywords and replace them with the actual keyword (for example, replace printf(&quot;Revision 
+1.1\n&quot;); with printf(&quot;Revision %I%\n&quot;); in C code); this can be very difficult if you don't localize keyword usage.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You can embed SCCS keywords that identify your program executable by using this:
+
+<BR>
+
+<BR>char sccsid[] = &quot;%W%&quot;;
+
+<BR>
+
+<BR>To take advantage of this, make sure you perform your build with no files out for editing (remember that when you perform get -e the keyword is not expanded). If you do this, you will be able to use the what command to identify what revision(s) of what 
+
+file(s) went into creating the executable.
+
+<BR>
+
+<BR>You can also use the %I% keyword to identify your revision(s) for printing version messages.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Locks&#151;Mediating Conflict</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS locks are strict in that they will not allow a delta without a get -e. You can use the admin -fj command to allow concurrent get -e commands on the same revision.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Branches&#151;Complicating the Tree</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS supports branches as described in the section &quot;Basic Source Control Concepts.&quot; Using get -b -e will cause SCCS to create a branch from the specified revision. SCCS does not support branches on branches the way RCS does.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Merges&#151;Controlling Parallel Changes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS has no built-in support for performing merges. You can use the merge program as described in &quot;Basic Source Control Concepts&quot; to merge revisions of SCCS files if your version of UNIX has it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Extra SCCS Features</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS includes extra software configuration management support hooks that are not in RCS. The admin -f<I> x</I> and admin -d<I> x</I> commands can be used to do the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>x
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Action
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>v[<I>pgm</I>]
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Require modification request numbers for delta.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>c<I>ceil</I>
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Limit the releases that can be retrieved using get.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>ffloor
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Limit the releases that can be retrieved using get.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>l<I>list</I>
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Limit the releases that can be submitted using delta.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>j
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Enable/disable concurrent locks.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>b
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Enable/disable branching.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>d<I>SID</I>
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Set default revision for get.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>n
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Create null deltas for skipped releases. This can be used to create a base revision for branches in releases that had no source modifications.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>[qtm]
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Control expansion of some keywords.</P></TABLE>
+
+<P>See the admin man page entry for more details on these options.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=4><B>Using Source Control for Backups</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Both RCS and SCCS can also be used as a simple personal backup system. To do this, you periodically check in copies of the files that are to be backed up. This will give you a revision history of the files, and you can use this history to recover from 
+errors you may make (for example, accidentally removing a file or deleting some text you meant to keep).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Because it is likely that your source control files will be on the same disk (and same computer) as the original files, using source control systems to perform backup is not a perfect solution. 
+
+If catastrophic damages occur on the computer or disk on which the source control files are stored, both the original file and the backup source control files may be destroyed. Despite this, backup using source control can be useful.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Do not use source control as your only backup system. Use it to enhance an existing system. For example, if your system is backed up weekly, but you would like to protect your daily edits, you may want to run a cron job that performs your source control 
+
+backups. (See Chapter 20, &quot;Scheduling Processes&quot; for more information on adding cron jobs.) Your script might look something like this:
+
+<BR></P>
+
+<PRE>#!/bin/ksh
+
+# (/usr/bin/ksh on some systems)
+
+# This script will use RCS to do a checkpoint of
+
+# all files listed in the file BACKUP_LIST.
+
+# Make sure non-strict locking (rcs -U) is set on
+
+# the RCS files.
+
+#
+
+# Algorithm
+
+# For each file in the backup list
+
+#   if the file has changed
+
+#     check it in to RCS
+
+#
+
+# Assumptions:
+
+# This script assumes that strict locking has been turned
+
+# off in the corresponding RCS file since the purpose of
+
+# the script is for personal backup. This script assumes
+
+# the head is the right place to put the new revision.
+
+# This script assumes the RCS file is in one of the default
+
+# locations for RCS. For GNU RCS, use the RCSINIT variable
+
+# to change this.
+
+BACKUP_LIST=${HOME:-/u/sartin}/backup/rcs_backup_list
+
+# Uses POSIX mktemp!!!
+
+ERR_FILE='mktemp -p rcsbk'
+
+# Remove the scratch error file on exit
+
+trap &quot;rm -f ${ERR_FILE}&quot; 0
+
+exit_code=0
+
+# For each file in the backup list
+
+for file in 'cat ${BACKUP_LIST}'
+
+do
+
+     # Check if the file has changed (old rcsdiff doesn't take -q)
+
+     rcsdiff -q ${file} &gt;/dev/null 2&gt;${ERR_FILE}
+
+     rcs_res=$?
+
+# WARNING: Some versions of rcsdiff don't return error code
+
+# that match these. These error codes agree with GNU RCS 5.6.0.1
+
+     if [ ${rcs_res} -eq 0 ]
+
+     then
+
+          # no change in file
+
+          # echo &quot;No changes to $file&quot;
+
+          # The &quot;:&quot; is an empty command.
+
+          :
+
+     elif [ ${rcs_res} -eq 1 ]
+
+     then
+
+          # rcsdiff found differences, checkpoint the file
+
+          # echo &quot;Backing up changes to $file&quot;
+
+          ci -m&quot;Backup on 'date'&quot; -q -u $file 2&gt;${ERR_FILE} &lt;/dev/null
+
+          if [ $? -ne 0 ]
+
+          then
+
+               echo &quot;Could not check in changes for $file&quot;
+
+               echo &quot;Contents of stderr from ci -u $file:&quot;
+
+               cat ${ERR_FILE}
+
+               echo &quot;End of stderr from ci -u $file.&quot;
+
+               exit_code=1
+
+          fi
+
+     else
+
+          # Got an error, log it for mail
+
+          echo &quot;Could not get RCS differences for $file&quot;
+
+          echo &quot;Contents of stderr from rcsdiff $file:&quot;
+
+               cat ${ERR_FILE}
+
+          echo &quot;End of stderr from rcsdiff $file.&quot;
+
+          exit_code=1
+
+     fi
+
+     {ERR_FILE}
+
+done
+
+# Exit code should be 0 or 1, exit 2 if it's not set
+
+exit ${exit_code:-2}</PRE>
+
+<P>The example script will use the file named in the BACKUP_LIST shell variable. For each file in the list, it uses rcsdiff to check for differences. Note that it currently depends on the GNU RCS 5.6.0.1 rcsdiff exit codes, which agree well with most 
+implementations (however, this script does not work on HP-UX 9.0 RCS, where rcsdiff appears to return 0 unless there is an error). If you need to replace the exit code check, you might try saving the stdout of rcsdiff and checking the sizes or contents of 
+
+the stdout and the ERR_FILE. If there was an error in performing the rcsdiff, the script prints an error message and sets the shell variable exit_code so that on exit it will indicate an error. If the rcsdiff indicated changes, the script attempts a ci and 
+
+logs an error and sets exit_code if the ci fails. Here it is assuming nonstrict locking. You could add rcs -l to lock the file if strict locking is enabled, but this is potentially error prone (for example, if the file is locked). This backup system is 
+intended for personal use only, which is where nonstrict locking is usually safe.
+
+<BR></P>
+
+<P>For specific needs you might develop a more complex system. Here are some suggested directions for improvement:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Allow strict locking.</B> This would make the backup workable with strict locks and possibly even allow it to be used for project checkpoints rather than just for personal checkpoints.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Keep all the RCS files in a different location.</B> This might require listing pairs of names in the BACKUP_LIST or creating a directory tree especially for RCS files. This could help make a project-style backup work better (one set of RCS files 
+only for backup). This could also be used to put the RCS files on a file system different from the original files, which would improve your protection from a disaster.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Perform a check in only if the changes exceed a certain minimum </B><B>size.</B> This will decrease the number of revisions at some cost in backup currency.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Use </B>rcs -o<B> automatically to make obsolete old backups at some </B><B>point.</B> This will decrease the size of the RCS files and improve performance.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Although performing backup using a source control system is certainly not a panacea, it can be used as additional protection for your personal files. It allows a finer grain of control of the backup than most system backups give.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=4><B>A Simple Example</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section and the next section give a rather simple example of source control in action. The example shows how either RCS or SCCS can be used to solve a source control problem. To keep the example simple, it involved only three files&#151;enough to 
+show some of the benefits of source control, but not so many that the example becomes buried in detail. To prepare for this example, you should create a new directory for the example. In that new directory, create three files: file1, file2, and file3. If 
+you like, you may create a directory named RCS for storing the RCS files. You should be able to perform this example using RCS and SCCS simultaneously.
+
+<BR></P>
+
+<P>The contents of file1 should be
+
+<BR></P>
+
+<PRE>This is file1</PRE>
+
+<P>The contents of file2 should be
+
+<BR></P>
+
+<PRE>This is file2</PRE>
+
+<P>The contents of file3 should be
+
+<BR></P>
+
+<PRE>This is file3</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Starting to Use Source Control</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Both RCS and SCCS have several ways to initialize the source control files. You will use three different methods here to illustrate the possibilities. Normally, you would choose one method for an entire project. In the first method you will initialize 
+an empty source control file and then manually check in the current version of the file. In the second method you will initialize the source control file to contain the current contents of the source file and manually enter descriptive information. In the 
+
+third method you will initialize the source control file to contain the current contents of the source file, and all descriptive information and comments will be supplied on the command line. The third method is probably the most desirable for starting a 
+large project.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To see what is happening with the source control files, you may want to run rlog (for RCS examples) or prs (for SCCS examples) to observe the changes in the source control files.
+
+<BR>
+
+<BR>If you are truly adventurous, you might even want to view the source control files themselves (<I>file</I>,v for RCS and s.<I>file</I> for SCCS) to see how they change. Check your online documentation (rcsfile or sccsfile man page entries might be on 
+your system) for information on the file formats.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Creating an Empty Source Control File and Adding the Initial Revision</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>First, initialize an empty RCS file for file1 and check in the initial revision:
+
+<BR></P>
+
+<PRE>$ Brcs -i file1
+
+RCS file: RCS/file1,v
+
+enter description, terminated with single '.' or end of file:
+
+NOTE: This is NOT the log message!
+
+&gt;&gt; Contents of file1 for source control example
+
+&gt;&gt; <B>.</B>
+
+done
+
+$ ci -u file1
+
+RCS/file1,v  &lt;&#151;  file1
+
+initial revision: 1.1
+
+done
+
+$ co -l file1
+
+RCS/file1,v  &#151;&gt;  file1
+
+revision 1.1 (locked)
+
+done
+
+$ ci -f -q file1
+
+enter log message, terminated with single '.' or end of file:
+
+&gt;&gt; To keep revision numbers in sync with SCCS.
+
+&gt;&gt; <B>.</B>
+
+$</PRE>
+
+<P>The rcs -i file1 command creates RCS/file1,v with your description, with no revisions. When you do ci -u file1, RCS automatically creates revision 1.1 with the comment initial revision. The last two commands are there simply to keep the revision numbers 
+
+in sync with the numbers you will have in the SCCS files.
+
+<BR></P>
+
+<P>Next initialize an empty SCCS file and check in file1:
+
+<BR></P>
+
+<PRE>$ admin -n s.file1
+
+$ get -e -p s.file1 
+
+Retrieved:
+
+1.1
+
+new delta 1.2
+
+0 lines
+
+$ delta s.file1
+
+comments? Initial revision
+
+No id keywords (cm7)
+
+1.2
+
+1 inserted
+
+0 deleted
+
+0 unchanged
+
+$ get s.file1
+
+Retrieved:
+
+1.2
+
+1 lines
+
+No id keywords (cm7)
+
+$</PRE>
+
+<P>The admin command creates an empty initial revision. To lock the SCCS file, you need to perform a get for edit using get -e. In this example, you use get -e -p s.file1, which prints the file to standard output and locks it. Because you already have the 
+
+contents of file1 you do not need and do not want to overwrite file1 with the empty revision 1.1. The delta command checks in the initial revision of the file as revision 1.2, leaving an empty revision 1.1 as an artifact. The final get command ensures that 
+
+you have a current, read-only copy of file1.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Creating a Full Source Control File with Manually Supplied Comments</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Now create the source control file with all of the correct original text. In RCS, you can do this using ci:
+
+<BR></P>
+
+<PRE>$ ci -u file2
+
+RCS/file2,v  &lt;&#151;  file2
+
+enter description, terminated with single '.' or end of file:
+
+NOTE: This is NOT the log message!
+
+&gt;&gt; Contents of file2 for source control example
+
+&gt;&gt; <B>.</B>
+
+initial revision: 1.1
+
+done
+
+$</PRE>
+
+<P>This command causes a check in of the initial revision. RCS requests a description of the file, which you type after seeing the request. The -u option causes RCS to leave a read-only copy of file2 in your directory. Notice that RCS can initialize the 
+RCS file without use of the rcs command. It can be very convenient (and is necessary for this example) to keep available a current copy of the head revision.
+
+<BR></P>
+
+<P>To initialize an SCCS file with the current contents of file2 use the admin command:
+
+<BR></P>
+
+<PRE>$ admin -ifile2 s.file2
+
+No id keywords (cm7)
+
+$ get s.file2
+
+Retrieved:
+
+1.1
+
+1 lines
+
+No id keywords (cm7)
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> For some versions of SCCS, after <I>$ </I>admin -ifile2 s.file2, you may need to <I>rm file2</I>.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The admin command creates s.file2 with the current contents of file2 as revision 1.1. The get command is to keep available a current copy of the head revision of file2.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Creating a Full Source Control File with Command Line Comments</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This method supplies all the possible descriptive comments on the command line used to create the full source control file. In RCS, it takes extra commands to do this completely:
+
+<BR></P>
+
+<PRE>$ echo &quot;Contents of file3 for source control example&quot; &gt; desc
+
+$ ci -u -m&quot;Original source for file3&quot; -tdesc file3
+
+RCS/file3,v  &lt;&#151;  file3
+
+initial revision: 1.1
+
+done
+
+$</PRE>
+
+<P>The echo command saves the description to a file. The ci command supplies the initial revision but replaces the default message Initial revision that RCS normally uses for the first revision with the message Original source for file3. It also uses the 
+-t option to supply a description from the desc file. Although this method may seem more awkward when you use it interactively for a single file, it can be much more efficient if you are checking in many files and can write a script to generate 
+descriptions and messages.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you are creating a source-controlled copy of files you got elsewhere (for example, from an ftp site), you may want the initial revision comment to indicate the origin of the source. This can be of 
+great assistance later, when you need to know something about the source (for example, to whom you should send comments or questions).
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For SCCS, the command sequence to create the following:
+
+<BR></P>
+
+<PRE>$ echo &quot;Contents of file3 for source control example&quot; &gt; desc
+
+$ admin -tdesc -ifile3 -y&quot;Original source for file3&quot; s.file3
+
+No id keywords (cm7)
+
+$ get s.file3
+
+Retrieved:
+
+1.1
+
+1 lines
+
+No id keywords (cm7)
+
+$</PRE>
+
+<P>The admin command sets up the SCCS file completely using the source from file3, the description from desc, and the comment supplied with the -y option. Once again, this presents a good opportunity for writing scripts to do large initializations of 
+source control hierarchies.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Modifying Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In RCS and SCCS, you need to set a lock to edit a file. The normal way to do that is to set the lock before you begin editing. You will now make changes to file2 and file3 to prepare for the alpha test. An alpha test is a preliminary release of a 
+possibly incomplete software product that is likely to have new features added and many defects repaired before it is released. These changes will be simple and will involve locking the file, editing the file, and checking in the change to source control. 
+
+You will perform these in two different ways so you can see what to do when you forget to set a lock on a source control file.
+
+<BR></P>
+
+<P>A common area of contention in source control systems is the subject of when a revised version of a file should be checked in to source control. The two extreme positions are these:
+
+<BR></P>
+
+<UL>
+
+<LI>Whenever the file is edited, it should be checked in to source control. Check in as early and as often as possible.
+
+<BR>
+
+<BR></LI>
+
+<LI>Whenever the product is released, the files should be checked in to source control. Check in as late and as infrequently as possible.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Of course, neither of these is particularly appealing in practice. The first is unappealing because it results in large source control files, many versions that have had no review or testing (if they are source code, they may not even compile!), and 
+revision logs that are difficult to follow because the changes are all so small. The second is unappealing because it results in little, if any, log of the logic behind the series of changes made to a file and gives no alternative for phased review and 
+release of project files.
+
+<BR></P>
+
+<P>The best alternative is somewhere in the middle, and you should think carefully about the correct balance for your projects.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>Lock, Modify, Check In</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>First you will make changes in the most desirable way. You will lock the file, then modify it, and finally check it back in to source control. For this example, you will change file2 to have the following text:
+
+<BR></P>
+
+<PRE>This is file2
+
+Added line 1
+
+Added line 2
+
+Added line 3
+
+Added line 4
+
+Added line 5
+
+Added line 6
+
+Added line 7</PRE>
+
+<P>In RCS, you should run this:
+
+<BR></P>
+
+<PRE>$ co -l file2
+
+RCS/file2,v  &#151;&gt;  file2
+
+revision 1.1 (locked)
+
+done
+
+$ # Edit file2
+
+$ ci -u -m&quot;Changes for alpha&quot; file2
+
+RCS/file2,v  &lt;&#151;  file2
+
+new revision: 1.2; previous revision: 1.1
+
+done
+
+$</PRE>
+
+<P>This will create revision 1.2 with the changes you made. For SCCS, you should run this:
+
+<BR></P>
+
+<PRE>$ get -e s.file2
+
+Retrieved:
+
+1.1
+
+new delta 1.2
+
+1 lines
+
+$ # Edit file2 (cheaters using RCS and SCCS can run co -p file2 &gt; file2)
+
+$ delta -y&quot;Changes for alpha&quot; s.file2
+
+No id keywords (cm7)
+
+1.2
+
+7 inserted
+
+0 deleted
+
+1 unchanged
+
+$ get s.file2
+
+Retrieved:
+
+1.2
+
+8 lines
+
+No id keywords (cm7)
+
+$</PRE>
+
+<P>This creates revision 1.2 with the changes you made. Notice that the delta command tells you how many lines were inserted, deleted, and unchanged. You can get the same information from RCS using rlog. The final get keeps a read-only copy of the head.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Modify (Oops!), Lock, Check In&#151;Recovering from a Mistake</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you change a file without locking the source control file, it is still possible to lock the source control file and check in the changes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you have RCS set to nonstrict locks (rcs -U <I>file</I>) and you own the source control file (<I>file</I>,v) you don't need a lock. This is probably safe for personal files, but can create problems 
+in multiperson projects.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For this example, you will change the text of file3 to the following:
+
+<BR></P>
+
+<PRE>This is file3
+
+A line called A
+
+A line called B
+
+A line called C
+
+A line called D</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>In a multiperson project, making modifications to a file without checking it out can be a very risky proposition. By not locking the file, you create a situation just like the one in the example 
+
+in Figure 30.2. Be very careful about this practice in real life. Make sure that the file didn't get locked or modified by anyone else. Review future revisions to make sure all the old changes made it to the head.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Using RCS, execute these commands:
+
+<BR></P>
+
+<PRE>$ co file3
+
+RCS/file3,v  &#151;&gt;  file3
+
+revision 1.1
+
+done
+
+$ chmod u+w file3
+
+$ # Edit file3
+
+$ rcs -l file3
+
+RCS file: RCS/file3,v
+
+1.1 locked
+
+done
+
+$ ci -u -m&quot;Dangerous changes to file3&quot; file3
+
+RCS/file3,v  &lt;&#151;  file3
+
+new revision: 1.2; previous revision: 1.1
+
+done
+
+$</PRE>
+
+<P>The co command makes sure you have the contents of file3, but it does not set a lock. The chmod should be a red flag that you are doing something dangerous; RCS and SCCS both leave files with write enabled when they have set a lock for you. The rcs -l 
+command sets a lock on the head revision of file3. The ci command checks the changes into RCS.
+
+<BR></P>
+
+<P>Using SCCS, execute these commands:
+
+<BR></P>
+
+<PRE>$ get s.file3
+
+Retrieved:
+
+1.1
+
+1 lines
+
+No id keywords (cm7)
+
+$ chmod u+w file3
+
+$ # Edit file3 (cheaters using RCS and SCCS can run co -p file3 &gt; file3)
+
+$ get -e -p s.file3 &gt;/dev/null
+
+Retrieved:
+
+1.1
+
+new delta 1.2
+
+1 lines
+
+$ delta -y&quot;Dangerous changes to file3&quot; s.file3
+
+No id keywords (cm7)
+
+1.2
+
+4 inserted
+
+0 deleted
+
+1 unchanged
+
+$ get s.file3
+
+Retrieved:
+
+1.2
+
+5 lines
+
+No id keywords (cm7)
+
+$</PRE>
+
+<P>The first get command is to make sure you have the correct contents for file3, but does not set a lock. The chmod should be a red flag that you are doing something dangerous; RCS and SCCS both leave files with write enabled when they have set a lock for 
+
+you. The get -e -p command sets a lock on the head revision of file3 (and copies the text of the head revision of file3 to /dev/null). This trick does the same as rcs -l in RCS. The delta command checks the changes into SCCS. The final get command is to 
+get a read-only copy of the head.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Because of the way SCCS performs keyword expansion, you may lose keywords by using this approach. If you use any of the SCCS keywords, they will be expanded on a get that is not for editing. 
+When the keywords are expanded, SCCS no longer recognizes them as keywords.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To see the risk of losing SCCS keywords, try this example. First create a file called badsccskw with the following text:
+
+<BR></P>
+
+<PRE>This is %F% revision %I%, created on %D%, %T%</PRE>
+
+<P>Load SCCS with the contents of the file, using admin -ibadsccskw s.badsccskw. Next do a get s.badsccskw and chmod u+w badsccskw to get the current contents of the file (notice that if you use cat badsccskw the keywords are expanded. Now do get -e -p 
+s.badsccskw; notice how the keywords look when you request an editable copy. Now do delta -y&quot;Lose keywords&quot; s.badsccskw; notice the warning No id keywords (cm7). Now look at what happened to the file, using get -e s.badsccskw, and then cat 
+badsccskw and notice the lack of keywords. By performing the &quot;modify, lock, check in&quot; style of modification, you have lost the SCCS keywords completely. Look at what happens:
+
+<BR></P>
+
+<PRE>$ admin -ibadsccskw s.badsccskw
+
+$ rm badsccskw
+
+$ get s.badsccskw
+
+Retrieved:
+
+1.1
+
+1 lines
+
+$ chmod u+w badsccskw
+
+$ cat badsccskw
+
+This is s.badsccskw revision 1.1, created on 94/04/04, 12:26:47
+
+$ get -e -p s.badsccskw
+
+Retrieved:
+
+1.1
+
+new delta 1.2
+
+This is %F% revision %I%, created on %D%, %T%
+
+1 lines
+
+$ delta -y&quot;Lose keywords&quot; s.badsccskw
+
+No id keywords (cm7)
+
+1.2
+
+1 inserted
+
+1 deleted
+
+0 unchanged
+
+$ get -e s.badsccskw
+
+Retrieved:
+
+1.2
+
+new delta 1.3
+
+1 lines
+
+$ cat badsccskw
+
+This is s.badsccskw revision 1.1, created on 94/04/04, 12:26:47
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Shipping a Prerelease</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After all of your hard work, it's time to ship a prerelease alpha version of your files for testing and review. Ideally you would like to collect a list of which revisions of which files you sent out for the alpha. This will give you the ability to look 
+
+at the correct revisions anytime there is an error to be fixed or a question to be answered.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Recording a Configuration with RCS</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>RCS offers a number of ways to recall files:
+
+<BR></P>
+
+<UL>
+
+<LI>By head of trunk (default)
+
+<BR>
+
+<BR></LI>
+
+<LI>By exact revision number (-r<I> rel</I>.<I>level</I>[.<I>branch</I>.<I>seq</I>])
+
+<BR>
+
+<BR></LI>
+
+<LI>By author (-w<I> author</I>)
+
+<BR>
+
+<BR></LI>
+
+<LI>By highest revision in a release (-r<I> rel</I>)
+
+<BR>
+
+<BR></LI>
+
+<LI>By highest revision in a branch (-r <I>rel</I>.<I>level</I>.<I>branch</I>)\
+
+<BR>
+
+<BR></LI>
+
+<LI>By date (-d<I>date</I>)
+
+<BR>
+
+<BR></LI>
+
+<LI>By state (-s<I>state</I>)
+
+<BR>
+
+<BR></LI>
+
+<LI>By symbolic name (-r<I>NAME</I>)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The fist three alternatives are not very useful for recalling a particular release. The second two can be useful, but you need to arrange to increment the release number of all RCS files each time you ship out a release and keep all release numbers in 
+all RCS files synchronized. Retrieving by date can be reasonably appealing if you know the date of the release and on what branch it occurred, but it will break down if you wish to save and retrieve patches for a release (because the patch dates will be 
+different from the release date). For example, if your release occurred on April 3, 1994, you might try this:
+
+<BR></P>
+
+<PRE>$ co -d&quot;1994/04/03 23:59&quot; RCS/*,v
+
+RCS/file1,v  &#151;&gt;  file1
+
+revision 1.2
+
+done
+
+RCS/file2,v  &#151;&gt;  file2
+
+revision 1.2
+
+done
+
+RCS/file3,v  &#151;&gt;  file3
+
+revision 1.2
+
+done
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You will need to use different dates to perform these actions yourself. The dates here are correct for the example RCS and SCCS files on the CD-ROM.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Notice that the correct revisions for the alpha release are retrieved.
+
+<BR></P>
+
+<P>Retrieving by state can be useful for release. Call the alpha release stable and set the RCS state of the head revisions to stab.
+
+<BR></P>
+
+<PRE>$ rcs -sStab RCS/*,v
+
+RCS file: RCS/file1,v
+
+done
+
+RCS file: RCS/file2,v
+
+done
+
+RCS file: RCS/file3,v
+
+done
+
+$ rlog file1
+
+RCS file: RCS/file1,v
+
+Working file: file1
+
+head: 1.2
+
+branch:
+
+locks: strict
+
+access list:
+
+symbolic names:
+
+comment leader: &quot;# &quot;
+
+keyword substitution: kv
+
+total revisions: 2;     selected revisions: 2
+
+description:
+
+Contents of file1 for source control example.
+
+&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;
+
+revision 1.2
+
+date: 1994/04/04 03:04:47;  author: sartin;  state: Stab;  lines: +0 -0
+
+To keep revision numbers in sync with SCCS.
+
+&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;
+
+revision 1.1
+
+date: 1994/04/04 02:05:47;  author: sartin;  state: Exp;
+
+Initial revision
+
+=============================================================================
+
+$ co -sStab RCS/*,v
+
+RCS/file1,v  &#151;&gt;  file1
+
+revision 1.2
+
+done
+
+RCS/file2,v  &#151;&gt;  file2
+
+revision 1.2
+
+done
+
+RCS/file3,v  &#151;&gt;  file3
+
+revision 1.2
+
+done
+
+$</PRE>
+
+<P>Notice that the state field for revision 1.2 of file1 is Stab and that the co command gets the correct revisions.
+
+<BR></P>
+
+<P>The best alternative is probably to use a symbolic name to mark all the revisions used in the release. Use rcs to apply a symbolic name to the release:
+
+<BR></P>
+
+<PRE>$ rcs -nRel_1_Alpha: RCS/*,v
+
+RCS file: RCS/file1,v
+
+done
+
+RCS file: RCS/file2,v
+
+done
+
+RCS file: RCS/file3,v
+
+done
+
+$ rlog file1
+
+RCS file: RCS/file1,v
+
+Working file: file1
+
+head: 1.2
+
+branch:
+
+locks: strict
+
+access list:
+
+symbolic names:
+
+        Rel_1_Alpha: 1.2
+
+comment leader: &quot;# &quot;
+
+keyword substitution: kv
+
+total revisions: 2;     selected revisions: 2
+
+description:
+
+Contents of file1 for source control example.
+
+&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;
+
+revision 1.2
+
+date: 1994/04/04 03:04:47;  author: sartin;  state: Stab;  lines: +0 -0
+
+To keep revision numbers in sync with SCCS.
+
+&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;
+
+revision 1.1
+
+date: 1994/04/04 02:05:47;  author: sartin;  state: Exp;
+
+Initial revision
+
+=============================================================================
+
+$</PRE>
+
+<P>The command rcs -nRel_1_Alpha: RCS/*,v associates the current head revision (use -n<I>name</I>:<I>revision_number</I> to choose a different revision) with the name Rel_1_Alpha. Notice the symbolic names list in the rlog output. You can use symbolic 
+names for revisions in any RCS command or option that takes a revision number. GNU RCS includes a script called rcsfreeze to help do this:
+
+<BR></P>
+
+<PRE>$ rcsfreeze Rel_1_Alpha
+
+rcsfreeze: symbolic revision number computed: &quot;C_1&quot;
+
+rcsfreeze: symbolic revision number used:     &quot;Rel_1_Alpha&quot;
+
+rcsfreeze: the two differ only when rcsfreeze invoked with argument
+
+rcsfreeze: give log message, summarizing changes (end with EOF or single '.')
+
+Alpha release to partners and QA
+
+.
+
+rcsfreeze: 1.2 RCS/file1,v
+
+rcsfreeze: 1.2 RCS/file2,v
+
+rcsfreeze: 1.2 RCS/file3,v
+
+$ cat RCS/.rcsfreeze.log
+
+Version: Rel_1_Alpha(C_1), Date: Mon Apr 04 13:55:01 1994
+
+&#151;&#151;&#151;&#151;&#151;
+
+        Alpha release to partners and QA
+
+&#151;&#151;&#151;&#151;&#151;
+
+$ rcs -q -nRel_1_Alpha_Orig:Rel_1_Alpha RCS/*,v
+
+$</PRE>
+
+<P>The rcsfreeze command works on all RCS files for the current directory (either in the current directory or in a directory called RCS). It saves the log message in a file called .rcsfreeze.log (in the RCS directory, if there is one), which allows you to 
+
+read the description of the frozen configurations. If you do not supply a symbolic name on the rcsfreeze command line, rcsfreeze uses C_<I>number</I>, where <I>number</I> is decided by rcsfreeze from the .rcsfreeze.ver file (in the RCS directory if there 
+is one). The final rcs command is to assign an extra symbolic name Rel_1_Alpha_Orig to the alpha revisions. This name will be useful later in performing merges.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Using SCCS for a Prerelease</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Unlike RCS, SCCS does not offer symbolic names. It does offer several similar options for getting particular revisions, highest delta in a release, or head of a branch or the trunk. See the get man page entry for more details. SCCS can use a cutoff date 
+
+for a get; it will get the most recent delta before the cutoff date. For this example, you would use the release date and time as the cutoff (the cutoff time you use will be different!). The following shows how to retrieve an SCCS file by date:
+
+<BR></P>
+
+<PRE>$ get -c9404032359 s.*
+
+s.file1:
+
+Retrieved:
+
+1.2
+
+1 lines
+
+No id keywords (cm7)
+
+s.file2:
+
+Retrieved:
+
+1.2
+
+8 lines
+
+No id keywords (cm7)
+
+s.file3:
+
+Retrieved:
+
+1.2
+
+5 lines
+
+No id keywords (cm7)
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>Release 1</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After the alpha release, make some changes to the system before release 1. Change file2 to contain the following:
+
+<BR></P>
+
+<PRE>This is file2
+
+Added line 1
+
+Added line 2
+
+Added line 3
+
+A change added after the alpha release
+
+Added line 4
+
+Added line 5
+
+Added line 6
+
+Added line 7</PRE>
+
+<P>To edit file2 and update it in RCS, do the following: 
+
+<BR></P>
+
+<PRE>$ co -l -q file2
+
+$ # Edit file2
+
+$ ci -u -m&quot;Post alpha changes&quot; -q file2
+
+$</PRE>
+
+<P>Note the use of -q to eliminate the RCS output. With -q only errors are reported.
+
+<BR></P>
+
+<P>To edit file2 and update it in SCCS, do the following:
+
+<BR></P>
+
+<PRE>$ get -e -s s.file2
+
+$ # Edit file2 (cheaters using RCS and SCCS can run co -p file2 &gt; file2)
+
+$ delta -s -y&quot;Post alpha changes&quot; s.file2
+
+$</PRE>
+
+<P>Note the use of -q to eliminate the RCS output. With -q only errors are reported.
+
+<BR></P>
+
+<P>Performing release 1 is just like performing the alpha release, with one exception. It may be a good idea to increase the release number of future file revisions to 2. This will make release tracking much easier in SCCS and may help in RCS (although 
+symbolic name gives you most of the advantages).
+
+<BR></P>
+
+<P>RCS doesn't offer an easy way to set the release for the next change checked in, but you can force a revision 2.1 even without changes by running a co -l and then ci -r2 -f. You will not do this in this example, but keep it in mind for the future. Run 
+the command rcs -q -nRel_1: -nRel_1_orig: RCS/*,v to set the symbolic names Rel_1 and Rel_1_orig for the head revision of all files. The first name will be used to track release 1 and any patches. The second name will be used to save the original release 1 
+
+source and will help in performing merges. Remember to use release 2 for future revisions.
+
+<BR></P>
+
+<P>SCCS offers a simple way to set the release for the next delta. To perform your release in SCCS, run the command admin -fd2 s.*. This sets the default SID to 2 for all of your SCCS files. Because of the way get works for nonexistent releases, get will 
+retrieve the highest revision from release 1 and delta will submit the change as revision 2.1.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=4><B>A Complex Example</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Now it's time to make the example a bit more complicated. This section includes making changes for release 2, creating patches for release 1, merging the patches into the trunk, receiving patches from others (and merging them) and (for SCCS only) 
+requiring proper authorization to make changes.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Beginning Changes for Release 2</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After release 1, make changes to all three files that add a single line at the end of the file that says Line added for release 2. Check the changes in at release 2 (this will be the default for SCCS). After changes, the files should look like this:
+
+<BR></P>
+
+<PRE>$ cat file1
+
+This is file1
+
+Line added for release 2
+
+$ cat file2
+
+This is file2
+
+Added line 1
+
+Added line 2
+
+Added line 3
+
+A change added after the alpha release
+
+Added line 4
+
+Added line 5
+
+Added line 6
+
+Added line 7
+
+Line added for release 2
+
+$ cat file3
+
+This is file3
+
+A line called A
+
+A line called B
+
+A line called C
+
+A line called D
+
+Line added for release 2</PRE>
+
+<P>To create changes for release 2 in RCS, do the following:
+
+<BR></P>
+
+<PRE>$ co -l -q file1 file2 file3
+
+$ # Edit the files
+
+$ ci -u -m&quot;Line added for release 2&quot; -r2 file1 file2 file3
+
+RCS/file1,v  &lt;&#151;  file1
+
+new revision: 2.1; previous revision: 1.2
+
+done
+
+RCS/file2,v  &lt;&#151;  file2
+
+new revision: 2.1; previous revision: 1.3
+
+done
+
+RCS/file3,v  &lt;&#151;  file3
+
+new revision: 2.1; previous revision: 1.2
+
+done
+
+$</PRE>
+
+<P>Notice that for RCS to increment the release number, you need to tell it on the ci command line.
+
+<BR></P>
+
+<P>For SCCS, you already ran admin -fd2 s.*, so the change to release 2 will occur automatically:
+
+<BR></P>
+
+<PRE>$ get -e s.*
+
+s.file1:
+
+Retrieved:
+
+1.2
+
+new delta 2.1
+
+1 lines
+
+s.file2:
+
+Retrieved:
+
+1.3
+
+new delta 2.1
+
+9 lines
+
+s.file3:
+
+Retrieved:
+
+1.2
+
+new delta 2.1
+
+5 lines
+
+$ # Edit files
+
+$ delta -s -y&quot;Line added for release 2&quot; s.*
+
+$ get -s s.*
+
+$</PRE>
+
+<P>Notice that the get -e command retrieves the proper revisions and informs you that the delta will be submitted as revision 2.1.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>Creating Patches for Release 1 and Alpha</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After release 1, you discover some errors. To fix these in the release 1 source code you will need to check out the correct source and create a branch in the source control system for the change. You will now change the text of file2 to add a new first 
+
+line:
+
+<BR></P>
+
+<PRE>Line added for patch to release 1
+
+This is file2
+
+Added line 1
+
+Added line 2
+
+Added line 3
+
+A change added after the alpha release
+
+Added line 4
+
+Added line 5
+
+Added line 6
+
+Added line 7</PRE>
+
+<P>For the RCS example, you will move the Rel_1 symbolic name to track the release with all patches. To do this in RCS, you check out the revision by the symbolic name Rel_1 (should be revision 1.3), perform the edit, and check in the new branch (changing 
+
+the symbolic name Rel_1 with the -N option, which replaces an existing symbolic name):
+
+<BR></P>
+
+<PRE>$ co -q -lRel_1 file2
+
+$ # Edit file
+
+$ ci -u -m&quot;Patch to release 1&quot; -NRel_1 file2
+
+RCS/file2,v  &lt;&#151;  file2
+
+new revision: 1.3.1.1; previous revision: 1.3
+
+done
+
+$</PRE>
+
+<P>Notice that ci automatically creates the branch for you. If you do rlog file2 you will see that the name Rel_1 now refers to revision 1.3.1.1.
+
+<BR></P>
+
+<P>To do this in SCCS, you use get -e -b with a cutoff date, perform the edit, and then check in the delta:
+
+<BR></P>
+
+<PRE>$ get -e -b -c9404041430 s.file2
+
+Retrieved:
+
+1.3
+
+new delta 1.3.1.1
+
+9 lines
+
+$ delta -y&quot;Patch to release 1&quot; s.file2
+
+No id keywords (cm7)
+
+1.3.1.1
+
+1 inserted
+
+0 deleted
+
+9 unchanged
+
+$</PRE>
+
+<P>Note that the -b option causes get to set up a branch, and that delta automatically uses the branch. The cutoff time you use will be different from the example because you will be executing the example and creating new revisions at a different time than 
+
+we did! You will need to remember that branch 1.3.1 is the branch for release 1 patches.
+
+<BR></P>
+
+<P>Now do the same thing for file3, changing the contents to the following:
+
+<BR></P>
+
+<PRE>Line added for patch to release 1
+
+This is file3
+
+A line called A
+
+A line called B
+
+A line called C
+
+A line called D</PRE>
+
+<P>To create the patch in RCS, do the following:
+
+<BR></P>
+
+<PRE>$ co -q -lRel_1 file3
+
+$ # Edit file 
+
+$ ci -q -NRel_1 -m&quot;Patch to release 1&quot; -u file3
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35>The use of the -n and -N options in RCS might be confusing. The two options do the same thing, except that -N will replace an existing symbol and -n will not.
+
+<BR>
+
+<BR>In addition, the -n (and -N) option to ci always assigns the new revision number to the symbol. The -n (and -N) option to rcs has three forms. First, -n <I>symbol</I> will delete an existing <I>symbol</I> completely. Second, -n <I>symbol</I>: will 
+assign the head revision to <I>symbol</I>. Finally, -n <I>symbol</I>:revision will assign the specific revision to <I>symbol</I>.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>This will create revision 1.2.1.1 with the changed contents, and change the Rel_1 name to be revision 1.2.1.1.
+
+<BR></P>
+
+<P>To create the patch in SCCS, do the following:
+
+<BR></P>
+
+<PRE>$ get -s -b -e -c9404041430 s.file3
+
+$ # Edit file
+
+$ delta -s -y&quot;Patch to release 1&quot; s.file3
+
+$</PRE>
+
+<P>This will create revision 1.2.1.1 with the changed contents. You will need to remember that branch 1.2.1 is the branch for release 1 patches.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Merging Patches into the Trunk</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>It's all well and good to use branches to create patches to the old release 1, but what do you do if you want to add those patches to the next release? The answer is to use some sort of merging facility to combine the changes for the patch with the 
+changes since the release. You will now merge the patch to file2 into the trunk.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>Merging with </B><B><I>rcsmerge</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>RCS includes a program called rcsmerge, which performs some merging. When you assigned symbolic names for Rel_1_orig, you laid the groundwork for making merges easy. The Rel_1_orig name gives a common ancestor for performing merges (remember that merges 
+
+require a common ancestor and two variants).
+
+<BR></P>
+
+<PRE>$ co -rRel_1 file2
+
+RCS/file2,v  &#151;&gt;  file2
+
+revision 1.3.1.1
+
+done
+
+$ chmod u+w file2
+
+$ rcs -l -q file2
+
+$ rcsmerge -rRel_1_orig file2
+
+RCS file: RCS/file2,v
+
+retrieving revision 1.3
+
+retrieving revision 2.1
+
+Merging differences between 1.3 and 2.1 into file2
+
+$ cat file2
+
+Line added for patch to release 1
+
+This is file2
+
+Added line 1
+
+Added line 2
+
+Added line 3
+
+A change added after the alpha release
+
+Added line 4
+
+Added line 5
+
+Added line 6
+
+Added line 7
+
+Line added for release 2
+
+$ ci -u -q -m&quot;Merge changes from release 1 patch&quot; file2
+
+$</PRE>
+
+<P>The key command is the rcsmerge command, which tells RCS to merge changes between revision Rel_1_orig (1.3) and the current head (2.1) into the current contents of file2 (which contains the patch to release 1).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>Merging with SCCS and </B><B><I>merge</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>SCCS has no built-in merge facility, but if you have the merge program you can perform merges by hand and check in the results. Notice that getting the correct revisions checked out of SCCS is a little bit more challenging.
+
+<BR></P>
+
+<PRE>$ rm -f file2
+
+$ get -s -p -r1.3 s.file2 &gt; base
+
+$ get -s -p -r1.3.1.1 s.file2 &gt; branch
+
+$ get -s -e -p s.file2 &gt; head
+
+$ merge -p head base branch &gt; file2
+
+$ cat file2
+
+Line added for patch to release 1
+
+This is file2
+
+Added line 1
+
+Added line 2
+
+Added line 3
+
+A change added after the alpha release
+
+Added line 4
+
+Added line 5
+
+Added line 6
+
+Added line 7
+
+Line added for release 2
+
+$ delta -s -y&quot;Merge changes from release 1 patch&quot; s.file2
+
+$</PRE>
+
+<P>The use of merge is similar to that in the example in the section &quot;Merges&#151;Controlling Parallel Changes&quot; and performs the same task as the rcsmerge in the previous example, but uses manual setup from source control of the files to be 
+merged.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>Receiving Patches from Others and Merging Them</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You may be faced with situations in which you receive suggested patches from outside sources. In this example, you receive a suggested patch based on the source of release 1. The submitter suggests that file3 should read as follows:
+
+<BR></P>
+
+<PRE>This is file3
+
+A line called A
+
+A line called B
+
+Outside patch to release 1
+
+A line called C
+
+A line called D</PRE>
+
+<P>This is the same as the release 1 version of file3, with a line added in the middle. The best way to handle such a patch is to check it in as a branch from the released version of the file and then merge the change into the head of the trunk. You have 
+not yet merged the release 1 patch to file3 to the trunk head, so you will perform that merge as well.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>Merging with </B><B><I>co</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The RCS co command includes merging capability. To use it you will need to check in the modified version of file3 as a branch to the Rel_1_orig revision and then use co -l -j to merge the changes. Most of this example should be familiar. First, you set 
+
+a lock on revision Rel_1_orig of file3 (you could use co to check out the lock, but you would just overwrite file3 right away with the patched version you received). Next, you put the text you received into file3 and then check in the changes, which will 
+automatically create a new branch 1.2.2.1. Now comes the new part: Execute co -l -jRel_1_orig:Rel_1,Rel_1_orig:1.2.2.1 file3. The -l tells RCS to lock the head revision. The -jRel_1_orig:Rel_1,Rel_1_orig:1.2.2.1 tells RCS to merge two sets of changes into 
+
+file3; first the changes made between Rel_1_orig (revision 1.2) and Rel_1 (revision 1.2.1.1) will be merged; next the changes made between Rel_1_orig (revision 1.2) and revision 1.2.2.1 will be made. This will merge all of the patch changes into file3. 
+Finally, perform a ci to create revision 2.2 with the merged changes:
+
+<BR></P>
+
+<PRE>$ rcs -lRel_1_orig file3
+
+RCS file: RCS/file3,v
+
+1.2 locked
+
+done
+
+$ # Edit file3
+
+$ ci -m&quot;Patch from outside&quot; file3
+
+RCS/file3,v  &lt;&#151;  file3
+
+new revision: 1.2.2.1; previous revision: 1.2
+
+done
+
+$ co -l -jRel_1_orig:Rel_1,Rel_1_orig:1.2.2.1 file3
+
+RCS/file3,v  &#151;&gt;  file3
+
+revision 2.1 (locked)
+
+revision 1.2
+
+revision 1.2.1.1
+
+merging...
+
+revision 1.2
+
+revision 1.2.2.1
+
+merging...
+
+done
+
+$ cat file3
+
+Line added for patch to release 1
+
+This is file3
+
+A line called A
+
+A line called B
+
+Outside patch to release 1
+
+A line called C
+
+A line called D
+
+Line added for release 2
+
+$ ci -q -u -m&quot;Merge patches to release 1 (internal and outside)&quot; file3
+
+$</PRE>
+
+<P>Notice that both sets of patches were merged. In real life, you might find that the merges encountered an overlap. In that case, you would need to edit the resulting file before performing a check in.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>Using SCCS and </B><B><I>merge</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>SCCS does not include a merge facility, so you will use the merge program repeatedly to perform the merges for this example if your version of UNIX has it. First, you do a get -e of the released file and add the changes. Then you use delta to submit the 
+
+changes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Remember that the file you received as a patch might have any SCCS keywords expanded. This will create problems when you attempt the merge because you may lose the keywords. Before implementing 
+
+this sort of merge strategy for a real project, you should develop some method for recovering the keywords.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>After the changes are submitted, you will use a series of get commands to retrieve the various revisions to be merged. Copy revision 1.2 of file3 into file3_base (get -p -s -r1.2 s.file3 &gt; file3_base). Copy revision 1.2.1.1 of file3 into file3_p1. 
+Copy revision 1.2.2.1 of file3 into file3_p2. Get the head revision of file3 for edit into file3_head (get -p -s -e s.file3 &gt; file3_head). Then execute a pair of merge commands, first merging the changes from the first patch (merge -p file3_p1 
+file3_base file3_head &gt; file3_tmp) and then merging the result of that with the changes from the second patch (merge -p file3_p2 file3_base file3_tmp &gt; file3). Finally, use delta to commit the change.
+
+<BR></P>
+
+<P>Perform the SCCS merge by executing the commands:
+
+<BR></P>
+
+<PRE>$ get -e -b -r1.2 -s s.file3
+
+$ delta -s -y&quot;Patch from outside&quot; s.file3
+
+$ get -p -s -r1.2 s.file3 &gt; file3_base
+
+$ get -p -s -r1.2.1.1 s.file3 &gt; file3_p1
+
+$ get -p -s -r1.2.2.1 s.file3 &gt; file3_p2
+
+$ get -p -s -e s.file3 &gt; file3_head
+
+$ merge -p file3_p1 file3_base file3_head &gt; file3_tmp
+
+$ cat file3_tmp
+
+Line added for patch to release 1
+
+This is file3
+
+A line called A
+
+A line called B
+
+A line called C
+
+A line called D
+
+Line added for release 2
+
+$ merge -p file3_p2 file3_base file3_tmp &gt; file3
+
+$ cat file3
+
+Line added for patch to release 1
+
+This is file3
+
+A line called A
+
+A line called B
+
+Outside patch to release 1
+
+A line called C
+
+A line called D
+
+Line added for release 2
+
+$ delta -s -y&quot;Merge patches to release 1 (internal and outside)&quot; s.file3
+
+$</PRE>
+
+<P>You may want to review these examples several times to be sure you understand what is happening. The RCS example performed the same series of merging, but the co command handled all of the temporary files and extra bookkeeping work. 
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Requiring Proper Authorization for Changes (SCCS Only)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS offers the option of having delta require verified modification request numbers, which identifies a particular report or enhancement request that required a change. This can be useful if you need a more completely controlled 
+configuration-management environment. SCCS implements this by allowing you to set the name of a verification program using admin. If you set the verification program, it will be used by delta to verify that the modification request number(s) supplied on 
+the command line (with -m) or interactively (with verification enabled, delta will ask for modification requests if none were given on the command line). Modification requests are separated by blanks, tabs, or new lines.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Remember to quote blanks, tabs, and new lines on the command line. For example:
+
+<BR>
+
+<BR>delta -m'01011 01012 01014' s.file2.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If the verification script exits successfully (exit code 0), then delta will allow the change and record the modification requests in the SCCS file. Here is a sample script that verifies that the modification request is a five-digit number:
+
+<BR></P>
+
+<PRE>#!/bin/ksh
+
+exit_code=0
+
+filename=$1
+
+shift
+
+for mr in $*
+
+do
+
+        case $mr in
+
+        [0-9][0-9][0-9][0-9][0-9])
+
+                ;;
+
+        *)
+
+                echo Invalid MR: $mr
+
+                exit_code=1
+
+                ;;
+
+        esac
+
+done
+
+exit ${exit_code}</PRE>
+
+<P>To try out this script, put the script in mr_verify and make it executable:
+
+<BR></P>
+
+<PRE>$ touch foo
+
+$ admin -mxyzzy -ifoo -fv./mr_verify s.foo
+
+Invalid MR: xyzzy
+
+ERROR [s.foo]: invalid MRs (de9)
+
+$ admin -m00000 -ifoo -fv./mr_verify s.foo
+
+No id keywords (cm7)
+
+$</PRE>
+
+<P>For a production system, you could write the verification script to check with the problem-tracking database to make sure the modification requests are current and open. You could also have the script log the delta with the problem-tracking system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Shutting Down Development on Release 1 (SCCS Only)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SCCS allows you to disable further delta changes to a list of releases or to prohibit get -e on a range of releases.
+
+<BR></P>
+
+<P>To disable delta change to release 1 of this example, run admin -fl1 s.file1 s.file2 s.file3. If you then attempt to perform an action that would cause a release 1 delta, you will get an error message:
+
+<BR></P>
+
+<PRE>$ admin -fl1 s.file1 s.file2 s.file3
+
+$ get -e -r1.2 s.file1
+
+Retrieved:
+
+1.2
+
+ERROR [s.file1]: release '1' locked against editing (co23)
+
+$</PRE>
+
+<P>The example given in this and the preceding sections is quite long and complex. You may want to review parts of the example several times to help your understanding.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The RCS and SCCS files for these examples are included on the CD-ROM. One version (example_1) has the state of the source control system as of release 1. Another version (example_2) has the state of 
+the source control system after all patches have been merged and the system is ready for a second release.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=4><B>Using </B><B><I>make</I></B><B> with Source Control</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>To create an integrated development environment, you may want make to perform automatic check outs from the source control system. This can be very useful as a default rule for make so that it attempts to get from source control any file it is unable to 
+
+find or create using existing rules. You may also want to write make rules that will perform time stamp&#151;based check outs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=3><B>Default Rules</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The easiest way to use source control with make is as a fallback. By setting the default target in make so that it attempts to get the head revision from a source control system, you will usually get the desired behavior for development. Try adding this 
+
+rule to your Makefile:
+
+<BR></P>
+
+<PRE>.DEFAULT:
+
+     co -q $&lt;</PRE>
+
+<P>For SCCS, try adding this rule to Makefile:
+
+<BR></P>
+
+<PRE>.DEFAULT:
+
+     get -s s.$&lt;</PRE>
+
+<P>Both of these rules will be activated only if make has no explicit or implicit rules on how to construct the file, so the rule will not interfere with modifications to your Makefile.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>Rules Using Time Stamps</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are some pitfalls to using make rules that check out files based on time stamps. The first problem is the difficulty in creating reliable rules that will work with anything other than head revision (or at least the top of a branch). It is possible 
+
+to write a rule that does a check out based on an RCS tag or an SCCS cutoff date, but getting it to work in practice is fairly difficult. The second problem is one of false execution of the rule. Because make bases its update rules entirely on time stamps, 
+
+it can be fooled by certain kinds of changes to a source control file. If you use the rcs or admin command to change a source control file without changing the head revision, your rule will detect that the working file is out of date with the source 
+control file and check out the latest copy from source control. The third, and most serious, problem is one of false failure to execute a make rule. This can happen if you are not careful about what is in the working file. This is best illustrated by an 
+example. Say you have an RCS-controlled file named file1 that has two revisions, 1.1 and 1.2, and you check out revision 1.1. If you then run your make (which is intended to build from the head revision), make will decide that file1 is up-to-date (because 
+
+you wrote to file1, not to file1,v, the working file is newer) and will not replace revision 1.1 with revision 1.2.
+
+<BR></P>
+
+<P>Knowing that lengthy warning, you can write simple rules that will perform time stamp&#151;based check out. Review this Makefile:
+
+<BR></P>
+
+<PRE>catfile:  file1 file2
+
+     cat file1 file2 &gt; catfile
+
+file1:    file1,v
+
+     co -q file1
+
+file2:    s.file2
+
+     get -s s.file2</PRE>
+
+<P>These rules will get the head revision from the source control system any time the working file is older than the source control file. If you only use the directory for builds this should work rather reliably (with occasional false builds when you use 
+admin or rcs to modify the source control file).
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter you have learned basic principles of source control and how to apply them to using RCS and SCCS.
+
+<BR></P>
+
+<P>Concepts covered include the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Revisions
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Symbolic names
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Locks
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>SCCS
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Merges
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>RCS
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Baselines
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Using source control for backup
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Releases
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Using source control with make</PRE></TABLE>
+
+<P>These topics give a good foundation in the basics of UNIX source control and how to use it to be more effective at using UNIX to develop any controlled document or product. Remember that source control isn't just for source code.
+
+<BR></P>
+
+<P><A HREF="unxpt6au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt6au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx31.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx31.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

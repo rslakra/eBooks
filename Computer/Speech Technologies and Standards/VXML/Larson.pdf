@@ -1,0 +1,466 @@
+%PDF-1.2 
+%‚„œ”
+ 
+12 0 obj
+<<
+/Length 13 0 R
+>>
+stream
+BT111 731.25  TD0 0 0 rg /F0 12  Tf-0.2236  Tc 0.2236  Tw (VOICEXML 2.0 AND THE W3C SPEECH INTERFACE FRAMEWORK) Tj161.25 -24.75  TD /F1 9.75  Tf-0.3765  Tc 0.189  Tw (Jim A. Larson) Tj-6 -12  TD -0.2652  Tc 0.0777  Tw (Intel Corporation) Tj-13.5 -14.25  TD /F1 12  Tf-0.3848  Tc 0  Tw (jim.a.larson@intel.com) Tj-201.75 -34.5  TD /F0 9  Tf0  Tc (1.1.) Tj13.5 0  TD /F2 9  Tf-0.252  Tw ( ) Tj4.5 0  TD /F0 9  Tf-0.0319  Tc 0  Tw (ABSTRACT) Tj-18 -30  TD /F1 9.75  Tf-0.4639  Tc 3.7452  Tw (The World Wide Web Voice Browser Working Group has) Tj0 -12  TD -0.3719  Tc 0.2915  Tw (released specifications for four integrated languages to developing) TjT* -0.3143  Tc 0.5554  Tw (speech applications:  VoiceXML 2.0, Speech Synthesis Markup) TjT* -0.4833  Tc 1.4208  Tw (Language, Speech Recognition Grammar Markup Language, and) TjT* -0.3516  Tc 1.6641  Tw (Semantic Interpretation.  These languages enable developers to) TjT* -0.3033  Tc 0.4373  Tw (quickly specify conversational speech Web applications that can) TjT* -0.3212  Tc 2.861  Tw (be accessed by any telephone or cell phone.   The speech) TjT* -0.4287  Tc 0.6162  Tw (recognition and natural language communities are welcome to use) TjT* -0.3211  Tc 1.7407  Tw (these specifications and their implementations as they become) TjT* -0.3612  Tc 0.2419  Tw (available, as well as comment on the direction and details of these) TjT* -0.3664  Tc 0.1789  Tw (evolving specifications.) Tj79.5 -24  TD /F0 9.75  Tf-0.5674  Tc 0.3799  Tw (1.  BACKGROUND) Tj-79.5 -24  TD /F1 9.75  Tf-0.3469  Tc 2.3261  Tw (Since the release of the VoiceXML 1.0 specifications by the) Tj0 -12  TD -0.3732  Tc 1.5786  Tw (VoiceXML Forum in July 2000, developers have implemented) TjT* -0.3455  Tc 1.283  Tw (and deployed dozens of VoiceXML browsers.  VoiceXML 1.0) TjT* -0.3305  Tc 5.0715  Tw (has enabled application developers to create and deploy) TjT* -0.2914  Tc 0.1039  Tw (thousands of conversational speech applications.) Tj0 -24  TD -0.3761  Tc 0.1886  Tw (In May 199,9 the World Wide Web Consortium \(W3C\) chartered) Tj0 -12  TD -0.3773  Tc 2.6273  Tw (the Voice Browser Working Group \(VBWG\) to prepare and) TjT* -0.3974  Tc 1.0849  Tw (review markup languages that enable voice browsers.) Tj195 0  TD -0.3323  Tc 0.8948  Tw (  Members) Tj-195 -12  TD -0.3594  Tc 0.1719  Tw (meet weekly via telephone and quarterly in face-to-face meetings.) Tj0 -12  TD -0.3866  Tc 1.5491  Tw (The VBWG is open to any member of the W3C Consortium.) Tj233.25 0  TD 0  Tc -0.1875  Tw ( ) Tj-233.25 -12  TD -0.4324  Tc 5.2806  Tw (VBWG members include the founding companies of the) Tj0 -12  TD -0.3062  Tc 4.3187  Tw (VoiceXML Forum, telephony applications venders, speech) TjT* -0.3653  Tc 4.6778  Tw (recognition and text-to-speech engine venders, Web portal) TjT* -0.3461  Tc 1.7836  Tw (companies, hardware venders, software venders, and appliance) TjT* -0.3541  Tc 0  Tw (manufacturers.) Tj21.75 -19.5  TD /F0 12  Tf-0.2922  Tc 0.2922  Tw (2.  W3C SPEECH INTERFACE) Tj39.75 -15  TD -0.092  Tc 0  Tw (FRAMEWORK) Tj-61.5 -18  TD /F1 9.75  Tf-0.3399  Tc 1.9337  Tw (The VBWG has recently released draft specifications for four) Tj0 -12  TD -0.4395  Tc 0.627  Tw (new languages making up the W3C Speech Interface Framework.) TjT* -0.3781  Tc 0.3573  Tw (The VBWG has clarified the syntax and semantics of VoiceXML) TjT* -0.3821  Tc 1.9758  Tw (1.0, called VoiceXML 2.0, and has developed three additional) TjT* -0.4223  Tc 4.8598  Tw (related languages for speech recognition grammars, speech) TjT* -0.3318  Tc 1.9256  Tw (synthesis, and semantic interpretation.  All four languages are) TjT* -0.412  Tc 2.9433  Tw (XML languages that use tags to describe language elements.) Tj258 511.5  TD -0.4006  Tc 1.3381  Tw (Figure 1 illustrates an example of how the four languages work) Tj0 -12  TD -0.323  Tc 0.1355  Tw (together to describe conversations speech interfaces.) Tj0 -24  TD -0.3612  Tc 0.1737  Tw (<field name="recipient">) TjT* -0.0207  Tc -0.1668  Tw (      <prompt>) Tj0 -12  TD 0  Tc -0.1875  Tw (          ) Tj22.5 0  TD -0.426  Tc 0.2385  Tw (Welcome to the) Tj-22.5 -12  TD 0  Tc -0.1875  Tw (          ) Tj22.5 0  TD /F3 9.75  Tf-0.2626  Tc 0.0751  Tw (<emphasis level = "strong">) Tj-22.5 -12  TD /F1 9.75  Tf-0.2656  Tc 0.0781  Tw (                 electronic payment system) Tj0 -12  TD 0  Tc -0.1875  Tw (         ) Tj20.25 0  TD /F3 9.75  Tf-0.3102  Tc 0  Tw (</emphasis>) Tj-20.25 -12  TD /F1 9.75  Tf0  Tc -0.1875  Tw (         ) Tj20.25 0  TD /F3 9.75  Tf-0.2921  Tc 0.1046  Tw (<break time = "500ms"/>) Tj-20.25 -12  TD /F1 9.75  Tf-0.2296  Tc 0.0421  Tw (          Whom do you want to pay?) Tj0 -12  TD -0.0696  Tc -0.1179  Tw (     </prompt>) Tj0 -24  TD -0.5495  Tc 0.362  Tw (      <grammar>) Tj0 -12  TD 0  Tc -0.1875  Tw (          ) Tj22.5 0  TD /F0 9.75  Tf-0.1871  Tc -0  Tw (<rule id= "recipient">) Tj-22.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.2323  Tc 0.0448  Tw (           <one-of>) Tj-13.5 -12  TD -0.2672  Tc 0.0797  Tw (                         <item> Ajax </item>) Tj0 -12  TD -0.1705  Tc -0.017  Tw (                         <item>) TjT* 0  Tc -0.1875  Tw (                             ) Tj65.25 0  TD /F1 9.75  Tf-0.388  Tc 0.2005  Tw (<tag> 'Drugstore' </tag>) Tj87.75 0  TD /F0 9.75  Tf-0.5091  Tc 0.3216  Tw ( Ajax) TjET374.25 425.25 87 0.75 re fBT309 414.75  TD-0.2119  Tc 0.0244  Tw (                         </item>) Tj0 -12  TD -0.1317  Tc -0.0558  Tw (                         <item> Stanley </item>) TjT* -0.1705  Tc -0.017  Tw (                         <item>) TjT* 0  Tc -0.1875  Tw (                             ) Tj65.25 0  TD /F1 9.75  Tf-0.4008  Tc 0.2133  Tw (<tag> 'Supermarket' </tag>) Tj97.5 0  TD /F0 9.75  Tf0.0888  Tc -0.2763  Tw ( Stanley) TjET374.25 377.25 96.75 0.75 re fBT309 366.75  TD-0.2119  Tc 0.0244  Tw (                         </item>) Tj36 -12  TD -0.2577  Tc 0.0702  Tw (      </one-of>) Tj-36 -12  TD -0.0879  Tc -0.0996  Tw (                </rule>) Tj0 -12  TD /F1 9.75  Tf-0.5406  Tc 0.3531  Tw (      </grammar>) Tj0 -24  TD -0.385  Tc 0  Tw (</field>) TjT* -0.4376  Tc 0.2501  Tw (Figure 1.  Example VoiceXML code \(regular font\) with embedded) Tj0 -12  TD -0.3419  Tc 1.5472  Tw (speech synthesis \(italics\), speech grammar \(bold\) and semantic) TjT* -0.2999  Tc 0.1124  Tw (interpretation tags \(underlined text\).) Tj0 -24  TD -0.2529  Tc 2.2321  Tw (The <prompt> tag contains text that is converted to spoken) Tj0 -12  TD -0.339  Tc 3.1515  Tw (speech by a speech synthesis engine.  The <grammar> tag) TjT* -0.3462  Tc 2.1837  Tw (defines the grammar of words and phrases used by a speech) TjT* -0.3452  Tc 2.1577  Tw (recognition engine to convert speech into text.  Together, the) TjT* -0.3708  Tc 0.1833  Tw (<prompt> and <grammar> tags define a <field> into which a user) TjT* -0.3552  Tc 0.9927  Tw (places a value by speaking.  The following briefly describes the) TjT* -0.407  Tc 0.2195  Tw (four languages illustrated in Figure 1.) Tj30.75 -24  TD /F0 9.75  Tf-0.7976  Tc 0.6101  Tw (3.  THE FOUR INTEGRATED LANGUAGES) TjETendstream
+endobj
+13 0 obj
+7278
+endobj
+4 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F1 8 0 R 
+/F2 10 0 R 
+/F3 14 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 12 0 R
+>>
+endobj
+17 0 obj
+<<
+/Length 18 0 R
+>>
+stream
+BT51 749.25  TD0 0 0 rg /F1 9.75  Tf-0.3673  Tc 3.6486  Tw (The following briefly describes each of the four integrated) Tj0 -12  TD -0.4361  Tc 0.2486  Tw (languages of the W3C Speech Interface Framework:) Tj0 -24  TD /F0 9.75  Tf-0.4561  Tc 0.2686  Tw (3.1.  VoiceXML 2.0) TjT* /F1 9.75  Tf-0.3311  Tc 2.2865  Tw (VoiceXML 2.0 specifies the basic structure of conversational) Tj0 -12  TD -0.3851  Tc 1.9976  Tw (dialogs.  In Figure 1, VoiceXML tags \(shown in regular font\)) TjT* -0.3152  Tc 0.4739  Tw (describes a field consisting of a prompt to be read to the user by) TjT* -0.3463  Tc 1.727  Tw (the speech synthesis engine and a grammar to be used by the) TjT* -0.3129  Tc 1.1004  Tw (speech recognition engine to listen to the user\222s response.  The) TjT* -0.4846  Tc 0.2971  Tw (W3C Voice Browser Working Group examined nearly 300 change) TjT* -0.3929  Tc 1.384  Tw (requests and made many clarifications and minor enhancements) TjT* -0.2883  Tc 1.3758  Tw (to VoiceXML 1.0.  Probably the most significant addition is a) TjT* -0.4069  Tc 1.2194  Tw (<log> tag that enables developers to create and debug messages) TjT* -0.3539  Tc 0.9164  Tw (and collect data for performance analysis.  Both VoiceXML 1.0) TjT* -0.3723  Tc 0.9348  Tw (and 2.0 are able to describe system-directed and mixed initiative) TjT* -0.3962  Tc 0.2087  Tw (conversational dialogs.) Tj0 -24  TD /F0 9.75  Tf-0.2645  Tc 0.077  Tw (3.2.  Speech Synthesis Markup Language) TjT* /F1 9.75  Tf-0.3446  Tc 1.4428  Tw (The Speech Synthesis Markup Language enables developers to) Tj0 -12  TD -0.198  Tc 2.3542  Tw (specify instructions to the speech synthesizer about how to) TjT* -0.3326  Tc 3.3118  Tw (pronounce words and phrases.  Based on the Java Speech) TjT* -0.3579  Tc 1.9204  Tw (Markup Language \(JSML\) specification, the Speech Synthesis) TjT* -0.3209  Tc 2.9191  Tw (Markup Language provides tags for specifying the structure) TjT* -0.307  Tc 3.8695  Tw (\(<sentence> and <paragraph>\), pronunciation \(<sayas> and) TjT* -0.2747  Tc 1.7372  Tw (<phoneme>\), poetics \(<emphasis>, <break>, and <prosody>\),) TjT* -0.3626  Tc 1.5388  Tw (and the use of prerecorded audio files \(<audio>\).  In Figure 1,) TjT* -0.2536  Tc 0.1411  Tw (speech synthesis tags are shown in italics. They illustrate how to) TjT* -0.339  Tc 2.4015  Tw (emphasize the name of the field and how to insert a pause.) TjT* -0.2356  Tc 3.7043  Tw (Developers use speech synthesis tags when they want to) TjT* -0.254  Tc 3.4951  Tw (improve the speech synthesizer\222s default presentation of ) Tj3.921  Tc 0  Tw (a) TjT* 0.0207  Tc (prompt.) Tj0 -24  TD /F0 9.75  Tf-0.2517  Tc 0.0642  Tw (3.3.  Speech Recognition Grammar Specification) TjT* /F1 9.75  Tf-0.4423  Tc 7.3048  Tw (The Speech Recognition Grammar Specification enables) Tj0 -12  TD -0.3029  Tc 3.532  Tw (developers to describe the words and phrases that can be) TjT* -0.3578  Tc 1.2537  Tw (recognized by the speech recognition engine. The syntax of the) TjT* -0.3421  Tc 1.7228  Tw (grammar format has two forms.  The form shown in Figure 1) TjT* -0.3481  Tc 0.3651  Tw (uses XML elements to represent a grammar.  The form shown in) TjT* -0.3775  Tc 0.8036  Tw (the bold font in Figure 2 uses an augmented BNF format, which) TjT* -0.3665  Tc 1.2504  Tw (is similar to many existing BNF-like representations commonly) TjT* -0.3475  Tc 2.5464  Tw (used in the field of speech recognition.  The two forms are) TjT* -0.3534  Tc 1.5978  Tw (equivalent in the sense that a grammar that is specified in one) TjT* -0.361  Tc 0.361  Tw (form may also be specified in the other.  Both forms are modeled) TjT* -0.2533  Tc -0.3092  Tw (after the ) Tj32.25 0  TD -0.3651  Tc 0.1776  Tw (JSpeech Grammar Format.) Tj-32.25 -24  TD -0.5495  Tc 0.362  Tw (      <grammar>) Tj0 -12  TD /F0 9.75  Tf-0.2863  Tc 0.0988  Tw (               $recipient = Ajax) TjT* -0.2382  Tc 0.0507  Tw (                              |  Drugstore ) Tj116.25 0  TD /F1 9.75  Tf-0.4155  Tc 0  Tw ({'Ajax'}) TjET167.25 147.75 27.75 0.75 re fBT51 137.25  TD/F0 9.75  Tf0.0908  Tc -0.2783  Tw (                              |  Stanley) Tj258 624  TD -0.2199  Tc 0.0324  Tw (                              |  Supermarket  ) Tj131.25 0  TD /F1 9.75  Tf-0.2836  Tc 0  Tw ({'Stanley'}) Tj39 0  TD /F0 9.75  Tf-0.2467  Tc (;) TjET440.25 759.75 38.25 0.75 re fBT309 749.25  TD/F1 9.75  Tf-0.5406  Tc 0.3531  Tw (      </grammar>) Tj0 -24  TD -0.3863  Tc 0.267  Tw (Figure 2.  Example of the ABNF grammar format \(bold text\) with) Tj0 -12  TD -0.3477  Tc 0.1602  Tw (embedded semantic interpretation tags \(underlined text\).) Tj0 -24  TD /F0 9.75  Tf-0.2366  Tc 0.0491  Tw (3.4.  Semantic Interpretation) TjT* /F1 9.75  Tf-0.3121  Tc 4.2496  Tw (Semantic Interpretation tags enable developers to compute) Tj0 -12  TD -0.3751  Tc 1.4063  Tw (information returned to an application using grammar rules and) TjT* -0.3702  Tc 0.7661  Tw (tokens matched by the speech recognition engine.  As examples,) TjT* -0.3587  Tc 6.3855  Tw (if the speech recognition engine recognizes the phrase) TjT* -0.3054  Tc 4.1179  Tw (\223Drugstore,\224 the underlined semantic interpretation tags in) TjT* -0.3692  Tc 2.0908  Tw (Figures 1 and 2 calculate the value to be returned as \223Ajax.\224) TjT* -0.3094  Tc 3.4433  Tw (Likewise, \223Stanley\224 is returned in place of \223Supermarket.\224) TjT* -0.3586  Tc 5.0461  Tw (Semantic interpretation tags can also be used to extract) TjT* -0.3535  Tc 3.0588  Tw (information from a user utterance, perform calculations, and) TjT* -0.3383  Tc 0.8071  Tw (assign values to multiple variables.  The Semantic Interpretation) TjT* -0.3353  Tc 3.6933  Tw (tags were designed to be very similar to a subset of the) TjT* -0.4656  Tc 0.2781  Tw (ECMAScript language.) Tj51 -29.25  TD /F0 9.75  Tf-0.8618  Tc 0.6743  Tw (4.  FUTURE LANGUAGES) Tj-51 -17.25  TD /F1 9.75  Tf-0.3726  Tc 0.8413  Tw (The VBWG has also published requirements and working drafts) Tj0 -12  TD -0.3962  Tc 0.6775  Tw (of other languages within the W3C Speech Interface Framework,) TjT* -0.4758  Tc 0  Tw (including:.) Tj0 -17.25  TD /F0 9.75  Tf-0.4752  Tc 0.2877  Tw (4.1  N-gram Grammar Markup Language) TjT* /F1 9.75  Tf-0.3734  Tc 0.1859  Tw (Context-free grammars are widely used in conversational systems) Tj0 -12  TD -0.2891  Tc 1.6641  Tw (to model what the user may say at each specific point in the) TjT* -0.6161  Tc 0  Tw (dialog.) Tj23.25 0  TD -0.2916  Tc 0.7178  Tw (  However, it is difficult or impossible to write a context-) Tj-23.25 -12  TD -0.3244  Tc 0.8036  Tw (free grammar that can process all the different sentence patterns) Tj0 -12  TD -0.2375  Tc 0.425  Tw (users speak in spontaneous speech input applications.) Tj198.75 0  TD -0.2344  Tc 0.4219  Tw (  Context-) Tj-198.75 -12  TD -0.3657  Tc 0.1782  Tw (free grammars are not sufficient for robust speech recognition and) Tj0 -12  TD -0.2985  Tc 1.7048  Tw (understanding tasks or for free-text input applications such as) TjT* -0.2813  Tc 0  Tw (dictation.) Tj0 -24  TD -0.4011  Tc 2.047  Tw (In contrast, N-gram language models rely on the likelihood of) Tj0 -12  TD -0.3453  Tc 0.8397  Tw (sequences of words, such as word pairs \(in the case of bigrams\)) TjT* -0.3296  Tc 1.6421  Tw (or word triples \(in the case of trigrams\) and are therefore less) TjT* -0.3605  Tc 0.323  Tw (restrictive. The use of stochastic N-Gram models have a long and) TjT* -0.3187  Tc 0.2383  Tw (successful history in the research community and ) Tj181.5 0  TD -0.4732  Tc 1.0357  Tw (iare being used) Tj-181.5 -12  TD -0.342  Tc 1.1295  Tw (in commercial systems, as the market asks for more robust and) Tj0 -12  TD -0.3717  Tc 0.1842  Tw (flexible solutions.) Tj63 0  TD -0.449  Tc 0.3552  Tw (  N-Gram grammars have the advantage of being) Tj-63 -12  TD -0.4538  Tc 2.2913  Tw (able to cover a much larger language than would normally be) Tj0 -12  TD -0.3117  Tc 0.2179  Tw (derived directly from a corpus. Open vocabulary applications are) TjT* -0.3393  Tc 0.1518  Tw (easily supported with N-gram grammars.) Tj0 -24  TD -0.335  Tc 4.3975  Tw (N-gram grammars are typically constructed from statistics) Tj0 -12  TD -0.3799  Tc 1.0174  Tw (obtained from a large corpus of text using the co-occurrences of) TjT* -0.3133  Tc 1.2508  Tw (words in the corpus to determine word sequence probabilities.) Tj233.25 0  TD 0  Tc -0.1875  Tw ( ) Tj-233.25 -12  TD -0.421  Tc 1.3168  Tw (Developers should never need to create an N-gram grammar by) Tj0 -12  TD -0.3783  Tc 0  Tw (hand.) TjETendstream
+endobj
+18 0 obj
+8649
+endobj
+16 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F1 8 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 17 0 R
+>>
+endobj
+20 0 obj
+<<
+/Length 21 0 R
+>>
+stream
+BT51 749.25  TD0 0 0 rg /F0 9.75  Tf-0.3247  Tc 0.1372  Tw (4.2.  Natural Language Semantics Markup Language) Tj0 -12  TD /F1 9.75  Tf0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj-4.5 -12  TD -0.3884  Tc 2.8259  Tw (The Natural Language Semantics Markup Language supports) Tj0 -12  TD -0.2891  Tc 3.1016  Tw (XML semantic representations. This application-independent) TjT* -0.3934  Tc 1.813  Tw (information includes confidences, the grammar matched by the) TjT* -0.2752  Tc 2.9627  Tw (interpretation, speech recognizer input, and timestamps. For) TjT* -0.2575  Tc 2.32  Tw (example, suppose the user responds to a system request by) TjT* -0.381  Tc 1.506  Tw (saying, \223I would like a large Coca Cola and a large pizza with) TjT* -0.2785  Tc 0.091  Tw (pepperoni and cheese.\224) Tj84.75 0  TD -0.2649  Tc 0.3587  Tw (  The semantic is first converted to XML) Tj-84.75 -12  TD -0.3274  Tc 0.1399  Tw (structure in Figure 3.) Tj0 -17.25  TD -0.1453  Tc 0  Tw (<result>) Tj30.75 0  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj-66.75 -12  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.2207  Tc 0.0332  Tw (  <interpretation>) Tj-4.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3199  Tc 0.1324  Tw (  <instance>) Tj-13.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3315  Tc 0.144  Tw (  <order>) Tj-22.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.249  Tc 0.0615  Tw (  <) Tj9.75 0  TD 0.0855  Tc 0  Tw (pizza) Tj20.25 0  TD -0.249  Tc (>) Tj-61.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.249  Tc 0.0615  Tw (  <) Tj9.75 0  TD -0.4644  Tc 0  Tw (number) Tj27 0  TD -0.249  Tc (>) Tj5.25 0  TD 0.375  Tc (1) Tj4.5 0  TD -0.4161  Tc (</number>) Tj-87 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.249  Tc 0.0615  Tw (  <) Tj9.75 0  TD -0.0403  Tc 0  Tw (size) Tj14.25 0  TD -0.249  Tc (>) Tj5.25 0  TD -0.748  Tc (large) Tj16.5 0  TD -0.2671  Tc (</size>) Tj-86.25 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.249  Tc 0.0615  Tw (  <) Tj9.75 0  TD -0.078  Tc 0  Tw (topping) Tj28.5 0  TD -0.249  Tc (>) Tj5.25 0  TD -0.1656  Tc (pepperoni) Tj37.5 0  TD -0.3004  Tc (</topping>) Tj-121.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.249  Tc 0.0615  Tw (  <) Tj9.75 0  TD -0.078  Tc 0  Tw (topping) Tj28.5 0  TD -0.249  Tc (>) Tj5.25 0  TD -0.3306  Tc (cheese) Tj23.25 0  TD -0.3004  Tc (</topping>) Tj-107.25 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3615  Tc 0.174  Tw (  </p) Tj17.25 0  TD -0.1893  Tc 0  Tw (izza>) Tj-48.75 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3329  Tc 0.1454  Tw (  <drink>) Tj-31.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.4113  Tc 0.2238  Tw (  <number>1</number>) Tj-40.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3483  Tc 0.1608  Tw (  <size>large</size>) Tj-40.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3989  Tc 0.2114  Tw (  <liquid>coke</liquid>) Tj-40.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3488  Tc 0.1613  Tw (  </drink>) Tj-31.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3476  Tc 0.1601  Tw (  </order>) Tj36 0  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj-126 -12  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3327  Tc 0.1452  Tw (  </instance>) Tj-13.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.0669  Tc -0.1206  Tw (  <inpu) Tj26.25 0  TD -0.3072  Tc 0.1197  Tw (t mode="speech">) Tj-30.75 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.5248  Tc 0.3373  Tw (  I would like a large coca cola and a large) Tj-13.5 -12  TD -0.2732  Tc 0.0857  Tw (        pizza with pepperoni and cheese.) Tj0 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.0943  Tc -0.0932  Tw ( </input>) Tj-6.75 -12  TD -0.2348  Tc 0.0473  Tw (  </interpretation>) Tj0 -12  TD -0.1803  Tc 0  Tw (</result>) Tj33 0  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj-35.25 -22.5  TD -0.532  Tc 0.3445  Tw (Figure 3.  Natural Language Semantic Language example) Tj0 -17.25  TD -0.387  Tc 2.5745  Tw (Additional information, including confidence scores and input) Tj0 -12  TD -0.2916  Tc 2.2708  Tw (mode \(speech\) is inserted into this structure, resulting in the) TjT* -0.3183  Tc 3.5996  Tw (representation illustrated in Figure 4, which is suitable for) TjT* -0.435  Tc 0.2475  Tw (additional natural language processing.) Tj0 -17.25  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD -0.4118  Tc 0.2243  Tw ( <result grammar=") Tj69.75 0  TD -0.2745  Tc 0  Tw (src=') Tj17.25 0  TD -0.3137  Tc 0.1262  Tw (pizza_order.grm' ">) Tj-89.25 -12  TD -0.3098  Tc 0.1223  Tw (    <interpretation confidence=) Tj109.5 0  TD -0.305  Tc 0.1175  Tw ("100" >) Tj-109.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3199  Tc 0.1324  Tw (    <instance>) Tj-6.75 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3315  Tc 0.144  Tw (    <order>) Tj-9 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.1172  Tc -0.0703  Tw (    <pizza>) Tj-18 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.4113  Tc 0.2238  Tw (    <number>1</number>) Tj-24.75 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3483  Tc 0.1608  Tw (    <size>large</size>) Tj-24.75 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3259  Tc 0.1384  Tw (     <topping confidence="100">) Tj-22.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.1656  Tc -0.0219  Tw (       pepperoni) Tj-27 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3004  Tc 0.1129  Tw (     </topping>) Tj-22.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.2826  Tc 0.0951  Tw (    <topping confid) Tj67.5 0  TD -0.381  Tc 0  Tw (ence="100">) Tj-90 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3306  Tc 0.1431  Tw (     cheese) Tj231 626.25  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3004  Tc 0.1129  Tw (   </topping>) Tj-22.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.1601  Tc -0.0274  Tw (   </pizza>) Tj-18 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3775  Tc 0.19  Tw (   <drink confidence="100">) Tj-18 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.4113  Tc 0.2238  Tw (  <number>1</number>) Tj-27 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3483  Tc 0.1608  Tw (  <size>large</size>) Tj-27 -12  TD 0  Tc -0.1875  Tw (  ) Tj4.5 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3989  Tc 0.2114  Tw (  <liquid>coke</liquid>) Tj-27 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3488  Tc 0.1613  Tw (  </drink>) Tj-18 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.3476  Tc 0.1601  Tw (  </order>) Tj-9 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD (  ) Tj4.5 0  TD -0.3327  Tc 0  Tw (</instance>) Tj-9 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.2847  Tc 0.0972  Tw (   <input mode="speech">) Tj-4.5 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.5248  Tc 0.3373  Tw (   I would like a large coca cola and a large) Tj-13.5 -12  TD -0.2732  Tc 0.0857  Tw (        pizza with pepperoni and cheese.) Tj0 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD ( ) Tj2.25 0  TD -0.0943  Tc -0.0932  Tw ( </input>) Tj-9 -12  TD 0  Tc -0.1875  Tw ( ) Tj2.25 0  TD -0.2348  Tc 0.0473  Tw (  </interpretation>) Tj-2.25 -12  TD -0.1803  Tc 0  Tw (</result>) Tj0 -22.5  TD -0.44  Tc 0.2525  Tw (Figure 4.  ) Tj36 0  TD -0.5513  Tc 0.3638  Tw (Natural Language Semantic Language example) Tj-36 -12  TD -0.333  Tc 0.1455  Tw (with confidence factors.) Tj0 -22.5  TD /F0 9.75  Tf-0.2835  Tc 0.096  Tw (4.3  Other Future Languages) TjT* /F1 9.75  Tf-0.4157  Tc 0.2282  Tw (Other future languages include:) TjT* /F4 9.75  Tf0.015  Tc 0  Tw (\267) Tj4.5 0  TD /F5 9.75  Tf0  Tc 0.2895  Tw ( ) Tj13.5 0  TD /F1 9.75  Tf-0.3502  Tc 0.1627  Tw (Reusable Modules are reusable components that) Tj0 -12  TD -0.3012  Tc 0.1137  Tw (meet specific interface requirements.   The purpose) TjT* -0.2795  Tc 0.092  Tw (of reusable components is to reduce the effort to) TjT* -0.3658  Tc 0.1783  Tw (implement a dialog by reusing encapsulations from) TjT* -0.3539  Tc 0.1664  Tw (common dialog tasks and to promote consistency) TjT* -0.2592  Tc 0.0717  Tw (across applications.) Tj-18 -34.5  TD /F4 9.75  Tf0.015  Tc 0  Tw (\267) Tj4.5 0  TD /F5 9.75  Tf0  Tc 0.2895  Tw ( ) Tj13.5 0  TD /F1 9.75  Tf-0.4348  Tc 0.2473  Tw (The pronunciation Lexicon Markup Language) Tj0 -12  TD -0.3079  Tc 0.1204  Tw (enables open, portable specification of) TjT* -0.3468  Tc 0.1593  Tw (pronunciation information for speech recognition) TjT* -0.311  Tc 0.1235  Tw (and speech synthesis engines.) Tj-18 -34.5  TD /F4 9.75  Tf0.015  Tc 0  Tw (\267) Tj4.5 0  TD /F5 9.75  Tf0  Tc 0.2895  Tw ( ) Tj13.5 0  TD /F1 9.75  Tf-0.3928  Tc 0.2053  Tw (The Call Control Markup Language enables the) Tj0 -12  TD -0.4158  Tc 0.2283  Tw (management of telephone calls and conferences.) Tj28.5 -29.25  TD /F0 9.75  Tf-0.6288  Tc 0.4413  Tw (5.  COMMUNITY PARTICIPATION) Tj-46.5 -24  TD /F1 9.75  Tf-0.4077  Tc 0.3868  Tw (The speech and natural language communities are welcome to use) Tj0 -12  TD -0.3195  Tc 3.3463  Tw (the above specifications, and their implementations as they) TjT* -0.4115  Tc 9.599  Tw (become available.  Reusing thee specifications and) TjT* -0.3476  Tc 0.1601  Tw (implementations avoids reinventing) TjETendstream
+endobj
+21 0 obj
+16350
+endobj
+19 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F1 8 0 R 
+/F4 22 0 R 
+/F5 24 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 20 0 R
+>>
+endobj
+27 0 obj
+<<
+/Length 28 0 R
+>>
+stream
+BT51 761.25  TD0 0 0 rg /F1 9.75  Tf-0.395  Tc 0.4888  Tw (the languages and makes the implementation easer to ) Tj194.25 0  TD -0.2811  Tc 0  Tw (productize.) Tj-194.25 -12  TD -0.4166  Tc 10.0862  Tw (Details about these languages can be viewed at) Tj0 -12  TD 0 0 1 rg -0.4052  Tc 0  Tw (www.w3.org/voice) Tj68.25 0  TD 0 0 0 rg -0.408  Tc 1.6134  Tw (. Anyone in the speech and natural language) TjET0 0 1 rg 51 735.75 67.5 0.75 re fBT51 725.25  TD0 0 0 rg -0.4252  Tc 0.9044  Tw (communities is also welcome to comment on these languages by) Tj0 -12  TD -0.4431  Tc 0.2556  Tw (sending an e-mail to ) Tj73.5 0  TD 0 0 1 rg -0.3789  Tc 0  Tw (www-voice@w3.org) Tj75 0  TD 0 0 0 rg -0.1875  Tc (.) TjET0 0 1 rg 124.5 711.75 74.25 0.75 re fBT139.5 689.25  TD0 0 0 rg /F0 9.75  Tf-0.6722  Tc 0.4847  Tw (7.  SUMMARY) Tj-88.5 -24  TD /F1 9.75  Tf-0.4081  Tc 0.7206  Tw (The W3C Speech Interface Framework languages will be used to) Tj0 -12  TD -0.4392  Tc 4.5017  Tw (implement commercial quality speech and natural language) TjT* -0.3408  Tc 0.57  Tw (applications.  The VBWG solicits advice about the direction and) TjT* -0.4271  Tc 0.2396  Tw (details of these evolving languages.) TjETendstream
+endobj
+28 0 obj
+1226
+endobj
+26 0 obj
+<<
+/Type /Page
+/Parent 5 0 R
+/Resources <<
+/Font <<
+/F0 6 0 R 
+/F1 8 0 R 
+>>
+/ProcSet 2 0 R
+>>
+/Contents 27 0 R
+>>
+endobj
+6 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F0
+/BaseFont /TimesNewRoman,Bold
+/FirstChar 31
+/LastChar 255
+/Widths [ 778 250 333 555 500 500 1000 833 278 333 333 500 570 250 333 250 
+278 500 500 500 500 500 500 500 500 500 500 333 333 570 570 570 
+500 930 722 667 722 722 667 611 778 778 389 500 778 667 944 722 
+778 611 778 722 556 667 722 722 1000 722 722 667 333 278 333 581 
+500 333 500 556 444 556 444 333 500 556 278 333 556 278 833 556 
+500 556 556 444 389 333 556 500 722 500 500 444 394 220 394 520 
+778 500 778 333 500 500 1000 500 500 333 1000 556 333 1000 778 778 
+778 778 333 333 500 500 350 500 1000 333 1000 389 333 722 778 778 
+722 250 333 500 500 500 500 220 500 333 747 300 500 570 333 747 
+500 400 549 300 300 333 576 540 250 333 300 330 500 750 750 750 
+500 722 722 722 722 722 722 1000 722 667 667 667 667 389 389 389 
+389 722 722 778 778 778 778 778 570 778 722 722 722 722 722 611 
+556 500 500 500 500 500 500 722 444 444 444 444 444 278 278 278 
+278 500 556 500 500 500 500 500 549 500 556 556 556 556 500 556 
+500 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 7 0 R
+>>
+endobj
+7 0 obj
+<<
+/Type /FontDescriptor
+/FontName /TimesNewRoman,Bold
+/Flags 16418
+/FontBBox [ -250 -250 1200 938 ]
+/MissingWidth 750
+/StemV 140
+/StemH 140
+/ItalicAngle 0
+/CapHeight 938
+/XHeight 656
+/Ascent 938
+/Descent -250
+/Leading 251
+/MaxWidth 1000
+/AvgWidth 438
+>>
+endobj
+8 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F1
+/BaseFont /TimesNewRoman
+/FirstChar 31
+/LastChar 255
+/Widths [ 778 250 333 408 500 500 833 778 180 333 333 500 564 250 333 250 
+278 500 500 500 500 500 500 500 500 500 500 278 278 564 564 564 
+444 921 722 667 667 722 611 556 722 722 333 389 722 611 889 722 
+722 556 722 667 556 611 722 722 944 722 722 611 333 278 333 469 
+500 333 444 500 444 500 444 333 500 500 278 278 500 278 778 500 
+500 500 500 333 389 278 500 500 722 500 500 444 480 200 480 541 
+778 500 778 333 500 444 1000 500 500 333 1000 556 333 889 778 778 
+778 778 333 333 444 444 350 500 1000 333 980 389 333 722 778 778 
+722 250 333 500 500 500 500 200 500 333 760 276 500 564 333 760 
+500 400 549 300 300 333 576 453 250 333 300 310 500 750 750 750 
+444 722 722 722 722 722 722 889 667 611 611 611 611 333 333 333 
+333 722 722 722 722 722 722 722 564 722 722 722 722 722 722 556 
+500 444 444 444 444 444 444 667 444 444 444 444 444 278 278 278 
+278 500 500 500 500 500 500 500 549 500 500 500 500 500 500 500 
+500 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 9 0 R
+>>
+endobj
+9 0 obj
+<<
+/Type /FontDescriptor
+/FontName /TimesNewRoman
+/Flags 34
+/FontBBox [ -250 -231 1292 923 ]
+/MissingWidth 769
+/StemV 70
+/StemH 70
+/ItalicAngle 0
+/CapHeight 923
+/XHeight 646
+/Ascent 923
+/Descent -231
+/Leading 231
+/MaxWidth 1077
+/AvgWidth 385
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F2
+/BaseFont /Arial,Bold
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 333 474 556 556 889 722 238 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 333 333 584 584 584 
+611 975 722 722 722 722 667 611 778 722 278 556 722 611 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 333 278 333 584 
+556 333 556 611 556 611 556 333 611 611 278 278 556 278 889 611 
+611 611 611 389 556 333 611 556 778 556 556 500 389 280 389 584 
+750 556 750 278 556 500 1000 556 556 333 1000 667 333 1000 750 750 
+750 750 278 278 500 500 350 556 1000 333 1000 556 333 944 750 750 
+667 278 333 556 556 556 556 280 556 333 737 370 556 584 333 737 
+552 400 549 333 333 333 576 556 278 333 333 365 556 834 834 834 
+611 722 722 722 722 722 722 1000 722 667 667 667 667 278 278 278 
+278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 
+611 556 556 556 556 556 556 889 556 556 556 556 556 278 278 278 
+278 611 611 611 611 611 611 611 549 611 611 611 611 611 556 611 
+556 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 11 0 R
+>>
+endobj
+11 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial,Bold
+/Flags 16416
+/FontBBox [ -250 -250 1300 1000 ]
+/MissingWidth 750
+/StemV 159
+/StemH 159
+/ItalicAngle 0
+/CapHeight 1000
+/XHeight 700
+/Ascent 1000
+/Descent -250
+/Leading 250
+/MaxWidth 1083
+/AvgWidth 500
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F3
+/BaseFont /TimesNewRoman,Italic
+/FirstChar 31
+/LastChar 255
+/Widths [ 778 250 333 420 500 500 833 778 214 333 333 500 675 250 333 250 
+278 500 500 500 500 500 500 500 500 500 500 333 333 675 675 675 
+500 920 611 611 667 722 611 611 722 722 333 444 667 556 833 667 
+722 611 722 611 500 556 722 611 833 611 556 556 389 278 389 422 
+500 333 500 500 444 500 444 278 500 500 278 278 444 278 722 500 
+500 500 500 389 389 278 500 444 667 444 444 389 400 275 400 541 
+778 500 778 333 500 556 889 500 500 333 1000 500 333 944 778 778 
+778 778 333 333 556 556 350 500 889 333 980 389 333 667 778 778 
+556 250 389 500 500 500 500 275 500 333 760 276 500 675 333 760 
+500 400 549 300 300 333 576 523 250 333 300 310 500 750 750 750 
+500 611 611 611 611 611 611 889 667 611 611 611 611 333 333 333 
+333 722 667 722 722 722 722 722 675 722 722 722 722 722 556 611 
+500 500 500 500 500 500 500 667 444 444 444 444 444 278 278 278 
+278 500 500 500 500 500 500 500 549 500 500 500 500 500 444 500 
+444 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 15 0 R
+>>
+endobj
+15 0 obj
+<<
+/Type /FontDescriptor
+/FontName /TimesNewRoman,Italic
+/Flags 98
+/FontBBox [ -250 -231 1200 923 ]
+/MissingWidth 769
+/StemV 70
+/StemH 70
+/ItalicAngle -11
+/CapHeight 923
+/XHeight 646
+/Ascent 923
+/Descent -231
+/Leading 231
+/MaxWidth 1000
+/AvgWidth 385
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F4
+/BaseFont /Symbol
+/FirstChar 31
+/LastChar 255
+/Widths [ 600 250 333 713 500 549 833 778 439 333 333 500 549 250 549 250 
+278 500 500 500 500 500 500 500 500 500 500 278 278 549 549 549 
+444 549 722 667 722 612 611 763 603 722 333 631 722 686 889 722 
+722 768 741 556 592 611 690 439 768 645 795 611 333 863 333 658 
+500 500 631 549 549 494 439 521 411 603 329 603 549 549 576 521 
+549 549 521 549 603 439 576 713 686 493 686 494 480 200 480 549 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 600 
+600 600 620 247 549 167 713 500 753 753 753 753 1042 987 603 987 
+603 400 549 411 549 549 713 494 460 549 549 549 549 1000 603 1000 
+658 823 686 795 987 768 768 823 768 768 713 713 713 713 713 713 
+713 768 713 790 790 890 823 549 250 713 603 603 1042 987 603 987 
+603 494 329 790 790 786 713 384 384 384 384 384 384 494 494 494 
+494 600 329 274 686 686 686 384 384 384 384 384 384 494 494 494 
+600 ]
+/FontDescriptor 23 0 R
+>>
+endobj
+23 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Symbol
+/Flags 6
+/FontBBox [ -250 -231 1292 1000 ]
+/MissingWidth 615
+/StemV 112
+/StemH 112
+/ItalicAngle 0
+/CapHeight 1000
+/XHeight 700
+/Ascent 1000
+/Descent -231
+/Leading 231
+/MaxWidth 1077
+/AvgWidth 615
+>>
+endobj
+24 0 obj
+<<
+/Type /Font
+/Subtype /TrueType
+/Name /F5
+/BaseFont /Arial
+/FirstChar 31
+/LastChar 255
+/Widths [ 750 278 278 355 556 556 889 667 191 333 333 389 584 278 333 278 
+278 556 556 556 556 556 556 556 556 556 556 278 278 584 584 584 
+556 1015 667 667 722 722 667 611 778 722 278 500 667 556 833 722 
+778 667 778 722 667 611 722 667 944 667 667 611 278 278 278 469 
+556 333 556 556 500 556 556 278 556 556 222 222 500 222 833 556 
+556 556 556 333 500 278 556 500 722 500 500 500 334 260 334 584 
+750 556 750 222 556 333 1000 556 556 333 1000 667 333 1000 750 750 
+750 750 222 222 333 333 350 556 1000 333 1000 500 333 944 750 750 
+667 278 333 556 556 556 556 260 556 333 737 370 556 584 333 737 
+552 400 549 333 333 333 576 537 278 333 333 365 556 834 834 834 
+611 667 667 667 667 667 667 1000 722 667 667 667 667 278 278 278 
+278 722 722 778 778 778 778 778 584 778 722 722 722 722 667 667 
+611 556 556 556 556 556 556 889 500 556 556 556 556 278 278 278 
+278 556 556 556 556 556 556 556 549 611 556 556 556 556 500 556 
+500 ]
+/Encoding /WinAnsiEncoding
+/FontDescriptor 25 0 R
+>>
+endobj
+25 0 obj
+<<
+/Type /FontDescriptor
+/FontName /Arial
+/Flags 32
+/FontBBox [ -250 -231 1292 1000 ]
+/MissingWidth 769
+/StemV 84
+/StemH 84
+/ItalicAngle 0
+/CapHeight 1000
+/XHeight 700
+/Ascent 1000
+/Descent -231
+/Leading 231
+/MaxWidth 1077
+/AvgWidth 462
+>>
+endobj
+2 0 obj
+[ /PDF /Text  ]
+endobj
+5 0 obj
+<<
+/Kids [4 0 R 16 0 R 19 0 R 26 0 R ]
+/Count 4
+/Type /Pages
+/MediaBox [ 0 0 596 842 ]
+>>
+endobj
+1 0 obj
+<<
+/Creator <FEFF004D006900630072006F0073006F0066007400200057006F007200640020>
+/CreationDate (D:20011024114001)
+/Title <FEFF006C006100720073006F006E002E005000440046>
+/Author <FEFF006F006D006F006C006F0067006F>
+/Producer (Acrobat PDFWriter 4.0 for Windows)
+>>
+endobj
+3 0 obj
+<<
+/Pages 5 0 R
+/Type /Catalog
+/DefaultGray 29 0 R
+/DefaultRGB  30 0 R
+>>
+endobj
+29 0 obj
+[/CalGray
+<<
+/WhitePoint [0.9505 1 1.0891 ]
+/Gamma 0.2468 
+>>
+]
+endobj
+30 0 obj
+[/CalRGB
+<<
+/WhitePoint [0.9505 1 1.0891 ]
+/Gamma [0.2468 0.2468 0.2468 ]
+/Matrix [0.4361 0.2225 0.0139 0.3851 0.7169 0.0971 0.1431 0.0606 0.7141 ]
+>>
+]
+endobj
+xref
+0 31
+0000000000 65535 f
+0000043042 00000 n
+0000042895 00000 n
+0000043324 00000 n
+0000007384 00000 n
+0000042929 00000 n
+0000034496 00000 n
+0000035626 00000 n
+0000035915 00000 n
+0000037035 00000 n
+0000037314 00000 n
+0000038436 00000 n
+0000000021 00000 n
+0000007360 00000 n
+0000038721 00000 n
+0000039848 00000 n
+0000016288 00000 n
+0000007554 00000 n
+0000016264 00000 n
+0000032869 00000 n
+0000016433 00000 n
+0000032844 00000 n
+0000040137 00000 n
+0000041225 00000 n
+0000041502 00000 n
+0000042620 00000 n
+0000034351 00000 n
+0000033040 00000 n
+0000034327 00000 n
+0000043421 00000 n
+0000043509 00000 n
+trailer
+<<
+/Size 31
+/Root 3 0 R
+/Info 1 0 R
+/ID [<50eb9af6b6a246551a55a13a49e7da06><50eb9af6b6a246551a55a13a49e7da06>]
+>>
+startxref
+43687
+%%EOF

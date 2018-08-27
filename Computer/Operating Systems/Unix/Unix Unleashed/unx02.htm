@@ -1,0 +1,1118 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx02.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx03.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx03.htm">
+
+<LINK REL="Previous" HREF="unx01.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx01.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx01.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx01.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx03.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx03.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">2 &#151; Getting Started Basic Tutorial</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Rachel and Robert Sartin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Logging In</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">User Account Setup</A></LI>
+
+<LI>
+
+<A HREF="#I6">Logging In to the System</A></LI>
+
+<LI>
+
+<A HREF="#I7">After Login Succeeds</A></LI>
+
+<LI>
+
+<A HREF="#I8">Different Priviledges for Different Users</A></LI></UL>
+
+<LI>
+
+<A HREF="#I9">Logging Out</A></LI>
+
+<LI>
+
+<A HREF="#I10">Using Commands</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">What Is a Command?</A></LI>
+
+<LI>
+
+<A HREF="#I12">Redirecting Input and Output</A></LI></UL>
+
+<LI>
+
+<A HREF="#I13">Configuring Your Environment</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">Viewing and Setting Environment Variables</A></LI>
+
+<LI>
+
+<A HREF="#I15">Using Shell Startup Files</A></LI>
+
+<LI>
+
+<A HREF="#I16">Configuring with rc files</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Managing Your Password</A></LI>
+
+<LI>
+
+<A HREF="#I18">Working on the System</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I19">Erase</A></LI>
+
+<LI>
+
+<A HREF="#I20">Kill</A></LI>
+
+<LI>
+
+<A HREF="#I21">Stop and Start</A></LI>
+
+<LI>
+
+<A HREF="#I22">eof</A></LI></UL>
+
+<LI>
+
+<A HREF="#I23">Online Help</A></LI>
+
+<LI>
+
+<A HREF="#I24">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>2 &#151; Getting Started Basic Tutorial</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Rachel and Robert Sartin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Logging In</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you're used to working with personal computers, then you're probably used to having a box with a floppy drive, a hard disk, and a monitor on your desk. You just turn it on and type away. UNIX workstations are similar to personal computers. A UNIX 
+workstation might have a floppy drive, a hard disk, and a very large monitor. On a larger UNIX system, you might just have a terminal. Large UNIX systems allow multiple logins at a time. In these situations, the computer system has different parts in 
+different places. Regardless of your situation, you will have at least one input device (a keyboard) and at least one output device (a video monitor). These pieces are physically connected to that computer.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>User Account Setup</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After a UNIX system is booted, you cannot simply start using it as you do a PC. Before you can access the computer system, someone&#151;usually the system administrator&#151;must configure the computer for your use. If you are running UNIX on your PC at 
+
+home, you will most likely need to do these things for yourself. If you are a UNIX novice trying to set up your home computer system, you can refer to Chapter 33, &quot;UNIX Installation Basics.&quot; If you are using a computer system in your place of 
+work, your employer may have a person or persons whose specific job it is to administer all the systems. If this is the case, you will have to coordinate with a staff member to set up your system account. The company may have an application form on which 
+you can request such things as a certain user name, a temporary password, which shell you want to use (see Chapter 14, &quot;Which Shell Is Right for You&quot;), what your default group is, what groups you should belong to, and which mail aliases you 
+should be added to. Many of these things will depend on what work you will be doing and whom you will be working with.
+
+<BR></P>
+
+<P>No matter who sets up your computer account, you must know two things before you can use the system: your user name and your password. If you don't know what these are, you must stop and find out what has been assigned to you. The user name is a unique 
+
+name that identifies you to the system. It is often related to your real name, such as your first name, your last name, or a combination of first initial and last name (for example, &quot;frank,&quot; &quot;brimmer,&quot; or &quot;fbrimmer,&quot; 
+respectively). If you get to request a user name, try to choose something that makes others think of you alone, and is not vague or common enough to cause confusion with others. The system administrator will verify that no one else on your system has this 
+
+name before allowing you to have it. The password that you request or that has been assigned to you is a temporary string that allows you to initially access the computer system. The initial password isn't of any real importance because you should change 
+it to something of your choice the first time you log in to the system (see &quot;Managing Your Password&quot; later in this chapter).
+
+<BR></P>
+
+<P>The other items on the account application form are harder for a novice user to determine. Asking a peer who uses the same system for the values his or her account has might be a good place to start. The system administrator may be able to help you 
+figure out what values you should have. But don't worry; these are all easily changed later if you wish.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Logging In to the System</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Now that you know your user name (say it's &quot;brimmer&quot;) and password (say it's &quot;new_user&quot;), you can access the system. When you sit down in front of a UNIX workstation, you are expected to log in to the system. The system prompts 
+(asks) you for your user name by printing login:. You should then enter your user name. Next, UNIX will prompt you for your password by printing Password:. Enter your password. As you type your password, don't be alarmed if the characters you type are not 
+
+displayed on your screen. This is normal and is for your protection. No one else should know your password, and this way no one can look at your screen when you login and see your password.
+
+<BR></P>
+
+<PRE>login: <B>brimmer</B>
+
+Password: 
+
+Please wait...checking for disk quotas
+
+Marine biology word of the day:
+
+Cnidaria (n.) Nigh-DARE-ee-uh (L. a nettle)  - a phylum of basically
+
+radially symmetrical marine invertebrates including corals, sea
+
+anemones, jellyfish and hydroids. This phylum was formerly known
+
+as Coelenterata.
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Some keyboards have a key labeled &quot;Return.&quot; Some have a key labeled &quot;Enter.&quot; If your keyboard has both, then &quot;Return&quot; is probably the correct key to use.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>On some systems, erase is # and kill is @. On others, erase is Backspace or Delete and kill is Control+U or Control+X.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If you typed everything correctly and the system administrator has everything set up correctly, you are now logged in and may use the system. If you get a message saying Login Incorrect, then you may have typed your user name or password incorrectly. If 
+
+you make a mistake during your user name, the Backspace key and the Delete key may not undo this mistake for you. The easiest thing to do is to start over by pressing Enter twice to get to a new login: prompt.
+
+<BR></P>
+
+<P>Other error messages you might receive are No Shell, No Directory, or Cannot Open Password File. If you see any of these messages, or if multiple attempts at logging in always produce the Login Incorrect message, contact your system administrator for 
+help.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The No Shell message means that UNIX is not able to start the command interpreter, which was configured when your account was set up. Depending on the UNIX system, your login may complete successfully 
+and the default shell will be used. If this happens, you can use the chsh command, which will change the shell specified in your account. See Part II, &quot;Hunt For Shells,&quot; for more information about various shells. The No Directory message means 
+that UNIX cannot access your home directory, which was specified when your account was set up. Again, depending on the system, your login may complete successfully, placing you in a default directory. You may need to then enlist the help of the system 
+administrator to create your home directory or change the home directory value for your account. See Chapter 3, &quot;The UNIX File System: Go Climb a Tree,&quot; regarding directories and specifically your home directory. The Cannot Open Password File 
+message means that UNIX is having a problem accessing the system password file, which holds the account information (user name, password, user id, shell, group, and so on) for each user. If there is a problem with this file, no user can log in to the 
+system. Contact your system administrator if you see this message.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If your system is configured to use a graphical user interface (GUI), you probably have a login screen. This screen performs the same function as the command-line prompts but is presented as a graphical display. The display probably has two boxes for 
+you to fill in, each with a label. One box is for your user name and the other is for your password.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>After Login Succeeds</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After a successful login, several messages appear on your screen. Some of these may be the date and time of your last login, the system's informative message (called the &quot;Message of the Day&quot;), and a message informing you whether you have 
+(electronic) mail. The Message of the Day can be an important message to watch because it is one way that administrators communicate with the system users. The next scheduled down time (when no one can use the system) is an example of information that you 
+
+might see here.
+
+<BR></P>
+
+<P>After all the messages scroll by, the system is ready and waiting for you to do something. This ready-and-waiting condition is signified by a prompt followed by a cursor. Typical prompts are $ or %. The dollar-sign prompt is commonly used by Bourne and 
+
+Korn shells and the percent sign by c-shells. The value of this prompt (your primary prompt) can be changed if you wish. The person who set up your account may have already configured a different prompt value. To change this prompt, you need to change the 
+
+value of the environment variable PS1 (for Bourne and Korn) or prompt (for C shell). (See the section &quot;Configuring Your Environment&quot; in this chapter for details on environment variables.) The cursor (the spot on the screen where the next 
+character you type is displayed) is commonly an underline (_) or a box, either of which can be blinking. The cursor you see may vary from system to system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Different Priviledges for Different Users</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are administering your own personal system, it is still important for you to set up a personal account for yourself, even though your system will come configured with some type of administrative account. This account should be used to do 
+system-wide administrative actions. It is important to be careful when using this account because it has special privileges. UNIX systems have built-in security features. Most users cannot set up a new user account or do other administrative procedures. 
+The user &quot;root&quot; is a special user, sometimes called super-user, which can do anything at all on the system. This high degree of power is necessary to fully administer a UNIX system, but it also allows its user to make a mistake and cause system 
+problems. For this reason, you should set up a personal account for yourself that does not have root privilege. Then, your normal, day-to-day activities will affect only your personal environment and you will be in no danger of causing system-wide 
+problems. In a multiuser, nonpersonal environment, you will most likely have only user (and not super-user) privileges. This security is even more important when more than one person is involved because one mistake by the root can affect every user and the 
+
+entire system.
+
+<BR></P>
+
+<P>UNIX also has security to help prevent different users from harming each other on a multiuser system. Each user &quot;owns&quot; his or her environment and can selectively let groups or all others have access to this work. If you are doing private work 
+
+in one area that no one else should be allowed to see, then you should restrict access to the owner (you). If you and your team members are working on a group project, you can restrict access to the owner (you) and everyone in your group. If this work 
+should be shared with many or all people on the system, then you should allow access to everyone.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Logging Out</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When you are done using the system, you should log out. This will prevent other people from accidentally or intentionally getting access to your files. It will also make the system available for their use.
+
+<BR></P>
+
+<P>The normal way to log out from almost any shell is to type exit. This causes your shell to exit, or stop running. When you exit from your login shell, you log out. If you are using csh, you can also type logout; if you are in a login shell, then csh 
+will log out. Some shells, depending on your configuration, will also log you out if you type the end-of-file character (typically Control+D; see &quot;Working on the System&quot; later in this chapter).
+
+<BR></P>
+
+<P>If you have a graphical user interface, your logout procedure may be different. Please consult your manuals or online help to learn about logging out of your GUI.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Using Commands</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>During the login process described in the section, &quot;Logging In&quot; UNIX performs several actions that prepare you and the system for each other. These include performing system accounting, initializing your user environment, and starting a 
+command interpreter (commonly called a shell). Commands are how you tell the system to do something. The command interpreter recognizes these commands and passes the information off to where it is needed. UNIX systems originally came with a command 
+interpreter called the Bourne Shell (usually referred to as sh, though some systems ship Korn or POSIX as sh&#151;see the Note that follows). This shell is still available on most UNIX computer systems. A newer shell that is common to most UNIX systems is 
+
+the C Shell (referred to as csh). Another commonly used, but not as pervasive, shell is the Korn Shell (referred to as ksh). Among different shells, there is some variation of the commands that are available. Refer to Part II, &quot;Hunt for Shells,&quot; 
+
+for details on these UNIX shells.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> What's in a name?
+
+<BR>
+
+<BR>There are a number of different common shells on various UNIX operating systems. The most common are as follows:
+
+<BR>
+
+<BR>sh    The Bourne shell is the most common of all 
+
+<BR>      the shells. (May be installed as bsh.)
+
+<BR>
+
+<BR>sh    The POSIX shell is much like the Korn shell. 
+
+<BR>      The POSIX standard requires it to be 
+
+<BR>      installed as sh. Some vendors install it as 
+
+<BR>      /bin/sh. Some put it in a special directory 
+
+<BR>      and call it sh, leaving the Bourne shell as 
+
+<BR>      /bin/sh.
+
+<BR>
+
+<BR>ksh   The Korn shell is a derivative of the Bourne 
+
+<BR>      shell, which adds history and command-line 
+
+<BR>      editing. (Sometimes installed as sh.)
+
+<BR>
+
+<BR>csh   The C shell is based on the popular C 
+
+<BR>      language.
+
+<BR>
+
+<BR>bash  The Born Again shell is less common.
+
+<BR>
+
+<BR>tcsh  This is a version of the C shell with 
+
+<BR>      interactive command-line editing.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>What Is a Command?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A UNIX command is a series of characters that you type. These characters consist of words that are separated by whitespace. Whitespace is the result of typing one or more Space or Tab keys. The first word is the name of the command. The rest of the 
+words are called the command's arguments. The arguments give the command information that it might need, or specify varying behavior of the command. To invoke a command, simply type the command name, followed by arguments (if any), to indicate to the shell 
+
+that you are done typing and are ready for the command to be executed, press Enter.
+
+<BR></P>
+
+<P>Try it out. Enter the date command. The command's name is &quot;date&quot; and it takes no arguments. Therefore, type date and press Enter and see what happens. You should see that the computer has printed the current date and time. If the date or time 
+
+does not match reality, ask the system administrator to fix it. How about trying a command that has arguments? Try the echo command. The name of the command is &quot;echo&quot; and it takes a series of arguments. The echo command will then write, or echo, 
+
+these arguments out to your screen. Try creating a command that will write your first and last name on the screen. Here is what these commands and output look like on our system:
+
+<BR></P>
+
+<PRE>$ date
+
+Sat Mar  5 11:11:00 CST 1994
+
+$ echo Arnold Brimmer
+
+Arnold Brimmer
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Some commands such as echo are part of the particular shell you are using. These are called built-ins. In this case, the commands are not standard from one shell to another. Therefore, if you learn 
+one shell and then later have to (or want to) switch to using a different shell, you may have to learn new commands (and unlearn others). Other commands are standard UNIX commands and do not depend on what shell you are using. These should be on every UNIX 
+
+system. The remaining commands are nonstandard UNIX and may or may not be on a particular UNIX system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>UNIX commands use a special type of argument called an option. An option commonly takes the form of a dash (made by using the minus sign key) followed by one or more characters. The options provide information to the command. Most of the time, options 
+are just a single character following a dash. Two of the other lesser used forms are a plus sign rather than a minus sign, and a word following a dash rather than a single character. The following paragraph shows a common command with two of its common 
+options. The ls command lists the files in your current directory.
+
+<BR></P>
+
+<P>First, try the ls command with no arguments. Then, try it with the -a option and note that the directory listing contains a few files that start with a period. These hidden files get listed by the ls command only if you use the -a option. Next, try the 
+
+ls command with the -l option. This option changes the format of the directory listing so that each file is displayed along with some relevant details. Finally, try the ls command with both of these options, so that your command is as follows: ls -a -l.
+
+<BR></P>
+
+<PRE>$ <B>ls</B>
+
+visible
+
+$ ls -a
+
+.        ..      .hidden  visible
+
+$ ls -l
+
+total 0
+
+-rw-rw-rw-   1 sartin   uu             0 Mar  5 12:58 visible
+
+$ ls -a -l
+
+total 16
+
+drwxrwxrwx   2 sartin   uu          1024 Mar  5 13:03 .
+
+drwxr-xr-x  37 sartin   uu          3072 Mar  5 13:03 ..
+
+-rw-rw-rw-   1 sartin   uu             0 Mar  5 12:58 .hidden
+
+-rw-rw-rw-   1 sartin   uu             0 Mar  5 12:58 visible
+
+$</PRE>
+
+<P>A command developer often tries to choose option letters that are meaningful. Regarding the ls command, you might think of the -a as meaning that &quot;all&quot; files should be listed (including the special files starting with period). And you might 
+think of the -l option as meaning a &quot;long&quot; directory listing because the format is changed so that each line contains one file along with its details. This makes for a longer listing.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Redirecting Input and Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One very pervasive concept in UNIX is the redirection of commands' input and output. Before looking at redirection, though, it is a good idea to look at input and output without modification. UNIX uses the word standard in this subject to mean the 
+default or normal mode. Thus, UNIX has the term standard input, which means input coming from the default setting, and the term standard output, which means output going to the normal place. When you first log in to the system, and your shell executes, 
+your standard input is set to be what you type at the keyboard, and your standard output is set to be your display screen. With this in mind, follow along with the example.
+
+<BR></P>
+
+<P>The cat command takes any characters from standard input, and then echoes them to standard output. For example, type the cat command, with no arguments. Your cursor should be sitting on the next line without a prompt. At this point, the cat command is 
+waiting for you to enter characters. You can enter as many as you like, and then you should specify that you are finished. Type a few words and then press Return. Now type the special character, Control+D (hold down the Control key while typing the D key). 
+
+This is the &quot;eof&quot; control character. (See &quot;Working on the System&quot; later in this chapter for a description of control characters.) The words you typed should be on your screen twice&#151;once caused by you entering them from the 
+keyboard, and next as the cat command outputs them to your screen. This first step used standard input (from you typing on the keyboard), and standard output (the command results being printed on the screen).
+
+<BR></P>
+
+<PRE>$ <B>cat</B>
+
+s
+
+A few words
+
+&lt;CTRL&gt;&lt;D&gt;
+
+A few words
+
+$ cat &gt; scotty
+
+Meow, whine
+
+meow
+
+&lt;CTRL&gt;&lt;D&gt;
+
+$ cat &lt; scotty
+
+Meow, whine
+
+meow
+
+$ cat scotty
+
+Meow, whine
+
+meow
+
+$</PRE>
+
+<P>Although this simple case may not seem terribly useful yet, wait to see its use as you add redirection.
+
+<BR></P>
+
+<P>UNIX shells have special characters that signify redirection. Only the basics are covered here. Refer to Part II, &quot;Hunt for Shells,&quot; for details on each shell's redirection syntax. Output redirection is signified by the &gt; character and 
+input redirection is signified by the &lt; character. Output is commonly redirected to and input is redirected from a file. Now, continue with the rest of the example.
+
+<BR></P>
+
+<P>Next, try the cat command using output redirection, leaving standard input alone. Enter cat &gt; <I>filename</I>. The filename is a name of your choice. Once again, the cat command should be waiting for input (coming from standard input, which is your 
+keyboard) at the beginning of the next line. Enter a few words, as you did before, press Return, and then, at the start of the next line, press Control+D. The words you typed didn't show up on your screen because you redirected the output of the cat 
+command. The output was directed to go to the file <I>filename</I>. But how do you know it is there? In order to verify this, use the cat command with input redirection&#151;which is the next order of business.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>&lt;Ctrl&gt;&lt;D&gt; must be specified as the first character of an input line for it to be seen as &quot;eof.&quot;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To see the contents of the file <I>filename</I>, you would like the input of the cat command to come from that file, and the output to go to the screen so that you can see it. Therefore, you want to redirect standard input and leave the output alone. 
+Enter cat &lt; <I>filename</I>. This time, the cat command did not wait for you&#151;because you were not supplying the input. The file supplied the input. The cat command printed the contents of the file to the screen.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Note the subtle distinction between these two commands: cat &gt; <I>filename</I> and cat &lt; <I>filename</I>. You can remember the difference by verbalizing which way the sign points; does it point 
+into the command or out of the command? Into the command is input redirection and out of the command is output redirection.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The cat command allows you to specify a filename to use as input. Try showing the contents of the file this (more common) way: enter cat <I>filename</I>. Many commands are designed similarly&#151;they have an argument that is used to specify a file as 
+the input. Because of this common command design, redirecting input in this way is not nearly as common as redirecting the output.
+
+<BR></P>
+
+<P>UNIX was developed with the philosophy of having simple commands that do well-defined, simple things. Then, by combining these simple commands, the user could do very powerful things. Pipes are one of the ways UNIX allows users to combine several 
+commands. The pipe is signified by the vertical bar (|) symbol. A pipe is a means of taking the output of one command and redirecting it as the input of another command. Say that you want to know how many files you have in your current directory. Recall 
+that the ls command will list all the files in your current directory. You could then count the number of files. But UNIX has a command that counts the number of characters, words, and lines of input and displays these statistics. Therefore, you can 
+combine these two commands to give you the number of files in your directory. One way you could do this is as follows: ls -l | wc -l. Analyzing this command, you can see that the first part is something familiar. The ls -l command gives a directory listing 
+
+in long format. In fact, it prints one file per line. The wc -l command gives the number of lines that are in the input. Combining the two commands via a pipe takes the output of the first command (the long directory listing) and gives it to the input of 
+the second command. The output of the second command (which is not redirected&#151;it goes to standard output) is displayed on your screen.
+
+<BR></P>
+
+<P>These basic forms of redirection allow you to be very versatile as you learn a few commands at a time. Try to learn a command and use it with various options and arguments, then add redirection of input and output. And finally, combine commands with 
+pipes. This approach should help you to feel comfortable with the commands and their varied uses.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Configuring Your Environment</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In order to make using the shell easier and more flexible, UNIX uses the concept of an environment. Your environment is a set of values. You can change these values, add new values, or remove existing values. These values are called environment 
+variables&#151;environment because they describe or define your environment, and variables because they can change.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Viewing and Setting Environment Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Every user's environment looks a little different. Why don't you see what your environment looks like? Type the env command with no arguments. The output formatting and variable names depend on which shell you are using and how your system is 
+configured. A typical environment might include some of the following:
+
+<BR></P>
+
+<PRE>$ <B>env</B>
+
+HOME=/u/sartin
+
+LOGNAME=sartin
+
+MAIL=/usr/mail/sartin
+
+MANPATH=/usr/man:/usr/contrib/man:/usr/local/man
+
+PATH=/bin/posix:/bin:/usr/bin:/usr/contrib/bin:/usr/local/bin
+
+SHELL=/bin/sh
+
+TERM=vt100
+
+TZ=CST6CDT
+
+$ echo $HOME
+
+/u/sartin
+
+$</PRE>
+
+<P>Sometimes the number of variables in your environment grows quite large, so much so that you don't want to see all of the values displayed when you are interested in just one. If this is the case, you can use the echo command to show an environment 
+variable's current value. To specify that a word you type should be treated differently&#151;as a value of an environment variable&#151;you immediately precede the variable name with a dollar sign ($). Be careful not to type any whitespace between the $ 
+and the word. One of the variables in the example is HOME. You probably have this variable in your environment, too. Try to display its value using echo.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If you use csh, some environment variables are automatically copied to and from csh variables. These include HOME, TERM, and PATH, which csh keeps in home, term, and path.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can create a new environment variable by simply giving it a value. If you give an existing variable a value, the old value is overwritten. One difficulty in setting environment variables is that the way you set them depends on the shell you are 
+using. To see how to set environment variables, look at the details about the shell you are using in Part II, &quot;Hunt For Shells.&quot;
+
+<BR></P>
+
+<P>In order for your screen to display the output correctly, the environment variable TERM needs to have a reasonable value. This variable name comes from the times when terminals were used as displays (before PCs and graphics displays were common). 
+Different terminals supported varying output control. Therefore, UNIX systems have various terminal types that they support. These are not standard, so you need to find out which terminal type to use from your support personnel. If you are using a PC to 
+connect to a UNIX system, your PC is running a terminal emulation tool. Most of these tools have the capability to emulate several types of terminal. The important point here is to make sure that your emulator and your TERM variable are the same (or 
+compatible). Start by seeing what your TERM variable is set to by entering echo $TERM. Refer to your PC terminal emulation manual and ask your system administrator for help to make sure that this is set up correctly.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Many terminal emulators (including the Microsoft Windows &quot;Terminal&quot; program) support either &quot;VT100&quot; or ANSI standard terminal control sequences. Try setting TERM to vt100 or ansi for 
+
+this type of terminal emulator.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Using Shell Startup Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Where do all these environment variables come from? Well, the system sets up various ones for you. And each user commonly sets up others during the login process. Yes, you may be doing this without even knowing it. During the startup, which happens at 
+login, a shell is started. This shell automatically looks in a special place or two for some startup information. One of these places is in your home directory. The startup information in your home directory is found in special files. The specific shell 
+you are using will determine the name of the particular file. When the shell starts up, it examines this file and performs whatever actions are specified. One of the common actions is to give values to environment variables. This action is called 
+initializing or setting the values.
+
+<BR></P>
+
+<P>One environment variable that is commonly set in a user's shell startup file is the PATH variable (or lowercase path for C-shell users). This variable's value is a list of places (directories) on the system where the shell should look to locate a 
+command. Each command you type is physically located as a file somewhere on your file system. It is possible for the same command name to be located in different places (and to have either the same or different behavior when executed). Say that you have a 
+
+program called my_program that is stored in your home directory, and your friend has a program called my_program, which is in her home directory. If you type my_program at the prompt, the shell needs to know where to look to find the storage location of 
+my_program. The shell looks at the value of the PATH variable and uses the list of directories as an ordered directory search list. The first directory that has a my_program stops the search, and the shell executes that file. Because all files within a 
+single directory must be unique, this gives a straightforward and sufficient method for finding executables (commands). 
+
+<BR></P>
+
+<P>You probably want $HOME/bin to be toward the beginning of your PATH directory list, whereas you may want your friend's binary directory to be toward the end, or not listed at all. This way, when you type my_program, you will execute your my_program 
+rather than hers. You can do all types of things in shell startup files in addition to setting environment variable values. If you want, you can add an echo command that prints out a greeting or reminds you to do something. One common item that is 
+configured inside a shell startup file is the setup of your control characters. (See &quot;Working on the System&quot; later in this chapter.) These startup files are a powerful tool for you, the user of the shell, to configure the behavior of the shell 
+automatically. Shell startup files are covered in more detail in Part II, &quot;Hunt for Shells.&quot;
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>It is a good idea to create a bin directory in your HOME and store executables there. Include $HOME/bin in your path.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Configuring with </B><B><I>rc</I></B><B> files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The idea of having a file that is read on startup is not only used by the shells. In fact, many commands have special files containing configuration information that the user can modify. The general class of files is called rc files. This comes from the 
+
+naming convention of these files. Most of these files end with the letters rc. Some of the more common files are .exrc, .mailrc, and .cshrc. These are all dot files; that is, they begin with a period (dot). The significance of starting a filename with a 
+dot is that this file is not displayed during normal directory listing. If you want to see these files, use the -a option to the ls command. The .exrc file is used by the vi and ex editors (see Chapter 7, &quot;Text Editing with vi, EMACS, and sed&quot;). 
+
+The .mailrc file is used by various electronic mail tools (see Chapter 9, &quot;Communicating with Others&quot;). The .cshrc file is the C-shell startup file just discussed. The rc files are normally found in your home directory; that is, the default 
+location for most of these files. Look at which rc files you have in your home directory (use the ls -a command). Then examine the contents of one of the files (use the cat <I>filename</I> command).
+
+<BR></P>
+
+<P>Your environment has a great effect on the use of your system. It is initialized during login with a shell startup file, and it grows and changes as you create new variables and change existing ones. Your environment affects every command you execute. 
+It is important to get your environment set up to make your common actions easy. Spend the time to do this now and you will be glad you did later.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Managing Your Password</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>During login, UNIX asked you to enter your password. If this is your first time on this computer, your password was configured by the system administrator. One of the very first things you should do after logging in is change your password so that no 
+one, not even the system administrator, knows what it is. You can do this via the passwd command. But before you do this, you should put some thought into what you want your password to be. Here are some points to consider:
+
+<BR></P>
+
+<OL>
+
+<LI>It should be easy for you to remember. If you forget what your password is, no one, not even the system administrator, can look it up for you. The only thing the system administrator can do is to reset your password to a value. This wastes the 
+administrator's time as well as yours.
+
+<BR>
+
+<BR></LI>
+
+<LI>It shouldn't be easy for anyone to figure out. Do not make it anyone's name or birth date, or your user name, or any of these spelled backwards. It is also wise to avoid something that appears in a dictionary. A good idea would be to include at least 
+one nonalphabetic character (for example, a period or a dollar sign).
+
+<BR>
+
+<BR></LI>
+
+<LI>Make it a reasonable length. Some systems impose a minimum number of characters for a password. At least 5 characters is adequate. There isn't usually a limit as to the maximum number of characters, but only the first 8 are significant. The ninth 
+character and after are ignored when checking to see whether you typed your password correctly.
+
+<BR>
+
+<BR></LI>
+
+<LI>Change your password once in a while. Some systems check the last time you changed your password. If a time limit has been reached, you will be notified that your password has expired as you log in. You will be prompted to change it immediately and 
+won't be allowed to log in until you successfully get it changed. This time limit is system imposed. Changing your password every few months is reasonable.
+
+<BR>
+
+<BR></LI>
+
+<LI>Don't write it down or tell it to anyone. Don't write it on scraps of paper. Don't tell your mother. Don't write it in your calendar. Don't write it in your diary. Don't tell your priest. Don't put it in a dialup terminal configuration file. Nowhere. 
+Nobody. Maybe in your safe deposit box.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>After you have thought about what you want your password to be, you can change it with the passwd command. Try it now; you can change your password as often as you like. Enter passwd. First, a prompt asking you to enter your old password is displayed. 
+Type your old password and press Return. Next, you are prompted for your new password. Type it in and press Enter. Finally, you are prompted to re-enter your new password. This confirmation helps avoid changing your password if you made a typing error. If 
+
+you make a mistake entering your old password, or if the two new password entries are not identical, then no change is made. Your old password is still in effect. Unless you make the same mistake both times that you enter the new password, you are in no 
+danger of erroneously changing your password.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Working on the System</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Most keys on the keyboard are fairly obvious. If you type the S key, an s character appears on your screen. If you hold down the Shift key and type the S key, a capital s character (S) appears on your screen. In addition to the letters and digits, the 
+symbols, some of which are above the digits, are familiar&#151;such as the percent sign (%) and the comma (,). There are some UNIX and system-specific special characters in addition to these, which you should become familiar with. They will help you manage 
+
+your work and typing more effectively. The general type of character is called a control character. The name comes from the way in which you type them. First, locate the Control key&#151;there should be one or maybe two on your keyboard. It may be labeled 
+
+Ctrl or some other abbreviation of the word Control. This key is used like the Shift key. You press it but don't release it. While the Control key is depressed, you type another key, often a letter of the alphabet. If you type the Q key while the Control 
+key is held, this is called Control+Q, and is commonly written ^Q (the caret symbol, which is found above the digit 6, followed by the alphabetic character).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When you see the notation ^Q, this does NOT mean to hold the Control and Shift down while pressing Q. All you do is to hold down the Control key while pressing Q.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>UNIX uses these control keys for various common keyboard actions. They can come in very handy. But the hard part is that different systems have different default Control key settings for these actions. Therefore, first you should find out what your 
+current settings are, and then you can change them if you wish. In order to look at what your current settings are, use the stty command. Enter stty -a at your command prompt and look at the results. Refer to the next example for an output of this command.
+
+
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you're typing and nothing is showing on your screen, a ^S (or stop control character) inadvertently may have been typed. Try typing ^Q (or start control character) and see whether your typed 
+characters now appear.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>$ stty -a
+
+speed 9600 baud; line = 0; susp &lt;undef&gt;; dsusp &lt;undef&gt;
+
+rows = 44; columns = 120
+
+intr = ^C; quit = ^\; erase = ^H; kill = ^X; swtch &lt;undef&gt;
+
+eof = ^D; eol = ^@; min = 4; time = 0; stop = ^S; start = ^Q
+
+-parenb -parodd cs8 -cstopb hupcl cread -clocal -loblk -crts 
+
+-ignbrk -brkint -ignpar -parmrk -inpck -istrip -inlcr -igncr icrnl -iuclc 
+
+ixon -ixany -ixoff -rtsxoff -ctsxon -ienqak 
+
+isig icanon iexten -xcase echo echoe echok -echonl -noflsh 
+
+opost -olcuc onlcr -ocrnl -onocr -onlret -ofill -ofdel -tostop tab3 
+
+$</PRE>
+
+<P>Referring to the preceding example of stty output, look for the section that has the words erase, kill, and eof. Associated with each word is a control character. Find the similar part of your stty output. Keep this handy as you read the next topics.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Erase</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Look at the word erase in the stty output. Next to this word is ^H (verbalized as Control+H). Therefore, on my system, Erase, which means to back up over the last character typed, is done by typing ^H. The Erase key is how you can fix your typing 
+errors. Remember to look at your stty -a output because your system may be configured differently than this example. Try it out on your system. First, type a character you wish to erase, say, an A. Now type your Control, Backspace, or Delete key associated 
+
+with your Erase. If everything goes right, your cursor should have backed up to be on top of your A and the next key you type will be where the A was. Try typing a correct series of keys, say date&lt;Return&gt;, to make sure that the control character 
+actually worked. If you get a message similar to &quot;A^Hdate not found&quot;, then Erase is not working. To make it work correctly, pick the key you want associated with Erase and input the following (assuming that you have picked the backspace key):
+
+<BR></P>
+
+<PRE>$ stty erase '^H'
+
+$</PRE>
+
+<P>Now, try entering the date command again and deleting the A in dAte and replacing it with a.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Depending on your display, erasing characters may not actually make the character disappear. Instead, it may reposition the cursor so that the next keystroke overwrites the character.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The Erase key is one of the most used control keys, because typing without mistakes is difficult to do. Therefore, most keyboards have one or more special keys that are suited to this job. Look for keys labeled &quot;Delete&quot; or 
+&quot;Backspace.&quot; One of these usually works as an erase key. Try typing some characters and seeing what happens when you then press Backspace or Delete. Normally the Backspace key is set up to be ^H, so, if your erase is configured to be ^H, 
+Backspace most likely will work.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Kill</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Kill control character is similar to the Erase control character, in that it allows you to back up over typing mistakes. Whereas Erase backs up one character at a time, Kill backs up all the way to the prompt. Therefore, if you are typing a really 
+long command and you realize, toward the end, that you forgot to do some other command first, you can start over by typing the control character associated with Kill. If you can't see what your Kill is set to, redo the stty command. In the stty output 
+example, the system has kill set to ^X. Again, remember that your system can be configured differently than this example. Now, try typing several characters followed by your Kill control character and see what happens. All the characters should be erased 
+and your cursor should be after the prompt.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Stop and Start</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Two other commonly used control characters are Stop and Start. Their normal values are ^S and ^Q, respectively. Stop allows you to temporarily pause what is happening on your screen, and Start allows you to resume activity following a stop. This is 
+useful if text is scrolling on your screen too fast for you to read. The Stop control character will pause the scrolling indefinitely so that you can read at your leisure. You might try this during your next login while the Message of the Day is scrolling 
+
+by (see the section earlier in this chapter called &quot;Logging In&quot;). But remember to be prepared and be swift, because that text can scroll by quite quickly. Try to stop the scrolling, and then don't forget to continue the scrolling by typing your 
+Start control character.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> On modern GUIs and high-speed connections Stop and Start give very poor control of output. This is because the output is so fast an entire screen may go by before you type the Stop character.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>eof</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The eof control character is used to signal the end of input. The letters eof come from end of file. The normal value of the eof control character is ^D, but be sure to verify this using the stty command. You can see how the eof character is used in the 
+
+section called &quot;Redirecting Input and Output&quot; earlier in this chapter.
+
+<BR></P>
+
+<P>There are several other control characters that we will not look at here. You should refer to the stty command in your system documentation for information. Or better yet, keep reading because we will show you how to find information about commands via 
+
+the UNIX online help facility.
+
+<BR></P>
+
+<P>The stty command is also used to set the value of control characters. You can simply enter stty erase '^H' to change your Erase character to Backspace. Do not enter a Control+H here; rather, enter '^H'. Some shells, including the original Bourne shell, 
+
+treat the caret specially, so you may need the quotes. (Double quotation marks would also work in this example.) Try changing the value of your Erase control character and then use the stty -a command to make sure it happened.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Remember that typing the end of file character to your shell might log you out of the system!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=4><B>Online Help</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One of the most important things to know about UNIX or any computer system is how to get help when you don't know how to use a command. Many commands will give you a usage message if you incorrectly enter the command. This message shows you the correct 
+
+syntax for the command. This can be a quick reminder of the arguments and their order. For many commands, you can get the usage message by using the option -?. The usage message often does not give you any semantic information.
+
+<BR></P>
+
+<P>The UNIX command man is a powerful tool that gives you complete online access to the UNIX manuals. In its simplest form, the man command takes one argument, the name of the command or manual entry on which you need information. Try using the man command 
+
+now&#151;perhaps you could use one of the previous commands you were interested in as the argument. Or, if you want to get a head start on this section, you might try entering man man to get information on the man help facility itself.
+
+<BR></P>
+
+<P>The manual entry is called a man page, even though it is often more than one page long. There are common sections to man pages. Depending on the command, some or all of the sections may be present. At the start of the man page is the Name. This is 
+usually a one-liner that gives the command's name along with a phrase describing what it does. Next is the Synopsis, which gives the command's syntax including its arguments and options. In the Synopsis, if an argument is enclosed in square brackets ([]), 
+
+then that argument is optional. If two elements of the syntax are separated with a vertical bar (|), then either one or the other (but not both) of the items is allowed.
+
+<BR></P>
+
+<PRE>$ man page</PRE>
+
+<P>Depending on the man page, there are several more sections that you may see. A few of the more common are Description, Files, and See Also. The Description section contains the details of the command's usage. It describes each option, argument, and the 
+
+interrelations and accepted values of each. This will help you to learn exactly how the command should be used. The Files section contains a list of the UNIX files used by this command. You may want to look at the contents of these files to help you 
+understand some of the command's behaviors. The See Also section can be very important when you either want to learn more on a similar topic or don't have quite the right man page. This section lists pointers to related or dependent commands.
+
+<BR></P>
+
+<P>The man command has a very useful option, especially for users who are unfamiliar with UNIX. This option is -k and is used to find all commands that have to do with a word you supply following the -k. For instance, if you would like to find out 
+information on printing, you might enter the command man -k print. The man command then searches a special database, called the whatis database, for commands and descriptions that contain the word print. During the search, if print or any word that 
+contains print (such as printing) is found, this command is displayed on your screen. Therefore, the final result is a list of all commands having to do with print. Then you can use the man command to find out the details about any or all of the commands 
+on this list. On some systems, another way to do this search is via the command apropos, which is equivalent to man -k.
+
+<BR></P>
+
+<P>Although having the complete set of manual entries online is extremely useful, it also takes a fairly large amount of disk space. One option that some people use to help lower the amount of disk space needed is to have the manual entries stored on one 
+machine that everyone can access via the network. Because of this, the manual entries may not be stored in the directories expected. In order to show the man command where the entries are stored, you can set the MANPATH variable (see the section 
+&quot;Viewing and Setting Environment Variables&quot; that appeared earlier in this chapter).
+
+<BR></P>
+
+<P>Another potential problem you might see when trying to use man has to do with the -k option. Recall that the -k option searches the whatis database for a keyword you specify. This works only if the system administrator has created this database ahead of 
+
+time. The system administrator does this via the catman command. If the database has not yet been created, you will see an error regarding the whatis database not being found whenever you use the -k option (or the apropos command). Ask your system 
+administrator to fix this.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The start of this chapter helped you prepare for what needs to happen before and during login. The section &quot;Configuring Your Environment&quot; looked at your environment and how you can configure it. Look at the manual entry for the shell you're 
+using to find out more about environments. Also read Part II, &quot;Hunt for Shell,&quot; for shell details. The section on &quot;Managing Your Password&quot; discussed how managing your password via the passwd command is important for security reasons. 
+Look at the manual entry for passwd if you need more information. The &quot;Working on the System&quot; section helped make your typing easier through the use of control characters. The stty man page is a good place to look for more information on control 
+
+characters. The section on online help is probably the most important section of this chapter; by describing the man command, it showed you how to access the UNIX manual online. Using this, you can look up anything you want or need. The commands that you 
+saw in the &quot;Using Commands&quot; section are in the online manual. Use the man command and learn more about them. With this as a start, you should be comfortable with the basics.
+
+<BR></P>
+
+<P><A HREF="unx01.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx01.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx03.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx03.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

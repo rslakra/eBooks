@@ -1,0 +1,4983 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx46.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx47.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx47.htm">
+
+<LINK REL="Previous" HREF="unx45.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx45.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx45.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx45.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx47.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx47.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">46 &#151; Graphical User Interfaces for End Users</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Kamran Husain</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">What Is a GUI?</A></LI>
+
+<LI>
+
+<A HREF="#I5">X Window</A></LI>
+
+<LI>
+
+<A HREF="#I6">Displays, Screens, and Windows</A></LI>
+
+<LI>
+
+<A HREF="#I7">Stacking Order</A></LI>
+
+<LI>
+
+<A HREF="#I8">Pointers in X</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">The Client/Server Architecture</A></LI></UL>
+
+<LI>
+
+<A HREF="#I10">Introduction to Window Managers</A></LI>
+
+<LI>
+
+<A HREF="#I11">Getting Started with X Window</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I12">Using xdm</A></LI>
+
+<LI>
+
+<A HREF="#I13">The Hard Way to Start X</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">Working with Motif Windows in mwm</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">Using the Pointer</A></LI>
+
+<LI>
+
+<A HREF="#I16">Icons and Windows</A></LI>
+
+<LI>
+
+<A HREF="#I17">Iconifying a Window</A></LI>
+
+<LI>
+
+<A HREF="#I18">Maximizing a Window</A></LI>
+
+<LI>
+
+<A HREF="#I19">Sizing a Window</A></LI>
+
+<LI>
+
+<A HREF="#I20">Focus and Selecting a Window</A></LI>
+
+<LI>
+
+<A HREF="#I21">Moving a Window or an Icon</A></LI>
+
+<LI>
+
+<A HREF="#I22">Adding a New Window</A></LI>
+
+<LI>
+
+<A HREF="#I23">Window Geometry</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">Using the Window Menu</A></LI>
+
+<LI>
+
+<A HREF="#I25">Using the Keyboard and the Meta Key in X</A></LI>
+
+<LI>
+
+<A HREF="#I26">Using the root Menu</A></LI>
+
+<LI>
+
+<A HREF="#I27">Working with Motif Clients</A></LI>
+
+<LI>
+
+<A HREF="#I28">Other Types of Widgets</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I29">XmDialogShell</A></LI>
+
+<LI>
+
+<A HREF="#I30">XmMenuShell</A></LI>
+
+<LI>
+
+<A HREF="#I31">VendorShell</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">Other Display Widgets</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I33">XmArrowButton</A></LI>
+
+<LI>
+
+<A HREF="#I34">XmDrawnButton</A></LI>
+
+<LI>
+
+<A HREF="#I35">XmLabel</A></LI>
+
+<LI>
+
+<A HREF="#I36">XmPushButton</A></LI>
+
+<LI>
+
+<A HREF="#I37">XmSeparator</A></LI>
+
+<LI>
+
+<A HREF="#I38">XmText</A></LI>
+
+<LI>
+
+<A HREF="#I39">Pull-down Menus</A></LI>
+
+<LI>
+
+<A HREF="#I40">Pop-Up Menus</A></LI>
+
+<LI>
+
+<A HREF="#I41">Xmscale</A></LI>
+
+<LI>
+
+<A HREF="#I42">XmScrolledWindow</A></LI>
+
+<LI>
+
+<A HREF="#I43">XmFrame</A></LI>
+
+<LI>
+
+<A HREF="#I44">XmRowColumn</A></LI>
+
+<LI>
+
+<A HREF="#I45">Gadgets</A></LI></UL>
+
+<LI>
+
+<A HREF="#I46">Customizing with Resources</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I47">What Are Resources?</A></LI></UL>
+
+<LI>
+
+<A HREF="#I48">Defining Resources</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I49">User and Class Resource Files</A></LI></UL>
+
+<LI>
+
+<A HREF="#I50">Customizing mwm</A></LI>
+
+<LI>
+
+<A HREF="#I51">Hard Coding Resource Setting</A></LI>
+
+<LI>
+
+<A HREF="#I52">Using the Command Line</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I53">Using Environment Variables</A></LI></UL>
+
+<LI>
+
+<A HREF="#I54">Listing an Application's Resources</A></LI>
+
+<LI>
+
+<A HREF="#I55">Using the .mwmrc File</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I56">Adding Your Own Menu Items</A></LI>
+
+<LI>
+
+<A HREF="#I57">More on Button and Key Bindings</A></LI></UL>
+
+<LI>
+
+<A HREF="#I58">Customizing Your Desktop with Clients</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I59">xsetroot</A></LI>
+
+<LI>
+
+<A HREF="#I60">Using xset</A></LI>
+
+<LI>
+
+<A HREF="#I61">Invoking the Screen Saver</A></LI>
+
+<LI>
+
+<A HREF="#I62">Using Fonts</A></LI>
+
+<LI>
+
+<A HREF="#I63">Getting More Information About Your Display xdpyinfo</A></LI>
+
+<LI>
+
+<A HREF="#I64">Help for Left-handed Users xmodmap</A></LI></UL>
+
+<LI>
+
+<A HREF="#I65">Useful Command Line Options</A></LI>
+
+<LI>
+
+<A HREF="#I66">Logging In to Remote Machines</A></LI>
+
+<LI>
+
+<A HREF="#I67">Colors</A></LI>
+
+<LI>
+
+<A HREF="#I68">Fonts</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I69">Using xlsfonts</A></LI>
+
+<LI>
+
+<A HREF="#I70">Using xfontsel</A></LI></UL>
+
+<LI>
+
+<A HREF="#I71">Future Enhancements in X11R6</A></LI>
+
+<LI>
+
+<A HREF="#I72">GUI Front Ends to UNIX</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I73">Motif</A></LI>
+
+<LI>
+
+<A HREF="#I74">Sun MicroSystems OPEN LOOK and OLIT</A></LI></UL>
+
+<LI>
+
+<A HREF="#I75">COSE and CDE</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I76">Other GUI Vendors</A></LI></UL>
+
+<LI>
+
+<A HREF="#I77">Porting Non-Motif Applications to Motif</A></LI>
+
+<LI>
+
+<A HREF="#I78">Where to Go from Here</A></LI>
+
+<LI>
+
+<A HREF="#I79">Summary</A></LI>
+
+<LI>
+
+<A HREF="#I80">Acknowledgements</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>46 &#151; Graphical User Interfaces for End Users</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Kamran Husain</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In this chapter you will do the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Learn about major components of a graphical user interface. Along the way you will get a brief history lesson on X Windows.
+
+<BR>
+
+<BR></LI>
+
+<LI>Learn the major concepts required for using X Windows. This will introduce displays, windows, screens, and the client server architecture in X.
+
+<BR>
+
+<BR></LI>
+
+<LI>Start an X Windows session from logging in and using the  X Windows Manager (xdm) display manager.
+
+<BR>
+
+<BR></LI>
+
+<LI>Get an introduction to window managers, specifically the Motif Window Manager (mwm).
+
+<BR>
+
+<BR></LI>
+
+<LI>Learn to move about in mwm windows with the keyboard and mouse.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use widgets and the characteristics of these widgets.
+
+<BR>
+
+<BR></LI>
+
+<LI>Customize your desktop with resource files and client applications.
+
+<BR>
+
+<BR></LI>
+
+<LI>Understand how to set your environment to your liking.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use some standard tools available in X.
+
+<BR>
+
+<BR></LI>
+
+<LI>See what's in the future with COSE, CDE, and X11R6, and how vendors support various interfaces for their UNIX systems.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What Is a GUI?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX's user interface was character based when it was first developed. The curses window package was somewhat of a relief but offered nothing in the way of displaying complex graphics or pictures on a monitor. Something more was needed, something that 
+would provide a graphical interface for the user.
+
+<BR></P>
+
+<P>This brought about the birth of the term graphical user interface (GUI). A GUI is the graphical interface to an underlying operating system.
+
+<BR></P>
+
+<P>The minimal components for a GUI are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>A screen to show the data in a textual and/or graphical form.
+
+<BR>
+
+<BR></LI>
+
+<LI>A keyboard interface for the user to type in information.
+
+<BR>
+
+<BR></LI>
+
+<LI>A device to control the movement of a cursor or pointing device that the user can move on the screen. The devices for this interface could be a mouse, light pen, palette, or glove.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>This list is by no means complete, but it illustrates some of the minimum requirements for a typical GUI.
+
+<BR></P>
+
+<P>UNIX's standard character-based interface is a reminder of its age. X Windows is UNIX's breaking into the GUI age. X Windows was developed to be a standard graphical user interface for UNIX platforms. The development work was done at the Massachusetts 
+Institute of Technology (MIT). The MIT project was called Project Athena and was funded by many corporations. The largest contribution came from Digital Equipment Corporation (DEC).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The X Window system is sometimes referred to as X, X Windows, X11R5, or X11, depending on what you happen to be reading.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>X Window</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The first commercial release of X Windows was X10.4 in 1986 and was the basis for some commercial applications. The next release was X11R1 in 1987, followed by X11R2 in 1988. Version 11 was a complete windowing package that outperformed X10 in its 
+speed, flexibility of features, and styles for multiple screens. X11 and later versions have become the de facto standard GUI for UNIX systems and are therefore the focus of this chapter.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The way to read X11R4 is X version 11, Are Four.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The main features offered by X Windows are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Standard GUI for more UNIX workstations. See Chapter 47, &quot;Graphical User Interfaces for Programmers,&quot; which is on multiple windowing platforms and standards.
+
+<BR>
+
+<BR></LI>
+
+<LI>High portability. It's written in C and is designed to be portable.
+
+<BR>
+
+<BR></LI>
+
+<LI>It's highly extensible. New features can be implemented into the kernel, run as separate applications, or can use the pre-existing applications that come with X.
+
+<BR>
+
+<BR></LI>
+
+<LI>It's very flexible. The number of features in X make it very complicated. However, you can do a lot more with it because you can modify it to your needs and you have access to the large collection of UNIX tools.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Displays, Screens, and Windows</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>X is typically run on a large screen with special graphics capabilities. X allows you to work with multiple processes, each in its own window. Next you'll look at a screen dump of a typical window. Depending on your installation, you might see a 
+different screen. Figure 46.1 shows a typical X display running under Motif. The same window will look different under a different Tab Window Manager (TWM). (See Figure 46.2.) See the section &quot;Introduction to Window Managers&quot; for more details.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx01.gif">Figure 46.1. A typical X display with the Motif </B><B>Window Manager (mwm).</A></B>
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx02.gif">Figure 46.2. A typical X window in the Tab Window </B><B>Manager (TWM).</A></B>
+
+<BR></P>
+
+<P>The operations on a particular window can vary greatly. Some windows are used only for displaying data, some for input and output of data. Some windows can be resized or moved, or they can overlap or hide contents of another window. Each window is 
+generally independent and contains information about its contents, including how to draw itself on the screen. The window does not have to care about itself being hidden from view by another window because its internal operations are not affected when it 
+is overlapped by another window.
+
+<BR></P>
+
+<P>The display in Figure 46.1 shows a clock and an xterm. A clock simply shows the time of day. An xterm is a terminal emulator and provides a window into the UNIX operating system. You can have several X Windows open at one time on a display. Each xterm 
+is a window independent of all other xterms on that display and contains a separate UNIX terminal session.
+
+<BR></P>
+
+<P>The fact that you can run separate processes in simultaneously displayed windows is one of the most powerful features of X. Also, since you have the full networking capabilities of UNIX, you can run remote sessions on several machines on separate 
+windows on the same display. In fact, you can even force a window to be displayed on a remote UNIX machine running X Windows.
+
+<BR></P>
+
+<P>The background area is referred to as the root window. All application windows are displayed on top of this window. X maintains a hierarchical tree of all the windows on the root window. All applications that reside on the root window are its children. 
+
+Their parent is the root window. The root window's parent is the root window itself. All components of windows also are child windows of the application window on which they reside.
+
+<BR></P>
+
+<P>For example, button and text widgets you see in an application are all windows on top of their controlling application's window. The depth of the tree is the number of elements in the tree and in some cases can be a very large number. 
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Stacking Order</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The location of the windows relative to each other on the screen itself is referred to as their stacking order. You could compare this to stacking sheets of paper on a large canvas. The writing or pictures on each sheet are not changed when another 
+sheet is stacked on top. Some parts of the lower sheet are visible while it is overlapped by the top sheet.
+
+<BR></P>
+
+<P>When the top sheet is moved around, the writing on the lower sheets is visible again. Changing the location and order of papers is analogous to moving windows around on the display.
+
+<BR></P>
+
+<P>The paper on the top of the stack is always fully visible. The topmost window is analogous to the top sheet of paper. Knowing which window is on top is very important when working in the X Window environment. The control of the windows, their placement, 
+
+and their stacking order is handled by a special client called the window manager. See the section &quot;Introduction to Window Managers&quot; later in this chapter.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Pointers in X</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>All X displays require some sort of pointing device. This is generally a three-button mouse; however, you are not limited to a mouse. You can have many types of pointers, including pens, tablets, and so on. You can get by without a pointer in some very 
+
+limited cases, but this is not the way X was designed and is therefore not recommended practice.
+
+<BR></P>
+
+<P>A cursor represents the pointer position on the screen. The cursor follows your movement of the pointer on the screen. As you slide the pointer across the screen, you should see the cursor move with your movements. Several cursors exist in the X Window 
+
+environment for you to use in customizing. See the section &quot;Customizing mwm&quot; for details.
+
+<BR></P>
+
+<P>Keep in mind that Display and Screen are not equivalent in X. You can actually hook two monitors and have a screen on each of them hooked to a common display area. A display can have multiple screens. As you move the cursor to the edge of a screen, it 
+will appear on the other screen. Screens are numbered from 0 up. By default, your screen 0 is hooked to display 0 for normal operations. You can also define two screens on the same monitor. See the installation instructions for your hardware vendor for 
+more details.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>The Client/Server Architecture</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>X Window was designed to be platform and kernel independent. Therefore, it is not part of any formal operating system. X's architecture is based on a client&#151;server architecture. The server in the X Window system is very different from the network 
+servers.
+
+<BR></P>
+
+<P>Servers provide the display capabilities to user applications clients. This is why they are referred to as display servers. The server sits between the client and the hardware. A client makes a request for display operations to the server. The server 
+translates these requests into hardware directives for the underlying system. Figure 46.3 shows the logical relationship between servers and clients.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx03.gif">Figure 46.3. The logical relationship of X servers </B><B>and clients.</A></B>
+
+<BR></P>
+
+<P>The requests are made via message queues, using the X protocol. The X protocol is the means of communication requests and responses between clients and servers. The X server tracks all the user input from the keyboard and pointer. It conveys this 
+information via the X protocol back to the clients.
+
+<BR></P>
+
+<P>The division of work between the client and server allows each to run on completely different platforms connected via a network. This provides several advantages: If most of the computationally intensive work can be done on a remote site, you could run 
+
+the server on another system to spare the already overloaded system from the overhead of graphics.
+
+<BR></P>
+
+<P>Also, only the server application has to be hardware specific. All client software can be designed to be platform independent and easier to port.
+
+<BR></P>
+
+<P>You can run several clients on several machines from your server. Each client can then take advantage of the machine on which it is running.
+
+<BR></P>
+
+<P>Clients can also communicate with other clients. The server can keep this information in a common place and have it available for all other clients. This information is referred to as properties. A property is simply a piece of information recorded by 
+the server for a client. Refer to the xprop program offered by the X Window system for more information.
+
+<BR></P>
+
+<P>A lot of options exist for all the options available for customizing clients. Look at the man page for xterm as an example. X also provides another way of customizing appearances, using the resources file called .Xresources. This file is usually located 
+
+in the home directory.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The .Xresources file is sometimes called .Xdefaults.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Introduction to Window Managers</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>How the windows are arranged is a function of a special program called the window manager. The window manager controls the &quot;look and feel&quot; of all the windows on a particular display. The window manager allows the user to move, restack, resize, 
+
+and iconify windows.
+
+<BR></P>
+
+<P>X Window comes with two window managers. These managers are called the Tab Window Manager (TWM) and the OPEN LOOK Window Manager (OLWM). The TWM is also referred to as Tom's Window Manager, after its author, Tom LaStrange. Earlier versions of X also 
+offered the Universal Window Manager (UWM); however, this is no longer offered since it does not conform to the X Consortium's Inter-Client Communications Conventions Manual (ICCCM) standards.
+
+<BR></P>
+
+<P>Window managers in X are different from other windowing system managers because you are allowed to choose whichever manager you like. As long as a manager follows the ICCCM standard, it can serve as your window manager.
+
+<BR></P>
+
+<P>The most prevalent window manager today is the Motif Window Manager (mwm) from the OSF/Motif distribution. The Motif window manager is now more important than ever before since being adopted by Common Open Software Environment (COSE) as the standard 
+interface for future UNIX GUIs. It's most famous for its borders around all the windows it displays. Figure 46.4 shows the frame mwm puts around each window.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx04.gif">Figure 46.4. A typical Motif Frame.</A></B>
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Getting Started with X Window</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The first thing to remember is that X is very flexible. You can customize almost anything in X. Therefore, be warned that even though this chapter attempts to describe the most common features of X, 
+they may not work exactly as described. This is the price of flexibility. This is especially true for all the different versions of X and window managers offered in X.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>On some systems, you may have to start X from the command line after you log in. On other systems you may have to interface through the xdm client. The case of the xdm manager already running on your system is easy, so that's a good place to begin.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Using xdm</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The xdm utility stands for X Display Manager. It manages several X displays. It is designed to provide the same services as getty, init, and login on character terminals. This is where the system verifies your password and performs the login procedure. 
+
+xdm runs in the background by default. It was first introduced in X11R4 and conforms to the X Display Manager Control Protocol (XDMCP) developed by the X Consortium.
+
+<BR></P>
+
+<P>When xdm is running on a system, a typical display would look like the one shown in Figure 46.5.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx05.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx05.gif">Figure 46.5. A typical xdm display.</A></B>
+
+<BR></P>
+
+<P>The xdm session will ask for your login id and password as with any character-based session. However, it would then bring up the X server with an xterm by default instead of just presenting the shell prompt. This book is written with the understanding 
+that no customization has been done on your site or that particular machine. xdm emulates the login and getty programs and must be run from the /etc/rc system file. In UNIX, login verifies your password. Under xdm, the login and getty are replaced by xdm's 
+
+own functionality.
+
+<BR></P>
+
+<P>By default, the mwm window manager should be running. See if the familiar borders exist around the xterm. If mwm is not running, type mwm &amp; on the xterm prompt to invoke it. Later in this section you will learn more about how to invoke mwm.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>The Hard Way to Start X</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you do not see any windows at all and you do not see a cursor, then you do not have the X server running. In this case you have to start X server yourself.
+
+<BR></P>
+
+<P>There are several steps to take before you start X:
+
+<BR></P>
+
+<OL>
+
+<LI>If you are new to UNIX and X, contact your system administrator for help. If you are the system administrator, this chapter will only guide you in the right direction. Now would be a good time to read the hardware manual.
+
+<BR>
+
+<BR></LI>
+
+<LI>Confirm that xinit exists in your PATH. Use the echo $PATH command to see if /usr/bin/X11 is in your path.
+
+<BR>
+
+<BR></LI>
+
+<LI>Look for a file called Xconfig in /usr/lib/X11 or /usr/bin/X11. This file will contain hardware-specific information about your system. Contact your vendor if this file does not exist.
+
+<BR>
+
+<BR></LI>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Always make a copy of Xconfig and save it before you modify it. Do not edit this file while you are already in X, because X may be reading it while you are trying to edit.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<LI>Look for a file starting with the letter X with a machine name after it. This is your X server. You will usually find X386 on PCs, Xsun on Suns, and so on.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the which command to find out the location of the xinit command. Use the following command on the /usr directory:
+
+<BR>
+
+<BR>find . -name xinit -print
+
+<BR></LI>
+
+<LI>Type the command xinit at your prompt.
+
+<BR>
+
+<BR></LI>
+
+<LI>Wait a few seconds (or minutes, depending on your hardware). You should see several messages whisk by, and the screen should change to that of a session without a window manager.
+
+<BR>
+
+<BR></LI>
+
+<LI>At this point, you could run with this somewhat crippled windowing system or you could start a window manager. For the Motif Window Manager, use the command in the xterm:
+
+<BR>
+
+<BR>mwm &amp;
+
+<BR></LI></OL>
+
+<P>Note that you are running the mwm in the background. If you do not do this, you will not be able to issue any commands to the xterm.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you are in the Korn or C shell at this point and you forgot the &amp;, then type Ctrl+z to put the job in the background. If you are not running the Korn or C shell, you can kill mwm with Ctrl+c and 
+
+then restart it with the ampersand.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>So now you are running Motif and X Window on your system. Remember that a lot of things can go wrong while you're getting to this point. Here are a few of the most common problems:
+
+<BR></P>
+
+<UL>
+
+<LI>You cannot find the correct files. Ensure that the path includes /usr/bin/X11 or the like. On some systems, it could be /usr/bin/X11R4 or /usr/bin/X11R5, or something similar. Use the find command to locate it.
+
+<BR>
+
+<BR></LI>
+
+<LI>When working on Suns, some of your system files may reside in the /usr/openwin directories.
+
+<BR>
+
+<BR></LI>
+
+<LI>You moved the cursor into the window, but now you have to click to be able to type commands to your xterm. By itself, X Window gives the focus to a window when a cursor is moved on to it. mwm, on the other hand, requires that you actually click the 
+left mouse button (Button1) for that window to get focus. Focus means that all user input (keyboard and pointer) will now be sent to that window. mwm will change the color of the window border to show that it has received focus.
+
+<BR>
+
+<BR></LI>
+
+<LI>You do not have enough memory to run the system. This is especially true if you are on a PC-based platform. Typically you can get away with 4 MB of dynamic RAM for a simple X Window system, but you will almost certainly require 8 MB or more to be able 
+
+to get a reasonable response time on a PC. The memory upgrade to 8 MB is well worth it, given the performance on a 4 MB machine. Those who are patient can live with 4 MB.
+
+<BR>
+
+<BR></LI>
+
+<LI>The configuration does not look right. You have to modify the default start-up parameters. See the section &quot;Customizing mwm&quot; for more information.
+
+<BR>
+
+<BR></LI>
+
+<LI>Exiting the last command in your xinit file will terminate your entire X session. If your last command was an xterm and you logged off that xterm, your entire session will be terminated.
+
+<BR>
+
+<BR>Congratulations! You are now running Motif.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Figure 46.6 shows a typical xterm window in Motif.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx06.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx06.gif">Figure 46.6. A typical </B><B><I>xterm</I></B><B> window.</A></B>
+
+<BR></P>
+
+<P>The title bar is the wide horizontal band on the top of the window. This contains the title for the application itself. In this case, this is the application itself, xterm. You can modify it to your needs. Try this:
+
+<BR></P>
+
+<PRE>xterm -name &quot;I am here&quot; &amp;</PRE>
+
+<P>You can use the minimize button to iconify this xterm or the maximize button to resize the window to occupy the entire display area. The sides and corners can be used to resize the window by using the mouse. Note the pseudo-3D appearance of the borders. 
+
+The area of window that is used to display output and get input is also called the window pane.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Working with Motif Windows in mwm</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section deals with some of the Motif windows you have on the screen. Typically, you will work with a mouse for the pointer, so the text will refer to mouse devices at times. However, you can always substitute your device name for the word 
+&quot;mouse&quot; or &quot;pointer&quot; and not lose any meaning of the discussion.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Using the Pointer</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Pointers in the mwm environment typically use three buttons, called Button1, Button2, and Button3. Button1 is the most-used button of the three and is usually referred to as the &quot;left button.&quot; The left button on a mouse is the one that is 
+pressed with your righthand index finger.
+
+<BR></P>
+
+<P>When you take the pointer to an item and press a button, you are clicking the button. If you hold the pointer down with your finger and the object moves with your pointer movements, you are dragging the object. If you click twice or thrice in quick 
+succession, you are double-clicking or triple-clicking, respectively. Drag and drop is when you drag an object to a new location and the object stays in the new location after you release the pointer button.
+
+<BR></P>
+
+<P>If you are left-handed, you can map your mouse or pointer buttons differently. See the section &quot;Help for Left-Handed Users&quot; later in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Icons and Windows</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The minimize button allows you to iconify an application. An icon is a small symbol that represents an inactive window. The contents of that window are not visible, although they may be updated internally by the processes running in that window. Icons 
+can be moved around on a window, but they cannot be resized. Icons save you valuable screen space for applications that do not require your constant attention.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Iconifying a Window</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Move the cursor to the minimize button and press the left mouse button. The window is removed from the screen and a smaller icon appears somewhere on the left of the screen.
+
+<BR></P>
+
+<P>To restore an icon to a screen, move the cursor to the icon and click on Button1 twice in quick succession. This is known as double-clicking the mouse. A typical Motif icon is shown in Figure 46.7.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx07.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx07.gif">Figure 46.7. A typical Motif icon.</A></B>
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Maximizing a Window</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Move the cursor to the maximize window and press the pointer Button1. This enlarges the window to the size of the root window. This way you can have a huge clock on your screen. Some applications, such as older versions of calc, do not adjust their 
+internal graphic areas when their frame is resized. This leads to annoying blank space on a screen.
+
+<BR></P>
+
+<P>Use the maximize button as a toggle. Clicking on an already maximized window causes it to revert to its size and position (also known as geometry) before it was maximized. Clicking on it again maximizes it (again).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Avoid resizing a window when running a vi session under an xterm. This usually leads to unpredictable results and may cause vi to behave very strangely.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Sizing a Window</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The entire frame on a Motif window is a control that allows you to resize the window. See Figure 46.8 for the size controls. You can use any of the four corners to stretch the window. You can use the mouse to move the edges of the window by dragging the 
+
+four long bars.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx08.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx08.gif">Figure 46.8. The eight sizing controls for </B><B>windows.</A></B>
+
+<BR></P>
+
+<P>To stretch the window using a corner, move the mouse to that corner. Press Button1 and while keeping it pressed, move the mouse. The cursor changes its shape to a double-headed arrow. Size the window by moving the mouse while pressing Button1. Release 
+the button when you have achieved the desired size.
+
+<BR></P>
+
+<P>Note that some applications do not have these sizing controls enabled. An example is the cute, but not very useful, pointer tracking program called xeyes. (See Figure 46.9.)
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx09.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx09.gif">Figure 46.9. A window of the </B><B><I>Xeyes</I></B><B> program without </B><B>resize borders.</A></B>
+
+<BR></P>
+
+<P>To move the edge of the window, move the mouse to that edge. You should see your cursor change shape to a vertical double-headed arrow if you are on a horizontal edge (top or bottom of the window). If you are on a vertical edge, the double-headed arrow 
+
+will be horizontal. Press Button1 and while keeping it pressed move the pointer around. This moves the edge along with your pointer. Release the button when you have the edge where you want it.
+
+<BR></P>
+
+<P>While you are resizing this window, you will see a small box come up in the center of the display. This box contains the size of the window in pixels if it's a graphics image or in rows and columns (in the number of characters) if this is an xterm. On 
+some systems you can use the arrow keys on your keyboard to achieve precision when resizing your windows. Remember to keep the button pressed while you use the arrow keys on your keyboard to do the precise adjustment.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Focus and Selecting a Window</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can select which window or icon gets focus by moving the pointer to that item and pressing the left button. This moves the window or icon to the top of the stack. This way the window or icon will not be obscured by any other screen item.
+
+<BR></P>
+
+<P>When a window has focus, it collects all the user input from the pointer and the keyboard. There are two types of focus for a window: click to type and explicit. The click to type focus requires a user to click a pointer button in a window for it to get 
+
+focus. The explicit focus requires only that the cursor be in the window for the window to get focus. Explicit focus is sometimes referred to as real estate&#151;driven focus.
+
+<BR></P>
+
+<P>In some cases you might want to have focus where the mouse was without having to click the pointer button. Sometimes this is not useful for touch typists, because a single movement of the pointer can have the keystroke sent to the wrong window.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Sometimes it's a good idea to click on the frame to get focus to a window since clicking in the window might accidentally press a button or other control in the window.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Once you give the focus to a client, the client window will collect all typed or graphics information until the user clicks elsewhere. It has the focus.
+
+<BR></P>
+
+<P>Getting focus also raises the window to the top of the stack. The window frame color also changes at this point. You can set the focus to an icon also by selecting it with a mouse. The name of the icon expands at that point, and you see the window menu 
+
+for that icon. You can move the mouse away from the menu, but the icon will retain the focus until you click elsewhere.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The color change scheme will depend on your site's default colors. In some cases you may not see any color change at all if the focused and out-of-focus colors are the same.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Moving a Window or an Icon</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To move a window's location on the screen do the following:
+
+<BR></P>
+
+<OL>
+
+<LI>Move the cursor on top of the title bar.
+
+<BR>
+
+<BR></LI>
+
+<LI>Press and hold down pointer Button1.
+
+<BR>
+
+<BR></LI>
+
+<LI>Move the pointer to the desired location. You should see an outline of the window border move with your pointer.
+
+<BR>
+
+<BR></LI>
+
+<LI>Move the outline to the part of the screen where you want your window to be. This is referred to as dragging the window.
+
+<BR>
+
+<BR></LI>
+
+<LI>Release Button1. The window now appears at the new location. It also is the window with the focus (by default).
+
+<BR>
+
+<BR></LI></OL>
+
+<P>This procedure can be duplicated for an icon. In the case of an icon, you would click and drag with the cursor in the icon itself.
+
+<BR></P>
+
+<P>While you are moving the window, you will see a small box in the center of the screen with two numbers in it. These are positive X and Y offsets of the top-left corner of the window from the top-left corner of the screen. This is very useful information 
+
+when trying to precisely place a window on the screen.
+
+<BR></P>
+
+<P>On some workstations, you can achieve some fine precision by pressing the arrow keys on the numeric keypad to move the window one step at a time. You must keep the pointer button pressed while you use the arrow keys.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Adding a New Window</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you want to add a calculator to your screen, you can type
+
+<BR></P>
+
+<PRE>xcalc &amp;</PRE>
+
+<P>at the prompt. The calculator appears on the screen.
+
+<BR></P>
+
+<P>For an xterm, type this:
+
+<BR></P>
+
+<PRE>xterm &amp;</PRE>
+
+<P>Depending on your site, this can appear anywhere on the screen. Typically, the new window is placed in the upper-left corner (X=0,Y=0) of the root window or in the center of the root window.
+
+<BR></P>
+
+<P>The size and location of a window is referred to as the window's geometry.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Window Geometry</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Almost all clients accept the -geometry command line option. This option tells the window manager where to locate the window on a screen. If you do not specify any geometry, the window manager will use its defaults.
+
+<BR></P>
+
+<P>The coordinate system for the root window is as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>The origin is top left (0,0).
+
+<BR>
+
+<BR></LI>
+
+<LI>The number of display units is pixels for graphics.
+
+<BR>
+
+<BR></LI>
+
+<LI>The number of display units is character sizes for xterms.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>A pixel is the smallest unit available on a screen. Usually screens are displayed in 1024<B>&#180;</B>768 pixels, or 2048<B>&#180;</B>2048 pixels, or something similar. The size of a pixel onscreen is very much hardware dependent. A 200<B>&#180;</B>200 
+
+window appears as different sizes on monitors with different resolutions.
+
+<BR></P>
+
+<P>The geometry parameter is of the form
+
+<BR></P>
+
+<PRE>heightxwidth[{+-}xoff{-+}yoff]</PRE>
+
+<P>The height and width is usually given in pixels. In the case of xterms it is given in lines for the height and characters per line for the width. It is common to have a 24<B>&#180;</B>80 xterm.
+
+<BR></P>
+
+<P>The xoff and yoff are offsets from the start of left and top edges of the screen, respectively. These represent the location of the window on the root window. The curly braces represent either the - or the + character, but not both.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>+xoff</P>
+
+<TD>
+
+<P>A positive offset from the left edge of the screen to the left edge of the window-xoff. A negative offset from the right edge of the screen to the right edge of the window.</P>
+
+<TR>
+
+<TD>
+
+<P>+yoff</P>
+
+<TD>
+
+<P>A positive offset from the top edge of the screen to the top edge of the window-yoff. A negative offset from the bottom edge of the screen to the bottom edge of the window.</P></TABLE>
+
+<P>Figure 46.10 shows a visual representation of the geometry. For example,
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx10.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx10.gif">Figure 46.10. Window geometry.</A></B>
+
+<BR></P>
+
+<PRE>xterm -geometry -50+50 &amp;</PRE>
+
+<P>places the xterm on the top-right corner, 50 pixels from the right edge of the screen and 50 pixels from the top of the screen.
+
+<BR></P>
+
+<P>The following parameters specify the edges of the screen:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-0-0</P>
+
+<TD>
+
+<P>Lower-right corner</P>
+
+<TR>
+
+<TD>
+
+<P>-0+0</P>
+
+<TD>
+
+<P>Upper-right corner</P>
+
+<TR>
+
+<TD>
+
+<P>+0-0</P>
+
+<TD>
+
+<P>Lower-left corner</P>
+
+<TR>
+
+<TD>
+
+<P>+0+0</P>
+
+<TD>
+
+<P>Upper-left corner</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>Using the Window Menu</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Using the Window menu requires you to focus on a window. Let's look at a typical Window menu. It may be different on your screen, but the basic functionality listed here should exist for all later versions of Motif. Take the cursor to the Window menu 
+button and press the left button. The following menu (or something close to it) should appear:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Restore
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F5
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Move
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F7
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Size
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F8
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Minimize
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F9
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Maximize
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F10
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Lower
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F3
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Close
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Alt+F4</PRE></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>Using the Keyboard and the Meta Key in X</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>It's important to bring up this point about the keyboard and its special keys under X. Keyboards come in different flavors, and the most important key for using keystrokes in X can be radically different from one keyboard to another. On the PC-based 
+keyboards it is usually the Alt key, on Macintoshes it is the fan-shaped key, on Suns it's Left, Right, Alternate; on other keyboards it's completely different.
+
+<BR></P>
+
+<P>In short, when this chapter refers to the Meta key, it means your special key for your special keyboard. For a PC-based keyboard, this would be the Alt key. So do not look for a key called Meta on your keyboard. Where the chapter says Meta, use Alt, 
+fan, or whatever your keyboard uses.
+
+<BR></P>
+
+<P>Now you can invoke any item on this Window menu one of two ways:
+
+<BR></P>
+
+<UL>
+
+<LI>Use the pointer. This is how you would click on the window menu and press Button1. Now do this:
+
+<BR>
+
+<BR>Move the cursor to the item you want and release Button1, or
+
+<BR>
+
+<BR>Press the Meta key and the character that is underlined in the menu. For moving a window you would press Meta+M. Note that this does not work on some Motif systems. 
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> This may not always work. In Metro's version of Motif 1.2, the Meta+F7 key combination enables you to move a window, but the Meta+m key does not work at all. You may have a completely different 
+experience with your keyboard.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI>While the window has focus, press the Meta+function key combination. Then use the arrow keys on your keyboard to simulate the movement of the cursor, or just use the pointer.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Note that some of these functions may not be available for a menu shown for an icon. You will not be able to size or minimize an icon. You will, however, be allowed to move, maximize, or close it.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=4><B>Using the </B><B><I>root</I></B><B> Menu</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Click Button3 while the cursor is in the root window. You will see a menu pop up on top of all the windows. This is known as the root menu. Keep in mind that this menu is very customizable and may look radically different on your machine. You will learn 
+
+all about creating your own menu later in this chapter in the section &quot;Customizing mwm.&quot;
+
+<BR></P>
+
+<P>A typical root menu would list the following items:
+
+<BR></P>
+
+<PRE>&quot;Root Menu&quot;
+
+New Window
+
+Shuffle Up
+
+Shuffle Down
+
+Refresh
+
+Utils &gt;
+
+Restart
+
+Exit</PRE>
+
+<P>While holding Button1 down, move the cursor down the list to the item you want to select. When you get to the menu item you want, release the button. If you do not want to select any items, move the cursor off the menu and release the button.
+
+<BR></P>
+
+<P>In the root menu list, the functionality could be as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>New Window starts a new xterm and sets focus to it.
+
+<BR>
+
+<BR></LI>
+
+<LI>Refresh redraws the entire screen and all windows.
+
+<BR>
+
+<BR></LI>
+
+<LI>Restart kills mwm and restarts it.
+
+<BR>
+
+<BR></LI>
+
+<LI>Shuffle up and down shuffles the stacking order of the windows up or down. The window with focus is moved down to the bottom when shuffling down, and the next highest window is given the focus. The last window in the stack is brought to the top and 
+given the focus when shuffling up.
+
+<BR>
+
+<BR></LI>
+
+<LI>The Utils item brings up another sub menu with more choices to select from. See the section &quot;Customizing mwm&quot; for details on how to set your menu items.
+
+<BR>
+
+<BR></LI>
+
+<LI>Exit kills mwm and leaves you without a window manager. If this is the last command in your start-up script, your windowing session will terminate.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>On occasion, you will come across a vendor that will not allow you to back up to the operating system. In this case, you can try the Ctrl+Alt+Backspace key combination to get back to the prompt.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Working with Motif Clients</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Most programmers find the X Windows system libraries too basic to work with, so they use the next building block, called Toolkits. The most common interface toolkit is called the XtIntrinsics toolkit from MIT. This is called Xt. On top of Xt, you can 
+have other toolkits such as Motif or the OPEN LOOK Interface Toolkit (OLIT). When you are working with Motif, you are working with a Motif toolkit. In Motif you are working with Motif widgets.
+
+<BR></P>
+
+<P>Widgets help users program consistent user interfaces in Motif. By using widgets, users can quickly put together interfaces that have the same look and feel of all Motif applications.
+
+<BR></P>
+
+<P>Some widgets display information. Some widgets collect user input (mouse or keyboard) information. Some widgets react to user input by changing their appearance or by performing some programmed function. Some widgets are simply containers for other 
+widgets. All widgets can be customized in one form or another, whether it is appearance, font size or style, colors, or whatever other parameter is required.
+
+<BR></P>
+
+<P>All widgets of the same type have two data structures with information that describes their attributes: instance and class. The instance data structure contains information for a specific widget on the screen. The class information contains information 
+
+required for all widgets of the class.
+
+<BR></P>
+
+<P>Widgets are grouped into several classes. Each class depends on the type of functionality offered by the widget. Normally the internal functions of a widget are hidden from the applications programmer (encapsulation). A widget class shares a set of 
+functions and data structures for all widgets in that class. A new widget class can be derived from an existing widget class.
+
+<BR></P>
+
+<P>The newly derived class can inherit all the parent class' data structures and functions. A widget is created and destroyed during a Motif program execution.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The destruction of a widget is a bit complicated and will be discussed in detail in Chapter 47, &quot;UNIX Graphical User Interfaces for Programmers.&quot;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>This should sound familiar to C++ programmers. True polymorphism is somewhat harder to find in widgets. This is all done in C. For C++ programmers, the class data structure is to the class of an object as the instance data structure is to the instance 
+of an object.
+
+<BR></P>
+
+<P>A widget is really a pointer to a data structure when viewed in a debugger. This data structure is allocated on the creation of a widget and is destroyed when a widget is destroyed.
+
+<BR></P>
+
+<P>Let's look at a typical application screen to see some widgets in action. You will work with a demo application called xmdialogs, shown in Figure 46.11. The widgets shown here are described later in this chapter. The xmdialogs application can be found 
+in the /usr/bin/X11 directory. If you do not have this application, you can still learn about working with widgets by applying these concepts to different applications.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx11.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx11.gif">Figure 46.11. The </B><B><I>xmdialogs</I></B><B> demo application.</A></B>
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Don't worry if you can't find this application on your machine. You will develop the components for this application in the next chapter. If you have the Motif 1.2 release from Metro Link, (305) 
+938-0283, you will have this in your demos directory.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Figure 46.11 shows a menu bar, a file selection list with scroll bars, an option button, some radio and toggle buttons, some push buttons, labels, and a text display dialog.
+
+<BR></P>
+
+<P>The Actions and Help items are shown on a menu bar. By moving the pointer to either of these items and pressing Button1, you will be presented with a menu of options very similar in operation to the window and root menu.
+
+<BR></P>
+
+<P>Under this menu bar is a list of items in a scrollable list. This widget is of the type XmList. The XmList lets you keep a selection of items in a visible list. It has scroll bars to allow the user to scroll the list if the entire list is not visible. A 
+
+programmer can set the number of items that are visible at one time. If you resize the window and if the list box sizes itself proportionately with the window, the number of visible items in the list may change.
+
+<BR></P>
+
+<P>To select an item, move the pointer to the item of your choice and press Button1 once. The item is highlighted in a darker color. Some lists allow you to select more than one item, some just one item. In this application you select only one type of 
+dialog box. Figure 46.11 shows that the bulletin board item is the selected item.
+
+<BR></P>
+
+<P>The scroll bars on the side of the list widget are of the class XmScrollbar. A scroll bar is either a horizontal or vertical rectangle. There is a raised box in the rectangle, called the slider box. This slider moves within the larger rectangle. The 
+moveable space for the slider bar is called the scroll region. The size of the slider bar to the scroll region is proportional to the size of the work area to the total area being viewed.
+
+<BR></P>
+
+<P>The XmScrollBar rectangle has an arrow at each end. The arrows point out from the rectangle and in opposite directions. You can use the arrow keys to move the slider bar within the scroll region.
+
+<BR></P>
+
+<OL>
+
+<LI>Move the mouse to the slider bar arrow.
+
+<BR>
+
+<BR></LI>
+
+<LI>Click Button1.
+
+<BR>
+
+<BR></LI>
+
+<LI>The slider bar moves closer to the arrow. The slider moves as close as possible to the arrow being clicked in the scroll area.
+
+<BR>
+
+<BR></LI>
+
+<LI>Release Button1.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>You can also move the slider bar by dragging with the mouse:
+
+<BR></P>
+
+<OL>
+
+<LI>Move the pointer onto the slider bar.
+
+<BR>
+
+<BR></LI>
+
+<LI>Press Button1.
+
+<BR>
+
+<BR></LI>
+
+<LI>Move the pointer up or down for a vertical scroll bar. Move the pointer left or right for a horizontal scroll bar.
+
+<BR>
+
+<BR>The contents of the work area as well as the slider bar should scroll with the movement of the pointer. The viewable portion is the work area.
+
+<BR>
+
+<BR></LI>
+
+<LI>Release Button1 when list area contains the desired viewing data.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Now move your cursor to the selection item of the resize policy button. When you click this button, you are presented with a pop-up menu containing the types of resize policies for the dialog box you want to create. When you press the button, a menu 
+pops out and presents a list of options. You make the selection with your pointer by moving the pointer to that button and releasing it. The menu disappears and your selection is displayed in the box. In Figure 46.11 the resize policy is set to any. This 
+is known as an Option Button.
+
+<BR></P>
+
+<P>Note the diamond-shaped buttons and selections below this current menu. This is a list of one of four possible selections for the dialog box. One of the items is shown in a lighter gray color. This is known as being grayed out, and the option is a not a 
+
+valid option at the time. The option for the work area is disabled. You can select one of the other three options. These items are grouped together with a rectangular frame drawn around them. Usually buttons are grouped together in Motif this way when 
+their functionality falls in the same group of actions. The actions are similar to the buttons on an old radio: Push one button and the rest in the row of buttons all come up. This is why these are referred to as radio buttons.
+
+<BR></P>
+
+<P>Look at the two buttons called auto manage and default position. These are toggle buttons for this application. When you select one button, the other is not influenced at all. The functionality provided by each button is completely independent of that 
+of the other. Do you see the difference between radio buttons and toggle buttons?
+
+<BR></P>
+
+<P>Sometimes the scroll bar is used on either side of a drawing area. This is called a scrolled window and belongs to the XmScrolledWindow class. This widget can hold graphics instead of a list of items. The XmScrolledWindow is used primarily to view large 
+
+graphics items in a small window, whereas XmList is used to show a list of items from which the user can select.
+
+<BR></P>
+
+<P>Under the toggle buttons, you will see four push buttons. When a push button is pressed, the colors on the border of the button reverse. Furthermore, the color of the pressed rec-tangle changes to show the user action. Push buttons are used to invoke 
+some sort of action. When you select the file selection dialog from the list and press the push button to manage it, the display shown in Figure 46.12 appears. This is the standard file selection box under Motif, and you will see it for most applications.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx12.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx12.gif">Figure 46.12. A typical File Selection dialog </B><B>box.</A></B>
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=4><B>Other Types of Widgets</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The Motif toolkit also supplies the widgets described in the following sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>XmDialogShell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a subclass of TransientShell. Instances of this class are used from modal or modeless dialog boxes. Modality refers to whether the user may interact with other windows while the dialog box is being displayed. A modal dialog box prevents you from 
+
+moving on until you are finished with the dialog box. A modeless dialog box lets you work with other boxes. A File Selection dialog box is a modeless dialog box.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>XmMenuShell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Instances of this class are used to create menu panes for pop-up and pull-down menus. This is derived from the OverrideShell.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>VendorShell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a subclass of WMShell. It provides the interface to a window manager. These are provided by specific systems vendors, hence the name.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=4><B>Other Display Widgets</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>These display widgets are used to provide user interaction tools via buttons, arrows, scroll bars, etc. This list is by no means complete since vendors and end users can create their own versions of widgets or brand new widgets. Some examples of 
+commercially available widgets include spreadsheet widgets, bar chart widgets, gauges, and so forth. These widgets provide a consistent interface and are therefore easy to include in Motif applications. Some of the standard widgets are listed here.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>XmArrowButton</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a directional arrow with a border around it. A programmer can modify the direction of the arrow, as well as the thickness and color of the border, by setting the widget's parameters. If you look at the ends of a scroll bar, you will see two 
+examples of such a widget.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>XmDrawnButton</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A DrawnButton provides a rectangular area with a border for the programmer. The programmer can size, redraw, or reposition text or graphics within this window. This widget provides hooks to set parameters for its border appearance, as well as to attach 
+
+functions for accepting user inputs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>XmLabel</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a rectangular box consisting of either text or graphics. It is instantiated but is also used as a base class for all button widgets. A label's text can be multiline, multifont, or even multidirectional. In the xmdialogs example, this would be 
+the labels Active Dialog and the Motif Dialog widgets.
+
+<BR></P>
+
+<P>Many features of labels can be modified such as fonts, foreground and background colors, and alignment (left, center, or right justification). In fact, this can even store a pixmap graphic image.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>XmPushButton</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a text label or pixmap with a border around it. This widget accepts keystrokes or mouse button presses. In the xmdialogs example these are the create, destroy, manage, and unmanage buttons. When a button has focus, it has a heavy border.
+
+<BR></P>
+
+<P>Press the Enter key or a pointer button when the button has focus. Move the cursor to the button. Press a key or button and hold it down. You have armed the button. The color on the button changes and the border colors reverse. This gives the impression 
+
+that the button has been pressed inward. When you release the button, the button reverts to its original state.
+
+<BR></P>
+
+<P>When a mouse button is pressed in this widget, the foreground and background colors of the widget usually invert. This simulates the pressing of a button.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>XmSeparator</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is used to create a line between functional sections of a screen. There is really not much users can do with this widget except position it on the screen.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>XmText</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is used to create a fully functional multiline text editor on a screen. The user can select text by dragging the mouse from one location to another while Button1 is pressed. Users can also click anywhere on the widget to mark the insertion point. 
+If the text widget is enabled for user input, the user can type at the insertion point and insert the text into the text widget.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Pull-down Menus</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>These are rectangular areas in the window that allow users to select from a group of items. The items are generally laid out in push buttons. You can select a push button either by moving the mouse to that selection or by pressing Alt+K, where K is the 
+
+letter in the menu button that is underlined. In the xmdialogs function, the Meta+F key selects the file item, and Meta+H selects the Help item.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Pop-Up Menus</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Motif root window menu is a good example of a pop-up menu. When you press the mouse button, a menu is displayed. You can select the items in the menu by moving the cursor onto the item and pressing Button1.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Xmscale</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Xmscale widget is used to display the value of a data item between two extremes. It can also be used to accept user input. A scale widget has a scroll region very similar to the scroll bar. However, it does not have the arrow buttons at either end.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>XmScrolledWindow</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a combination of a horizontal scroll bar, vertical scroll bar, and a drawing area. If the size of the drawing area fits within the window, you will not see the scroll bars. If the size of the drawing area is greater than the visible area of the 
+
+scrolled window, then you will see either the horizontal scroll bar, the vertical scroll bar, or both. You can then use the scroll bars to move the visible portion on top of the drawing area. This is known as panning the window.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>XmFrame</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a simple widget used to put a consistent border around one single widget. A frame can only hold one widget at a time.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>XmRowColumn</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is a general-purpose widget organizer. The widget can lay out its widget collection in a variety of ways, including the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>Row major</P>
+
+<TD>
+
+<P>This is where all widgets on the row column widget are stored until one row fills up, and a new row is created when another widget is added that will not fit on this row. The creation of a new row is sometimes called wrap around.</P>
+
+<TR>
+
+<TD>
+
+<P>Column major</P>
+
+<TD>
+
+<P>This is the same as a row major, but it wraps around in a columnar fashion.</P></TABLE>
+
+<P>You can specify the width of each column to be that of the widest widget, the number of fixed columns, the packing (whether all widgets should be packed as closely as possible), or determined individually by each widget.
+
+<BR></P>
+
+<P>As mentioned earlier, there are several other widgets available in the Motif widget set. You can see the complete listing and their options in The Programmers' Reference Manual from the Open Software Foundation (OSF).
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Gadgets</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Motif widgets create a window in X Windows. A complex Motif application can create several X Windows very quickly. Each window uses X resources in the server and having many windows can slow your overall system performance.
+
+<BR></P>
+
+<P>Gadgets are windowless versions of widgets. Most gadgets have the same names as widgets but have the string gadget appended to their names. So XmLabel has an XmLabelGadget counterpart.
+
+<BR></P>
+
+<P>Gadgets do not have all the features of widgets. For example, gadgets share the foreground and background colors of their parents. Also, some gadgets actually turn out to be slower than the widgets they are trying to replace. Given the troubles you can 
+
+get into by using gadgets, you would be better off not using them.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=4><B>Customizing with Resources</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Now that you are familiar with widgets, you need to know the parameters that affect them: resources.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>What Are Resources?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you saw in the previous sections, you can customize some aspects of an application from the command line prompt. X allows you to modify the aspects of an existing application every time a client runs that application. X does this by setting control 
+variables for that client. These control variables are called resources and have a value associated with them.
+
+<BR></P>
+
+<P>For example, take the case of an xterm. An xterm's resources are its font size, its pointer shape, the foreground color for all displayed text, its background color, and so on. These are only a few of the resources for an xterm. Most of these resources 
+
+exist as predefined defaults for all the common clients in a system.
+
+<BR></P>
+
+<P>You can specify resources on an application-specific basis or for all applications on your system. These resources are normally stored in an ASCII file called .Xresources in your home directory.
+
+<BR></P>
+
+<P>This file affects only those applications that you run. This file normally contains only those options that you would customize over those in the systemwide files.
+
+<BR></P>
+
+<P>You can always override these defaults specified in the systemwide file with defaults in your .Xresources file. In turn, your command line options for a single client override those in the .Xresources file. Keep in mind that the command line default 
+applies only to a specific client; the .Xresources default setting becomes the default for all your clients.
+
+<BR></P>
+
+<P>Also remember that the command line operations override any default resources set in a file. Normally you set how you want your application to look under normal circumstances, then override the changes via command line options.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>In some systems, the .Xresources file can also be .Xdefaults. This text will use .Xresources by default.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To make your resource specifications available to all clients, use the X resource database manager program, or xrdb. This stores the resources directly on the server and makes the resource available to all clients on the system. This step takes some 
+care since your change will affect all your clients, regardless of what platform they are running on.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=4><B>Defining Resources</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A resource definition file is basically a line-by-line list of all the resources in the file. Each line consists of two entries: one for the resource type and the other for the value for the resource. The two entries are separated by a colon.
+
+<BR></P>
+
+<P>The syntax for a resource definition is
+
+<BR></P>
+
+<PRE>client*<I>variable</I>:  value</PRE>
+
+<P>where client is the name of the client. The variable for that client is set to value. Note that the colon follows the variable without any spaces.
+
+<BR></P>
+
+<P>Now look at the resource declaration for an xterm client.
+
+<BR></P>
+
+<PRE>XTerm*foreground: white
+
+XTerm*background: blue
+
+XTerm*font: 10x20
+
+...
+
+aixterm*foreground: white
+
+aixterm*background: blue
+
+aixterm*font: 10x20</PRE>
+
+<P>On your system, you may see declarations for cterm, or in the case of IBM's AIX machine, aixterm, instead of xterm. These are simply names for xterm in other versions. When in doubt, search for the word XTerm, xterm, or term in your .Xresources file. If 
+
+you do not already have an .Xresources file, you can create one yourself with an ASCII editor.
+
+<BR></P>
+
+<P>The values can be Boolean, numeric, or string values. They can be specified for widgets in an application, as well. For example, if you want to set the background color for all push buttons in an application called myWorld, you would set the following 
+resource:
+
+<BR></P>
+
+<PRE>myWorld*PushButton.background: red
+
+myWorld*background: blue</PRE>
+
+<P>Note that the asterisk is used to represent the widgets between the actual myWorld application and all push buttons in that application. Had we specified
+
+<BR></P>
+
+<PRE>myWorld.mainForm.PushButton: blue</PRE>
+
+<P>then only the buttons on the widget, mainForm, which in turn had to exist on myWorld, would be affected. This would be tight binding. Using the asterisk is loose binding since it allows for multiple levels of widget hierarchy between the objects on 
+either side of the asterisk. If you had an application with a hierarchy of
+
+<BR></P>
+
+<PRE>myWorld.mainForm.subForm.PushButton</PRE>
+
+<P>then the first two of the following declarations would affect the push buttons on the subForm, but the last one would not:
+
+<BR></P>
+
+<PRE>myWorld*PushButton.background: red
+
+myWorld*background: blue
+
+myWorld.mainForm.PushButton: blue</PRE>
+
+<P>Another example would be the settings for an xterm. If you attempt to set the scroll bars using
+
+<BR></P>
+
+<PRE>XTerm.scrollbar: true</PRE>
+
+<P>it will most likely not work. There will probably be a widget hierarchy between the top-level application and the scroll bar widgets. In this case, it will work if you use this:
+
+<BR></P>
+
+<PRE>XTerm*scrollbar: true</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>When you use a very general setting for a widget in your resource files, say *labelString, you will affect all such occurrences of labelString in all files. So be careful!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>After you have modified the .Xresources file, you will probably expect to see the changes occur immediately. Not so. You now have to inform the server of your defaults by using the xrdb command. Use the command
+
+<BR></P>
+
+<PRE>xrdb -load .Xresources</PRE>
+
+<P>This will reflect the changes for all subsequent executions of your client. These changes will remain in effect until they are overridden or until your session terminates. If you saved your .Xresources file in your login directory, these changes will be 
+
+loaded whenever you start X in the future if you run this:
+
+<BR></P>
+
+<PRE>xrdb -load .Xresources</PRE>
+
+<P>This command is useful when creating .Xresources for the first time in a session. That is why in most cases this command is run when the windowing system is first created. If you want to keep the previous settings, use the -merge command option instead 
+
+of -load, as in
+
+<BR></P>
+
+<PRE>xrdb -merge .myOwnResources</PRE>
+
+<P>Also, you can use the exclamation point as the comment character at any point in the input line before any text begins. Therefore, the following lines are comments:
+
+<BR></P>
+
+<PRE>! This is a comment
+
+! another one
+
+! commented*labelString: This resource is not used.</PRE>
+
+<P>You can also use the cpp preprocessor's directives #if, #ifdef, #else, and #endif. This is running through xrdb only. cpp is not run when the .Xresources file is parsed. You can override the run through cpp by using the -nocpp parameter on the command 
+line. No other parameters are required. If you want to remove a resource, use the -remove operation:
+
+<BR></P>
+
+<PRE>xrdb -remove myOldResources</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>User and Class Resource Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are two types of resource files: user and class.
+
+<BR></P>
+
+<P>User files apply to each instance of all applications. These are the resources you would set in the .Xresources file.
+
+<BR></P>
+
+<P>Class files pertain to all the instances of a particular class. These will exist in files usually in your home directory or in your path. The name of the class file is the name of the class. The class name is the name of the application class with the 
+first letter capitalized.
+
+<BR></P>
+
+<P>For example, all xterms belong to the class XTerm. Note that the class name is the name of a type of an application, with the first letter capitalized. XTerm is an exception in this regard since it has XT capitalized instead of only X.
+
+<BR></P>
+
+<P>Now look at setting the resources for a particular class of an application. The command line
+
+<BR></P>
+
+<PRE>*labelString: Hello World</PRE>
+
+<P>will set the labelString resource for all widgets in every application in your session to Hello World. This may not be exactly what you want. The command line
+
+<BR></P>
+
+<PRE>Xapp*labelString: Hello World</PRE>
+
+<P>will set the labelString resource for all widgets in every Xapp application in your session to Hello World. This will not affect widgets within other applications. This effect would be desirable if you were trying to set only one type of application 
+resource.
+
+<BR></P>
+
+<P>You can also specify your own class for setting resources. This would be via setting the -name option on a client. For example, you could define all the resources for an xterm with 10 x 20 font to be of class hugeterm. Then whenever you run
+
+<BR></P>
+
+<PRE>xterm -name hugeterm &amp;</PRE>
+
+<P>it will use the resources in the class hugeterm. So now you can set the foreground color to whatever you want for terminals, with a name of hugeterm.
+
+<BR></P>
+
+<P>Note that the name of a resource cannot contain the * or . characters. These values will cause your resource setting to be ignored. mwm simply ignores bad syntax rather than informing the user to make corrections.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=4><B>Customizing mwm</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Customizing mwm is very similar to customizing the X resources. However, mwm offers a far greater set of features and allows the user to customize just about every item on the screen. The resources here can be set to maintain a consistent set of 
+interfaces for all applications, without changing a line of code. For example, it's easy to change the background color of all the forms in your applications by simply editing the resources file rather than editing each source file individually. Here are 
+some more methods for setting resources:
+
+<BR></P>
+
+<UL>
+
+<LI>Use hard code resource settings.
+
+<BR>
+
+<BR></LI>
+
+<LI>Set command line parameters.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the environment variables to specify class files.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=4><B>Hard Coding Resource Setting</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can set resources by hard coding the values in your application source code. See  Chapter 47.
+
+<BR></P>
+
+<P>Hard coding resource settings is justifiable in the following situations:
+
+<BR></P>
+
+<UL>
+
+<LI>When you do not want to give control to the end user for application-critical resources. A good example is the locations of all buttons on a data entry form. An end user is liable to shuffle them around to the point where the entry application may 
+become unusable.
+
+<BR>
+
+<BR></LI>
+
+<LI>When you do not have to worry about locations of resource files. The application is completely stand-alone.
+
+<BR>
+
+<BR></LI>
+
+<LI>When you do not want user intervention in your program code.
+
+<BR>
+
+<BR></LI>
+
+<LI>When you want to shield users from modifying their UNIX environment variables and having to learn the customization syntax.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=4><B>Using the Command Line</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You saw an example of this earlier when the chapter talked about customizing X applications and listed some of the resources that can be set from the command line. Motif applications usually list their options in man pages.
+
+<BR></P>
+
+<P>Use the -xrm command line option to set or override a particular resource. The syntax for this option is
+
+<BR></P>
+
+<PRE>xclient -xrm &quot;resource*variable: value&quot;</PRE>
+
+<P>Note that you can concatenate several resource settings using the \ operator.
+
+<BR></P>
+
+<PRE>xclient -xrm &quot;resource*variable: value&quot; \
+
+        -xrm &quot;resource*variable: value&quot;    \
+
+        -xrm &quot;resource*variable: value&quot;</PRE>
+
+<P>So, how do you know which resources to set? Look in the OSF/Motif Programmers' Reference Manual for the description of a widget's resources.
+
+<BR></P>
+
+<P>Looking at the Label widget, you will see resources grouped by the class and all its inherited resources. Some of the resources would be declared under the class Core, some under Manager, and so on. Now look at some of the resources for an XmPushButton 
+
+widget. You will see these listed with the letters XmN in front of them. These letters signify that it is a Motif resource.
+
+<BR></P>
+
+<PRE>XmNinputCallback XcCallback   XtCallBackList NULL      C
+
+XmNarmColor    XmCarmColor    Pixel     Dynamic        CSG
+
+XmNarmPixmap   XmCArmPixmap   Pixmap    XmUNSPECIFIED_PIXMAP
+
+CSG
+
+XmNdefaultButtonThickness
+
+XmCdefaultButtonShadowThickness Dimension 0 CSG
+
+....</PRE>
+
+<P>Note the letters CSG for the access description. The C signifies creation. This tells that the resource can be set upon creation. The S signifies that this value can be set at runtime. The G signifies that it can be read (get) at runtime.
+
+<BR></P>
+
+<P>In the case of the push button widget, the XmNinputCallback class can be set only at the time when it is created (that is, once at runtime). This is usually done in the code section where an address to a pointer is set for this widget.
+
+<BR></P>
+
+<P>The other values can be set at runtime. For example, the XmNarmColor can be set from a resource file since it does have the S set for it. Likewise, when programming widgets, this resource can be read from an application since the G value is specified 
+for this resource.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Using Environment Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Motif uses several environment variables to hold its pointers to locations for resource files.
+
+<BR></P>
+
+<P>The XENVIRONMENT environment variable can hold the complete path to a file that holds the resource file. This must be the complete path of the application. If this variable is not set, then the Xt toolkit will look in .Xresources-HostName in the 
+application's home directory.
+
+<BR></P>
+
+<P>The XUSERFILESEARCHPATH is a pointer to the locations of application resource files. This is a colon-delimited string. Each field is expanded into meaningful names at runtime. Some of the most common fields are these:
+
+<BR></P>
+
+<UL>
+
+<LI>%C   Customize color
+
+<BR>
+
+<BR></LI>
+
+<LI>%l   Language part
+
+<BR>
+
+<BR></LI>
+
+<LI>%L   Full language instruction
+
+<BR>
+
+<BR></LI>
+
+<LI>%N   Application class name
+
+<BR>
+
+<BR></LI>
+
+<LI>%S   Suffix
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The RESOURCE_MANAGER variable is set by xrd. This xrd is executed at runtime. This usually happens at start-up.
+
+<BR></P>
+
+<P>The XFILESEARCH environment variable holds a colon-delimited list of directories for the app-defaults file. Usually these defaults are in the /usr/lib/X11/app-defaults directory. The files in this directory are interesting to see. See Listing 46.1.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 46.1. Typical listing of </B><B>/usr/lib/xii/app-defaults</B><B>.</B></LH></UL>
+
+<PRE>Bitmap
+
+Bitmap-color
+
+Chooser
+
+Clock-color
+
+Doc
+
+Editres
+
+Editres-color
+
+Fileview
+
+Ghostview
+
+Mwm
+
+Neko
+
+Periodic
+
+Viewres
+
+X3270* XCalc
+
+XCalc-color
+
+XClipboard
+
+XClock
+
+XConsole
+
+XDbx
+
+XFontSel
+
+XGas
+
+XLess
+
+XLoad
+
+XLock
+
+XLogo
+
+XLogo-color
+
+XMdemos
+
+XMem
+
+XMtravel
+
+XTerm
+
+Xditview
+
+Xditview-chrtr
+
+Xedit
+
+Xfd
+
+Xgc
+
+Xmag
+
+Xman
+
+Xmh
+
+Xtetris
+
+Xtetris.bw
+
+Xtetris.c</PRE>
+
+<P>Note that some of the classes listed here have the first two letters of their names capitalized instead of just one (XTerm, XDbx, XMdemos). So if your class resource settings do not work as expected, look in this directory for some hints on what the 
+resource class name might look like. Again, the contents of this directory depend on your installation of Motif and X.
+
+<BR></P>
+
+<P>The search for the missing .Xresources occurs in the following order:
+
+<BR></P>
+
+<UL>
+
+<LI>Check in XUSERFILESEARCHPATH.
+
+<BR>
+
+<BR></LI>
+
+<LI>If not successful or if XFILEUSERSEARCHPATH is not set, check in XAPPLRESDIR.
+
+<BR>
+
+<BR></LI>
+
+<LI>If not successful or if XFILESEARCHPATH is not set, check user HOME directory.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Keep this advice in mind: In all but the most unavoidable cases you should not rely on environments to set your application resources.
+
+<BR></P>
+
+<P>The methods are too complicated to learn, especially for the end user. However, they can be a very powerful customization tool. Editing resource files is hard enough on the programmer, but it's even worse on the user. However, in order to be a good 
+Motif user, you should know about the environment variables that affect applications that come from other vendors.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=4><B>Listing an Application's Resources</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are two Motif applications that can assist you in determining an application's resources: appres and editres.
+
+<BR></P>
+
+<P>The appres program's syntax is this:
+
+<BR></P>
+
+<PRE>appress <I>Class</I> application</PRE>
+
+<P>This will list all the resources in a given class for the named application.
+
+<BR></P>
+
+<P>The second command is a menu-driven GUI program, editres, that allows you to edit the given resources for an application. This is available for X11R5 and later. The program displays a tree-like representation of all the widget classes in a program and 
+allows the user to move through the tree node by node. Search your release for this file. If you do not have this file, do not despair, contact your local hardware vendor for a complete X installation.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=4><B>Using the </B><B><I>.mwmrc</I></B><B> File</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Create this file from the system.mwmrc file by copying it into your $HOME directory as .mwmrc, and then edit it. (Look in the /usr/bin/X11 directory and search for the file system.mwmrc using the find command.)
+
+<BR></P>
+
+<P>Listing 46.1 on the CD-ROM shows a sample .mwmrc file. As stated earlier, when working with .Xresources, you start a comment with a ! character.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 46.2. A sample </B><B>.mwmrc</B><B> file.</B></LH></UL>
+
+<PRE>!!
+
+!!        $HOME/.mwmrc
+
+!!   Modified system.mwmrc for personal changes. kh.
+
+!!
+
+!!
+
+!! Root Menu Description
+
+!!
+
+Menu DefaultRootMenu
+
+{
+
+     &quot;Root Menu&quot;         f.title
+
+     &quot;New Window&quot;        f.exec &quot;xterm &amp;&quot;
+
+     &quot;Shuffle Up&quot;        f.circle_up
+
+     &quot;Shuffle Down&quot;      f.circle_down
+
+     &quot;Refresh&quot;      f.refresh
+
+     &quot;Pack Icons&quot;        f.pack_icons
+
+!    &quot;Toggle Behavior...&quot;     f.set_behavior
+
+      no-label      f.separator
+
+     &quot;Restart...&quot;        f.restart
+
+!    &quot;Quit...&quot;      f.quit_mwm
+
+}
+
+Menu RootMenu_1.1
+
+{
+
+     &quot;Root Menu&quot;         f.title
+
+     &quot;New Window&quot;        f.exec &quot;xterm &amp;&quot;
+
+     &quot;Shuffle Up&quot;        f.circle_up
+
+     &quot;Shuffle Down&quot;      f.circle_down
+
+     &quot;Refresh&quot;      f.refresh
+
+!    &quot;Pack Icons&quot;        f.pack_icons
+
+!    &quot;Toggle Behavior&quot;   f.set_behavior
+
+     no-label       f.separator
+
+     &quot;Restart...&quot;        f.restart
+
+}
+
+!!
+
+!! Default Window Menu Description
+
+!!
+
+Menu DefaultWindowMenu
+
+{
+
+     Restore        _R   Alt&lt;Key&gt;F5     f.restore
+
+     Move      _M   Alt&lt;Key&gt;F7     f.move
+
+     Size      _S   Alt&lt;Key&gt;F8     f.resize
+
+     Minimize  _n   Alt&lt;Key&gt;F9     f.minimize
+
+     Maximize  _x   Alt&lt;Key&gt;F10    f.maximize
+
+     Lower          _L   Alt&lt;Key&gt;F3     f.lower
+
+     no-label                 f.separator
+
+     Close          _C   Alt&lt;Key&gt;F4     f.kill
+
+}
+
+!!
+
+!! Key Binding Description
+
+!!
+
+Keys DefaultKeyBindings
+
+{
+
+     Shift&lt;Key&gt;Escape    window|icon         f.post_wmenu
+
+     Alt&lt;Key&gt;space       window|icon         f.post_wmenu
+
+     Alt&lt;Key&gt;Tab         root|icon|window    f.next_key
+
+     Alt Shift&lt;Key&gt;Tab   root|icon|window    f.prev_key
+
+     Alt&lt;Key&gt;Escape      root|icon|window    f.circle_down
+
+     Alt Shift&lt;Key&gt;Escape     root|icon|window    f.circle_up
+
+     Alt Shift Ctrl&lt;Key&gt;exclam root|icon|window   f.set_behavior
+
+     Alt&lt;Key&gt;F6          window              f.next_key transient
+
+     Alt Shift&lt;Key&gt;F6    window              f.prev_key transient
+
+     Shift&lt;Key&gt;F10       icon           f.post_wmenu
+
+!    Alt Shift&lt;Key&gt;Delete     root|icon|window    f.restart
+
+}
+
+!!
+
+!! Button Binding Description(s)
+
+!!
+
+Buttons DefaultButtonBindings
+
+{
+
+     &lt;Btn1Down&gt;     icon|frame     f.raise
+
+     &lt;Btn3Down&gt;     icon|frame     f.post_wmenu
+
+     &lt;Btn3Down&gt;     root      f.menu    DefaultRootMenu
+
+}
+
+Buttons ExplicitButtonBindings
+
+{
+
+     &lt;Btn1Down&gt;     frame|icon     f.raise
+
+     &lt;Btn3Down&gt;     frame|icon     f.post_wmenu
+
+     &lt;Btn3Down&gt;     root      f.menu    DefaultRootMenu
+
+!    &lt;Btn1Up&gt;  icon      f.restore
+
+     Alt&lt;Btn1Down&gt;  window|icon    f.lower
+
+!    Alt&lt;Btn2Down&gt;  window|icon    f.resize
+
+!    Alt&lt;Btn3Down&gt;  window|icon    f.move
+
+}
+
+Buttons PointerButtonBindings
+
+{
+
+     &lt;Btn1Down&gt;     frame|icon     f.raise
+
+     &lt;Btn3Down&gt;     frame|icon     f.post_wmenu
+
+     &lt;Btn3Down&gt;     root      f.menu    DefaultRootMenu
+
+     &lt;Btn1Down&gt;     window         f.raise
+
+!    &lt;Btn1Up&gt;  icon      f.restore
+
+     Alt&lt;Btn1Down&gt;  window|icon    f.lower
+
+!    Alt&lt;Btn2Down&gt;  window|icon    f.resize
+
+!    Alt&lt;Btn3Down&gt;  window|icon    f.move
+
+}
+
+!!
+
+!!  END OF mwm RESOURCE DESCRIPTION FILE
+
+!!</PRE>
+
+<P>There are several key features here: key bindings, button bindings, and menu items.
+
+<BR></P>
+
+<P>A binding is a mapping between a user action and a function. The key bindings map keystrokes to actions, and the button bindings map button presses and releases to actions. Menus display the menu items and let you organize action items into sections.
+
+<BR></P>
+
+<P>The format for the all items is
+
+<BR></P>
+
+<PRE>Section_type Section_Title
+
+{
+
+.. definitions..
+
+.. definitions..
+
+}</PRE>
+
+<P>where Section_type could be Menu, Keys, or Buttons. The Section_Title is a string defining the variable name. It's a name that can be used to refer to this section in other portions of the file.
+
+<BR></P>
+
+<P>The functions shown in the sample file begin with an f. keyword. Some actions are fairly obvious: f.move, f.resize, f.maximize, f.minimize, f.title, f.lower, and so on. Some actions are not: f.separator (displays a line on the menu item), f.circle_up 
+(shuffles the window stacking order up), f.circle_down (shuffles the window stacking order down). Remember how windows are like sheets of paper stacked on a canvas. (See section &quot;Stacking Order.&quot;)
+
+<BR></P>
+
+<P>See Table 46.1 for all the features available.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 46.1. Valid Window Manager Functions.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Function</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>f.menu mm</P>
+
+<TD>
+
+<P>Associates mm with a menu.</P>
+
+<TR>
+
+<TD>
+
+<P>f.minimize</P>
+
+<TD>
+
+<P>Changes the window to an icon.</P>
+
+<TR>
+
+<TD>
+
+<P>f.move</P>
+
+<TD>
+
+<P>Enables the interactive movement of a window.</P>
+
+<TR>
+
+<TD>
+
+<P>f.nop</P>
+
+<TD>
+
+<P>No operation&#151;it's a filler only.</P>
+
+<TR>
+
+<TD>
+
+<P>f.normalize</P>
+
+<TD>
+
+<P>Restores a window to its original size.</P>
+
+<TR>
+
+<TD>
+
+<P>f.pack_icons</P>
+
+<TD>
+
+<P>Rearranges the icons on a desktop.</P>
+
+<TR>
+
+<TD>
+
+<P>f.pass_keys</P>
+
+<TD>
+
+<P>Toggles enabling and disabling key bindings.</P>
+
+<TR>
+
+<TD>
+
+<P>f.quit_mwm</P>
+
+<TD>
+
+<P>Terminates mwm.</P>
+
+<TR>
+
+<TD>
+
+<P>f.raise</P>
+
+<TD>
+
+<P>Raises a window to the top of the stack.</P>
+
+<TR>
+
+<TD>
+
+<P>f.refresh</P>
+
+<TD>
+
+<P>Redraws all windows.</P>
+
+<TR>
+
+<TD>
+
+<P>f.resize</P>
+
+<TD>
+
+<P>Enables the interactive sizing of a window.</P>
+
+<TR>
+
+<TD>
+
+<P>f.restart</P>
+
+<TD>
+
+<P>Restarts mwm.</P>
+
+<TR>
+
+<TD>
+
+<P>f.separator</P>
+
+<TD>
+
+<P>Draws a line.</P>
+
+<TR>
+
+<TD>
+
+<P>f.title nn</P>
+
+<TD>
+
+<P>Names the menu.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>Adding Your Own Menu Items</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Now you're ready to define your own menu items. Here are some examples of menu item names:
+
+<BR></P>
+
+<PRE>Menu MyGames
+
+     {
+
+     &quot;Kamran Games&quot; f.title
+
+     no-label       f.separator
+
+     &quot;Tetris&quot;       f.exec &quot;xtetris &amp;&quot;
+
+     &quot;Mahhjong&quot;     f.exec &quot;xmahjong &amp;&quot;
+
+     &quot;Chess&quot;        f.exec &quot;xchess &amp;&quot;
+
+     }</PRE>
+
+<P>The f.title action specifies a heading for the submenu. The f.separator action draws a line under the title. The f.exec action fires up the command shown in double quotes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Note the ampersand in f.exec for starting these tasks in the background. Do not start a task that may never return and that may therefore hang up your mwm session.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Now you can add this new menu to the root menu by adding the line
+
+<BR></P>
+
+<PRE>&quot;Utils&quot;        f.menu    MyGames</PRE>
+
+<P>in your DefaultRootMenu definitions.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>More on Button and Key Bindings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The key and button bindings work in the same way as menus. The first obvious difference is the extra column with the words icon, frame, window, and root in it. These words force the bindings on the context. The root applies to any location of the 
+pointer on the root window, the frame or window keywords apply binding only when the pointer is in a window or its frame, and the icon bindings apply to icons.
+
+<BR></P>
+
+<P>In your .Xresource or .Xresources file, you will refer to these key bindings for the class mwm as follows:
+
+<BR></P>
+
+<PRE>Mwm*keyBindings: DefaultKeyBindings</PRE>
+
+<P>Here are some of the descriptions in the key bindings:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Shift&lt;Key&gt;Escape
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>window|icon
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>f.post_wmenu
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Alt&lt;Key&gt;space
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>window|icon
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>f.post_wmenu
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Alt&lt;Key&gt;Tab
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>root
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>f.menu DefaultRootMenu</PRE></TABLE>
+
+<P>The syntax for a keystroke binding is
+
+<BR></P>
+
+<PRE>modifier&lt;Key&gt;key</PRE>
+
+<P>where modifier is Alt, Control, or Shift. The key can be a keystroke or function key. The first two declarations describe the same action&#151;Show the window menu&#151;but use different keystrokes. The third key, binding, shows a method for displaying 
+
+the root menu.
+
+<BR></P>
+
+<P>The button bindings are the bindings for your buttons. These are the three important bindings to remember:
+
+<BR></P>
+
+<PRE>Buttons DefaultButtonBindings
+
+Buttons ExplicitButtonBindings
+
+Buttons PointerButtonBindings</PRE>
+
+<P>In your .Xresource or .Xresources file, you will refer to one of these button bindings for the class mwm in one of the following ways:
+
+<BR></P>
+
+<UL>
+
+<LI>Mwm*buttonBindings: DefaultButtonBindings
+
+<BR>
+
+<BR></LI>
+
+<LI>Mwm*buttonBindings: ExplicitButtonBindings
+
+<BR>
+
+<BR></LI>
+
+<LI>Mwm*buttonBindings: PointerButtonBindings
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=4><B>Customizing Your Desktop with Clients</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can customize your desktop using some of the client software that comes with your X11R5 distribution. This chapter covers the following applications:
+
+<BR></P>
+
+<UL>
+
+<LI>xsetroot
+
+<BR>
+
+<BR></LI>
+
+<LI>xset
+
+<BR>
+
+<BR></LI>
+
+<LI>xdpyinfo
+
+<BR>
+
+<BR></LI>
+
+<LI>xmodmap
+
+<BR>
+
+<BR></LI></UL>
+
+<P>There are several more utilities in the /usr/bin/X11 directory for you to play with: bitmap, xmag, xcalc. Check each one out to customize your desktop. This chapter describes the ones that are not intuitively obvious.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>xsetroot</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This client customizes the root window characteristics. Some of the options available are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>-cursor cursorfile maskfile. Changes the cursor to a displayed mask value. See the sidebar for creating your own cursor using bitmap.
+
+<BR>
+
+<BR></LI>
+
+<LI>-cursor_name name. This is the name of the standard cursors in the X11 protocol.
+
+<BR>
+
+<BR></LI>
+
+<LI>-bitmap filename. This creates a tiled surface on the root window with a bitmap. Check the /usr/lib/X11/bitmaps directory for a list of the standard bitmaps.
+
+<BR>
+
+<BR></LI>
+
+<LI>-fg color foreground. The color for the bitmap on the root display.
+
+<BR>
+
+<BR></LI>
+
+<LI>-bg color background. The color for the bitmap on the root display.
+
+<BR>
+
+<BR></LI>
+
+<LI>-gray or -grey. Sets the background to a pleasant (for some) gray background.
+
+<BR>
+
+<BR></LI>
+
+<LI>-rv. Reverses the foreground and background colors.
+
+<BR>
+
+<BR></LI>
+
+<LI>-solid color. Sets the root window to a solid color.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Look in the /usr/lib/X11 directory for the file called rgb.txt for a list of files and look at the section called &quot;Colors&quot; in this chapter for more information.
+
+<BR></P>
+
+<P>See the man pages for additional features for xsetroot.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>Creating a Cursorfile</B>
+
+<BR>
+
+<BR>The cursorfile is an ASCII file with arrays of characters. You create a bitmap using the bitmap utility. You then run this bitmap through bmtoa to convert a bitmap to an array. There is a reverse utility called atobm to convert a pre-existing array to 
+
+bitmaps for use with the bitmap editor.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>Using </B><B><I>xset</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The xset command sets up some of the basic options on your environment. Some of these options may not work on your particular system. It's worth it to check these out.
+
+<BR></P>
+
+<P>You can set the bell volume:
+
+<BR></P>
+
+<PRE>xset b volume frequency durationInMilliseconds.</PRE>
+
+<P>For example, the command line
+
+<BR></P>
+
+<PRE>xset b 70 4000 60</PRE>
+
+<P>sets the keyboard bell to about 70 percent of the maximum, with a frequency of 4,000 Hz, lasting 60 milliseconds.
+
+<BR></P>
+
+<P>To turn on the speaker, use xset b on. To turn it off, type xset off. Use xset c volume to set the keyclick volume in percentages. A volume setting of 0 turns it off. Any other number (1&#151;100) turns it on at that percentage. Of course, for this 
+command to work, you have to have your speaker turned on.
+
+<BR></P>
+
+<P>To set the mouse speed, type xset m acceleration threshold at the prompt.
+
+<BR></P>
+
+<P>The acceleration is the number of times faster to travel per mouse movement that is greater than the threshold. If your movement is below the threshold, the mouse will not accelerate. If the movement is greater than the threshold, each pointer movement 
+
+on the screen will be greater than the physical movement by this accelerated factor. This way you can zip across the screen with a twitch. Use care in setting this feature unless you are very adroit.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Invoking the Screen Saver</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use xset s seconds to enable the screen saver. You can turn off the screen saver with the off option. The default option reverts to system default time for blanking the screen.
+
+<BR></P>
+
+<P>For more options type in xset q.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Using Fonts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To load your own fonts, use
+
+<BR></P>
+
+<PRE>xset fp /user/home/myfont,/usr/lib/X11/fontsdir
+
+xset fp rehash</PRE>
+
+<P>The rehash command forces the server to reread its system files for your command to take effect.
+
+<BR></P>
+
+<P>To restore to normal, use
+
+<BR></P>
+
+<PRE>xset fp default
+
+xset fp rehash</PRE>
+
+<P>See the section called &quot;Fonts&quot; later in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Getting More Information About Your Display </B><B><I>xdpyinfo</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The xdpyinfo utility gives you more information about your X server. It is used to list the capabilities of your server and all predefined parameters for it. Some of these capabilities include the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Name of display
+
+<BR>
+
+<BR></LI>
+
+<LI>Version number
+
+<BR>
+
+<BR></LI>
+
+<LI>Vendor name
+
+<BR>
+
+<BR></LI>
+
+<LI>Extensions
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The list is too exhaustive to include here and will be different for your installation. Pipe its output to a file and review it for information about the server.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=3><B>Help for Left-handed Users </B><B><I>xmodmap</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are a left-handed user, it might a bit uncomfortable to use the  left mouse button with your third or second finger. The X designers kept you in mind. If you want to swap the functionality of the pointers on your mouse, or pointer, use the 
+xmodmap command. First, display the current mappings with
+
+<BR></P>
+
+<PRE>xmodmap -pp</PRE>
+
+<P>You will see the following display:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Physical
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Button
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Button
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Code
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>1
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>1
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>2
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>2
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>3
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>3</PRE></TABLE>
+
+<P>This shows you that Button Code 1 is mapped to Physical Button 1, Button Code 2 is mapped to Physical Button 2, and Button Code 3 is mapped to Physical Button 3.
+
+<BR></P>
+
+<P>Now issue the command
+
+<BR></P>
+
+<PRE>xmodmap -e 'pointer =  3 2 1'</PRE>
+
+<P>to reverse the mappings on the buttons. Now Physical Button 1 will be mapped to Button Code 3, and so forth. To confirm this, retype the xmodmap -pp command, and you'll see this:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Physical
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Button
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Button
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Code
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>1
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>3
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>2
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>2
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>3
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>1</PRE></TABLE>
+
+<P>You can always revert to the default with xmodmap -e 'pointer = default'.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=4><B>Useful Command Line Options</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Some other standard input parameters that can be used from the command line to change the behavior of a window are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>-borderwidth or -bw. The border width of the frame, in pixels. This may not be available for all clients.
+
+<BR>
+
+<BR></LI>
+
+<LI>-foreground or -fg. The foreground color. For example, this could be the text color for an xterm.
+
+<BR>
+
+<BR></LI>
+
+<LI>-background or -bg. The background color. For example, this could be the text color for an xterm.
+
+<BR>
+
+<BR></LI>
+
+<LI>-display. The display on which the client will run.
+
+<BR>
+
+<BR></LI>
+
+<LI>-font or -fn. The font to use for a particular text display.
+
+<BR>
+
+<BR></LI>
+
+<LI>-geometry. The geometry of the window. See the section called &quot;Geometry&quot; earlier in this chapter.
+
+<BR>
+
+<BR></LI>
+
+<LI>-iconic. Start the application in an iconic form.
+
+<BR>
+
+<BR></LI>
+
+<LI>-rv or -reverse. Swap the foreground and background colors.
+
+<BR>
+
+<BR></LI>
+
+<LI>-title. The title for the title bar.
+
+<BR>
+
+<BR></LI>
+
+<LI>-name. The name for the application.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>For example, you can make one terminal name, editor, and set your resources in the .Xresources file for the name editor. When you then invoke a new term with the xterm -name editor command, the server will apply the resources for editor to this xterm.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=4><B>Logging In to Remote Machines</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can log in to remote machines using the xterm -display option. The remote system must allow you to open a display on its machine. This is done with the xhost + command on the remote machine.
+
+<BR></P>
+
+<PRE>-display nodename:displayname.ScreenName</PRE>
+
+<P>This starts up a remote session on another node. displayname and ScreenName are optional and default to zero if not entered.
+
+<BR></P>
+
+<P>When you want to open an xterm on the remote machine, alma, you run the following command:
+
+<BR></P>
+
+<PRE>xterm -display alma:0.0 &amp;</PRE>
+
+<P>The format for the option into the display parameter is this:
+
+<BR></P>
+
+<PRE>[host]:[server][:screen]</PRE>
+
+<P>If you are given permission to open a display, you will be logged in to the remote machine. You can verify this with the uname command. Check the DISPLAY with the echo $DISPLAY command.
+
+<BR></P>
+
+<P>When you log out with the exit command, the remote session and the xterm are terminated.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>One of the most common reasons for not being able to open a remote terminal is that the remote host does not allow you to open windows there. Ask the remote user to use the xhost command at the remote 
+machine as a part of login.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=4><B>Colors</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>All the colors in the X Windows system are located in the /usr/lib/X11/rgb.txt file. This file consists of four columns: the first three columns specify red, green, and blue values, and the last entry specifies the name that you can use in your 
+parameters.
+
+<BR></P>
+
+<P>A partial listing of the rgb.txt file is shown in Listing 46.3.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 46.3. An excerpt from the </B><B>rgb.txt</B><B> file.</B></LH></UL>
+
+<PRE>255 250 250         snow
+
+248 248 255         ghost white
+
+248 248 255         GhostWhite
+
+245 245 245         white smoke
+
+245 245 245         WhiteSmoke
+
+220 220 220         gainsboro
+
+255 250 240         floral white
+
+255 250 240         FloralWhite
+
+253 245 230         old lace
+
+253 245 230         OldLace
+
+250 240 230         linen
+
+250 235 215         antique white
+
+255 239 213         PapayaWhip
+
+255 235 205         blanched almond
+
+255 235 205         BlanchedAlmond
+
+255 218 185         peach puff
+
+255 218 185         PeachPuff
+
+255 222 173         navajo white
+
+255 228 181         moccasin
+
+255 248 220         cornsilk
+
+255 255 240         ivory
+
+255 250 205         lemon chiffon
+
+255 250 205         LemonChiffon
+
+255 245 238         seashell
+
+240 255 240         honeydew
+
+245 255 250         mint cream
+
+255 240 245         LavenderBlush
+
+255 228 225         misty rose
+
+255 228 225         MistyRose
+
+255 255 255         white
+
+  0   0   0         black
+
+ 47  79  79         dark slate grey
+
+ 47  79  79         DarkSlateGrey
+
+105 105 105         dim gray
+
+105 105 105         DimGray
+
+105 105 105         dim grey
+
+105 105 105         DimGrey
+
+112 128 144         slate gray
+
+112 128 144         SlateGray
+
+112 128 144         slate grey
+
+112 128 144         SlateGrey
+
+119 136 153         light slate gray
+
+119 136 153         LightSlateGray
+
+119 136 153         light slate grey
+
+119 136 153         LightSlateGrey
+
+190 190 190         gray
+
+190 190 190         grey
+
+211 211 211         light grey</PRE>
+
+<P>Since the red, green, and blue have 256 values each, the number of possible colors is 16,777,216. Not many workstations can display that many colors at one time. Therefore, X uses a facility to map these colors onto the display, which is called a 
+colormap. A color display uses several bits for displaying entries from this map. The xdpyinfo program gives you the number of bits for the display. This is a frame buffer. A 1 bit frame signifies a black-and-white display. An 8 bit frame buffer signifies 
+
+28 entries, or 256 possible colors.
+
+<BR></P>
+
+<P>Unfortunately, due to different phosphors on different screens, your color specification on one monitor may be completely different on another monitor. Tektronix provides a tool called xtici, an API and docs to counter such problems by using the 
+international CIEXYZ standard for color specifications. This is called the Color Management System (CMS), which uses a model called HVC (hue-value-chroma). In the X11R5 (or later) release look for Xcms for more details, or contact Tektronix.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=4><B>Fonts</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Fonts in the X Windows system are designed for maximum flexibility. There are two good utilities to help you sift through some of the 400 or so font types on a basic system:
+
+<BR></P>
+
+<UL>
+
+<LI>xlsfonts. Lists the fonts in your system.
+
+<BR>
+
+<BR></LI>
+
+<LI>xfontsel. Allows you to interactively see what fonts are available on your system and to see what they look like on the screen.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=3><B>Using xlsfonts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>First, let's examine the font names themselves. Use the xlsfonts command to list the fonts on your system. Type the command on an xterm, and since the listing from xlsfonts is very long, be sure to pipe to a text file for review. You should get a 
+listing in which each line is of the form
+
+<BR></P>
+
+<PRE>-foundry-family-wt-sl-wd-p-pts-hr-vr-sp-ave-charset-style</PRE>
+
+<P>The foundry is the company that first developed the font. The most common foundries are misc., Adobe, Bitstream, and B&amp;H. You may see more on your system from the results of your xlsfonts command.
+
+<BR></P>
+
+<P>A font of the misc. foundry has a fixed width and height per character type of font; the rest of the fonts were donated by their respective manufacturers.
+
+<BR></P>
+
+<P>The family is the general type of font: Courier, Helvetica, New Century Schoolbook, Lucida, and so on. Some families are monospaced (that is, all their characters have the same width). The other families are proportionally spaced (that is, each 
+character has a separate width). Courier and Lucida are monospaced fonts. New Century Schoolbook is proportionally spaced.
+
+<BR></P>
+
+<P>You would use monospaced information for tabular information or running text. This makes your text line up cleanly in running displays. Proportionally spaced fonts are helpful for text in buttons or menu items.
+
+<BR></P>
+
+<P>The wt and sl parameters are for weights and slants, respectively. The common weights are bold and medium. Bold text is drawn with a pen thicker than the normal pen. The common slants are roman (r), oblique (o), and italic (i). Roman text is upright, 
+oblique text has characters sheared to the right. Italic text is similar to oblique text, but the characters show a smoother effect. You may also have a reverse oblique (ro) and reverse italic (ri) when the text leans to the left instead of to the right.
+
+<BR></P>
+
+<P>The p stands for the point size, which has traditionally been 1/72 inch. Most monitors traditionally support only 75 or 100 dots per inch (dpi) resolution. Since X fonts are bitmaps, it seems logical that the most common fonts within X are of two 
+flavors: 75 dpi and 100 dpi. This is the number that is found in the two fields hr and vr, which stand for the horizontal and vertical resolution, respectively. In almost all cases you will specify either 75 or 100 in each of these fields.
+
+<BR></P>
+
+<P>The sp refers to the spacing between two characters on the screen. This could be m for monospaced, p for proportional, and c for fixed fonts where each character occupies a fixed box.
+
+<BR></P>
+
+<P>The ave is the 1/10 average width of all the characters in the set.
+
+<BR></P>
+
+<P>The character set and style is usually set to ISO8859-1. This refers to the ISO Latin-1 character set, which includes characters found in the ASCII and other European character sets.
+
+<BR></P>
+
+<P>Now that you have seen the large number of options just to define a font, you can rely on using wildcards to specify most of the options for a font. The server will match the first font name that matches your specification with a wild card. In other 
+words, you only have to specify the parameters you want to change and use the asterisk for the rest.
+
+<BR></P>
+
+<P>For example, *courier-roman will get the first specification for the roman-weighted Courier font. However, *courier will get the bold Courier font. This is because the bold specification exists before the Roman specification in the fonts file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Use the xset fp=fontpath command to set the directory (75 dpi or 100 dpi) you want searched first in the front of the font path. This will guarantee that the correct-sized (in dpi) directory is searched 
+
+first.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The font search path is the path used by the server to search for the fonts in your system. This path is usually set to the following value:
+
+<BR></P>
+
+<PRE>/usr/lib/X11/fonts/misc,/usr/lib/X11/fonts/75dpi,/usr/lib/X11/fon
+
+ts/100dpi,</PRE>
+
+<P>In each of these directories is a file called fonts.dir. This is a listing of all the fonts in the directory and has two entries per line. The first entry gives a font filename, the second entry gives the complete font description. The first line in the 
+
+file gives the number of entries in the file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Font names are not case sensitive. New Century Schoolbook is the same as new century schoolbook.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can create another file in the font path to alias your own font names. This file is called fonts.alias. The server uses only the first one it finds in its path, so just keep one such file in the first directory in your font path. The fonts.alias 
+format is very similar to the fonts.dir file, except that the first entry is not a filename, it is an alias for a font name. So if you want to specify a special font type for all your editor xterms, you would have a line such as this:
+
+<BR></P>
+
+<PRE>editterm  *lucida-medium-r-*-100*</PRE>
+
+<P>Then you can invoke your xterm with the command
+
+<BR></P>
+
+<PRE>xterm -fn editterm &amp;</PRE>
+
+<P>to get an xterm window with the desired font. This is a lot better than typing in the full font specification. Also, by changing the alias once, you can change it for all scripts that use this alias, rather than modifying each script individually.
+
+<BR></P>
+
+<P>A good place to start is the /usr/lib/X11/fonts/misc directory, where a fonts.alias exists from your initial X installation. This file has the fixed and variable aliases defined for you to work with.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B>Using xfontsel</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The xfontsel program helps you get a better feel for some of the parameters of a particular font. (See Figure 46.13.)
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx13.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx13.gif">Figure 46.13. Using </B><B><I>xfontsel</I></B><B>.</A></B>
+
+<BR></P>
+
+<P>You can move your pointer to any one of the parameters in the first line, and click Button1. As you move the pointer on a field, the field will draw a box around itself to show that it has focus.
+
+<BR></P>
+
+<P>If any font options exist for your selection, you will be presented a pop-up menu to select from. Move the mouse to a selection and click on the selection. You will see your selection displayed in the font specification string, as well as a sample of 
+what the font will look like on the fonts display screen below that.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=4><B>Future Enhancements in X11R6</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This book covers features up to X11R5. At the time of writing, X11R6 is about to be released. Here are some of its expected features:
+
+<BR></P>
+
+<UL>
+
+<LI>Enhanced support for serial lines with serial line protocol (SLIP) and low bandwidth (LBX) features. This involves removing unused bytes from messages, compressing images, and sending only differences across the network to the server.
+
+<BR>
+
+<BR></LI>
+
+<LI>X image extensions (XIE). This includes compressed images being transmitted between the client and server.
+
+<BR>
+
+<BR></LI>
+
+<LI>Support for Microsoft Windows NT. Most client applications will run, but not xterm or xdm. The server also will not be supported.
+
+<BR>
+
+<BR></LI>
+
+<LI>Fresco, a C++ toolkit for developing object-oriented applications. This will support both X and Microsoft Windows.
+
+<BR>
+
+<BR></LI>
+
+<LI>A session manager to record the status of all windows on a screen so that a user can return to the state they were in when they last exited X.
+
+<BR>
+
+<BR></LI>
+
+<LI>Enhanced support for 2D fonts. This will include shading, mirroring, rotating, and variable x-heights on fonts. Also, you would be able to select subsets of an entire character set. This would reduce rasterization time, which is the means by which the 
+
+graphics routines convert text or data to pixels on the screen.
+
+<BR>
+
+<BR></LI>
+
+<LI>Recording of all X requests at the server for playback when debugging applications.
+
+<BR>
+
+<BR></LI>
+
+<LI>Prioritization of the execution of clients.
+
+<BR>
+
+<BR></LI>
+
+<LI>Direct communication between clients instead of going through the server.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Contact the X Consortium for details on availability.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=4><B>GUI Front Ends to UNIX</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are many GUI fronts to X Windows and UNIX. This section will briefly introduce you to a few of the common commercially available front ends and their window managers.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=3><B>Motif</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Motif applications look more like a Mayan temple than a menu system. Almost every item on the screen is rectangular. A rectangular button rests on a rectangular menu bar, which may rest on another rectangular form, which sits on a square window.
+
+<BR></P>
+
+<P>The latest version, at the time of writing, is Motif 1.2. There are several updates to Motif (1.2.1, 1.2.3, and so on), but Motif 1.2 is a major release from the last major release, 1.0. The 1.2 release includes a lot of bug fixes and adds widgets to 
+its list of convenience functions. Get an upgrade if you are running an older version. Some of your existing bugs may even disappear!
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I74" NAME="I74">
+
+<FONT SIZE=3><B>Sun MicroSystems OPEN LOOK and OLIT</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>OPEN LOOK is Sun Microsystems' windowing interface. It is perhaps the most popular interface for end users. Its Open Desktop is a set of tools for the desktop.
+
+<BR></P>
+
+<P>The most major difference between Motif and OPEN LOOK is that OPEN LOOK uses rounded corners, and in Motif almost everything is based on rectangles. See Figures 46.14 and 46.15 for xterm and menu, respectively.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx14.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx14.gif">Figure 46.14. An </B><B><I>xterm</I></B><B> in OPEN LOOK.</A></B>
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="46unx15.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/46unx15.gif">Figure 46.15. An menu in OPEN LOOK.</A></B>
+
+<BR></P>
+
+<P>Another major difference in functionality between Motif and OPEN LOOK is the use of mouse buttons. Motif uses the left mouse button (Button1) almost exclusively for all operations. OPEN LOOK, on the other hand, generally uses the left mouse button to 
+select and the right mouse button to open menus.
+
+<BR></P>
+
+<P>Furthermore, the menu items offered by the window menus in OPEN LOOK give different functionality than those in Motif. See Table 46.2 for a comparison of some operations.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 46.2. Differences Between OPEN LOOK and Motif</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operation</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>OPEN LOOK</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Motif</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Exit application</P>
+
+<TD>
+
+<P>&quot;Quit&quot;</P>
+
+<TD>
+
+<P>&quot;Close&quot;</P>
+
+<TR>
+
+<TD>
+
+<P>Iconify a window</P>
+
+<TD>
+
+<P>&quot;Close&quot;</P>
+
+<TD>
+
+<P>&quot;Minimize&quot;</P>
+
+<TR>
+
+<TD>
+
+<P>De-iconify a window</P>
+
+<TD>
+
+<P>&quot;Open&quot;</P>
+
+<TD>
+
+<P>&quot;Maximize&quot;</P>
+
+<TR>
+
+<TD>
+
+<P>Restore size</P>
+
+<TD>
+
+<P>&quot;Restore Size&quot;</P>
+
+<TD>
+
+<P>&quot;Restore&quot;</P>
+
+<TR>
+
+<TD>
+
+<P>Push window down</P>
+
+<TD>
+
+<P>&quot;Back&quot;</P>
+
+<TD>
+
+<P>&quot;Lower&quot;</P></TABLE>
+
+<P>In OPEN LOOK the buttons have rounded edges, scroll bars are shaped like elevators, and menu items are rectangular. It also offers pinnable menus, a feature that lets you &quot;pin&quot; a menu anywhere on the screen. Notice how the pinnable main menu 
+is overlapped by another window, indicating that it does not have focus but is still visible on the desktop.
+
+<BR></P>
+
+<P>Another feature carried into Motif is the ability to have a virtual backplane for all the sessions. The display manager in the common desktop environment provides the same functionality.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I75" NAME="I75">
+
+<FONT SIZE=4><B>COSE and CDE</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In March 1993, the Common Open Software Environment (COSE) was formed. Thus ended the war between OPEN LOOK and Motif, supposedly. The agreement set the basis for the common desktop environment (CDE).
+
+<BR></P>
+
+<P>CDE enables users to preserve their desktop configuration between logins. Users return to their exact user configuration when they log back in.
+
+<BR></P>
+
+<P>Online help is available with embedded graphics, multiple fonts, and hypertext capabilities. Applications are able to access the help system.
+
+<BR></P>
+
+<P>The CDE provides a standard text editing attachment widget. This provides functionality similar to the composition tool in Sun's OpenWindows mail tool. Users can drag and drop nontextual data into text, where the system will represent it as an icon. 
+This text widget is expected to be Multipurpose Internet Mail Extensions (MIME) capable. The MIME feature will allow users to share nontextual data via e-mail.
+
+<BR></P>
+
+<P>The print features in CDE have been greatly enhanced. Users will be able to use drag-and-drop features to print files and manage print queues. Beyond these capabilities, COSE also specifies a standard method for printing X images and screen dumps. This 
+
+is very similar to the capabilities in the now all-but-abandoned NeWS system. The standard calls for the X print server to convert the X protocol into a format acceptable to the user's connected printer. This allows users to create screen dumps and bitmap 
+
+images from X applications much more easily.
+
+<BR></P>
+
+<P>One of the most powerful features of CDE is its scripting language. This language allows users to create shell scripts that have pop-up windows, alerts, and dialog boxes. Also, hooks will be included into the mail system, so users can create consistent 
+
+help menus.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I76" NAME="I76">
+
+<FONT SIZE=3><B>Other GUI Vendors</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Hewlett-Packard (HP) calls its GUI environment the Visual User Environment (VUE). HP is perhaps the most influential corporation for the COSE user interface standard.
+
+<BR></P>
+
+<P>Unfortunately, the interface you see in Motif for a standard application may have a different look under VUE. HP has customized its Motif libraries to conform to its own way of doing things. For example, it overrides all attempts to set the background 
+colors for menu items. At the time of writing, there is no way to override this using the xset's background commands.
+
+<BR></P>
+
+<P>VUE uses the Broadcast Message Server to dynamically change an application's colors. You request the VUE to change the application's colors dynamically in its palette. As a rule, all X applications must conform to the window manager's preferences on a 
+system. The only time this causes problems is when you are porting color-sensitive non-COSE applications to an HP (or HP-conforming system).
+
+<BR></P>
+
+<P>There is a way around this problem. You can define your colors through the resource files. (See the section &quot;Using Resources&quot; earlier in this chapter.) This will work on HP systems with operating system Version HP9.01 or later. Contact HP for 
+
+details.
+
+<BR></P>
+
+<P>NeXT's NextStep is a completely object-oriented system that has now been released for Intel's 486+ platforms. It is based on the multithreaded Mach kernel. NeXT initially developed hardware for their operating systems, but now they are only a software 
+vendor.
+
+<BR></P>
+
+<P>One of the major problems with NeXTStep when it was first introduced was its lack of X Windows support. Presently, NeXT is working in conjunction with Sun on a GUI called OpenStep. This is at odds with the CDE proposed by COSE and is possibly Sun's way 
+
+of resurrecting its OPEN LOOK Interface. NeXT is also working with HP and Silicon Graphics to port to their workstations.
+
+<BR></P>
+
+<P>NextStep's GUI is based on the Adobe Display PostScript Language. This approach gives excellent graphics capabilities on displays you get with PostScript plotter. Version 3.2 was the first POSIX-compliant release, but neither Motif nor OpenWindows was 
+available for it.
+
+<BR></P>
+
+<P>Santa Cruz Operations (SCO) is the owner of IXI corp. IXI licenses its X.desktop product to Sun. X.desktop is the standard desktop for ODT. SCO is a founding member of COSE and supports the CDE.
+
+<BR></P>
+
+<P>IBM's AIX Windows is very similar to OSF/Motif. The later versions of AIX Windows have better icons and file management capabilities. If you use Motif, you will be able to use AIX. Some quirks exist in some AIX-specific areas. A good example is aixterm, 
+
+which is used in place of xterm. Barring these minor quirks, the transition to IBM from another Motif system is easy.
+
+<BR></P>
+
+<P>Digital Equipment Corporation (DEC) is perhaps the oldest supporter of X Windows. Its version of DECWindows runs on Ultrix, DEC's version of UNIX. Contact (800)DIGITAL for more information.
+
+<BR></P>
+
+<P>People do not think of Apple Computer's Macs as UNIX platforms. With its pre-existing GUI, the Mac is a good candidate for a UNIX platform. Apple's A/UX provides a layer for native applications to work on.
+
+<BR></P>
+
+<P>You can work in three basic environments in A/UX:
+
+<BR></P>
+
+<UL>
+
+<LI>A tty-like console
+
+<BR>
+
+<BR></LI>
+
+<LI>An X11 window manager
+
+<BR>
+
+<BR></LI>
+
+<LI>The Mac file finder
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The first two options are almost like a UNIX and X11 session. The last option is like a Mac Finder session. Look on the desktop for a disk with a label /. Click on it to open subdirectories and applications underneath it. You can use the mouse to invoke 
+
+UNIX commands, such as ls, ps, and so on, from icons in windows.
+
+<BR></P>
+
+<P>Softland system's version of Linux is PC-based UNIX for free. Linux is a UNIX clone and comes with X11R5. You can quite painlessly and successfully port code between Linux and other Motif platforms. Contact SLS directly at (604)360-0188 for more 
+information.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I77" NAME="I77">
+
+<FONT SIZE=4><B>Porting Non-Motif Applications to Motif</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Moving from other windows front ends to CDE should give Sun users a strange feeling. All Sun desktop tools will be available but will look different. All OPEN LOOK applications will have to be ported over to Motif eventually. Some Sun users will have to 
+
+wait a while to get their pinnable menus back, for example. However, some relief is available in the upcoming Motif tear-away menus, which will offer about the same functionality.
+
+<BR></P>
+
+<P>Presently, some commercial vendors are working hard to get a foothold in this market. These are only a few applications of the development packages presently available for porting applications&#151;no doubt you will find more as time passes.
+
+<BR></P>
+
+<P>For those developing applications in the xview marketplace, Qualix Corporation, San Mateo, California (800/245-UNIX), is developing a tool called XvM. This is an XView/Motif library that allows Xview-based applications to move to Motif by just 
+recompiling. This library maps the Xview API into Motif calls.
+
+<BR></P>
+
+<P>Another vendor, Integrated Computer Solutions (ICS), Cambridge, Massachusetts (617/621-0200), provides tools to convert existing Xview applications into Motif. The GIL to UIL conversion tool converts the existing GIL files produced by Sun's DevGuide 
+OPEN LOOK Interface builder into Motif UIL or directly to C or C++. You could also use their other tool, Xview/GIL, to convert the XView API into GIL. The GIL can then be moved into C, C++, or Motif UIL.
+
+<BR></P>
+
+<P>National Information Systems (NIS), San Jose, California (800/441-5758), offers a package called ACCENT consisting of four modules. The DevGuide conversion module converts DevGuide GIL files into C/C++. The XView Conversion module converts source code, 
+
+using the Xview API into source. The OLIT converts source in the OPEN LOOK Interface Toolkit API into C/C++ source. The fourth module, the GUI builder itself allows the user to build Motif interfaces interactively. They have services to convert source code 
+
+to Motif for a fixed fee, as well as training facilities.
+
+<BR></P>
+
+<P>Imperial Software Technology Ltd., Reading, England, offers a GUI builder that has built-in OPEN LOOK to Motif conversion. Its product is called X-Designer. With add-on options, users can convert DevGuide files into X-Designer files. With this 
+conversion, users can modify the converted graphics images to their taste. After any modifications, the interface file can be saved in Motif UIL, C, or C++. The add-on options will be a part of the new release. Their distributor is VI Corporation, North 
+Hampton, Massachusetts (800/732-3200).
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I78" NAME="I78">
+
+<FONT SIZE=4><B>Where to Go from Here</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you want more information about specific vendors, you can get a wealth of information from the Internet about the latest releases and sources of shareware utilities. Listed in Table 46.3 are some of the newsgroups that can provide more information 
+about vendors.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 46.3. Some newsgroups with more information.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Function</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>comp.os.linux</P>
+
+<TD>
+
+<P>The UNIX clone used to develop this book.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.sources.x</P>
+
+<TD>
+
+<P>Sources for X Windows system.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.sys.dec</P>
+
+<TD>
+
+<P>DEC systems.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.unix.ultrix</P>
+
+<TD>
+
+<P>DEC's Ultrix.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.sys.next.programmer</P>
+
+<TD>
+
+<P>NeXT programming.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.sys.next.announce</P>
+
+<TD>
+
+<P>NeXT latest news.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.sys.mac.programmer</P>
+
+<TD>
+
+<P>Mac programming.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.windows.x.apps</P>
+
+<TD>
+
+<P>X Windows apps.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.windows.x.motif</P>
+
+<TD>
+
+<P>Motif programming issues.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.windows.x.pex</P>
+
+<TD>
+
+<P>PEX, the 3D extensions to X.</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I79" NAME="I79">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter you learned about the following:
+
+<BR></P>
+
+<UL>
+
+<LI>The major components of a graphical user interface. Along the way you got a brief history lesson on X Windows.
+
+<BR>
+
+<BR></LI>
+
+<LI>The major concepts required for using X Windows: displays, windows, screens, and the client server architecture in X.
+
+<BR>
+
+<BR></LI>
+
+<LI>Starting an X Windows session from the prompt as well as using the xdm display manager.
+
+<BR>
+
+<BR></LI>
+
+<LI>The Motif Window Manager, mwm.
+
+<BR>
+
+<BR></LI>
+
+<LI>Moving about in mwm and working windows with the keyboard and mouse.
+
+<BR>
+
+<BR></LI>
+
+<LI>Customizing your desktop with resource files and client applications.
+
+<BR>
+
+<BR></LI>
+
+<LI>Setting your environment to your liking with resources.
+
+<BR>
+
+<BR></LI>
+
+<LI>Using some standard tools available in X to further set up your desktop.
+
+<BR>
+
+<BR></LI>
+
+<LI>What's in the future with COSE, CDE, and X11R6, and how vendors support their interfaces for their versions of UNIX.
+
+<BR>
+
+<BR></LI>
+
+<LI>Where to look next for more information.
+
+<BR>
+
+<BR></LI>
+
+<LI>Using widgets and the characteristics of these widgets. This provides the basis for learning how to program your own applications in the Motif environment.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I80" NAME="I80">
+
+<FONT SIZE=4><B>Acknowledgements</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>I am indebted to Metro Link Software (305/938-0283) for providing me with their version of Motif 1.2 for developing all the routines and testing the sources in this chapter. Their software installed cleanly with no hassles on a Linux (1.02) system 
+running on a 486DX. All libraries worked great at the time and presented no compatibility problems in porting sources to Sun and AIX.
+
+<BR></P>
+
+<P><A HREF="unx45.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx45.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx47.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx47.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,3180 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx12.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx12s3.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s3.htm">
+
+<LINK REL="Previous" HREF="unx12.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx12s3.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s3.htm">[To Chapter 12 Section 3]</A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P>
+
+<UL>
+
+<LI>
+
+<A HREF="#I23">vi Edit Mode</A></LI>
+
+<LI>
+
+<A HREF="#I24">EMACS EDIT MODE</A></LI></UL>
+
+<LI>
+
+<A HREF="#I25">Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I26">Predefined Variables</A></LI>
+
+<LI>
+
+<A HREF="#I27">Referencing Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">name</A></LI>
+
+<LI>
+
+<A HREF="#I29">{name}</A></LI>
+
+<LI>
+
+<A HREF="#I30">{name[n]}</A></LI>
+
+<LI>
+
+<A HREF="#I31">{name[*]}</A></LI>
+
+<LI>
+
+<A HREF="#I32">{name[@]}</A></LI>
+
+<LI>
+
+<A HREF="#I33">{name:-word}</A></LI>
+
+<LI>
+
+<A HREF="#I34">{name-word}</A></LI>
+
+<LI>
+
+<A HREF="#I35">{name=word}</A></LI>
+
+<LI>
+
+<A HREF="#I36">{name?word}</A></LI>
+
+<LI>
+
+<A HREF="#I37">{name+word}</A></LI>
+
+<LI>
+
+<A HREF="#I38">{name#pattern}</A></LI>
+
+<LI>
+
+<A HREF="#I39">{name##pattern}</A></LI>
+
+<LI>
+
+<A HREF="#I40">{name%pattern}</A></LI>
+
+<LI>
+
+<A HREF="#I41">{name%%pattern}</A></LI>
+
+<LI>
+
+<A HREF="#I42">{#@}</A></LI>
+
+<LI>
+
+<A HREF="#I43">{#*}</A></LI>
+
+<LI>
+
+<A HREF="#I44">{#name}</A></LI>
+
+<LI>
+
+<A HREF="#I45">{#name[*]}</A></LI>
+
+<LI>
+
+<A HREF="#I46">{#name[@]}</A></LI></UL>
+
+<LI>
+
+<A HREF="#I47">Array Variables</A></LI></UL>
+
+
+
+<CENTER><H3><B>Section 2</B></H3></CENTER>
+
+
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B><I>vi</I></B><B> Edit Mode</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The vi edit mode uses the editing commands and methods of the vi text editor, although with some minor differences due to the fact that you're editing only one line of text and not an entire file.
+
+<BR></P>
+
+<P>The vi edit mode is activated when you enter the command
+
+<BR></P>
+
+<PRE>set -o vi</PRE>
+
+<P>If you prefer to always use the vi edit mode, add the command to your .profile. Note, however, that you can't have the vi and EMACS edit modes both active at once. You can switch between them or shut them both off.
+
+<BR></P>
+
+<P>Just like the vi editor, vi command editing uses two modes: command and input. Normally, your keyboard is in input mode, and every character you type is entered into the command line. To enter command mode, press the Esc key. In command mode, the upper 
+
+and lower case letters of the keyboard represent editing commands, and pressing a key causes an editing action. If no command corresponds to a given key, pressing it in command mode causes the terminal to beep. You cannot enter text in command mode. This 
+error is the most common mistake beginners make with vi-style editing. It is a stumbling block that is responsible for the vi editor's miserable reputation as a text editor.
+
+<BR></P>
+
+<P>The Enter key always returns you to input mode. After you've made any editing changes to the line, you can press Enter no matter where your cursor is in the line to enter and execute the command.
+
+<BR></P>
+
+<P>One word of caution: Keystrokes that you type while in command mode are not displayed. You can see only the effect of an edit command, not the command itself. This can be unsettling when you're inexperienced with the vi-style of editing, or when you're 
+
+entering a command of more than a couple keystrokes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If you forget whether you're in command or edit mode, the invisible nature of command mode can make your keyboard appear to go wild, not responding to your inputs in any recognizable fashion. If this 
+happens to you, the best thing to do is to try to cancel the current line completely with the kill function&#151;normally the @ or Ctrl-u keys. If all else fails, press the Enter key. The Enter key might give you an error message when it attempts to 
+execute a garbled command, but at least it is guaranteed to return you to input mode.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The vi edit mode commands are summarized in Table 12.1. As you'll notice if you're already familiar with vi, nearly all of the vi commands are supported, even those which cause movement upward and downward in a file. Commands that move from one line to 
+
+another actually cause movement in the history file. This enables you to browse through command history, select a command, modify it if necessary, and reenter it, all with a few simple keystrokes.
+
+<BR></P>
+
+<P>Some commands can be prefixed by a count&#151;a non-zero number. A count causes the command to be automatically repeated that number of times. For example, B moves backward one word, but 12B moves backward twelve words. If you don't specify a count, it 
+
+defaults to one.
+
+<BR></P>
+
+<P>A few commands, notably c (change), d (delete), and y (yank), must be followed by a cursor motion command. Such commands are marked with the symbol &#151;&gt; The use of cursor motion commands is discussed following Table 12.2 below.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 12.1. </B><B>vi</B><B> command editing: command mode commands.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Action</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>a</P>
+
+<TD>
+
+<P>Inserts text after the cursor.</P>
+
+<TR>
+
+<TD>
+
+<P>A</P>
+
+<TD>
+
+<P>Inserts text at the end of the line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]b</P>
+
+<TD>
+
+<P>Moves backward one word.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]B</P>
+
+<TD>
+
+<P>Moves backward one blank-delimited word.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]c&#198;</P>
+
+<TD>
+
+<P>Changes text.</P>
+
+<TR>
+
+<TD>
+
+<P>C</P>
+
+<TD>
+
+<P>Changes to end of line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]d&#198;</P>
+
+<TD>
+
+<P>Deletes.</P>
+
+<TR>
+
+<TD>
+
+<P>dd</P>
+
+<TD>
+
+<P>Discards the entire current line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]D</P>
+
+<TD>
+
+<P>Deletes to end of line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]e</P>
+
+<TD>
+
+<P>Moves to end of current word.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]E</P>
+
+<TD>
+
+<P>Moves to end of blank-delimited word.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]fc</P>
+
+<TD>
+
+<P>Moves cursor to next c in current line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]Fc</P>
+
+<TD>
+
+<P>Moves cursor to previous c in current line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]G</P>
+
+<TD>
+
+<P>Moves to the last&#151;least recent&#151;line in the command history. If nG is entered, it selects line n from the command history.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]h</P>
+
+<TD>
+
+<P>Moves cursor one position to the left.</P>
+
+<TR>
+
+<TD>
+
+<P>i</P>
+
+<TD>
+
+<P>Inserts text before cursor.</P>
+
+<TR>
+
+<TD>
+
+<P>I</P>
+
+<TD>
+
+<P>Inserts text in front of the first nonblank character of the line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]j</P>
+
+<TD>
+
+<P>Moves down one line&#151;that is, to a more recent history line. This command discards whatever you have typed on the current line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]k</P>
+
+<TD>
+
+<P>Moves up one line&#151;that is, to a less recent history line. This command discards whatever you have typed on the current line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]l</P>
+
+<TD>
+
+<P>Moves cursor one position to the right.</P>
+
+<TR>
+
+<TD>
+
+<P>n</P>
+
+<TD>
+
+<P>Repeats the previous / or ? command.</P>
+
+<TR>
+
+<TD>
+
+<P>N</P>
+
+<TD>
+
+<P>Repeats the previous / or ? command but in the reverse direction. It causes a / command to be repeated as the equivalent ?, and ? to be repeated as the equivalent of /.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]p</P>
+
+<TD>
+
+<P>Inserts text in the edit buffer after the current cursor position.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]P</P>
+
+<TD>
+
+<P>Inserts text in the edit buffer before the current cursor position.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]rc</P>
+
+<TD>
+
+<P>Replaces the current character with c. A repeat factor replaces n consecutive characters with c.</P>
+
+<TR>
+
+<TD>
+
+<P>R</P>
+
+<TD>
+
+<P>Replaces characters in the current line&#151;replacement mode. This command differs from C in that it does not discard characters following the cursor; only as many characters as you type are replaced. You end replace mode by pressing Enter or Esc.</P>
+
+<TR>
+
+<TD>
+
+<P>S</P>
+
+<TD>
+
+<P>Deletes entire line and enters input mode.</P>
+
+<TR>
+
+<TD>
+
+<P>tc</P>
+
+<TD>
+
+<P>Moves cursor to the next c in the line.</P>
+
+<TR>
+
+<TD>
+
+<P>Tc</P>
+
+<TD>
+
+<P>Moves cursor to the previous c in the line.</P>
+
+<TR>
+
+<TD>
+
+<P>u</P>
+
+<TD>
+
+<P>Undoes the last text change. You can undo the previous u command. Successive u commands alternate between the original and the changed form of text.</P>
+
+<TR>
+
+<TD>
+
+<P>U</P>
+
+<TD>
+
+<P>Undoes all changes to the current line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]v</P>
+
+<TD>
+
+<P>Edits the current command&#151;or line n of the history file&#151;with the vi editor. When you exit vi, the edit file is executed as commands, one per line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]w</P>
+
+<TD>
+
+<P>Moves cursor to next word.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]W</P>
+
+<TD>
+
+<P>Moves cursor to next blank-delimited word.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]x</P>
+
+<TD>
+
+<P>Deletes characters after the cursor.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]X</P>
+
+<TD>
+
+<P>Deletes characters before the cursor.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]y&#198;</P>
+
+<TD>
+
+<P>Yanks text into the edit buffer.</P>
+
+<TR>
+
+<TD>
+
+<P>yy</P>
+
+<TD>
+
+<P>Yanks the entire current line.</P>
+
+<TR>
+
+<TD>
+
+<P>Y</P>
+
+<TD>
+
+<P>Yanks text to end of line.</P>
+
+<TR>
+
+<TD>
+
+<P>^</P>
+
+<TD>
+
+<P>Moves cursor to the first character of the line that is not a space or tab.</P>
+
+<TR>
+
+<TD>
+
+<P>0</P>
+
+<TD>
+
+<P>Moves cursor to first position of the line.</P>
+
+<TR>
+
+<TD>
+
+<P>$</P>
+
+<TD>
+
+<P>Moves to last character of the line.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]-</P>
+
+<TD>
+
+<P>Moves to the preceding line in the command history.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]+</P>
+
+<TD>
+
+<P>Moves to the next line in the command history. Use + only when. you have used - or k to move backward in the history file. Use G to skip back to the earliest line in the history file.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]|</P>
+
+<TD>
+
+<P>Moves to the nth character of the line&#151;that is, to column n.</P>
+
+<TR>
+
+<TD>
+
+<P>[n]_</P>
+
+<TD>
+
+<P>(underscore) Inserts the last (nth) word of the previous command.</P>
+
+<TR>
+
+<TD>
+
+<P>/string</P>
+
+<TD>
+
+<P>Selects the most recent line in command history that contains string. string cannot be a regular expression. This command works in opposite direction to the vi editor.</P>
+
+<TR>
+
+<TD>
+
+<P>/^string</P>
+
+<TD>
+
+<P>Same as / except that it selects only a line that begins with string. That is, / will select a line that contains string anywhere in the line, but /^ will look only for lines that begin with string in column 1.</P>
+
+<TR>
+
+<TD>
+
+<P>?string</P>
+
+<TD>
+
+<P>Searches forward in the history file&#151;that is, toward more recent lines&#151;until it finds a line that contains string. The selected line replaces the current line. string cannot be a regular expression. This command works in opposite direction to 
+
+the vi editor.</P>
+
+<TR>
+
+<TD>
+
+<P>?^string</P>
+
+<TD>
+
+<P>Same as /^ except that it works in the opposite direction.</P>
+
+<TR>
+
+<TD>
+
+<P>;</P>
+
+<TD>
+
+<P>Repeats the previous f, F, t, or T command.</P>
+
+<TR>
+
+<TD>
+
+<P>,</P>
+
+<TD>
+
+<P>Same as ; except that it works in the opposite direction.</P>
+
+<TR>
+
+<TD>
+
+<P>~</P>
+
+<TD>
+
+<P>Inverts the capitalization of the current character.</P>
+
+<TR>
+
+<TD>
+
+<P>.</P>
+
+<TD>
+
+<P>Repeats the previous text-modifying command.</P>
+
+<TR>
+
+<TD>
+
+<P>#</P>
+
+<TD>
+
+<P>Inserts a pound sign (#) at the beginning of the line. If you then press Enter, the shell treats the line as a comment, and the line is added to command history.</P>
+
+<TR>
+
+<TD>
+
+<P>=</P>
+
+<TD>
+
+<P>Lists filenames in the current directory that begin with the same characters as the current word. The listed filenames are not inserted into the current line, nor is the current line changed. However, you can use the displayed information to select a 
+file and finish typing a complete filename.</P>
+
+<TR>
+
+<TD>
+
+<P>\</P>
+
+<TD>
+
+<P>Appends characters to the word containing the cursor such that the word forms a valid pathname. The shell searches the current directory&#151;or the directory specified by the incomplete word&#151;for filenames that begin with the same characters as the 
+
+word. Then it appends characters from the matching filenames until a full filename is formed, or, in the case of multiple matches, the filenames differ. This command is a handy way to abbreviate a filename or to enter a filename when you can remember only 
+
+a few leading characters of the name.</P>
+
+<TR>
+
+<TD>
+
+<P>*</P>
+
+<TD>
+
+<P>Replaces the word with the list of filenames in the current directory&#151;or in the directory specified by the word&#151;that all begin with the same characters as the replaced word. This has the same effect as the wildcard expression string* if 
+entered directly, except that the filenames are entered into the command line now instead of during shell processing.</P>
+
+<TR>
+
+<TD>
+
+<P>Space</P>
+
+<TD>
+
+<P>Moves cursor to the right. It doesn't change characters spaced over.</P>
+
+<TR>
+
+<TD>
+
+<P>Backspace</P>
+
+<TD>
+
+<P>Moves cursor to the left. It doesn't change characters backspaced over.</P>
+
+<TR>
+
+<TD>
+
+<P>Enter</P>
+
+<TD>
+
+<P>Executes the current command line.</P>
+
+<TR>
+
+<TD>
+
+<P>Ctrl-l</P>
+
+<TD>
+
+<P>Redraws the current line. This command is useful if the screen becomes garbled. It redraws only the display line used for command input, not the entire screen.</P></TABLE>
+
+<P>The vi command editing feature also suports a few control operations that you can use while in input mode. They are described in Table 12.2. Using one of these operations doesn't require you to switch to command mode first, and it doesn't switch you to 
+
+command mode.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 12.2. </B><B>vi</B><B> Command editing: input mode commands.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Control</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Action</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Enter</P>
+
+<TD>
+
+<P>Executes the command line. You can press Enter while in command mode or in input mode, regardless of the current cursor position. If the cursor is somewhere in the middle of the line, pressing Enter doesn't truncate the remainder of the line; the whole 
+
+line is executed.</P>
+
+<TR>
+
+<TD>
+
+<P>Erase</P>
+
+<TD>
+
+<P>Normally, the # or Backspace key. This is the erase function defined with the stty command. The cursor is backspaced, and the character at that position is erased.</P>
+
+<TR>
+
+<TD>
+
+<P>Kill</P>
+
+<TD>
+
+<P>Normally, the @ or ^u (Ctrl-u) character. This is the kill function defined with the stty command. The current line is discarded; the input line is erased and the cursor returns to the start of the line. Notice that this differs from the normal shell 
+action when command editing is not in effect. Normally, the kill function scrolls the discarded line up and starts a new line beneath it.</P>
+
+<TR>
+
+<TD>
+
+<P>Ctrl-v</P>
+
+<TD>
+
+<P>Escapes the next character. It enables you to enter the Erase, Kill, or \ character as data, avoiding the normal control function.</P>
+
+<TR>
+
+<TD>
+
+<P>Ctrl-w</P>
+
+<TD>
+
+<P>Deletes the previous word. It is similar to backspace, but it backspaces over the previous word instead of the previous character.</P>
+
+<TR>
+
+<TD>
+
+<P>\</P>
+
+<TD>
+
+<P>Escapes the next Erase or Kill character. It is similar to Ctrl-v, but it doesn't escape other commands.</P></TABLE>
+
+<P>Most vi commands can be preceded with a repeat factor, shown in the box as [n]. If you omit the repeat factor, the command executes its normal function one time. A repeat factor larger than one causes the command to repeat its action the specified 
+number of times. Thus, 2W causes the cursor to skip forward not one but two words, and 7r. replaces seven characters starting at the cursor position with periods.
+
+<BR></P>
+
+<P>Commands shown with the symbol 
+
+<A HREF="unxadp.htm#I0" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxadp.htm#I0"></A>drslt}}by itself, would move the cursor beyond the desired text. For example, dw deletes the current word. cte changes text up to, but not including, the next e in the line. y0 yanks the characters from the beginning of the line 
+
+up to, but not including, the character at the cursor position.
+
+<BR></P>
+
+<P>Framing cursor motion commands to meet your text editing objectives is your responsibility. There are no prespecified limitations on the way to select a range of text; you are free to choose whatever comes naturally to you. Until you are comfortable 
+with the use of cursor motion commands, however, stick to simple combinations, such as cw or cW to change a word.
+
+<BR></P>
+
+<P>The capitalized cursor movement commands B, E, and W differ from their lowercase counterparts in their choice of delimiters. The lower case b, e, and w commands consider a word to end at the next nonalphanumeric punctuation character&#151;which can be a 
+
+blank or tab, but also includes apostrophes, commas, and so on. The B, E, and W commands consider a word to be delimited strictly by blanks or tabs. They skip over&#151;or select&#151;punctuation characters as well as alphanumerics.
+
+<BR></P>
+
+<P>Most of the commands leave you in command mode. A few&#151;a, A, c, C, i, I, R, and S&#151;switch to input mode to enable you to enter text. If, after entering the text, you are ready to execute the command, simply press Enter. If you want to edit the 
+line some more, however, you must switch back to command mode. In that case, press Esc after entering the desired text.
+
+<BR></P>
+
+<P>Not all commands supported by the vi editor are shown in Table 12.1. Commands not shown are not supported by the built-in vi edit mode of the Korn shell. Noteworthy omissions include the o and O (open) commands, the m (mark) command, and scrolling 
+commands such as z, H, and M. These omissions are due to the difference between a command editor and a file editor. In a command editing context, they have no useful purpose.
+
+<BR></P>
+
+<P>If you want a fuller discussion of the vi text editing commands, refer to Chapter 7, &quot;Editing Text Files.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>EMACS</B><B> Edit Mode</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The EMACS edit mode is designed to parallel the editing interface offered by the EMACS editor. The EMACS editor is not so widely available as the vi editor, but many people feel its modeless full-screen editing style is more natural than vi. Be that as 
+
+it may, a modal editing style is well suited to command editing. Even if you're already an EMACS devotee, you might want to try your hand at the vi edit mode before discarding it out of hand.
+
+<BR></P>
+
+<P>The EMACS edit mode is activated when you enter the command
+
+<BR></P>
+
+<PRE>set -o EMACS</PRE>
+
+<P>If you prefer to always use the EMACS edit mode, you can add the command to your .profile. Note, however, that you can't have the EMACS and vi edit modes both active at once. You can switch between them or shut them both off.
+
+<BR></P>
+
+<P>Because the EMACS editing interface is modeless, you can always enter text into the current line. To perform an editing operation, you generally enter a command prefixed by the Esc key. Commands therefore generally require at least two keystrokes. 
+Because the Escape key isn't conveniently located on most keyboards, entering a series of editing commands is quite a feat of gymnastics.
+
+<BR></P>
+
+<P>The EMACS keyboard commands are described in Table 12.3. The commands are listed in alphabetical order by the command letter, with special characters (*, =, and so on) listed first. All commands are one letter, preceded by Ctrl or Esc. As usual, you 
+hold down the Ctrl key while pressing the command letter, but you press and release the Esc key before pressing the command letter key.
+
+<BR></P>
+
+<P>Many commands enable you to specify a repeat count in the form Esc n before the command. The repeat count either repeats the action of the command that number of times or specifies a column relative to which the command should operate. The value of n 
+starts at 1. Esc 1 means execute the command once&#151;it is the same as omitting Esc n&#151;or column 1 of the current line.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> The EMACS editing mode edits lines, not commands. Command history might contain multiline commands, such as if or while, if you use such commands at the keyboard. The vi editing mode processes 
+such commands as a single entity, but in the EMACS editing mode you might need to use the Ctrl-o (operate) command to step through multiline commands when you retrieve them from command history.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The EMACS command editing interface is an example of a user interface designed for an alien species, since it obviously requires the use of three hands to perform well. If you are a beginner or a casual user of command editing, you may nevertheless find 
+
+EMACS editing mode preferable to the vi mode, because with EMACS there's no confusion between command mode versus input mode. As your proficiency and keyboard speed increase, however, the vi editing mode becomes a more attractive interface.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 12.3. </B><B><I>emacs</I></B><B> editing mode commands.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Esc n</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Key Sequence</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Action</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Enter</P>
+
+<TD>
+
+<P>Executes the current line. On some terminals, it is labeled Return.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Erase</P>
+
+<TD>
+
+<P>The stty erase character. It deletes the character preceding the cursor.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Erase</P>
+
+<TD>
+
+<P>Backspaces n characters.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Kill</P>
+
+<TD>
+
+<P>Deletes the entire line. When entered twice in quick succession, it causes subsequent Kill characters to print blank lines.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>\</P>
+
+<TD>
+
+<P>Escapes the next character, enabling the Erase, Kill, EOF, and Esc characters and Ctrl-x characters to be entered into the current line. The \ itself is discarded. Type \\ to enter a single backslash.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc Esc</P>
+
+<TD>
+
+<P>Appends characters to the current word to complete the pathname.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc Space</P>
+
+<TD>
+
+<P>Set a mark at the cursor position.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc *</P>
+
+<TD>
+
+<P>Performs pathname expansion on the current word as though an * were appended and replaces the word with the list of pathnames that match, if any.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc =</P>
+
+<TD>
+
+<P>Lists pathnames that match the current word, as though * were appended to the word. The current line is not changed.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc &lt;</P>
+
+<TD>
+
+<P>Fetches the least recent line from command history.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc &gt;</P>
+
+<TD>
+
+<P>Fetches the most recent line from command history.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc .</P>
+
+<TD>
+
+<P>Inserts the last word of your previous command at the current cursor position.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc .</P>
+
+<TD>
+
+<P>Inserts the nth word of your previous command at the cursor position.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc _</P>
+
+<TD>
+
+<P>Same as Esc . .</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc Ctrl-?</P>
+
+<TD>
+
+<P>Same as Esc Ctrl-h. (Note 3)</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc Ctrl-?</P>
+
+<TD>
+
+<P>Same as Esc Ctrl-h. (Note 3)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc letter</P>
+
+<TD>
+
+<P>Invokes the macro defined as an alias named _letter. (Note 6)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-] c</P>
+
+<TD>
+
+<P>Moves cursor to next occurrence of character c in this line.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-a</P>
+
+<TD>
+
+<P>Moves cursor to start of line.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-b</P>
+
+<TD>
+
+<P>Moves cursor left one character.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-b</P>
+
+<TD>
+
+<P>Moves cursor left n characters.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc b</P>
+
+<TD>
+
+<P>Moves cursor to beginning of word.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc b</P>
+
+<TD>
+
+<P>Moves back n-1 words.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-c</P>
+
+<TD>
+
+<P>Make the current character uppercase.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-c</P>
+
+<TD>
+
+<P>Makes n characters uppercase.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc c</P>
+
+<TD>
+
+<P>Makes everything to end of current word uppercase. (Note 5)</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc c</P>
+
+<TD>
+
+<P>Uppercase n words from cursor position. (Note 5)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-d</P>
+
+<TD>
+
+<P>Deletes one character. (Note 1)</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-d</P>
+
+<TD>
+
+<P>Deletes n characters. (Note 1)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc d</P>
+
+<TD>
+
+<P>Deletes to the end of the current word.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc d</P>
+
+<TD>
+
+<P>Deletes to end of nth word right.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-e</P>
+
+<TD>
+
+<P>Moves cursor to end of line.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-f</P>
+
+<TD>
+
+<P>Move cursor right one character.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-f</P>
+
+<TD>
+
+<P>Move cursor right n characters.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc f</P>
+
+<TD>
+
+<P>Move cursor right one word.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc f</P>
+
+<TD>
+
+<P>Move cursor right n words.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc h</P>
+
+<TD>
+
+<P>Same as Esc Ctrl-h.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc h</P>
+
+<TD>
+
+<P>Same as Esc n Esc Ctrl-h.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc Ctrl-h</P>
+
+<TD>
+
+<P>Deletes backward to beginning of current word. (Note 2)</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc Ctrl-h</P>
+
+<TD>
+
+<P>Deletes backward to beginning of nth previous word. (Note 2)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-j</P>
+
+<TD>
+
+<P>Same as Enter.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-k</P>
+
+<TD>
+
+<P>Deletes to end of line.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-k</P>
+
+<TD>
+
+<P>Deletes characters back to or up to column n.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-l</P>
+
+<TD>
+
+<P>Redisplays the entire current line.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc l</P>
+
+<TD>
+
+<P>Makes all characters to end of current word lowercase. (Note 5)</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Esc l</P>
+
+<TD>
+
+<P>Makes n words from cursor position lowercase. (Note 5)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-m</P>
+
+<TD>
+
+<P>Same as Enter.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-n</P>
+
+<TD>
+
+<P>Fetches the next line from the command history flie. Successive presses retrieve more recent lines in progression.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-n</P>
+
+<TD>
+
+<P>Fetches the nth line forward from your present position in the command history file.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-o</P>
+
+<TD>
+
+<P>Executes the current line and then fetches the next line from command history. (Note 7)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-p</P>
+
+<TD>
+
+<P>Replaces the current line with the last line of command history. Successive presses retrieve consecutively older lines from command history.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc n</P>
+
+<TD>
+
+<P>Ctrl-p</P>
+
+<TD>
+
+<P>Fetches the nth line back from command history.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Esc p</P>
+
+<TD>
+
+<P>Copies text from cursor to mark into an internal buffer.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-r string </P>
+
+<TD>
+
+<P>Searches command history for the most recent line</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Enter </P>
+
+<TD>
+
+<P>containing string. To repeat the previous search, omit string.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc 0</P>
+
+<TD>
+
+<P>Ctrl-r string </P>
+
+<TD>
+
+<P>Searches command history starting at the oldest </P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Enter </P>
+
+<TD>
+
+<P>line forward for the first occurrence of string. To repeat the previous search, omit string.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-r ^string </P>
+
+<TD>
+
+<P>Same as Ctrl-r, except that it matches string only</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Enter </P>
+
+<TD>
+
+<P>at the beginning of a line.</P>
+
+<TR>
+
+<TD>
+
+<P>Esc 0</P>
+
+<TD>
+
+<P>Ctrl-r ^string </P>
+
+<TD>
+
+<P>Same as Esc 0 Ctrl-r, except that it matches string</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Enter </P>
+
+<TD>
+
+<P>only at the beginning of a line.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-t</P>
+
+<TD>
+
+<P>Transposes the current and next characters. (Note 4)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-u</P>
+
+<TD>
+
+<P>Multiplies count of next command by 4. Thus, Ctrl-u Ctrl-f moves the cursor right four positions.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-v</P>
+
+<TD>
+
+<P>Displays the current version of the Korn shell. To redisplay the current line, press any key.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-w</P>
+
+<TD>
+
+<P>Deletes characters from cursor to mark.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-x Ctrl-x</P>
+
+<TD>
+
+<P>Moves cursor to the mark position, setting a new mark at the old cursor position. This is called swap cursor and mark.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Ctrl-y</P>
+
+<TD>
+
+<P>Inserts most recently deleted text at the current cursor position.</P></TABLE>
+
+<OL>
+
+<LI>If the Ctrl-d key is assigned to the EOF function with the stty command, it is interpreted as your EOF key when typed at the beginning of the line. Otherwise, it performs the delete function.
+
+<BR>
+
+<BR></LI>
+
+<LI>Most terminals generate Ctrl-h for the Backspace key. Some, however, generate ASCII DEL (0177). Therefore, the shorthand Esc Backspace might not work for your terminal.
+
+<BR>
+
+<BR></LI>
+
+<LI>The sequence Ctrl-? is not to be taken literally. It represents the ASCII DEL (0177) character. Most terminals generate the DEL character in response to the Delete key, in which case Esc Delete is a synonym for Esc Backspace.
+
+<BR>
+
+<BR></LI>
+
+<LI>If set -o gmacs is used instead of set -o EMACS, Ctrl-t transposes the current and previous character, not the current and next. This is the only difference between the EMACS and gmacs editing modes.
+
+<BR>
+
+<BR></LI>
+
+<LI>Changing character case also moves the cursor to the right, spacing over the changed character(s).
+
+<BR>
+
+<BR></LI>
+
+<LI>A macro is defined with the alias shell built-in command. Its name must begin with an underscore and must be followed by one letter. The value of the alias is processed as if you typed the characters of the value at the time of invoking the macro. 
+Thus, sequences such as Ctrl-f in the alias value move the cursor at its current position. The letter used in the macro name should not be b, c, d, f, h, l, or p; these letters are already assigned to EMACS commands.
+
+<BR>
+
+<BR></LI>
+
+<LI>To use the operate (Ctrl-o) command, you must have previously established a position in the command history file using Ctrl-p, Ctrl-n, or other history command. Successive presses of Ctrl-o step through lines of command history in the 
+forward&#151;older to newer&#151;direction, executing one line at a time. You have the opportunity to change each line before pressing Ctrl-o to execute it.
+
+<BR>
+
+<BR></LI></OL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>Variables</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You were introduced to the concept of shell variables in Chapter 11, &quot;Bourne Shell.&quot; Everything you learned there remains true for the Korn shell. However, the Korn shell provides some significant extensions to shell variable support. Among 
+these are a greatly expanded set of variables having special meaning to the shell. These variables are often called predefined variables, because the shell provides an initial default value for them when you log in. The Korn shell also supports array 
+variables and enhanced arithmetic on shell variables, both of which are a great boon to shell script writers. Naturally, the syntax of shell variable references is expanded to support these capabilities.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Predefined Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Variables having special meaning to the shell fall into two main groups: those which you can set to affect the behavior of the shell, and those which the shell sets for you to provide information.
+
+<BR></P>
+
+<P>Variables whose values are set by the shell include the familiar $@, $*, $#, $-, $?, and $$, as well as the new $!. The new variable $! provides the process ID of the last command you invoked. It differs from $$ in that the value of $$&#151;your current 
+
+process ID&#151;is generally that of the shell itself and doesn't change, whereas the value of $! changes everytime you invoke a command. The values of the other shell variables have the same meaning as they do with the Bourne shell.
+
+<BR></P>
+
+<P>The following named variables are set by the Korn shell:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>_</P>
+
+<TD>
+
+<P>The full pathname of the last command you invoked. For example, after the command ls *.c, the value of $_ is /usr/bin/ls.</P>
+
+<TR>
+
+<TD>
+
+<P>ERRNO</P>
+
+<TD>
+
+<P>The nonzero exit code of the last command that failed. This variable is similar to $?, but it differs in that its value changes only when a command fails. Successfully executed commands don't change the value of $ERRNO. This variable is primarily a 
+diagnostic aid for use at the keyboard; it is of little use to shell scripts.</P>
+
+<TR>
+
+<TD>
+
+<P>LINENO</P>
+
+<TD>
+
+<P>The LINENO variable is meaningful only within a shell script. Its value is the line number of the line in the script currently being executed. You can assign a value to LINENO, but it will be changed by the next shell script you invoke&#151;or, if 
+inside a shell script, by the next line executed.</P>
+
+<TR>
+
+<TD>
+
+<P>OLDPWD</P>
+
+<TD>
+
+<P>The value of the OLDPWD variable is always the full pathname of the directory that was current immediately before the last cd command. In other words, repeated executions of cd $OLDPWD switch you back and forth between your current and previous 
+directories. An important use of the $OLDPWD variable is to facilitate cp and mv commands. cd someplace followed by cp filelist<I> </I>$OLDPWD copies files to your original directory without your having to type the full directory pathname. Then use cd 
+$OLDPWD to switch back to your original directory. (In the Korn shell, the shorthand cd - means the same thing as cd $OLDPWD.)</P>
+
+<TR>
+
+<TD>
+
+<P>OPTARG</P>
+
+<TD>
+
+<P>The value of OPTARG is set by the getopts command, a new built-in command provided by the Korn shell. (For more information, refer to the &quot;Shell Programming&quot; section later in this chapter.)</P>
+
+<TR>
+
+<TD>
+
+<P>OPTIND</P>
+
+<TD>
+
+<P>The value of OPTIND is set by the getopts command, a new built-in command provided by the Korn shell. (For more information, refer to the &quot;Shell Programming&quot; section later in this chapter.)</P>
+
+<TR>
+
+<TD>
+
+<P>PPID</P>
+
+<TD>
+
+<P>The value of PPID is the your current parent process-ID. That is, if $$ is the current process-ID, $PPID is the process-ID of the parent process of $$. This variable is especially useful to shell script writers. It has little use at the keyboard. 
+(Processes and process identifiers are discussed in Chapter 18, &quot;What Is a Process?&quot;)</P>
+
+<TR>
+
+<TD>
+
+<P>PWD</P>
+
+<TD>
+
+<P>The full pathname of your current directory. Because of symbolic links, the value of $PWD isn't necessarily the same as the value printed by the pwd command. Suppose, for example, that a directory /usr/bin exists and that a symbolic link to /usr/bin 
+exists named /bin. After cd /bin, the pwd command will print /usr/bin&#151;the real pathname of the directory&#151;but the statement print $PWD will print /bin&#151;the pathname by which you reached the directory. (Links are explained in Chapter 3, 
+&quot;The UNIX File System: Go Climb a Tree.&quot;)</P>
+
+<TR>
+
+<TD>
+
+<P>RANDOM</P>
+
+<TD>
+
+<P>The value of $RANDOM is an integer in the range of 0 to 32,767. The value is different in a random way every time you examine it. This variable is not for general use, but a few game programs written in the Korn shell script language use this 
+variable.</P>
+
+<TR>
+
+<TD>
+
+<P>REPLY</P>
+
+<TD>
+
+<P>The select statement, which is new with the Korn shell, sets the value of $REPLY to the user's input text. The read built-in command stores the user's typed input in $REPLY if you supply no variable names on the read command. (For more information, 
+refer to the &quot;Using the select Statement&quot; section later in this chapter.)</P>
+
+<TR>
+
+<TD>
+
+<P>SECONDS</P>
+
+<TD>
+
+<P>The integer number of seconds since you invoked the Korn shell&#151;usually since you logged in, unless you explicitly invoked the Korn shell with the ksh command. This variable simply records the wall-clock time the Korn shell has been running at your 
+
+terminal.</P></TABLE>
+
+<P>The shell variables set by the Korn shell listed above don't require your attention. If you have a use for one of them, refer to it at your keyboard or in a shell script. You don't need to assign values to them, though. In some cases, you aren't even 
+allowed to assign a value.
+
+<BR></P>
+
+<P>Some variables, however, require attention from you. In most cases, the Korn shell assigns a default value to these variables when it starts. You may override this default value in your login profile&#151;a file named .profile in your home 
+directory&#151;or at any later time by using an assignment statement from the keyboard. The values of these variables affect the way the Korn shell works. Proper setup of these variables can enhance your effectiveness and productivity.
+
+<BR></P>
+
+<P>Variables used by the Korn shell are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>CDPATH</P>
+
+<TD>
+
+<P>The value of $CDPATH is a list of colon-separated directory pathnames. The value is referenced only by the cd command. Use the CDPATH variable to name a list of directories to be searched when you issue cd with a directory's simple filename. The benefit 
+
+of CDPATH is that it enables you to switch to a directory by giving only its filename instead of the full pathname. There is no default value for CDPATH.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> I always put the following definition in my login profile:
+
+<BR>
+
+<BR>CDPATH=.:..:$HOME
+
+<BR>
+
+<BR>The command cd src looks first for a directory named src as a subdirectory in the current directory. Failing that, the cd command looks for src in the parent directory. If no directory named src is found in either place, it tries to change to src in my 
+
+home directory. I find that proper use of the CDPATH variable saves a lot of typing.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>COLUMNS</P>
+
+<TD>
+
+<P>The value of $COLUMNS defines the display width used by the Korn shell command edit mode&#151;either vi or EMACS&#151;as a view window for long lines, and as the screen width for printing the select list. The default value is 80.</P>
+
+<TR>
+
+<TD>
+
+<P>EDITOR</P>
+
+<TD>
+
+<P>The value of $EDITOR is used primarily by programs other than the Korn shell. However, if you set the value of EDITOR (in your profile or at the keyboard), the Korn shell will inspect the value for a pathname ending in vi or emacs. If either value is 
+found, the Korn shell automatically sets the corresponding vi or EMACS option, enabling command editing. This is only a convenience. You can still toggle the command edit mode by using the set -o command. There is no default value for EDITOR.</P>
+
+<TR>
+
+<TD>
+
+<P>ENV</P>
+
+<TD>
+
+<P>The value of $ENV is the pathname of a shell script containing commands to be executed when the Korn shell is invoked. Note that the Korn shell is implicitly invoked every time you invoke a command written as a Korn shell script. You can also invoke the 
+
+Korn shell from within other UNIX commands such as vi and pg. By placing alias, export, and set commands in a file and supplying the file's pathname as the value of $ENV, you can ensure that you have the same shell environment whenever you invoke the Korn 
+
+shell. Keep the file pointed to by $ENV small, for its execution is added to the execution of every shell script you execute. (For more information, refer to the &quot;Customizing&quot; section later in this chapter.) There is no default value for ENV.</P>
+
+
+
+<TR>
+
+<TD>
+
+<P>FCEDIT</P>
+
+<TD>
+
+<P>The value of $FCEDIT is the pathname of the text editor to be invoked by the fc command. You can override the value of FCEDIT using the -e option on the fc command. The default value of FCEDIT is /bin/ed.</P>
+
+<TR>
+
+<TD>
+
+<P>FPATH</P>
+
+<TD>
+
+<P>The value of $FPATH is a colon-separated list of directories, the same format as for CDPATH and PATH. The directory list is searched for autoload function definitions. (Refer to the &quot;Shell Programming&quot; section later in this chapter for a 
+discussion of autoload functions.) There is no default value for FPATH.</P>
+
+<TR>
+
+<TD>
+
+<P>HISTFILE</P>
+
+<TD>
+
+<P>HISTFILE is the filename of the Korn shell history file. If you want to specify an explicit filename for your history file, supply a value for HISTFILE in your login profile. The default value of HISTFILE is $HOME/.sh_history.</P>
+
+<TR>
+
+<TD>
+
+<P>HISTSIZE</P>
+
+<TD>
+
+<P>The value of HISTSIZE is an integer number specifying the maximum number of commands&#151;not lines&#151;to be retained in the history file. The shell may retain more than HISTSIZE commands in memory while you are working, but it will not accumulate 
+more than HISTSIZE commands in the history file on disk. Note that a value you set for HISTSIZE is treated somewhat like a suggestion; depending on the specific version of the Korn shell you are using, it may act as a fixed upper limit to the number of 
+commands remembered or as an at-least value. The default value of HISTSIZE is 128.</P>
+
+<TR>
+
+<TD>
+
+<P>HOME</P>
+
+<TD>
+
+<P>HOME with the Korn shell works the same as it does with the Bourne shell. The value of HOME is the pathname of your home directory. The value of HOME is used primarily by the cd command as the default directory when you specify no argument. It is also 
+used by a great many commands and shell scripts. The variable is initialized by the UNIX login procedure before any shell is invoked. It is almost never proper for you to change the value of HOME. The default value of HOME is the sixth field of the 
+/etc/passwd file entry for your login name.</P>
+
+<TR>
+
+<TD>
+
+<P>IFS</P>
+
+<TD>
+
+<P>IFS with the Korn shell works the same as it does with the Bourne shell. The value of IFS is zero or more characters to be treated by the shell as delimiters when parsing a command line into words. Rarely manipulated at the keyboard, the IFS variable 
+can be altered in a shell script to parse a string into substrings using arbitrary delimiters. Improper alteration of the IFS variable can cause bizarre problems, so you should always manipulate it with care and always restore it to its original value. The 
+
+default value of IFS is the three characters Blank, Tab, and Newline in succession.</P>
+
+<TR>
+
+<TD>
+
+<P>LINES</P>
+
+<TD>
+
+<P>The value of LINES is an integer number representing the number of lines displayed by your terminal. The Korn shell uses the value of LINES, if set, to limit the printing of select lists. (Refer to the &quot;Using the select Statement&quot; section 
+later in this chapter.) If no value is set, select lists can be arbitrarily long, and some lines may scroll off the display. There is no default value for LINES.</P>
+
+<TR>
+
+<TD>
+
+<P>MAIL</P>
+
+<TD>
+
+<P>MAIL with the Korn shell works the same as it does with the Bourne shell. The value is the pathname of a file to be monitored by the shell for a change in its date of last modification. If a change is noted, the shell issues the message You have mail at 
+
+the next opportunity. There is no default value for MAIL. You should set MAIL to the name of your mail file in your login profile.</P>
+
+<TR>
+
+<TD>
+
+<P>MAILCHECK</P>
+
+<TD>
+
+<P>The value of MAILCHECK is an integer number of seconds that specifies how often the shell should check for a change to the MAIL file. If MAILCHECK is not set or is zero, the shell checks at each command-line prompt for a change in the mail file. The 
+default value of MAILCHECK is 600.</P>
+
+<TR>
+
+<TD>
+
+<P>MAILPATH</P>
+
+<TD>
+
+<P>The value of MAILPATH is a colon-separated list of pathnames, each of which identifies a file to be monitored for a change in the date of last modification. A pathname can be suffixed with a question mark and message to customize the You have mail 
+message&#151;for example, MAILPATH=/var/spool/mail/jjv?New mail in /var/spool:/usr/mail/jjv?New mail in /usr/mail. Generally, you should set either the MAIL or the MAILPATH variable but not both. There is no default value for MAILPATH.</P>
+
+<TR>
+
+<TD>
+
+<P>PATH</P>
+
+<TD>
+
+<P>PATH with the Korn shell works the same as it does with the Bourne shell. The default value is system dependent.</P>
+
+<TR>
+
+<TD>
+
+<P>PS1</P>
+
+<TD>
+
+<P>PS1 is the primary prompt string. The Korn shell performs full substitution on the value of $PS1 before displaying it at the beginning of each command input line. You can, therefore, customize your prompt in the Korn shell environment to a much greater 
+
+degree than when using the Bourne shell. For example, specify PS1='$PWD: ' to make your prompt be your current directory. (The quotes are important to prevent substitution of the value of PWD as part of the assignment; this enables the substitution to 
+occur later when the value of $PS1 is printed.) The default value is &quot;$ &quot;.</P>
+
+<TR>
+
+<TD>
+
+<P>PS2</P>
+
+<TD>
+
+<P>PS2 is the secondary prompt string. It is the same as with the Bourne shell. The default value is &quot;&gt; &quot;.</P>
+
+<TR>
+
+<TD>
+
+<P>PS3</P>
+
+<TD>
+
+<P>PS3 selects a prompt string. The value of $PS3 is printed as the selection prompt by the select command. (Refer to the &quot;Using the select Statement&quot; section later in this chapter.)</P>
+
+<TR>
+
+<TD>
+
+<P>PS4</P>
+
+<TD>
+
+<P>PS4 debugs a prompt string. The value of $PS4 is scanned for variable substitution and is printed in front of each line displayed by the trace or -x option.</P>
+
+<TR>
+
+<TD>
+
+<P>SHELL</P>
+
+<TD>
+
+<P>SHELL is the pathname of the shell. The Korn shell sets a default value for $SHELL only if it is not set when ksh begins. The value isn't used directly by the Korn shell, but many other commands (such as vi and pg) use the value of $SHELL as the 
+pathname of the shell to be called when invoking a subshell. If the $SHELL variable is defined when ksh begins and starts with an r, the Korn shell behaves as a restricted shell. That is, the user cannot invoke commands with a full pathname and cannot use 
+
+the cd command.</P>
+
+<TR>
+
+<TD>
+
+<P>TERM</P>
+
+<TD>
+
+<P>The value of TERM is a symbolic alphanumeric string that identifies the type of your terminal. Not used by the Korn shell directly, the variable name TERM is reserved for general system use. The proper setting of $TERM is important to the proper and 
+reasonable operation of your terminal, it and should be initialized appropriately when you log in. For the allowable values at your installation, consult your system administrator. There is no default value for TERM.</P>
+
+<TR>
+
+<TD>
+
+<P>TMOUT</P>
+
+<TD>
+
+<P>The value of TMOUT is an integer specifying the number of seconds after which no terminal activity should cause the Korn shell to automatically log out. A value of zero disables the automatic logout function.</P>
+
+<TR>
+
+<TD>
+
+<P>VISUAL</P>
+
+<TD>
+
+<P>The value of $VISUAL is used primarily by programs other than the Korn shell. However, if you set the value of VISUAL (in your profile or at the keyboard), the Korn shell will inspect the value for a pathname ending in vi or EMACS. If either value is 
+found, the Korn shell automatically sets the corresponding vi or EMACS option, enabling command editing. This is only a convenience. You can still toggle the command edit mode using the set -o command. There is no default value for VISUAL.</P></TABLE>
+
+<P>As with the Bourne shell, variable names in the Korn shell begin with a letter or an underscore, and they contain an arbitrary number of letters, underscores, and digits. The variable name is a symbolic representation for the variable's value, which can 
+
+be changed from time by an assignment statement, by the set, read, or select statements, as a by-product of the execution of shell built-in or other commands, or by the Korn shell itself. There is no arbitrary upper limit to the number of variables you can 
+
+define and use, but the amount of memory available to the shell sets a practical (usually large) upper limit.
+
+<BR></P>
+
+<P>You can explicitly assign a value to a variable name using an assignment in the format name=value. Note that you don't write a dollar sign ($) in front of name when you write the assignment. The dollar sign is appropriate only when referring to the 
+value of the variable.
+
+<BR></P>
+
+<P>The value of a variable is a string&#151;that is, a sequence of alphanumeric and special characters&#151;of arbitrary length. The Korn shell provides a number of extensions which enable the value of a variable to be manipulated in arithmetic ways. The 
+variable's value is still stored as a string, however.
+
+<BR></P>
+
+<P>A variable retains its value from the time it is set&#151;whether explicitly by you or implicitly by the Korn shell&#151;until the value is changed or the shell exits. Note, however, that the value isn't passed to commands and shell scripts that you 
+invoke unless the variable is marked for exportation. You mark a variable for exporting with the typeset shell built-in command or the export alias. Exported variables become part of the environment of all invoked commands.
+
+<BR></P>
+
+<P>Because the values of variables are retained internally in a memory table by the shell, all variables that the shell didn't inherit are automatically lost when the shell exits. For this reason, you cannot assign a value to a shell variable inside a 
+shell script&#151;one invocation of the shell&#151;and expect the value to be retained after the shell script exits; the shell returns to a higher level shell. In other words, you can assign values to variables and export the variables to pass values 
+downward to subshells of your current shell, but you cannot pass values upward to higher-level shells or shell scripts.
+
+<BR></P>
+
+<P>This limitation on the use of shell variables isn't normally visible to you at the keyboard. It normally arises in issues relating to shell programming. However, if you invoke the shell directly&#151;by entering the sh, ksh, or csh command&#151;or 
+indirectly&#151;by entering the shell environment from within another UNIX command, such as vi or pg&#151;you should realize that any changes to the shell environment, including variable settings and aliases, will be lost when you return to your original 
+shell level by exiting the subshell.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Referencing Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Korn shell replaces strings that begin with $ and are followed by a reference expression appearing in command lines with the value of the reference expression. Any number of reference expressions may appear in the same command line. Adjacent 
+references, when replaced, don't introduce new word boundaries into the command line. That is, a single word&#151;command name, option, or argument&#151;isn't split into two or more words by replacement even if the replaced value contains blanks, tabs, or 
+
+other delimiter characters. You can use the eval shell built-in command when you want delimiters in the replacement text to cause further word splitting.
+
+<BR></P>
+
+<P>The valid reference expressions for the Korn shell are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>name</P>
+
+<TD>
+
+<P>{name#pattern}</P>
+
+<TR>
+
+<TD>
+
+<P>{name}</P>
+
+<TD>
+
+<P>{name##pattern}</P>
+
+<TR>
+
+<TD>
+
+<P>{name[n]}</P>
+
+<TD>
+
+<P>{name%pattern}</P>
+
+<TR>
+
+<TD>
+
+<P>{name[*]}</P>
+
+<TD>
+
+<P>{name%%pattern}</P>
+
+<TR>
+
+<TD>
+
+<P>{name[@]}</P>
+
+<TD>
+
+<P>{#@}</P>
+
+<TR>
+
+<TD>
+
+<P>{name:word}</P>
+
+<TD>
+
+<P>{#*}</P>
+
+<TR>
+
+<TD>
+
+<P>{name-word}</P>
+
+<TD>
+
+<P>{#name}</P>
+
+<TR>
+
+<TD>
+
+<P>{name=word}</P>
+
+<TD>
+
+<P>{#name[*]}</P>
+
+<TR>
+
+<TD>
+
+<P>{name?word}</P>
+
+<TD>
+
+<P>{#name[@]}</P>
+
+<TR>
+
+<TD>
+
+<P>{name+word}</P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>name</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression $name is replaced by the current value of the shell variable named name. If no value for the variable has been defined, the dollar sign and the variable name are replaced with the null string. For example,
+
+<BR></P>
+
+<PRE>$ today=&quot;January 13&quot;
+
+$ print Today is:$today.
+
+Today is:January 13.
+
+$ print Today is $tomorrow.
+
+Today is:.</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>{name}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression ${name} is replaced by the current value of the shell variable named name. The braces help to separate the variable reference from surrounding text; they are discarded after substitution. You must use braces to reference a shell parameter 
+
+greater than $9&#151;for example, ${10} or ${12}&#151;or to reference an array variable. For example,
+
+<BR></P>
+
+<PRE>$ Person1=John
+
+$ Person2=Mike
+
+$ print $Person1 and $Person2
+
+John and Mike
+
+$ print $Person1and$Person2
+
+Person1and: not defined
+
+$ print ${Person1}and$Person2
+
+JohnandMike</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>{name[n]}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of the nth element of the array variable name; it is null if the nth element isn't set. The first element of an array variable is ${name[0]}.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>{name[*]}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of all the elements of the array variable name that are set, separated by blanks. Substitution occurs in the same way as for the special expression $* with regard to embedded blanks and word splitting. For 
+example,
+
+<BR></P>
+
+<PRE>$ set -A planets Mercury Venus Earth Mars
+
+$ planet[9]=Pluto
+
+$ print ${planets[*]}
+
+Mercury Venus Earth Mars Pluto</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>{name[@]}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of all the elements of the array variable name that are set, separated by blanks. If elements of the array contain strings with embedded blanks and if the expression ${name[@]} is contained inside quotes, the 
+number of words in the substituted expression is equal to the number of non-null array elements. Otherwise, embedded blanks cause word splitting to occur, and the number of substituted words will be greater than the number of non-null array elements. For 
+example,
+
+<BR></P>
+
+<PRE>$ set -A committee &quot;B Jones&quot; &quot;M Hartly&quot; &quot;C Rogers&quot;
+
+$ for word in ${committee[@]}
+
+&gt; do
+
+&gt; print $word
+
+&gt; done
+
+B
+
+Jones
+
+M
+
+Hartly
+
+C
+
+Rogers
+
+$ for word in &quot;${committee[@]}&quot;
+
+&gt; do
+
+&gt; print $word
+
+&gt; done
+
+B Jones
+
+M Hartly
+
+C Rogers</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>{name:-word}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression is replaced by the value of variable name, if the variable has a value and the value is at least one character long. Otherwise, the expression is replaced by word. Note that word should not contain embedded blanks or tabs, although it may 
+
+contain quoted strings.
+
+<BR></P>
+
+<P>Combine : with -, =, ?, or + to treat a variable with a null value&#151;that is, a zero-length string&#151;the same as an unset variable. Without :, the variable is tested only for whether it is set. For example,
+
+<BR></P>
+
+<PRE>$ month=January
+
+$ print This month is ${month:-unknown}
+
+This month is January
+
+$ print This year is ${year:-unknown}
+
+This year is unknown</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>{name-word}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression is replaced by the value of name, if the variable has a value. Otherwise, it is replaced by word. You can use ${name:-word} to ignore a value that is not set or is null. For example,
+
+<BR></P>
+
+<PRE>$unset month
+
+$ month=January
+
+$ print This month is ${month:unknown}
+
+This month is January
+
+$ print This year is ${year:unknown}
+
+This year is unknown</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>{name=word}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression is replaced by the value of name, if the variable has a value. Otherwise, word is assigned as the value of word, and the expression is replaced by word. You can use ${name:=word} to assign word to name if the variable is either not set or 
+
+is null. For example,
+
+<BR></P>
+
+<PRE>$ print This month is $month.
+
+This month is .
+
+$ print This month is ${month=January}.
+
+This month is January.
+
+$ print This month is $month.
+
+This month is January.</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>{name?word}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression is replaced by the value of name, if the variable has a value. Otherwise, the string word is printed as an error message. An unset variable is recognized as an error and halts processing of the current command line. If the error is 
+recognized inside a shell script, execution of the shell script is terminated. Use ${name:?word} to recognize either an unset or null value as an error. For example,
+
+<BR></P>
+
+<PRE>$ month=January
+
+$ print This month is ${month?unknown}
+
+This month is January
+
+$ print This year is ${year?unknown}
+
+ksh: year: unknown</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>{name+word}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expression is replaced by the value of word if the variable name has a value. If the variable is not set, the expression is replaced by the null string. That is, if name has a value, it temporarily treats the value as though it were word. If name 
+doesn't have a value, the expression has no value either. Use ${name:+word} to treat a null value the same as an unset value. For example,
+
+<BR></P>
+
+<PRE>$ month=January
+
+$ print This month is ${month+unknown}
+
+This month is unknown.
+
+$ print This year is ${year+unknown}
+
+This year is .</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>{name#pattern}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of name with the leftmost occurrence of pattern deleted. The shortest match for pattern is recognized. For pattern, specify a string that contains any character sequence, variable and command substitutions, and 
+wildcard expressions. Only the first occurrence of pattern is deleted. For example,
+
+<BR></P>
+
+<PRE>$ print $PWD
+
+/usr/home/valley
+
+$ print ${PWD#*/}
+
+usr/home/valley</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>{name##pattern}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of name with the leftmost occurrence of pattern deleted. The longest possible match is recognized and deleted. For example,
+
+<BR></P>
+
+<PRE>$ print $PWD
+
+/usr/home/valley
+
+$ print ${PWD##*/}
+
+valley</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>{name%pattern}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of name with the shortest rightmost string matching pattern deleted. For example,
+
+<BR></P>
+
+<PRE>$ print $FNAME
+
+s.myfile.c
+
+$ print ${FNAME%.*}
+
+s.myfile</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>{name%%pattern}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the value of name with the longest rightmost string matching pattern deleted. For example,
+
+<BR></P>
+
+<PRE>$ print $FNAME
+
+s.myfile.c
+
+$ print ${FNAME%%.*}
+
+s</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>{#@}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the integer number of arguments that would be returned by $@.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>{#*}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the integer number of arguments that would be returned by $*. It is the same as $#.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>{#name}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the length of the string value of variable name. For example,
+
+<BR></P>
+
+<PRE>$ print $FNAME
+
+s.myfile.c
+
+$ print ${#FNAME}
+
+10</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>{#name[*]}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The value of the expression is the number of elements of the array variable name that are set. For example,
+
+<BR></P>
+
+<PRE>$ set -A planets Mercury Venus Earth Mars
+
+$ print ${#planets[*]}
+
+4</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>{#name[@]}</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>{#name[@]} is the same as {#name[*]}.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Array Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>An array variable is a variable with more than one value. Array variables are helpful for managing lists of strings, because you can reference an individual element in the list without resorting to string splitting techniques.
+
+<BR></P>
+
+<P>You can assign values to an array one at a time by using the assignment statement. For example,
+
+<BR></P>
+
+<PRE>$ planets[1]=Mercury
+
+$ planets[2]=Venus
+
+$ planets[3]=Earth
+
+$ print ${planets[2]}
+
+Venus</PRE>
+
+<P>The general syntax name[subscript] is supported by the Korn shell for referring to elements of an array. For subscript, supply an integer number in the range of 0 through 511, or write a variable expression whose value is the desired element number. 
+Element numbers begin at zero. Thus, the first element in an array is ${name[0]}.
+
+<BR></P>
+
+<P>You can use the -A option of the set command to set many array elements with one statement. For example, the previous code could be rewritten as
+
+<BR></P>
+
+<PRE>$ set -A planets Mercury Venus Earth
+
+$ print ${planets[2]}
+
+Venus</PRE>
+
+<P>You can also substitute all the elements of an array by using the special notation ${name[*]} or ${name[@]}. For example,
+
+<BR></P>
+
+<PRE>$ set -A planets Mercury Venus Earth
+
+$ planets[9]=Pluto
+
+$ planets[7]=Uranus
+
+$ print The known planets are: ${planets[*]}
+
+The known planets are: Mercury Venus Earth Uranus Pluto</PRE>
+
+<P>There are a few points to remember when using array variables:
+
+<BR></P>
+
+<P>If you reference the array variable without a subscript, the value of the reference is the first element of the array:
+
+<BR></P>
+
+<PRE>$ print $planets
+
+<BR>Mercury</PRE>
+
+<P>Array variables cannot be exported.
+
+<BR></P>
+
+<P>The special expression ${#name[*]} or ${#name[@]} can be used to get the number of non-null elements in an array. For example,
+
+<BR></P>
+
+<PRE>$ <B>print There are ${#planets[*]} planets: ${planets[*]}</B>
+
+<BR>There are 5 planets: Mercury Venus Earth Uranus Pluto</PRE>
+
+<P>You must use the brace-enclosed expression syntax to refer to elements of an array. Without the braces, the Korn shell interprets the expression in the same way the Bourne shell would. For example,
+
+<BR></P>
+
+<PRE>$ print The known planets are $planets[*]
+
+<BR>The known planets are Mercury[*]
+
+<BR>$ print The second planet from the Sun is $planets[2]
+
+<BR>The second planet from the sun is Mercury[2]</PRE>
+
+
+
+
+
+<P><A HREF="unx12.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx12s3.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s3.htm">[To Chapter 12 Section 3]</A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+

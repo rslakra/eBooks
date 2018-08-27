@@ -1,0 +1,2273 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx03.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx04.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx04.htm">
+
+<LINK REL="Previous" HREF="unx02.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx02.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx02.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx02.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx04.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx04.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">3 &#151; The UNIX File System Go Climb a Tree</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Jeff Smith</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">The Types of UNIX Files</A></LI>
+
+<LI>
+
+<A HREF="#I5">Creating Listing, and Viewing Files</A></LI>
+
+<LI>
+
+<A HREF="#I6">The UNIX File Tree</A></LI>
+
+<LI>
+
+<A HREF="#I7">File and Directory Names</A></LI>
+
+<LI>
+
+<A HREF="#I8">Creating Directories with mkdir</A></LI>
+
+<LI>
+
+<A HREF="#I9">Working with Files</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">Copying Files with cp</A></LI>
+
+<LI>
+
+<A HREF="#I11">Moving Files with mv</A></LI>
+
+<LI>
+
+<A HREF="#I12">Removing Files with rm</A></LI></UL>
+
+<LI>
+
+<A HREF="#I13">Working with Directories</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">Creating Multiple Directories with mkdir</A></LI>
+
+<LI>
+
+<A HREF="#I15">Removing a Directory with rmdir</A></LI>
+
+<LI>
+
+<A HREF="#I16">Renaming Directories with mv</A></LI>
+
+<LI>
+
+<A HREF="#I17">Keeping Secrets &#151; File and Directory Permissions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I18">Default File and Directory Permissions&#151;Your umask</A></LI>
+
+<LI>
+
+<A HREF="#I19">Hard and Symbolic Links</A></LI>
+
+<LI>
+
+<A HREF="#I20">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>3 &#151; The UNIX File System Go Climb a Tree</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Jeff Smith</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When you work with UNIX, one way or another you spend most of your time working with files. In this chapter, you learn how to create and remove files, copy and rename them, create links to them, and use directories to organize your files so that you can 
+
+find them later. You also learn how to view your files, list their names and sizes, and move around in the UNIX file tree. Finally, this chapter shows how you can choose to share or restrict the information in your files.
+
+<BR></P>
+
+<P>One of UNIX's greatest strengths is the consistent way in which it treats files. Although some operating systems use different types of files that each require unique handling, you can handle most UNIX files the same. For instance, the cat command, 
+which displays a disk file on your terminal screen, can also send the file to the printer. As far as cat (and UNIX) are concerned, the printer and your terminal look the same, and they look like any other UNIX file. UNIX also doesn't distinguish between 
+files that you create and the standard files that come with the operating system&#151;as far as UNIX is concerned, a file is a file is a file. This consistency makes it easy to work with files because you don't have to learn special commands for every new 
+
+task. Often, as in the cat example, you can use the same command for several purposes. This makes it easy to write UNIX programs because you usually don't have to worry whether you're talking to a terminal, a printer, or an ordinary file on a disk drive.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>The Types of UNIX Files</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are three types of UNIX files: regular files, directories, and device files. Regular files hold executable programs and data. Executable programs are the commands (such as cat) that you enter. Data is information that you store for later use. Such 
+
+information can be virtually anything: a USENET news article with a promising-looking recipe for linguini, a book that you are writing, a homework assignment, or a saved spreadsheet.
+
+<BR></P>
+
+<P>Directories are files that contain other files and subdirectories, just as a filing cabinet's drawers hold related folders. Directories help you organize your information by keeping closely related files in the same place so you can find them later. For 
+
+instance, you might save all your spreadsheets in a single directory instead of mixing them with your linguini recipes and book chapters.
+
+<BR></P>
+
+<P>As in the cat example, files can also refer to computer hardware such as terminals and printers. These device files can also refer to tape and disk drives, CD-ROM players, modems, network interfaces, scanners, and any other piece of computer hardware. 
+Under UNIX, even the computer's memory is a file.
+
+<BR></P>
+
+<P>Although UNIX treats all files similarly, some require slightly unique treatment. For example, UNIX treats directories specially in some ways. Also, because they refer directly to the computer's hardware, device files sometimes must be treated 
+differently from ordinary files. For instance, most files have a definite size in bytes&#151;the number of characters they contain. Your terminal's keyboard is a device file, but how many characters does it hold? The question of file size doesn't make 
+sense in this case. Despite these differences, UNIX commands usually don't distinguish among the various types of files.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Creating Listing, and Viewing Files</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can create files in many ways, even if you don't yet know how to use a text editor. One of the easiest ways is to use the touch command, as follows:
+
+<BR></P>
+
+<PRE>$ touch myfile</PRE>
+
+<P>This command creates an empty filenamed myfile.
+
+<BR></P>
+
+<P>An empty file isn't much good except as a place holder that you can fill in later. If you want to create a file that contains some text, you can use either the echo or cat command. The echo command is a simple but useful command that prints its 
+command-line arguments to stdout, the standard output file, which by default is your terminal screen. For instance, enter the following:
+
+<BR></P>
+
+<PRE>$ echo Will Rogers
+
+Will Rogers</PRE>
+
+<P>The words Will Rogers are echoed to your terminal screen.
+
+<BR></P>
+
+<P>You can save the words by using your shell's file redirection capability to redirect echo's standard output to a different file:
+
+<BR></P>
+
+<PRE>$ echo Will Rogers &gt; cowboys</PRE>
+
+<P>Notice that the preceding command does not send output to your terminal; the greater-than sign tells your shell to redirect echo's output into cowboys.
+
+<BR></P>
+
+<P>You can view the contents of cowboys with cat, as follows:
+
+<BR></P>
+
+<PRE>$ cat cowboys
+
+Will Rogers</PRE>
+
+<P>If you want to add more text to a file, use two greater-than signs:
+
+<BR></P>
+
+<PRE>$ echo Roy Rogers &gt;&gt; cowboys</PRE>
+
+<P>Now cat shows both lines:
+
+<BR></P>
+
+<PRE>$ cat cowboys
+
+Will Rogers
+
+Roy Rogers</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>When you use the greater-than sign to create a file, your shell creates a zero-length file (just as touch does) and then fills it. If the file already exists, your shell first destroys its 
+contents to make it zero-length. You must use two greater-than signs to append new text to a file or you will destroy your earlier work.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The cat command doesn't just display files. It also can create them by using shell redirection. If you plan to enter several lines of text, cat is more convenient than echo:
+
+<BR></P>
+
+<PRE>$ cat &gt; prufrock
+
+Let us go then, you and I,
+
+When the evening is spread out against the sky
+
+Like a patient etherised upon a table;</PRE>
+
+<P>Then press Ctrl+D. This keystroke is the default end-of-file character; it tells cat that you are done typing.
+
+<BR></P>
+
+<P>Now you have a filenamed prufrock, and you can view it by using the cat command:
+
+<BR></P>
+
+<PRE>$ cat prufrock
+
+Let us go then, you and I,
+
+When the evening is spread out against the sky
+
+Like a patient etherised upon a table;</PRE>
+
+<P>Note that cat does not print the end-of-file character when you display the file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When you create a file with cat, you can use your character-erase, word-erase, and line-kill characters (see Chapter 7, &quot;Text Editing with vi, EMACS, and sed Files&quot;) to correct typing 
+mistakes in the current line. After you press Enter, you cannot make corrections. To correct such a mistake, you must learn to use a text editor (see Chapter 7).
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>It may seem odd that cat both creates and displays files, but this is normal for UNIX; that is, it's normal for commands not to know one type of file from another. The name cat derives from the word catenate, which means to connect in a series or to 
+link together. The cat command doesn't care which file it receives as input or where the output goes. Because UNIX handles your terminal keyboard and screen as ordinary files, when you enter cat cowboys, cat catenates cowboys to your terminal screen, and 
+when you enter cat &gt; prufrock, the command catenates what you enter into a disk file. You can even run cat without specifying an input or output file:
+
+<BR></P>
+
+<PRE>$ <B>cat</B>
+
+Let us go then, you and I,
+
+Let us go then, you and I,
+
+When the evening is spread out against the sky
+
+When the evening is spread out against the sky</PRE>
+
+<P>Press Ctrl+D to insert an end-of-file.
+
+<BR></P>
+
+<P>The cat command echos to your screen every line that you enter before Ctrl+D because, by default, cat uses your terminal keyboard as its input file and your screen as its output file. Like other UNIX commands, cat treats files quite consistently and 
+therefore is very flexible.
+
+<BR></P>
+
+<P>The cat command works well for short files that fit on a single terminal screen, but if you try to display a longer file, all but the last lines of it scroll off your screen. To view long files, you can temporarily freeze your terminal screen by typing 
+
+Ctrl+S and restart it by typing Ctrl+Q. However, if your terminal is fast, you may not be able to stop it quickly enough. Pagers like pg and more pause after every screen. (See Chapter 4, &quot;Listing Files.&quot;)
+
+<BR></P>
+
+<P>Now that you have some files, you may want to list them or view their names. The ls (list files) command can display each file's name, size, and time of creation, and also which users have permission to view, modify, and remove them.
+
+<BR></P>
+
+<P>If you want to know only the names of the files, enter the following:
+
+<BR></P>
+
+<PRE>$ <B>ls</B>
+
+cowboys prufrock</PRE>
+
+<P>If you have many files, you may want to view only some of them. If you want ls to list specific files, you can specify their names on the command line:
+
+<BR></P>
+
+<PRE>$ ls prufrock
+
+prufrock</PRE>
+
+<P>This output isn't very useful; you already know the name of the file, so there's not much point in listing it. However, you can use ls in this way to find out whether a certain file exists. If the file doesn't exist, ls prints an error message, as 
+follows:
+
+<BR></P>
+
+<PRE>$ ls alfred_j
+
+alfred_j: No such file or directory</PRE>
+
+<P>The message No such file or directory means exactly what it says: You don't have a filenamed alfred_j.
+
+<BR></P>
+
+<P>A better application of this feature of ls is to use your shell's metacharacters or wild cards to list a file when you know only part of its name. (For more information on metacharacters and wild cards, see Chapter 11, &quot;Bourne Shell,&quot; Chapter 
+
+12, &quot;Korn Shell,&quot; and Chapter 13, &quot;C Shell.&quot;) With shell wild cards, you can specify parts of filenames and let your shell fill in the rest. Suppose that you can't remember the name of the file that includes the linguini recipe, but you 
+
+remember that it starts with the letter l. You could enter <B>ls</B> and then search through a list of all your files to find the one that you want. However, the following command makes the search easier:
+
+<BR></P>
+
+<PRE>$ ls l*
+
+linguini   local_lore</PRE>
+
+<P>The l* argument narrows your listing by telling ls that you're interested only in files that begin with an l, followed by zero or more of any other characters. The ls command ignores the files cowboys and prufrock, and lists only those files beginning 
+with the letter l.
+
+<BR></P>
+
+<P>Wild cards are a powerful method for narrowing your file listings. Throughout this chapter, you'll see many uses for wild cards. Because they are a characteristic of your shell and not the commands you invoke from your shell, wild cards work equally 
+well with other commands, such as cat. For instance, you could enter the following command to display both your linguini recipe and the file local_lore:
+
+<BR></P>
+
+<PRE>$ cat l*</PRE>
+
+<P>However, different shells may use different wild cards, or use the same ones in different ways. This chapter provides examples only of the wild cards that are common to all shells. To learn how your shell uses wild cards, see Chapters 12 (&quot;Korn 
+Shell&quot;) and 13 (&quot;C Shell&quot;) and your shell's manual page.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>The UNIX File Tree</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As mentioned in the introduction to this chapter, your personal files usually contain data&#151;information that you want the computer to save when you're not logged in. If you use UNIX for a long time, you'll accumulate hundreds or even thousands of 
+files, and thousands more system files that are a standard part of UNIX. How can you keep all these files organized and find the ones that you want when you need them?
+
+<BR></P>
+
+<P>The designers of UNIX solved this problem by using directories to organize the UNIX file system into a structure that is shaped like an upside-down tree. Directories enable you to keep related files in one place, where you see them only when you 
+want&#151;after all, you needn't clutter your file listings with recipes when you're working with a spreadsheet.
+
+<BR></P>
+
+<P>Figure 3.1 shows part of the file tree for a typical UNIX system. In this drawing, which looks somewhat like an upside-down tree, names like home and jane are followed by a slash (/), which indicates that they are directories, or files of files. Note 
+that ordinary files, such as cowboys and prufrock, are not followed by a slash. Such files are called leaves because they aren't connected to anything else. The connecting lines are the paths through the UNIX file tree. You can move around the tree by 
+following the paths.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="03unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/03unx01.gif">Figure 3.1. The file tree for a typical UNIX </B><B>system.</A></B>
+
+<BR></P>
+
+<P>Notice also that two files are named prufrock. How can two files have the same name? And when you enter <B>cat prufrock</B>, how does UNIX know which one you want? Don't worry&#151;your shell can distinguish one prufrock file from the other, for two 
+reasons.
+
+<BR></P>
+
+<P>First, UNIX shells always remember their current working directory (CWD). The CWD is the directory in the file tree that you're in at any particular time. If you move somewhere else in the tree, the CWD changes. For example, if you're in the directory 
+jane and you enter <B>cat </B><B>prufrock</B>, you see the prufrock file that is attached to that directory; if you're in the tmp directory, you see the file attached to that directory.
+
+<BR></P>
+
+<P>Second, although so far you have named files by using relative pathnames, UNIX translates these pathnames into fully qualified pathnames. Fully qualified pathnames (or full pathnames) begin with a slash. Every file in the file tree has a unique, fully 
+qualified pathname, which you construct by following the connecting lines from the root to the file. For instance, the following is the fully qualified pathname of the file prufrock in the directory jane:
+
+<BR></P>
+
+<PRE>/home/jane/prufrock</PRE>
+
+<P>To construct this unique name, you follow the path from the root directory (/) through the directories home and jane, and end with the file prufrock. UNIX uses the slash to separate the different parts of the pathname. This character is also the special 
+
+name for the root of the tree. Because it has this special meaning, the slash is one of the few characters that you cannot use in a UNIX filename.
+
+<BR></P>
+
+<P>For the file prufrock in the directory tmp, the fully qualified pathname is the following:
+
+<BR></P>
+
+<PRE>/tmp/prufrock</PRE>
+
+<P>You construct this pathname the same way that you constructed that of the prufrock file in the jane directory. This time, you climbed down the file tree from the root directory to the directory tmp and then to the file prufrock, adding slash characters 
+
+to separate the directories. Even though both files end in the name prufrock, UNIX can tell them apart because each has a unique pathname.
+
+<BR></P>
+
+<P>Relative pathnames begin with something other than the slash character. Using relative pathnames is usually convenient when specifying files that are in your CWD&#151;for example, cat prufrock. But what if you want to refer to a file that is not in your 
+
+CWD? Suppose that your CWD is /home/jane and you want to look at the file /tmp/prufrock. You can do this in two ways. First, you can enter the following command:
+
+<BR></P>
+
+<PRE>$ cat /tmp/prufrock</PRE>
+
+<P>This command tells your shell unambiguously which file you want to see.
+
+<BR></P>
+
+<P>Secondly, you can tell your shell to move through the file tree to /tmp and then use a relative pathname. For example, if your shell's command to change your CWD is cd, you would enter the following:
+
+<BR></P>
+
+<PRE>$ cd /tmp</PRE>
+
+<P>(Note that, unlike cat and ls, cd is &quot;silent&quot; when it succeeds. Most UNIX commands print nothing when all goes well.) Now your CWD is the directory /tmp. If you enter <B>cat prufrock</B>, you see the contents of the file /tmp/prufrock rather 
+than /home/jane/prufrock.
+
+<BR></P>
+
+<P>As noted earlier, the name / has special significance to UNIX because it separates the components of pathnames and is the name of the file tree's root directory. For convenience, every UNIX directory also has two special names: . (dot) and .. (dot-dot). 
+
+By convention, ls doesn't show these filenames because they begin with dot, but you can use the -a option to list these files, as follows:
+
+<BR></P>
+
+<PRE>$ ls -a
+
+.    ..   cowboys   prufrock</PRE>
+
+<P>Dot is a synonym for the CWD, and dot-dot for the CWD's parent directory. If your CWD is /home/jane and you want to move to /home, you can enter either
+
+<BR></P>
+
+<PRE>$ cd /home</PRE>
+
+<P>or
+
+<BR></P>
+
+<PRE>$ cd ..</PRE>
+
+<P>The result of both commands is the same. When you enter <B>cd /home</B>, your shell begins with the root directory and moves down one level to /home. When you enter <B>cd ..</B>, your shell starts in /home/jane and moves up one level; if you enter the 
+command again, you move up to the parent directory of /home, which is /. If you enter the command once again, where do you go&#151;hyperspace? Don't worry. Because / doesn't have a parent directory, its dot-dot entry points back on itself, so your CWD is 
+still /. In the UNIX file system, the root directory is the only directory whose dot-dot entry points to itself.
+
+<BR></P>
+
+<P>Along with your CWD, your shell also remembers your home directory. This is the directory in which you automatically begin when you first log in. You spend most of your time in the home directory, because it is the directory in which you keep your 
+files. If you get lost climbing around the file tree with cd, you can always return to your home directory by typing the cd command without any arguments:
+
+<BR></P>
+
+<PRE>$ <B>cd</B></PRE>
+
+<P>Your home directory looks like any other directory to UNIX&#151;only your shell considers the home directory to be special.
+
+<BR></P>
+
+<P>Now that you are familiar with the cd command, you can move around the file tree. If you forget where you are, you can use the pwd (print working directory) command to find out. This command doesn't take any command-line arguments. The following example 
+
+demonstrates how to use cd and pwd to move around the file tree and keep track of where you are:
+
+<BR></P>
+
+<PRE>$ <B>pwd</B>
+
+/home/jane
+
+$ cd /tmp
+
+$ <B>pwd</B>
+
+/tmp
+
+$ <B>cd</B>
+
+$ <B>pwd</B>
+
+/home/jane</PRE>
+
+<P>Of course, while you're moving around, you might also want to use ls and cat to list and view files. Moving around the file tree to view the standard system files distributed with UNIX is a good way to learn more about the UNIX file tree.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>File and Directory Names</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Unlike some operating systems, UNIX gives you great flexibility in how you name files and directories. As previously mentioned, you cannot use the slash character because it is the pathname separator and the name of the file tree's root directory . 
+However, almost everything else is legal. Filenames can contain alphabetic (both upper- and lowercase), numeric, and punctuation characters, control characters, shell wild-card characters (such as *), and even spaces, tabs, and newlines. However, just 
+because you can do something doesn't mean you should. Your life will be much simpler if you stick with upper- and lowercase alphabetics, digits, and punctuation characters such as ., -, and _.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Using shell wild-card characters such as * in filenames can cause problems. Your shell expands such wild-card characters to match other files. Suppose that you create a filenamed * that you want 
+
+to display with cat, and you still have your files cowboys and prufrock. You might think that the command cat * will do the trick, but remember that * is a shell wild card that matches anything. Your shell expands * to match the files *, cowboys, and 
+prufrock, so cat displays all three. You can avoid this problem by quoting the asterisk with a backslash:
+
+<BR>
+
+<BR>$ cat \*
+
+<BR>
+
+<BR>Quoting, which is explained in detail in Chapters 12 (&quot;Korn Shell&quot;) and 13 (&quot;C Shell&quot;), temporarily removes a wild card's special meaning and prevents your shell from expanding it. However, having to quote wild cards is 
+inconvenient, so you should avoid using such special characters in filenames.
+
+<BR>
+
+<BR>You also should avoid using a hyphen or plus sign as the first character of a filename, because command options begin with those characters. Suppose that you name a file -X and name another unix_lore. If you enter <B>cat *</B>, your shell expands the * 
+
+wild card and runs cat as follows:
+
+<BR>
+
+<BR>$ cat -X unix_lore
+
+<BR>
+
+<BR>The cat command interprets -X as an option string rather than a filename. Because cat doesn't have a -X option, the preceding command results in an error message. But if cat did have a -X option, the result might be even worse, as the command might do 
+
+something completely unexpected. For these reasons, you should avoid using hyphens at the beginning of filenames.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Filenames can be as long as 255 characters in System V Release 4 UNIX. Unlike DOS, which uses the dot character to separate the filename from a three character suffix, UNIX does not attach any intrinsic significance to dot&#151;a filenamed 
+lots.of.italian.recipes is as legal as lots-of-italian-recipes. However, most UNIX users follow the dot-suffix conventions listed in Table 3.1. Some language compilers like cc require that their input files follow these conventions, so the table labels 
+these conventions as &quot;Required&quot; in the last column.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 3.1. File suffix conventions.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Suffix</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Program</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Example</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Required</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>.c</P>
+
+<TD>
+
+<P>C program files</P>
+
+<TD>
+
+<P>ls.c</P>
+
+<TD>
+
+<P>Yes</P>
+
+<TR>
+
+<TD>
+
+<P>.f</P>
+
+<TD>
+
+<P>FORTRAN program files</P>
+
+<TD>
+
+<P>math.f</P>
+
+<TD>
+
+<P>Yes</P>
+
+<TR>
+
+<TD>
+
+<P>.pl</P>
+
+<TD>
+
+<P>Perl program files</P>
+
+<TD>
+
+<P>hose.pl</P>
+
+<TD>
+
+<P>No</P>
+
+<TR>
+
+<TD>
+
+<P>.h</P>
+
+<TD>
+
+<P>include files</P>
+
+<TD>
+
+<P>term.h</P>
+
+<TD>
+
+<P>No</P>
+
+<TR>
+
+<TD>
+
+<P>.d, .dir</P>
+
+<TD>
+
+<P>The file is a directory</P>
+
+<TD>
+
+<P>recipes.d,</P>
+
+<TD>
+
+<P>No</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>recipes.dir</P>
+
+<TD>
+
+<P>No</P>
+
+<TR>
+
+<TD>
+
+<P>.gz</P>
+
+<TD>
+
+<P>A file compressed with the</P>
+
+<TD>
+
+<P>foo.gz</P>
+
+<TD>
+
+<P>Yes</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>GNV project's gzip</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.Z</P>
+
+<TD>
+
+<P>A compressed file</P>
+
+<TD>
+
+<P>term.h.Z</P>
+
+<TD>
+
+<P>Yes</P>
+
+<TR>
+
+<TD>
+
+<P>.zip</P>
+
+<TD>
+
+<P>A file compressed with PKZIP</P>
+
+<TD>
+
+<P>book.zip</P>
+
+<TD>
+
+<P>Yes</P></TABLE>
+
+<P>Choosing good filenames is harder than it looks. Although long names may seem appealing at first, you may change your mind after you enter cat lots-of-italian-recipes a few times. Of course, shell wild cards can help (as in cat lots-of*), but as you 
+gain experience, you'll find that you prefer shorter names.
+
+<BR></P>
+
+<P>Organizing your files into directories with well-chosen names can help. For instance, Figure 3.2 shows how Joe organizes his recipes.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="03unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/03unx02.gif">Figure 3.2. Organizing your files within a </B><B>directory.</A></B>
+
+<BR></P>
+
+<P>Joe could have put all his recipes in a single directory, but chose to use the directories italian, french, and creole to separate and categorize the recipes. Instead of using filenames like recipe-italian-linguini, he can use cd to move to the 
+directory recipes and then move to the subdirectory italian; then Joe can use ls and cat to examine only the files that he wants to see. You may think that Joe is carrying this organizing a bit too far (after all, he has only four recipes to organize), but 
+
+he's planning for that happy day when he's collected several thousand.
+
+<BR></P>
+
+<P>Similarly, if you keep a journal, you might be tempted to put the files in a directory named journal and use filenames like Dec_93 and Jan_94. This approach isn't bad, but if you intend to keep your journal for ten years, you might want to plan ahead by 
+
+removing the year from the filename and making it a directory in the pathname, as shown in Figure 3.3.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="03unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/03unx03.gif">Figure 3.3. Organizing your file for a </B><B><I>journal</I></B><B> </B><B>directory.</A></B>
+
+<BR></P>
+
+<P>By using this approach, you can work with just the files for a particular year. To get to that year, however, you have to use one more cd command. Thus you must consider the trade-off between having to enter long filenames and having to climb around the 
+
+file tree with cd to find your files. You should experiment until you find your own compromise between too-long filenames and too many levels of directories.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Creating Directories with </B><B><I>mkdir</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Now that you know the advantages of organizing your files into directories, you'll want to create some. The mkdir (make directory) command is one of the simplest UNIX commands. To create a single directory named journal, enter the following:
+
+<BR></P>
+
+<PRE>$ mkdir journal</PRE>
+
+<P>(Like cd, mkdir prints no output when it works.) To make a subdirectory of journal named 94, enter the following:
+
+<BR></P>
+
+<PRE>$ mkdir journal/94</PRE>
+
+<P>Or if you prefer, you can enter the following:
+
+<BR></P>
+
+<PRE>$ mkdir journal
+
+$ cd journal
+
+$ mkdir 94</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Working with Files</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Now that you know how to create, list, and view files, create directories, and move around the UNIX file tree, it's time to learn how to copy, rename, and remove files.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Copying Files with </B><B><I>cp</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To copy one or more files, you use the cp command. You might want to use cp to make a backup copy of a file before you edit it, or to copy a file from a friend's directory into your own.
+
+<BR></P>
+
+<P>Suppose that you want to edit a letter but also keep the first draft in case you later decide that you like it best. You could enter the following:
+
+<BR></P>
+
+<PRE>$ cd letters
+
+$ ls
+
+andrea zach
+
+$ cp andrea andrea.back
+
+$ ls
+
+andrea andrea.back zach</PRE>
+
+<P>(When it works, cp prints no output, following the UNIX tradition that &quot;no news is good news.&quot;)
+
+<BR></P>
+
+<P>Now you have two identical files: the original andrea file and a new filenamed andrea.back. The first file that you give to cp is sometimes called the target, and the second the destination. The destination can be a file (as in the preceding example) or 
+
+a directory. For instance, you might decide to create a subdirectory of letters in which to keep backups of all your correspondence:
+
+<BR></P>
+
+<PRE>$ cd letters
+
+$ mkdir backups
+
+$ ls
+
+andrea backups zach
+
+$ cp andrea backups
+
+$ ls backups
+
+andrea</PRE>
+
+<P>Note that the destination of the cp command is simply backups, not backups/andrea. When you copy a file into a directory, cp creates the new file with the same name as the original unless you specify something else. To give the file a different name, 
+enter it as follows:
+
+<BR></P>
+
+<PRE>$ cp andrea backups/andrea.0
+
+$ ls backups
+
+andrea.0</PRE>
+
+<P>As you can see, ls works differently when you give it a directory rather than a file as its command-line argument. When you enter ls <I>some_file</I>, ls prints that file's name if the file exists; otherwise, the command prints the following error 
+message:
+
+<BR></P>
+
+<PRE><I>some</I>_file: No such file or directory</PRE>
+
+<P>If you enter ls <I>some_dir</I>, ls prints the names of any files in <I>some_dir</I>; otherwise, the command prints nothing. If the directory doesn't exist, ls prints the following error message:
+
+<BR></P>
+
+<PRE><I>some_dir</I>: No such file or directory</PRE>
+
+<P>You can also use cp to copy several files at once. If plan to edit both of your letters and want to save drafts of both, you could enter the following:
+
+<BR></P>
+
+<PRE>$ cd letters
+
+$ ls
+
+andrea backups zach
+
+$ cp andrea zach backups
+
+$ ls backups
+
+andrea zach</PRE>
+
+<P>When copying more than one file at a time, you must specify an existing directory as the destination. Suppose that you enter the following:
+
+<BR></P>
+
+<PRE>$ cd letters
+
+$ ls
+
+andrea    backups    zach
+
+$ cp andrea zach both
+
+cp: both not found</PRE>
+
+<P>The cp command expects its last argument to be an existing directory, and prints an error message when it can't find the directory.
+
+<BR></P>
+
+<P>If what you want is to catenate two files into a third, use cat and shell redirection:
+
+<BR></P>
+
+<PRE>$ cat andrea zach &gt; both</PRE>
+
+<P>You can also use the directory names dot and dot-dot as the destination in cp commands. Suppose that a colleague has left some files named data1 and data2 in the system temporary directory /tmp so that you can copy them to your home directory. You could 
+
+enter the following:
+
+<BR></P>
+
+<PRE>$ cd
+
+$ cp /tmp/data1 .
+
+$ cp /tmp/data2 .
+
+$ ls
+
+data1 data2</PRE>
+
+<P>Alternatively, because the destination is dot, a directory, you can copy both files at once:
+
+<BR></P>
+
+<PRE>$ cp /tmp/data1 /tmp/data2 .
+
+$ ls
+
+data1 data2</PRE>
+
+<P>To copy the files to the parent directory of your CWD, use dot-dot rather than dot.
+
+<BR></P>
+
+<P>By default, cp silently overwrites (destroys) existing files. In the preceding example, if you already have a filenamed data1 and you type <B>cp </B><B>/tmp/data1 .</B>, you lose your copy of data1 forever, replacing it with /tmp/data1. You can use cp's 
+
+-i (interactive) option to avoid accidental overwrites:
+
+<BR></P>
+
+<PRE>$ cp -i /tmp/data1 .
+
+cp: overwrite./data1(y/n)?</PRE>
+
+<P>When you use the -i option, cp asks whether you want to overwrite existing files. If you do, type <B>y</B>; if you don't, type <B>n</B>. If you're accident-prone or nervous, and your shell enables you to do so, you may want to create an alias that 
+always uses cp -i (see Chapters 12 and 13, &quot;Korn Shell&quot; and &quot;C Shell&quot;).
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Moving Files with </B><B><I>mv</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The mv command moves files from one place to another. Because each UNIX file has a unique pathname derived from its location in the file tree, moving a file is equivalent to renaming it: you change the pathname. The simplest use of mv is to rename a 
+file in the current directory. Suppose that you've finally grown tired of typing <B>cat recipe-for-linguini</B> and want to give your fingers a rest. Instead, you can enter the following:
+
+<BR></P>
+
+<PRE>$ mv recipe-for-linguini linguini</PRE>
+
+<P>There is an important difference between cp and mv: cp leaves the original file in its place, but mv removes it. Suppose that you enter the following command:
+
+<BR></P>
+
+<PRE>$ mv linguini /tmp</PRE>
+
+<P>This command removes the copy of linguini in your CWD. So, if you want to retain your original file, use cp instead of mv.
+
+<BR></P>
+
+<P>Like cp, mv can handle multiple files if the destination is a directory. If your journal is to be a long-term project, you may want to put the monthly files in subdirectories that are organized by the year. Enter the following commands:
+
+<BR></P>
+
+<PRE>$ cd journal
+
+$ <B>ls</B>
+
+Apr_93 Dec_93 Jan_93 Jun_93 May_93 Oct_93
+
+Aug_93 Feb_93 Jul_93 Mar_93 Nov_93 Sep_93
+
+$ mkdir 93
+
+$ mv *_93 93
+
+$ ls
+
+93
+
+$ ls 93
+
+Apr_93 Dec_93 Jan_93 Jun_93 May_93 Oct_93
+
+Aug_93 Feb_93 Jul_93 Mar_93 Nov_93 Sep_93</PRE>
+
+<P>Note that, by default, ls sorts filenames in dictionary order down columns. Often, such sorting is not what you want. The following tip suggests ways that you can work around this problem. Also note that mv, like other UNIX commands, enables you to use 
+
+shell wild cards such as *.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You can work around ls's default sorting order by prefixing filenames with punctuation (but not hyphens or plus signs), digits, or capitalization. For instance, if you want to sort the files of month 
+names in their natural order, prefix them with 00, 01, and so on:
+
+<BR>
+
+<BR>$ cd journal/93
+
+<BR>$ <B>ls</B>
+
+<BR>01_jan 03_mar 05_may 07_jul 09_sep 11_nov
+
+<BR>02_feb 04_apr 06_jun 08_aug 10_oct 12_dec
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Like cp, mv silently overwrites existing files by default:
+
+<BR></P>
+
+<PRE>$ <B>ls</B>
+
+borscht      strudel
+
+$ mv borscht strudel
+
+$ <B>ls</B>
+
+strudel</PRE>
+
+<P>This command replaces the original file strudel with the contents of bortsch, and strudel's original contents are lost forever. If you use mv's -i option, the mv command, like cp, asks you before overwriting files.
+
+<BR></P>
+
+<P>Also like cp, mv requires that you specify dot or dot-dot as the destination directory. In fact, this requirement is true of all UNIX commands that expect a directory argument.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Removing Files with </B><B><I>rm</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can remove unwanted files with rm. This command takes as its arguments the names of one or more files, and removes those files&#151;forever. Unlike operating systems like DOS, which can sometimes recover deleted files, UNIX removes files once and 
+forever. Your systems administrator may be able to recover a deleted file from a backup tape, but don't count on it. (Besides, systems administrators become noticeably cranky after a few such requests.) Be especially careful when using shell wild cards to 
+
+remove files&#151;you may end up removing more than you intended.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Shell wild-card expansions may be dangerous to your mental health, especially if you use them with commands like rm. If you're not sure which files will match the wild cards that you're using, first use 
+
+echo to check. For instance, before entering <B>rm a*</B>, first enter <B>echo a*</B>. If the files that match a* are the ones that you expect, you can enter the rm command, confident that it will do only what you intend.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To remove the file andrea.back, enter the following command:
+
+<BR></P>
+
+<PRE>$ rm andrea.back</PRE>
+
+<P>Like cp and mv, rm prints no output when it works.
+
+<BR></P>
+
+<P>If you are satisfied with your edited letters and want to remove the backups to save disk space, you could enter the following:
+
+<BR></P>
+
+<PRE>$ cd letters/backups
+
+$ ls
+
+andrea zach
+
+$ rm *
+
+$ ls</PRE>
+
+<P>Because you have removed all the files in the subdirectory backups, the second ls command prints nothing.
+
+<BR></P>
+
+<P>Like cp and mv, rm has an interactive option, -i. If you enter <B>rm -i *</B>, rm asks you whether you really want to remove each individual file. As before, you type <B>y</B> for yes and <B>n</B> for no. This option can be handy if you accidentally 
+create a filename with a nonprinting character, such as a control character. Nonprinting characters don't appear in file listings, and they make the file hard to work with. If you want to remove the file, enter <B>rm -i *</B>; then type <B>y</B> for the 
+file you that you want to remove, while typing <B>n</B> for the others. The -i option also comes in handy if you want to remove several files that have such dissimilar names that you cannot specify them with wild cards. Again, simply enter <B>rm -i *</B>, 
+
+and then type <B>n</B> for each file that you don't want to remove.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Working with Directories</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A directory is simply a special kind of file. Some of the operations that work with files also work with directories. However, some operations are not possible, and others must be done differently for directories.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Creating Multiple Directories with </B><B><I>mkdir</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As mentioned in the section &quot;Creating Directories with mkdir,&quot; you make directories with the mkdir command. In that section, you created a single directory, journal. However, mkdir can also create multiple directories at once. For example, to 
+
+create two directories named journal and recipes, enter the following command:
+
+<BR></P>
+
+<PRE>$ mkdir journal recipes</PRE>
+
+<P>The mkdir command can even create a directory and its subdirectories if you use its -p option:
+
+<BR></P>
+
+<PRE>$ mkdir -p journal/94</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Removing a Directory with </B><B><I>rmdir</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To remove an empty directory, use rmdir. Suppose that you made a typing mistake while creating a directory and want to remove it so that you can create the right one. Enter these commands:
+
+<BR></P>
+
+<PRE>$ mkdir jornal
+
+$ rmdir jornal
+
+$ mkdir journal</PRE>
+
+<P>The rmdir command removes only empty directories. If a directory still has files, you must remove them before using rmdir:
+
+<BR></P>
+
+<PRE>$ rmdir journal
+
+rmdir: journal: Directory not empty
+
+$ rm journal/*
+
+$ rmdir journal</PRE>
+
+<P>Actually, rm can remove directories if you use its -r (recursive) option. This option tells rm to descend the file tree below the directory, remove all the files and subdirectories below it, and finally remove the directory itself. So, before you use 
+this option, be sure that you mean to remove all the files and the directory. If you decide that you'll never eat Creole-style cuisine again, you can remove those recipes by entering the following:
+
+<BR></P>
+
+<PRE>$ cd recipes
+
+$ rm -r creole</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The rm command is like a chainsaw: It's a good tool, but one with which you can saw off your leg if you're not careful. The -r option is particularly dangerous&#151;especially if you use it with shell 
+wild cards&#151;because it lops off entire branches of the file tree. If you have a directory of precious files that you don't want to accidentally remove, create a filenamed -no-rm-star in the same directory by entering the following:
+
+<BR>
+
+<BR>$ echo just say no &gt; -no-rm-star
+
+<BR>
+
+<BR>Now suppose that this directory also has two precious files named p1 and p2. If you enter <B>rm *</B>, your shell expands the wild card and runs the rm command with the following arguments:
+
+<BR>
+
+<BR>rm -no-rm-star p1 p2
+
+<BR>
+
+<BR>Because rm doesn't have an option -no-rm-star, it prints an error message and quits without removing your precious files. Note, however, that this also makes it difficult for you to use wild cards with any UNIX commands in this subdirectory because the 
+
+shell always expands filenames before passing them to commands.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Renaming Directories with </B><B><I>mv</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can also use mv to rename directories. For instance, to correct a mistyped mkdir command, you would have to rename the directory:
+
+<BR></P>
+
+<PRE>$ mkdir jornal
+
+$ mv jornal journal</PRE>
+
+<P>This command works even if the directory isn't empty.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Some file commands do not work with directories, or require that you use different options, such as the -r option to rm. For instance, to copy a directory, you must use cp -r to copy recursively the 
+directory and all its files and sub-directories. Suppose that you want to copy your Hungarian recipes to /tmp so that your friend Joe can add them to his collection:
+
+<BR>
+
+<BR>$ cd recipes
+
+<BR>$ ls hungarian
+
+<BR>chicken_paprika goulash
+
+<BR>$ cp -r hungarian /tmp
+
+<BR>$ ls /tmp
+
+<BR>hungarian
+
+<BR>$ ls /tmp/hungarian
+
+<BR>chicken_paprika goulash
+
+<BR>
+
+<BR>Again, because the destination of the copy is a directory (/tmp), you need not specify the full pathname /tmp/hungarian.
+
+<BR>
+
+<BR>Another difference between directories and files is that the ln command (discussed later in this chapter in the section &quot;Hard and Symbolic Links&quot;) refuses to make a hard link to a directory.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Keeping Secrets &#151; File and Directory Permissions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UNIX is a multiuser operating system, which means that you share the system with other users. As you accumulate files, you'll find that the information that some contain is valuable; some files you want to share, and others you prefer to keep private. 
+UNIX file and directory permissions give you a flexible way to control who has access to your files.
+
+<BR></P>
+
+<P>All UNIX files have three types of permissions&#151;read, write, and execute&#151;associated with three classes of users&#151;owner, group and other (sometimes called world).
+
+<BR></P>
+
+<P>Read permission enables you to examine the contents of files with commands such as cat, write permission enables you to alter the contents of a file or truncate it, and execute permission is necessary to run a file as a command. Each of the three 
+permissions can be granted or withheld individually for each class of user. For instance, a file might be readable and writable by you, readable by other members of your group, but inaccessible to everyone else, or it might be readable and writable only by 
+
+you.
+
+<BR></P>
+
+<P>The ls command shows your file and directory permissions, and the chmod (change mode) command changes them.
+
+<BR></P>
+
+<P>The -l option tells ls to make a long listing, such as the following:
+
+<BR></P>
+
+<PRE>$ cd recipes/german
+
+$ ls -l
+
+-rw-r&#151;r-r   1 joe   user1    2451 Feb 7 07:30 strudel
+
+-rw-r&#151;r-r   1 joe   user1    4025 Feb 10 19:12 borscht
+
+drwxr-xr-r   2 joe   user1     512 Feb 10 19:12 backups</PRE>
+
+<P>Figure 3.4 shows the parts of the long listing. The file permissions, owner, and group are the parts that are most important for information security.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="03unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/03unx04.gif">Figure 3.4. The </B><B><I>ls</I></B><B> command's long listing.</A></B>
+
+<BR></P>
+
+<P>To know who can access a file and in what ways, you must know the owner and the group and then examine the file permission string. The permission string is ten characters long. The first character indicates the file type, which is a hyphen (-) for 
+regular files, d for a directory, and l for a symbolic link. (Symbolic links are discussed later in this chapter, in the section &quot;Hard and Symbolic Links.&quot; The following note describes the other file types.)
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The following is a complete list of the UNIX file types:
+
+<BR>
+
+<BR>-  Regular file
+
+<BR>
+
+<BR>d  Directory
+
+<BR>
+
+<BR>l  Symbolic link
+
+<BR>
+
+<BR>c  Character special file
+
+<BR>
+
+<BR>b  Block special file
+
+<BR>
+
+<BR>p  Named pipe
+
+<BR>
+
+<BR>You're already familiar with regular files and directories, and symbolic links are discussed in the section &quot;Hard and Symbolic Links.&quot; Character and block special files are device files, which were described in the introductory section of 
+this chapter. You create device files with the mknod command, which is covered in Chapter 35, &quot;File System Administration.&quot;
+
+<BR>
+
+<BR>Named pipes enable you to communicate with a running program by reference to a file. Suppose that you have a continuously running program named quoted (also known as a daemon) that accepts requests to mail you a joke- or a quote-of-the-day. The 
+commands that the program accepts might be send joke and send quote. Such a daemon could open a named pipe file in a standard place in the UNIX file tree, and you could send its requests with echo:
+
+<BR>
+
+<BR>$ echo send joke &gt; quoted_named_pipe
+
+<BR>
+
+<BR>The quoted program would continuously read the file <I>quoted_named_pipe</I>; when you echo into that file your request for a joke, the program would mail one to you.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The next nine characters are three groups of three permissions for owner, group, and other. Each group of three shows read (r), write (w), and execute (x) permission, in that order. A hyphen indicates that the permission is denied. In Figure 3.4, the 
+permission string for the file borscht looks like this:
+
+<BR></P>
+
+<PRE>-rw-r&#151;&#151;</PRE>
+
+<P>The first character is a hyphen, so borscht is a regular file, not a directory. The next three characters, rw-, show permissions for the owner, joe. Joe can read and write the file, but execute permission is turned off because borscht is not a program. 
+
+The next three characters, r&#151;, show the permissions for other people in the group user1. Members of this group can read the file, but cannot write or execute it. The final three hyphen characters, &#151;-, show that read, write, and execute 
+permissions are off for all other users.
+
+<BR></P>
+
+<P>You may wonder how files are assigned to a certain group. When you create files, UNIX assigns them an owner and a group. The owner will be your login name and the group will be your default (or login) group. Each UNIX user belongs to one or more groups, 
+
+and when you log in you are put automatically into your default group. Files that you create are owned by you and assigned to your default group. If you are a member of other groups, you can use the chgrp command to change the group of an existing file to 
+
+one of your other groups.
+
+<BR></P>
+
+<P>Suppose that your login name is karen, your default group is user1, and you're also a member of the group planners, which is supposed to brainstorm new products for your company. You want your planners coworkers to see your memos and project plans, but 
+
+you want to keep those documents secret from other users. You also have another directory, jokes, that you want to share with everyone, and a directory called musings, in which you keep private notes. The following commands create the directories and set 
+appropriate directory permissions:
+
+<BR></P>
+
+<PRE>$ <B>cd</B>
+
+$ mkdir jokes memos musings
+
+$ ls -l
+
+total 6
+
+drwx&#151;&#151;&#151; 2 karen user1      512 Jan 3 19:12 jokes
+
+drwx&#151;&#151;&#151; 2 karen user1      512 Jan 3 19:12 memos
+
+drwx&#151;&#151;&#151; 2 karen user1      512 Jan 3 19:12 musings
+
+$ chgrp planners memos
+
+$ chmod g+rx memos
+
+$ chmod go+rx jokes
+
+$ ls -l
+
+total 6
+
+drwxr-xr-x 2 karen user1      512 Jan  3 19:12 jokes
+
+drwxr-x&#151; 2 karen planners   512 Jan  3 19:12 memos
+
+drwx&#151;&#151;&#151; 2 karen user1      512 Jan  3 19:12 musings</PRE>
+
+<P>The mkdir command creates the directories with default permissions that depend on Karen's umask. (The section &quot;Default File and Directory Permissions&#151;Your umask,&quot; later in this chapter, explains the umask.) Only the owner, Karen, can 
+read, write, and execute the directories. She wants the memos directory to be accessible to other members of the group planners (but no one else), so she uses chgrp to change its group to planners and then uses chmod to add group-read and group-execute 
+permissions. For the directory jokes, she uses chmod again to add read and execute permission for everyone. She leaves the directory musings alone because it already has the permissions she wants.
+
+<BR></P>
+
+<P>The chmod command expects two or more arguments, a permission specification, and one or more files:
+
+<BR></P>
+
+<PRE>$ chmod permissions file(s)</PRE>
+
+<P>You can specify permissions either symbolically or absolutely. The preceding example provides examples of symbolic permissions, which are intuitively easy to work with. They consist of one or more of the characters ugo, followed by one of +-=, and 
+finally one or more of rwx. The ugo characters stand for user (the file's owner), group, and other. As before, rwx stands for read, write, and execute permissions. You use the plus (+) and minus (-) signs to add or subtract permissions, and the equals sign 
+
+(=) to set permissions absolutely, regardless of the previous ones. You can combine these strings any way you want. Table 3.2 shows some examples.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 3.2 </B><B><I>Symbolic</I></B><B> options to </B><B>chmod.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Result</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>u+rwx</P>
+
+<TD>
+
+<P>Turn on owner read, write, and execute permissions</P>
+
+<TR>
+
+<TD>
+
+<P>u-w</P>
+
+<TD>
+
+<P>Remove owner write permission</P>
+
+<TR>
+
+<TD>
+
+<P>go+x</P>
+
+<TD>
+
+<P>Add execute permission for group or other</P>
+
+<TR>
+
+<TD>
+
+<P>o-rwx</P>
+
+<TD>
+
+<P>Remove all other permissions</P>
+
+<TR>
+
+<TD>
+
+<P>o-w, og+r</P>
+
+<TD>
+
+<P>Remove owner write permission and set other and group permissions to read (no write or execute permission)</P>
+
+<TR>
+
+<TD>
+
+<P>u+rwx, og+x</P>
+
+<TD>
+
+<P>Set owner read, write, and execute permission, and execute permission for all other users</P>
+
+<TR>
+
+<TD>
+
+<P>ugo+rwx</P>
+
+<TD>
+
+<P>Turn on all permissions for all users</P></TABLE>
+
+<P>The examples in Table 3.2 show only a few of the ways in which you can combine symbolic permissions. Note that you can specify different permissions for owner, group, and other in the same command, by using comma-separated permission specifications, as 
+
+in the fifth and sixth examples.
+
+<BR></P>
+
+<P>Also note that the equals sign works differently than the plus and minus signs. If you type <B>chmod g+w memo1</B>, chmod adds group write permission to that file but leaves the read and execute permissions as they were, whether they were on or off. 
+However, if you type <B>chmod g=w memo1</B>, you turn on write permission and turn off read and execute permissions, even though you don't mention those permissions explicitly:
+
+<BR></P>
+
+<PRE>$ ls -l memo1
+
+-rw-r&#151;r&#151;  1 karen   planners    1721 May 28 10:14 memo1
+
+$ chmod g+w memo1
+
+$ ls -l memo1
+
+-rw-rw-r&#151; 1 karen    planners    1721 May 28 10:14 memo1
+
+$ chmod g=w memo1
+
+$ ls -l memo1
+
+-rw&#151;w-r&#151; 1 karen    planners    1721 May 28 10:14 memo1</PRE>
+
+<P>The first chmod turns on write permission for members of the group planners, which is probably what Karen wants. The second chmod sets write permission but turns off read and execute permissions. It makes no sense to give a file write permission without 
+
+also giving it read permission, so the first command is better.
+
+<BR></P>
+
+<P>Setting permissions properly may seem intimidating at first, but after you work with them a little, you'll feel more comfortable. Create some files with touch, and then experiment with various chmod commands until you have a good feel for what it does. 
+
+You'll find that it looks more complicated on paper than in practice.
+
+<BR></P>
+
+<P>After you become comfortable with symbolic modes, you may want to move on to absolute modes, which are given as numbers. Numeric modes save you some typing because you can specify all three classes of permission with three digits. And, because these 
+specifications are absolute, you don't have to worry about the file's current permissions; new ones are set without regard to the old ones. In this way, using absolute modes is similar to using the equals sign with symbolic modes.
+
+<BR></P>
+
+<P>When you use absolute modes, you set owner, group, and other permissions in one fell swoop. You specify numeric permissions with three digits that correspond to owner, group, and other. Execute permission has the value 1, write permission 2, and read 
+permission 4. To create a numeric permission specification, you add, for each class of user, the permission values that you want to grant. Suppose that you have a filenamed plan-doc2 that you want to make readable and writable by you and other members of 
+your group, but only readable by everyone else. As Table 3.3 shows, you calculate the correct numeric mode for the chmod command by adding the columns.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 3.3. Calculating numeric </B><B>chmod</B><B> options.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Permission</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Owner</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Group</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Other</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Read</P>
+
+<TD>
+
+<P>4</P>
+
+<TD>
+
+<P>4</P>
+
+<TD>
+
+<P>4</P>
+
+<TR>
+
+<TD>
+
+<P>Write</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Execute</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Total</P>
+
+<TD>
+
+<P>6</P>
+
+<TD>
+
+<P>6</P>
+
+<TD>
+
+<P>4</P></TABLE>
+
+<P>In Table 3.3, the resulting numeric mode is 664, the total of the columns for owner, group, and other. The following command sets those permissions regardless of the current ones:
+
+<BR></P>
+
+<PRE>$ ls -l plan-doc2
+
+-r&#151;&#151;&#151;&#151;   1 karen   planners  1721 Aug 14 11:28 plan_doc2
+
+$ chmod 664 plan_doc2
+
+$ ls -l plan-doc2
+
+-rw-rw-r&#151; 1 karen   planners    1721 Aug 14 11:28 plan_doc2</PRE>
+
+<P>Now suppose that Karen has a game program named trek. She wants everyone on the system to be able run the program, but she doesn't want anyone to alter or read it. As the owner, she wants to have read, write, and execute permission. Table 3.4 shows how 
+
+to calculate the correct numeric mode.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 3.4. Calculating another set of numeric </B><B>chmod</B><B> options.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Permission</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Owner</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Group</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Other</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Read</P>
+
+<TD>
+
+<P>4</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Write</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Execute</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>1</P>
+
+<TR>
+
+<TD>
+
+<P>Total</P>
+
+<TD>
+
+<P>7</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>1</P></TABLE>
+
+<P>Because the three columns add up to 711, the correct chmod command is as follows:
+
+<BR></P>
+
+<PRE>$ chmod 711 trek
+
+$ ls -l trek
+
+-rwx&#151;x&#151;1 1 karen   user1    56743 Apr 9 17:10 trek</PRE>
+
+<P>Numeric arguments work equally well for files and directories.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Default File and Directory Permissions&#151;Your </B><B><I>umask</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>How are default file and directory modes chosen? Consider the following commands, for example:
+
+<BR></P>
+
+<PRE>$ touch myfile
+
+$ mkdir mydir</PRE>
+
+<P>What permissions will be assigned to myfile and mydir by default, and how can you control those defaults? After all, you don't want to type a chmod command every time that you create a file or directory&#151;it would be much more convenient if they were 
+
+created with the modes that you most often want.
+
+<BR></P>
+
+<P>Your umask (user-mask) controls default file and directory permissions. The command umask sets a new umask for you if you're dissatisfied with the one that the system gives you when you log in. Many users include a umask command in their login start-up 
+
+files (.profile or .login). To find out your current umask, just type <B>umask</B>:
+
+<BR></P>
+
+<PRE>$ umask
+
+022</PRE>
+
+<P>To change your umask, enter <B>umask</B> and a three digit number that specifies your new umask. For instance, to change your umask to 027, enter the following command:
+
+<BR></P>
+
+<PRE>$ umask 027</PRE>
+
+<P>UNIX determines the default directory modes by subtracting your umask from the octal number 777. Therefore, if your umask is 027, your default directory mode is 750.
+
+<BR></P>
+
+<P>The result of this arithmetic is a mode specification like that which you give chmod, so the effect of using the umask command is similar to using a chmod command. However, umask never sets file execute bits, so you must turn them on with chmod, 
+regardless of your umask. To find the corresponding file permissions, you subtract your umask from 666. For example, if your umask is 022, your default file modes will be 644.
+
+<BR></P>
+
+<P>Table 3.5 shows some typical umasks and the default file and directory modes that result from them. Choose one that is appropriate for you and insert it into your login start-up file. Table 3.5 shows file and directory modes both numerically and 
+symbolically, and umask values range from the most to the least secure.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 3.5. Typical </B><B>umask</B><B> values.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>umask Value</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Default File Mode</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Default Directory </I><I>Mode</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>077</P>
+
+<TD>
+
+<P>600 (rw&#151;&#151;&#151;-)</P>
+
+<TD>
+
+<P>700 (rwx&#151;&#151;&#151;)</P>
+
+<TR>
+
+<TD>
+
+<P>067</P>
+
+<TD>
+
+<P>600 (rw&#151;&#151;&#151;-)</P>
+
+<TD>
+
+<P>710 (rwx&#151;x&#151;-)</P>
+
+<TR>
+
+<TD>
+
+<P>066</P>
+
+<TD>
+
+<P>600 (rw&#151;&#151;&#151;-)</P>
+
+<TD>
+
+<P>711 (rwx&#151;x&#151;x)</P>
+
+<TR>
+
+<TD>
+
+<P>027</P>
+
+<TD>
+
+<P>640 (rw-r&#151;&#151;-)</P>
+
+<TD>
+
+<P>750 (rwxr-xr-x)</P>
+
+<TR>
+
+<TD>
+
+<P>022</P>
+
+<TD>
+
+<P>644 (rw-r&#151;r&#151;)</P>
+
+<TD>
+
+<P>755 (rwxr-xr-x)</P>
+
+<TR>
+
+<TD>
+
+<P>000</P>
+
+<TD>
+
+<P>666 (rw-rw-rw-)</P>
+
+<TD>
+
+<P>777 (rwxrwxrwx)</P></TABLE>
+
+<P>Perhaps the best way to understand umask values is to experiment with the commands umask, touch, mkdir, and ls to see how they interact, as in the following examples:
+
+<BR></P>
+
+<PRE>$ umask 066
+
+$ touch myfile
+
+$ mkdir mydir
+
+$ ls -l
+
+-rw&#151;&#151;&#151;1 karen     user1     0  Feb 12 14:22 myfile
+
+drwx&#151;x&#151;1 2 karen     user1    512 Feb 12 14:22 mydir
+
+$ rm myfile
+
+$ rmdir mydir
+
+$ umask 027
+
+$ touch myfile
+
+$ mkdir mydir
+
+$ ls -l
+
+-rw-r&#151;&#151; 1 karen    user1     0  Feb 12 14:23 myfile
+
+drwxr-x&#151;  2 karen    user1   512  Feb 12 14:23 mydir</PRE>
+
+<P>The umask command may seem confusing, but it's important. You must choose a umask that provides the default file and directory permissions that are right for you. Otherwise, you'll spend all your time changing file and directory permissions, or leave 
+your files and directories with insecure permissions.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Hard and Symbolic Links</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The ln (link) command creates both hard and symbolic links. When you refer to the file &quot;prufrock&quot; in the command cat prufrock, UNIX translates the filename into an internal name. Because UNIX uses a different representation for its internal 
+bookkeeping, you can refer to files by more than one name. A hard link is an alternative name for a file. Suppose you have a file data and you use ln to make a hard link to it called data2:
+
+<BR></P>
+
+<PRE>$ ln data data2
+
+$ ls
+
+data  data2</PRE>
+
+<P>The name data2 now refers to exactly the same internal file as data. If you edit data, the changes will be reflected in data2 and vice versa. Data2 is not a copy of data1 but a different name for the same file. Suppose that Karen enters:
+
+<BR></P>
+
+<PRE>$ ln memo1 memo2</PRE>
+
+<P>Karen now has two filenames&#151;memo1 and memo2&#151;that refer to the same file. Since they refer to the same internal file, they are identical except for their names. If she removes memo1, memo2 remains because the underlying file that memo2 refers 
+to is still there. UNIX removes the internal file only after you remove all of the filenames that refer to it, in this case both memo1 and memo2. You can now see that rather than saying that rm removes a file, it's more accurate to say that it removes the 
+
+file's name from the file system. When the last name for a file is gone, UNIX removes the internal file.
+
+<BR></P>
+
+<P>What good are hard links? Sometimes people working together on projects share files. Suppose that you and Joe work on a report together and must edit the same file. You want changes that you make to be reflected in Joe's copy automatically, without 
+having Joe copy the file anew each time you change it. You also want Joe's changes to be reflected in the copy. Instead of trying to synchronize two separate files, you can make a hard link to Joe's file. Changes he makes will be reflected in your version 
+
+and vice versa because you both are working with the same file even though you use different names for it.
+
+<BR></P>
+
+<P>A symbolic link (also known as a symlink) allows you to create an alias for a file, a sort of signpost in the file system that points to the real file someplace else. Suppose that you frequently look through your friend Joe's Italian recipes, but you 
+are tired of typing:
+
+<BR></P>
+
+<PRE>$ cat /home/joe/recipes/italian/pizza/quattro_stagione</PRE>
+
+<P>You could copy his recipes to your home directory, but that would waste disk space and you would have to remember to check for new recipes and copy those as well. A better solution is to create a symbolic link in your home directory that points to Joe's 
+
+directory. You use ln's -s option to create symbolic links:
+
+<BR></P>
+
+<PRE>$ cd
+
+$ ln -s /home/joe/recipes/italian italian
+
+$ ls italian
+
+linguini  pasta_primavera</PRE>
+
+<P>Your symbolic link italian now points to Joe's recipes, and you can conveniently look at them.
+
+<BR></P>
+
+<P>There are some important differences between hard and symbolic links. First, you can't make a hard link to a directory, as in the example above. Hard links cannot cross disk partitions, and you can't make a hard link to a file in a network file system. 
+
+Symbolic links can do all of these jobs.
+
+<BR></P>
+
+<P>Hard links must refer to a real file, but symbolic links may point to a file or directory that doesn't exist. Suppose that you have a symbolic link to your colleague's file /home/ann/work/project4/memos/paper.ms and she removes it. Your symlink still 
+points to it, but the file is gone. As a result, commands like ls and cat may print potentially confusing error messages:
+
+<BR></P>
+
+<PRE>$ ls
+
+paper.ms
+
+$ cat paper.ms
+
+cat: paper.ms not found</PRE>
+
+<P>Why can't cat find paper.ms when ls shows that it's there? The confusion arises because ls is telling you that the symbolic link paper.ms is there, which it is. Cat looks for the real file&#151;the one the symbolic link points to&#151;and reports an 
+error because Ann removed it.
+
+<BR></P>
+
+<P>A final difference is that permission modes on symbolic links are meaningless. UNIX uses the permissions of the file (to which the link points) to decide whether you can read, write, or execute the file. For example, if you don't have permission to cat 
+
+a file, making a symlink to it won't help; you'll still get a permission denied message from cat.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter you've learned a lot: the basics of creating and manipulating files and directories, some shell tricks, and a fair amount about the UNIX file system. While it may seem overwhelming now, it will quickly become second nature as you work 
+with UNIX files. However, you've only scratched the surface&#151;you'll want to consult the manual pages for echo, cat, ls, cp, rm, mv, mkdir, chmod, and ln to get the details. UNIX provides a cornucopia of powerful file manipulation programs, text 
+editors, production-quality text formatters, spelling checkers, and much more. Read on and practice.
+
+<BR></P>
+
+<P><A HREF="unx02.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx02.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx04.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx04.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

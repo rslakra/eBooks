@@ -1,0 +1,4952 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx40.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx41.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx41.htm">
+
+<LINK REL="Previous" HREF="unx39.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx39.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx39.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx39.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx41.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx41.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">40 &#151; Device Administration</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Device Administration</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Understanding Service Access Facility (SAF)</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Port Services</A></LI>
+
+<LI>
+
+<A HREF="#I6">Port Monitors</A></LI>
+
+<LI>
+
+<A HREF="#I7">Service Access Controller</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">SAF Administrative Commands and Files</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Service Access Controller Specific Files and Commands</A></LI>
+
+<LI>
+
+<A HREF="#I10">Port Monitor Specific Files and Commands</A></LI>
+
+<LI>
+
+<A HREF="#I11">Port Service-Specific Files and Commands</A></LI></UL>
+
+<LI>
+
+<A HREF="#I12">SAF Initialization Process</A></LI>
+
+<LI>
+
+<A HREF="#I13">SAF Administration and Management</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">Port Monitor Administration and Management</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">Creating a Port Monitor</A></LI>
+
+<LI>
+
+<A HREF="#I16">Checking the Status of the Port Monitor</A></LI>
+
+<LI>
+
+<A HREF="#I17">Enabling, Disabling, and Removing a Port Monitor</A></LI></UL>
+
+<LI>
+
+<A HREF="#I18">Port Service Administration and Management</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I19">Creating a Port Service</A></LI>
+
+<LI>
+
+<A HREF="#I20">Listing and Checking the Status of a Port Service</A></LI>
+
+<LI>
+
+<A HREF="#I21">Enabling, Disabling, and Removing a Port Service</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I22">The ttymon port monitor</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I23">Special Device Files and the Terminal Line Settings Database</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I24">Device Special Filenames under SAF</A></LI>
+
+<LI>
+
+<A HREF="#I25">The Terminal Line Settings Database</A></LI></UL>
+
+<LI>
+
+<A HREF="#I26">The ttymon Port Monitor Administrative Command ttyadm</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">The listen Port Monitor</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">Port Service Addressing</A></LI>
+
+<LI>
+
+<A HREF="#I29">The listen Port Monitor Administrative Command nlsamdin</A></LI>
+
+<LI>
+
+<A HREF="#I30">Creating a listen Port Monitor</A></LI>
+
+<LI>
+
+<A HREF="#I31">Managing listen Port Monitors</A></LI>
+
+<LI>
+
+<A HREF="#I32">Creating a listen Port Service</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I33">Managing Port Services</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I34">Connecting Terminals and Modems</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I35">Making the Connection</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I36">Preparing for the Physical Connection</A></LI>
+
+<LI>
+
+<A HREF="#I37">Determine the Availability of Resources</A></LI>
+
+<LI>
+
+<A HREF="#I38">Creating the Port Service</A></LI></UL>
+
+<LI>
+
+<A HREF="#I39">Connecting the Modem</A></LI>
+
+<LI>
+
+<A HREF="#I40">Connecting Terminals</A></LI></UL>
+
+<LI>
+
+<A HREF="#I41">Connecting Printers</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I42">How Does the LP Printing Service Work?</A></LI>
+
+<LI>
+
+<A HREF="#I43">Setting Up Local Printing Services</A></LI>
+
+<LI>
+
+<A HREF="#I44">Setting Up Network Print Servers</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I45">Configuring the Print Server</A></LI>
+
+<LI>
+
+<A HREF="#I46">Configuring the Client</A></LI></UL>
+
+<LI>
+
+<A HREF="#I47">Managing Printers</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I48">Enabling and Disabling LP Print Service</A></LI>
+
+<LI>
+
+<A HREF="#I49">Managing Print Requests</A></LI>
+
+<LI>
+
+<A HREF="#I50">Printer Configuration Management</A></LI>
+
+<LI>
+
+<A HREF="#I51">Print Service User Management</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I52">Connecting a PC to UNIX Systems</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I53">Connecting the PC Using COM Ports</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I54">Configuring the Modems</A></LI></UL>
+
+<LI>
+
+<A HREF="#I55">Connecting to UNIX via TCP/IP</A></LI></UL>
+
+<LI>
+
+<A HREF="#I56">Connecting X Terminals</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I57">The Architecture of X</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I58">The Client/Server Model of X</A></LI>
+
+<LI>
+
+<A HREF="#I59">The X Protocol</A></LI></UL>
+
+<LI>
+
+<A HREF="#I60">X Resources</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I61">Setting X Resources with Command-Line Options</A></LI>
+
+<LI>
+
+<A HREF="#I62">Defining Resources Using Resource Definition Files</A></LI></UL>
+
+<LI>
+
+<A HREF="#I63">Window Managers</A></LI>
+
+<LI>
+
+<A HREF="#I64">Setting the Shell Environment Variables</A></LI>
+
+<LI>
+
+<A HREF="#I65">The X Display Manager</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I66">xdm-config</A></LI>
+
+<LI>
+
+<A HREF="#I67">Xservers and Xaccess</A></LI>
+
+<LI>
+
+<A HREF="#I68">The Xresources File</A></LI>
+
+<LI>
+
+<A HREF="#I69">Xsession and $HOME/.xsession files</A></LI>
+
+<LI>
+
+<A HREF="#I70">GiveConsole and TakeConsole Configuration Files</A></LI></UL>
+
+<LI>
+
+<A HREF="#I71">X Server Access Security</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I72">xhost Access Control Method</A></LI></UL>
+
+<LI>
+
+<A HREF="#I73">Types of X Servers</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I74">PC X Servers</A></LI></UL>
+
+<LI>
+
+<A HREF="#I75">Summary</A></LI></UL></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>40 &#151; Device Administration</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>Device Administration</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Central to the system administrator's responsibilities is the provision to users of access to the distributed and shared resources belonging to their environment. Some of the resources are software (for example, applications, the file system, and so 
+on), whereas others are hardware such as terminals, modems, printers, and so on. Other chapters will address the issues and concerns pertaining to the administration of software resources; this chapter addresses issues pertaining to the administration and 
+
+management of hardware resources (that is, devices). Namely, you will be presented with the skills necessary to set up, configure, and maintain the performance of modems, terminals, printers, x terminals, and PCs.
+
+<BR></P>
+
+<P>For the purposes of terminal, modem, and printer setup UNIX comes with a very powerful and central access facility known as Service Access Facility (SAF). No treatment of device administration is complete without covering SAF. Neither is it possible for 
+
+the system administrator to complete the aforementioned tasks successfully without a rigorous understanding of what SAF is all about, and the skillful use of its associated commands. This chapter starts by explaining SAF.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Understanding Service Access Facility (SAF)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Prior to System V release 4 of UNIX, administrators were provided with different processes and interfaces, along with their associated tools, to manage different physical resources on the system. Local port access used to be administered and controlled 
+
+by interfaces that are different from those needed to set up for network access, or those pertaining to printer setup and so on. Administrators were therefore confronted with the challenge of learning and mastering the many different skills and interfaces 
+
+needed to get the job done. To alleviate this challenge, SAF was introduced with SVR4. SAF provides a commonly applicable interface for the purpose of comprehensive and uniform management of all system resources. Upon mastering the concepts and associated 
+
+commands that SAF provides, the administrator will be able to install, configure, monitor, and maintain information relevant to the local and network access to physical port services in SAF database files.
+
+<BR></P>
+
+<P>SAF consists primarily of port services, port monitors, the service access controller (sac) process, and SAF Administrative Files and Commands
+
+<BR></P>
+
+<P>A description of each of these components will be provided. Then the SAF initialization process will be detailed.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Port Services</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SAF defines a hierarchy of port control processes, of which port service is the lowest and the most &quot;intimate&quot; to the actual physical services. A port service is defined as a process that controls and monitors access to applications and other 
+
+services, through physical ports such as ttys and TCP/IP. A tty service may provide users with dial-in/dial-out capabilities, thus allowing them to utilize high-level applications such as uucp, cu, and login. A TCP/IP port-related service may be required 
+to provide printing, rlogin, or nfs services across the network.
+
+<BR></P>
+
+<P>There is a one-to-one association between physical ports (the actual physical service) and port services (the controlling process). It is not possible, for example, for two ttys to share the same port service; neither is it possible for one tty port to 
+
+be controlled by more than one port service.
+
+<BR></P>
+
+<P>Upon creation of a port service, the system administrator assigns it a service name, which is referred to as the service tag. Service tags are used to conveniently distinguish between the port services running on the system. Port services are supported 
+
+and controlled by intermediate-level processes called port monitors, which are described next.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Port Monitors</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A port monitor is an intermediate level process that controls a set of related services. SAF currently recognizes two types of port monitors: ttymon and listen. However SAF is not limited to those two types. Vendors and system programmers are provided 
+with a well-defined network programming interface, to enable them to write their own monitor types.
+
+<BR></P>
+
+<P>Port monitor type ttymon controls and monitors tty-related port services, thus replacing pre-SVR4 getty and uugetty programs. Although maintaining support to uugetty and getty processes in SVR4 for reasons of backward compatibility, ttymon is the 
+preferred method of installing, configuring, and monitoring tty port services in SVR4. Port monitor type listen, on the other hand, takes advantage of TCP/IP communications protocols (see Chapter 37 for more on TCP/IP) to provide across-the-network 
+services mentioned earlier, such as network printing and remote file-sharing capabilities. Both port monitor types will be comprehensively explained in the upcoming sections.
+
+<BR></P>
+
+<P>System administrators are allowed the flexibility to create as many port monitors of any type as they deem necessary. Upon creation of a port monitor, a so-called port monitor tag has to be assigned to it. As in the case of port services, port monitor 
+tags are names that help in distinguishing between port monitors. They can be given convenient names that may describe the nature of the service they support. Being a mid-level process, port monitors themselves are invoked, controlled, and monitored by the 
+
+service access controller (sac) process.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Service Access Controller</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The service access controller process is the highest in SAF hierarchy. There is only one sac per system. It invokes and controls all port monitors, irrespective of type, which have been created and configured by the system administrator. sac is a 
+program that is spawned by init upon system startup when multiuser mode is entered. When SVR4 is installed, an entry supporting sac is automatically included in the /etc/inittab file. A depiction of how this entry should look is as follows:
+
+<BR></P>
+
+<PRE>sc:234:respawn:/usr/lib/saf/sac -t 300</PRE>
+
+<P>Due to the -t 300 option, sac routinely checks port monitors every 300 seconds for services. In order to change it to any other different value, enter
+
+<BR></P>
+
+<PRE>#sacadm -t &lt;seconds&gt;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Do not be surprised, upon checking the /etc/inittab file, if you see entries pertaining to ttymon port monitor. There is no contradiction between what you see and what has already been explained. 
+Simply put, SVR4 allows a so-called &quot;express mode&quot; invocation of ttymon by init. This particularly applies to the case of the console port. You will still be able, however, to create instances of ttymon that are controlled and administered by 
+sac.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>SAF Administrative Commands and Files</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>SAF distinguishes between sac-specific, port monitor-specific, and port service-specific administrative and configuration files as well as administrative commands. In this section, administrative and configuration files and SAF-related commands will be 
+
+described. The emphasis will be on their nature and the job they do. Command syntax and utilization for the purposes of creating, configuring, or checking the status of port monitors and port services will be left until later sections where they'll be 
+discussed at length in the context of tasks to accomplish.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Service Access Controller Specific Files and Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once brought up, sac fetches two files. Those files are as follows: 1) /etc/saf/_sactab, which is the administrative database that contains entries pertaining to port monitors defined by the system administrator, and 2) the /etc/saf/_sysconfig file, 
+which is a sac-specific configuration file. Whereas sac uses the first file to identify the port monitors to invoke, it uses the second one in order to self-customize its own environment. Contents of /etc/saf/_sactab can be modified by the sacadm command, 
+
+which is sac's administrative command. Using sacadm allows administrators to create port monitors, check their status, and enable or disable them as well as remove them. Also, each port monitor provides an administrative command that can be used with 
+sacadm in command substitution mode. The listen port monitor administrative command is nlsadmin, whereas ttymon's is ttyadm.
+
+<BR></P>
+
+<P>/etc/saf/_sysconfig file, on the other hand, is a file that would be used by sac to specify the environment governing all the services controlled by it. The sac program, once started by init, reads and interprets this file prior to the invocation of any 
+
+service defined by /etc/saf/_sactab. There can optionally be one _sysconfig file per system, and it can be edited using vi or any other UNIX editor.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Port Monitor Specific Files and Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When a port monitor is created using sacadm, an /etc/saf/&lt;<I>pmtag</I>&gt; directory will be created where port-specific files are maintained. Of prime interest are 1) /etc/saf/&lt;<I>pmtag&gt;/_</I>pmtab, and 2) 
+/etc/saf/&lt;<I>pmtag</I>&gt;/_config. If, for example, you create a port monitor, which you assign a tag called ttyserv, the directory called /etc/saf/ttyserv will be created in which the administrative file called /etc/saf/ttyserv/_config will be 
+maintained. This file is similar to the /etc/saf/_sactab in its functionality, as it is used by the port monitor to determine and bring up the port services as defined by the system administrator. /etc/saf/<I>&lt;pmtag&gt;</I>/_pmtab is a one-per-port 
+monitor file and is modified using the pmadm command whether creating, deleting, or modifying the status of any of the associated port services. The /etc/saf/<I>&lt;pmtag&gt;</I>/_config is an optional port monitor specific configuration file that can be 
+created by the system administrator using vi. Commands in this file can add to, or override, those found in the system configuration file _sysconfig. Before starting a port monitor defined in /etc/saf/_sactab file, sac checks the port monitors' respective 
+
+directory, described previously, for the _config file. If found, _config is read and interpreted by sac to customize the port monitor's environment, and then the port monitor is started.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Port Service-Specific Files and Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Being at the bottom of the SAF hierarchy, port services have no administrative files associated with it. The system administrator, however, has the option to create a port service-specific configuration script named after the service tag and kept in the 
+
+associated port monitor's directory. So if, for example, a port service was created under port monitor ttyserv and was given the service tag ttylogin1, then the port service configuration file is named ttylogin1 and is kept in the /etc/saf/ttyserv 
+directory. The complete filename thus becomes /etc/saf/ttyserv/ttylogin1. This file is read and interpreted by the controlling port monitor before starting the port service. Configuration commands included in the file may override or add to those found in 
+
+the _config port monitor's file or _sysconfig that are associated with this service.
+
+<BR></P>
+
+<P>Table 40.1 summarizes what has been discussed so far and provides you with a quick way to narrow down the files and commands associated with each SAF component.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 40.1. Administrative files and commands associated with each of </B><B>the SAF components.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P><I>Process </I><I>Filename</I>
+
+<BR></P>
+
+<TD>
+
+<P><I>Invoked by </I><I>Admin Command</I>
+
+<BR></P>
+
+<TD>
+
+<P><I>Admin Filename</I>
+
+<BR></P>
+
+<TD>
+
+<P><I>config</I>
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>sac</P>
+
+<TD>
+
+<P>init</P>
+
+<TD>
+
+<P>/etc/saf/_sactab</P>
+
+<TD>
+
+<P>/etc/saf/</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>_sysconfig sacadm</P>
+
+<TR>
+
+<TD>
+
+<P>port monitor</P>
+
+<TD>
+
+<P>sac pmadm</P>
+
+<TD>
+
+<P>/etc/saf/&lt;pmtag&gt;/_pmtab </P>
+
+<TD>
+
+<P>/etc/saf/&lt;pmtag&gt;/_config</P>
+
+<TR>
+
+<TD>
+
+<P>port service</P>
+
+<TD>
+
+<P>port monitor</P>
+
+<TD>
+
+<P>optional</P>
+
+<TD>
+
+<P>pmadm</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>SAF Initialization Process</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Figure 40.1 shows a flow chart summarizing the SAF initialization process. Note how it all starts with init invoking sac after reading a sac-associated entry in the /etc/inittab file. Once sac is started, it proceeds as follows:
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="40unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx01.gif">Figure 40.1. Flow chart illustration of SAF </B><B>initialization process.</A></B>
+
+<BR></P>
+
+<PRE>
+
+<BR>sac checks for the /etc/saf/_sysconfig configuration file. If found, it reads the file in order to self-customize its environment. This environment is a global one that, unless otherwise modified or overridden, will govern all defined SAF services.
+
+
+
+<BR>sac determines which port monitors to invoke by reading the /etc/saf/_sactab file. For each port monitor, sac checks for the associated /etc/saf/<I>&lt;pmtag&gt;</I>/_config file. If one exists, the sac process reads, interprets, and implements the 
+contents and customizes the port monitor's environment, irrespective of any earlier associated settings defined in _sysconfig files. The port monitor is then invoked.
+
+
+
+<BR>Once invoked, the port monitor determines which port services to start by reading its /etc/saf/<I>&lt;pmtag&gt;</I>/_pmtab file. Next, the port monitor checks for the optional /etc/saf/<I>&lt;pmtag&gt;</I>/&lt;svctag&gt; corresponding to each port 
+service. If one exists, it is read and interpreted to customize the port service environment. The port service is then invoked.</PRE>
+
+<P>After the initialization process is completed, sac continues to poll the port monitors at regular intervals as defined by the -t option in the corresponding entry in the /etc/inittab file. Port monitors failing to respond to this polling process prompt 
+
+sac into respawning them.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>SAF Administration and Management</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section introduces some of the concepts and skills pertaining to SAF management and administration. Because those skills commonly apply to all types of port monitors and their associated port services, the discussion will focus on how to accomplish 
+
+each of the following tasks described, with little emphasis on the nature of the service being rendered to the user. SAF management and administration is a two-level system: one level applies to port monitors, whereas the other applies to port services. 
+This section is therefore presented in two parts.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Port Monitor Administration and Management</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As explained earlier in this chapter, for an administrator to offer port services, be it across the network or local to the system, he or she must first create the port monitor supporting it. Only then can port services be created and released to the 
+user community. There are also troubleshooting instances when the administrator may need to check on the status of suspect port monitors or even temporarily disable them. 
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Creating a Port Monitor</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Port monitors are administered and managed using the sacadm administrative command. In addition to sacadm, each port monitor type provides for an administrative command that is commonly used with sacadm in &quot;command substitution mode.&quot; ttyadm 
+is ttymon's command, whereas nlsadmin is listen's. To create a port monitor, sacadm must be entered along with the following options:
+
+<BR></P>
+
+<PRE>#sacadm -a -p&lt;pmtag&gt; -t&lt;type&gt; -c&quot;&lt;pm_cmd&gt;&quot; -v ver [-fd|x] \
+
+[-n &lt;count&gt;] [-y&quot;comment&quot;]</PRE>
+
+<P>where:
+
+<BR></P>
+
+<PRE>
+
+<BR>-a stands for add or create a port monitor.
+
+
+
+<BR>-p &lt;<I>pmtag</I>&gt; assigns the port monitor being created a name, which can be conveniently used to distinguish it from other port monitors. Although the name can be anything you choose, it should be descriptive of the type of service with which 
+it is associated.
+
+
+
+<BR>-t &lt;<I>type</I>&gt; specifies the type of monitor to create (that is, ttymon versus listen).
+
+
+
+<BR>-c &quot;<I>&lt;pm_cmd&gt;</I>&quot; specifies the command to invoke when the port monitor is later spawned by sac: /usr/lib/saf/ttymon to invoke a ttymon port monitor, or /usr/lib/saf/listen to invoke a listen port monitor.
+
+
+
+<BR>-v<I> ver</I> specifies the version of the port monitor. The version may more conveniently be provided by invoking the port monitor's specific administrative command (ttyadm or nlsadmin) with the -V option in command substitution form (that is, as an 
+argument to -v). In this case, the -V option would be typed as follows:
+
+
+
+<BR># sacadm -a ... -v'ttyadm -V' ...
+
+
+
+<BR>-f [d|x] specifies the status of the port monitor upon invocation, with d meaning to start the port monitor in disabled state and x meaning not to start it. If flagged x, the port monitor can only be started by the system administrator. There onward, 
+sac takes over in controlling the port monitor.
+
+
+
+<BR>-n&lt;count&gt; specifies the retry count used by the port monitor in restarting a failing port monitor. If not included, the default that applies is zero.
+
+
+
+<BR>-y &quot;<I>comment</I>&quot; can be any comment that you may want to include in the /etc/saf/_sactab file. For your convenience, you may want to include a comment describing what this port monitor is for.</PRE>
+
+<P>When a port monitor is created, the following happens: 1) An entry in sac's administrative file /etc/saf/_sactab is added pertaining to the port monitor, including all of the arguments provided on the command line. 2) The port monitor's supporting 
+directory /etc/saf/&lt;<I>pmtag</I>&gt; is also created. As a matter of fact, another directory, /var/saf/&lt;<I>pmtag</I>&gt;, will also be created where a port monitor log file is maintained. The filename is /var/saf/&lt;<I>pmtag</I>/log. It is used by 
+sac to log all messages pertaining to the port monitor.
+
+<BR></P>
+
+<P>For a better feel for what has been said so far, take a look at an example of creating a port monitor. This example will be carried over to upcoming sections to demonstrate aspects of managing the port monitor. In this example it is assumed that the 
+system administrator wants to allow users local logins to the system, using serial communications. Hence, the first task is to create the port monitor in preparation for creating the necessary associated port services.
+
+<BR></P>
+
+<P>Due to the nature of the service (that is, serial communication), the port monitor has to be of a ttymon type. The system administrator has chosen to assign the port monitor the tag ttyserv, start it in the disabled state, and include a comment saying 
+&quot;only two logins.&quot; Upon failure, sac should attempt restarting the monitor twice. The sacadm command should therefore look like this:
+
+<BR></P>
+
+<PRE>#sacadm -a -p serial -t ttymon -v 'ttyadm -V' \
+
+ -c&quot;/usr/lib/saf/ttymon&quot; -fd -n 2 -y &quot;only two logins&quot;</PRE>
+
+<P>Next, you'll be learning how to check on the status of the port monitor. For the time being, however, we can carry a check using cat to look up the contents of sac's /etc/saf/_sactab file. cat /etc/saf/_sactab should reveal the following entry:
+
+<BR></P>
+
+<PRE>ttyserv:ttymon:d:2:/usr/lib/saf/ttymon          #only two logins</PRE>
+
+<P>and if you enter ls -l /etc/saf, you will be able to verify that the subdirectory is ttyserv. ttyserv (the subdirectory) is created among others existing at /etc/saf level. Reflecting back on the _sactab entry shown previously, you should have guessed 
+how each field in /etc/saf/_sactab file maps to arguments you enter on the command line. The first field refers to the pmtag, the second to the port monitor type, the third to the state in which the port monitor is started (disable state, in this example). 
+
+The fourth mandates that two restarts be attempted should the port monitor fail, and the fifth specifies the complete path- name of the command to invoke. Note also that the comment is included as well.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Checking the Status of the Port Monitor</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To check on the status of the port monitor, use the sacadm command with -l option among the others as follows:
+
+<BR></P>
+
+<OL>
+
+<LI># sacadm -t&lt;<I>type</I>&gt; -l to obtain a listing of all port monitors of same type, or
+
+<BR>
+
+<BR></LI>
+
+<LI># sacadm -p&lt;<I>pmtag</I>&gt; -l to obtain information about a specific port monitor.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>If you enter sacadm -pttyserv -l to check on the port monitor just created in the preceding example, you get the following output:
+
+<BR></P>
+
+<PRE>PMTAG     PMTYPE    FLGS RCNT STATUS    COMMAND
+
+ttyserv   ttymon    d    2    DISABLED  /usr/lib/saf/ttymon #only two logins</PRE>
+
+<P>Note that the status field indicates that the port monitor is in a disabled state. If you check the status immediately after the port monitor is created, the status field may indicate that it is STARTING.
+
+<BR></P>
+
+<P>The port monitor can be in one of the following states:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>STARTING:</P>
+
+<TD>
+
+<P>sac is in the process of starting it. This is a transitional state between NOTRUNNING and ENABLED or DISABLED.</P>
+
+<TR>
+
+<TD>
+
+<P>ENABLED:</P>
+
+<TD>
+
+<P>The port monitor is running and is accepting connection requests.</P>
+
+<TR>
+
+<TD>
+
+<P>DISABLED:</P>
+
+<TD>
+
+<P>The port monitor is running but refusing connection service requests.</P>
+
+<TR>
+
+<TD>
+
+<P>STOPPED:</P>
+
+<TD>
+
+<P>The port monitor is undergoing the shutdown process. This state is transitional from ENABLED or DISABLED and NOTRUNNING.</P>
+
+<TR>
+
+<TD>
+
+<P>NOTRUNNING:</P>
+
+<TD>
+
+<P>The port monitor is not running. None of the port services associated with it is currently accessible.</P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Enabling, Disabling, and Removing a Port Monitor</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To enable, disable, or remove a port monitor, use sacadm -e, sacadm -d, or sacadm -r, respectively. To enable the ttyserv port monitor, enter
+
+<BR></P>
+
+<PRE># sacadm -pttyserv -e</PRE>
+
+<P>whereas to disable it, enter
+
+<BR></P>
+
+<PRE># sacadm -pttyserv -d</PRE>
+
+<P>and to remove it, enter
+
+<BR></P>
+
+<PRE># sacadm -pttyserv -r</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When a port monitor is removed, its associated directories are not cleaned up and deleted. To avoid confusion in the future, you may have to take care of that yourself.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Port Service Administration and Management</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Only after the port monitor is created is the system administrator in a position to create and manage the associated port services. Port creation and administration is achievable via the pmadm command. 
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Creating a Port Service</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To create a port service, pmadm should be used with the -a option, among the others as follows: 
+
+<BR></P>
+
+<PRE># pmadm -a -p&lt;pmtag&gt; -s&lt;svctag&gt; -m&quot;pmspecific&quot; \
+
+-v ver [-fx|u] -y&quot;comment&quot;</PRE>
+
+<P>in which
+
+<BR></P>
+
+<PRE>
+
+<BR>-a stands for create a port service.
+
+
+
+<BR>-p&lt;pmtag&gt; specifies the tag of the port monitor to which the port service belongs.
+
+
+
+<BR>-s&lt;svctag&gt; specifies the service tag assigned to the port service.
+
+
+
+<BR>-m&quot;&lt;<I>pmspecific</I>&gt;&quot; specifies port-specific information to be passed as an argument to the pmadm command. Normally, this information is generated by employing either ttyadm or nlsadmin in command substitution mode, depending on the 
+
+type of the port monitor specified with the -p option.
+
+
+
+<BR>-v &lt;<I>ver</I>&gt; passes the version of the port monitor. Depending on the type of the port monitor, either ttymon -V or nlsadmin -V can be used in command substitution mode.
+
+
+
+<BR>-f specifies the state with which the port service should be started, and whether a utmp entry is to be created. Both or any of the flags can be specified, where d specifies that the port should be started in disabled state, and u specifies that a utmp 
+
+entry be created for the service.</PRE>
+
+<P>The following example adds a ttymon port service to the ttyserv port monitor created earlier in this section:
+
+<BR></P>
+
+<PRE>#pmadm -a -pttyserv -s s01 -v 'ttyadm -C' -fd \
+
+-m &quot;`ttyadm -d /dev/term/01 -l 9600 -s/usr/bin/login \
+
+-p&quot;Welcome To UNIX, Please Login:&quot;'&quot;</PRE>
+
+<P>The port service thus created is assigned service tag s01 and added to a port monitor called ttyserv (the one created in the earlier section). s01 port is associated with /dev/term/01 device file (that is, COM2 on an Intel 386/486 machine. -l 9600 
+refers to a record in a terminal line setting database file (/etc/ttydefs), which, when used by the port, sets the line speed. The other settings are described in a subsequent section. When s01 port is invoked by the ttyserv port monitor, it is going to 
+write a prompt (&quot;Welcome to UNIX, Please Login:&quot; according to the preceding example) to the terminal connected to the COM2 port. It starts monitoring the port until it receives a request to connect. Upon receiving the prompt, it invokes 
+/usr/bin/login to take care of the request.
+
+<BR></P>
+
+<P>When a port service is created, the /etc/saf/&lt;<I>pmtag</I>&gt;/_pmtab is modified to include an entry pertaining to the service. Hence, in the preceding example, an entry pertaining to s01 must be present in the /etc/saf/ttyserv/_pmtab. You can 
+display it either by using cat or the pmadm command as described in the next section.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Listing and Checking the Status of a Port Service</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To list and check on the status of a port monitor, enter
+
+<BR></P>
+
+<PRE>#pmadm -l -p&lt;pmtag&gt; -s&lt;svctag&gt;</PRE>
+
+<P>To list or check on the status of all port services associated with a specific port monitor, enter
+
+<BR></P>
+
+<PRE>#pmadm -l -p&lt;pmtag&gt;</PRE>
+
+<P>whereas to list, or check, the status of all port monitor services, enter
+
+<BR></P>
+
+<PRE>PMTAG          PMTYPE         SVCTAG         FLGS ID       &lt;PMSPECIFIC&gt;
+
+ttymon3        ttymon         00s            u    root      /dev/term/00s - - /usr/bin/
+
+<BR>                                                           _login - 2400 - login:  -  #
+
+ttymon3        ttymon         01s            u    uucp     /dev/term/01s b - /usr/bin/
+
+<BR>                                                           _login - 2400 - login:  -  #
+
+ttymon3        ttymon         00h            u    root      /dev/term/00h - - /usr/bin/
+
+<BR>                                                           _login - 9600 - login:  -  #
+
+tcp            listen         0              x    root     \x02000ACE64000001 - c - /
+
+<BR>                                                           _usr/lib/saf/nlps_server
+
+<BR>                                                           _#NLPS SERVER
+
+tcp            listen         lp             -    root     - - - - /var/spool/lp/fifos/
+
+<BR>                                                           _listenS5 #NLPS SERVER
+
+tcp            listen         105            -    root     - - c - /usr/net/servers/rfs/
+
+<BR>                                                           _rfsetup #RFS server</PRE>
+
+<P>The following two examples demonstrate the first two commands.
+
+<BR></P>
+
+<PRE>#pmadm -l -pttyserv -s s01
+
+PMTAG     PMTYPE    SVCTAG    FLGS ID   PMSPECIFIC
+
+ttyserv   ttymon    s01       d    root /dev/term/01 &#151;
+
+/usr/bin/login - 9600 - Welcome to UNIX, Please Login: - #
+
+#pmadm -l -pttyserv
+
+PMTAG     PMTYPE   SVCTAG FLGS ID       &lt;PMSPECIFIC&gt;
+
+ttyyserv        ttymon         00s              u       root   /dev/term/00s  
+
+<BR>/usr/bin/login  2400  login:    #
+
+ttyserv           ttymon         01s               u      uucp   /dev/term/01s b 
+
+<BR>/usr/bin/login  9600  login:    #</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Enabling, Disabling, and Removing a Port Service</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To enable, disable, or remove a port service, use pmadm -e, pmadm -d, or pmadm -r, respectively. Hence, to enable s01 port monitor, enter
+
+<BR></P>
+
+<PRE>#pmadm -pttyserv -s s01 -e</PRE>
+
+<P>whereas to disable it, enter
+
+<BR></P>
+
+<PRE>#pmadm -pttyserv -s s01 -d</PRE>
+
+<P>and to remove it, enter
+
+<BR></P>
+
+<PRE>#pmadm -pttyserv -s s01 -r</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=4><B>The </B><B><I>ttymon</I></B><B> port monitor</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As its name implies, the ttymon port monitor is responsible for invoking and monitoring port services associated with your system's tty ports. When invoked, ttymon looks up its /etc/saf/&lt;<I>pmtag</I>&gt;/_pmtab file to determine: which port services 
+
+to invoke; which tty port associates with which service; how the port services are configured (for example, startup in an enabled state, what line speed to configure tty port to, and so on); and which application, or process, to invoke upon user request 
+(for example, login service, uucp, and so on).
+
+<BR></P>
+
+<P>ttymon replaces both getty and uugetty. Though getty and uugetty are still supported by SVR4 for backward compatibility reasons, system administrators are strongly recommended to use ttymon. This recommendation stems from the following comparison:
+
+<BR></P>
+
+<OL>
+
+<LI>ttymon administration conforms with SAF's generic interface. This brings managing ttymon port monitors into line with management concepts applied to other port monitors, providing the benefit of convenience.
+
+<BR>
+
+<BR></LI>
+
+<LI>By using SAF management commands, the administrator has the choice of managing ttymon port services collectively or selectively. When using getty, the administrator can manage only one port at a time.
+
+<BR>
+
+<BR></LI>
+
+<LI>One invocation of the ttymon port monitor by sac can take care of multiple ttys, whereas getty/uugetty requires an entry per supported tty in the /etc/inittab file.
+
+<BR>
+
+<BR></LI>
+
+<LI>As will be discussed later, ttymon comes with support of a new feature, namely the AUTOBAUD feature. This feature allows ttymon to automatically determine the line speed suitable to the connected terminal.
+
+<BR>
+
+<BR></LI>
+
+<LI>ttymon can optionally be invoked directly by init, in &quot;express&quot; mode. This may be done by including an entry in the /etc/inittab file. As a matter of fact, if you examine the contents of the /etc/inittab file, you will notice the existence of 
+
+a similar entry taking care of the UNIX system console in express mode. The entry should look similar to the following:
+
+<BR>
+
+<BR>co:12345:respawn:/usr/lib/saf/ttymon -g -v -p &quot;Console Login: &quot;-d /dev/console -l console
+
+<BR></LI></OL>
+
+<P>Upon reading this entry, init starts a ttymon port monitor to take care of console login needs. This particular invocation of ttymon falls beyond sac's control.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Special Device Files and the Terminal Line Settings Database</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Among the arguments that the system administrator must pass to pmadm to create a port service, two will be described: the device special filename corresponding to the tty serial interface undergoing configuration and a label identifying an entry in a 
+terminal line settings database.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Device Special Filenames under SAF</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Special filenames underwent some changes under SVR4. In earlier releases of UNIX, getty and uugetty referred to the special files in the /dev directory as tty##, where ## refers to the actual port number. With SAF under SVR4, tty port special files are 
+
+maintained in a subdirectory called /dev/term and the special files are named ## in that directory. com1 port on a 386 machine is now referred to as /dev/term/00, whereas under getty it is referred to as /dev/tty00. Due to the ongoing support to uugetty 
+and getty, both conventions are currently supported. It is the administrator's responsibility, however, to make sure that the right convention is applied with his or her preferred way of invoking a port service.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>The Terminal Line Settings Database</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As mentioned earlier, this database is the ttymon administrative file, which defines the line settings applying to the tty port being invoked. The database filename is /etc/ttydefs, whereas getty's is /etc/gettydefs. Both files remain supported by SVR4 
+
+and both are maintained using the /etc/sbin/sttydefs command. A good understanding of these databases helps you to provide the level of support that matches the users' terminal emulation need. In the following discussion, however, only /etc/ttydefs' file 
+data structure is examined and explained. The use of the sttydefs command to add, modify, or delete entries in the database also is described.
+
+<BR></P>
+
+<P>The discussion begins with a close look at the contents of the /etc/ttydefs file. To list its contents, enter
+
+<BR></P>
+
+<PRE>#/usr/sbin/sttydefs -l
+
+19200: 19200 opost onlcr tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread : 19200 opost onlcr sane tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread ::9600
+
+ttylabel:    19200
+
+initial flags:     19200 opost onlcr tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread
+
+final flags:     19200 opost onlcr sane tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread
+
+autobaud:    no
+
+nextlabel:    9600
+
+9600: 9600 opost onlcr tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread : 9600 opost onlcr sane tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread ::4800
+
+ttylabel:    9600
+
+initial flags:     9600 opost onlcr tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread
+
+final flags:     9600 opost onlcr sane tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread
+
+autobaud:    no
+
+nextlabel:    4800
+
+4800: 4800 opost onlcr tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread : 4800 opost onlcr sane tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread ::2400
+
+ttylabel:    4800
+
+initial flags:     4800 opost onlcr tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread
+
+final flags:     4800 opost onlcr sane tab3 ignpar ixon ixany parenb istrip echo echoe echok isig cs7 cread
+
+autobaud:    no
+
+nextlabel:    2400
+
+.
+
+.
+
+.</PRE>
+
+<P>As you see, sttydefs formats the listing into a user-friendly format. If you want the actual data structure of the command, enter
+
+<BR></P>
+
+<PRE>#cat /etc/ttydefs
+
+.
+
+.
+
+.
+
+onlcr sane tab3 ignpar istrip ixon ixany echo echoe echok isig cs8 cread ::console5
+
+console5: 19200 opost onlcr tab3 ignpar istrip ixon ixany echo echoe echok isig cs8 cread : 19200 opost onlcr sane tab3 ignpar istrip ixon ixany echo echoe echok isig cs8 cread ::console
+
+4800H: 4800 : 4800 ixany parenb sane tab3 hupcl ::9600H
+
+9600H: 9600 : 9600 ixany parenb sane tab3 hupcl ::19200H
+
+19200H: 19200 : 19200 ixany parenb sane tab3 hupcl ::2400H
+
+2400H: 2400 : 2400 ixany parenb sane tab3 hupcl ::1200H
+
+1200H: 1200 : 1200 ixany parenb sane tab3 hupcl ::300H
+
+300H: 300 : 300 ixany parenb sane tab3 hupcl ::4800H
+
+19200NP: 19200 opost onlcr tab3 ignpar ixon ixany istrip echo echoe echok isig cs8 cread : 19200
+
+.
+
+.</PRE>
+
+<P>The following is a description of each field:
+
+<BR></P>
+
+<PRE>
+
+<BR><I>Label</I>: It is unique and is used in identifying the record. You will be passing this label to ttymon, using pmadm, when creating the port service. Every time ttymon attempts invoking the port service, it searches for that label in the ttydefs 
+file.
+
+
+
+<BR><I>Initial flags</I>: This field describes the initial terminal line settings. They allow users to provide login information upon initial contact.
+
+
+
+<BR><I>Final flags</I>: They define the terminal line settings after a connection request is detected, and right before the associated port service is invoked.
+
+
+
+<BR><I>Autobaud</I>: This field can contain either A or null. By including A in this field, you are prompting ttymon to automatically determine the line speed upon receiving a carriage return from the user's terminal.
+
+
+
+<BR><I>Next label</I>: This field includes the label of the next record to fetch should the line settings specified in the current label fail to meet the user's terminal needs. ttymon recognizes the failure upon receiving a BREAK sent by the user. This 
+technique allows ttymon to fall back on any number of alternate configurations in search of the desired line speed. Records linked together in this fashion are said to form a hunt sequence, with the last one normally linked to the first record. The sample 
+
+partial listing shown previously includes a hunt sequence that starts with label 4800H and ends with 300H.</PRE>
+
+<P>An example record in ttydefs follows, along with an explanation of its field contents.
+
+<BR></P>
+
+<PRE>9600NP: 9600  tab3 ignpar ixon ixany  echo echoe  cs8 : 9600 sane tab3 ignpar ixon ixany  echo echoe  cs8::4800NP</PRE>
+
+<P>This record is labelled 9600NP. Both the initial and final flags set the port to 9600 bps, no parity (ignpar), enable XON/OFF flow control(ixon), any character should restart output (ixany), echo back every character typed (echo), echo erase character 
+(echoe), and to set the character size to 8 bits. The autobaud field is null, which means that no autobaud support is required. The last field points to the next record labelled 4800N.
+
+<BR></P>
+
+<P>To find more about the valid initial and final flag settings, consult your vendor's manuals, or simply enter &quot;man stty&quot; on the command line.
+
+<BR></P>
+
+<P>What if you don't find what you want in ttydefs? As noted earlier, SVR4 provides you with the /etc/sbin/sttydefs command to make changes to the /etc/ttydefs database. Among the changes you are allowed to make is adding the record of your liking. The 
+command syntax to do that follows:
+
+<BR></P>
+
+<PRE>#sttydefs -a&lt;ttylabel&gt; [-b] [-n&lt;nextlabel&gt;] [-i&lt;initialflags&gt;]\
+
+[-f &lt;finalflags&gt;]</PRE>
+
+<P>in which
+
+<BR></P>
+
+<PRE>
+
+<BR>-a &lt;<I>ttylabel</I>&gt; adds an entry to ttydefs with label specified (first field)
+
+
+
+<BR>-i &lt;initialflags&gt; specifies initial speed among other line settings (second field)
+
+
+
+<BR>-f &lt;finalflags&gt; specifies final line settings (third field)
+
+
+
+<BR>-b enables autobaud (fourth field in which case A will be included in this field)
+
+
+
+<BR>-n describes the next record's label</PRE>
+
+<P>For example, the sttydefs that follows adds a new record, labelled 4800, with initial flags set to support 4800 bps line speed:
+
+<BR></P>
+
+<PRE>#sttydefs -a4800 -i&quot;4800 hupcl tab3 erase ^b&quot; \
+
+-f&quot;4800 sane ixany tab3 erase ^h echoe&quot; -n2400np</PRE>
+
+<P>To remove an entry, simply enter sttydefs -r &lt;<I>ttylabel</I>&gt;.
+
+<BR></P>
+
+<P>For example: to delete the 4800 label, enter
+
+<BR></P>
+
+<PRE>#sttydefs -r 4800</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> A record that you delete may belong to a hunt sequence, in which case it is your responsibility to restore integrity to the affected sequence.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>The </B><B><I>ttymon</I></B><B> Port Monitor Administrative Command </B><B><I>ttyadm</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>ttyadm is ttymon's administrative command. Its prime function is to pass information to both sacadm and pmadm in the formats they require. The following are the ttyadm options:
+
+<BR></P>
+
+<PRE>
+
+<BR>-V specifies the version of ttymon
+
+
+
+<BR>-d device specifies the /dev/term/## tty with which the port service will be associated
+
+
+
+<BR>-b if included, will configure the port service for bidirectional flow of data
+
+
+
+<BR>-r &lt;<I>count</I>&gt; specifies the number of times ttymon should try to start the service before a failure is declared
+
+
+
+<BR>-p &quot;prompt&quot; is the string used to prompt users when a port service request is detected.
+
+
+
+<BR>-i &quot;message&quot; is the message to be displayed if the port is in a disabled state
+
+
+
+<BR>-t &lt;<I>timeout</I>&gt; is the number of seconds that ttymon must wait for input data before closing the port
+
+
+
+<BR>-l &lt;<I>ttylabel</I>&gt; specifies the label of the desired record in the /etc/ttydefs file described earlier in this section
+
+
+
+<BR>-s specifies the name of the service provider program on the tty port (for example, login, cu, and so on)</PRE>
+
+<P>At this point, all of the necessary elements that you will need to implement terminal and modem connections have been covered. If you are anxious to try implementing, you may jump right ahead to the section titled &quot;Connecting Terminals and 
+Modems.&quot; Otherwise, continue reading the next section, which explains the listen port monitor.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>The</B><B><I> listen</I></B><B> Port Monitor</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>listen is a network port monitoring process that is invoked and controlled by sac. It runs on any transport provider (most commonly TCP), and supports two classes of service: a class of general services, such as RFS and network printing; and terminal 
+login services for terminals trying to access the system by connecting directly to the network. Like ttymon, listen can support and monitor multiple ports, with each assigned a network service to take care of. Once invoked, the listen port monitor 
+initializes port services as defined in its /etc/saf/&lt;<I>pmtag</I>&gt;/_pmtab file. It then monitors the ports for service connection requests. Once a request is received on a listen port, the associated service (for example, printing) is invoked and 
+the user is connected to it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Port Service Addressing</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>During TCP/IP setup (refer to Chapter 37 for more on TCP/IP), your system will have been assigned an Internet address that is 8 hexadecimal digits long, with each pair of digits represented by one octet. Stations shipping requests across the network to 
+
+your system use this address to reach your machine's doorstep only. Because your machine is more likely to be configured to respond to a variety of service requests, there arises the requirement to assign unique addresses to port services. This allows the 
+
+listen port monitor to support multiple port services. Upon adding a listen port service, you are required to provide the applicable address to nlsadmin (the listen port monitor administrative command). For this reason, you are provided with the address 
+format shown in Figure 40.2.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="40unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx02.gif">Figure 40.2. </B><B><I>listen</I></B><B>'s port service address </B><B>format.</A></B>
+
+<BR></P>
+
+<P>The elements of the address format are as follows:
+
+<BR></P>
+
+<PRE>
+
+<BR><I>Family address</I>: This is four digits long. It is always set to 0020.
+
+
+
+<BR><I>Port address</I>: This is four digits long and is the port service-specific address. For example, listenS5 print server is assigned x0ACE, whereas listenBSD print server is assigned x0203.
+
+
+
+<BR><I>Internet address</I>: This is the IP address you assigned to the system upon installing TCP/IP. It is eight digits long.
+
+
+
+<BR><I>Reserved</I>: This is 16 digits long and is reserved for future use. Currently, it is set to 16 zeros.</PRE>
+
+<P>As an example, assume that the IP address of your system is 100.0.0.1 and that you want to set up a listen port to take care of print service requests sent across the network by BSD systems. The port address in hexadecimal notation then becomes
+
+<BR></P>
+
+<PRE>00020203640000010000000000000000</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> To avoid dealing with decimal-to-hex conversions to figure out the hexadecimal equivalent to your host IP address, you can use the lpsystem -A. Figure 40.3 demonstrates the use of lpsystem -A output in 
+
+order to figure out the host's IP address in hexadecimal notation.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>
+
+<BR><B><A HREF="40unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx03.gif">Figure 40.3. Using </B><B><I>lpsystem -A </I></B><B>to find the </B><B>hexadecimal equivalent of the  host's IP address.</A></B>
+
+<BR></P>
+
+<P>It will be shown later in this section how to pass this address to pmadm when creating the port service.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>The </B><B><I>listen</I></B><B> Port Monitor Administrative Command </B><B><I>nlsamdin</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>nlsadmin is the administrative command specific to the listen port monitor. nlsadmin can be used to add, configure, and change the status of a port monitor. Also, it can be used to start or kill the listener process. Mostly it will be used in command 
+substitution mode, in order to supply some of the required arguments to both sacadm (the sac administrative command) and pmadm. Options that you specify on the command line will determine which arguments to pass, and in what format.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Creating a </B><B><I>listen</I></B><B> Port Monitor</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To create a ttymon port monitor, you use the sacadm command. The same applies to creating a listen port monitor. Instead of using ttyadm, however, you must use nlsadmin in command substitution mode in order to pass some of the required information to 
+sacadm. The use of sacadm in creating a listen port monitor is as follows:
+
+<BR></P>
+
+<PRE>#sacadm -a -p&lt;pmtag&gt; -t listen -c&lt;&quot;command&quot;&gt; -v`nlsadmin -V`\
+
+[-n&lt;count&gt;] [-fd|x] [-y&lt;&quot;comment&quot;&gt;]</PRE>
+
+<P>All options bear the same significance described in earlier sections (refer back to the &quot;Creating a Port Monitor&quot; section for a review). Note in particular, the use of `nlsadmin -V` in order to pass the port monitor's version to sacadm. Also 
+note that the -c option specifies the program invoked to bring up the listen port monitor. The program is /usr/lib/saf/listen. Once a port monitor is created, an entry pertaining to it is added to sac's administrative file /etc/saf/_sactab.
+
+<BR></P>
+
+<P>As an example, the following sacadm command creates a listen port monitor with pmtag tcp. Note that the program filename to invoke is /usr/lib/saf/listen, and sac is required to try up to three times to bring up the port monitor, should it ever fail 
+respond to sac's polls.
+
+<BR></P>
+
+<PRE>sacadm -a -t listen -p tcp -c &quot;/usr/lib/saf/listen&quot; \
+
+-v'nlsadmin - V' -n3</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Managing </B><B><I>listen</I></B><B> Port Monitors</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To check on the availability of listen port monitors, enter
+
+<BR></P>
+
+<PRE>#sacadm -l -t listen</PRE>
+
+<P>As a result, you see a listing of all listen port monitors currently controlled by sac on your system. The listing looks like the following:
+
+<BR></P>
+
+<PRE>PMTAG    PMTYPE    FLGS    RCNT    STATUS    COMMAND
+
+tcp        listen    -    3    ENABLED    /usr/lib/saf/listen -m inet/tcp0 tcp</PRE>
+
+<P>For a review of the interpretation of the preceding listing, refer to the &quot;Checking the Status of the Port Monitor&quot; section.
+
+<BR></P>
+
+<P>In order to enable, disable, or remove a port monitor, enter sacadm with -e, -d, or -r respectively, as described earlier in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Creating a </B><B><I>listen</I></B><B> Port Service</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To create a listen port service, use the pmadm command. The syntax follows.
+
+<BR></P>
+
+<PRE>#pmadm -a -p&lt;pmtag&gt; -s&lt;svctag&gt; [-i id] -v 'nlsadmin -V'\
+
+ -m&quot;'nlsadmin options'&quot; -y&quot;comment&quot;</PRE>
+
+<P>The following command adds a new port service to a port monitor with pmtag tcp:
+
+<BR></P>
+
+<PRE>#pmadm -a -p tcp -s lpd -i root -v 'nlsadmin -V'\
+
+ -m&quot;'nlsadmin -o /var/spool/lp/fifos/listenBSD -A \
+
+\x00020203640000020000000000000000'&quot;</PRE>
+
+<P>The preceding command demonstrates the use of the port address discussed earlier. The port address described in the preceding example configures the port to accept printing requests sent by BSD clients across the network.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Managing Port Services</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To check on the status of a port service, enter
+
+<BR></P>
+
+<PRE>#pmadm -p&lt;pmtag&gt; -s&lt;svctag&gt; -l</PRE>
+
+<P>To enable it, enter
+
+<BR></P>
+
+<PRE>#pmadm -p&lt;pmtag&gt; -s&lt;svctag&gt; -e</PRE>
+
+<P>whereas to disable it, enter
+
+<BR></P>
+
+<PRE>#pmadm -p&lt;pmtag&gt; -s&lt;svctag&gt; -d</PRE>
+
+<P>and to remove it, enter
+
+<BR></P>
+
+<PRE>#pmadm -p&lt;pmtag&gt; -s&lt;svctag&gt; -r</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=4><B>Connecting Terminals and Modems</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX has very powerful built-in serial communications capabilities. Administrators can make use of them in order to offer local terminal connection services, as well as across-the-telephone wire services. Services across the wire include remote terminal 
+
+login, file transfer capabilities, and electronic mail exchange. Those services are provided by utilities such as uucp and cu, which are part of the Basic Networking Utilities (BNU) that comes with your UNIX operating system. A full treatment of UUCP 
+utilities is provided in Chapter 43.
+
+<BR></P>
+
+<P>In this section, the concepts and steps to set up for both modem and terminal connections are presented. A properly wired and configured serial interface is a basic requirement that is common to both types of services. Once this requirement is 
+fulfilled, you can proceed to implementing the necessary additional steps to take care of modem and terminal connections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Making the Connection</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To make the serial connection, prepare for the physical connection, determine the availability of associated resources, and create the port service.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Preparing for the Physical Connection</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In this step, you are primarily involved in readying the cable that will connect the modem, or the user's terminal to the UNIX system. RS232C/D is the standard interface that most hardware platforms use to connect devices. So that you can understand the 
+
+how and why of different cable arrangements, a brief examination of the standard is provided.
+
+<BR></P>
+
+<P>RS232D/C defines the interface between so-called data circuit-terminating equipment (DTE) and data circuit communication equipment (DCE). In practical terms, and for the purposes of this section, this means that it defines the physical interface between 
+
+a computer (the DTE) and the modem (the DCE). The interface defines four aspects of the physical layer. These are electrical, mechanical, functional, and procedural.
+
+<BR></P>
+
+<P>The electrical specification defines how data is electrically represented on the wire. Because computer data is binary in its raw form, the specification describes what voltage level represents which logical level.
+
+<BR></P>
+
+<P>The mechanical specification describes the mechanics of the connection, including the connector type and the number of pins supported. A DB-25 connector is specified for the RS232C/D interface. The industry introduced another de facto standard, however. 
+
+This is the DB-9 connector most commonly found on PC workstations.
+
+<BR></P>
+
+<P>The functional specification defines the pinout of the connector (that is, what each pin stands for).
+
+<BR></P>
+
+<P>The procedural specification defines the handshake mechanism that should precede, accompany, and terminate the exchange of data between the DTE and DCE.
+
+<BR></P>
+
+<P>Figure 40.4 shows the wiring diagram and corresponding pin definition of the DB25-to-DB25 cable, which is normally used to connect a DTE to a DCE. Figure 40.5 shows the wiring diagram of a DB9-to-DB25 cable. Following is a description of the most 
+commonly used circuits. Because pin definitions are not the same for both types of connectors, the description refers to the circuit name rather than the pin number.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="40unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx04.gif">Figure 40.4. Wiring diagram and corresponding pin </B><B>definition of a DB25-to-DB25 RS232C/D straight-through cable.</A></B>
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="40unx05.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx05.gif">Figure 40.5. Wiring diagram of a DB9-to-DB25 </B><B>straight-through cable.</A></B>
+
+<BR></P>
+
+<P>SG provides the common return path for both the transmit (TD) and receive (RD) circuits.
+
+<BR></P>
+
+<P>DTR and DSR are asserted by both the computer and modem, respectively, to indicate readiness to exchange data. Both circuits must be asserted before any other activity can occur across the interface. At this point, the computer may attempt to dial 
+another computer by passing the dialing command string to the modem.
+
+<BR></P>
+
+<P>DCD is asserted by the modem if it successfully connects at the remote end. It is interpreted by the computer as an indication of a successful connection. This circuit has to remain asserted for the duration of the call.
+
+<BR></P>
+
+<P>TD and RD are the transmit and receive circuits, respectively.
+
+<BR></P>
+
+<P>Any time the computer wants to transmit it asserts the RTS circuit and waits for permission to do so from the modem, by virtue of asserting the CTS circuit. This usage of the RTS/CTS circuit pair applies to the half-duplex mode of communications. In 
+full-duplex communications, RTS and CTS circuits are used to control the flow of data between the DTE and the DCE devices. The DTE drops its RTS circuit in order to request the DCE to stop sending data on DTE's receive circuit. Likewise, the CTS is dropped 
+
+by the DCE in order to request the DTE to stop sending data on the transmit circuit.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> In cases in which one end of the cable is a DB-25 connector, whereas the opposite end is a DB-9, the cable must be wired as shown in Figure 40.6.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>
+
+<BR><B><A HREF="40unx06.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx06.gif">Figure 40.6. Null modem wiring arrangements </B><B>corresponding to different combinations of connectors.</A></B>
+
+<BR></P>
+
+<P>Connecting a computer directly to a terminal (that is, a DTE-to-DTE type of connection) is a tricky business, but easy to understand. Because RS232C/D defines the interface strictly between a DTE and DCE, many vendors and users have developed variations 
+
+on a cabling trick that allows DTE-to-DTE connection. This trick is called the null modem cable. The underlying idea is to convince both ends of the connection that they are indeed talking to modems directly connected to them. Figure 40.6 shows two 
+diagrams depicting the same cabling trick corresponding to different combinations of connectors.
+
+<BR></P>
+
+<P>When the interface pinout was described, it was done from the DTE perspective. This means that if you look at the interface from the DCE perspective, some pins bear quite the opposite significance. For example, DTEs send and receive pins are DCEs 
+receive and send, respectively. It is not, therefore, hard to imagine what would happen if you were to attempt connecting two DTEs using a direct cable. Data emerging from both devices on directly connected transmit circuits would be endlessly colliding, 
+while they are hopelessly waiting for an impulse to occur on the wire connecting their receiving circuits. To remedy this situation, the send and receive circuits are cross-wired. Also, recall that whenever the computer asserts its RTS circuit, it is 
+asking for clearance to transmit. This clearance is indicated by having the CTS asserted (normally by the modem), which explains why this circuit pair is also cross-wired. Finally, note how DSR, DTR, and DCD are wired. When DTR is asserted by any DTE, the 
+
+other one detects a DCD and DSR, which are interpreted as both modem-ready and connection-established indicators, just as though they were sent by the receiving DTE's local modem. If the DTE is prepared to engage in data communications, it asserts its DTR 
+
+and both sides can now talk to each other.
+
+<BR></P>
+
+<P>There are variations on the theme of the null modem. Although the preceding variation caters to the most general cases, it is advisable that you check with your vendor to determine your exact cabling needs.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Determine the Availability of Resources</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Before you can proceed to creating the port service, there are two resources that you need to check: 1) availability of tty ports, and 2) availability of a suitable record in the /etc/ttydefs file.
+
+<BR></P>
+
+<P>To obtain a list of all tty ports that are currently in use, enter the command pmadm -l -t ttymon. The listing will look like the following:
+
+<BR></P>
+
+<PRE>PMTAG      PMTYPE    SVCTAG     FLGS    ID      &lt;PMSPECIFIC&gt;
+
+ttymon3    ttymon    00s         ux      root    /dev/term/00 ...
+
+ttymon3    ttymon    11s         -       uucp    /dev/term/11 ...</PRE>
+
+<P>The device special filenames under the &lt;PMSPECIFIC&gt; column indicate which ttys to avoid in your subsequent steps. Depending on availability of extra free tty ports, choose the one you want.
+
+<BR></P>
+
+<P>Next, list the contents of the /etc/ttydefs file by entering the command sttydefs -l, and examine its contents for the record and label that match your terminal needs. If you do not find one, then you ought to add the desired entry to the database 
+yourself, by using the sttydefs command. For this, you are referred back to the &quot;Special Device Files and the Terminal Line Setting Database&quot; section.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Creating the Port Service</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Now that you have all the pieces (that is, the cable, the tty port, and the label of the record in /etc/ttydefs file), you can proceed with putting them together to create the port service. To do so, you ought to use pmadm with the -a option. The 
+example that follows demonstrates the use of pmadm to create a bidirectional port service, with <I>svctag</I> 04s, which invokes the service login, restarts the port three times upon failure, and prompts the terminal with a friendly message. Also note the 
+
+use of ttyadm in command substitution mode in order to pass some of the arguments to pmadm.
+
+<BR></P>
+
+<PRE>#pmadm -a -pttyserv -s04s -i root -v 'ttyadm -V' \
+
+-m &quot;`ttyadm -b -r3 -p&quot;Welcome Home! LOGIN:&quot; -d/dev/term/04 \
+
+-l 9600 -s /usr/bin/login'&quot;</PRE>
+
+<P>Use pmadm -l to check on the state of the service. If the new service is not enabled, use pmadm -p&lt;pmtag&gt; -s&lt;svctag&gt; -e to do so.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Connecting the Modem</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As noted earlier, you connect a modem to the serial port (for example, COM2) using a straight-through cable. To configure the modem properly, you must read the documentation supplied with it. The things you ought to pay attention to are the DIP switch 
+settings and the AT commands that are necessary for proper modem initialization and dialing. Because the majority of modems today are Hayes compatible, the list in Table 40.2 can act as the configuration guidelines that apply to them.
+
+<BR></P>
+
+<P>Hayes modems have an 8-bit DIP switch. Table 40.2 summarizes the meanings associated with each bit switch position.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 40.2. Hayes modem switch settings; the * denotes the default </B><B>setting of each switch.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Switch</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Position</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Function</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>Up</P>
+
+<TD>
+
+<P>If the computer asserts its DTR low, the modem reacts by hanging up the line.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down*</P>
+
+<TD>
+
+<P>Forces the DTR permanently high, which means the modem will no longer have to worry about this signal.</P>
+
+<TR>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>Up*</P>
+
+<TD>
+
+<P>Forces the modem to respond to modem dialing and initialization commands in English.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down</P>
+
+<TD>
+
+<P>Forces the modem to respond using numerical messages.</P>
+
+<TR>
+
+<TD>
+
+<P>3</P>
+
+<TD>
+
+<P>Up</P>
+
+<TD>
+
+<P>Suppresses result codes, thus overriding switch 2.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down*</P>
+
+<TD>
+
+<P>Enables result codes.</P>
+
+<TR>
+
+<TD>
+
+<P>4</P>
+
+<TD>
+
+<P>Up*</P>
+
+<TD>
+
+<P>AT commands are echoes as they are entered.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down</P>
+
+<TD>
+
+<P>AT commands are not echoed.</P>
+
+<TR>
+
+<TD>
+
+<P>5</P>
+
+<TD>
+
+<P>Up*</P>
+
+<TD>
+
+<P>Modem answers the phone.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down</P>
+
+<TD>
+
+<P>Modem does not answer the phone.</P>
+
+<TR>
+
+<TD>
+
+<P>6</P>
+
+<TD>
+
+<P>Up</P>
+
+<TD>
+
+<P>CD is asserted when a carrier is detected; this allows the computer to know when a call is received.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down*</P>
+
+<TD>
+
+<P>CD and DSR are forced permanently high.</P>
+
+<TR>
+
+<TD>
+
+<P>7</P>
+
+<TD>
+
+<P>Up*</P>
+
+<TD>
+
+<P>Modem is attached to single-line phone.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down</P>
+
+<TD>
+
+<P>Modem is attached to multiline phone.</P>
+
+<TR>
+
+<TD>
+
+<P>8</P>
+
+<TD>
+
+<P>Up</P>
+
+<TD>
+
+<P>Disables the modem from recognizing and executing modem commands.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Down*</P>
+
+<TD>
+
+<P>Modem's intelligence is enabled; modem recognizes and executes modem commands.</P></TABLE>
+
+<P>On ports configured for dial-in, UNIX responds to asserted DSR and CD by writing a login prompt to the modem. This, therefore, requires turning off echoing as well as result codes on the modem. Failing to do so leads the login process into interpreting 
+
+locally echoed login prompt characters as a sequence of responses, which leads into a vicious cycle of login denials and subsequent reattempts. To turn local echo and result codes off, set switch positions 3, 4, and 6 to up, down, and up, respectively.
+
+<BR></P>
+
+<P>What if you do not have switches on your modem? You can use the AT modem control command set instead! AT commands let you configure the modem to initialize and manage a connection in ways deemed suitable to your applications. Table 40.3 lists some of 
+the AT commands commonly supported by Hayes compatible modems. For a complete command list, consult your modem's manuals.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 40.3. Partial list of some of the most commonly supported AT </B><B>commands. </B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Significance</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>AT&amp;F</P>
+
+<TD>
+
+<P>Reset modem to factory settings</P>
+
+<TR>
+
+<TD>
+
+<P>ATDP</P>
+
+<TD>
+
+<P>Dial using <B>P</B>ulse tone</P>
+
+<TR>
+
+<TD>
+
+<P>ATDT</P>
+
+<TD>
+
+<P>Dial using <B>T</B>ouch tone</P>
+
+<TR>
+
+<TD>
+
+<P>ATE0</P>
+
+<TD>
+
+<P>Enable local echoing of commands</P>
+
+<TR>
+
+<TD>
+
+<P>ATE1</P>
+
+<TD>
+
+<P>Disable local echoing of commands</P>
+
+<TR>
+
+<TD>
+
+<P>ATQ0</P>
+
+<TD>
+
+<P>Enable result codes</P>
+
+<TR>
+
+<TD>
+
+<P>ATQ1</P>
+
+<TD>
+
+<P>Disable result codes (that is, known as the quiet mode)</P>
+
+<TR>
+
+<TD>
+
+<P>AT&amp;W</P>
+
+<TD>
+
+<P>Write settings to nonvolatile memory</P></TABLE>
+
+<P>To issue AT commands, you need to have some sort of direct access to the modem. The following steps show you how you can do it using the cu command (more on cu in Chapter 43).
+
+<BR></P>
+
+<P>After you login to UNIX, switch user, using the su command, to uucp:
+
+<BR></P>
+
+<PRE>#su uucp
+
+password:
+
+$</PRE>
+
+<P>Edit the /etc/uucp/Devices file (see Chapter 43 for more details) to include the following entry:
+
+<BR></P>
+
+<PRE>Direct term/##    -    &lt;speed&gt; direct</PRE>
+
+<P>where <I>##</I> corresponds to the tty port number, and &lt;speed&gt; refers to the speed to which you want to initialize the modem. If, for example, you have a 2400 bps Hayes-compatible modem connected to COM2, the entry would look like this:
+
+<BR></P>
+
+<PRE>Direct     term/01     -    2400 direct</PRE>
+
+<P>I am assuming here that there is no other reference to term/01. If there is one, disable the entry by inserting the # sign at the beginning of the line. Make sure to save the file before quitting.
+
+<BR></P>
+
+<P>At the command line, enter
+
+<BR></P>
+
+<PRE>#cu -l term/##</PRE>
+
+<P>This command directly connects you to the modem and is confirmed by displaying the message &quot;Connected&quot; on your screen. Table 40.4 is an illustration of a sequence pertaining to a sample modem session, during which the modem is configured for 
+proper dial-in support.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 40.4. An illustrated modem configuration session along with </B><B>supporting explanation.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command/Response</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Explanation</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>#cu -l term/01</P>
+
+<TD>
+
+<P>A command: I want to talk to the modem.</P>
+
+<TR>
+
+<TD>
+
+<P>Connected</P>
+
+<TD>
+
+<P>A response: Go ahead.</P>
+
+<TR>
+
+<TD>
+
+<P>AT</P>
+
+<TD>
+
+<P>A command: Do I have your attention?</P>
+
+<TR>
+
+<TD>
+
+<P>OK</P>
+
+<TD>
+
+<P>A response: Yes you do!</P>
+
+<TR>
+
+<TD>
+
+<P>AT&amp;F</P>
+
+<TD>
+
+<P>A command: Reset to factory settings.</P>
+
+<TR>
+
+<TD>
+
+<P>OK</P>
+
+<TD>
+
+<P>A response: Done!</P>
+
+<TR>
+
+<TD>
+
+<P>AT&amp;C1</P>
+
+<TD>
+
+<P>A command: Use CD to indicate carrier detection.</P>
+
+<TR>
+
+<TD>
+
+<P>OK</P>
+
+<TD>
+
+<P>A response: Done!</P>
+
+<TR>
+
+<TD>
+
+<P>AT&amp;D2</P>
+
+<TD>
+
+<P>A command: Drop the connection when DTR drops.</P>
+
+<TR>
+
+<TD>
+
+<P>OK</P>
+
+<TD>
+
+<P>A response: Done!</P>
+
+<TR>
+
+<TD>
+
+<P>ATE0Q1</P>
+
+<TD>
+
+<P>A command: Disable local echo, and keep quiet (that is, disable result codes).</P>
+
+<TR>
+
+<TD>
+
+<P>OK</P>
+
+<TD>
+
+<P>A response: Done!</P>
+
+<TR>
+
+<TD>
+
+<P>AT&amp;W</P>
+
+<TD>
+
+<P>A command: Save settings into nonvolatile RAM.</P>
+
+<TR>
+
+<TD>
+
+<P>OK</P>
+
+<TD>
+
+<P>A response: Done!</P>
+
+<TR>
+
+<TD>
+
+<P>~.</P>
+
+<TD>
+
+<P>A command to shell out to UNIX requesting disconnection, and going back to the UNIX shell.</P>
+
+<TR>
+
+<TD>
+
+<P>Disconnected</P>
+
+<TD>
+
+<P>A response: Granted!</P>
+
+<TR>
+
+<TD>
+
+<P>#</P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<P>Note in particular the use of the ~. character sequence to disconnect from the modem and go back to the shell. In fact, ~ allows you to issue UNIX commands without having to quit the direct modem session.
+
+<BR></P>
+
+<P>For dial-out, it is more convenient to enable local echo and result codes. In any case, it is imperative that you carefully read and follow the modem's manual for proper operation.
+
+<BR></P>
+
+<P>Here is a checklist to which you may refer whenever you install, or troubleshoot, a modem.
+
+<BR></P>
+
+<OL>
+
+<LI>Ensure that your modem is not conflicting with any other device over the chosen serial port. Conflicts normally arise when an internal modem is installed and configured to either COM1 or COM2.
+
+<BR>
+
+<BR></LI>
+
+<LI>Make sure that you have the proper RS232C/D cable. Consult your modem documentation, and follow its recommendations religiously.
+
+<BR>
+
+<BR></LI>
+
+<LI>If you intend to use the modem for dial-out, change the ownership of the tty port over to uucp (see Chapter 43 for more on this).
+
+<BR>
+
+<BR></LI>
+
+<LI>Set the modem DIP switches according to what has been discussed already. This is especially critical if the intended use of the modem is for dial-out.
+
+<BR>
+
+<BR></LI>
+
+<LI>For dial-in, check and make sure that a port monitor and a properly associated port service are created to take care of incoming service requests.
+
+<BR>
+
+<BR></LI>
+
+<LI>Verify and add entries to UUCP files as deemed necessary. In particular, to be able to configure the modem using cu, you should have the following entry in the /etc/uucp/Devices file:
+
+<BR>
+
+<BR>Direct term/## - &lt;<I>speed</I>&gt;    direct
+
+<BR></LI>
+
+<LI>Using cu, establish a direct session with the modem and issue the AT commands to configure the modem properly. To establish the session, enter
+
+<BR>
+
+<BR>#cu -l term/<I>##</I>
+
+<BR>
+
+<BR>If the system fails to connect, use the -d option with cu. This option prompts cu to report the progress of the dial-out process. Depending on the nature of what is displayed on the screen, refer to the appropriate documentation for help.
+
+<BR>
+
+<BR></LI>
+
+<LI>While in session with the modem, you should be able to dial out by entering
+
+<BR>
+
+<BR>ATDT &lt;phone_number&gt;
+
+<BR>
+
+<BR>Remember to exit just enter the ~. character sequence.
+
+<BR>
+
+<BR></LI>
+
+<LI>If the modem is intended for dial-out use, test it by dialing into it. If it fails to respond properly, try the following troubleshooting tips: Verify that the modem is set to Autoanswer mode. Verify that echo is turned off. Verify that result codes 
+are disabled (that is, the modem is set for quiet mode). Make sure that you always write modem settings to the modem's nonvolatile memory using the AT&amp;W command.
+
+<BR>
+
+<BR></LI></OL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Connecting Terminals</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Many of the preparatory steps that are required to connect terminals have already been described in the last two sections. To summarize, these steps are as follows:
+
+<BR></P>
+
+<P>Depending on whether the terminal is connected directly or remotely to the system, you have to prepare either a cross-wired RS232C/D cable or a straight-through cable.
+
+<BR></P>
+
+<P>In the case of remote connection, you ought to configure the modem connecting to the UNIX system for dial-in in the manner depicted in the &quot;Connecting the Modem&quot; section.
+
+<BR></P>
+
+<P>A port service should have been created, which, upon detection of a service request (by virtue of having both DSR and CD asserted), will write a login prompt to the port and transfer port control to the login process itself. This is achieved by entering 
+
+the following pmadm command:
+
+<BR></P>
+
+<PRE>#pmadm -a -p&lt;pmtag&gt; -s&lt;svctag&gt; -i root -v'ttyadm -V' \
+
+-m&quot;'ttyadm -b -rn -p&quot;login prompt message&quot; -d/dev/term/## \
+
+-l&lt;label&gt; -s /usr/bin/login'&quot;</PRE>
+
+<P>The use of the pmadm command to create port services was described earlier in this section.
+
+<BR></P>
+
+<P>One more step, which will be discussed now, is to set the shell environment for proper support to the user's terminal.
+
+<BR></P>
+
+<P>UNIX is designed to shield programs from concerns pertaining to the physical terminal specifics. Instead of talking directly to the terminal, programs interface with a virtual terminal by making calls to a standard library of screen routines. Those 
+calls invoke, on behalf of programs, the desired behavior on the physical screen.
+
+<BR></P>
+
+<P>In doing so, two advantages are derived: Developers are relieved of the laborious and needless (if not impossible) task of writing and maintaining programs in a way that keeps them compatible with all kinds of terminal types, those existing now and 
+those that will emerge in the future. Also, users continue to benefit, without any modifications or the associated cost of upgrades, from programs deployed on their UNIX platforms irrespective of changes that may be introduced to their terminal types in 
+the future.
+
+<BR></P>
+
+<P>Proper support to the actual terminal is conditional upon setting the environment variable TERM to the correct type. This is normally done from the user's login script. The user may as well set it by entering:
+
+<BR></P>
+
+<PRE>$TERM=&lt;terminal_type&gt;
+
+$export TERM</PRE>
+
+<P>An example of terminal type would be vt220.
+
+<BR></P>
+
+<P>UNIX uses the value assigned to TERM to reference a binary file, which exclusively defines that terminal's capabilities. The file is named after the terminal type (for example, if the terminal is vt220, then the file must have been named vt220) and is 
+part of a large terminal information database maintained in the /usr/lib/terminfo directory.
+
+<BR></P>
+
+<P>If you list the contents of the /usr/lib/terminfo directory, you obtain a listing similar to the following:
+
+<BR></P>
+
+<PRE>#ls /usr/lib/terminfo
+
+1 3 5 7 9 B H P V b d f h j l n p r t v x z
+
+2 4 6 8 A C M S a c e g i k m o q s u w y</PRE>
+
+<P>Each letter or numeric is the directory name where terminal capabilities definition files, pertaining to types starting with that letter or numeric, are saved. For example, if TERM is set to vt220, UNIX fetches the file /usr/lib/terminfo/v/vt220 for the 
+
+terminal information capabilities (also referred to as terminfo entry).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> TERMCAP is another shell environment variable that should be set to the name of the directory where the database is maintained.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>After having gone through all of the steps required to connect the terminal, you should proceed to connect it, bring it up, and attempt login. It would be a good idea to try a direct connection first, if the terminal is intended for modem access. In any 
+
+case, if you fail to get the login prompt and fail to login, you may have to carry the following checks:
+
+<BR></P>
+
+<P>Make sure that the port service is configured properly, and that it is enabled. Use pmadm to do that.
+
+<BR></P>
+
+<P>Check the cable to verify that it is the correct one. Do not rely only on the wiring diagram provided in this chapter; you are better off relying on your terminal and/or your modem vendor's documentation.
+
+<BR></P>
+
+<P>Verify that the modem is configured to Autoanswer.
+
+<BR></P>
+
+<P>Check the modem lights, and verify that the sequence of events depicted by the flashing lights conforms to what you expect to see. In particular, check DSR and CD during the connection establishment phase because, unless they are both asserted, the 
+login prompt won't be written to the tty port. Check the modem's hard and soft settings to address any observed anomalies.
+
+<BR></P>
+
+<P>Make sure that the speed, parity, and number of stop bits match on both the terminal and the UNIX system.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=4><B>Connecting Printers</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Printing services in UNIX are supported by the LP spooler. The LP spooler offers administrators comprehensive capabilities that allow them to address varied scenarios in order to meet different user needs and requirements. To name a few, print services 
+
+can be physically set up to allow users to print on printers connected to the host they are logged in to or, alternatively, to printers connected to other hosts on the network. LP printing service includes a library of filters from which administrators can 
+
+choose to support their user needs. By implementing them, users' print jobs will be processed, making them more &quot;compatible&quot; with the target printer. Administrators are provided with management capabilities allowing them to use global management 
+
+as well as selective management of print services. Because this chapter is about &quot;Device Administration,&quot; the objectives of this section will be limited to include the following topics:
+
+<BR></P>
+
+<UL>
+
+<LI>A conceptual overview of the LP printing service
+
+<BR>
+
+<BR></LI>
+
+<LI>Local printing services setup
+
+<BR>
+
+<BR></LI>
+
+<LI>Network print servers setup
+
+<BR>
+
+<BR></LI>
+
+<LI>Printer management
+
+<BR>
+
+<BR></LI>
+
+<LI>Print user management
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>How Does the LP Printing Service Work?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Print services are invoked by init upon start-up when the system enters the multiuser state run level 2. The services are brought up by the /etc/rc2.d/S80lp script and are killed whenever the system is shut down by /etc/rc2.d/K20lp script.
+
+<BR></P>
+
+<P>When users address printers to handle their print jobs, the files they send for printing are not handled immediately by the printers. Instead, the files are queued in directories, by a process known as the spooler, for subsequent handling by a printing 
+
+daemon known as lpsched (an acronym and program name for the lp scheduler daemon). To understand how this works, imagine yourself as part of a community of users sharing one or two printers, among other UNIX resources. Ask yourself what would happen should 
+
+you be able to address the printer directly for a print request while someone else is doing exactly the same thing. You are right! The output will be more of a character soup than presentable piece of work. This is due to the fact that the printer will be 
+
+handling characters as they arrive, thus mixing the ones that belong to your file with those belonging to other users.
+
+<BR></P>
+
+<P>To alleviate this problem, the spooler takes over as you send print jobs to printers. It simply stops them on their way to their destination and diverts them to a waiting area on your system disk. This area is a subdirectory known as the print queue. 
+Files destined for the same printer are queued in the same directory until the printer becomes available. The aforementioned process is known as spooling. You may be wondering whether this means that the terminal will be tied up for as long as it takes for 
+
+the print job to materialize. The answer is no. This is because once a print job is queued, another background process known as the printing scheduler daemon (lpsched) takes over and supervises the ongoing printing services, making sure that every request, 
+
+including yours, is honored.
+
+<BR></P>
+
+<P>In addition to the basic service, LP printing services allow administrators to aggregate printers of similar type into a printer class. This provides for the optimal utilization of printing resources, as users target a class of printers instead of 
+targeting a specific one. When this happens, lpsched sends the print job to the first printer to become available in the requested class. Other printing services include tasks pertaining to starting interface programs that are suitable to the printer, 
+applying the filters to user files whenever necessary, notifying users, if desired, of the status of printing jobs, and, in the case of network printing, the LP printing service has the additional job of sending print jobs to the hosts to which requested 
+printers are connected.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Setting Up Local Printing Services</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In this section, the setup and configuration of local printing services are presented. Local printing services provide users with the capability to print to printers connected directly to the host they are logged in to. The following are the required 
+steps to set up printers, irrespective of whether they are parallel, serial, or network printers.
+
+<BR></P>
+
+<OL>
+
+<LI>Verify availability of resources.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use lpadmin to create the printer.
+
+<BR>
+
+<BR></LI>
+
+<LI>Change ownership and permissions to device special file.
+
+<BR>
+
+<BR></LI>
+
+<LI>If this is your first printer, make it the default printer.
+
+<BR>
+
+<BR></LI>
+
+<LI>Release the printer to the user community.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>The resources for which you want to check are lp login id, lpsched, and an available port (serial or parallel). The lp login id is normally created during initial system installation. If the lp account does not exist in the /etc/passwd directory, then 
+you ought to create one. It will be required at a later step in the setup process. Second, verify that lpsched is running by checking the output of the command
+
+<BR></P>
+
+<PRE>#ps -ef | grep &quot;lpsched&quot;</PRE>
+
+<P>If not enabled, you may do so by entering the following command: 
+
+<BR></P>
+
+<PRE>#/usr/lib/lp/lpsched</PRE>
+
+<P>The next step is to create a print destination by using the lpadmin command. The syntax of lpadmin follows.
+
+<BR></P>
+
+<PRE>/usr/lib/lpadmin -p&lt;name&gt; -v&lt;pathname&gt; -m&lt;interface&gt; \
+
+[-h|l] - c&lt;class&gt;</PRE>
+
+<P>In wjocj
+
+<BR></P>
+
+<PRE>
+
+<BR>-p&lt;<I>name</I>&gt; is the name you want to assign to the printer. It can be anything you like. It is more convenient, however, to assign it a name that makes sense to the user community.
+
+
+
+<BR>-v&lt;pathname&gt; is the special device file pathname. Depending on whether the printer is parallel or serial, the pathname is /dev/lp# or /dev/term/##, respectively (# and ## represent decimal digits represetative of the parallel and serial ports on 
+
+your system).
+
+
+
+<BR>-m&lt;interface&gt; is a program that is invoked by lp as it sends print jobs to the printer port. &lt;interface&gt; is responsible for printer port and physical printer initialization, and performs functions pertaining to printing a banner if desired, 
+
+producing the right number of copies, and setting the page length and width. You have the freedom to write and use your own interface programs (in which case you must specify its name using the -i&lt;interface&gt; option). If you do not specify one, the 
+standard and generic interface supplied with the system will be used by default. When installing the printer for the first time, it is advisable to start with the standard interface. If all goes well, you can always change over to the interface of your 
+choice. Printer interfaces are usually maintained in the /usr/lib/lp/model directory.
+
+
+
+<BR>[-h|l]: h indicates that the printer is hardwired, whereas l indicates that the device associated with the printer is a login terminal. h and l are mutually exclusive. In the event that none is specified, h is assumed.
+
+
+
+<BR>-c&lt;<I>class</I>&gt; specifies the class to which the printer belongs. Users will subsequently be able to specify the class using lp with -d option.</PRE>
+
+<P>Assuming that you want to create a printer destination for a parallel printer that is to be connected to your parallel port, the lpadmin command would look like this:
+
+<BR></P>
+
+<PRE>#lpadmin -d dotmatrix -v /dev/lp1 -m standard
+
+#lpadmin</PRE>
+
+<P>Because the printer port device special file can be written to directly, as with any other file, you ought to make sure that users have no direct access to it. This involves changing the port ownership to login lp, as well as changing the file 
+permissions to 600. The following two commands demonstrate how to do this to /dev/lp1.
+
+<BR></P>
+
+<PRE>#chown lp  /dev/lp1
+
+#chmod 600 /dev/lp1</PRE>
+
+<P>Before you release the printer to the user community, you may want to make it the default destination. A user failing to specify the printer destination when using the lp command will have his or her print job sent to the default printer. To make a 
+printer the default destination, enter the following command: 
+
+<BR></P>
+
+<PRE>#lpadmin -d &lt;printer_name&gt;</PRE>
+
+<P>The lpadmin command to make dot matrix the default printer therefore becomes
+
+<BR></P>
+
+<PRE>#lpadmin -d dotmatrix</PRE>
+
+<P>Finally, to make the printer accessible to users, you must allow the printer destination to accept print jobs as well as logically turn on the printer. To allow printer dotmatrix to accept print jobs, enter
+
+<BR></P>
+
+<PRE>#accept dotmatrix</PRE>
+
+<P>and to logically turn it on (that is, allow it to do the printing), enter
+
+<BR></P>
+
+<PRE>#enable dotmatrix</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Setting Up Network Print Servers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Sometimes in a multisystem, multiplatform environment users find themselves in need of printers that are attached to a different system than what they are currently logged in to. Figure 40.7 depicts a scenario whereby the user wants his or her print job 
+
+sent to printer odie, attached to system engg, while logged in to system arts.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="40unx07.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx07.gif">Figure 40.7. Concept of print servers </B><B>illustrated.</A></B>
+
+<BR></P>
+
+<P>To provide this level of service, UNIX comes with enough support that, if implemented properly, allows users to print to any printer on the network. While doing so, users do not even have to be concerned with any additional detail on how to address 
+those printers than they already know about addressing their own. Figure 40.8 demonstrates the governing principles of network print services. In the depicted scenario, system engg becomes the so-called print server, whereas system arts is the client. The 
+
+setup procedure calls on having print destinations (that is, queues) created on both systems (say, odie and garfield on engg and arts, respectively). Whereas odie is associated with the printer attached to engg, garfield has to be logically associated with 
+
+odie (not with any printer that may happen to be attached to system arts). A user logged in to arts has to address the local printer destination&#151;in this case garfield&#151;to be able to print to odie as shown. The lp print request then becomes
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="40unx08.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/40unx08.gif">Figure 40.8. X displays and screens.</A></B>
+
+<BR></P>
+
+<PRE>#lp -p garfield &lt;file_name&gt;</PRE>
+
+<P>In doing so, the user is in fact addressing the local LP print service running on system arts. Next, LP on system arts checks the actual resource with which printer destination garfield is associated, to find that it actually maps to a print service 
+resource (odie) supported on system engg. As a consequence, LP on system arts routes the request, along with the print job, to engg for subsequent handling.
+
+<BR></P>
+
+<P>The steps involved in setting up the service are not as complex as they may sound. For the most part, they are similar to those listed in the previous section with some subtle variations. Because this level of service involves both the client and server 
+
+systems, both of them need to be configured.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Configuring the Print Server</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Print server configuration requires two additional steps to those listed and described in the section on local printing. The two steps are creating a listen port service and registering client systems with the print service.
+
+<BR></P>
+
+<P>Because the print service under description is a network service (that is, runs on a connection-oriented transport service), then there is a requirement to create a listen port service with which it associates. Before doing that, however, it might be 
+worth your while to check on readily available ones. When UNIX is first installed, your system is automatically configured to support a listen port monitor with port monitor tag tcp. Also, tcp is configured to support two print server-associated port 
+services, with one taking care of System V clients whereas the other one takes care of BSD clients. To verify their existence, enter
+
+<BR></P>
+
+<PRE>#pmadm -l -t listen
+
+PMTAG          PMTYPE         SVCTAG         FLGS ID       &lt;PMSPECIFIC&gt;
+
+.
+
+.
+
+.
+
+tcp                  listen               0                     x        root     \x02000ACE64000001 
+
+ c  /usr/lib/saf/nlps_server #NLPS SERVER
+
+tcp                  listen               lp                             root         /var/spool/lp
+
+/fifos/listenS5 #NLPS SERVER
+
+.
+
+.</PRE>
+
+<P>If the listing you get on your screen includes the two entries shown in the preceding partial listing, you do not need to create the port services and you may skip the next step. If they do not exist, then use pmadm to create them. To create a port 
+service to listen to print requests sent by System V clients, enter
+
+<BR></P>
+
+<PRE>#pmadm -a -p&lt;pmtag&gt; -s lp -i root -v 'nlsadmin -V' \
+
+-m 'nlsadmin -o /var/spool/lp/fifos/listenS5'</PRE>
+
+<P>where pmtag is the name assigned to the port monitor. To create a port service to respond to BSD clients, however, you must enter lpsystem -A. The output displays the port address that you ought to use as an argument with nlsadmin upon using pmadm to 
+create the port service. Following is an example output of lpsystem -A, as it appears on my monitor:
+
+<BR></P>
+
+<PRE>#lpsystem -A
+
+02000203640000010000000000000000</PRE>
+
+<P>Next, to create the port service under tcp port monitor, enter the following command:
+
+<BR></P>
+
+<PRE>#pmadm -a -p tcp -s lpd -i root -v 'nlsadmin -V' \
+
+-m'nlsadmin -o /var/spool/lp/fifos/listenBSD \
+
+-A'\x02000203640000010000000000000000''</PRE>
+
+<P>To force the port monitor to recognize the changes you made, use the command
+
+<BR></P>
+
+<PRE>#sacadm -x -p tcp</PRE>
+
+<P>The next step is to register the client with the server, using the lpsystem command. In addition to registering the client, lpsystem allows you to define the communications parameters that you want to enforce on the connection maintained between both 
+the server and the client after it is invoked. Defined parameters are saved in the /etc/lp/Systems file. Though you can edit it directly using vi, it is recommended that you avoid doing that. The syntax of the lpsystem command is
+
+<BR></P>
+
+<PRE>lpsystem [-t&lt;type&gt;] [-T&lt;timeout&gt;] [-R &lt;retry&gt;] \
+
+[-y&quot;comment&quot;] systemname</PRE>
+
+<P>in which
+
+<BR></P>
+
+<PRE>
+
+<BR>-t&lt;<I>type</I>&gt; specifies whether the client is System V or BSD.
+
+
+
+<BR>-T&lt;timeout&gt; specifies the idle time after which the connection should be terminated. The &lt;timeout&gt; can be n, 0, and N, where N is the number of minutes the connection idles before the connection is dropped. If 0 is specified, the connection 
+
+will be dropped as soon as it idles, whereas n means never time-out. Depending on your environment, you should configure the connection to the one that suits you best. If users occasionally print across the network, you may be better off with the 0 option. 
+
+This frees up the resources reserved on both systems to service the request as soon as it is honored. If, on the other hand, the frequency of service utilization is high, you may consider configuring the connection to n (never time-out). This way, you save 
+
+both systems the repeated tasks of establishing, maintaining, and relinquishing the connection every time they ought to respond to a print service request. Added to the saving in CPU utilization on both systems is the saving on bandwidth utilization due to 
+
+packet exchange pertaining to link establishment and disconnection.
+
+
+
+<BR>-R&lt;retry&gt; specifies in minutes the duration of time to wait before link reestablishment is attempted, when it was abnormally disrupted.
+
+
+
+<BR>-y&quot;comment&quot; can be any convenient comment.
+
+
+
+<BR>systemname specifies the remote system's name to which the communications parameters apply.</PRE>
+
+<P>Applying the preceding to the example in Figure 40.8, in order to register arts with the print server host engg, you should enter
+
+<BR></P>
+
+<PRE>#lpsystem -t s5 -T n arts</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>Configuring the Client</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As in the case of server setup, here too you ought to make sure that you have a port monitor that is properly configured to support network printing services. To do that, enter
+
+<BR></P>
+
+<PRE>#pmadm -l -p tcp</PRE>
+
+<P>The output should include the following three entries (the first two pertaining to System V support, whereas the third one pertains to BSD client support):
+
+<BR></P>
+
+<PRE>PMTAG  PMTYPE  SVCTAG FLGS  ID  &lt;PMSPECIFIC&gt;
+
+tcp    listen  0      -     root \x00200ACE64000001 -c -
+
+/usr/lib/sac/nlps_server #NLPS SERVER
+
+tcp    listen  lp     -     root ....
+
+tcp    listen  lpd    -     root \x0020020364000001 -c -
+
+/var/spool/lp/fifos/listenBSD</PRE>
+
+<P>If any of the preceding entries is missing, then you must create the associated port services yourself using pmadm. Depending on what is missing, use one or more of the following commands:
+
+<BR></P>
+
+<PRE>#pmadm -a -p tcp -s lp -i root -v'nlsadmin -V' \
+
+-m 'nlsadmin -o /var/spool/lp/fifos/listen5'
+
+#pmadm -a -p tcp -s 0 -i root -v 'nlsadmin -V' \
+
+-m 'nlsadmin -o /usr/lib/saf/nlps_server \
+
+-A &quot;\x02000ACE640000010000000000000000&quot;` -y &quot;NLPS SERVER&quot;
+
+#pmadm -a -p tcp -s lpd -i root -v 'nlsadmin -V' \
+
+-m 'nlsadmin -o /var/spool/lp/fifos/listenBSD \
+
+-A &quot;\x0020203640000010000000000000000&quot;`</PRE>
+
+<P>The last pmadm command would be required only if you are setting up for BSD support as well.
+
+<BR></P>
+
+<P>Next, register the remote server with the client using the lpsystem command, as discussed in the preceding section.
+
+<BR></P>
+
+<P>Now, you have only to create the printer destination; instead of associating it with any particular port, you will associate it with the printer destination that you created on the print server host. To do that, enter the following command
+
+<BR></P>
+
+<PRE>#lpadmin -p&lt;client_printer&gt; \
+
+-s&lt;remote_printer&gt;!&lt;print_server_host&gt;</PRE>
+
+<P>in which
+
+<BR></P>
+
+<P><I>client_printer</I> specifies the printer destination undergoing creation on the local machine.
+
+<BR></P>
+
+<P><I>remote_printer</I> specifies the print server's printer destination, with which the <I>client_printer</I> is associated.
+
+<BR></P>
+
+<P><I>print_server_host</I> specifies the host name of the system where the remote_printer destination is.
+
+<BR></P>
+
+<P>Applying the preceding to the scenario of Figure 40.7, the following is the command to enter at host arts:
+
+<BR></P>
+
+<PRE>#lpadmin -p odie -s garfield!engg</PRE>
+
+<P>The remaining steps, as you should know by now, are to enable the printer and make it accept print jobs. Hence the commands,
+
+<BR></P>
+
+<PRE>#enable odie
+
+#accept odie</PRE>
+
+<P>To send a print job down the wire to garfield to print, the user must address odie while logged in to arts. For example, to print file monalisa, the user must enter
+
+<BR></P>
+
+<PRE>#lp -p odie monalisa</PRE>
+
+<P>LP print service on host arts will redirect the print job to garfield destination on host engg.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Managing Printers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In addition to the tools required to set up, enable, and disable printers, the LP print service presents the system administrator with a comprehensive set of management tools. Those tools can be applied to change printer configuration, as well to assist 
+
+in maintenance and troubleshooting situations. The following subsections describe aspects of printing management and associated tools.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Enabling and Disabling LP Print Service</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>lpsched is the program to start LP print service, whereas lpshut is the program to shut it down. Only login root or lp can start and shut down printing services. All printers that were printing at the time of invoking lpshut will stop printing. Whenever 
+
+lpsched is restarted, print requests that were disrupted at the time LP service was shut down will print from the very beginning.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Managing Print Requests</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>lpmove is a command that lets you move print jobs from one printer to another. There are, primarily, two scenarios that may prompt you to do that. In one, you may want to disable printing to a printer in order to disconnect it for routine maintenance or 
+
+troubleshooting. Instead of leaving your users in the cold waiting for their print jobs to materialize, you would move their print jobs to some other printer of equivalent quality. In the second scenario, you may use lpmove for load balancing purposes in 
+case you encounter situations in which one printer is heavily used while another one is sitting idle. The syntax of the lpmove command is
+
+<BR></P>
+
+<PRE>#lpmove &lt;requests&gt; &lt;dest&gt;. Or,</PRE>
+
+<P>where <I>requests</I> presents lpmove with a list of request id's to move to the printer specified in <I>dest</I>. To obtain the print request id's, use the lpstat command. Its output should look like the following:
+
+<BR></P>
+
+<PRE>#lpstat
+
+garfield-4 root 112 March 24 06:20
+
+garfield-5 root 567 March 24 06:22</PRE>
+
+<P>where the first column is the print request id and is made of two components: the name of the printer to which the print job was submitted, and the order in which it is received. The second column displays the name of the user who submitted the print 
+job, followed by the date and time of submission columns.
+
+<BR></P>
+
+<P>Assuming that acctlp is an idling printer to which you want to move the print job garfield-5, the lpmove command then becomes
+
+<BR></P>
+
+<PRE>#lpmove garfield-5 acctlp</PRE>
+
+<P>To move the entire printing load from one printer to another, enter
+
+<BR></P>
+
+<PRE>#lpmove &lt;dest1&gt; &lt;dest2&gt;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Upon moving print requests, request IDs remain intact to allow users to track their print jobs.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>lpmove does not check on the acceptance status of print jobs that it moves. It is therefore your responsibility to do the check using the lpstat command, and to take any corrective measure 
+should a print job fail to be moved.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To cancel undesirable print requests, use the cancel command. The syntax is
+
+<BR></P>
+
+<PRE>#cancel &lt;request-ID&gt;</PRE>
+
+<P>To cancel, for example, garfield-5, enter
+
+<BR></P>
+
+<PRE>#cancel garfield-ID</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Printer Configuration Management</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Printer configuration management includes tasks such as changing printer class, changing printer port, removing printers, and removing classes. All these tasks can be achieved using the lpadmin command.
+
+<BR></P>
+
+<P>To change a printer class, enter
+
+<BR></P>
+
+<PRE>#lpadmin -p&lt;dest&gt; -c&lt;class&gt;</PRE>
+
+<P>If the specified class does not exist, the class will be created and the specified destination will be inserted into it. To remove the printer from a certain class, enter
+
+<BR></P>
+
+<PRE>#lpadmin -p&lt;dest&gt; -r &lt;class&gt;</PRE>
+
+<P>If the printer is the last one of its class, then the class itself will be removed as well.
+
+<BR></P>
+
+<P>To change the printer port, enter
+
+<BR></P>
+
+<PRE>#lpadmin -p&lt;dest&gt; -v &lt;special_file_pathname&gt;</PRE>
+
+<P>You may need to do this on occasions when you suspect something went wrong with the original port to which the printer was connected. This reconfiguration will allow you to continue offering print services while troubleshooting the defective port.
+
+<BR></P>
+
+<P>Finally, to check the configuration of a particular printer, enter
+
+<BR></P>
+
+<PRE>#lpstat -p&lt;printer&gt; -l</PRE>
+
+<P>In the example that follows, lpstat is entered to check on the configuration of garfield destination.
+
+<BR></P>
+
+<PRE>#lpstat pgarfield l
+
+printer garfield (login terminal) is idle. enabled since Thu Mar 24 18:20:01 EST 1994. available.
+
+    Form mounted:
+
+    Content types: simple
+
+    Printer types: unknown
+
+    Description:
+
+    Connection: direct
+
+    Interface: /usr/lib/lp/model/standard
+
+    On fault: mail to root once
+
+    After fault: continue
+
+    Users allowed:
+
+        (all)
+
+    Forms allowed:
+
+        (none)
+
+    Banner required
+
+    Character sets:
+
+        (none)
+
+    Default pitch:
+
+    Default page size:
+
+    Default port settings: </PRE>
+
+<P>whereas to check the configuration of all printers, enter
+
+<BR></P>
+
+<PRE>#lpstat -l</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>Print Service User Management</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>User access to LP print service on UNIX systems can be managed and restricted for reasons that may pertain to security or resource allocation and management.
+
+<BR></P>
+
+<P>If you carefully examine the sample output of the lpstat -p garfield -l command in the last example, you will see the names of the users allowed access in the &quot;Users allowed&quot; entry. According to the preceding example, no one is either on the 
+allowed or the denied lists. This corresponds to the default security configuration and implies that any logged-in user can send print jobs to printer garfield. If you do not like that, however, you can use lpadmin with the -u option to restrict access to 
+
+the printer. The syntax of the lpadmin -u command to list users on the allow list is the following:
+
+<BR></P>
+
+<PRE>#lpadmin -p&lt;printer&gt; -u allow:&lt;login-ID-list&gt;</PRE>
+
+<P>To prevent users from accessing the printer, enter
+
+<BR></P>
+
+<PRE>#lpadmin -p&lt;printer&gt; -u deny:&lt;login-ID-list&gt;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> login-ID-list is a comma- or space-separated list of users' login IDs.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Following is a list of legal arguments that you can include in the <I>login-ID-list</I>:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR><I>login-ID</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Denotes a user on the local system
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR><I>system_name!login-ID</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Denotes a user on a client system
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>system_name!all
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Denotes all users on a client system
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>all!login-ID
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Denotes a user on all systems
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>all
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Denotes all users on the local system
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>all!all
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Denotes all users on all systems</PRE></TABLE>
+
+<P>For each printer, the LP print service maintains deny and allow lists. The way they are used is summarized in the following paragraphs.
+
+<BR></P>
+
+<P>If the allow list is not empty, only users on that list are allowed access to the printer. If the allow list is empty but deny list is not, then all users except those on the deny list will be allowed access to the printer.
+
+<BR></P>
+
+<P>A user cannot exist on both lists simultaneously. When a user is added to either list, the user's login-ID will be checked and removed from the other one.
+
+<BR></P>
+
+<P>For example, to allow users Nadeem, Andrea, and May access to the printer garfield, you enter
+
+<BR></P>
+
+<PRE>#lpadmin -p garfield -u allow:Nadeem Andrea May</PRE>
+
+<P>Next, you should check that this indeed took place by entering the command
+
+<BR></P>
+
+<PRE>#lpadmin -p garfield -l
+
+printer garfield (login terminal) is idle. enabled since Tue Apr 12 05:18:07 EDT 1994. not available.
+
+    Form mounted:
+
+    Content types: simple
+
+    Printer types: unknown
+
+    Description:
+
+    Connection: direct
+
+    Interface: /usr/lib/lp/model/standard
+
+    On fault: mail to root once
+
+    After fault: continue
+
+    Users allowed:
+
+        nadeem
+
+        andrea
+
+        may
+
+    Forms allowed:
+
+        (none)
+
+    Banner required
+
+    Character sets:
+
+        (none)
+
+    Default pitch:
+
+    Default page size:
+
+    Default port settings: </PRE>
+
+<P>Users educated about the use of the -q option with the lp command can assign print queue priority levels to print jobs that they submit to the LP service. Although this can sometimes be a useful feature, it may well prove to be a cause of concern to 
+some of the user community as they find that their print jobs are constantly delayed in favor of those belonging to others of equal or less functional status. Fortunately, the LP print service allows you to set limits on how high a priority can be a 
+assigned to print jobs submitted by users. Using the lpusers different priority limit assignments can be made to apply to different users. The syntax of lpusers is as follows:
+
+<BR></P>
+
+<PRE>#lpusers -q&lt;priority_level&gt; -u&lt;login-ID-list&gt;</PRE>
+
+<P>in which
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<P>-q&lt;priority_level&gt; is an integer ranging between 0 and 39, with 0 representing the highest priority level.</P>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<P>-u&lt;login-ID-list&gt; is a comma- or space-separated list of user IDs to whom the restriction applies. The login-ID list argument can have any of the following values:</P>
+
+<TR>
+
+<TD>
+
+<P><I>login-ID</I></P>
+
+<TD>
+
+<P>Denotes a user</P>
+
+<TR>
+
+<TD>
+
+<P><I>system_name!login-ID</I></P>
+
+<TD>
+
+<P>Denotes a user on a particular system</P>
+
+<TR>
+
+<TD>
+
+<P>system_name!all</P>
+
+<TD>
+
+<P>Denotes all users on a particular system</P>
+
+<TR>
+
+<TD>
+
+<P>all</P>
+
+<TD>
+
+<P>Denotes all users</P>
+
+<TR>
+
+<TD>
+
+<P>all!login-ID</P>
+
+<TD>
+
+<P>Denotes a user on all systems</P></TABLE>
+
+<P>Users submitting print jobs can assign them priorities as high as they are allowed to assign as set with the -q option.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=4><B>Connecting a PC to UNIX Systems</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Rather than purchase terminals, many users prefer to run UNIX sessions right from their desktop DOS-based PCs. This is mainly attributable to the low cost of the PC, its increased processing power, and the additional flexibility of being able to easily 
+
+toggle back and forth between DOS applications and a UNIX session. This section describes two methods by which you can establish a connection with the UNIX system using the DOS platform. The two methods are as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>Establishing a session via a serial port
+
+<BR>
+
+<BR></LI>
+
+<LI>Establishing a session via TCP/IP
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Connecting the PC Using COM Ports</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Depending on how you are going to do it, configuring a PC to connect to a UNIX host via a COM port is the easier and less costly of the two methods. If both systems belong to the same site, where there is no requirement for a telephone wire to connect 
+both machines, then a cross-wired cable is all the additional hardware you will need along with the COM port that is commonly readily available on your PC. Any communications software with decent terminal emulation capabilities can be used to emulate some 
+
+the terminals that UNIX recognizes. I used to use Procomm Plus and I was satisfied with it until I decided to go the TCP/IP way for reasons that will be discussed later.
+
+<BR></P>
+
+<P>Configuring a PC to serially connect to a UNIX host involves some preparation on both systems. Before making any move, however, you must check on the availability of the following resources:
+
+<BR></P>
+
+<UL>
+
+<LI>On the PC: Verify that you have a free COM port, and that its use of the IRQ interrupt number and I/O port address is not conflicting with any other interface cards on the machine.
+
+<BR>
+
+<BR></LI>
+
+<LI>On the UNIX hosts: Verify the availability of a tty port and a suitable terminal line setting record in the /etc/ttydefs file (refer to the section, &quot;Determine the Availability of Resources,&quot; in this chapter).
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Additional requirements include two modems and two straight-through cables, if you are configuring a connection over a telephone wire, or a cross-wired cable, as discussed earlier in this chapter, to directly connect the PC to the UNIX system.
+
+<BR></P>
+
+<P>Configuring the UNIX system for support to tty port services was discussed earlier in this chapter.
+
+<BR></P>
+
+<P>Configuring the PC is a very simple matter that basically involves configuring the communication software to the same communication parameters implemented on the UNIX side of the connection. The parameters include baud rate, number of bits per 
+character, parity, and number of stop bits.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>Configuring the Modems</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The following are general guidelines that you should observe when configuring the modems:
+
+<BR></P>
+
+<P>Make sure that the modem you are installing at the UNIX end supports quiet mode. This mode is required in order to stop the modem from sending response codes to the port. Also, echo should be disabled. Failure to observe both of these rules may result 
+in having the UNIX system &quot;believe&quot; that the echoed characters are in partial response to the login prompt it sent to the PC. This may lead to an endless sequence of login and password prompts, and so on.
+
+<BR></P>
+
+<P>Should you run into the problem of having user sessions unexpectedly suspending, try to re-create the problem. If, upon sending manually an XON (press Ctrl+Q), character communications resume, then you may need to disable XON/OFF flow control to rely 
+only on RTS/CTS.
+
+<BR></P>
+
+<P>Set the modem connected to the UNIX system to autoanswer mode.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Connecting to UNIX via TCP/IP</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>TCP/IP is another way by which you can connect PCs in your environment to the UNIX system. This solution, however, is a bit more expensive than using COM ports. This is due to the investment in the network interface card (NIC) and the necessary software 
+
+for implementing the TCP/IP suite of protocols in addition to the cabling cost incurred per workstation. Given the advantages of this solution, and depending on the intended use of the connection, you may find it worth the money and effort to take this 
+route. Using TCP/IP, you will not only be able to establish a telnet session with the host, but you also will be able to use ftp for file transfers between the PC and UNIX, and rsh to remotely execute a UNIX command without having to necessarily log in to 
+
+the system. Also, if you are using something like Novell's Lan Workplace for DOS version 4.1, you will be able to invoke multiple UNIX and Microsoft Windows applications simultaneously. You also will be able to cut and paste (to your heart's desire) 
+between applications.
+
+<BR></P>
+
+<P>As in the COM port option, here too you have to set up both ends of the connection properly in order for them to communicate. Refer to Chapter 37 for a discussion on the installation and configuration of TCP/IP on the UNIX side. The discussion will 
+highlight the steps required to install TCP/IP on the PC/DOS machine.
+
+<BR></P>
+
+<P>The method that you will be using to install TCP/IP on the PC depends to a large degree on the vendor from whom you purchased the software. You are required, however, to do the following:
+
+<BR></P>
+
+<OL>
+
+<LI>You need to assign the PC an IP address in conformance with the rules discussed in Chapter 37.
+
+<BR>
+
+<BR></LI>
+
+<LI>Assign the PC a host name.
+
+<BR>
+
+<BR></LI>
+
+<LI>Create a hosts file on the PC. Include in the file the name to address mappings corresponding to all UNIX hosts to which the user has enough access rights. If domain name services are implemented on your site, then you can ignore this step.
+
+<BR>
+
+<BR></LI>
+
+<LI>Beware that some TCP/IP solutions impose a default upper limit on the allowed number of connections that a PC can handle. Check on that and reconfigure if need be to the desired number.
+
+<BR>
+
+<BR>Depending on whether DNS and/or RARP services are part of your environment, you may need to go farther:
+
+<BR>
+
+<BR></LI>
+
+<LI>Provide the name server's address to the PC.
+
+<BR>
+
+<BR></LI>
+
+<LI>Edit the ethers and the hosts file on the RARP server.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Depending on the vendor, the TCP/IP software comes with ranging tools to help you troubleshoot and manage your PC on the network. What I found particularly impressive about LAN WorkPlace for DOS V4.1 is the extensive support it provides to the network 
+manager. Among the things you get with this product is an SNMP compliant management console that helps in troubleshooting your TCP/IP installation and configuration. It also lets you target other machines on the network for subsequent management and 
+troubleshooting. For a minimum, any decent implementation of TCP/IP should provide tools such as the ping and netstat commands. Use these tools in case things fail to work properly. For more on troubleshooting TCP/IP networks, refer to Chapter 37.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=4><B>Connecting X Terminals</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Until X terminals emerged a few years ago, ASCII dumb terminals were almost exclusively the machines that users had at their disposal for accessing UNIX systems. Due to their nature, these terminals fell short of meeting the ever-increasing demands of 
+engineering and scientific applications for graphical output. With X terminals, a new era of computer-to-human interface began. These terminals not only met the craving need of engineering and science applications for graphics, but they also presented UNIX 
+
+users with a far more superior, and elegant, user interface.
+
+<BR></P>
+
+<P>An X terminal is a component of the X Window System technology (hereafter referred to as X, or X11) that was developed at the Massachusetts Institute of Technology, and is currently maintained by a consortium of universities and vendors.
+
+<BR></P>
+
+<P>One of X's greatest attributes is that it can be brought up on any platform. Though it was initially implemented in UNIX environments, X is now equally available to other platforms ranging from mainframes to DOS workstations. This platform independence 
+
+is due to the mechanism and model that were put together to make X work: the X protocol and client/server model. As you will see later on, this has far-reaching implications as to how users will be able to work in multiplatfom/multivendor environments.
+
+<BR></P>
+
+<P>To setup X terminals, it is essential that you understand the governing concepts that drive this technology. This section will therefore start with an examination of its various components, including the client/server model that X follows. Some terms 
+will be introduced and defined to make you more familiar with the associated jargon. Setting up X and X servers will be discussed next. The focus of the discussion will preclude the many different kinds of GUI interfaces that are currently available to run 
+
+on top of X, concentrating more on how to bring the engine (X platform) and its associated gear to life.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>The Architecture of X</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>X's architecture is based on two components: the client/server model and the X protocol.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>The Client/Server Model of X</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A client server/model follows a mechanism by which an application is split into two components: the so-called backend and frontend. In the database client/server technology, for example, the frontend runs at the user's workstation and is termed the 
+client, whereas the backend runs on a remote host that is shared by all authorized users, and is called the server. The database server acts as the main repository of data that clients need. Instead of having an entire file transferred to its machine from 
+
+the server, the client uses scope-and-filter techniques while requesting only the data relevant to its needs for subsequent processing. From what has just been said, the client/server model components could be expressed as a matter of which is managing 
+access to a resource, versus which is requesting use of the resource. The server component is the access-resource manager, whereas the client component is the one requesting access to and use of the resource.
+
+<BR></P>
+
+<P>The application is split into the following components: X client and an X display server.
+
+<BR></P>
+
+<P>An X client handles all data processing aspects of an application, except for the I/O interaction, which it delegates to a server process. The server process could be running on the same machine or a terminal located elsewhere in the environment. This 
+implies that, unlike database and other familiar server technologies, the X display server belongs to the user's machine where actual I/O and user interface capabilities are provided. Clients, therefore, become the shared resource that all users can access 
+
+and run remotely.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>The X Protocol</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Rather than base the X client/server model on a particular set of software and hardware resources, which could restrict its portability across platforms, X architects chose to base it on a protocol mechanism called X protocol. In doing so, vendors and 
+developers of X applications were insulated from platform-related concerns and specifics. Applications complying with X specifications can be easily ported to any environment, while having X servers mediate the I/O interaction with the physical display 
+units. Having said that, this clearly implies that an X server presents applications with a virtual display unit that they can manage. The display server maps I/O primitives, passed to it by applications to physical actions on the actual display unit.
+
+<BR></P>
+
+<P>Another aspect of X protocol worth mentioning is that it builds on some of the most commonly deployed transport protocols, including TCP/IP, IPX/SPX, and DECnet to enable clients and servers to talk to each other. A user on an X terminal, with 
+multiprotocol support, can invoke one session with a mainframe while maintaining another with a UNIX system, and yet another one across a dial-up line.
+
+<BR></P>
+
+<P>From what has already been said about X, it can be concluded that X is a network-based graphics engine. It allows users to connect to, and run applications on, remote systems while handling I/O interaction using locally available graphical terminals. 
+Being an engine implies that readily available GUI interfaces are built on top of X, rather than being part of it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>X Resources</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Central to X functionality is the concept of resources. A resource is a configurable attribute of an application. Examples of resource attributes are the font the application uses, background color, initial location, and size of an application window.
+
+<BR></P>
+
+<P>The fact that the same X client may have to deal with different servers means that it must be supported with a configuration mechanism that is flexible enough to deal with ranging hardware capabilities and user preferences. Examples of hardware 
+differences are monitor color and resolution capabilities. Also, one user's preferred color, font, and window location and size may not agree with someone else's. It can be concluded that X applications cannot be developed with built-in support for any 
+hardware type or for the developer's perception of how the user interface and preferences should look. Users should be allowed to have a choice of hardware and be able to configure an application's output however they feel is best for them.
+
+<BR></P>
+
+<P>X provides for this capability using one of two methods: command-line options and resource definition files.
+
+<BR></P>
+
+<P>Independent of the method you are using, when an application is invoked, an X display manager  will autoload the associated attributes onto your server (more on this later). This provides the I/O capability and interface you have defined.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Setting X Resources with Command-Line Options</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In this method, users define resources upon invoking an application using command-line options. Most X applications allow users to define resources using the same command option names. The following are examples of the most commonly used arguments:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 40.5. Most common user-definable X resources.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>X Resource</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-display &lt;<I>display</I>&gt; </P>
+
+<TD>
+
+<P>Specifies the name of the X server, display, and screen to use (that is, to send output to)</P>
+
+<TR>
+
+<TD>
+
+<P>-geometry &lt;specs&gt;</P>
+
+<TD>
+
+<P>Specifies the initial size and location of application's window</P>
+
+<TR>
+
+<TD>
+
+<P>-bg &lt;<I>colour</I>&gt;</P>
+
+<TD>
+
+<P>Specifies the background color</P>
+
+<TR>
+
+<TD>
+
+<P>-bd &lt;<I>colour</I>&gt;</P>
+
+<TD>
+
+<P>Specifies the border color</P>
+
+<TR>
+
+<TD>
+
+<P>-fg &lt;<I>colour</I>&gt;</P>
+
+<TD>
+
+<P>Specifies the foreground color</P>
+
+<TR>
+
+<TD>
+
+<P>-fn &lt;<I>font</I>&gt;</P>
+
+<TD>
+
+<P>Specifies the font</P>
+
+<TR>
+
+<TD>
+
+<P>-title &lt;<I>title</I>&gt;</P>
+
+<TD>
+
+<P>Specifies the window title</P></TABLE>
+
+<P>For example, say that a user wants to invoke xterm (an X terminal emulation client) titled &quot;X Terminal&quot; with a blue background color, gray border, and the window initially located at the upper-left corner of the monitor. The user then has to 
+enter the following command:
+
+<BR></P>
+
+<PRE>% xterm -display arts:0 -title &quot;X Terminal&quot; -bg blue -bd grey -g +1+1</PRE>
+
+<P>Given the number of clients that a user may have to invoke simultaneously, this method of loading resources can be tedious and is prone to errors.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Defining Resources Using Resource Definition Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To alleviate the tedium of defining resources using command-line options, X provides the following two resource definition files: Xresources and $HOME/.Xresources. Both of these files contain per-application lists of attribute assignments. Xresources 
+contains global definitions applying to all X servers, whereas $HOME/.Xresources may contain user-specific definitions. Both sets of resources are loaded by the xrdb program whenever a connection is established with an X server. Sample $HOME/.Xresources 
+file contents are as follows:
+
+<BR></P>
+
+<PRE>!xclock resource definitions:
+
+xclock*update:      1
+
+xclock*analog:      false
+
+xclock*chime:       false
+
+xclock*geometry:    -0+0
+
+!xterm resource definitions:
+
+xterm*title:        XTerminal
+
+xterm*background:   grey
+
+xterm*foreground:   black
+
+xterm*geometry:     40x24+1+1
+
+xterm*scrollBar:    true</PRE>
+
+<P>The first set of resources pertains to xclock. According to what is shown, the clock is to be updated at the rate of once a second, displayed in digital format, and the chime is disabled. The second set of resources pertains to xterm, and that set 
+specifies a window title XTerminal, a yellow background color, black text, scroll bar enabled, and a window size of 40x24 displayed at the upper-left corner of the monitor.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Window Managers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A window manager is an X client that normally is invoked during start-up on an X session, from the user's start-up $HOME/.xsession script file. It can also be invoked on the command line.
+
+<BR></P>
+
+<P>Window managers allow users to manage their applications' windows whether moving, resizing, or reducing them to icons.
+
+<BR></P>
+
+<P>There are many different flavors of window managers. Tab Window Manager (twm) is the one that comes with MIT's distribution of X. Open Look provides olwm, whereas OSF/Motif provides mwm. In this chapter, reference will be made to twm only.
+
+<BR></P>
+
+<P>twm behavior is governed by the system.twmrc configuration file in the /usr/X/lib/twm directory. You can edit this file, changing its default behavior to anything that suits your users' needs.
+
+<BR></P>
+
+<P>Because the default configuration is adequate for the purposes of this section (that is, setting up an X terminal), no further details will be provided on how to edit this file.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=3><B>Setting the Shell Environment Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Two shell environment variables need to be taken care of, in order to successfully start an X session. These are PATH and DISPLAY.
+
+<BR></P>
+
+<P>PATH should be modified to include the path to X client programs. This can be done in the user's start-up script $HOME/.xsession. The script should include:
+
+<BR></P>
+
+<PRE>PATH=$PATH:/usr/X/bin
+
+export PATH</PRE>
+
+<P>DISPLAY X environment variable specifies to the client the name of the host, and display number, to send its output to.
+
+<BR></P>
+
+<P>X distinguishes between displays and screens. Figure 40.8 tries to make the distinction clear. In X, a display is a collection of monitors that share a common keyboard and mouse. Shown in Figure 40.8 is an X server that has one display and two monitors. 
+
+The monitors are referred to as screens and are numbered starting with 0. In Figure 40.12b the X server has one display with one screen.
+
+<BR></P>
+
+<P>Hence an appropriate setup of the DISPLAY variable should take care of both the display and monitor to which the output is sent. The DISPLAY variable can be specified using the following format:
+
+<BR></P>
+
+<PRE>display=[iphost|ipaddress]:displaynumber.screennumber</PRE>
+
+<P>in which
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>[<I>iphost</I>|<I>ipaddress</I>]
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Specifies the X server host name or its IP address.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR><I>displaynumber</I>
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>This is the display number, normally 0 because most workstations have only one display.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR><I>screennumber</I>
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Designates the monitor to which the output should be sent. If not specified, screen number 0 will be assumed.</P></TABLE>
+
+<P>DISPLAY can be set in the user's login script. It can also be set manually as a command-line argument, using the -display option, when a client is being invoked:
+
+<BR></P>
+
+<PRE>% xterm -display arts:0</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>The X Display Manager</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The X Display Manager (xdm) is the preferred way of starting up an X session. xinit is another option. This discussion is restricted to xdm only.
+
+<BR></P>
+
+<P>In SVR4, xdm is started as a daemon when the system is booted. It is invoked by one of the /etc/rc2.d scripts. On my system the startup script is S69xdm.
+
+<BR></P>
+
+<P>Once invoked, xdm provides users with a graphical login window where they must enter their user IDs and passwords. Once authenticated and logged in, xdm automatically loads resources to X servers and starts X clients as specified in the user's 
+$HOME/.xsession startup script.
+
+<BR></P>
+
+<P>xdm is a customizable X client. Its behavior depends to a large degree on what is in its configuration files. All xdm configuration files are in the /usr/X/lib/xdm directory. They are as follows:
+
+<BR></P>
+
+<PRE>*xdm-config
+
+*Xresources
+
+*Xsession
+
+*Xservers
+
+*Xaccess
+
+*Xsetup_0
+
+*GiveConsole
+
+*TakeConsole</PRE>
+
+<P>Some of these files pertain to different versions of X. In the following subsections, the purpose of each file is described in the context of starting X server sessions. User-specific files (that is, $HOME/.xsession, $HOME/.Xresources, and 
+$HOME/.xsession-errors) are described as well.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=3><B>xdm-config</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>xdm-config is the first file that is read by xdm when spawned. This file primarily defines where the rest of the configuration files listed previously belong. Following is an example of the its contents:
+
+<BR></P>
+
+<PRE>DisplayManager*session:        /usr/X/lib/xdm/Xsession
+
+DisplayManager*resources:                   /usr/X/lib/xdm/Xresources
+
+DisplayManager.errorLogFile:                /dev/X/xdmerrors
+
+DisplayManager.pidFile:        /dev/X/xdmpid
+
+DisplayManager.keyFile:        /usr/X/lib/xdm/xdmkeys
+
+DisplayManager.servers:        /usr/X/lib/xdm/Xservers
+
+DisplayManager._0. authorize:    true
+
+DisplayManager._0.setup:              /usr/X/lib/xdm/Xsetup_0
+
+DisplayManager*authComplain:    false</PRE>
+
+<P>It can be seen that the preceding xdm-config file contains some self-customizing resource definitions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=3><B>Xservers and Xaccess</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>There are two methods by which xdm knows which X servers to connect to. One method pertaining to release 3 of X (also referred to as X11R3) relies on the Xservers file. In Xservers, the administrator has to maintain a list of names of X servers to be 
+managed by xdm. This was the only way available to xdm to connect to X servers. Following is a sample of the contents of an Xservers file:
+
+<BR></P>
+
+<PRE>0: local /usr/X/bin/X
+
+engg:0 foreign May's X terminal
+
+arts:0 foreign Andrea's X terminal</PRE>
+
+<P>Note how, in all entries, the host's name and display number (colon separated) are followed by one of two terms, local or foreign. local means the X server is running on the console, whereas foreign means it is on the network.
+
+<BR></P>
+
+<P>Because Xservers was read only when xdm was started, however, this posed serious problems as X terminals were brought up later on and as others were temporarily turned off. The only way the administrator could force xdm to recognize a newly brought up X 
+
+server was by restarting. This involves sending xdm a SIGHUP signal using the following command:
+
+<BR></P>
+
+<PRE>#kill -HUP &lt;pid_of_xdm&gt;</PRE>
+
+<P>where the process id can be found by entering
+
+<BR></P>
+
+<PRE>#cat /usr/X/lib/xdm/xdm-pid</PRE>
+
+<P>To remedy this problem, X Display Manager Control Protocol (XDMCP) was introduced in X11R4. XDMCP is a protocol that is implemented at both ends of the connection: the X server and the xdm client. An X server with XDMCP support is responsible for 
+requesting xdm for a connection and should not require an entry in the Xservers file.
+
+<BR></P>
+
+<P>To request a connection, an XDMCP-compatible server issues one of three types of queries, depending on how it is configured. The three types are as follows:
+
+<BR></P>
+
+<PRE>
+
+<BR>Direct query: This is a directed query addressed to a specific host.
+
+
+
+<BR>Broadcast query: The server sends out a general query addressed to all xdm clients requesting a connection. In this case, the X server connects to the first xdm client responding to the query.
+
+
+
+<BR>Indirect query: The X server addresses the XDMCP query to an xdm client for &quot;help.&quot; The latter forwards the request to other xdm clients on the network for a response.</PRE>
+
+<P>Xaccess is an XDMCP-related file. As the name implies, it provides for a degree of access control at the machine level. This means that only hosts with their names listed in Xaccess will have their request to connect honored, receiving a login window. A 
+
+user still has to undergo the authentication process by providing the login ID and the password.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=3><B>The </B><B><I>Xresources</I></B><B> File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Xresources file contains resource definitions that ought to be loaded to X servers upon establishing the connection. All X servers are subject to the same treatment. The first thing that xdm does upon connecting is send a login window, which 
+requires that associated resources be loaded. As for user-specific resources, they are loaded by the server after the user logs in, based on either $HOME/.Xresources and/or $HOME/.xsession files.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=3><B>Xsession and $HOME/.xsession files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Xsession and .xsession files are start-up scripts that execute upon user login. Xsession is a system-wide script that executes every time a user logs in to the system. .xsession is the user's personal script, which is executed by xdm only if Xsession 
+(the system script) calls for it. It is mainly responsible for setting up the user's environment properly and the  subsequent invocation of some of the user's applications. Following is a sample .xsession file.
+
+<BR></P>
+
+<PRE>#!/bin/sh
+
+#Update the user's PATH variable to include /usr/X/bin where all the #X clients can be found.
+
+PATH=$PATH:/usr/X/bin
+
+export PATH
+
+#load and merge user resources as defined in $HOME/.Xresources
+
+xrdb -merge $HOME/.Xresources
+
+#start user's applications
+
+xclock &amp;
+
+xterm &amp;
+
+xcalc &amp;
+
+#start the window manager
+
+twm</PRE>
+
+<P>The preceding .xsession file starts by modifying the PATH variable to include the directory where all the X binaries are stored in the file system. Next, xdm calls and executes xrdb to load and merge the X client resources with those already loaded from 
+
+Xresources at the X server. This suggests that the user is maintaining a .Xresources file in the home directory. A .Xresources file may have the following contents:
+
+<BR></P>
+
+<PRE>!xclock resource definitions:
+
+xclock*update:        1
+
+xclock*analog:        false
+
+xclock*chime:        false
+
+xclock*geometry:    -0+0
+
+!xterm resource definitions:
+
+xterm*title:        XTerminal
+
+xterm*background:    grey
+
+xterm*foreground:    black
+
+xterm*geometry:    40x24+1+1
+
+xterm*scrollBar:    true
+
+!xcalc resource definitions:
+
+xcalc*title:        XCalculator
+
+xcalc*geometry:    +0+0</PRE>
+
+<P>It is important that resources are loaded first, explaining why xrdb is called first and running in the foreground.
+
+<BR></P>
+
+<P>After resources are loaded, application clients are called next. Note how they are made to run in the background. Otherwise (that is, if applications are run in the foreground), the script will hang pending the completion of the application.
+
+<BR></P>
+
+<P>Finally, twm (Tab Window Manager) is loaded in the foreground. Unless this is done, execution of the script completes and exits, which may reset your X server. Hence, the last application to load should always be running in the foreground.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> The .xsession file must be flagged x in order to execute. Failure to do so results in having the xdm login window bouncing back to you without error messages. To flag .xsession executable, 
+enter
+
+<BR>
+
+<BR>%chmod x .xsession
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Now that you have a feel for how the user-specific files (that is, .Xresources and .xsession) are used to set up the user's X server session, take one more look at the Xsession that made it all happen. As noted before, .xsession is called and executed 
+from the system-wide /usr/X/lib/xdm/Xsession. Following is a listing of the Xsession file that comes within X11R5 distribution of X:
+
+<BR></P>
+
+<PRE>#!/bin/sh
+
+exec &gt; $HOME/.xsession-errors 2&gt;&amp;1
+
+case $# in
+
+1)
+
+     case $1 in
+
+     failsafe)
+
+          exec xterm -geometry 80x24-0-0
+
+          ;;
+
+     esac
+
+esac
+
+startup=$HOME/.xsession
+
+resources=$HOME/.Xresources
+
+if [-f $startup]; then
+
+     exec $startup
+
+else
+
+     if [ -f$resources]; then
+
+          xrdb -load $resources
+
+     fi
+
+     twm &amp;
+
+     exec xterm -geometry 80x24+10+10 -ls
+
+fi</PRE>
+
+<P>Note the following points about the script:
+
+<BR></P>
+
+<UL>
+
+<LI>It first directs xsession error messages to .xsession-errors file. It is a good idea to keep one error file per user, as it conveniently helps you troubleshoot user sessions.
+
+<BR>
+
+<BR></LI>
+
+<LI>Next, it checks whether the script was called with a failsafe argument. If so, .xsession is not executed and the user is sent a single xterm. This option is mainly used to assist users and administrators in troubleshooting a failing session. The user 
+invokes a failsafe session by pressing the F1 key or Ctrl+Return. Some preparation must have been made in the Xresources file, however, for this trick to work. For more on this topic, you are referred to your vendor's X Windows user manuals.
+
+<BR>
+
+<BR></LI>
+
+<LI>In the last part of the script, Xsession tests for the existence of the $HOME/.xsession script. If it exists, control is transferred to .xsession. Note how .Xresources is avoided altogether in this case, and it is left to .xsession to handle the user's 
+
+resource definition file instead. In case .xsession does not exist, Xsession establishes a minimal session by loading .Xresources and invoking a single xterm session after spawning twm in the background.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B><I>GiveConsole</I></B><B> and </B><B><I>TakeConsole</I></B><B> Configuration Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>GiveConsole and TakeConsole are scripts that, as their names imply, change the ownership of the system console to the user, and back to root, respectively. Both files are relatively new to X11R5.
+
+<BR></P>
+
+<P>To summarize the X startup and user session establishment process, xdm is invoked as daemon by the /etc/rc2.d/S69xdm script when the system enters the multiuser state. Upon starting up, xdm fetches its /usr/X/lib/xdm/xdm-config file to determine the 
+names and locations of its configuration files. It starts by loading Xresources file into the X servers listed in its Xservers file, or into those who successfully queried it using the XDMCP protocol. A login window is subsequently sent. When a user 
+requests a login by entering a valid login ID and password, xdm fetches the /usr/X/lib/xdm/Xsession script for execution. Subsequent actions are determined depending on what was included in this script. It is recommended that user session handling and 
+configuration be dealt with using .Xresources and .xsession in the manner discussed previously. xsession is equivalent to a personal login script in that, if it exists, it invokes the xrdb client to load user resource definitions in the .Xresources file, 
+and to load user applications that are included in the .xsession script.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=3><B>X Server Access Security</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The basic premise of the X Window System is that it allows an X client to send its output to the X server specified using the -display option. This being the case, you should be able to predict the security hazard that is associated with this mechanism. 
+
+Unless your X display server is properly secured against unwelcome X clients, hackers can maliciously connect to it and crash your session. In the following few paragraphs, one security control method is described, along with its advantages and 
+disadvantages. For more on X security, refer to X Window System reference manuals that ship with UNIX.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=3><B><I>xhost</I></B><B> Access Control Method</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Using this method of protection involves the use of xhost client and the /etc/Xn.hosts file, where n refers to the display number to which the access control file applies. Because most systems have one display, reference will be made only to the 
+/etc/X0.hosts file. The X0.hosts file must be created on the X server and edited by the system administrator to include the names of hosts from which clients are allowed access to the X server. So, if the /etc/X0.hosts file contains the following host 
+names:
+
+<BR></P>
+
+<PRE>
+
+<BR>arts
+
+
+
+<BR>engg
+
+
+
+<BR>fin</PRE>
+
+<P>then clients on arts, engg, and fin can establish X sessions with the X server and have their outputs sent to it.
+
+<BR></P>
+
+<P>xhost is a command that also can be used to add hosts to the server's access control list. The syntax of xhost is as follows:
+
+<BR></P>
+
+<PRE>#xhost [+|-] [hostname]</PRE>
+
+<P>To authorize a host, enter
+
+<BR></P>
+
+<PRE>#xhost + hostname</PRE>
+
+<P>whereas to remove a host from the server's access control list, enter
+
+<BR></P>
+
+<PRE>#xhost - hostname</PRE>
+
+<P>In the following example, host sam is allowed access, whereas host view is not:
+
+<BR></P>
+
+<PRE>#xhost + sam - view</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> xhost client can be invoked only from an X window displaying on the server undergoing security configuration.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If you want to allow all hosts access to the server, enter
+
+<BR></P>
+
+<PRE>#xhost +</PRE>
+
+<P>and to disable access, enter
+
+<BR></P>
+
+<PRE>#xhost -</PRE>
+
+<P>It must be kept in mind, however, that currently established sessions will not be affected by the &quot;xhost -&quot; commands. Only future connections will be refused.
+
+<BR></P>
+
+<P>A question that may have occurred in your mind by now is, what if you want to invoke clients on host view, or any other host, which is denied access to your server? The answer to that is tough. You simply cannot do it! X Windows System provides a few 
+other alternatives to the xhost control method. An example is the MIT-MAGIC-COOKIE-1, which is more of a user-based authentication process in which restrictions are enforced on users rather than on hosts.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=3><B>Types of X Servers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>No discussion of X is complete without a degree of exposure to the different types of X servers and their ranging capabilities.
+
+<BR></P>
+
+<P>Originally, a few years ago, X servers and X terminals were synonyms. Talking of one used to imply the other. This is because X servers used to be supplied on terminals tailored to handle X services, thus providing users with GUI capabilities, as 
+opposed to the ASCII terminals, which handled characters only. Today, in addition to X terminals, an X server can be brought up and delivered to users on a variety of platforms, thanks to X protocol design, which provided for X's independence from 
+operating systems as well as hardware. Among the relative newcomers to the X market are PC-based implementations of X servers. An example is eXceed series of X servers for DOS, OS/2, and Windows by Hummingbird Communications Ltd.
+
+<BR></P>
+
+<P>X terminals are what the name implies: dumb terminals with X Windows support. They are therefore better suited to support graphical applications including arts, science, and engineering. X terminals come with different features and capabilities, some of 
+
+which are as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>The X server program loading method varies from one X terminal to another. One commonly used method is to have the terminal resort to TFTP protocol (see Chapter 37 for more on TFTP) to download X server software and fonts on boot time from a remote 
+host. Other terminals would have the X server software available locally on ROM. Yet a third category would provide a combination of both: ROM-based and TFTP-based methods. Some models such as WYSE WX-Series include an extra PCMCIA slot to use with an 
+optional FLASH ROM. With this support the terminal needs to contact a host for a download of X server software once, during which a permanent copy of it will be transferred to the FLASH ROM to be used for subsequent reboots.
+
+<BR>
+
+<BR></LI>
+
+<LI>The most commonly supported transport protocol among vendors of X terminals is TCP/IP. Some of the vendors provide you with serial communications capabilities as well. In this case, you should carefully examine how the server is optimized to operate 
+over the limited bandwidth that is normally associated with serial facilities. If you are administering a multiprotocol environment, you may even have to go farther to shop around for ones that support your transport requirements.
+
+<BR>
+
+<BR></LI>
+
+<LI>Recently, due to the explosion in the demand for multimedia support, some vendors such as Hewlett-Packard introduced multimedia X servers. An example model is the HP XEnvizex X station.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I74" NAME="I74">
+
+<FONT SIZE=3><B>PC X Servers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As mentioned earlier, PC-based X servers are relative newcomers to the X Windows market. The broad install base of PCs, the improved performance of Intel CPUs, and the continuing drop of PC hardware cost inspired vendors to develop X server software 
+that nears the performance of dedicated X terminals. Some vendors went farther by implementing the X server software as an MS Windows application. This made them more attractive by allowing the user the luxury and flexibility of maintaining DOS, Windows, 
+and UNIX sessions. And by supporting the Inter Client Communications Conventions Manual (ICCCM), X servers allow users to interchangeably cut and paste between those environments. Figure 40.16 illustrates how eXceed/W, a high-end X server by Hummingbird 
+Communications Ltd., provides this support. It illustrates the use of the X server software to establish multiple X sessions with clients running on different host platforms including IBM, HP, and an MS Windows application.
+
+<BR></P>
+
+<P>There are some performance-related factors that need to be considered before trying to install PC X servers. These are as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>CPU power
+
+<BR>
+
+<BR></LI>
+
+<LI>Amount of Random Access Memory (RAM)
+
+<BR>
+
+<BR></LI>
+
+<LI>Graphic interface card and monitor
+
+<BR>
+
+<BR></LI>
+
+<LI>The network interface card (NIC)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Obviously, the more CPU power and RAM memory, the better the X server will run. For optimal performance, however, you need no less than a 386 CPU with clock rates starting from 16 Mhz. Though most vendors require memory sizes in the four-megabyte range, 
+
+you will find that this range delivers the service but not the performance. Therefore, you may still need more memory. Of all the factors, the video graphic interface may prove to be the single most important factor on your PC. Remember that the idea of X 
+
+is to provide users with the elegance and capabilities of the associated GUI interfaces. No matter how fast X is on the PC, there is nothing as annoying as poor, if not disgusting, graphics. There are many implementations of X, with each supporting a 
+variety of graphical interfaces with ranging capabilities. Depending on the nature of what you intend to do on the PC X server, you ought to budget for the suitable interface and monitor. Finally, a 16-bit interface card provides better performance on the 
+
+wire, and consequently contributes to the improved overall performance of the X server.
+
+<BR></P>
+
+<P>Not all PC X servers are born equal. Some currently available implementations are more compatible with the latest distribution of X than others. Some even may have more capabilities built into them, or they may be easier to install and configure. 
+Following is a list of features and capabilities to help you better assess the PC X options that you may have at your disposal.
+
+<BR></P>
+
+<P><B>X compliance X11R5:</B> Make sure that the PC X server you choose is 100 percent compatible with X11R5. Non- or partial compliance may even prevent some of the application from displaying on your PC. Lack of compatibility with ICCCMP protocol may 
+impair your ability to cut and paste across application windows.
+
+<BR></P>
+
+<P><B>XDMCP full compliance:</B> Though users will always be able to login and start an X session using protocols such as telnet, rlogin, and sh, today XDMCP is the preferred method of logging in to X hosts. It also relieves you of the headaches associated 
+
+with the older way of administering connections using the Xservers configuration file.
+
+<BR></P>
+
+<P><B>MS Windows support:</B> With the user community moving closer by the day to MS Windows, you may consider an implementation that integrates both environments. This is particularly useful if the PC X server you choose is ICCCMP compatible, which allows 
+
+you to freely cut and paste across application windows.
+
+<BR></P>
+
+<P><B>Transport support:</B> The PC X server of choice should provide the same level of transport support that is compatible with already deployed protocols supporting your X clients. Most PC X servers support TCP/IP, but not as many support additional 
+protocols. To access, for example, X clients running on UnixWare using IPX/SPX transport, you will need a PC X server such as eXceed/W. Another aspect of transport support is the maximum number of connections the X server can simultaneously allow.
+
+<BR></P>
+
+<P><B>X traces capability:</B> This is a diagnostic capability that may prove extremely helpful in troubleshooting X connections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I75" NAME="I75">
+
+<FONT SIZE=3><B>Summary</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Among the resources that UNIX system administrators are required to manage are ASCII terminals, modems, printers, and X servers. To manage these resources more easily, UNIX SVR4 presents system administrators with a cohesive set of concepts and tools 
+that come under the hood of Service Access Facility (SAF). SAF recognizes a three-level hierarchy of processes: sac (service access controller), port monitors, and port services. sac is at the top of the hierarchy, and is responsible for invoking and 
+managing the port monitors, which are mid-level processes. Port monitors are responsible for invoking and managing port services, which run at the bottom of the SAF hierarchy. There are two types of port monitors: ttymon and listen. Whereas ttymon takes 
+care of service requests received via the serial (or tty) ports, listen takes care of across-the-network services.
+
+<BR></P>
+
+<P>Once SAF is setup appropriately, the administrator can provide all kinds of services, including dial-in access, print services access, and access to X clients running on the UNIX host. Enough details for setting up these services were presented in this 
+
+chapter to allow the administrator to successfully bring up a similar environment in his or her workplace.
+
+<BR></P>
+
+<P><A HREF="unx39.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx39.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx41.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx41.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,959 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx34.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx35.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx35.htm">
+
+<LINK REL="Previous" HREF="unx33.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx33.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx33.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx33.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx35.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx35.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">34 &#151; Starting Up and Shutting Down</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Chris Negus</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Booting the System</A></LI>
+
+<LI>
+
+<A HREF="#I5">Turning On the Computer</A></LI>
+
+<LI>
+
+<A HREF="#I6">Booting Multiple Operating Systems (Intel)</A></LI>
+
+<LI>
+
+<A HREF="#I7">Understanding System States</A></LI>
+
+<LI>
+
+<A HREF="#I8">Understanding the Initialization Table (inittab)</A></LI>
+
+<LI>
+
+<A HREF="#I9">Understanding Run State Directories (rc?.d)</A></LI>
+
+<LI>
+
+<A HREF="#I10">Understanding Startup Scripts</A></LI>
+
+<LI>
+
+<A HREF="#I11">Example The Mouse Startup Script</A></LI>
+
+<LI>
+
+<A HREF="#I12">Changing States with init or telinit</A></LI>
+
+<LI>
+
+<A HREF="#I13">Shutting Down the System</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">Using the Shutdown Icon</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">Using the shutdown Command</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Turning Off the Computer</A></LI>
+
+<LI>
+
+<A HREF="#I17">Miscellaneous Startup and Shutdown Notes</A></LI></UL>
+
+<LI>
+
+<A HREF="#I18">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>34 &#151; Starting Up and Shutting Down</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Chris Negus</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Booting the System</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Before you can use your computer, you must start up the operating system. Starting the operating system is referred to as booting. When the system has been booted, the devices, applications, and services on your computer are available to be used.
+
+<BR></P>
+
+<P>Because UNIX is a powerful multitasking and multiuser operating system, many processes are set in motion when you start it up. First, UNIX runs system initialization processes to do things such as set the system clock from hardware, configure devices, 
+and build a new UNIX kernel (if necessary). Then the system begins running processes associated with the particular initialization state (or init state) assigned to your system.
+
+<BR></P>
+
+<P>When the UnixWare version of the UNIX system is delivered, the default run state for your system is state 3. This state makes your UNIX system available for multiuser use in a networked environment (including file sharing). What this means is that all 
+file systems are connected (mounted) on your system, daemon processes are started to let users log in, and processes to handle incoming and outgoing networking traffic are started.
+
+<BR></P>
+
+<P>You can achieve different levels of activity and access to your system by setting it to boot to other states or by changing system states while your system is running. These states range from the full network/multiuser state (state 3) to 
+single-user/limited access states (states 1 and 2).
+
+<BR></P>
+
+<P>This chapter describes the processing that occurs when you start up and shut down your UNIX system. It also describes how you can change your system to different system states while it is running. Examples in this chapter are based on the UnixWare 
+version of UNIX, as implemented on an IBM PC or compatible (that is, Intel 386 technology).
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Turning On the Computer</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When you turn on a computer that has the UNIX system installed, starting up UNIX is managed by a process called init. The init process sets many processes in motion, based on the initialization state defined in the /etc/inittab file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A computer's hard disk can have several operating systems installed. The description in this system assumes that UNIX is the active operating system configured on your computer. See the description of 
+
+fdisk for information on assigning different operating systems to boot on your computer.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>This section describes what happens when you start up the UnixWare 1.1 version of the UNIX system on your personal computer, as it is delivered from Novell, Inc.
+
+<BR></P>
+
+<P>The init process starts up and checks the /etc/inittab file. The first thing init does is run processes that are marked in the inittab file as sysinit processes. sysinit processes are those that make sure the system is set up properly.
+
+<BR></P>
+
+<P>init finds the following sysinit lines in the /etc/inittab file:
+
+<BR></P>
+
+<PRE>cr::sysinit:/sbin/ckroot &gt;/dev/sysmsg 2&gt;&amp;1
+
+ck::sysinit:/sbin/setclk  &gt;/dev/sysmsg 2&gt;&amp;1
+
+mm::sysinit:/etc/conf/bin/idmodreg &gt;/dev/sysmsg 2&gt;&amp;1
+
+ldmd::sysinit:/etc/conf/bin/idmodload &gt;/dev/sysmsg 2&gt;&amp;1
+
+ap::sysinit:/sbin/autopush f /etc/ap/chan.ap
+
+bchk::sysinit:/sbin/bcheckrc &lt;/dev/console &gt;/dev/sysmsg 2&gt;&amp;1
+
+bu::sysinit:/etc/conf/bin/idrebuild reboot &lt;/dev/console &gt;/dev/sysmsg 2&gt;&amp;1
+
+ia::sysinit:/sbin/creatiadb &lt;/dev/console &gt;/dev/sysmsg 2&gt;&amp;1</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> See the description of the inittab file later in this chapter for a complete description of the entries in the inittab file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Here's a quick rundown of what the system initialization (sysinit) processes do when you start the system:
+
+<BR></P>
+
+<UL>
+
+<LI>ckroot&#151;This reads the mount options for the root file system from the /etc/vfstab file. These options, including the file system type, are needed to make the root file system available (that is, to mount it). ckroot also checks the file system 
+(fsck command) if it determines that there are any problems in the file system. For example, if you turn off the system instead of doing a shutdown, the system sends you the message &quot;Please wait while the system is examined&quot; while it resolves any 
+
+inconsistencies it finds.
+
+<BR>
+
+<BR></LI>
+
+<LI>setclk&#151;This sets the UNIX system clock from the hardware clock.
+
+<BR>
+
+<BR></LI>
+
+<LI>idmodreg&#151;This registers the loadable kernel modules listed in the /etc/mod_register file.
+
+<BR>
+
+<BR></LI>
+
+<LI>idmodload&#151;This loads the loadable kernel modules listed in the /etc/loadmods file.
+
+<BR>
+
+<BR></LI>
+
+<LI>autopush&#151;This configures a list of modules to be automatically pushed on a Streams device when the device is opened. In this case, modules listed in the /etc/ap/chan.ap file are pushed on top of the console monitor device to provide line 
+discipline information.
+
+<BR>
+
+<BR></LI>
+
+<LI>bcheckrc&#151;This does several startup tasks, including setting your system name, mounting /proc (processes) and /dev/fd (floppy disk) devices, and checking and linking additional devices related to floppy disks.
+
+<BR>
+
+<BR></LI>
+
+<LI>idrebuild&#151;This checks whether the kernel has to be rebuilt, and if so runs the idbuild command to rebuild it. The kernel needs to be rebuilt after you add devices or change tunable parameters.
+
+<BR>
+
+<BR></LI>
+
+<LI>creatiadb&#151;This sets up security tables.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Once system initialization functions are set up, init checks the initdefault entry in the inittab to determine the run level that the system is supposed to start up in. It finds the following initdefault line:
+
+<BR></P>
+
+<PRE>is:3:initdefault:</PRE>
+
+<P>This tells init to start up UNIX in run level, or system state, 3. System state 3 is defined as the remote file-sharing state. With that information stored away, init proceeds to run all commands set in the /etc/inittab file that are designated as 
+belonging to run state 3. Here is a list:
+
+<BR></P>
+
+<PRE>r2:23:wait:/sbin/rc2 1&gt; /dev/sysmsg 2&gt;&amp;1 &lt;/dev/console
+
+r3:3:wait:/sbin/rc3  1&gt; /dev/sysmsg 2&gt;&amp;1 &lt;/dev/console
+
+li:23:wait:/usr/bin/ln /dev/systty /dev/syscon &gt;/dev/null 2&gt;&amp;1\
+
+     [cc]sc:234:respawn:/usr/lib/saf/sac t 300
+
+co:12345:respawn:/usr/lib/saf/ttymon g v p &quot;Console Login: &quot; \
+
+     [cc]d /dev/console l console
+
+d2:23:wait:/sbin/dinit 1&gt; /dev/sysmsg 2&gt;&amp;1 &lt;/dev/console
+
+co:12345:once:/usr/bin/mapchan f /usr/lib/mapchan/88591.dk \
+
+     [cc]console</PRE>
+
+<P>The r2 and r3 lines set the most processes in action. The r2 line runs the /etc/rc2 command, which in turn starts up all scripts contained in the /etc/rc2.d directory that begin with the letter S. These include the following:
+
+<BR></P>
+
+<PRE>S01MOUNTFSYS S02mse      S18setuname   S50merge
+
+S75rpc       S01tzsetclk S05RMTMPFILES S21perf
+
+S55merge     S02PRESERVE S11uname      S27nuc
+
+S69inet      S15mkdtab   S42els        S73snmp</PRE>
+
+<P>You can list these files to see what they do. On the whole, however, the scripts start networking and other addon features. For example, S27nuc starts NetWare connectivity, S69inet starts TCP/IP, and S50merge starts DOS merge features.
+
+<BR></P>
+
+<P>The processes specific to state 3, file-sharing state, are started by the /etc/rc3 command. This command runs all scripts in the /etc/rc3.d directory that begin with the letter S. The file-sharing state was originally created to start the remote file 
+sharing (RFS) application. RFS has since been overshadowed by its more popular counterpart network file system (NFS). So the /etc/rc3.d directory is usually empty unless you have purchased the NFS addon software.
+
+<BR></P>
+
+<P>When the system is operational, you will see the login screen or a console login prompt:
+
+<BR></P>
+
+<PRE>Console Login:</PRE>
+
+<P>To get an idea of what's happening on a running UNIX system, the following list describes some of the processes that are running. (You can list the active processes by typing ps ef from the shell.)
+
+<BR></P>
+
+<UL>
+
+<LI>init&#151;This runs, waiting for changes to the run state that you request with the init or telinit commands.
+
+<BR>
+
+<BR></LI>
+
+<LI>sac&#151;This manages the port monitors on your system. Port monitors are processes that listen to ports for login requests or other networking requests.
+
+<BR>
+
+<BR></LI>
+
+<LI>mousemgr&#151;This handles your mouse activities.
+
+<BR>
+
+<BR></LI>
+
+<LI>in.routed&#151;This manages your TCP/IP routing tables, keeping your system uptodate with routes to other systems on the Internet.
+
+<BR>
+
+<BR></LI>
+
+<LI>nfs*&#151;The NFS software starts up a bunch of processes that run, waiting for requests relating to sharing NFS resources.
+
+<BR>
+
+<BR></LI>
+
+<LI>cron&#151;This checks spool directories for commands that were set up to run later. It then starts those commands when they are scheduled to run.
+
+<BR>
+
+<BR></LI>
+
+<LI>lpNet&#151;This handles remote printing requests between your system and other UNIX systems.
+
+<BR>
+
+<BR></LI>
+
+<LI>lpsched&#151;This manages the printing queue for print requests on your system.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>If you have logged and started up the graphical interface, you will see other processes as well. For example, the X process is the X windowing system server, and Desktop Manager (dtm) manages the windows and icons on your desktop.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Booting Multiple Operating Systems (Intel)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you are running UNIX on a PC, it is possible to have several different operating systems installed on different partitions of your hard disk.
+
+<BR></P>
+
+<P>When you install UnixWare, you are allowed to create several partitions and are asked which partitions you want to use for UnixWare and which you want to use for other operating systems. Other operating systems can be DOS, OS/2, or NT. Once you have 
+partitioned the disk and installed the operating systems, you can manage which system you boot from (that is, which is the active partition) with the fdisk utility.
+
+<BR></P>
+
+<P>Versions of the fdisk command are available in DOS, UNIX, and other operating systems. To run fdisk, open a shell, type su (followed by the root password, when requested), and type /usr/sbin/fdisk. You'll see the following:
+
+<BR></P>
+
+<PRE>             Total disk size is 683 cylinders (202.8 MB)
+
+                                Cylinders            Approx
+
+Partition  Status     Type    Start  End Length  %     MB\
+
+    [ic:cc]=========  ====== =========== =====  === ====== ===  ======
+
+    1             pre5.0DOS     0   101   102   15   30.3
+
+    2      Active UNIX System  103   681   579   85   171.9
+
+SELECT ONE OF THE FOLLOWING:
+
+     0.   Overwrite system master boot code
+
+     1.   Create a partition
+
+     2.   Change Active (Boot from) partition
+
+     3.   Delete a partition
+
+     4.   Update (Update disk configuration and exit)
+
+     5.   Exit (Exit without updating disk configuration)
+
+Enter Selection:</PRE>
+
+<P>This example shows the partitions for two operating systems (DOS and UnixWare) on a 202.8 MB hard disk. UNIX is the active operating system and consumes 85 percent of the hard disk (171.9 MB). DOS is on the first partition, consuming 15 percent, or 30.3 
+
+MB, of the hard disk.
+
+<BR></P>
+
+<P>To change the active partition from UNIX to DOS in the example, enter 2, then 1, then 4. The next time you reboot your system, DOS will start.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Understanding System States</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The early UNIX systems ran on minicomputers and mainframes. The concept of system states grew from the need to have different levels of activity occurring on the system, depending on whether the system was in full use, undergoing system maintenance, or 
+
+transitioning between those states.
+
+<BR></P>
+
+<P>An administrator could start up a large computing system in single-user mode, with no networking running or terminals logged in (other than the console terminal). In this way, the administrator could debug any problems with the system before being 
+bombarded with requests from the outside world.
+
+<BR></P>
+
+<P>Over the years, some system states have become outdated. If you're the only UNIX user on a PC, you will rarely need to use any system states other than those that bring the system up and bring it down.
+
+<BR></P>
+
+<P>The following list describes the UNIX system states:
+
+<BR></P>
+
+<UL>
+
+<LI>0&#151;This is the shutdown state. When you change to state 0, all processes, including the UNIX system itself, are stopped.
+
+<BR>
+
+<BR></LI>
+
+<LI>1 (s or S)&#151;This is the single-user state. Actually, there are three states to change to that are single-user states: 1, s, and S. Put the system in single-user state if you want to keep other users off the system while you do administrative tasks. 
+
+Differences between 1, s, and S are as follows:
+
+<BR>
+
+<BR>1&#151;All file systems are mounted, all networking is turned off, all terminal processes are turned off (so no other users can log in).
+
+<BR>
+
+<BR>s or S&#151;This is the state the system enters if there is no /etc/inittab file. If you change to this state, your terminal becomes the system console, other terminals are logged off, and all file systems remain mounted. When the system comes up in 
+this state, only the following file systems are mounted: /, /var, /stand, /proc, and /dev/fd.
+
+<BR>
+
+<BR></LI>
+
+<LI>2&#151;This is the multiuser state. Actually, this state starts all scripts in the /etc/rc2.d directory, which includes networking as well as multiuser processes such as those that allow other users to log in. So, even if you are the only person using 
+
+your system, you need to come up in a multiuser state (2 or 3) to run networking effectively. (In fact, the graphical user interface won't even run in singleuser state.)
+
+<BR>
+
+<BR></LI>
+
+<LI>3&#151;This is the remote file-sharing state. If NFS is installed, your system automatically advertises local file systems and mounts remote file systems associated with NFS. The reason there is a whole state for file sharing is that one of the 
+developers at AT&amp;T who was given the job of doing the startup scripts for RFS rewrote the entire way changing system states was done and added the RFS state. This method is still used today (as described in this chapter).
+
+<BR>
+
+<BR></LI>
+
+<LI>6&#151;This is the reboot state. When you change to init 6, the system shuts down and starts back up.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Other initialization states include the following:
+
+<BR></P>
+
+<UL>
+
+<LI>4&#151;An alternate system state. You can add your own state 4 entries to the /etc/inittab file to create your own run state.
+
+<BR>
+
+<BR></LI>
+
+<LI>5&#151;This is the firmware state. On a PC, this simply does a shutdown and reboot (the same as state 6). Historically, firmware mode was used on the old AT&amp;T 3B2 computers to enter firmware mode to do hardware maintenance tasks.
+
+<BR>
+
+<BR></LI>
+
+<LI>a, b, or c&#151;These are states you can define if you want to start additional processes. These states just start commands without changing the run level.
+
+<BR>
+
+<BR></LI>
+
+<LI>Q or q&#151;These options simply tell init to reread the /etc/inittab file. Use this if you have made changes to the /etc/inittab file and you want new commands run for the current run level.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>You can set initdefault to run levels 1, s, S, 2, or 3. You will almost always set the run level to level 2 or 3 on a small system. Other states are states that you change to on a running system. To change system states, you can use the init command.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Understanding the Initialization Table (</B><B><I>inittab</I></B><B>)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The /etc/inittab file contains the processes that are started when init brings up the system or changes to another state. Some of the entries in inittab are daemons (processes that run continuously in the background) and others, such as the /etc/rc2 
+entry, are used to start up other processes for particular run states.
+
+<BR></P>
+
+<P>Each entry in the inittab file consists of the following fouritem, colonseparated field:
+
+<BR></P>
+
+<PRE>idtag:runstate:action:process</PRE>
+
+<P>The <I>idtag</I> is any tag (from one to four characters) that identifies the entry. The <I>runstate</I> is the system state in which this entry should be run. You can have several system states assigned to an entry.
+
+<BR></P>
+
+<P>The <I>action</I> is a keyword that corresponds to one of the following: respawn (if the process goes away, start it again), wait (wait for the process to finish before continuing to the next process), once (run the process once, wait for it to finish, 
+
+then don't start it again), boot (run the process the first time you go into a multiuser state, without waiting for it to finish), bootwait (run the process the first time you go into a multiuser state, waiting for it to finish before proceeding), and 
+sysinit (run the process when the system first comes up). There is one initdefault action in the inittab file to indicate the state that the system starts in.
+
+<BR></P>
+
+<P>The <I>process</I> is the command that is actually run when the criteria in the first two fields are met (that is, the correct <I>runstate</I> and <I>action</I>).
+
+<BR></P>
+
+<P>The following is an example of an inittab entry:
+
+<BR></P>
+
+<PRE>co:12345:respawn:ttymon g v p &quot;Console Login: &quot; d \
+
+     [cc]/dev/console l console</PRE>
+
+<P>Here the entry is tagged co. The entry is run in system states 1, 2, 3, 4, and 5. If the process dies, it is started again (respawn). The actual process runs in the ttymon command (terminal monitor), which gives you the ability to log in from the system 
+
+console.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Understanding Run State Directories (</B><B><I>rc?.d</I></B><B>)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Applications that have daemon processes (that is, processes that must run continuously for the application to process properly), or that require that something be initialized when the system starts, often have scripts in a run state directory to do 
+these functions. There are different directories for each of the run states you could change to.
+
+<BR></P>
+
+<P>The following is a list of the run state directories:
+
+<BR></P>
+
+<UL>
+
+<LI>/etc/rc0.d&#151;Contains startup scripts relating to the shutdown (0) and reboot (5 and 6) run states.
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/rc1.d&#151;Contains startup scripts relating to the single-user (1, s, and S) run states.
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/rc2.d&#151;Contains startup scripts related to multiuser (2 and 3) run states.
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/rc3.d&#151;Contains startup scripts related to the file-sharing (3) run state.
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/shutdown&#151;Included for backward compatibility for preSystem V, Release 3 systems to include scripts that are run when the system is shut down. This directory is empty unless an application adds a script there.
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/rc.d&#151;Included for backward compatibility for preSystem V, Release 3 systems to include scripts that are run when the system is started. This directory is empty unless an application adds a script there.
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/init.d&#151;Acts as a holding place for all startup scripts. Scripts are not actually run from this directory, but are linked to their appropriate rc<I>?</I>.d directories. This concept is a bit strange. Read the section &quot;Understanding 
+Startup Scripts&quot; for information on how startup scripts are set up and run.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Understanding Startup Scripts</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A startup script is a command that is run when you start the system, shut down the system, or change to a different run state. If you list a startup script, using cat or pg, you will see that it is a series of shell commands that are run when the script 
+
+is executed with either a start or stop option.
+
+<BR></P>
+
+<P>When an application adds a startup script to UNIX, it adds that script to the /etc/init.d directory. It then links that script to one or more directories to filenames that begin with either the letter S (for start) or the letter K (for kill).
+
+<BR></P>
+
+<P>Startup scripts are run when you go into a new run state. When you enter a run state relating to one of the directories described in the section &quot;Run State Directories,&quot; the rc<I>?</I> command runs all startup scripts in that directory that 
+begin with the letters S and K. It runs the S scripts with the start option and K scripts with the stop option, in the ASCII order.
+
+<BR></P>
+
+<P>Now that you are completely confused, look at the example in the next section. It steps you through how a particular startup script, for the mouse manager, is installed, started, and stopped.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Example The Mouse Startup Script</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When you install the UnixWare version of UNIX, a shell script for starting and stopping the process that manages your mouse on the graphical user interface is installed as the /etc/init.d/mse file. Also, this file is linked to two other files: 
+/etc/rc2.d/S02mse and /etc/rc0.d/K02mse.
+
+<BR></P>
+
+<P>That script contains the following:
+
+<BR></P>
+
+<PRE>case &quot;$1&quot; in
+
+'start')
+
+     /usr/lib/mousemgr &amp;
+
+     ;;
+
+'stop')
+
+     pid='/usr/bin/ps e | /usr/bin/grep mousemgr |\
+
+          [cc]/usr/bin/sed e 's/^  *//' e 's/ .*//''
+
+     if [ &quot;${pid}&quot; != &quot;&quot; ]
+
+     then
+
+          /usr/bin/kill ${pid}
+
+     fi
+
+     ;;
+
+*)
+
+     echo &quot;Usage: /etc/init.d/mse { start | stop }&quot;
+
+     ;;
+
+esac</PRE>
+
+<P>When you boot your system, the init process checks the /etc/inittab file for entries that match the default run state (initdefault), which is usually run state 3. It finds the r2 entry, among others, which runs the /sbin/rc2 command and which checks all 
+
+scripts in the /etc/rc2.d directory. Next, it runs all files that begin with K with the stop option and all that begin with S with the start option. So, for example, the S02mse script is run as this:
+
+<BR></P>
+
+<PRE>S02mse start</PRE>
+
+<P>Notice from the listing of the script that the start option causes the /usr/lib/mousemgr command to be run. From this point on, the mousemgr runs continuously until you change system states again.
+
+<BR></P>
+
+<P>When you shut down the system (that is, change to a shutdown state), init goes through the same process for state 0 as it did for state 3. This time it runs the r0 entry, which runs the /etc/rc0 command, which check scripts in the /etc/rc0.d directory. 
+
+All the scripts in this directory begin with K, to kill processes that were started in other states. The mouse script, K02mse, is run, but this time with the stop option, as follows:
+
+<BR></P>
+
+<PRE>K02mse stop</PRE>
+
+<P>As you can see from the script shown above, the stop option finds the running mouse process, determines its process ID, and kills it. After all other startup processes are stopped, the system can shut down.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The convention for naming these startup scripts is a letter (K or S), followed by a number (00 through 99), followed by the name of the script as it exists in the /etc/init.d directory. The number 
+determines the order in which the script is run.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Changing States with </B><B><I>init</I></B><B> or </B><B><I>telinit</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>While your UNIX system is running, you can change the system state or the level of activity using the init or the telinit commands. If you are shutting down the system or moving to a lower state (especially one that will kick users off your system) you 
+
+can use the shutdown command.
+
+<BR></P>
+
+<P>The init command is the easiest way of changing system states. To use init, you simply type init followed by a system state letter or number (from a shell in which you have root permission). For example, the command
+
+<BR></P>
+
+<PRE>init 2</PRE>
+
+<P>could be used to change your system from state 3 to state 2, effectively turning off file-sharing features. You could also change to user configurable states, such as state 4, a, b, or c. Or you can change to q or Q to simply reread the /etc/inittab 
+file.
+
+<BR></P>
+
+<P>The telinit command is simply a link to the init command. The telinit command was created for users who might be afraid to use a command as potentially drastic as the init command to simply reread the /etc/inittab file. So telinit was recommended for 
+rechecking the /etc/inittab file and running any new commands (telinit Q). In reality, however, you can use init and telinit interchangeably.
+
+<BR></P>
+
+<P>Instead of using the init or telinit commands, UnixWare offers more friendly ways to shut down your system.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Shutting Down the System</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are several ways to shut down your UnixWare system: double-clicking the Shutdown icon from the graphical user interface, using shutdown from the command line, or by simply turning off your computer. The merits of each are discussed in the 
+following sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Using the Shutdown Icon</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are using the GUI and you have ownership permissions to do system shutdown, you can stop your system using the Shutdown icon. To use the Shutdown icon, simply doubleclick on the Shutdown icon in the UnixWare Desktop window. When you see a 
+Shutdown confirmation window, click on Shutdown. The graphical interface closes and the system shuts down.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Using the </B><B><I>shutdown</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The shutdown command can be used instead of the init command to move to lower system states, in particular shutdown (0) and reboot (6) states. The init command can be a bit abrupt if you are working with a multiuser system. When you enter init 0, the 
+system simply goes down. The shutdown command lets you warn users and give them a grace period to log off.
+
+<BR></P>
+
+<P>The following is an example of the shutdown command (used as the root user from a shell):
+
+<BR></P>
+
+<PRE># cd /
+
+# shutdown y g60 i0</PRE>
+
+<P>The y option lets you skip the shutdown confirmation question. The g60 assigns a 60 second grace period to users in which they can log off before the system comes down. The i0 assigns the init state to state 0 (shutdown state).
+
+<BR></P>
+
+<P>Once you run the command, all users logged in to the system are warned about the impending system shutdown. They have the length of the grace period to close whatever work they are doing before the system comes down.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Turning Off the Computer</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Because UnixWare uses a hardened file system, vfxs from Veritas, you can turn off your computer without losing data. As a rule, however, it is safer to do an orderly shutdown with either the shutdown command or the Shutdown icon.
+
+<BR></P>
+
+<P>Those who have used UNIX systems for years often feel uncomfortable simply turning off their computers with UNIX running. In the old days, the next time you booted your UNIX system after turning it off you would have to wait for a massive file system 
+check to take place. This would often take a half hour or more, occasionally resulting in some data loss.
+
+<BR></P>
+
+<P>Even though this author has never lost any data when turning off UnixWare, it does take a little longer the next time the system is booted. On the whole, it is best to close your applications and do an orderly shutdown.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Miscellaneous Start</B><B>up and Shutdown Notes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Here are a few tips relating to starting and shutting down your system:
+
+<BR></P>
+
+<UL>
+
+<LI>When you start your Intel-based computer, the computer checks your floppy disk drive before it checks your hard disk to find the operating system. If you have mistakenly left in a floppy disk that is not a bootable floppy, your computer won't boot. If 
+
+your hard disk is corrupted or damaged, booting from a bootable floppy disk is one way you might be able to salvage your system. Call your UNIX support representative for help.
+
+<BR>
+
+<BR></LI>
+
+<LI>Some administrators like to run the sync command before running the init command to shut down their computers. This takes information that is stored in memory waiting to be written to hard disk and writes it to hard disk.
+
+<BR>
+
+<BR></LI>
+
+<LI>If you are ever curious about what your current system state is, run the who r command. This tells you the current and previous run levels.
+
+<BR>
+
+<BR></LI>
+
+<LI>You can modify startup scripts to change their behavior. The most common thing you might do is add a debugging option to a networking startup script to try to find more information about why a particular feature isn't starting. Be sure, however, that 
+you make a copy of the script before changing it. If you make an error, you could break an entire system feature.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When you start up UNIX, a complex set of processes is run. These processes initialize the system, connect system resources, and allow access by multiple users and networks.
+
+<BR></P>
+
+<P>As a UNIX system administrator, you can change the state of your system to do administrative tasks or to limit access to the system. You can also modify the processes that are run when you change system states.
+
+<BR></P>
+
+<P>When you are done using your UNIX system for the moment, UNIX can be shut down in several ways. With the latest releases of UNIX, an orderly shutdown (with the shutdown or init commands) is no longer necessary. Hardened file systems let you just turn 
+off your computer with little risk of losing data.
+
+<BR></P>
+
+<P><A HREF="unx33.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx33.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx35.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx35.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

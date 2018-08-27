@@ -1,0 +1,5106 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx11.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx12.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12.htm">
+
+<LINK REL="Previous" HREF="unx10.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx10.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx10.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx10.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx12.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">11</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Bourne Shell</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">By Richard E. Rummel</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">Shell Basics</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">How the Shell Interprets Commands</A></LI>
+
+<LI>
+
+<A HREF="#I7">Entering Simple Commands</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I8">Redirection of Input and Output</A></LI>
+
+<LI>
+
+<A HREF="#I9">Entering Multiple Commands on One Line</A></LI>
+
+<LI>
+
+<A HREF="#I10">Entering Commands Too Long for One Line</A></LI>
+
+<LI>
+
+<A HREF="#I11">Filename Substitutions on the Command Line</A></LI>
+
+<LI>
+
+<A HREF="#I12">Substitution of Variable Data</A></LI>
+
+<LI>
+
+<A HREF="#I13">Substituting the Results of Commands in a Command Line</A></LI>
+
+<LI>
+
+<A HREF="#I14">Escaping from the Special Characters</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">Entering Data from the Shell</A></LI></UL>
+
+<LI>
+
+<A HREF="#I16">Shell Options</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">The Restricted Shell</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">Changing Shell Options with set</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I19">Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I20">Defining Your Own (User-Defined) Variables</A></LI>
+
+<LI>
+
+<A HREF="#I21">Conditional Variable Substitution</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">Substituting Default Values for Variables</A></LI>
+
+<LI>
+
+<A HREF="#I23">Conditional Variable Substitution with Error Checking</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">Positional Variables or Parameters</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I25">Special Variables in the Bourne Shell</A></LI>
+
+<LI>
+
+<A HREF="#I26">Environment Variables</A></LI>
+
+<LI>
+
+<A HREF="#I27">Preventing Variables from Being Changed</A></LI>
+
+<LI>
+
+<A HREF="#I28">Making Variables Available to Subshells with export</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I29">Shell Programming</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I30">What Is a Program?</A></LI>
+
+<LI>
+
+<A HREF="#I31">A Simple Program</A></LI>
+
+<LI>
+
+<A HREF="#I32">The Shell as a Language</A></LI>
+
+<LI>
+
+<A HREF="#I33">Using Data Variables in Shell Programs</A></LI>
+
+<LI>
+
+<A HREF="#I34">Entering Comments in Shell Programs</A></LI>
+
+<LI>
+
+<A HREF="#I35">Doing Arithmetic on Shell Variables</A></LI>
+
+<LI>
+
+<A HREF="#I36">Passing Arguments to Shell Programs</A></LI>
+
+<LI>
+
+<A HREF="#I37">Decision Making in Shell Programs</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I38">The if-then Statement</A></LI>
+
+<LI>
+
+<A HREF="#I39">Data Output from Shell Programs</A></LI>
+
+<LI>
+
+<A HREF="#I40">The if-then-else Statement</A></LI>
+
+<LI>
+
+<A HREF="#I41">Testing Conditions with test</A></LI>
+
+<LI>
+
+<A HREF="#I42">Testing Character Data</A></LI>
+
+<LI>
+
+<A HREF="#I43">Testing Numeric Data</A></LI>
+
+<LI>
+
+<A HREF="#I44">Testing for Files</A></LI>
+
+<LI>
+
+<A HREF="#I45">Combining and Negating test Conditions</A></LI>
+
+<LI>
+
+<A HREF="#I46">A Shorthand Method of Doing Tests</A></LI>
+
+<LI>
+
+<A HREF="#I47">The Null Command</A></LI>
+
+<LI>
+
+<A HREF="#I48">Displaying the Program Name</A></LI>
+
+<LI>
+
+<A HREF="#I49">Nested if Statements and the elif Construct</A></LI>
+
+<LI>
+
+<A HREF="#I50">Reading Data into a Program Interactively</A></LI>
+
+<LI>
+
+<A HREF="#I51">The case Statement</A></LI></UL>
+
+<LI>
+
+<A HREF="#I52">Building Repetitions into a Program</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I53">Repeating Within a while Loop</A></LI>
+
+<LI>
+
+<A HREF="#I54">Repeating Within an until Loop</A></LI>
+
+<LI>
+
+<A HREF="#I55">Processing an Arbitrary Number of Parameters with shift</A></LI>
+
+<LI>
+
+<A HREF="#I56">Repeating Within a for Loop</A></LI>
+
+<LI>
+
+<A HREF="#I57">Getting Out of a Loop from the Middle</A></LI>
+
+<LI>
+
+<A HREF="#I58">Structured Shell Programming Using Functions</A></LI>
+
+<LI>
+
+<A HREF="#I59">Handling the Unexpected with trap</A></LI></UL>
+
+<LI>
+
+<A HREF="#I60">Conditional Command Execution with the And/Or Constructs</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I61">Reading UNIX-Style Options</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I62">Customizing the Shell</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I63">Customizing the Shell with Environment Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I64">Changing Your Command-Line Prompt with PS</A></LI>
+
+<LI>
+
+<A HREF="#I65">Adding Command-Line Separators with IFS</A></LI>
+
+<LI>
+
+<A HREF="#I66">Checking Multiple Mailboxes with MAILPATH</A></LI>
+
+<LI>
+
+<A HREF="#I67">Automating Environment Changes</A></LI></UL>
+
+<LI>
+
+<A HREF="#I68">Adding Your Own Commands and Functions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I69">Specialized Topics</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I70">Debugging Shell Programs</A></LI>
+
+<LI>
+
+<A HREF="#I71">Grouping Commands</A></LI>
+
+<LI>
+
+<A HREF="#I72">Using the Shell Layer Manager shl</A></LI></UL>
+
+<LI>
+
+<A HREF="#I73">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>11</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Bourne Shell</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B>By Richard E. Rummel</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In this chapter, you learn how to get the most out of the Bourne shell, one of the most used of the UNIX shells. You also learn how to store data in your own variables, how to customize your environment with environment variables, and how to group 
+commands together to form shell programs.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Shell Basics</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The Bourne shell was written by Stephen Bourne at Bell Laboratories, where UNIX was originally developed. Because it is found on most UNIX systems, many software developers work under the assumption that the Bourne shell is available on a UNIX system. 
+This use does not mean that it is the best shell, but simply that it is the most common. Other shells, most notably the Korn shell, were written to enhance the Bourne shell, so shell programs written for Bourne run under the Korn shell. In some literature, 
+
+the Bourne shell is called the UNIX system Version 7 shell.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>How the Shell Interprets Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first exposure most people have to the Bourne shell is as an interactive shell. After logging on the system and seeing any messages from the system administrator, the user sees a shell prompt. For users other than the super-user, the default prompt 
+
+for the interactive Bourne shell is a dollar sign ($). When you see the dollar sign ($), the interactive shell is ready to accept a line of input, which it interprets. When the super-user logs in, he or she sees the pound sign (#) as a prompt. It is a 
+reminder that as super-user some of the built-in protections are not available and that extra care is necessary in this mode.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> On UNIX systems the super-user, also referred to as root, is without restriction. The super-user can write to any directory and can remove any file. File permissions do not apply to the super-user. 
+The password for the super-user is usually closely held by the system administrator.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The shell sees a line of input as a string of characters terminated with a newline character, which is usually the result of pressing Enter on your keyboard. The length of the input line has nothing to do with the width of your computer display. When 
+the shell sees the newline character, it begins to interpret the line.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Entering Simple Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The most common form of input to the shell is the simple command, in which a command name is followed by any number of arguments. In the example
+
+<BR></P>
+
+<PRE>$ <B>ls </B>file1 file2 file3</PRE>
+
+<P>ls is the command and <I>file1</I>, <I>file2</I>, and <I>file3</I> are the arguments. The command is any UNIX executable. It is the responsibility of the command, not the shell, to interpret the arguments. Many UNIX commands, but certainly not all, take 
+
+the following form:
+
+<BR></P>
+
+<PRE>$ command<B> -</B>options filenames</PRE>
+
+<P>Although the shell does not interpret the arguments of the command, the shell does make some interpretation of the input line before passing the arguments to the command. Special characters, when you enter them on a command line, cause the shell to 
+redirect input and output, start a different command, search the directories for filename patterns, substitute variable data, and substitute the output of other commands.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Redirection of Input and Output</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When the shell sees the input (&lt;) or output (&gt;) redirection characters, the argument following the redirection symbol is sent to the subshell that controls the execution of the command. When the command opens the input or output file that has been 
+
+redirected, the input or output is redirected to the file.
+
+<BR></P>
+
+<PRE>$ ls -l &gt;dirfile</PRE>
+
+<P>In this example, the only argument passed on to ls is the option -l. The filename dirfile is sent to the subshell that controls the execution of ls. You can find more detail on input and output redirection in Chapter 4, &quot;Listing Files.&quot;
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Entering Multiple Commands on One Line</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Ordinarily, the shell interprets the first word of command input as the command name and the rest of the input as arguments to that command. Three shell special characters&#151;the semicolon (;), the ampersand (&amp;), and the vertical bar (|) or 
+pipe&#151;direct the shell to interpret the word following the symbol as a new command, with the rest of the input as arguments to the new command. For example, the command line
+
+<BR></P>
+
+<PRE>$ who -H; df -v; ps -e</PRE>
+
+<P>is the equivalent of
+
+<BR></P>
+
+<PRE>$ who -H
+
+$ df -v
+
+$ ps -e</PRE>
+
+<P>In the second case, however, the results of each command appear between the command input lines. When you use the semicolon to separate commands on a line, the commands are executed in sequence. The shell waits until one command is complete before 
+executing the next.
+
+<BR></P>
+
+<P>If you separate commands on a line using the ampersand (&amp;), the shell does not wait until one command is run before the second is started. If the ampersand is the last character on the input line, the last command is executed as a background job. To 
+
+run the preceding series of commands concurrently, you enter the following:
+
+<BR></P>
+
+<PRE>$ who -H &amp; df -v &amp; ps -e</PRE>
+
+<P>Whereas the semicolon serves merely as a command separator, the pipe symbol serves a different purpose. When the shell sees the pipe symbol, it takes the next word as a new command and redirects the standard output of the prior command to the standard 
+input of the new command. For example, the command line
+
+<BR></P>
+
+<PRE>$ who | sort</PRE>
+
+<P>displays an alphabetized list of all logged-in users. The command line
+
+<BR></P>
+
+<PRE>$ who | sort | lp</PRE>
+
+<P>prints a hard copy of the alphabetized list of all logged-in users. You can find more information on pipelines in Chapter 4, &quot;Listing Files.&quot;
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> When you're using pipelines, sometimes the order of the commands does not make a difference in the output, but it might make a difference in how efficiently the pipeline executes. The two commands
+
+<BR>
+
+<BR>sort /etc/inittab | grep bin/sh
+
+<BR>grep bin/sh /etc/inittab | sort
+
+<BR>
+
+<BR>accomplish the same thing, but the second pipeline operates more efficiently because it reduces the amount of data passed to sort.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Entering Commands Too Long for One Line</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Sometimes command lines get quite lengthy. On some terminals, when you reach the edge of the display screen, the input autowraps to the next line, but depending on terminal settings, some do not. It would be nice if you could type part of a command on 
+one line and enter the remainder of the command on a second line. You can accomplish by escaping the newline character.
+
+<BR></P>
+
+<P>Remember that the shell sees a line of input as a string of characters terminated with a newline character. But the newline character is also considered to be a white space character. If you end a line with a backslash (\), the next character, which is 
+
+the newline character, is treated literally, meaning that the shell does not interpret the newline character as the end of the line of input. For example,
+
+<BR></P>
+
+<PRE>$ echo Now is the time for all good men     \_
+
+to come to the aid of the party.
+
+Now is the time for all good men to come to the aid of the party.</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Filename Substitutions on the Command Line</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Although the command separator, the pipe symbol, and the redirection symbols change the operational effects of a command line, they did not affect the arguments that were passed to the command. The substitution characters, on the other hand, cause a 
+substitution to take place in the stream of arguments passed to a command. The most common substitution is filename substitution. When the shell's command-line interpreter sees one of the metacharacters&#151;the asterisk (*), the question mark (?), or 
+square brackets ([,])&#151;the shell searches the directories for filenames that match a pattern indicated by the metacharacter.
+
+<BR></P>
+
+<P>The asterisk special character causes the shell to search the directory for filenames that match any pattern. The command
+
+<BR></P>
+
+<PRE>$ ls f*
+
+file1
+
+file1a
+
+form</PRE>
+
+<P>creates a listing of all filenames beginning with the letter f. The important point here is that the shell, not the ls command, did the directory search. In the following example, the ls command sees three arguments, and the preceding command line is 
+the equivalent of
+
+<BR></P>
+
+<PRE>$ ls file1 file1a form
+
+file1
+
+file1a
+
+form</PRE>
+
+<P>The shell makes filename substitutions regardless of the command to be executed.
+
+<BR></P>
+
+<PRE>$ echo f*
+
+file1 file1a form</PRE>
+
+<P>The question mark metacharacter searches the directories for filenames that match the pattern with any single character substituted for the metacharacter. Square brackets cause a match to be made on any character appearing within the brackets. You can 
+find more details on filename substitution in Chapter 4, &quot;Listing Files.&quot;
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Substitution of Variable Data</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The second type of substitution that can take place is variable substitution. When the shell sees the dollar sign ($) character, the remainder of the word following the dollar sign is presumed to be a variable name. The shell then searches for any 
+variables that have been defined for the current shell and substitutes the value of the variable in the command line. If the variable has not been defined, a null string, one containing no characters, is substituted on the command line. For example, the 
+command
+
+<BR></P>
+
+<PRE>$ ls $HOME</PRE>
+
+<P>lists the contents of the users' home directory, regardless of what the current working directory is. HOME is an environment variable. Variables are discussed in more detail in the next major section of this chapter. As in filename substitution, the ls 
+
+command sees only the result of the substitution, not the variable name.
+
+<BR></P>
+
+<P>You can substitute variable names anywhere in the command line, including for the command name itself. For example,
+
+<BR></P>
+
+<PRE>$ dir=ls
+
+$ $dir f*
+
+file1
+
+file1a
+
+form</PRE>
+
+<P>This example points out that the shell makes its substitutions before determining what commands to execute.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Substituting the Results of Commands in a Command Line</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Sometimes it is useful to pass the output or results of one command as arguments to another command. You do so by using the shell special character, the back quotation mark ('). You use the back quotation marks in pairs. When the shell sees a pair of 
+back quotation marks, it executes the command inside the quotation marks and substitutes the output of that command in the original command line. You most commonly use this method to store the results of command executions in variables. To store the 
+five-digit Julian date in a variable, for example, you use the following command:
+
+<BR></P>
+
+<PRE>$ julian='date '+%y%j''</PRE>
+
+<P>The back quotation marks cause the date command to be executed before the variable assignment is made. Back quotation marks can be extremely useful when you're performing arithmetic on shell variables; see &quot;Shell Programming&quot; later in this 
+chapter.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Escaping from the Special Characters</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>By now, it should be clear that the shell looks for special characters in the input line before taking any other action. When it becomes necessary to use a special character in a command line, you can override, or &quot;escape,&quot; the special action 
+
+of the character by using an escape character. The escape characters are:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>\</P>
+
+<TD>
+
+<P>the backslash, which causes a single character to be escaped</P>
+
+<TR>
+
+<TD>
+
+<P>'</P>
+
+<TD>
+
+<P>the single quotation mark, which, used in pairs, causes a group of characters to be escaped</P>
+
+<TR>
+
+<TD>
+
+<P>&quot;</P>
+
+<TD>
+
+<P>the double quotation mark, which, used in pairs, causes a group of characters to be escaped, but allows some special characters to perform their normal function</P></TABLE>
+
+<P>For example, UNIX does not forbid you to use special characters in filenames.
+
+<BR></P>
+
+<P>Suppose you have a directory with the following files:
+
+<BR></P>
+
+<PRE>file* file1 file2 file3</PRE>
+
+<P>You want to display the contents of the first file, the one with the asterisk in its name. Enter the following command:
+
+<BR></P>
+
+<PRE>$ cat file*</PRE>
+
+<P>You then get not only the file you want, but the rest of the files in the directory as well. Because you now understand how the shell interprets its input, performing filename substitution whenever it sees an asterisk, you know what the problem is but 
+wonder how you can rectify the problem. If you try to remove the offending file with the command
+
+<BR></P>
+
+<PRE>$ rm file*</PRE>
+
+<P>you remove far more than you want. Fortunately, the Bourne shell has provided a mechanism to get around this kind of problem.
+
+<BR></P>
+
+<P>Another special character that the shell looks for is the escape character, or backslash (\). When the shell sees the escape character, it takes the subsequent character literally; it does not attempt to interpret that character. In the preceding 
+scenario, you can use the escape character to remove or even rename the offending file:
+
+<BR></P>
+
+<PRE>$ mv file\* filestar</PRE>
+
+<P>Other characters that get special treatment by the shell are the white space characters. They are the tabs, spaces, and newlines, which make a separation between words. When more than one of these characters appears at a time, the shell strips the 
+redundant white space characters from the input. For example,
+
+<BR></P>
+
+<PRE>$ echo This      word         is separated
+
+This word is separated</PRE>
+
+<P>Here, the result is probably not the desired effect.
+
+<BR></P>
+
+<P>Suppose you want to display a message with asterisks as attention getters, as in the following:
+
+<BR></P>
+
+<PRE>***** Program Error *****</PRE>
+
+<P>To do so using escape characters would be cumbersome, as you can see in the following:
+
+<BR></P>
+
+<PRE>$ echo \*\*\*\*\* Program Error \*\*\*\*\*
+
+***** Program Error *****</PRE>
+
+<P>You may already have guessed that the shell has an easier way of displaying a message of this type. When you enclose a string of text within single quotation marks ('), the entire string is treated literally, as follows:
+
+<BR></P>
+
+<PRE>$ echo '***** Program Error *****'
+
+***** Program Error *****</PRE>
+
+<P>You can use this same method to retain white space:
+
+<BR></P>
+
+<PRE>$ echo 'This     word       is separated'
+
+This     word       is separated</PRE>
+
+<P>On some occasions, however, you may want part of a string to be treated literally and other parts to be interpreted by the shell.
+
+<BR></P>
+
+<PRE>$ USERS='who | wc -l'
+
+$ echo '*** There are $USERS users logged into the system'
+
+*** There are $USERS users logged into the system</PRE>
+
+<P>You can overcome this problem by using the double quotation marks (&quot;). The double quotation marks are not as restrictive as the single quotation marks. Within double quotation marks, the dollar sign ($), the backslash (\), and the back quotation 
+marks (`) retain their shell meaning:
+
+<BR></P>
+
+<PRE>$ USERS='who | wc -l'
+
+$ echo &quot;*** There are $USERS users logged into the system&quot;
+
+There are 5 users logged into the system</PRE>
+
+<P>Because the double quotation marks still allow the shell to interpret the back quotation marks, you can simplify the preceding example, as follows:
+
+<BR></P>
+
+<PRE>$ echo &quot;*** There are `who | wc -l` users logged into the system&quot;
+
+There are 5 users logged into the system</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Entering Data from the Shell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the useful features of a computer is its ability to process large volumes of data at one time. Often this data exists in the form of disk files. You have seen how you can provide a file name to a UNIX program in a command line, but what if the 
+data does not exist in a file? For instance, you can use the UNIX mail utility to send a data file to another user, but often you just want to type in a short note to send to another user. Many UNIX programs allow data to be supplied to the program either 
+
+from a disk file or from your keyboard.
+
+<BR></P>
+
+<P>When a UNIX program needs more data from the user than is practical to get from a command line, the program issues a read request. For most programs, a read terminates when a newline character is processed. In other words, a read request processes one 
+line at a time. When the program is reading its data from a file, no response from the user is necessary for a read request, but when the program is reading its data from the keyboard, or standard input, the program pauses until the user enters a string of 
+
+characters terminated with a newline character. Consider the following example:
+
+<BR></P>
+
+<PRE>$ head -2
+
+Line 1
+
+Line 1
+
+Line 2
+
+Line 2
+
+$</PRE>
+
+<P>Because no filename is supplied on the command line, and no input redirection has occurred, head is looking for its input from the standard input. After you enter the first line, head processes the line and sends it to the output file, which in this 
+case is the standard output, creating the echo effect of the example. After you enter the second line, head displays that line and terminates because the command-line option requested only two lines. The natural operation of some programs is to process a 
+file until it has processed the entire file. When a program looks for a complete file, and the file comes from the standard input, the user needs some way to indicate the end-of-data or end-of-file condition. In the Bourne shell, the end-of-file is 
+indicated by Ctrl+d.
+
+<BR></P>
+
+<P>The file concatenation utility cat, processes an entire file at one time. In the following example, cat &quot;sees&quot; a file containing two lines.
+
+<BR></P>
+
+<PRE>$ <B>cat</B>
+
+Line 1
+
+Line 1
+
+Line 2
+
+Line 2
+
+Ctrl+d
+
+$</PRE>
+
+<P>So if you wanted to send a short note to John, you might type:
+
+<BR></P>
+
+<PRE>$ mail John
+
+John,
+
+   Meet me at the mall at noon.
+
+Rick
+
+Ctrl+d
+
+$</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Shell Options</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The Bourne shell is a computer program and like most programs it has several options. You are already familiar with the most common shell option, the interactive shell. Some options change the way the shell interprets command lines; others put limits on 
+
+the user of the shell
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>The Restricted Shell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The restricted shell gives more control to the system administrator and restricts the options of the user. The restricted shell is useful in situations where security is vital or where the users lack sophistication. The restricted shell can be a user's 
+
+default login shell. On many systems, the restricted shell is invoked by using /usr/bin/rsh, but this may vary; consult your system's documentation. You may also invoke the restricted shell by using the -r flag when you're invoking the shell:
+
+<BR></P>
+
+<PRE>$ sh -r</PRE>
+
+<P>In a restricted shell, the user cannot change directories (cd), change the PATH variable, specify a full pathname to a command, or redirect output.
+
+<BR></P>
+
+<P>The restricted user can execute shell programs that have access to these features. If the restricted shell calls a shell procedure, an unrestricted shell is invoked to carry out the commands. In this case, if the user has write permission in his or her 
+
+working directory, he or she can write shell programs and bypass the restrictions. Normally, a restricted user is placed in a directory in which he or she has no write permission. Not having write permission in this directory does not mean that the user 
+has no write permission anywhere, but because he or she cannot change directories or specify pathnames in commands, the user cannot write a shell script and later access it if he or she cannot write in the working directory.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Changing Shell Options with </B><B><I>set</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Although the restricted shell and the interactive shell are chosen when the shell is invoked, you can turn other options on and off using the set option. Following are some options you can set:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-e</P>
+
+<TD>
+
+<P>Causes a noninteractive shell to exit if any subsequent command terminates with a nonzero exit status</P>
+
+<TR>
+
+<TD>
+
+<P>-f</P>
+
+<TD>
+
+<P>Disables filename substitution</P>
+
+<TR>
+
+<TD>
+
+<P>-n</P>
+
+<TD>
+
+<P>Causes the shell to read commands but not execute them</P>
+
+<TR>
+
+<TD>
+
+<P>-u</P>
+
+<TD>
+
+<P>Treats unset variables as errors when substituting</P>
+
+<TR>
+
+<TD>
+
+<P>-x</P>
+
+<TD>
+
+<P>Prints commands and their arguments as they are executed, showing the result of any substitutions</P></TABLE>
+
+<P>You turn on options with a hyphen (-) and turned them off with a plus (+).
+
+<BR></P>
+
+<P>For example, the shell normally looks at command line input and tries to substitute filenames when it encounters certain special characters, such as an asterisk (*). This default behavior can be changed with the set command using the -f option.
+
+<BR></P>
+
+<PRE>$ set -f
+
+$ echo *
+
+*</PRE>
+
+<P>You can restore the default behavior by using set with the +f option.
+
+<BR></P>
+
+<PRE>$ set +f
+
+$ echo *
+
+file1 file2 ...</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Variables</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In algebra, variables are symbols which stand for some value. In computer terminology, variables are symbolic names which stand for some value. Earlier in this chapter, you saw how the variable HOME stood for the name of a user's home directory. If you 
+
+enter the change directory command, cd, without an argument, cd takes you to your home directory. Does a generic program like cd know the location of every user's home directory? Of course not, it merely knows to look for a variable, in this case HOME, 
+which stands for the home directory.
+
+<BR></P>
+
+<P>Variables are useful in any computer language because they allow you to define what to do with a piece of information without knowing specifically what the data is. A program to add two and two together is not very useful, but a program that adds two 
+variables can be, especially if the value of the variables can be supplied at execution time by the user of the program. The Bourne shell has four types of variables: user-defined variables, positional variables or parameters, predefined or special 
+variables, and environment variables.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Defining Your Own (User-Defined) Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As the name implies, user-defined variables are whatever you want them to be. Variable names are made up of alphanumeric characters and the underscore character, with the provision that variable names do not begin with one of the digits 0 through 9. 
+(Like all UNIX names, variables are case sensitive. Variable names take on values when they appear in a command line to the left of an equal sign (=). For example, in the following command lines, COUNT takes on the value of 1, and NAME takes on the value 
+of Stephanie:
+
+<BR></P>
+
+<PRE>$ COUNT=1
+
+$ NAME=Stephanie</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Because most UNIX commands are lowercase words, shell programs have traditionally used all capital letters in variable names. It is certainly not mandatory to use all capital letters, but using them 
+enables you to identify variables easily within a program.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To recall the value of a variable, precede the variable name by a dollar sign ($):
+
+<BR></P>
+
+<PRE>$ NAME=John
+
+$ echo Hello $NAME
+
+Hello John</PRE>
+
+<P>You also can assign variables to other variables, as follows:
+
+<BR></P>
+
+<PRE>$ JOHN=John
+
+$ NAME=$JOHN
+
+$ echo Goodbye $NAME
+
+Goodbye John</PRE>
+
+<P>Sometimes it is useful to combine variable data with other characters to form new words, as in the following example:
+
+<BR></P>
+
+<PRE>$ SUN=Sun
+
+$ MON=Mon
+
+$ TUE=Tues
+
+$ WED=Wednes
+
+$ THU=Thurs
+
+$ FRI=Fri
+
+$ SAT=Satur
+
+$ WEEK=$SAT
+
+$ echo Today is $WEEKday
+
+Today is
+
+$</PRE>
+
+<P>What happened here? Remember that when the shell's interpreter sees a dollar sign ($), it interprets all the characters until the next white space as the name of a variable, in this case WEEKday. You can escape the effect of this interpretation by 
+enclosing the variable name in curly braces ({,}) like this:
+
+<BR></P>
+
+<PRE>$ echo Today is ${WEEK}day
+
+Today is Saturday
+
+$</PRE>
+
+<P>You can assign more than one variable in a single line by separating the assignments with white space, as follows:
+
+<BR></P>
+
+<PRE>$ X=x Y=y</PRE>
+
+<P>The variable assignment is performed from right to left:
+
+<BR></P>
+
+<PRE>$ X=$Y Y=y
+
+$ echo $X
+
+y
+
+$ Z=z Y=$Z
+
+$ echo $Y
+
+$</PRE>
+
+<P>You may notice that when a variable that has not been defined is referenced, the shell does not give you an error but instead gives you a null value.
+
+<BR></P>
+
+<P>You can remove the value of a variable using the unset command, as follows:
+
+<BR></P>
+
+<PRE>$ Z=hello
+
+$ echo $Z
+
+hello
+
+$ unset Z
+
+$ echo $Z
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Conditional Variable Substitution</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The most common way to retrieve the value of a variable is to precede the variable name with a dollar sign ($), causing the value of the variable to be substituted at that point. With the Bourne shell, you can cause variable substitution to take place 
+only if certain conditions are met. This is called conditional variable substitution. You always enclose conditional variable substitutions in curly braces ({ }).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Substituting Default Values for Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As you learned earlier, when variables that have not been previously set are referenced, a null value is substituted. The Bourne shell enables you to establish default values for variable substitution using the form
+
+<BR></P>
+
+<PRE>${variable:-value}</PRE>
+
+<P>where <I>variable</I> is the name of the variable and <I>value</I> is the default substitution. For example,
+
+<BR></P>
+
+<PRE>$ echo Hello $UNAME
+
+Hello
+
+$ echo Hello ${UNAME:-there}
+
+Hello there
+
+$ echo $UNAME
+
+$
+
+$ UNAME=John
+
+$ echo Hello ${UNAME:-there}
+
+Hello John
+
+$</PRE>
+
+<P>As you can see in the preceding example, when you use this type of variable substitution, the default value is substituted in the command line, but the value of the variable is not changed. Another substitution construct not only substitutes the default 
+
+value but also assigns the default value to the variable as well. This substitution has the form
+
+<BR></P>
+
+<PRE>${variable:=value}</PRE>
+
+<P>which causes <I>variable</I> to be assigned <I>value</I> after the substitution has been made. For example,
+
+<BR></P>
+
+<PRE>$ echo Hello $UNAME
+
+Hello
+
+$ echo Hello ${UNAME:=there}
+
+Hello there
+
+$ echo $UNAME
+
+there
+
+$ UNAME=John
+
+$ echo Hello ${UNAME:-there}
+
+Hello John
+
+$</PRE>
+
+<P>The substitution value need not be literal; it can be a command in back quotation marks:
+
+<BR></P>
+
+<PRE>USERDIR={$MYDIR:-'pwd'}</PRE>
+
+<P>A third type of variable substitution substitutes the specified value if the variable has been set, as follows:
+
+<BR></P>
+
+<PRE>${variable:+value}</PRE>
+
+<P>If <I>variable</I> is set, then <I>value</I> is substituted; if <I>variable</I> is not set, then nothing is substituted. For example,
+
+<BR></P>
+
+<PRE>$ ERROPT=A
+
+$ echo ${ERROPT:+&quot;Error Tracking is Active&quot;}
+
+Error Tracking is Active
+
+$ ERROPT=
+
+$ echo ${ERROPT:+&quot;Error Tracking is Active&quot;}
+
+$</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Conditional Variable Substitution with Error Checking</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Another variable substitution method allows for error checking during variable substitution:
+
+<BR></P>
+
+<PRE>${variable:?message}</PRE>
+
+<P>If <I>variable</I> is set, its value is substituted; if it is not set, <I>message</I> is written to the standard error file. If the substitution is made in a shell program, the program immediately terminates. For example,
+
+<BR></P>
+
+<PRE>$ UNAME=
+
+$ echo ${UNAME:?&quot;UNAME has not been set&quot;}
+
+UNAME has not been set
+
+$ UNAME=Stephanie
+
+$ echo ${UNAME:?&quot;UNAME has not been set&quot;}
+
+Stephanie
+
+$</PRE>
+
+<P>If no message is specified, the shell displays a default message, as in the following example:
+
+<BR></P>
+
+<PRE>$ UNAME=
+
+$ echo ${UNAME:?}
+
+sh: UNAME: parameter null or not set
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Positional Variables or Parameters</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You may recall that when the shell's command-line interpreter processes a line of input, the first word of the command line is considered to be an executable, and the remainder of the line is passed as arguments to the executable. If the executable is a 
+
+shell program, the arguments are passed to the program as positional variables. The first argument passed to the program is assigned to the variable $1, the second argument is $2, and so on up to $9. Notice that the names of the variables are actually the 
+
+digits 1 through 9; the dollar sign, as always, is the special character that causes variable substitution to occur.
+
+<BR></P>
+
+<P>The positional variable $0 always contains the name of the executable. Positional variables are discussed later in this chapter in the section &quot;Shell Programming.&quot;
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Special Variables in the Bourne Shell</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Bourne shell defines several variables that are always available. (You can find examples of how you can use these variables in the next major section of this chapter, &quot;Shell Programming.&quot;) Following are some of the predefined variables:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>$#</P>
+
+<TD>
+
+<P>Contains the number of arguments passed to the program in the form of positional variables.</P>
+
+<TR>
+
+<TD>
+
+<P>$$</P>
+
+<TD>
+
+<P>Contains the process ID of the current process.</P>
+
+<TR>
+
+<TD>
+
+<P>$?</P>
+
+<TD>
+
+<P>Contains the exit status of the last command executed. Programs and commands customarily return an exit status of zero if the program is successful and return a nonzero value if an error occurs. But be careful, not all programs follow customs.</P>
+
+<TR>
+
+<TD>
+
+<P>$*</P>
+
+<TD>
+
+<P>Contains all the positional arguments passed to the program.</P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Environment Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Environment variables are variables that the shell or any other program can access to get information unique to a specific user. Any program can use environment variables. The vi editor, for example, checks the variable EXINIT for any standard options 
+you want set every time you run vi. Consult the instructions of the specific programs for information on environment variables used by the program.
+
+<BR></P>
+
+<P>Several environment variables are created and used by the Bourne shell.
+
+<BR></P>
+
+<PRE>
+
+<BR>HOME This variable is initialized when the interactive shell is executed by the login program. It contains the value of the user's home directory. If the cd command is executed without any arguments, the effect is cd $HOME.
+
+
+
+<BR>IFS This variable sets characters to be internal field separators, or the characters that separate words on a command line. By default, the internal field separators are the space, tab, and newline characters. Setting the IFS adds separators, but 
+space, tab, and the newline character always separate fields.
+
+
+
+<BR>MAIL This variable specifies the complete pathname of the user's mailbox file.
+
+
+
+<BR>MAILCHECK This variable specifies in seconds how often the mailbox should be checked for incoming mail.
+
+
+
+<BR>MAILPATH This variable is a colon-separated list of mailbox files to be checked. Setting this variable can be useful for users who have more than one login name but want to have their mail checked, regardless of which name they have used to log in. The 
+
+name of the mail file can be followed with a percent sign (%) and a message to be displayed when mail is received in that file.
+
+
+
+<BR>PATH This variable, usually set in your .profile, contains a list of directories that are searched for executables. If an executable, which is any utility, program, or shell program, is not in the PATH variable, it can only be executed by giving the 
+full pathname of the executable file. The directories are searched in the order in which they appear in the PATH variable. If an executable file exists in more that one directory, the one found earliest in PATH is the one executed. See &quot;Customizing 
+the Shell&quot; later in this chapter.
+
+
+
+<BR>PS1 The value of the interactive shell prompt. The default value in the Bourne Shell is $.
+
+
+
+<BR>PS2 The value of the secondary shell prompt. The default value is &gt;.
+
+
+
+<BR>TERM This variable is not automatically created on all UNIX systems but is used by so many programs that it is considered a standard environment variable. TERM usually contains the type of terminal that you are using, such as ansi or vt100.</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Preventing Variables from Being Changed</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If a variable has had a value assigned, and you want to make sure that its value is not subsequently changed, you may designate a variable as a readonly variable with the following command:
+
+<BR></P>
+
+<PRE>readonly <I>variable</I></PRE>
+
+<P>From this point on, <I>variable</I> cannot be reassigned. This ensures that a variable won't be accidentally changed.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Making Variables Available to Subshells with </B><B><I>export</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When a shell executes a program, it sets up a new environment for the program to execute in. This is called a subshell. In the Bourne shell, variables are considered to be local variables; in other words, they are not recognized outside the shell in 
+which they were assigned a value. You can make a variable available to any subshells you execute by exporting it using the export command. Your variables can never be made available to other users.
+
+<BR></P>
+
+<P>Suppose you wanted to change your shell prompt to something more meaningful than a dollar sign. You could do this by assigning a new value to the shell prompt variable PS1.
+
+<BR></P>
+
+<PRE>$ PS1=&quot;Enter Command: &quot;
+
+Enter Command: </PRE>
+
+<P>Now, instead of a dollar sign, you get the descriptive phrase Enter Command: . Now suppose you start a new shell.
+
+<BR></P>
+
+<PRE>Enter Command: <B>sh</B>
+
+$ exit
+
+Enter Command: </PRE>
+
+<P>When you started a new shell, the default shell prompt appeared. This is because the variable assignment to PS1 was made only in the current shell. To make the new shell prompt active in subshells, you must export it as in the following example.
+
+<BR></P>
+
+<PRE>$ PS1=&quot;Enter Command: &quot;
+
+Enter Command: <B>export PS1</B>
+
+Enter Command: <B>sh</B>
+
+Enter Command: </PRE>
+
+<P>Now the variable PS1 is global, that is, it is available to all subshells. When a variable has been made global in this way, it remains available until you log out of the parent shell. You can make an assignment permanent by including it in your 
+.profile, see &quot;Customizing the Shell.&quot;
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=4><B>Shell Programming</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this major section, you learn how to put commands together in such a way that the sum is greater than the parts. You learn some UNIX commands that are useful mainly in the context of shell programs. You also learn how to make your program perform 
+functions conditionally based on logical tests that you define, and you learn how to have parts of a program repeat until its function is completed. In short, you learn how to use the common tools supplied with UNIX to create more powerful tools specific 
+to the tasks you need to perform.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>What Is a Program?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A wide assortment of definitions exist for what is a computer program, but for this discussion, a computer program is an ordered set of instructions causing a computer to perform some useful function. In other words, when you cause a computer to perform 
+
+some tasks in a specific order so that the result is greater than the individual tasks, you have programmed the computer. When you enter a formula into a spreadsheet, for example, you are programming. When you write a macro in a word processor, you are 
+programming. When you enter a complex command like
+
+<BR></P>
+
+<PRE>$ ls -R / | grep myname | pg</PRE>
+
+<P>in a UNIX shell, you are programming the shell; you are causing the computer to execute a series of utilities in a specific order, which gives a result that is more useful than the result of any of the utilities taken by itself.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>A Simple Program</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Suppose that daily you back up your data files with the following command:
+
+<BR></P>
+
+<PRE>$ cd /usr/home/myname; ls * | cpio -o &gt;/dev/rmt0</PRE>
+
+<P>As you learned earlier, when you enter a complex command like this, you are programming the shell. One of the useful things about programs, though, is that they can be placed in a program library and used over and over, without having to do the 
+programming each time. Shell programs are no exception. Rather than enter the lengthy backup command each time, you can store the program in a file named backup:
+
+<BR></P>
+
+<PRE>$ cat &gt;backup
+
+cd /usr/home/myname
+
+ls * | cpio -o &gt;/dev/rmt0
+
+Ctrl+d</PRE>
+
+<P>You could, of course, use your favorite editor (see Chapter 7, &quot;Editing Text Files&quot;), and in fact with larger shell programs, you almost certainly will want to. You can enter the command in a single line, as you did when typing it into the 
+command line, but because the commands in a shell program (sometimes called a shell script) are executed in sequence, putting each command on a line by itself makes the program easier to read. Creating easy-to-read programs becomes more important as the 
+size of the programs increase.
+
+<BR></P>
+
+<P>Now to back up your data files, you need to call up another copy of the shell program (known as a subshell) and give it the commands found in the file backup. To do so, use the following command:
+
+<BR></P>
+
+<PRE>$ sh backup</PRE>
+
+<P>The program sh is the same Bourne shell that was started when you logged in, but when a filename is passed as an argument, instead of becoming an interactive shell, it takes its commands from the file.
+
+<BR></P>
+
+<P>An alternative method for executing the commands in the file backup is to make the file itself an executable. To do so, use the following command:
+
+<BR></P>
+
+<PRE>$ chmod +x backup</PRE>
+
+<P>Now you can back up your data files by entering the newly created command:
+
+<BR></P>
+
+<PRE>$ backup</PRE>
+
+<P>If you want to execute the commands in this manner, the file backup must reside in one of the directories specified in the environment variable $PATH.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>The Shell as a Language</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If all you could do in a shell program was to string together a series of UNIX commands into a single command, you would have an important tool, but shell programming is much more. Like traditional programming languages, the shell offers features that 
+enable you to make your shell programs more useful, such as: data variables, argument passing, decision making, flow control, data input and output, subroutines, and handling interrupts.
+
+<BR></P>
+
+<P>By using these features, you can automate many repetitive functions, which is, of course, the purpose of any computer language.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Using Data Variables in Shell Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You usually use variables within programs as place holders for data that will be available when the program is run and that may change from execution to execution. Consider the backup program:
+
+<BR></P>
+
+<PRE>cd /usr/home/myname
+
+ls | cpio -o &gt;/dev/rmt0</PRE>
+
+<P>In this case, the directory to be backed up is contained in the program as a literal, or constant, value. This program is useful only to back up that one directory. The use of a variable makes the program more generic:
+
+<BR></P>
+
+<PRE>cd $WORKDIR
+
+ls * | cpio -o &gt;/dev/rmt0</PRE>
+
+<P>With this simple change, any user can use the program to back up the directory that has been named in the variable $WORKDIR, provided that the variable has been exported to subshells. See &quot;Making Variables Available to Subshells with export&quot; 
+earlier in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Entering Comments in Shell Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Quite often when you're writing programs, program code that seemed logical six months ago may be fairly obscure today. Good programmers annotate their programs with comments. You enter comments into shell programs by inserting the pound sign (#) special 
+
+character. When the shell interpreter sees the pound sign, it considers all text to the end of the line as a comment.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Doing Arithmetic on Shell Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In most higher level programming languages, variables are typed, meaning that they are restricted to certain kinds of data, such as numbers or characters. Shell variables are always stored as characters. To do arithmetic on shell variables, you must use 
+
+the expr command.
+
+<BR></P>
+
+<P>The expr command evaluates its arguments as mathematical expressions. The general form of the command is as follows:
+
+<BR></P>
+
+<PRE>expr integer operator integer</PRE>
+
+<P>Because the shell stores its variables as characters, it is your responsibility as a shell programmer to make sure that the integer arguments to expr are in fact integers. Following are the valid arithmetic operators:
+
+<BR></P>
+
+<PRE>
+
+<BR>+ Adds the two integers.
+
+
+
+<BR>- Subtracts the second integer from the first.
+
+
+
+<BR>* Multiplies the two integers.
+
+
+
+<BR>/ Divides the first integer by the second.
+
+
+
+<BR>% Gives the modulus (remainder) of the division.
+
+$ expr 2 + 1
+
+3
+
+$ expr 5 - 3
+
+2</PRE>
+
+<P>If the argument to expr is a variable, the value of the variable is substituted before the expression is evaluated, as in the following example:
+
+<BR></P>
+
+<PRE>$ $int=3
+
+$ expr $int + 4
+
+7</PRE>
+
+<P>You should avoid using the asterisk operator (*) alone for multiplication. If you enter
+
+<BR></P>
+
+<PRE>$ expr 4 * 5</PRE>
+
+<P>you get an error because the shell sees the asterisk and performs filename substitution before sending the arguments on to expr. The proper form of the multiplication expression is
+
+<BR></P>
+
+<PRE>$ expr 4 \* 5
+
+20</PRE>
+
+<P>You also can combine arithmetic expressions, as in the following:
+
+<BR></P>
+
+<PRE>$ expr 5 + 7 / 3
+
+7</PRE>
+
+<P>The results of the preceding expression may seem odd. The first thing to remember is that division and multiplication are of a higher precedence than addition and subtraction, so the first operation performed is 7 divided by 3. Because expr deals only 
+in integers, the result of the division is 2, which is then added to 5, giving the final result 7. Parentheses are not recognized by expr, so to override the precedence, you must do that manually. You can use back quotation marks to change the precedence, 
+
+as follows:
+
+<BR></P>
+
+<PRE>$ int='expr 5 + 7'
+
+$ expr $int / 3
+
+4</PRE>
+
+<P>Or you can use the more direct route:
+
+<BR></P>
+
+<PRE>$ expr 'expr 5 + 7' / 3
+
+4</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Passing Arguments to Shell Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A program can get data in two ways: either it is passed to the program when it is executed as arguments, or the program gets data interactively. An editor such as vi is usually used in an interactive mode, whereas commands such as ls and expr get their 
+
+data as arguments. Shell programs are no exception. In the section &quot;Reading Data into a Program Interactively,&quot; you see how a shell program can get its data interactively.
+
+<BR></P>
+
+<P>Passing arguments to a shell program on a command line can greatly enhance the program's versatility. Consider the inverse of the backup program presented earlier:
+
+<BR></P>
+
+<PRE>$ cat &gt;restoreall
+
+cd $WORKDIR
+
+cpio -i &lt;/dev/rmt0
+
+Ctrl+d</PRE>
+
+<P>As written, the program restoreall reloads the entire tape made by backup. But what if you want to restore only a single file from the tape? You can do so by passing the name of the file as an argument. The enhanced restore1 program is now:
+
+<BR></P>
+
+<PRE># restore1 - program to restore a single file
+
+cd $WORKDIR
+
+cpio -i $1 &lt;/dev/rmt0</PRE>
+
+<P>Now you can pass a parameter representing the name of the file to be restored to the restore1 program:
+
+<BR></P>
+
+<PRE>$ restore1 file1</PRE>
+
+<P>Here, the filename file1 is passed to restore1 as the first positional parameter. The limitation to restore1 is that if you want to restore two files, you must run restore1 twice.
+
+<BR></P>
+
+<P>As a final enhancement, you can use the $* variable to pass any number of arguments to the program:
+
+<BR></P>
+
+<PRE># restoreany - program to restore any number of files
+
+cd $WORKDIR
+
+cpio -i $* &lt;/dev/rmt0
+
+$ restoreany file1 file2 file3</PRE>
+
+<P>Because shell variables that have not been assigned a value always return null, or empty, if the restore1 or restoreany programs are run with no command-line parameters, a null value is placed in the cpio command, which causes the entire archive to be 
+restored.
+
+<BR></P>
+
+<P>Consider the program in listing 11.1; it calculates the length of time to travel a certain distance.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.1. Program example with two parameters.</B></LH></UL>
+
+<PRE># traveltime - a program to calculate how long it will
+
+# take to travel a fixed distance
+
+# syntax: traveltime miles mph
+
+X60='expr $1 \* 60'
+
+TOTMINUTES='expr $X60 / $2'
+
+HOURS='expr $TOTMINUTES / 60'
+
+MINUTES='expr $TOTMINUTES % 60'
+
+echo &quot;The trip will take $HOURS hours and $MINUTES minutes&quot;</PRE>
+
+<P>The program in listing 11.1 takes two positional parameters: the distance in miles and the rate of travel in miles per hour. The mileage is passed to the program as $1 and the rate of travel as $2. Note that the first command in the program multiplies 
+the mileage by 60. Because the expr command works only with integers, it is useful to calculate the travel time in minutes. The user-defined variable X60 holds an interim calculation that, when divided by the mileage rate, gives the total travel time in 
+minutes. Then, using both integer division and modulus division, the number of hours and number of minutes of travel time is found.
+
+<BR></P>
+
+<P>Now execute the traveltime for a 90-mile trip at 40 mph with the following command line:
+
+<BR></P>
+
+<PRE>$ traveltime 90 40
+
+The trip will take 2 hours and 15 minutes</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Decision Making in Shell Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the things that gives computer programming languages much of their strength is their capability to make decisions. Of course, computers don't think, so the decisions that computer programs make are only in response to conditions that you have 
+anticipated in your program. The decision making done by computer programs is in the form of conditional execution: if a condition exists, then execute a certain set of commands. In most computer languages, this setup is called an if-then construct.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>The </B><B><I>if-then</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Bourne shell also has an if-then construct. The syntax of the construct is as follows:
+
+<BR></P>
+
+<PRE>if command_1
+
+then
+
+  command_2
+
+  command_3
+
+fi
+
+command_4</PRE>
+
+<P>You may recall that every program or command concludes by returning an exit status. The exit status is available in the shell variable $?. The if statement checks the exit status of its command. If that command is successful, then all the commands 
+between the then statement and the fi statement are executed. In this program sequence, <I>command_1</I> is always executed, <I>command_2</I> and <I>command_3</I> are executed only if <I>command_1</I> is successful, and <I>command_4</I> is always executed.
+
+
+
+<BR></P>
+
+<P>Consider a variation of the backup program, except that after copying all the files to the backup media, you want to remove them from your disk. Call the program unload and allow the user to specify the directory to be unloaded on the command line, as 
+in the following example:
+
+<BR></P>
+
+<PRE># unload - program to backup and remove files
+
+# syntax - unload directory
+
+cd $1
+
+ls -a | cpio -o &gt;/dev/rmt0
+
+rm *</PRE>
+
+<P>At first glance, it appears that this program will do exactly what you want. But what if something goes wrong during the cpio command? In this case, the backup media is a tape device. What if the operator forgets to insert a blank tape in the tape 
+drive? The rm command would go ahead and execute, wiping out the directory before it has been backed up! The if-then construct prevents this catastrophe from happening. A revised unload program is shown in listing 11.2.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.2. Shell program with error checking.</B></LH></UL>
+
+<PRE># unload - program to backup and remove files
+
+# syntax - unload directory
+
+cd $1
+
+if ls -a | cpio -o &gt;/dev/rmt0
+
+then
+
+   rm *
+
+fi</PRE>
+
+<P>In the program in listing 11.2, the rm command is executed only if the cpio command is successful. Note that the if statement looks at the exit status of the last command in a pipeline.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Data Output from Shell Programs</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The standard output and error output of any commands within a shell program are passed on the standard output of the user who invokes the program unless that output is redirected within the program. In the example in listing 11.2, any error messages 
+from cpio would have been seen by the user of the program. Sometimes you may write programs that need to communicate with the user of the program. In Bourne shell programs, you usually do so by using the echo command. As the name indicates, echo simply 
+sends its arguments to the standard output and appends a newline character at the end, as in the following example:
+
+<BR></P>
+
+<PRE>$ echo &quot;Mary had a little lamb&quot;
+
+Mary had a little lamb</PRE>
+
+<P>The echo command recognizes several special escape characters that assist in formatting output. They are as follows:
+
+<BR></P>
+
+<PRE>
+
+<BR>\b Backspace
+
+
+
+<BR>\c Prints line without newline character
+
+
+
+<BR>\f Form Feed: advances page on a hard copy printer; advances to new screen on a display terminal
+
+
+
+<BR>\n Newline
+
+
+
+<BR>\r Carriage return
+
+
+
+<BR>\t Tab
+
+
+
+<BR>\v Vertical Tab
+
+
+
+<BR>\\ Backslash
+
+
+
+<BR>\0nnn A one-, two-, or three-digit octal integer representing one of the ASCII characters</PRE>
+
+<P>If you want to display a prompt to the user to enter the data, and you want the user response to appear on the same line as the prompt, you use the \c character, as follows:
+
+<BR></P>
+
+<PRE>$ echo &quot;Enter response:\c&quot;
+
+Enter response$</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>The </B><B><I>if-then-else</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A common desire in programming is to perform one set of commands if a condition is true and a different set of commands if the condition is false. In the Bourne shell, you can achieve this effect by using the if-then-else construct:
+
+<BR></P>
+
+<PRE>if command_1
+
+then
+
+   command_2
+
+   command_3
+
+else
+
+   command_4
+
+   command_5
+
+fi</PRE>
+
+<P>In this construct, <I>command_1</I> is always executed. If <I>command_1</I> succeeds, the <I>command_2</I> and <I>command_3</I> are executed; if it fails, <I>command_4</I> and <I>command_5</I> are executed.
+
+<BR></P>
+
+<P>You can now enhance the unload program to be more user friendly. For example,
+
+<BR></P>
+
+<PRE># unload - program to backup and remove files
+
+# syntax - unload directory
+
+cd $1
+
+if ls -a | cpio -o &gt;/dev/rmt0
+
+then
+
+   rm *
+
+else
+
+   echo &quot;A problem has occurred in creating the backup.&quot;
+
+   echo &quot;The directory will not be erased.&quot;
+
+   echo &quot;Please check the backup device and try again.&quot;
+
+fi</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Because the shell ignores extra whitespace in a command line, good programmers use this fact to enhance the readability of their programs. When commands are executed within a then or else clause, indent 
+
+all the commands in the clause the same distance.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Testing Conditions with </B><B><I>test</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You've seen how the if statement tests the exit status of its command to control the order in which commands are executed, but what if you want to test other conditions? A command that is used a great deal in shell programs is the test command. The test 
+
+command examines some condition and returns a zero exit status if the condition is true and a nonzero exit status if the condition is false. This capability gives the if statement in the Bourne shell the same power as other languages with some enhancements 
+
+that are helpful in shell programming.
+
+<BR></P>
+
+<P>The general form of the command is as follows:
+
+<BR></P>
+
+<PRE>test condition</PRE>
+
+<P>The conditions that can be tested fall into four categories: 1) String operators that test the condition or relationship of character strings; 2) Integer relationships that test the numerical relationship of two integers; 3) File operators that test for 
+
+the existence or state of a file; 4) Logical operators that allow for and/or combinations of the other conditions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Testing Character Data</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You learned earlier that the Bourne shell does not type cast data elements. Each word of an input line and each variable can be taken as a string of characters. Some commands, such as expr and test, have the capability to perform numeric operations on 
+strings that can be translated to integer values, but any data element can be operated on as a character string.
+
+<BR></P>
+
+<P>You can compare two strings to see whether they are equivalent or not equivalent. You also can test a single string to see whether it has a value or not. The string operators are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>str1 = str2</P>
+
+<TD>
+
+<P>True if str1 is the same length and contains the same characters as str2</P>
+
+<TR>
+
+<TD>
+
+<P>str1 != str2</P>
+
+<TD>
+
+<P>True if str1 is not the same as str2</P>
+
+<TR>
+
+<TD>
+
+<P>-n str1</P>
+
+<TD>
+
+<P>True if the length of str1 is greater than 0 (is not null)</P>
+
+<TR>
+
+<TD>
+
+<P>-z str1</P>
+
+<TD>
+
+<P>True if str1 is null (has a length of 0)</P>
+
+<TR>
+
+<TD>
+
+<P><I>str1</I></P>
+
+<TD>
+
+<P>True if <I>str1</I> is not null</P></TABLE>
+
+<P>Even though you most often use test with a shell program as a decision maker, test is a program that can stand on its own as in the following:
+
+<BR></P>
+
+<PRE>$ str1=abcd
+
+$ test $str1 = abcd
+
+$ echo $?
+
+0
+
+$</PRE>
+
+<P>Notice that unlike the variable assignment statement in the first line in the preceding example, the test command must have the equal sign surrounded by white space. In this example, the shell sends three arguments to test. Strings must be equivalent in 
+
+both length and characters by character.
+
+<BR></P>
+
+<PRE>$ str1=&quot;abcd &quot;
+
+$ test &quot;$str1&quot; = abcd
+
+$ echo $?
+
+1
+
+$</PRE>
+
+<P>In the preceding example, str1 contains five characters, the last of which is a space. The second string in the test command contains only four characters. The nonequivalency operator returns a true value everywhere that the equivalency operator returns 
+
+false.
+
+<BR></P>
+
+<PRE>$ str1=abcd
+
+$ test $str1 != abcd
+
+$ echo $?
+
+1
+
+$</PRE>
+
+<P>Two of the string operations, testing of a string with no operator and testing with the -n operator, seem almost identical, as the following example shows.
+
+<BR></P>
+
+<PRE>$ str1=abcd
+
+$ test $str1
+
+$ echo $?
+
+0
+
+$ test -n $str1
+
+$ echo $?
+
+0
+
+$</PRE>
+
+<P>The difference between the two commands in the preceding example is a subtle one, but it points out a potential problem in using the test command, as shown in the following example of two different tests:
+
+<BR></P>
+
+<PRE>$ str1=&quot;      &quot;
+
+$ test $str1
+
+$ echo $?
+
+1
+
+$ test &quot;$str1&quot;
+
+$ echo $?
+
+0
+
+$ test -n $str1
+
+test: argument expected
+
+$ test -n &quot;$str1
+
+$ echo $?
+
+0</PRE>
+
+<P>In the preceding example, the first test is false. Why? Remember that the shell interpreter makes variable substitutions before it processes the command line, and when it processes the command line, it removes excess whitespace. Where $str1 does not 
+have double quotation marks, the blanks are passed to the command line and stripped; when the double quotation marks are used, the blanks are passed on to test. What happens in the third test? When the interpreter removes the whitespace, test is passed 
+only the -n option, which requires an argument.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Testing Numeric Data</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The test command, like expr, has the capability to convert strings to integers and perform numeric operations. Whereas expr performs arithmetic on integers, test performs logical comparisons. The available numerical comparisons are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P><I>int1 -eq int2</I></P>
+
+<TD>
+
+<P>True if <I>int1</I> is numerically equal to <I>int2</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>int1 -ne int2</I></P>
+
+<TD>
+
+<P>True if <I>int1</I> is not equal to <I>int2</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>int1 -gt int2</I></P>
+
+<TD>
+
+<P>True if <I>int1</I> is greater than <I>int2</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>int1 -ge int2</I></P>
+
+<TD>
+
+<P>True if <I>int1</I> is greater than or equal to <I>int2</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>int1 -lt int2</I></P>
+
+<TD>
+
+<P>True if <I>int1</I> is less than <I>int2</I></P>
+
+<TR>
+
+<TD>
+
+<P>int1 -le int2</P>
+
+<TD>
+
+<P>True if int1 is less than or equal to int2</P></TABLE>
+
+<P>This difference between numeric equivalency and string equivalency is shown in the following example, which defines two strings and then compares them using numeric equivalency first and then string equivalency.
+
+<BR></P>
+
+<PRE>$ str1=1234
+
+$ str2=01234
+
+$ test $str1 = $str2
+
+$ echo $?
+
+1
+
+$ test $str1 -eq $str2
+
+$ echo $?
+
+0
+
+$</PRE>
+
+<P>In the second case here, the strings were converted to integers and found to be numerically equivalent, whereas the original strings were not.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Testing for Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The third type of condition that test can examine is the state of files. Using the test command in your program, you can determine whether a file exists, whether it can be written to, and several other conditions. All the file test options return true, 
+
+only if the file exists. The file test options are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-r filenm</P>
+
+<TD>
+
+<P>True if the user has read permission</P>
+
+<TR>
+
+<TD>
+
+<P>-w filenm</P>
+
+<TD>
+
+<P>True if the user has write permission</P>
+
+<TR>
+
+<TD>
+
+<P>-x filenm</P>
+
+<TD>
+
+<P>True if the user has execute permission</P>
+
+<TR>
+
+<TD>
+
+<P>-f filenm</P>
+
+<TD>
+
+<P>True if filenm is a regular file</P>
+
+<TR>
+
+<TD>
+
+<P>-d filenm</P>
+
+<TD>
+
+<P>True if filenm is a directory</P>
+
+<TR>
+
+<TD>
+
+<P>-c filenm</P>
+
+<TD>
+
+<P>True if filenm is a character special file</P>
+
+<TR>
+
+<TD>
+
+<P>-b filenm</P>
+
+<TD>
+
+<P>True if filenm is a block special file</P>
+
+<TR>
+
+<TD>
+
+<P>-s <I>filenm</I></P>
+
+<TD>
+
+<P>True if the size of filenm is not zero</P>
+
+<TR>
+
+<TD>
+
+<P>-t fnumb</P>
+
+<TD>
+
+<P>True if the device associated with the file descriptor fnumb (1 by default) is a terminal device</P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Combining and Negating </B><B><I>test</I></B><B> Conditions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The expressions that have been discussed thus far are called primary expressions because each tests only one condition. The characters following the hyphen are the operators, and the terms to the right and left of the operators are the arguments. Some 
+of the operators, like the numeric comparison operators, are binary because they always have two arguments, one on the right and one on the left. Some of the operators, like the file test options, are unary because the operator takes only one argument, 
+which is always placed on the right.
+
+<BR></P>
+
+<P>Sometimes you may not be interested in what is true, but in what is not true. To find out what is not true, you can use the unary negation operator, the exclamation (!), in front of any primary. Create an empty file and try some of the file operators 
+shown in the following example:
+
+<BR></P>
+
+<PRE>$ cat &gt;empty
+
+Ctrl+d
+
+$ test -r empty
+
+$ echo $?
+
+0
+
+$ test -s empty
+
+$ echo $?
+
+1
+
+$ test ! -s empty
+
+$ echo $?
+
+0
+
+$</PRE>
+
+<P>The primary expressions in a test command can be combined with a logical and operator, -a, or with a logical or operator, -o. When you use the -a operator, the combined expression is true if and only if both of the primary expressions are true. When you 
+
+use the -o operator, the combined expression is true if either of the primary expressions is true. Using the empty file from above, test to see whether the file is readable and contains data:
+
+<BR></P>
+
+<PRE>$ test -r empty -a -s empty
+
+$ echo $?
+
+1
+
+$</PRE>
+
+<P>The combined expression is false. The first expression is true because the file is readable, but the second expression fails because the file has a size of 0.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>A Shorthand Method of Doing Tests</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Because the test command is such an important part of shell programming, and to make shell programs look more like programs in other languages, the Bourne shell has an alternative method for using test: you enclose the entire expression in square 
+brackets ([]).
+
+<BR></P>
+
+<PRE>$ int1=4
+
+$ [ $int1 -gt 2 ]
+
+$ echo $?
+
+0
+
+$</PRE>
+
+<P>Remember that even though it looks different, the preceding example is still the test command and the same rules apply.
+
+<BR></P>
+
+<P>Using test, you can make the unload program from listing 11.2 more user friendly, as well as more bullet proof, by making sure that a valid directory name is entered on the command line. The revised program is shown in listing 11.3.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.3. Program using </B><B>test</B><B> for error checking.</B></LH></UL>
+
+<PRE># unload - program to backup and remove files
+
+# syntax - unload directory
+
+# check arguments
+
+if [ $# -ne 1 ]
+
+then
+
+   echo &quot;usage: unload directory&quot;
+
+   exit 1
+
+fi
+
+# check for valid directory name
+
+if [! -d &quot;$1&quot; ]
+
+then
+
+   echo &quot;$1 is not a directory&quot;
+
+   exit 2
+
+fi
+
+cd $1
+
+ls -a | cpio -o &gt;/dev/rmt0
+
+if [ $? -eq 0 ]
+
+then
+
+   rm *
+
+else
+
+   echo &quot;A problem has occurred in creating the backup.&quot;
+
+   echo &quot;The directory will not be erased.&quot;
+
+   echo &quot;Please check the backup device and try again.&quot;
+
+   exit 3
+
+fi</PRE>
+
+<P>There are several items of interest in the revised program in listing 11.3. One is the introduction of the exit statement. The exit statement has two purposes: to stop any further commands in the program from being executed and to set the exit status of 
+
+the program. By setting a nonzero exit status, subsequent programs can check the $? variable to see whether unload is successful. Notice that in the test to see whether the argument is a valid directory, the variable substitution is made within double 
+quotation marks. Using double quotation marks prevents the test command from failing if the program were called with an argument containing only blanks; the test still fails, but the user does not see the error message from test. One other change to the 
+program is to remove the actual backup command from the if statement and place it on a line by itself and then use test on the exit status to make the decision. Although using if to check the exit status of the backup is legitimate and probably more 
+efficient, the meaning may be unclear to the casual observer.
+
+<BR></P>
+
+<P>Consider the traveltime program shown in listing 11.1. Suppose you execute the program with the following command line:
+
+<BR></P>
+
+<PRE>$ traveltime 61 60
+
+The trip will take 1 hours and 1 minutes</PRE>
+
+<P>Although this answer is correct, it may make your English teacher cringe. You can use numeric testing and if-then-else statements to make the output more palatable. The revised program is shown in listing 11.4.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.4. Revised </B><B>traveltime</B><B> program.</B></LH></UL>
+
+<PRE># traveltime - a program to calculate how long it will
+
+# take to travel a fixed distance
+
+# syntax: traveltime miles mph
+
+X60='expr $1 \* 60'
+
+TOTMINUTES='expr $X60 / $2'
+
+HOURS='expr $TOTMINUTES / 60'
+
+MINUTES='expr $TOTMINUTES % 60'
+
+if [ $HOURS -gt 1 ]
+
+then
+
+   DISPHRS=hours
+
+else
+
+   DISPHRS=hour
+
+fi
+
+if [ $MINUTES -gt 1 ]
+
+then
+
+   DISPMIN=minutes
+
+else
+
+   DISPMIN=minute
+
+fi
+
+echo &quot;The trip will take $HOURS $DISPHRS \c&quot;
+
+if [ $MINUTES -gt 0 ]
+
+then
+
+   echo &quot;and $MINUTES $DISPMIN&quot;
+
+else
+
+   echo
+
+fi</PRE>
+
+<P>Now traveltime supplies the appropriate singular or plural noun depending on the amount of time:
+
+<BR></P>
+
+<PRE>$ traveltime 50 40
+
+The trip will take 1 hour and 15 minutes
+
+$ traveltime 121 60
+
+The trip will take 2 hours and 1 minute
+
+$ traveltime 120 60
+
+The trip will take 2 hours
+
+$</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>The Null Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You have now enhanced the unload program to accept the name of a directory from the command line, to check for a valid directory name, and to give the user of the program more information on any errors that may occur. The only real difference between 
+the unload function and the backup function is that unload removes the files from the directory after it has been archived. It would seem that a simple modification to unload&#151;taking out the rm statement&#151;would transform unload to an enhanced 
+version of backup. The only problem is that the rm command is the only command following a then statement, and there must be at least one command following every then statement. The Bourne shell provides a solution with the null command. The null command, 
+
+represented by a colon (:), is a place holder whose purpose is to fulfill a requirement where a command must appear. To change unload to backup, you replace the rm command with the null command and change some of the messages.
+
+<BR></P>
+
+<PRE># backup - program to backup all files in a directory
+
+# syntax - backup directory
+
+# check arguments
+
+if [ $# -ne 1 ]
+
+then
+
+   echo &quot;usage: backup directory&quot;
+
+   exit 1
+
+fi
+
+# check for valid directory name
+
+if [ ! -d &quot;$1&quot; ]
+
+then
+
+   echo &quot;$1 is not a directory&quot;
+
+   exit 2
+
+fi
+
+cd $1
+
+ls -a | cpio -o &gt;/dev/rmt0
+
+if [ $? -eq 0 ]
+
+then
+
+   :
+
+else
+
+   echo &quot;A problem has occurred in creating the backup.&quot;
+
+   echo &quot;Please check the backup device and try again.&quot;</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Displaying the Program Name</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In the previous two examples, a helpful message was displayed for the user who failed to enter any command-line arguments.
+
+<BR></P>
+
+<P>In this message, the name of the program is displayed as part of a literal string. However, if you renamed this program, this message would no longer be valid. In the Bourne shell, the variable $0 always contains the name of the program, as entered on 
+the command line. You can now make the program more general, as in the following example:
+
+<BR></P>
+
+<PRE>if [ $# -ne 1 ]
+
+then
+
+   echo &quot;usage: $0 directory&quot;
+
+   exit 1
+
+fi</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Nested </B><B><I>if</I></B><B> Statements and the </B><B><I>elif</I></B><B> Construct</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Often you may want your program to do the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>1.</P>
+
+<TD>
+
+<P>Check for a primary condition, and </P>
+
+<TR>
+
+<TD>
+
+<P>a.</P>
+
+<TD>
+
+<P>If the primary condition is true, perform an operation.</P>
+
+<TR>
+
+<TD>
+
+<P>b.</P>
+
+<TD>
+
+<P>If the primary condition is false, check a secondary condition.</P>
+
+<TR>
+
+<TD>
+
+<P>(1)</P>
+
+<TD>
+
+<P>If the secondary condition is true, perform another operation, but</P>
+
+<TR>
+
+<TD>
+
+<P>(2)</P>
+
+<TD>
+
+<P>If the secondary condition is false, check a third condition.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>If the third condition is true, perform another operation.</P></TABLE>
+
+<P>You can do so by nesting if-else statements, as in the following syntax:
+
+<BR></P>
+
+<PRE>if command
+
+then
+
+   command
+
+else
+
+   if <I>command</I>
+
+   then
+
+      <I>command</I>
+
+   else
+
+      if <I>command</I>
+
+      then
+
+         <I>command</I>
+
+      fi
+
+   fi
+
+fi</PRE>
+
+<P>Nesting can be useful but can also be confusing, especially knowing where to place the fi statements. Because this kind of programming occurs frequently, the Bourne shell provides a special construct called elif, which stands for else-if and indicates a 
+
+continuation of the main if statement. You could restate the sequence described above with elif statements, as follows:
+
+<BR></P>
+
+<PRE>if command
+
+then
+
+   command
+
+elif command
+
+then
+
+   command
+
+elif command
+
+then
+
+   command
+
+fi</PRE>
+
+<P>Either method produces the same results. You should use the one that makes the most sense to you.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Reading Data into a Program Interactively</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Up to this point, all the input to your programs has been supplied by users in the form of command-line arguments. You can also obtain input for a program by using the read statement. The general syntax of the read statement is as follows:
+
+<BR></P>
+
+<PRE>read var1 var2 ... varn</PRE>
+
+<P>When the Bourne shell encounters a read statement, the standard input file is read until the shell reads a newline character. When the shell interprets the line of input, it does not make filename and variable substitutions, but it does remove excess 
+white space. After it removes white space, the shell puts the value of the first word into the first variable, and the second word into the second variable, and so on until either the list of variables or the input line is exhausted. If there are more 
+words in the input line than in the variable list, the last variable in the list is assigned the remaining words in the input line. If there are more variables in the list than words in the line, the leftover variables are null. A word is a group of 
+alphanumeric characters surrounded by whitespace.
+
+<BR></P>
+
+<P>In the following example, the read statement is looking for three variables. Since the line of input contains three words, each word is assigned to a variable.
+
+<BR></P>
+
+<PRE>$ read var1 var2 var3
+
+Hello      my         friend
+
+$ echo $var1 $var2 $var3
+
+Hello my friend
+
+$ echo $var1
+
+Hello
+
+$ echo $var2
+
+my
+
+$ echo $var3
+
+friend
+
+$</PRE>
+
+<P>In the next example, the read statement is looking for three variables, but the input line consists of four words. In this case, the last two words are assigned to the third variable.
+
+<BR></P>
+
+<PRE>$ read var1 var2 var3
+
+Hello my dear friend
+
+$ echo $var1
+
+Hello
+
+$ echo $var2
+
+my
+
+$ echo $var3
+
+dear friend
+
+$</PRE>
+
+<P>Finally, in this example, the input line contains fewer words than the number of variables in the read statement, so the last variable remains null.
+
+<BR></P>
+
+<PRE>$ read var1 var2 var3
+
+Hello friend
+
+$ echo $var1
+
+Hello
+
+$ echo $var2
+
+friend
+
+$ echo $var3
+
+$</PRE>
+
+<P>Suppose that you want to give the user of the unload program in Listing 11.3 the option to abort. You might insert these lines of code:
+
+<BR></P>
+
+<PRE>...
+
+echo &quot;The following files will be unloaded&quot;
+
+ls -x $1
+
+echo &quot;Do you want to continue: Y or N \c&quot;
+
+read ANSWER
+
+if [ $ANSWER = N -o $ANSWER = n ]
+
+then
+
+   exit 0
+
+fi
+
+...</PRE>
+
+<P>In the preceding example, you use the \c character in the user prompt so that the user's response appears on the same line as the prompt. The read statement will cause the program to pause until the operator responds with a line of input. The operator's 
+
+response will be stored in the variable ANSWER. When you're testing the user's response, you use the -o operator so that the appropriate action is taken, regardless of whether the user's response is in upper- or lowercase.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>The </B><B><I>case</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Earlier in this section, you saw that the Bourne shell provided a special construct for a common occurrence by providing the elif statement to be used in place of nested if-then-else constructs. Another fairly common occurrence is a series of elif 
+statements where the same variable is tested for many possible conditions, as in the following:
+
+<BR></P>
+
+<PRE>if [ variable1 = value1 ]
+
+then
+
+   command
+
+   command
+
+elif [ variable1 = value2 ]
+
+then
+
+   command
+
+   command
+
+elif [ variable1 = value3 ]
+
+then
+
+   command
+
+   command
+
+fi</PRE>
+
+<P>The Bourne shell provides a cleaner and more powerful method of handling this situation with the case statement. The case statement is cleaner because it does away with the elifs and the thens. It is more powerful because it allows pattern matching, 
+much as the command-line interpreter does. The case statement allows a value to be named, which is almost always a variable, and a series of patterns to be used to match against the value, and a series of commands to executed if the value matches the 
+pattern. The general syntax of case is as follows:
+
+<BR></P>
+
+<PRE>case <I>value</I> in
+
+   pattern1)
+
+      <I>command</I>
+
+      <I>command</I>;;
+
+   pattern2)
+
+      <I>command</I>
+
+      <I>command</I>;;
+
+   ...
+
+   patternn)
+
+      <I>command</I>;
+
+esac</PRE>
+
+<P>The case statement executes only one set of commands. If the value matches more than one of the patterns, only the first set of commands specified is executed. The double semicolons (;;) after a command act as the delimiter of the commands to be 
+executed for a particular pattern match.
+
+<BR></P>
+
+<P>In the program in listing 11.5, the case statement combines the three sample programs&#151;backup, restore, and unload&#151;into a single interactive program, enabling the user to select the function from a menu.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.5. An interactive archive program.</B></LH></UL>
+
+<PRE># Interactive program to restore, backup, or unload
+
+# a directory
+
+echo &quot;Welcome to the menu driven Archive program&quot;
+
+echo _
+
+# Read and validate the name of the directory
+
+echo &quot;What directory do you want? \c&quot;
+
+read WORKDIR
+
+if [ ! -d $WORKDIR ]
+
+then
+
+   echo &quot;Sorry, $WORKDIR is not a directory&quot;
+
+   exit 1
+
+fi
+
+# Make the directory the current working directory
+
+cd $WORKDIR
+
+# Display a Menu
+
+echo &quot;Make a Choice from the Menu below&quot;
+
+echo _
+
+echo &quot;1  Restore Archive to $WORKDIR&quot;
+
+echo &quot;2  Backup $WORKDIR &quot;
+
+echo &quot;3  Unload $WORKDIR&quot;
+
+echo
+
+# Read and execute the user's selection
+
+echo &quot;Enter Choice: \c&quot;
+
+read CHOICE
+
+case &quot;$CHOICE&quot; in
+
+   1) echo &quot;Restoring...&quot;
+
+      cpio -i &lt;/dev/rmt0;;
+
+   2) echo &quot;Archiving...&quot;
+
+      ls | cpio -o &gt;/dev/rmt0;;
+
+   3) echo &quot;Unloading...&quot;
+
+      ls | cpio -o &gt;/dev/rmt0;;
+
+   *) echo &quot;Sorry, $CHOICE is not a valid choice&quot;
+
+      exit 1
+
+esac
+
+#Check for cpio errors
+
+if [ $? -ne 0 ]
+
+then
+
+   echo &quot;A problem has occurred during the process&quot;
+
+   if [ $CHOICE = 3 ]
+
+   then
+
+      echo &quot;The directory will not be erased&quot;
+
+   fi
+
+   echo &quot;Please check the device and try again&quot;
+
+   exit 2
+
+else
+
+   if [ $CHOICE = 3 ]
+
+   then
+
+      rm *
+
+   fi
+
+fi</PRE>
+
+<P>In the program in listing 11.5, notice the use of the asterisk (*) to define a default action if all the other patterns in the case statement fail to match. Also notice that the check for errors in the archive process occurs only once in the program. 
+This check can be done in this program because the exit status of the case statement is always the exit status of the last command executed. Because all three cases end with the execution of cpio, and the default case ends with an exit statement, the exit 
+
+status variable at this point in this program is always the exit status of cpio.
+
+<BR></P>
+
+<P>Another powerful capability of the case statement is to allow multiple patterns to be related to the same set of commands. You use a vertical bar (|) as an or symbol in the following form: 
+
+<BR></P>
+
+<PRE>pattern1 | pattern2 ) command
+
+                      <I>command</I>;;</PRE>
+
+<P>You can further modify the interactive archive program to allow the user to make a choice by entering either the menu number or the first letter of the function, by changing the case statement:
+
+<BR></P>
+
+<PRE>read CHOICE
+
+case &quot;$CHOICE&quot; in
+
+   1 | R ) echo &quot;Restoring...&quot;
+
+           cpio -i &lt;/dev/rmt0;;
+
+   2 | B ) echo &quot;Archiving...&quot;
+
+           ls | cpio -o &gt;/dev/rmt0;;
+
+   3 | U ) echo &quot;Unloading...&quot;
+
+           ls | cpio -o &gt;/dev/rmt0;;
+
+   *) echo &quot;Sorry, $CHOICE is not a valid choice&quot;
+
+      exit 1
+
+esac</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=3><B>Building Repetitions into a Program</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Up to now, the programs you have looked at have had a top-to-bottom, linear progression. The program statements are executed from top to bottom. One of the most beneficial things about computer programs is their capability to process data in volume. For 
+
+this to occur, the programming language must have some construct to cause portions of the program to be repetitive. In computer terminology, this construct is often called looping.
+
+<BR></P>
+
+<P>For example, suppose you had a computer file containing records with mailing addresses and ZIP codes and you wanted to print only records matching a specific ZIP code. You would want to write a program which reads a record, performs a matching test on 
+the ZIP code, prints those that match, and then repeat the process until the data is exhausted. You could do this within a loop.
+
+<BR></P>
+
+<P>The Bourne shell has three different looping constructs built into the language. One of the key concepts in program looping is the termination of the loop. Many hours of computer time are wasted by programs that inadvertently go into infinite loops. The 
+
+main difference between the shell's three looping constructs is the method by which the loop is terminated. The three types of loops are the while loop, the until loop, and the for loop; each is discussed separately in the following sections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Repeating Within a </B><B><I>while</I></B><B> Loop</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The while construct enables you to specify commands that will be executed while some condition is true. 
+
+<BR></P>
+
+<P>The general format of the while construct is as follows:
+
+<BR></P>
+
+<PRE>while <I>command</I>
+
+do
+
+   command
+
+   command
+
+   ...
+
+   command
+
+done</PRE>
+
+<P>Consider the following example in a program called squares in listing 11.6.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.6. Example of a </B><B>while</B><B> loop.</B></LH></UL>
+
+<PRE># squares - prints the square of integers in succession
+
+int=1
+
+while [ $int -lt 5 ]
+
+do
+
+   sq='expr $int \* $int'
+
+   echo $sq
+
+   int='expr $int + 1'
+
+done
+
+echo &quot;Job Complete&quot;
+
+$ squares
+
+1
+
+4
+
+9
+
+16
+
+Job Complete
+
+$</PRE>
+
+<P>In the program in listing 11.6, as long as the value of int is less than five, the commands inside the loop are executed. On the fifth repetition, the test condition associated with the while statement returns a nonzero value, and the command following 
+
+the done statement is executed.
+
+<BR></P>
+
+<P>In the interactive archive program in Listing 11.5, the user is allowed to make a single request and the program terminates. Using while, you can change the program to allow the user to enter multiple requests. The revised program is shown in listing 
+11.7.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.7. Revised interactive archive program.</B></LH></UL>
+
+<PRE># Interactive program to restore, backup, or unload
+
+# a directory
+
+echo &quot;Welcome to the menu driven Archive program&quot;
+
+ANSWER=Y
+
+while [ $ANSWER = Y -o $ANSWER = y ]
+
+do
+
+   echo _
+
+# Read and validate the name of the directory
+
+   echo &quot;What directory do you want? \c&quot;
+
+   read WORKDIR
+
+   if [ ! -d $WORKDIR ]
+
+   then
+
+      echo &quot;Sorry, $WORKDIR is not a directory&quot;
+
+      exit 1
+
+   fi
+
+# Make the directory the current working directory
+
+   cd $WORKDIR
+
+# Display a Menu
+
+   echo &quot;Make a Choice from the Menu below&quot;
+
+   echo _
+
+   echo &quot;1  Restore Archive to $WORKDIR&quot;
+
+   echo &quot;2  Backup $WORKDIR &quot;
+
+   echo &quot;3  Unload $WORKDIR&quot;
+
+   echo
+
+# Read and execute the user's selection
+
+   echo &quot;Enter Choice: \c&quot;
+
+   read CHOICE
+
+   case &quot;$CHOICE&quot; in
+
+      1) echo &quot;Restoring...&quot;
+
+         cpio -i &lt;/dev/rmt0;;
+
+      2) echo &quot;Archiving...&quot;
+
+         ls | cpio -o &gt;/dev/rmt0;;
+
+      3) echo &quot;Unloading...&quot;
+
+         ls | cpio -o &gt;/dev/rmt0;;
+
+      *) echo &quot;Sorry, $CHOICE is not a valid choice&quot;
+
+   esac
+
+#Check for cpio errors
+
+   if [ $? -ne 0 ]
+
+   then
+
+      echo &quot;A problem has occurred during the process&quot;
+
+      if [ $CHOICE = 3 ]
+
+      then
+
+         echo &quot;The directory will not be erased&quot;
+
+      fi
+
+      echo &quot;Please check the device and try again&quot;
+
+      exit 2
+
+   else
+
+      if [ $CHOICE = 3 ]
+
+      then
+
+         rm *
+
+      fi
+
+   fi
+
+   echo &quot;Do you want to make another choice? \c&quot;
+
+   read ANSWER
+
+done</PRE>
+
+<P>By initializing the ANSWER variable to Y, enclosing the main part of the program within a while loop, and getting a new ANSWER at then end of the loop in the program in listing 11.7, the user is able to stay in this program until he or she answers N to 
+
+the question.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>Repeating Within an </B><B><I>until</I></B><B> Loop</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The while construct causes the program to loop as long as some condition is true. The until construct is the complement to while; it causes the program to loop until a condition is true. These two constructs are so similar, you can usually use either 
+one. Use the one that makes the most sense in the context of the program you are writing.
+
+<BR></P>
+
+<P>The general format of the until construct is as follows:
+
+<BR></P>
+
+<PRE>until <I>command</I>
+
+do
+
+   command
+
+   command
+
+   ...
+
+   command
+
+done</PRE>
+
+<P>You could have made the modification to the interactive archive program just as easily with an until loop by replacing the while with until:
+
+<BR></P>
+
+<PRE>until [ $ANSWER = N -o $ANSWER = n ]</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Processing an Arbitrary Number of Parameters with </B><B><I>shift</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Before considering the for loop, it would be helpful to look at the shift command, since the for loop is really a shorthand use of shift.
+
+<BR></P>
+
+<P>In the examples presented so far, the number of positional parameters, or command-line arguments, is either presumed to be solitary or is passed on to a command as a whole using the $* variable. If a program needs to process each of the command-line 
+arguments individually, and the number of arguments is not known, you can process the arguments one by one by using the shift command in your program. The shift command shifts the position of positional parameters by one; $2 becomes $1, $3 becomes $2, and 
+
+so on. The parameter that was $1 before the shift command is not available after shift. The following simple program illustrates this concept:
+
+<BR></P>
+
+<PRE># shifter
+
+until [ $# -eq 0 ]
+
+do
+
+   echo &quot;Argument is $1 and `expr $# - 1` argument(s) remain&quot;
+
+   shift
+
+done
+
+$ shifter 1 2 3 4
+
+Argument is 1 and 3 argument(s) remain
+
+Argument is 2 and 2 argument(s) remain
+
+Argument is 3 and 1 argument(s) remain
+
+Argument is 4 and 0 argument(s) remain
+
+$</PRE>
+
+<P>You may have noticed that the $# variable decremented each time the shift command was executed in the preceding example. Using this knowledge, you can use an until loop to process all the variables. Consider the example in listing 11.8, a program to sum 
+
+an integer list supplied as command-line arguments.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.8. An integer summing program.</B></LH></UL>
+
+<PRE># sumints - a program to sum a series of integers
+
+#
+
+if [ $# -eq 0 ]
+
+then
+
+   echo &quot;Usage: sumints integer list&quot;
+
+   exit 1
+
+fi
+
+sum=0
+
+until [ $# -eq 0 ]
+
+do
+
+   sum='expr $sum + $1'
+
+   shift
+
+done
+
+echo $sum</PRE>
+
+<P>Following is the execution of sumints:
+
+<BR></P>
+
+<PRE>$ sumints 12 18 6 21
+
+57
+
+$</PRE>
+
+<P>You also can use the shift command for another purpose. The Bourne shell predefines nine positional parameters, $1 through $9. This does not mean that only nine positional parameters can be entered on the command line, but to access positional 
+parameters beyond the first nine, you must use the shift command.
+
+<BR></P>
+
+<P>The shift command can take an integer argument that causes it to shift more than one position at a time. If you know that you have processed the first three positional parameters, for example, and you want to begin a loop to process the remaining 
+arguments, you can make $4 shift to $1 with the following command:
+
+<BR></P>
+
+<PRE>shift 3.</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>Repeating Within a </B><B><I>for</I></B><B> Loop</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The third type of looping construct in the Bourne shell is the for loop. The for loop differs from the other constructs in that it is not based on a condition being true or false. Instead the for loop executes one time for each word in the argument list 
+
+it has been supplied. For each iteration of the loop, a variable name supplied on the for command line assumes the value of the next word in the argument list. The general syntax of the for loop is as follows:
+
+<BR></P>
+
+<PRE>for variable in arg1 arg2  ... argn
+
+do
+
+   command
+
+   ...
+
+   command
+
+done</PRE>
+
+<P>The following simple example illustrates the construct:
+
+<BR></P>
+
+<PRE>$ for LETTER in a b c d; do echo $LETTER; done
+
+a
+
+b
+
+c
+
+d
+
+$</PRE>
+
+<P>Because the argument list contained four words, the loop is executed exactly four times. The argument list in the for command does not have to be a literal constant; it can be from a variable substitution.
+
+<BR></P>
+
+<P>You can also write the sumints program in listing 11.8 using a for loop, by passing the command-line arguments to the for loop. The modified program appears in listing 11.9.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.9. Modified integer summing program.</B></LH></UL>
+
+<PRE># sumints - a program to sum a series of integers
+
+#
+
+if [ $# -eq 0 ]
+
+then
+
+   echo &quot;Usage: sumints integer list&quot;
+
+   exit 1
+
+fi
+
+sum=0
+
+for INT in $*
+
+do
+
+   sum='expr $sum + $INT'
+
+done
+
+echo $sum</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>Getting Out of a Loop from the Middle</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Normally, a looping construct executes all the commands between the do statement and the done statement. Two commands enable you to get around this limitation: the break command causes the program to exit the loop immediately, and the continue command 
+causes the program to skip the remaining commands in the loop but remain in the loop.
+
+<BR></P>
+
+<P>A technique that is sometimes used in shell programming is to start an infinite loop, that is, a loop that will not end until either a break or continue command is executed. An infinite loop is usually started with either a true or false command. The 
+true command always returns an exit status of zero, whereas the false command always returns a nonzero exit status. The loop
+
+<BR></P>
+
+<PRE>while true
+
+do
+
+   command
+
+   ...
+
+   command
+
+done</PRE>
+
+<P>executes until either your program does a break or the user initiates an interrupt. You can also write an infinite loop as follows:
+
+<BR></P>
+
+<PRE>until false
+
+do
+
+   command
+
+   ...
+
+   command
+
+done</PRE>
+
+<P>We could use this technique to make the interactive archive program of Listing 11.7 a little easier to use. The revised program is shown in listing 11.10.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.10. Another version of the interactive archiver.</B></LH></UL>
+
+<PRE># Interactive program to restore, backup, or unload
+
+# a directory
+
+echo &quot;Welcome to the menu driven Archive program&quot;
+
+while true
+
+do
+
+# Display a Menu
+
+   echo
+
+   echo &quot;Make a Choice from the Menu below&quot;
+
+   echo _
+
+   echo &quot;1  Restore Archive&quot;
+
+   echo &quot;2  Backup directory&quot;
+
+   echo &quot;3  Unload directory&quot;
+
+   echo &quot;4  Quit&quot;
+
+   echo
+
+# Read the user's selection
+
+   echo &quot;Enter Choice: \c&quot;
+
+   read CHOICE
+
+   case $CHOICE in
+
+      [1-3] ) echo _
+
+              # Read and validate the name of the directory
+
+              echo &quot;What directory do you want? \c&quot;
+
+              read WORKDIR
+
+              if [ ! -d &quot;$WORKDIR&quot; ]
+
+              then
+
+                 echo &quot;Sorry, $WORKDIR is not a directory&quot;
+
+              continue
+
+              fi
+
+              # Make the directory the current working directory
+
+              cd $WORKDIR;;
+
+           4) :;;
+
+           *) echo &quot;Sorry, $CHOICE is not a valid choice&quot;
+
+              continue _
+
+   esac
+
+   case &quot;$CHOICE&quot; in
+
+      1) echo &quot;Restoring...&quot;
+
+         cpio -i &lt;/dev/rmt0;;
+
+      2) echo &quot;Archiving...&quot;
+
+         ls | cpio -o &gt;/dev/rmt0;;
+
+      3) echo &quot;Unloading...&quot;
+
+         ls | cpio -o &gt;/dev/rmt0;;
+
+      4) echo &quot;Quitting&quot;
+
+         break;;
+
+   esac
+
+#Check for cpio errors
+
+   if [ $? -ne 0 ]
+
+   then
+
+      echo &quot;A problem has occurred during the process&quot;
+
+      if [ $CHOICE = 3 ]
+
+      then
+
+         echo &quot;The directory will not be erased&quot;
+
+      fi
+
+      echo &quot;Please check the device and try again&quot;
+
+      continue
+
+   else
+
+      if [ $CHOICE = 3 ]
+
+      then
+
+         rm *
+
+      fi
+
+   fi
+
+done</PRE>
+
+<P>In the program in listing 11.1, the loop continues as long as true returns a zero exit status, which is always, or until the user makes selection four, which executes the break command and terminates the loop. Notice also, that if the user makes an 
+error in choosing the selection or in entering the directory name, the continue statement is executed rather than the exit statement. This way, the user can stay in the program even if he or she makes a mistake in entering data, but the mistaken data 
+cannot be acted on.
+
+<BR></P>
+
+<P>Notice also the use of two case statements. The first case statement requests that the operator enter a directory name only if option 1, 2, or 3 is selected. This example illustrates how pattern matching in a case statement is similar to that on a 
+command line. In the first case statement, if the user selects option 4, the null command (:) is executed. Because the first case statement checks for invalid selections and executes a continue if an invalid selection is made, the second case statement 
+need not check for any but valid selections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>Structured Shell Programming Using Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A common feature among higher level programming languages is the ability to group computer instructions together into functions that can be called from anywhere within the program. These functions are sometimes called subroutines. The Bourne shell also 
+
+provides you this ability.
+
+<BR></P>
+
+<P>The general syntax of a function definition is as follows:
+
+<BR></P>
+
+<PRE>funcname ()
+
+{
+
+   command
+
+   ...   _
+
+   command;
+
+}</PRE>
+
+<P>Once it is defined, a function can be called from anywhere within the shell by using <I>funcname</I> as a command. There are two reasons you might want to group commands into a function. One good reason is to break a complex program into more manageable 
+
+segments, creating a structured program. A structured program might take the following form:
+
+<BR></P>
+
+<PRE># start program
+
+setup ()
+
+{  command list ; }_
+
+do_data ()
+
+{  command list ; }_
+
+cleanup ()
+
+{  command list ; }_
+
+errors ()
+
+{  command list ; }_
+
+setup
+
+do_data
+
+cleanup
+
+# end program</PRE>
+
+<P>In the above example, setup, do_data, and cleanup are functions. When you look at a well-structured program, the names of the functions give you a fair idea of what the functions might do. If you were trying to analyze this, you might assume what the 
+setup and cleanup functions do and concentrate on the do_data section.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Always give variables and functions meaningful names. It may seem at the time you are writing a program that you will remember what the variables and functions are used for, but experience has proven 
+that after the passage of time things are not always so clear. You should also remember that there will probably come a time when someone else will look at your programs, and that person will appreciate descriptive names.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Another legitimate reason for grouping commands into functions is that you may want to execute the same sequence of commands from several points within a program. At several points in the interactive archive program in listing 11.10, a non-fatal error 
+occurs and the continue command is executed. You can give the user the option of continuing at each of these points with an interactive continue function named icontinue.
+
+<BR></P>
+
+<PRE>icontinue ()
+
+{
+
+while true
+
+do
+
+   echo &quot;Continue? (y/n) \c&quot;
+
+   read ANSWER
+
+   case $ANSWER in
+
+      [Yy] ) return 0;;
+
+      [Nn] ) return 1;;
+
+      * ) echo &quot;Answer y or n&quot;;;
+
+   esac
+
+done
+
+}</PRE>
+
+<P>Now you can replace the continue statements in the program with the icontinue function.
+
+<BR></P>
+
+<PRE>if icontinue then continue else break fi</PRE>
+
+<P>All of the prompting, reading, and error checking are carried out by the icontinue function, instead of repeating these commands at every continue point. This example also illustrates the function's capability to return an exit status with return. If no 
+
+return command is available within the function, the exit status of the function is the exit status of the last command in the function.
+
+<BR></P>
+
+<P>Shell functions are very much like shell programs&#151;with one very important difference. Shell programs are executed by subshells, whereas shell functions are executed as part of the current shell. Therefore, functions can change variables that are 
+seen in the current shell. Functions can be defined in any shell, including the interactive shell.
+
+<BR></P>
+
+<PRE>$ dir () { ls -l; }_
+
+$ dir
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Jan 20 14:14 LINES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 LINES.idx
+
+-rw-rw-r&#151;   1 marsha   adept       256 Jan 20 14:14 PAGES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 PAGES.idx
+
+-rw-rw-r&#151;   1 marsha   acct        240 May  5  1992 acct.pds
+
+$</PRE>
+
+<P>You have now defined dir as a function within your interactive shell. It remains defined until you log off or unset the function, as follows:
+
+<BR></P>
+
+<PRE>$ unset dir</PRE>
+
+<P>Functions can also receive positional parameters, as in the following example:
+
+<BR></P>
+
+<PRE>$ dir () {_
+
+&gt;  echo &quot;Permission  Ln Owner    Group   File Sz Last Access&quot;
+
+&gt;  echo &quot;&#151;&#151;&#151;&#151;&#151;  &#151; &#151;&#151;    &#151;&#151;   &#151;&#151;&#151; &#151;&#151;&#151;&#151;&#151;&quot;
+
+&gt;  ls -l $*;
+
+&gt;<B>}</B>
+
+$ dir L*
+
+Permission  Ln Owner    Group   File Sz Last Access
+
+&#151;&#151;&#151;&#151;&#151;  &#151; &#151;&#151;    &#151;&#151;   &#151;&#151;&#151; &#151;&#151;&#151;&#151;&#151;_
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Jan 20 14:14 LINES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 LINES.idx</PRE>
+
+<P>In this example, the argument L* was passed to the dir function and replaced in the ls command for $*.
+
+<BR></P>
+
+<P>Normally, a shell script is executed in a subshell. Any changes made to variables in the subshell are not made in the parent shell. The dot (.) command causes the shell to read and execute a shell script within the current shell. You make any function 
+definitions or variable assignments in the current shell. A common use of the dot command is to reinitialize login values by rereading the .profile file. For information about .profile, see &quot;Customizing the Shell&quot; later in this chapter.
+
+<BR></P>
+
+<PRE>$ . .profile</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>Handling the Unexpected with </B><B><I>trap</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When you're writing programs, one thing to keep in mind is that programs do not run in a vacuum. Many things can happen during a program that are not under the control of the program. The user of the program may press the interrupt key or send a kill 
+command to the process, or the controlling terminal may become disconnected from the system. In UNIX, any of these events can cause a signal to be sent to the process. The default action when a process receives a signal is to terminate.
+
+<BR></P>
+
+<P>Sometimes, however, you may want to take some special action when a signal is received. If a program is creating temporary data files, and it is terminated by a signal, the temporary data files remain. In the Bourne shell, you can change the default 
+action of your program when a signal is received by using the trap command.
+
+<BR></P>
+
+<P>The general format of the trap command is as follows:
+
+<BR></P>
+
+<PRE>trap command_string signals</PRE>
+
+<P>On most systems, you can trap 15 signals. The default action for most is to terminate the program, but this action can vary, so check your system documentation to see what signals can occur on your system (Part IV, &quot;Process Control&quot; discusses 
+
+signals in more detail). Any signal except 9 (known as the sure kill signal) can be trapped, but usually you are concerned only with the signals that can occur because of the user's actions. Following are the three most common signals you'll want to trap:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Signal</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>Hangup</P>
+
+<TR>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>Operator Interrupt</P>
+
+<TR>
+
+<TD>
+
+<P>15</P>
+
+<TD>
+
+<P>Software Termination (kill signal)</P></TABLE>
+
+<P>If the command string contains more than one command, which it most certainly should, you must enclose the string in either single or double quotation marks. The type of quotation marks you use determines when variable substitution is made.
+
+<BR></P>
+
+<P>Suppose you have a program that creates some temporary files. When the program ends normally, the temporary files are removed, but receiving a signal causes the program to terminate immediately, which may leave the temporary files on the disk. By using 
+
+the trap command in the following example, you can cause the temporary files to be removed even if the program does not terminate normally due to receiving a hangup, interrupt, or kill signal:
+
+<BR></P>
+
+<PRE>trap &quot;rm $TEMPDIR/*$$; exit&quot; 1 2 15</PRE>
+
+<P>When the trap command is executed, the command string is stored as an entry in a table. From that point on, unless the trap is reset or changed, if the signal is detected, the command string is interpreted and executed. If the signal occurs in the 
+program before the trap command is executed, the default action occurs. It is important to remember that the shell reads the command string twice&#151;once when the trap is set and again when the signal is detected. This determines the distinction between 
+
+the single and double quotation marks. In the preceding example, when the trap command line is read by the interpreter, variable substitution takes place for $TEMPDIR and $$. After the substitution, the resultant command string is stored in the trap table. 
+
+If the trap command is changed to use single quotation marks
+
+<BR></P>
+
+<PRE>trap 'rm $TEMPDIR/*$$; exit' 1 2 15</PRE>
+
+<P>when trap is executed, no variable substitution take place, and the command string
+
+<BR></P>
+
+<PRE>rm $TEMPDIR/*$$; exit</PRE>
+
+<P>is placed in the trap table. When the signal is detected, the command string in the table is interpreted, and then the variable substitution takes place. In the first instance, $TEMPDIR and $$ have the value that they had at the time the trap was 
+executed. In the second instance, $TEMPDIR and $$ assume the value that they have at the time the signal is detected. Make sure that you know which you want.
+
+<BR></P>
+
+<P>The command string for the trap command almost always contains an exit statement. If you don't include an exit statement, then the rm command is executed when the signal is detected, and the program picks right up where it left off when the signal 
+occurred. Sometimes you might want the program to pick up where it left off instead of exiting. For example, if you don't want your program to stop when the terminal is disconnected, you can trap the hangup signal, specifying the null command, as shown in 
+
+the following example:
+
+<BR></P>
+
+<PRE>trap : 1</PRE>
+
+<P>You can set a trap back to the default by executing the trap command with no command string, like this:
+
+<BR></P>
+
+<PRE>trap 1</PRE>
+
+<P>The following command has the effect of making the user press the interrupt key twice to terminate a program:
+
+<BR></P>
+
+<PRE>trap 'trap 2' 2</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>Conditional Command Execution with the And/Or Constructs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you have already seen, often you can write a shell program more than one way without changing the results of the program. The until statement, for example, is simply a reverse way of using a while statement. You can cause commands to be conditionally 
+
+executed using the if-then-else construct, but you also can accomplish conditional execution using the &amp;&amp; and || operators. In the C programming language, these symbols represent the logical and and the logical or operations respectively. In the 
+Bourne shell, the &amp;&amp; connects two commands in such a way that the second command is executed only if the first command is successful.
+
+<BR></P>
+
+<P>The general format of &amp;&amp; is as follows:
+
+<BR></P>
+
+<PRE>command &amp;&amp; command</PRE>
+
+<P>For example, in the statement
+
+<BR></P>
+
+<PRE>rm $TEMPDIR/* &amp;&amp; echo &quot;Files successfully removed&quot;</PRE>
+
+<P>the echo command is executed only if the rm command is successful. You also can do this programming in an if-then statement like this one:
+
+<BR></P>
+
+<PRE>if rm $TEMPDIR/*
+
+then
+
+   echo &quot;Files successfully removed&quot;
+
+fi</PRE>
+
+<P>Conversely, the || connects to commands in such a way that the second command is executed only if the first command is not successful, as in this command:
+
+<BR></P>
+
+<PRE>rm $TEMPDIR/* || echo &quot;Files were not removed&quot;</PRE>
+
+<P>The preceding is the programming equivalent of
+
+<BR></P>
+
+<PRE>if rm $TEMPDIR/*
+
+then
+
+   :
+
+else
+
+   echo &quot;Files were not removed&quot;
+
+fi</PRE>
+
+<P>You also can concatenate these operators. In the following command line, <I>command3</I> is executed only if both <I>command1</I> and <I>command2</I> are successful:
+
+<BR></P>
+
+<PRE>command1 &amp;&amp; command2 &amp;&amp; command3</PRE>
+
+<P>You can also concatenate operators of different types. In the following command line, <I>command3</I> is executed only if <I>command1</I> is successful and <I>command2</I> is unsuccessful:
+
+<BR></P>
+
+<PRE>command1 &amp;&amp; command2 || command3</PRE>
+
+<P>The &amp;&amp; and || are simple forms of conditional command execution and are usually used only in cases where single commands are to be executed. Although the commands can be compound, if too many commands appear in this format, the program can be 
+difficult to read. Generally, if-then constructs seem to be more clear if you use more than one or two commands.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Reading UNIX-Style Options</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>One of the nicer things about UNIX is that most of the standard commands have a similar command-line format:
+
+<BR></P>
+
+<PRE>command -options parameters</PRE>
+
+<P>If you are writing shell programs for use by other people, it is nice if you use the same conventions. To help you do so, a special command is available in the Bourne shell for reading and processing options in this format: the getopts command, which 
+has the following form:
+
+<BR></P>
+
+<PRE>getopts option_string variable</PRE>
+
+<P>where <I>option_string</I> contains the valid single-character options. If getopts sees the hyphen (-) in the command input stream, it compares the character following the hyphen with the characters in <I>option_string</I>. If a match occurs, getopts 
+sets <I>variable</I> to the option; if the character following the hyphen does not match one of the characters in <I>option_string</I>, <I>variable</I> is set to a question mark (?). If getopts sees no more characters following a hyphen, it returns a 
+nonzero exit status. This capability enables you to use getopts in a loop.
+
+<BR></P>
+
+<P>The program in listing 11.11 illustrates how you use getups to handle options for the date command. The program creates a version of date, which conforms to standard UNIX style, and it adds some options.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.11. A standardized date function </B><B>newdate</B><B>.</B></LH></UL>
+
+<PRE>#newdate
+
+if [ $# -lt 1 ]
+
+then
+
+   date
+
+else
+
+   while getopts mdyDHMSTjJwahr OPTION
+
+   do
+
+      case $OPTION
+
+      in
+
+         m) date '+%m ';;  # Month of Year
+
+         d) date '+%d ';;  # Day of Month
+
+         y) date '+%y ';;  # Year
+
+         D) date '+%D ';;  # MM/DD/YY
+
+         H) date '+%H ';;  # Hour
+
+         M) date '+%M ';;  # Minute
+
+         S) date '+%S ';;  # Second
+
+         T) date '+%T ';;  # HH:MM:SS
+
+         j) date '+%j ';;  # day of year
+
+         J) date '+%y%j ';;# 5 digit Julian date
+
+         w) date '+%w ';;  # Day of the Week
+
+         a) date '+%a ';;  # Day abbreviation
+
+         h) date '+%h ';;  # Month abbreviation
+
+         r) date '+%r ';;  # AM-PM time
+
+         \?) echo &quot;Invalid option $OPTION&quot;;;
+
+      esac
+
+   done
+
+fi</PRE>
+
+<P>In the program in listing 11.11, each option is processed in turn. When getopts has processed all the options, it returns a nonzero exit status, and the while loop terminates. Notice that getopts allows options to be stacked behind a single hyphen, 
+which is also a common UNIX form.
+
+<BR></P>
+
+<P>The following examples illustrate how newdate works:
+
+<BR></P>
+
+<PRE>$ newdate -J
+
+94031
+
+$ newdate -a -h -d
+
+Mon
+
+Jan
+
+31
+
+$ newdate -ahd
+
+Mon
+
+Jan
+
+31
+
+$</PRE>
+
+<P>Sometimes an option requires an argument, which getopts also parses if you follow the option letter in <I>option_string</I> with a colon. When getopts sees the colon, it looks for a value following a space following the option flag. If the value is 
+present, getopts stores the value in a special variable OPTARG. If it can find no value where one is expected, getopts stores a question mark in OPTARG and writes a message to standard error.
+
+<BR></P>
+
+<P>The program in listing 11.12 makes copies of a file and gives the copies a new name. The -c option takes an argument specifying the number of copies to make, and the -v option instructs the program to be verbose, that is to display the names of the new 
+
+files as they are created.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.12. </B><B>duplicate</B><B> program.</B></LH></UL>
+
+<PRE># Syntax: duplicate [-c integer] [-v] filename
+
+#    where integer is the number of duplicate copies
+
+#    and -v is the verbose option
+
+COPIES=1
+
+VERBOSE=N
+
+while getopts vc: OPTION
+
+do
+
+   case $OPTION
+
+   in
+
+      c) COPIES=$OPTARG;;
+
+      v) VERBOSE=Y;;
+
+      \?) echo &quot;Illegal Option&quot;
+
+          exit 1;;
+
+   esac
+
+done
+
+if [ $OPTIND -gt $# ]
+
+then
+
+   echo &quot;No file name specified&quot;
+
+   exit 2
+
+fi
+
+shift 'expr $OPTIND -1'
+
+FILE=$1
+
+COPY=0
+
+while [ $COPIES -gt $COPY ]
+
+do
+
+   COPY='expr $COPY + 1'
+
+   cp $FILE ${FILE}${COPY}
+
+   if [ VERBOSE = Y ]
+
+   then
+
+      echo ${FILE}${COPY}
+
+   fi
+
+done</PRE>
+
+<P>In the program in listing 11.12, allowing the user to enter options presents a unique problem; when you write the program, you don't know which of the positional parameters will contain the name of the file that is to be copied. The getopts command 
+helps out by storing the number of the next positional parameter in the variable OPTIND. In the duplicate program, after getopts has located all the options, OPTIND is checked to make sure that a filename is specified and then the shift command makes the 
+filename the first positional parameter.
+
+<BR></P>
+
+<PRE>$ duplicate -v fileA
+
+fileA1
+
+$ duplicate -c 3 -v fileB
+
+fileB1
+
+fileB2
+
+fileB3</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=4><B>Customizing the Shell</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The shell performs some very specific tasks and expects its input to follow some specific guidelines&#151;command names first, for instance. But the Bourne shell does allow the user some control over his or her own environment. You can change the look 
+of your shell and even add your own commands.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Customizing the Shell with Environment Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the section &quot;Variables&quot; earlier in this chapter, you learned that one type of variable is called an environment variable. The shell refers to these variables when processing information. Changing the value of an environment variable changes 
+
+how the shell operates. You can change your command-line prompt, get mail forwarded to you, and even change the way the shell looks at your input.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=3><B>Changing Your Command-Line Prompt with PS</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You can personalize your shell by changing the prompt your shell displays when it will accept commands. This is done by changing the value in the environment variable PS1. Suppose you wanted your command-line prompt to display your working directory. 
+You could do this with:
+
+<BR></P>
+
+<PRE>$ PS1=&quot;'pwd'&gt;&quot;
+
+/usr/home/teresa&gt;cd /usr/home/john
+
+/usr/home/teresa&gt;</PRE>
+
+<P>As you can see, you have changed the way your shell works. By writing your own shell programs and changing environment variables, you can create your own look. Notice though that the prompt does not change when you change directories. A function to do 
+this is shown in the section &quot;Adding Your Own Commands and Functions.&quot;
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>Adding Command-Line Separators with </B><B><I>IFS</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When a command line is entered in an interactive shell, each word on the command line is interpreted by the shell to see what action needs to be taken. By default, words are separated by spaces, tabs, and newline characters. You can add your own 
+separators by changing the IFS environment variable, as in the following example:
+
+<BR></P>
+
+<PRE>$ IFS=':'
+
+$ echo:Hello:My:Friend
+
+Hello My Friend
+
+$</PRE>
+
+<P>Setting additional field separators does not void the default field separators; space, tab, and newline are always seen as field separators.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=3><B>Checking Multiple Mailboxes with </B><B><I>MAILPATH</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Most users have only one mailbox for their electronic mail. Some users, however, may require multiple mailboxes (see Chapter 9, &quot;Communicating with Others&quot; for a discussion of electronic mail). For example, Dave wants to read mail addressed to 
+
+him personally (which arrives to his personal user account), mail addressed to sysadm (which arrives to his system administrator account), and mail addressed to root (which arrives to his main account), but Dave can be logged in as only one of these 
+accounts at any one time. Dave therefore can cause his current shell to check all three mailboxes by setting the environment variable MAILPATH, as follows:
+
+<BR></P>
+
+<PRE>$ MAILPATH=&quot;/usr/spool/mail/Dave:/usr/spool/mail/sysadm\
+
+:/usr/spool/mail/root&quot;</PRE>
+
+<P>Now when mail is sent to any of these names, Dave receives the following message:
+
+<BR></P>
+
+<PRE>you have mail.</PRE>
+
+<P>The only problem is that Dave does not know which mailbox to check when he receives this message. You can help solve Dave's problem by changing the mail message associated with each mailbox. You terminate the mailbox name in MAILPATH with a percent sign 
+
+(%) and supply a message like this:
+
+<BR></P>
+
+<PRE>$ MAILPATH=&quot;/usr/spool/mail/Dave%Dave has mail\
+
+:/usr/spool/mail/sysadm%sysadm has mail\
+
+:/usr/spool/mail/root%root has mail</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=3><B>Automating Environment Changes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>One problem with altering your environment by changing your environment variables is that when you log off, the changes are lost. You can give some permanence to your environment changes by placing the changes in your .profile.
+
+<BR></P>
+
+<P>Each time you log in to the Bourne shell, login looks in your home directory for the .profile file and executes the commands in that file. Any environment variables that you set and export in .profile are operative for subsequent operations, unless the 
+
+user explicitly changes them.
+
+<BR></P>
+
+<P>But the .profile file can do more than just set environment variables, it is a shell program and can contain any of the commands that are valid in the Bourne shell.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=3><B>Adding Your Own Commands and Functions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This chapter has shown how you can group UNIX commands together in files and create your own programs or shell scripts. Sometimes though, you don't achieve the desired results. The program in listing 11.13 changes the working directory, and at the same 
+
+time changes the environment variable PS1, which contains the command-line prompt.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.13. Change directory program </B><B>chdir</B><B>.</B></LH></UL>
+
+<PRE># Directory and Prompt Change Program
+
+# Syntax: chdir directory
+
+if [ ! -d &quot;$1&quot; ]
+
+then
+
+  echo &quot;$1 is not a directory&quot;
+
+  exit 1
+
+fi
+
+cd $1
+
+PS1=&quot;'pwd'&gt; &quot;
+
+export PS1</PRE>
+
+<P>When you execute the following chdir command from listing 11.13, nothing happens.
+
+<BR></P>
+
+<PRE>$ chdir /usr/home/teresa
+
+$</PRE>
+
+<P>There is no error message, yet the command-line prompt is not changed. The problem is that chdir is executed in a subshell, and the variable PS1 that was exported is made available only to lower shells. To make chdir work like you want, it must be 
+executed within the current shell. The best way to do that is to make it a function. You can write the function in your .profile file, but there is a better solution. Group your personal functions into a single file and load them into your current shell 
+using the transfer command (.). Rewrite chdir as a function, changing the exit to return. The function definition file persfuncs is shown in listing 11.14.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.14. Personal function file with </B><B>chdir</B><B> written as a function.</B></LH></UL>
+
+<PRE>#Personal function file persfuncs
+
+chdir ()
+
+{
+
+# Directory and Prompt Change Program
+
+# Syntax: chdir directory
+
+if [ ! -d &quot;$1&quot; ]
+
+then
+
+  echo &quot;$1 is not a directory&quot;
+
+  return
+
+fi
+
+cd $1
+
+PS1=&quot;'pwd'&gt; &quot;
+
+export PS1;
+
+}
+
+$ . persfuncs
+
+$ chdir /usr/home/teresa
+
+/usr/home/teresa&gt; chdir /usr/home/john
+
+/usr/home/john&gt; _</PRE>
+
+<P>Keeping personal functions in a separate file makes them easier to maintain and debug than keeping them in your .profile.
+
+<BR></P>
+
+<P>You can make your personal functions a permanent part of your environment by putting the command
+
+<BR></P>
+
+<PRE>.persfuncs</PRE>
+
+<P>in your .profile.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=4><B>Specialized Topics</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B>Debugging Shell Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you begin to write shell programs, you will realize something that computer users have known for years: programmers make mistakes! Sometimes what seems to be a perfectly reasonable use of computer language produces results that are unexpected. At 
+those times, it is helpful to have some method of tracking down your errors.
+
+<BR></P>
+
+<P>The Bourne shell contains a trace option, which causes each command to be printed as it is executed, along with the actual value of the parameters it receives. You initiate the trace option by using set to turn on the -x option or execute a shell with 
+the -x option. The sumints program is reproduced in listing 11.15.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 11.15. An integer summing program.</B></LH></UL>
+
+<PRE># sumints - a program to sum a series of integers
+
+#
+
+if [ $# -eq 0 ]
+
+then
+
+   echo &quot;Usage: sumints integer list&quot;
+
+   exit 1
+
+fi
+
+sum=0
+
+until [ $# -eq 0 ]
+
+do
+
+   sum='expr $sum + $1'
+
+   shift
+
+done
+
+echo $sum</PRE>
+
+<P>Running sumints with the trace option looks like this:
+
+<BR></P>
+
+<PRE>$ sh -x sumints 2 3 4
+
++ [ 3 -eq 0 ]
+
++ sum=0
+
++ [ 3 -eq 0 ]
+
++ expr 0 + 2
+
++ sum= 2
+
++ shift
+
++ [ 2 -eq 0 ]
+
++ expr 2 + 3
+
++ sum= 5
+
++ shift
+
++ [ 1 -eq 0 ]
+
++ expr 5 + 4
+
++ sum= 9
+
++ [ 0 -eq 0 ]
+
++ echo 9
+
+9
+
+$</PRE>
+
+<P>The trace shows you each command that executes and the value of any substitutions that were made before the command was executed. Notice that the control words if, then, and until were not printed.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=3><B>Grouping Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Commands to a shell can be grouped to be executed as a unit. If you enclose the commands in parentheses, the commands are run in a subshell; if you group them in curly braces ({}), they are run in the current shell. The difference in the two has to do 
+with the effect on shell variables. Commands run in a subshell do not affect the variables in the current shell, but if commands are grouped and run in the current shell, any changes made to variables in the group are made to variables in the current 
+shell.
+
+<BR></P>
+
+<PRE>$ NUMBER=2
+
+$ (A=2; B=2; NUMBER='expr $A + $B'; echo $NUMBER)
+
+4
+
+$ echo $NUMBER
+
+2</PRE>
+
+<P>In the previous example, note that the variable NUMBER had a value of 2 before the command group was executed. When the command group was run inside of parentheses, NUMBER was assigned a value of 4, but after execution of the command group was complete, 
+
+NUMBER had returned to its original value. In this next example, when the commands are grouped inside of curly braces, NUMBER will keep the value it was assigned during execution of the command group.
+
+<BR></P>
+
+<PRE>$ {A=2; B=2; NUMBER='expr $A + $B'; echo $NUMBER}
+
+4
+
+$ echo $NUMBER
+
+4
+
+$</PRE>
+
+<P>Note that the second example looks somewhat like a function definition. A function is a named group of commands, which executes in the current shell.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=3><B>Using the Shell Layer Manager </B><B><I>shl</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UNIX is a multi-programming operating system. Some UNIX systems take advantage of this feature, allowing the user to open several shells at one time, which they can accomplish using the shell layer manager shl. Only the active layer can get terminal 
+input, but output from all layers is displayed on the terminal, no matter which layer is active, unless layer output is blocked.
+
+<BR></P>
+
+<P>A layer is created and named with shl. While the user is working in a layer, he or she can activate the shell manager by using a special character (Ctrl+Z on some systems). The shell layer manager has a special command-line prompt (&gt;&gt;&gt;) to 
+distinguish it from the layers. While in the shell layer manager, the user can create, activate, and remove layers. Following are the shl commands:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P><I>create name</I></P>
+
+<TD>
+
+<P>Creates a layer called <I>name</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>delete name</I></P>
+
+<TD>
+
+<P>Removes the layer called <I>name</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>block name</I></P>
+
+<TD>
+
+<P>Blocks output from name</P>
+
+<TR>
+
+<TD>
+
+<P><I>unblock name</I></P>
+
+<TD>
+
+<P>Removes the output block for <I>name</I></P>
+
+<TR>
+
+<TD>
+
+<P><I>resume name</I></P>
+
+<TD>
+
+<P>Makes <I>name</I> the active layer</P>
+
+<TR>
+
+<TD>
+
+<P><I>toggle</I></P>
+
+<TD>
+
+<P>Resumes the most recent layer</P>
+
+<TR>
+
+<TD>
+
+<P><I>name</I></P>
+
+<TD>
+
+<P>Makes <I>name</I> the active layer</P>
+
+<TR>
+
+<TD>
+
+<P><I>layers [-l] name ...</I></P>
+
+<TD>
+
+<P>For each <I>name</I> in the list, displays the process ID. The -l option produces more detail.</P>
+
+<TR>
+
+<TD>
+
+<P><I>help</I></P>
+
+<TD>
+
+<P>Displays help on the shl commands</P>
+
+<TR>
+
+<TD>
+
+<P>quit</P>
+
+<TD>
+
+<P>Exits shl and all active layers</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter you have learned about many of the features of the Bourne shell. You have seen that the shell interprets and executes your commands, and how you can combine commands into shell programs to create your own tools.
+
+<BR></P>
+
+<P><A HREF="unx10.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx10.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx12.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

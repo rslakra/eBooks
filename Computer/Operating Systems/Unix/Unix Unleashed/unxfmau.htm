@@ -1,0 +1,978 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unxfmau.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt1au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt1au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt1au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt1au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">UNIX UNLEASHED</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I2">Copyright &#169; 1994 by Sams Publishing</A></LI>
+
+<LI>
+
+<A HREF="#I3">Trademarks</A></LI></UL></UL></UL>
+
+<LI>
+
+<A HREF="#I4">About the Authors</A></LI>
+
+<LI>
+
+<A HREF="#I5">Introduction</A></LI>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">by Scott Parker</A></LI></UL>
+
+<LI>
+
+<A HREF="#I7">Organization</A></LI>
+
+<LI>
+
+<A HREF="#I9">Foreword</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><B>UNIX UNLEASHED</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<P><B>Sams Development Team</B>
+
+<BR></P>
+
+<P><B>SAMS Publishibng</B>
+
+<BR></P>
+
+<P>201 West 103rd Street, Indianapolis, IN 46290
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I2" NAME="I2">
+
+<FONT SIZE=3><B>Copyright &#169; 1994 by Sams Publishing</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>FIRST EDITION
+
+<BR></P>
+
+<P>All rights reserved. No part of this book shall be reproduced, stored in a retrieval system, or transmitted by any means, electronic, mechanical, photocopying, recording, or otherwise, without written permission from the publisher. No patent liability 
+is assumed with respect to the use of the information contained herein. Although every precaution has been taken in the preparation of this book, the publisher and author assume no responsibility for errors or omissions. Neither is any liability assumed 
+for damages resulting from the use of the information contained herein. For information, address Sams Publishing, 201 W. 103rd St., Indianapolis, IN 46290.
+
+<BR></P>
+
+<P>International Standard Book Number: 0-672-30402-3
+
+<BR></P>
+
+<P>Library of Congress Catalog Card Number: 93-86957
+
+<BR></P>
+
+<P>97 &#151; 96 &#151; 95 &#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151; 4 &#151; 3 &#151; 2 
+
+<BR></P>
+
+<P>Interpretation of the printing code: the rightmost double-digit number is the year of the book's printing; the rightmost single-digit, the number of the book's printing. For example, a printing code of 94-1 shows that the first printing of the book 
+occurred in 1994.
+
+<BR></P>
+
+<P>Printed in the United States of America
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>Trademarks</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>All terms mentioned in this book that are known to be trademarks or service marks have been appropriately capitalized. Sams Publishing cannot attest to the accuracy of this information. Use of a term in this book should not be regarded as affecting the 
+
+validity of any trademark or service mark.
+
+<BR></P>
+
+<P>UNIX is a registered trademark of UNIX System Laboratories, Inc.
+
+<BR></P>
+
+<P><B>Publisher</B>
+
+<BR></P>
+
+<P><I>Richard K. Swadley</I>
+
+<BR></P>
+
+<P><B>Associate Publisher</B>
+
+<BR></P>
+
+<P><I>Jordan Gold</I>
+
+<BR></P>
+
+<P><B>Acquisitions Manager</B>
+
+<BR></P>
+
+<P><I>Stacy Hiquet</I>
+
+<BR></P>
+
+<P><B>Managing Editor</B>
+
+<BR></P>
+
+<P><I>Cindy Morrow</I>
+
+<BR></P>
+
+<P><B>Acquisitions Editors</B>
+
+<BR></P>
+
+<P><I>Grace Buechlein</I>
+
+<BR><I>Chris Denny</I>
+
+<BR><I>Rosemarie Graham</I>
+
+<BR></P>
+
+<P><B>Development Editors</B>
+
+<BR></P>
+
+<P><I>Kristi Hart</I>
+
+<BR><I>Scott Parker</I>
+
+<BR></P>
+
+<P><B>Software Development Specialist</B>
+
+<BR></P>
+
+<P><I>Wayne Blankenbeckler</I>
+
+<BR></P>
+
+<P><B>Senior Editor</B>
+
+<BR></P>
+
+<P><I>Sandy Doell</I>
+
+<BR></P>
+
+<P><B>Editors</B>
+
+<BR></P>
+
+<P><I>Marla Abraham</I>
+
+<BR><I>Susan Christopherson</I>
+
+<BR><I>Fran Hatton</I>
+
+<BR><I>Greg Horman</I>
+
+<BR><I>Charles Hutchinson</I>
+
+<BR><I>Carolyn Linn</I>
+
+<BR><I>Sean Medlock</I>
+
+<BR><I>Rosie Piga</I>
+
+<BR><I>Andy Saff</I>
+
+<BR><I>Angie Trzepacz</I>
+
+<BR><I>Kitty Wilson</I>
+
+<BR></P>
+
+<P><B>Editorial Coordinator</B>
+
+<BR></P>
+
+<P><I>Bill Whitmer</I>
+
+<BR></P>
+
+<P><B>Editorial Assistants</B>
+
+<BR></P>
+
+<P><I>Carol Ackerman</I>
+
+<BR><I>Sharon Cox</I>
+
+<BR><I>Lynette Quinn</I>
+
+<BR></P>
+
+<P><B>Technical Reviewers</B>
+
+<BR></P>
+
+<P><I>Tim Parker</I>
+
+<BR><I>Mark Sims</I>
+
+<BR><I>Dave Taylor</I>
+
+<BR><I>Sandra Tucker</I>
+
+<BR></P>
+
+<P><B>Marketing Manager</B>
+
+<BR></P>
+
+<P><I>Gregg Bushyeager</I>
+
+<BR></P>
+
+<P><B>Cover Designer</B>
+
+<BR></P>
+
+<P><I>Nathan Clement</I>
+
+<BR></P>
+
+<P><B>Book Designer</B>
+
+<BR></P>
+
+<P><I>Alyssa Yesh</I>
+
+<BR></P>
+
+<P><B>Director of Production and Manufacturing</B>
+
+<BR></P>
+
+<P><I>Jeff Valler</I>
+
+<BR></P>
+
+<P><B>Imprint Manager</B>
+
+<BR></P>
+
+<P><I>Juli Cook</I>
+
+<BR></P>
+
+<P><B>Manufacturing Coordinator</B>
+
+<BR></P>
+
+<P><I>Paul Gilchrist</I>
+
+<BR></P>
+
+<P><B>Production Analysts</B>
+
+<BR></P>
+
+<P><I>Dennis Clay Hager</I>
+
+<BR><I>Mary Beth Wakefield</I>
+
+<BR></P>
+
+<P><B>Graphics Image Specialists</B>
+
+<BR></P>
+
+<P><I>Teresa Forrester</I>
+
+<BR><I>Clint Lahnen</I>
+
+<BR><I>Tim Montgomery</I>
+
+<BR><I>Dennis Sheehan</I>
+
+<BR><I>Greg Simsic</I>
+
+<BR><I>Susan VandeWalle</I>
+
+<BR><I>Jeff Yesh</I>
+
+<BR></P>
+
+<P><B>Page Layout</B>
+
+<BR></P>
+
+<P><I>Elaine Brush</I>
+
+<BR><I>Rob Falco</I>
+
+<BR><I>Ayanna Lacey</I>
+
+<BR><I>Stephanie J. McComb</I>
+
+<BR><I>Chad Poore</I>
+
+<BR><I>Casey Price</I>
+
+<BR><I>Kim Scott</I>
+
+<BR><I>Susan Shepard</I>
+
+<BR><I>Scott Tullis</I>
+
+<BR><I>Dennis Q. Wesner</I>
+
+<BR></P>
+
+<P><B>Proofreading</B>
+
+<BR></P>
+
+<P><I>Carol Bowers</I>
+
+<BR><I>Georgiana Briggs</I>
+
+<BR><I>Don Brown</I>
+
+<BR><I>Mona Brown</I>
+
+<BR><I>Ayrika Bryant</I>
+
+<BR><I>Michael Brumitt</I>
+
+<BR><I>Cheryl Cameron</I>
+
+<BR><I>Elaine Crabtree</I>
+
+<BR><I>Michael Dietsch</I>
+
+<BR><I>Rich Evers</I>
+
+<BR><I>Kimberly K. Hannel</I>
+
+<BR><I>Jamie Milazzo</I>
+
+<BR><I>Brian-Kent Proffitt</I>
+
+<BR><I>SA Springer</I>
+
+<BR><I>Robert Wolf</I>
+
+<BR></P>
+
+<P><B>Indexers</B>
+
+<BR></P>
+
+<P><I>Jeanne Clark</I>
+
+<BR><I>Bront Davis</I>
+
+<BR><I>Greg Eldred</I>
+
+<BR><I>Johnna VanHoose</I>
+
+<BR></P>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=5><B>About the Authors</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<P><B><A HREF="peppard.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/peppard.gif">Susan Peppard</A></B> was born many years ago in New York City. She attended New York University where she studied French literature and picked up a couple of degrees. When this failed to produce splendid job offers, she turned 
+
+to computers (big, blue, room-sized machines, sporting 30 KB of memory).
+
+<BR></P>
+
+<P>Today, 30 years later, she confines her computer-related activities to writing on and about them and playing games. She is a documentation consultant (technical writer) and lives in New Jersey with a horrible black dog, an innocuous grey cat, 
+and&#151;between semesters&#151;varying configurations of her children. She and UNIX met in 1985 and have been living together happily ever since.
+
+<BR></P>
+
+<P><B><A HREF="holsberg.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/holsberg.gif">Pete Holsberg</A></B> saw his first computer in 1960, as a graduate student at Rutgers, and they have plagued him ever since. While at Rutgers, he was exposed to both analog and digital computers. He went to work for Electronic 
+
+Associates, Inc., Princeton, New Jersey on leaving Rutgers. EAI was the world's largest manufacturer of analog and hybrid computers.
+
+<BR></P>
+
+<P>He later joined Mercer College, Trenton, New Jersey in 1970 as associate professor of electrical engineering and was given responsibility for the PDP-8/I lab. He was instrumental in bringing microcomputers to the campus in 1981; these were used in 
+electronics engineering technology education. Currently, he is systems administrator for the college's UNIX lab, consultant to the college's Academic Computing Committee, secretary of the college's LAN Computing Committee, advisor to the Educational 
+Technology Users Group for faculty and staff, and coordinator for electronics curricula.
+
+<BR></P>
+
+<P>Pete has authored a textbook on C for electronics engineering technology for Macmillan and a book on UNIX tools for Macmillan Computer Publishing. He has written invited chapters in a number of MCP books, and has been the technical editor or technical 
+reviewer for many of MCP's UNIX book offerings.
+
+<BR></P>
+
+<P>Pete lives in Ewing, New Jersey with his wife, Cathy Ann Vandegrift and their four computers. They sail and enjoy the New Jersey Symphony Orchestra. Pete has a private pilot's license and is an avid autocross racer and tennis hacker. Cathy is a Realtor.
+
+
+
+<BR></P>
+
+<P><B><A HREF="armstron.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/armstron.gif">James C. Armstrong, Jr.</A></B>, is a software engineer with ten years of industry experience with UNIX and C. He is currently working as a technical editor at Advanced Systems, and also works free-lance for several other 
+companies in the San Francisco Bay area. He can be reached at <A HREF="mailto:james@sagamartha.com">james@sagamartha.com</A>.
+
+<BR></P>
+
+<P><B><A HREF="douba.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/douba.gif">Salim M. Douba</A></B> is a network consultant with Proterm Data Systems Ltd./USConnect, Ottawa, Ontario, Canada. He is also an independent certified NetWare Instructor (CNI) teaching NetWare operating systems and advanced 
+courses. He holds a master's degree in electrical engineering from the American University of Beirut. His experience and main career interests have primarily been in Internetworking and multiplatform integration. He is reachable on CompuServe on 
+70573,2351.
+
+<BR></P>
+
+<P><B><A HREF="henry.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/henry.gif">S. Lee Henry</A></B> writes a systems administration column for <I>SunExpert </I><I>Magazine</I>, and manages systems and networking for the physics and astronomy department at Johns Hopkins University. She is on the board of 
+directors of the Sun User Group and has been a UNIX programmer and administrator for over twelve years.
+
+<BR></P>
+
+<P><B><A HREF="rose.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/rose.gif">Ron Rose</A></B> is an international management consultant with 20 years of data processing management experience. He has led large-scale data processing installations in Asia, Europe, and the United States, and he has managed 
+several software product start-up efforts. He completed a master's in information systems from Georgia Institute of Technology, after completing undergraduate work at Tulane University and the University of Aberdeen, Scotland. His current position is as a 
+
+director for Bedford Associates, Inc., in Norwalk, Connecticut, where he leads groups that provide Open Systems and Lotus Notes products, along with related high-performance UNIX systems-integration work. He also has appeared on national television (CNBC) 
+
+as a management consultant on technology issues.
+
+<BR></P>
+
+<P><B><A HREF="rummel.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/rummel.gif">Richard E. Rummel</A></B>, CDP, is the president of ASM Computing, Jacksonville, Florida, which specializes in UNIX software development and end user training. He has been actively employed in the computer industry for 20 years. 
+
+Married for 21 years, he is the father of two children, a dog, and a cat.
+
+<BR></P>
+
+<P><B><A HREF="parker.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/parker.gif">Scott Parker</A></B> has worked as a UNIX system administrator and an ORACLE Database administrator and developer for several companies.
+
+<BR></P>
+
+<P><B><A HREF="marshall.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/marshall.gif">Ann Marshall</A></B> is a UNIX computer professional specializing in relational database management and system administration. A free-lance writer in her spare time, she has written articles about the RS/6000 in 
+<I>RS/Magazine</I>. She received her undergraduate degree in economics and English from Vanderbilt University and obtained her master's degree in computer science from the University of Alabama in Huntsville. Outside of computers, Ann's hobbies include 
+travel, reading, and writing fiction. You can reach Ann on CompuServe at 71513,335.
+
+<BR></P>
+
+<P><B>Ron Dippold</B> graduated from Rose-Hulman Institute of Technology with a degree in electrical engineering and computer science. He is employed as a senior engineer at Qualcomm, Inc., of San Diego, CA. He is the author of several computer books and 
+is a technical editor for many more. He served as a computer columnist and consulting editor for <I>ComputerEdge </I><I>Magazine</I>.
+
+<BR></P>
+
+<P>When <B><A HREF="negus.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/negus.gif">Chris Negus</A></B> isn't playing soccer or listening to Indigo Girls, he's usually writing about UNIX. Despite contributions to dozens of books and articles on UNIX, he still maintains that he is not a geek. In the past 
+decade, Chris has worked for AT&amp;T Bell Laboratories, UNIX System Laboratories, and Novell as a UNIX consultant. He most recently coauthored Novell's Guide to UNIXWare for Novell Press. Presently, Chris is a partner in C &amp; L Associates, a UNIX 
+consulting company in Salt Lake City.
+
+<BR></P>
+
+<P><B><A HREF="valley.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/valley.gif">John Valley</A></B> lives in Richmond, Virginia with his wife Terri and his Labrador retriever, Brandon. Mr. Valley currently operates a small practice as an independent consultant for UNIX and Windows tools and applications. 
+With more than twenty years of experience in the computer industry, his background ranges from Cobol business applications and mainframe operating system development to UNIX tools and Windows programming. He teaches courses in C/C++ programming and UNIX 
+fundamentals.
+
+<BR></P>
+
+<P>Mr. Valley is largely self-taught, having started as a night shift computer operator in 1972. After serving time as a Cobol applications programmer and mainframe systems programmer, he signed on with Nixdorf Computer Software Corporation (now defunct) 
+to write operating system code. Soon promoted to project leader, he supervised the company's product design efforts for four years. Almost by coincidence, he encountered the UNIX environment in 1985 and quickly became a devotee of UNIX and C programming.
+
+<BR></P>
+
+<P>He has published three books on UNIX topics: <I>UNIX Programmer's Reference</I> (Que; 1991), <I>UNIX Desktop Guide to the Korn Shell</I> (Hayden; 1992), and <I>C </I><I>Programming for UNIX</I> (Sams; 1992).
+
+<BR></P>
+
+<P><B>Jeff Smith</B> is a psychology major who took a wrong turn and ended up working with computers. Jeff has worked with UNIX systems since 1982 as a programmer and systems administrator. He has administered mail, news, security, and the domain name 
+system on several varieties of UNIX including 2.9BSD, 4.3BSD, Dynix, SunOS, and AIX. Currently, he manages a network of 180 Sun workstations at Purdue University.
+
+<BR></P>
+
+<P><B><A HREF="taylor.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/taylor.gif">Dave Taylor</A></B> has been working with UNIX since 1980, when he first logged in to a Berkeley-based DEC VAX computer while an undergraduate at the University of California, San Diego. Since then, he's used dozens of different 
+
+UNIX systems and has contributed commands incorporated into HP's HP-UX UNIZ operating system and UC Berkeley's BSD 4.4 UNIX release. His professional experience includes positions as research scientist at Hewlett-Packard Laboratories in Palo Alto, 
+California; software and hardware reviews editor for <I>SunWorld Magazine</I>; interface design consultant for XALT Software; and president of Intuitive Systems. He has published more than 300 articles on UNIX, Macintosh, and technical computing topics, 
+and also the book <I>Global Software</I>, addressing the challenges and opportunities for software internationalization from a marketing and programming viewpoint. He is well-known as the author of the Elm Mail System, the most popular screen-based 
+electronic mail package in the UNIX community.
+
+<BR></P>
+
+<P>Currently he is working as a consultant for Intuitive Systems in West Lafayette, Indiana, while pursuing a graduate degree in educational computing at Purdue University and working on a new interface to the FTP program.
+
+<BR></P>
+
+<P><B>Sydney S. Weinstein</B>, CDP, CCP, is a consultant, columnist, lecturer, author, professor and president of Myxa Corporation, an Open Systems technology company specializing in helping companies move to and work with Open Systems. He has more than 15 
+
+years of experience with UNIX dating all the way back to Version 6. He is a contributing editor for <I>C </I><I>Users Journal</I> and was a contributing author for <I>UNIX Programmer's </I><I>Reference</I> (Que, 1990). He can be contacted care of Myxa 
+Corporation, 3837 Byron Road, Huntingdon Valley, PA 19006-2320 or via electronic mail using the Internet/USENET mailbox syd@Myxa.com (dsinc!syd for those who cannot do Internet addressing).
+
+<BR></P>
+
+<P><B><A HREF="till.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/till.gif">Dave Till</A></B> holds a master's degree in computer science from the University of Waterloo (a well-respected institution), majoring in programming language design. He also has substantial experience developing compilers and 
+compiler technology, and has several years of technical writing experience.
+
+<BR></P>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=5><B>Introduction</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>by Scott Parker</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Are you:
+
+<BR></P>
+
+<PRE>
+
+<BR>New to UNIX and looking for a book to help you get acquainted with UNIX?
+
+
+
+<BR>Not so new to UNIX but looking to expand your knowledge?
+
+
+
+<BR>A programmer looking for a guide to UNIX as a reference and a teaching guide for Perl, awk, and the shells?
+
+
+
+<BR>A beginning system administrator looking to learn how to install UNIX or how to connect your UNIX to a network?
+
+
+
+<BR>A system administrator looking for a reference guide or maybe just wanting to expand your knowledge?
+
+
+
+<BR>A curious soul wanting to know everything about UNIX?</PRE>
+
+<P>If any of these is true, you are holding the right book. <I>UNIX</I> <I>Unleashed</I> was written to cover all the bases. We started this book with the mission of giving you, the reader, a complete book on UNIX. In this book you will find
+
+<BR></P>
+
+<PRE>
+
+<BR>A tutorial for those who are new to UNIX. As you learn more about UNIX and get more and more comfortable, this book will be there to help you become a UNIX power user.
+
+
+
+<BR>How to navigate the file system and how to use mail.
+
+
+
+<BR>Instructive lessons on how to use vi, EMACS, sed.
+
+
+
+<BR>How to program in the Bourne Shell, C Shell, and Korn Shell.
+
+
+
+<BR>How to program in awk and Perl.
+
+
+
+<BR>How to create your own man pages and formatted text.
+
+
+
+<BR>How to install UNIX and power it down.
+
+
+
+<BR>How to administer the file system, user accounts, the network, security system, mail, news, and devices.</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Organization</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Part I starts with a tutorial on &quot;Finding Your Way Around UNIX.&quot; Robert and Rachel Sartin, Jeff Smith, Rick Rummel, Pete Holsberg, Ron Dippold and Dave Taylor give an introduction to operating systems. In Part I, you will find a step-by-step 
+tutorial on how to log on the UNIX system and how to do some basic commands. There is also a complete introduction to all the file listing commands, file tools, and editing text files. You will also find a quick guide to navigating the network and methods 
+
+to communicate with other systems on your network.
+
+<BR></P>
+
+<P>In Part II, &quot;Hunt for Shells,&quot; Rick Rummel and John Valley teach you how to develop shell scripts for the Bourne Shell, Korn Shell, and C Shell.
+
+<BR></P>
+
+<P>In Part III, &quot;Programming,&quot; Ann Marshall, David Till, and James Armstrong teach you how to program awk and Perl and how to use the UNIX C compiler.
+
+<BR></P>
+
+<P>In Part IV, &quot;Process Control,&quot; Robert and Rachel Sartin give you an introduction to how to control your programs on UNIX. Here you find how to start a job (program) and how to kill it.
+
+<BR></P>
+
+<P>In Part V, &quot;Text Formatting and Printing,&quot; James Armstrong and Susan Peppard give instruction on how to use these powerful macros, and how to create text with graphs, pictures, equations, etc. Learn how to create man pages and how to print 
+postscript.
+
+<BR></P>
+
+<P>In Part VI, &quot;Advanced File Utilities,&quot; Robert and Rachel Sartin and S. Lee Henry teach you how to put your programs or text into version control, how to back up and archive your work for protection against hard disk crashes, and more.
+
+<BR></P>
+
+<P>In Part VII, &quot;System Administration,&quot; Sydney Weinstein, Chris Negus, Scott Parker, Ron Rose, Salim Douba, Jeff Smith, and James Armstrong teach the basics of UNIX System Administration. Here you will learn how to install UNIX, how to create 
+user accounts, <A ID="I8" NAME="I8"></A>how to partition disk drives, and how to administer security, mail, uucp, and news.
+
+<BR></P>
+
+<P>Finally, in Part VIII, &quot;UNIX Flavors and Graphical User Interfaces,&quot; S. Lee Henry and <A HREF="husain.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/husain.gif">Kamran Husain</A> give an overview of the history of UNIX and where it is going. You will learn how to navigate X Window and, for the 
+more advanced, how to program in the GUI environment.
+
+<BR></P>
+
+<P><B>Part I Finding Your Way Around UNIX</B>
+
+<BR></P>
+
+<P><B>1 &#151; Operating Systems</B>
+
+<BR></P>
+
+<P><B>2 &#151;Getting Started: Basic Tutorial</B>
+
+<BR></P>
+
+<P><B>3 &#151; The UNIX File System&#151;Go Climb a Tree</B>
+
+<BR></P>
+
+<P><B>4 &#151; Listing Files</B>
+
+<BR></P>
+
+<P><B>5 &#151; Popular Tools</B>
+
+<BR></P>
+
+<P><B>6 &#151; Popular File Tools</B>
+
+<BR></P>
+
+<P><B>7 &#151; Text Editing with </B>vi<B>, EMACS, and </B>sed
+
+<BR></P>
+
+<P><B>8 &#151; Getting Around the Network</B>
+
+<BR></P>
+
+<P><B>9 &#151; Communicating with Others</B>
+
+<BR></P>
+
+<P><B>Part II Hunt for Shells</B>
+
+<BR></P>
+
+<P><B>10 &#151; What Is a Shell?</B>
+
+<BR></P>
+
+<P><B>11 &#151; Bourne Shell</B>
+
+<BR></P>
+
+<P><B>12 &#151; Korn Shell</B>
+
+<BR></P>
+
+<P><B>13 &#151; C Shell</B>
+
+<BR></P>
+
+<P><B>14 &#151; Which Shell Is Right for You? Shell Comparison</B>
+
+<BR></P>
+
+<P><B>Part III Programming</B>
+
+<BR></P>
+
+<P><B>15 &#151; Awk, Awk</B>
+
+<BR></P>
+
+<P><B>16 &#151; Perl</B>
+
+<BR></P>
+
+<P><B>17 &#151; The C Programming Language</B>
+
+<BR></P>
+
+<P><B>Part IV Process Control</B>
+
+<BR></P>
+
+<P><B>18 &#151; What Is a Process?</B>
+
+<BR></P>
+
+<P><B>19 &#151; Administering Processes</B>
+
+<BR></P>
+
+<P><B>20 &#151; Scheduling Processes</B>
+
+<BR></P>
+
+<P><B>Part V Text Formatting and Printing</B>
+
+<BR></P>
+
+<P><B>21 &#151; Basic Formatting with </B>troff<B>/</B>nroff
+
+<BR></P>
+
+<P><B>22 &#151; Formatting with Macro Packages</B>
+
+<BR></P>
+
+<P><B>23 &#151; Formatting Tables with </B>tbl
+
+<BR></P>
+
+<P><B>24 &#151; Formatting Equations with </B><I>eqn</I>
+
+<BR></P>
+
+<P><B>25 &#151; Drawing Pictures with </B>pic
+
+<BR></P>
+
+<P><B>26 &#151; Creating Graphs with </B><I>grap</I>
+
+<BR></P>
+
+<P><B>27 &#151; Writing Your Own Macros</B>
+
+<BR></P>
+
+<P><B>28 &#151; Tools for Writers</B>
+
+<BR></P>
+
+<P><B>29 &#151; Processing and Printing Formatted Files</B>
+
+<BR></P>
+
+<P><B>Part VI Advanced File Utilities</B><B> </B>
+
+<BR></P>
+
+<P><B>30 &#151; Source Control with SCCS and RCS</B>
+
+<BR></P>
+
+<P><B>31 &#151; Archiving</B>
+
+<BR></P>
+
+<P><B>32 &#151; Backups</B>
+
+<BR></P>
+
+<P><B>Part VII System Administration</B>
+
+<BR></P>
+
+<P><B>33 &#151; UNIX Installation Basics</B>
+
+<BR></P>
+
+<P><B>34 &#151; Starting Up and Shutting Down</B>
+
+<BR></P>
+
+<P><B>35 &#151; File System Administration</B>
+
+<BR></P>
+
+<P><B>36 &#151; User Administration</B>
+
+<BR></P>
+
+<P><B>37 &#151; Networking</B>
+
+<BR></P>
+
+<P><B>38 &#151; UNIX System Accounting</B>
+
+<BR></P>
+
+<P><B>39 &#151; Performance Monitoring</B>
+
+<BR></P>
+
+<P><B>40 &#151; Device Administration</B>
+
+<BR></P>
+
+<P><B>41 &#151; Mail Administration</B>
+
+<BR></P>
+
+<P><B>42 &#151; News Administration</B>
+
+<BR></P>
+
+<P><B>43 &#151; UUCP Administration</B>
+
+<BR></P>
+
+<P><B>44 &#151; UNIX System Security</B>
+
+<BR></P>
+
+<P><B>PartVIII UNIX Flavors and Graphical User Interfaces</B>
+
+<BR></P>
+
+<P><B>45 &#151; UNIX Flavors</B>
+
+<BR></P>
+
+<P><B>46 &#151; Graphical User Interfaces for End Users</B>
+
+<BR></P>
+
+<P><B>47 &#151; UNIX Graphical User Interfaces for Programmers</B>
+
+<BR></P>
+
+<P><B>A &#151; What's on the CD-ROM Disc</B>
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Foreword</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Given life by Turing Award winning Bell Labs computer scientist Ken Thompson at Murray Hill, N.J., in August 1969, UNIX spent its early years as a research curiosity. When I met up with Unix in the summer of '82, however, it already possessed the one 
+characteristic that destined it to dominate a major chunk of the world's market for operating systems&#151;portability. UNIX kicked off the era of open systems, the first wholesale paradigm shift in the history of computing, by being the first portable 
+operating system.
+
+<BR></P>
+
+<P>Portability is so crucial because it symbolizes everything that open systems is about, and is the critical computing ingredient for the Information Age. You may hear people use the word primarily to talk about their applications that can run on more 
+than one type of computer platform, but, at its highest level of abstraction, portability is much more. When you think about using standard network interfaces to pass data between different computers, that's portability of information; running applications 
+
+across a range of devices from desktop to mainframe&#151;or even supercomputer&#151;is portability across scale; and the ability to swap out old technology for the latest technical advances without dramatically affecting the rest of your installation is 
+portability through time. All this is necessary to support the extremely sophisticated levels of information malieability that corporations need to make the Information Age really work.
+
+<BR></P>
+
+<P>UNIX was always technically cool, advanced, insanely great, etc. So cool that Bell Labs began giving it away to colleges and universities in 1975 because they thought it would be a good recruitment tool&#151;they believed graduate computer engineers 
+would want to work at the place that produced such an elegant piece of technology. But UNIX's all-important portability didn't come about until 1977. Before that, UNIX's technical qualities alone had lured many Bell operating company department heads to 
+Murray Hill, where they learned about UNIX from its small team of creators and began deploying it on Digital Equipment Corporation computers throughout the Bell System. By 1977, AT&amp;T found itself buying a much larger percentage of Digital's annual 
+output than seemed comfortable. (AT&amp;T didn't want to be responsible for a precipitous drop in Digital's fortunes if it had to stop buying for any reason.) So that year, UNIX's creators ported UNIX  for the first time, to a non-Digital computer whose 
+only significant characteristic was that it was a non-Digital computer.
+
+<BR></P>
+
+<P>After that, UNIX was portable, and entrepreneurs ported it to new microcomputers like crazy. That's when I came on the scene, as a computer industry news reporter covering all that entrepreneurial energy. Even in 1982, the manifest destiny felt by the 
+people in the UNIX  industry was clear. And the idea of a common operating system atop different hardware platforms so powerfully fired the imaginations of information systems managers in major corporations that, today, UNIX has become their de facto 
+server operating system.
+
+<BR></P>
+
+<P>Given that you've purchased or are considering this book, you already know that UNIX  is ubiquitous. What UNIX is not, however&#151;even with the modern graphical user interfaces that paint a pretty face on it&#151;is easy to program or administer 
+compared to DOS or NetWare. Just as a 747 is a bit more complicated to run than, say, a glider, UNIX's increased flexibility and power come with the price of greater complexity.
+
+<BR></P>
+
+<P>This book, which delves deeply into the underpinnings of UNIX systems and offers detailed information on many different brands of UNIX , can be your first step on an enjoyable journey into the powerful, technically elegant world of open, portable 
+computing.
+
+<BR></P>
+
+<P>Mike Azzara, associate publisher/editorial director, <I>Open Systems Today</I>.
+
+<BR></P>
+
+<P><A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt1au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt1au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

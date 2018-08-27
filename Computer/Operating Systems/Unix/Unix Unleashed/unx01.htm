@@ -1,0 +1,743 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx01.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx02.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx02.htm">
+
+<LINK REL="Previous" HREF="unxpt1au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt1au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt1au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt1au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx02.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx02.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">1 &#151; Operating System</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Rachel and Robert Sartin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">What is an Operating System?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Hardware Management, Part 1</A></LI>
+
+<LI>
+
+<A HREF="#I6">Process Management</A></LI></UL>
+
+<LI>
+
+<A HREF="#I7">The UNIX Operating System</A></LI>
+
+<LI>
+
+<A HREF="#I8">The History of UNIX</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">The Early Days</A></LI>
+
+<LI>
+
+<A HREF="#I10">Berkeley Software Distributions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I11">UNIX and Standards</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I12">UNIX for Mainframes and Workstations</A></LI>
+
+<LI>
+
+<A HREF="#I13">UNIX for Intel Platforms</A></LI>
+
+<LI>
+
+<A HREF="#I14">Source Versions of &quot;UNIX&quot;</A></LI>
+
+<LI>
+
+<A HREF="#I15">Making Changes to UNIX</A></LI></UL>
+
+<LI>
+
+<A HREF="#I16">Introduction to the UNIX Philosophy</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">Simple, Orthogonal Commands</A></LI>
+
+<LI>
+
+<A HREF="#I18">Commands Connected Through Pipes</A></LI>
+
+<LI>
+
+<A HREF="#I19">A (Mostly) Common Option Interface Style</A></LI>
+
+<LI>
+
+<A HREF="#I20">No File Types</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>1 &#151; Operating System</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Rachel and Robert Sartin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What is an Operating System?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>An operating system is an important part of a computer system. You can view a computer system as being built from three general components: the hardware, the operating system, and the applications. (See Figure 1.1.) The hardware includes pieces such as 
+
+a central processing unit (CPU), a keyboard, a hard drive, and a printer. You can think of these as the parts you are able to touch physically. Applications are why you use computers; they use the rest of the system to perform the desired task (for 
+example, play a game, edit a memo, send electronic mail). The operating system is the component that on one side manages and controls the hardware and on the other manages the applications.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="01unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/01unx01.gif">Figure 1.1. Computer system components.</A></B>
+
+<BR></P>
+
+<P>When you purchase a computer system, you must have at least hardware and an operating system. The hardware you purchase is able to use (or run) one or more different operating systems. You can purchase a bundled computer package, which includes the 
+hardware, the operating system, and possibly one or more applications. The operating system is necessary in order to manage the hardware and the applications.
+
+<BR></P>
+
+<P>When you turn on your computer, the operating system performs a series of tasks, presented in chronological order in the next few sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Hardware Management, Part 1</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the first things you do, after successfully plugging together a plethora of cables and components, is turn on your computer. The operating system takes care of all the starting functions that must occur to get your computer to a usable state. 
+Various pieces of hardware need to be initialized. After the start-up procedure is complete, the operating system awaits further instructions. If you shut down the computer, the operating system also has a procedure that makes sure all the hardware is shut 
+
+down correctly. Before turning your computer off again, you might want to do something useful, which means that one or more applications are executed. Most boot ROMs do some hardware initialization but not much. Initialization of I/O devices is part of the 
+
+UNIX kernel.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Process Management</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After the operating system completes hardware initialization, you can execute an application. This executing application is called a process. (See Chapter 18, &quot;What Is a Process?&quot;) It is the operating system's job to manage execution of the 
+application. When you execute a program, the operating system creates a new process. Many processes can exist simultaneously, but only one process can actually be executing on a CPU at one time. The operating system switches between your processes so 
+quickly that it can appear that the processes are executing simultaneously. This concept is referred to as time-sharing or multitasking.
+
+<BR></P>
+
+<P>When you exit your program (or it finishes executing), the process terminates, and the operating system manages the termination by reclaiming any resources that were being used.
+
+<BR></P>
+
+<P>Most applications perform some tasks between the time that the process is created and the time that it terminates. To perform these tasks, the program makes requests to the operating system and the operating system responds to the requests and allocates 
+
+necessary resources to the program. When an executing process needs to use some hardware, the operating system provides access for the process.
+
+<BR></P>
+
+<P><B>Hardware Management, Part 2</B>
+
+<BR></P>
+
+<P>To perform its task, a process may need to access hardware resources. The process may need to read or write to a file, send data to a network card (to communicate with another computer), or send data to a printer. The operating system provides such 
+services for the process. This is referred to as resource allocation. A piece of hardware is a resource, and the operating system allocates available resources to the different processes that are running.
+
+<BR></P>
+
+<P>See Table 1.1 for a summary of different actions and what the operating system (OS) does to manage them.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 1.1. Operating system functions.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Action</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>OS Does This</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>You turn on the computer</P>
+
+<TD>
+
+<P>Hardware management</P>
+
+<TR>
+
+<TD>
+
+<P>You execute an application</P>
+
+<TD>
+
+<P>Process management</P>
+
+<TR>
+
+<TD>
+
+<P>Application reads a tape</P>
+
+<TD>
+
+<P>Hardware management</P>
+
+<TR>
+
+<TD>
+
+<P>Application waits for data</P>
+
+<TD>
+
+<P>Process management</P>
+
+<TR>
+
+<TD>
+
+<P>Process waits while other process runs</P>
+
+<TD>
+
+<P>Process management</P>
+
+<TR>
+
+<TD>
+
+<P>Process displays data on screen</P>
+
+<TD>
+
+<P>Hardware management</P>
+
+<TR>
+
+<TD>
+
+<P>Process writes data to tape</P>
+
+<TD>
+
+<P>Hardware management</P>
+
+<TR>
+
+<TD>
+
+<P>You quit, the process terminates</P>
+
+<TD>
+
+<P>Process management</P>
+
+<TR>
+
+<TD>
+
+<P>You turn off the computer</P>
+
+<TD>
+
+<P>Hardware management</P></TABLE>
+
+<P>From the time you turn on your computer until you turn it off, the operating system is coordinating the operations. As hardware is initialized, accessed, or shut down, the operating system manages these resources. As applications execute, request, and 
+receive resources, or terminate, the operating system takes care of these actions. Without an operating system, no application can run and your computer is just an expensive paperweight.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>The UNIX Operating System</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The previous section looked at an operating system in general. This section looks at a specific operating system: UNIX. UNIX is an increasingly popular operating system. Traditionally used on minicomputers and workstations in the academic community, 
+UNIX is now available on personal computers, and the business community has started to choose UNIX for its openness. Previous PC and mainframe users are now looking to UNIX as their operating system solution. This section looks at how UNIX fits into the 
+operating system model.
+
+<BR></P>
+
+<P>UNIX, like other operating systems, is a layer between the hardware and the applications that run on the computer. It has functions that manage the hardware and functions that manage executing applications. So what's the difference between UNIX and any 
+
+other operating system? Basically two things: internal implementation and the interface that is seen and used by users. For the most part this book ignores the internal implementation. If you wish to know these details, many texts exist that cover them. 
+The interface is what this book describes in detail. The majority of UNIX users need to be familiar with the interface and need not understand the internal workings of UNIX.
+
+<BR></P>
+
+<P>The UNIX system is actually more than strictly an operating system. UNIX includes the traditional operating system components. In addition, a standard UNIX system includes a set of libraries and a set of applications. Figure 1.2 shows the components and 
+
+layers of UNIX. Sitting above the hardware are two components: the file system and process control. Next is the set of libraries. On top are the applications. The user has access to the libraries and to the applications. These two components are what many 
+
+users think of as UNIX, because together they constitute the UNIX interface.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="01unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/01unx02.gif">Figure 1.2. The layers of UNIX.</A></B>
+
+<BR></P>
+
+<P>The part of UNIX that manages the hardware and the executing processes is called the kernel. In managing all hardware devices, the UNIX system views each device as a file (called a device file). This allows the same simple method of reading and writing 
+
+files to be used to access each hardware device. The file system (explained in more detail in Chapter 3, &quot;The UNIX File System: Go Climb a Tree&quot;) manages read and write access to user data and to devices, such as printers, attached to the system. 
+
+It implements security controls to protect the safety and privacy of information. In executing processes (see Chapter 18), the UNIX system allocates resources (including use of the CPU) and mediates accesses to the hardware.
+
+<BR></P>
+
+<P>One important advantage that results from the UNIX standard interface is application portability. Application portability is the ability of a single application to be executed on various types of computer hardware without being modified. This can be 
+achieved if the application uses the UNIX interface to manage its hardware needs. UNIX's layered design insulates the application from the different types of hardware. This allows the software developer to support the single application on multiple 
+hardware types with minimal effort. The application writer has lower development costs and a larger potential customer base. Users not only have more applications available, but can rely on being able to use the same applications on different computer 
+hardware.
+
+<BR></P>
+
+<P>UNIX goes beyond the traditional operating system by providing a standard set of libraries and applications that developers and users can use. This standard interface allows application portability and facilitates user familiarity with the interface.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>The History of UNIX</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>How did a system such as UNIX ever come to exist? UNIX has a rather unusual history that has greatly affected its current form.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>The Early Days</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the mid-1960s, AT&amp;T Bell Laboratories (among others) was participating in an effort to develop a new operating system called Multics. Multics was intended to supply large-scale computing services as a utility, much like electrical power. Many 
+people who worked on the Bell Labs contributions to Multics later worked on UNIX.
+
+<BR></P>
+
+<P>In 1969, Bell Labs pulled out of the Multics effort, and the members of the Computing Science Research center were left with no computing environment. Ken Thompson, Dennis Ritchie, and others developed and simulated an initial design for a file system 
+that later evolved into the UNIX file system. An early version of the system was developed to take advantage of a PDP-7 computer that was available to the group.
+
+<BR></P>
+
+<P>An early project that helped lead to the success of UNIX was its deployment to do text processing for the patent department at AT&amp;T. This project moved UNIX to the PDP-11 and resulted in a system known for its small size. Shortly afterward, the now 
+
+famous C programming language was developed on and for UNIX, and the UNIX operating system itself was rewritten into C. This then radical implementation decision is one of the factors that enabled UNIX to become the open system it is today.
+
+<BR></P>
+
+<P>AT&amp;T was not allowed to market computer systems, so it had no way to sell this creative work from Bell Labs. Nonetheless, the popularity of UNIX grew through internal use at AT&amp;T and licensing to universities for educational use. By 1977 
+commercial licenses for UNIX were being granted, and the first UNIX vendor, Interactive Systems Corporation, began selling UNIX systems for office automation.
+
+<BR></P>
+
+<P>Later versions developed at AT&amp;T (or its successor, Unix System Laboratories, now owned by Novell) included System III and several releases of System V. The two most recent releases of System V, Release 3 (SVR3.2) and Release 4 (SVR4; the most 
+recent version of SVR4 is SVR4.2) remain popular for computers ranging from PCs to mainframes.
+
+<BR></P>
+
+<P>All versions of UNIX based on the AT&amp;T work require a license from the current owner, UNIX System Laboratories.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Berkeley Software Distributions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In 1978 the research group turned over distribution of UNIX to the UNIX Support Group (USG), which had distributed an internal version called the Programmer's Workbench. In 1982 USG introduced System III, which incorporated ideas from several different 
+
+internal versions of and modifications to UNIX, developed by various groups. In 1983 USG released the original UNIX System V, and thanks to the divestiture of AT&amp;T, was able to market it aggressively. A series of follow-on releases continued to 
+introduce new features from other versions of UNIX, including the internal versions from the research group and the Berkeley Software Distribution.
+
+<BR></P>
+
+<P>While AT&amp;T (through the research group and USG) developed UNIX, the universities that had acquired educational licenses were far from inactive. Most notably, the Computer Science Research Group at the University of California at Berkeley (UCB) 
+developed a series of releases known as the Berkeley Software Distribution, or BSD. The original PDP-11 modifications were called 1BSD and 2BSD. Support for the Digital Equipment Corporation VAX computers was introduced in 3BSD. VAX development continued 
+with 4.0BSD, 4.1BSD, 4.2BSD, and 4.3BSD, all of which (especially 4.2 and 4.3) had many features (and much source code) adopted into commercial products. Various later releases from UCB have attempted to create a publicly redistributable version of UNIX 
+(prior releases had source code available only to source licensees). Notably, the &quot;Second Networking Release&quot; (Net2) was intended to make available all the parts of the Berkeley Software Distribution that were not subject to license restrictions. 
+
+UNIX System Laboratories (USL) brought a lawsuit against the University and a company called Berkeley Software Design, Incorporated (BSDI). USL claimed license infringements by the BSD releases and BSDI's BSD/386 product, which was based in part on the BSD 
+
+code. Recently the lawsuit was settled; the result is that BSDI is shipping BSD/386, and a new 4.4-Lite release of BSD, which requires no license from USL, will be available from UCB.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>UNIX and Standards</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Because of the multiple versions of UNIX and frequent cross-pollination between variants, many features have diverged in the different versions of UNIX. With the increasing popularity of UNIX in the commercial and government sector came the desire to 
+standardize the features of UNIX so that a user or developer using UNIX could depend on those features.
+
+<BR></P>
+
+<P>The Institute of Electrical and Electronic Engineers created a series of standards committees to create standards for &quot;An Industry-Recognized Operating Systems Interface Standard based on the UNIX Operating System.&quot; The results of two of the 
+committees are important for the general user and developer. The POSIX.1 committee standardizes the C library interface used to write programs for UNIX. (See Chapter 17, &quot;C Language.&quot;) The POSIX.2 committee standardizes the commands that are 
+available for the general user. (See especially Chapter 4, &quot;Listing Files,&quot; Chapter 5, &quot;Popular Tools,&quot; Chapter 6, &quot;Popular File Tools,&quot; Chapter 7, &quot; Editing Text Files,&quot; Chapter 10, &quot;What Is a Shell?&quot; 
+Chapter 11, &quot;Bourne Shell,&quot; Chapter 12, &quot;Korn Shell,&quot; Chapter 13, &quot;C Shell,&quot; Chapter 14, &quot;Which Shell Is Right for You? Shell Comparison,&quot; and Chapter 15, &quot;Awk, Awk.&quot;)
+
+<BR></P>
+
+<P>In Europe, the X/Open Consortium brings together various UNIX-related standards, including the current attempt at a Common Open System Environment (COSE) specification. X/Open publishes a series of specifications called the X/Open Portability Guide, 
+currently at Version 4. XPG4 is a popular specification in Europe, and many companies in the United States supply versions of UNIX that meet XPG.
+
+<BR></P>
+
+<P>The United States government has specified a series of standards based on XPG and POSIX. Currently FIPS 151-2 specifies the open systems requirements for federal purchases.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>UNIX for Mainframes and Workstations</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Many mainframe and workstation vendors make a version of UNIX for their machines. The best way to get information on these is directly from the manufacturer.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>UNIX for Intel Platforms</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Thanks to the great popularity of personal computers, there are a great number of UNIX versions available for Intel platforms. Choosing from the versions and trying to find software for the version you have can be a tricky business because the UNIX 
+industry has not settled on a complete binary standard for the Intel platform. There are two basic categories of UNIX systems on Intel hardware, the SVR4-based systems and the older, more established SVR3.2 systems.
+
+<BR></P>
+
+<P>SVR4 vendors include NCR, IBM, Sequent, SunSoft (which sells Solaris for Intel), and Novell (which sells UnixWare). The Santa Cruz Operation (SCO) is the main vendor in the SVR3.2 camp. Vendors in the first camp are working toward cleaning up the 
+standards to gain full &quot;shrink-wrap portability&quot; between their versions of UNIX. The goal is that this will make UNIX-on-Intel applications available, shrink-wrapped for any version of UNIX, just as you can now buy applications for MS-DOS or 
+Microsoft Windows. SCO UNIX currently has a much larger base of available applications and is working to achieve binary compatibility with UnixWare.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Source Versions of &quot;UNIX&quot;</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Several versions of UNIX and UNIX-like systems have been made that are free or extremely cheap and include source code. These versions have become particularly attractive to the modern-day hobbyist, who can now run a UNIX system at home for little 
+investment and with great opportunity to experiment with the operating system or make changes to suit his or her needs.
+
+<BR></P>
+
+<P>An early UNIX-like system was MINIX, by Andrew Tanenbaum. His books Operating Systems: Design and Implementations describes MINIX and includes a source listing of the original version of MINIX. The latest version of MINIX is available from the 
+publisher. MINIX is available in binary form for several machines (PC, Amiga, Atari, Macintosh, and SPARCStation).
+
+<BR></P>
+
+<P>In addition to the BSD386 product from BSDI, there is a free version of UNIX also based on the BSD releases, and called, confusingly, 386BSD. This is an effort by Bill and Lynne Jolitz to create a system for operating system research and 
+experimentation. The source is freely available, and 386BSD has been described in a series of articles in Dr. Dobbs' Journal.
+
+<BR></P>
+
+<P>Another popular source version of UNIX is Linux. Linux was designed from the ground up by Linus Torvalds to be a free replacement for UNIX, and it aims for POSIX compliance. There are current efforts to make Linux reliably run both SVR3.2 and SVR4 
+binaries. There is also a project called WINE to create Microsoft Windows emulation capability for Linux.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Making Changes to UNIX</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Many people considering making the transition to UNIX have a significant base of PC-based MS-DOS and Microsoft Windows applications. There have been a number of efforts to create programs or packages on UNIX that would ease the migration by allowing 
+users to run their existing DOS and Windows applications on the same machine on which they run UNIX. Products in this arena include SoftPC and SoftWindows from Insignia, WABI from SunSoft, and WINE for Linux and 386BSD.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Introduction to the UNIX Philosophy</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As described in the section &quot;The History of UNIX,&quot; UNIX has its roots in a system that was intended to be small and supply orthogonal common pieces. Although most UNIX systems have grown to be fairly large and monolithic applications are not 
+uncommon, the original philosophy still lives in the core commands available on all UNIX systems. There are several common key items throughout UNIX:
+
+<BR></P>
+
+<UL>
+
+<LI>Simple, orthogonal commands
+
+<BR>
+
+<BR></LI>
+
+<LI>Commands connected through pipes
+
+<BR>
+
+<BR></LI>
+
+<LI>A (mostly) common option interface style
+
+<BR>
+
+<BR></LI>
+
+<LI>No file types
+
+<BR>
+
+<BR></LI></UL>
+
+<P>For detailed information on commands and connecting them together, see the chapters on shells (Chapters 10&#151;14) and common commands (Chapters 5&#151;9 and Chapter 15).
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Simple, Orthogonal Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The original UNIX systems were very small, and the designers tried to take every advantage of those small machines by writing small commands. Each command attempted to do one thing well. The tools could then be combined (either with a shell script or a 
+
+C program) to do more complicated tasks. One command, called wc, was written solely to count the lines, words, and characters in a file. To count all the words in all the files, you would type wc * and get output like that in Listing 1.1.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 1.1. Using a simple command.</B></LH></UL>
+
+<PRE>$ wc *
+
+351    2514   17021 minix-faq
+
+1011    5982   42139 minix-info
+
+1362    8496   59160 total
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Commands Connected Through Pipes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To turn the simple, orthogonal commands into a powerful toolset, UNIX enables the user to use the output of one command as the input to another. This connection is called a pipe, and a series of commands connected by pipes is called a pipeline. For 
+example, to count the number of lines that reference MINIX in all the files, one would type grep MINIX * | wc and get output like that in Listing 1.2.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 1.2. Using a pipeline.</B></LH></UL>
+
+<PRE>$ grep MINIX * | wc
+
+105     982    6895
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>A (Mostly) Common Option Interface Style</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Each command has actions that can be controlled with options, which are specified by a hyphen followed by a single letter option (for example, -l). Some options take option arguments, which are specified by a hyphen followed by a single letter, followed 
+
+by the argument (for example, -h Header). For example, to print on pages with 16 lines each all the lines in the file minix-info that mention Tanenbaum, you would enter wc minix-info | pr -l 16 and get output like that in Listing 1.3.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 1.3. Using options in a pipeline.</B></LH></UL>
+
+<PRE>$ grep Tanenbaum minix-info | pr -l 16
+
+Feb 14 16:02 1994   Page 1
+
+ [From Andy Tanenbaum &lt;ast@cs.vu.nl&gt; 28 August 1993]
+
+The author of MINIX, Andrew S. Tanenbaum, has written a book describing
+
+Author:     Andrew S. Tanenbaum
+
+subjects.ast (list of Andy Tanenbaum's
+
+Andy Tanenbaum since 1987 (on tape)
+
+Version 1.0 is the version in Tanenbaum's book, &quot;Operating Systems: Design
+
+$</PRE>
+
+<P>The bad news is that some UNIX commands have some quirks in the way they handle options. As more systems adopt the standards mentioned in the section &quot;The History of UNIX,&quot; you will find fewer examples of commands with quirks.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>No File Types</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UNIX pays no attention to the contents of a file (except when you try to run a file as a command). It does not know the difference between a spreadsheet file and a word processor file. The meaning of the characters in a file is entirely supplied by the 
+
+command(s) that uses the file. This concept is familiar to most PC users, but was a significant difference between UNIX and other earlier operating systems. The power of this concept is that any program can be used to operate on any file. The downside is 
+that only a program that understands the file format can fully decode the information in the file.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX has a long history as an open development environment. More recently, it has become the system of choice for both commercial and some personal uses. UNIX performs the typical operating system tasks, but also includes a standard set of commands and 
+
+library interfaces. The building-block approach of UNIX makes it an ideal system for creating new applications.</P>
+
+<P><A HREF="unxpt1au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt1au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx02.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx02.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

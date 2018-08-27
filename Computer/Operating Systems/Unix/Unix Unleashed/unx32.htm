@@ -1,0 +1,716 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx32.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt7au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt7au.htm">
+
+<LINK REL="Previous" HREF="unx31.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx31.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx31.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx31.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt7au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt7au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">32 &#151; Backups</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By S. Lee Henry</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Backups and Archives</A></LI>
+
+<LI>
+
+<A HREF="#I5">The dump Command</A></LI>
+
+<LI>
+
+<A HREF="#I6">The restore Command</A></LI>
+
+<LI>
+
+<A HREF="#I7">Dump Schedules</A></LI>
+
+<LI>
+
+<A HREF="#I8">The tar Command</A></LI>
+
+<LI>
+
+<A HREF="#I9">Commercial Software</A></LI>
+
+<LI>
+
+<A HREF="#I10">High-Reliability Technology</A></LI>
+
+<LI>
+
+<A HREF="#I11">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>32 &#151; Backups</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By S. Lee Henry</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The only thing wrong with backups is that you have to do them, and that is often a big problem. Necessary safeguards against disaster, backups take time and are generally not used. As a result, the motivation for doing them is often lacking, except 
+immediately following a disaster, and the recognition you get for all the time and effort that backups require is almost always nonexistent. At the same time, no responsible system administrator or user would fail to see that backups are done on a regular 
+
+basis.
+
+<BR></P>
+
+<P>Routinely storing entire file systems or individual directories and files to protect the integrity of your system and your work can be very time-consuming or it can be fairly well automated.
+
+<BR></P>
+
+<P>Whether caused by human error (most likely), by media failure, or by acts of God, loss of important files warrants the time and attention that goes into planning and executing a good backup scheme.
+
+<BR></P>
+
+<P>After reading this chapter, you will be able to back up and restore file systems or individual files, design a backup schedule that is right for your site, and evaluate the advantages of commercial backup software.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Backups and Archives</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The last chapter discussed archiving. Very similarly to backups, archives are usually created by individual users interested in storing &quot;snapshots&quot; of their work when they reach important milestones. Archives are usually the result of an 
+individual's interest in making a safe copy of his own work.
+
+<BR></P>
+
+<P>Backups, on the other hand, are most often the responsibility of system administrators and represent the state of entire file systems rather than the work of specific individuals. Usually periodic in nature, backups are an attempt to preserve the state 
+
+of a system so that any type of loss, whether through human error or catastrophe, can be averted.
+
+<BR></P>
+
+<P>Another important distinction between archives and backups is the issue of completeness. Archives will include files that may subsequently be deleted from the system. These archives may be kept indefinitely, or at least as long as the project or effort 
+
+being archived has some relevance. Backups, on the other hand, are generally cycled. Files that are removed from file systems will eventually disappear from the backups as well. There is usually a fixed window of a couple weeks or a couple months within 
+which a file that is removed can be recovered.
+
+<BR></P>
+
+<P>Backups should be automated. Most people will not reliably back up their systems if it is a boring and painful task. The best backups happen &quot;by themselves.&quot; This doesn't mean that a good deal of insight isn't required to configure the 
+process. 
+
+<BR></P>
+
+<P>One of the most important distinctions to be made regarding backups is whether you back up an entire file system or only those files that have been created or modified since some earlier time. A combination of full and incremental backups is usually the 
+
+best strategy for getting the greatest reliability while minimizing the work of retrieving files and the number of backup tapes (or other media) that must be maintained.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>The </B><B><I>dump</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The dump command is the command most commonly used for backups. Typically used to dump entire file systems to tape, whether fully or incrementally, the dump command can also be used to dump specified files and directories. The dump command creates 
+backups in a format that includes directory information as well as a notation of where the file system was last mounted. The directory index precedes the actual files.
+
+<BR></P>
+
+<P>The dump command can access remote or local drives. To use the remote dump command, all you need to do is precede the name of the tape device with the name of the remote host (for example, boson:/dev/rst0). On some UNIX systems, there is a second dump 
+command, rdump, which specifies a remote dump. When rdump is used, the system will look for a host named dumphost in your host file and attempt to dump to dumphost:/dev/rmt0. To perform a remote dump (that is, dump to another host's tape drive or hard 
+disk), the other host needs to trust the one you are dumping from. Including the local host in the remote host's /.rhosts file is the simplest way to do this, but this gives the local host considerable access to the remote one and may not be a good 
+strategy for security reasons. It is often possible to dump to the remote host as a specific user rather than as root. In this case, the syntax user@remotehost:device is used instead of remotehost:device, and the user must have an .rhosts file in his home 
+
+directory.
+
+<BR></P>
+
+<P>The following is some typical dump command output. It provides a lot of information about the file system being dumped, including the dates of the last dumps at this level and the lower level, the partition name and the mount point, the passes dump 
+makes as it dumps the directory information and the contents of the files themselves, and an estimate of how much tape will be used in the process.
+
+<BR></P>
+
+<P>The command
+
+<BR></P>
+
+<PRE>boson% /usr/etc/dump 7cusdtf 590 1200 18 /dev/nrst0 /dev/sd0h</PRE>
+
+<P>produces the following output:
+
+<BR></P>
+
+<PRE>  DUMP: Date of this level 7 dump: Tue Mar  8 00:20:01 1994
+
+  DUMP: Date of last level 5 dump: Sat Mar  5 02:22:11 1994
+
+  DUMP: Dumping /dev/rsd0h (/export/data1) to /dev/nrst0
+
+  DUMP: mapping (Pass I) [regular files]
+
+  DUMP: mapping (Pass II) [directories]
+
+  DUMP: mapping (Pass II) [directories]
+
+  DUMP: estimated 520 blocks (260KB) on 0.00 tape(s).
+
+  DUMP: dumping (Pass III) [directories]
+
+  DUMP: dumping (Pass IV) [regular files]
+
+  DUMP: level 7 dump on Tue Mar  8 00:20:01 1994
+
+  DUMP: Tape rewinding
+
+  DUMP: 546 blocks (273KB) on 1 volume
+
+  DUMP: DUMP IS DONE</PRE>
+
+<P>In SVR4 systems, the dump command is called ufsdump. The format of the dump files, however, is the same so that you can almost always read dumps from one UNIX system on another.
+
+<BR></P>
+
+<P>The dump command uses dump levels to indicate whether full or incremental dumps should be made. A level 0 dump is a full dump. Levels 1&#151;9 create incremental dumps. The level of an incremental dump has significance only in relationship to other 
+dumps. If John Doe made a level 0 dump once a month and a level 9 once a week, while Jane Doe ran a level 0 dump once a month and a level 5 once a week, they would both have the same dump result (we are assuming that they are dumping different systems). 
+Both the level 9 and the level 5 dumps will include all files that have been modified since the earlier dump, at a lower level (that is, the level 0 dump). If John dumped at levels 0, 5, and 8, on the other hand, his level 8 dumps would include files 
+modified only since the most recent level, 0 or 5 (whichever most closely preceded it).
+
+<BR></P>
+
+<P>The dump command keeps track of the date and level of the prior dumps through use of a file called /etc/dumpdates. Unsuccessful backups will not update this file, which includes a record for each file system and dump level used, along with the date and 
+
+time of the backup. Here is an example:
+
+<BR></P>
+
+<PRE>/dev/rsd0g       0 Sat Jul 12 03:45:00 1994
+
+/dev/rsd0g       5 Fri Jul  4 03:45:01 1994
+
+/dev/rsd2a       0 Tue Jul  1 03:52:49 1994
+
+/dev/rsd2a       5 Fri Jul  4 03:55:49 1994</PRE>
+
+<P>Each of these records will be updated the next time a backup is done of the same file system at the same level.
+
+<BR></P>
+
+<P>One useful way to employ this information is to extract the dates of the latest backups and include them in your /etc/motd file. This will reassure users that their files are being backed up routinely and give them an idea of how current the latest 
+backups are.
+
+<BR></P>
+
+<P>Here's a script that will do this:
+
+<BR></P>
+
+<PRE>#!/bin/csh
+
+#
+
+# remove old dump dates (if there)
+
+/bin/cat /etc/motd | /usr/local/bin/grep -v &quot;^Last&quot; &gt; /tmp/motd.$$
+
+# determine home partition
+
+#set PART='grep /export/home /etc/fstab | awk -F/ '{print $3}''
+
+# get dates for last level 0 and 5 backups
+
+set FULL='grep &quot;/dev/rusr        0&quot; /etc/dumpdates | awk '{print $3,$4,$5,$6}''
+
+set INCR='grep &quot;/dev/rusr        5&quot; /etc/dumpdates | awk '{print $3,$4,$5,$6}''
+
+# create new motd file w this info
+
+echo &quot;Last full backup:          &quot; $FULL &gt;&gt; /tmp/motd.$$
+
+echo &quot;Last incremental backup:     &quot; $INCR &gt;&gt; /tmp/motd.$$
+
+# put new motd file in place
+
+mv /tmp/motd.$$ /etc/motd</PRE>
+
+<P>Here's a typical /etc/motd updated by such a script:
+
+<BR></P>
+
+<PRE>SunOS Release 4.1.3 (boson) #2: Wed Aug 11 13:54:26 EDT 1994
+
+     Dial-in.......123-4567
+
+     ExaByte......./dev/rst0
+
+     9-Track......./dev/rmt0
+
+     9-Track......./dev/rmt8 (1600/6250)
+
+****************************************************************************
+
+*                                                                          *
+
+*          Don't forget tea and cookies at 3 PM this afternoon             *
+
+*                                                                          *
+
+**************************************************************************** 
+
+Last full backup:           Sat Mar 12 03:45:00
+
+Last incremental backup:      Fri Mar 4 03:45:01</PRE>
+
+<P>Similar to the tar command described in the previous chapter, the dump command is usually used to back up file systems to tape. Given the nature of UNIX, however, dump files can also be created on hard disk or on less expensive media, such as read-write 
+
+optical disks. Like the tar command, the dump command can create a file in a specific format that can be used later to extract files. The benefit of disk-based dumps is that they are always available, and the process can be automated so that there is 
+practically no human intervention needed. With tape-based backups, it is often the manual procedures of inserting, removing, and labelling the tapes that cause the most problems. With disk-based dump, you can rely on file naming conventions to 
+&quot;cycle&quot; your backups. It is also possible to get a similar effect using a multitape backup device. In any case, the more you can automate your backups, the more likely it is that you will be able to recover when the need arises.
+
+<BR></P>
+
+<P>You should be familiar with the optional parameters of the dump command. These can very significantly affect how efficiently your backups are, in terms of both space and speed. Density and length parameters that are proper for a 1/2-inch tape are not at 
+
+all correct for an 8 mm Exabyte drive. Even if you are backing up to hard disk, the parameters you provide will determine whether the dump is successful or not because dump will use these parameters to calculate the space available for the disk-based dump. 
+
+Most UNIX systems will include suggestions about dump parameters in the man page for the dump command. Here are some suggestions:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>60 MB cartridge:</P>
+
+<TD>
+
+<P>cdst 1000 425 9</P>
+
+<TR>
+
+<TD>
+
+<P>150 MB cartridge:</P>
+
+<TD>
+
+<P>cdst 1000 700 18</P>
+
+<TR>
+
+<TD>
+
+<P>1/2-inch tape:</P>
+
+<TD>
+
+<P>dsb 1600 2300 126</P>
+
+<TR>
+
+<TD>
+
+<P>2.3-GByte 8mm tape:</P>
+
+<TD>
+
+<P>dsb 54000 6000 126</P></TABLE>
+
+<P>The dump options in these specifications represent the following:
+
+<BR></P>
+
+<PRE>
+
+<BR>c = cartridge tape
+
+
+
+<BR>d = density
+
+
+
+<BR>s = size (that is, length)
+
+
+
+<BR>t = tracks
+
+
+
+<BR>b = block size</PRE>
+
+<P>The dump command can also be used to dump specific files rather than entire file systems. In this mode, the command always works at a level 0; that is, it fully backs up every file that you include, regardless of when that file was last backed up or 
+modified. In addition, the /etc/dumpdates file will not be updated even if you include the -u option; it is used only when you back up complete file systems. Records in the /etc/dumpdates file, after all, are kept by file system for each dump level used, 
+not by individual files.
+
+<BR></P>
+
+<P>If you wanted to back up two files in the dump format, you might use a command like this one. This command dumps the files chapter1 and chapter2 to an 8mm Exabyte drive using the dump parameters described earlier:
+
+<BR></P>
+
+<PRE>eta# dump fdsb /dev/rst0 54000 6000 126 chapter1 chapter2</PRE>
+
+<P>As mentioned earlier, the output from the dump command includes a lot of information about the dump process. As shown in the following paragraphs, this includes the date and level of the backup, the partition and file system mount point, the approximate 
+
+size of the data being dumped, and the amount of tape expected to be used. The dump command makes a number of passes through the file system it is dumping. The first two passes are for mapping, or creating a list of those files to be included in a 
+directory structure. In the second two passes, it dumps the files. The directory structure of the file system being dumped is included within the dump. 
+
+<BR></P>
+
+<P>The following dump output is for a level 0 (that is, complete) dump of the /var partition on a Sun workstation:
+
+<BR></P>
+
+<PRE>  DUMP: Date of this level 0 dump: Sun Mar 13 13:22:39 1994
+
+  DUMP: Date of last level 0 dump: the epoch
+
+  DUMP: Dumping /dev/rsd2f (/var) to /dev/nrst0
+
+  DUMP: mapping (Pass I) [regular files]
+
+  DUMP: mapping (Pass II) [directories]
+
+  DUMP: estimated 66208 blocks (32.33MB) on 0.02 tape(s).
+
+  DUMP: dumping (Pass III) [directories]
+
+  DUMP: dumping (Pass IV) [regular files]
+
+  DUMP: level 0 dump on Sun Mar 13 13:22:39 1994
+
+  DUMP: Tape rewinding
+
+  DUMP: 66178 blocks (32.31MB) on 1 volume
+
+  DUMP: DUMP IS DONE</PRE>
+
+<P>The output of the dump command is written to standard error (rather than standard out). Still, it is possible to redirect this output and mail it to someone responsible for ensuring that backups are completing properly. For example, in this excerpt from 
+
+a crontab file (the dump commands themselves are in the referenced scripts) the output of the dump command is mailed to root:
+
+<BR></P>
+
+<PRE># backups to 8mm each night
+
+# NOTE:  Dates looks &quot;off&quot; but Mon backups, eg, really run Tues at 1:30 AM
+
+45 3 * * 2 /etc/Monday.backups | mail root 2&gt;&amp;1
+
+45 3 * * 3 /etc/Tuesday.backups | mail root 2&gt;&amp;1
+
+45 3 * * 4 /etc/Wednesday.backups | mail root
+
+45 3 * * 5 /etc/Thursday.backups | mail root
+
+45 3 * * 6 /etc/Friday.backups | mail root 2&gt;&amp;1</PRE>
+
+<P>The dump command creates a file with considerable overhead. If you use the dump command, for example, to dump a single file to disk, the resulting file will be considerably larger than the original. In the following example, a fairly small file has been 
+
+dumped to a disk-based dump file. The dump file is more than 14 times the size of the original file. As with the tar command, the dump command stores information about each file, including its ownership and permissions. The pathnames of each file relative 
+
+to the base of the directory being dumped are also contained in the dump file.
+
+<BR></P>
+
+<PRE>eta# dump f Archiving.dump Archiving
+
+eta# ls -l Arch*
+
+-rw-r&#151;r&#151;  1 slee        10068 Mar  8 18:29 Archiving
+
+-rw-r&#151;r&#151;  1 slee       143360 Mar 13 14:02 Archiving.dump</PRE>
+
+<P>When restoring from a dump, you should first move to the base of the file system where the recovered file belongs, unless you want to examine the files before moving them into the correct locations (for example, to overwrite other files). Using restore 
+
+will restore a file from the current working directory and will create whatever directory structures are needed to retrieve the file. For example, if you are restoring a mail file from a dump of /var, you could restore the file from /tmp. The extracted 
+file might be called /tmp/spool/mail/slee after restoration, although it was clearly /var/spool/mail/slee before the dump. After ensuring that this is the correct file, you might choose to overwrite or append it to the current mail file.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>The </B><B><I>restore</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Entire file systems can be restored with the restore command if they were dumped with the dump command. If you specified a block size during the dump, you must specify it for the restore as well. Density and length parameters, on the other hand, are 
+required only during the dump.
+
+<BR></P>
+
+<P>The interactive mode of the restore command is useful when you want to restore selected files. It provides commands such as cd and ls so that you can examine the files included within the dump, add to select files, and extract to start the extraction 
+process.
+
+<BR></P>
+
+<P>The following example illustrates an interactive restore from a disk-based dump file:
+
+<BR></P>
+
+<PRE>boson# restore ivbf 126 sor.usr.Sun
+
+Verify volume and initialize maps
+
+Dump   date: Sun Mar 13 15:22:47 1994
+
+Dumped from: Wed Feb 16 05:06:59 1994
+
+Level 5 dump of /usr on sor:/dev/usr
+
+Label: none
+
+Extract directories from tape
+
+Initialize symbol table.
+
+restore &gt; ls
+
+.:
+
+     2 *./           2294  bsd/         2724  mail/        3189  sysgen/
+
+     2 *../          2394  include/     2721  people/     28724  tmp/
+
+  2121  adm/           12  lib/         3006  preserve/   28713  tmp_rex/
+
+  2152  bin/        29413  local/       3111  spool/
+
+restore &gt; cd people/slee
+
+restore &gt; ls
+
+./people/slee:
+
+  2759  ./            2806  .login        7730  check         2912  mycron
+
+  2721  ../          13266  .plan         2857  incr2boson
+
+restore &gt; add mycron
+
+Make node ./people
+
+Make node ./people/slee
+
+restore &gt; extract
+
+Extract requested files
+
+You have not read any volumes yet.
+
+Unless you know which volume your file(s) are on you should start
+
+with the last volume and work towards the first.
+
+Specify next volume #: 1
+
+extract file ./people/slee/mycron
+
+Add links
+
+Set directory mode, owner, and times.
+
+set owner/mode for '.'? [yn] y
+
+restore&gt; quit
+
+boson#</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Dump Schedules</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>System administrators develop a schedule of dumps at various levels to provide a compromise between redundancy (to ensure that dumps will be available even if some of the media become unusable) and the number of tapes that need to be cycled through when 
+
+looking for a file that needs to be restored. Most system administrators design their backup strategy so that they will not have to look through more than a few tapes to get any file they need to restore.
+
+<BR></P>
+
+<P>Suggested schedules for backup at various levels look something like what is shown here. Such schedules provide a good balance between redundancy and duplication.
+
+<BR></P>
+
+<PRE>                      Sun   Mon   Tue   Wed   Thu   Fri
+
+          Week 1:     Full  5     5     5     5     3
+
+          Week 2:           5     5     5     5     3
+
+          Week 3:           5     5     5     5     3
+
+          Week 4:           5     5     5     5     3</PRE>
+
+<P>Because all system administrators have better things to do than stand by a tape drive for hours at a time, they generally have available high-density tape drives, such as 8 mm or DAT drives. These hold from a couple gigabytes to a couple dozen gigabytes 
+
+(with compression). With multiple tape devices, it is sometimes possible to dump entire networks to a single device with extremely little human intervention.
+
+<BR></P>
+
+<P>Backups are often initiated through cron so that the system administrator does not have to manually invoke them. Conducting unattended backups is always the best strategy. Doing backups is boring work, and boring work means a high probability of error.
+
+<BR></P>
+
+<P>The dump command is best used when the file system being dumped is not in use. This is because certain changes that might occur during the dump can cause the resultant dump to be unrestorable (for example, if inodes are between the writing of directory 
+
+information and the dumping of the files themselves). Reuse of an inode, for example, can result in a bad dump. Such changes are not likely. Many system administrators dump live files without ever encountering such problems. On the other hand, some have 
+been bitten. It is best to avoid this error if at all possible.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>The </B><B><I>tar</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The tar command (described in the previous chapter) can also be used for backups, although it is more appropriate for creating archives of selected files. There is no interactive mode for reading files from a tar file. It is possible, however, to list 
+the files contained in a tar file and then issue a second command to extract specific files, but this is not as convenient. For this and other reasons, the tar command is generally used when you might want to restore all the files from the backup.
+
+<BR></P>
+
+<P>Unlike the dump command, the tar command dumps files with a pathname beginning with the current working directory, rather than with the base of the file system. This makes it a useful tool for recreating directories in another location on the same or 
+another system.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Commercial Software</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Fortunately, for those who can afford it, there are many software products that provide sophisticated front ends for backup commands. Some of these provide an interface that is so understandable that even casual users can restore files for themselves.
+
+<BR></P>
+
+<P>When considering commercial backup software, there are a number of very important issues to keep in mind. Chiefly, commercial backup software ought to provide some level of functionality significantly better than what you can provide using dump and 
+cron. It can do this by providing any or all of the following features:
+
+<BR></P>
+
+<PRE>
+
+<BR>A classy user interface&#151;We're not necessarily talking &quot;pretty&quot; here. The user interface needs to be clearly understandable and very usable.
+
+
+
+<BR>Little or no operator intervention&#151;Operator intervention should always be minimized. Some initial setup should be expected, but afterwards backups should be fairly automatic.
+
+
+
+<BR>Multitape and multifile system control&#151;You need some method of using multiple tapes for large backups or backing up multiple file systems without operator-assisted positioning.
+
+
+
+<BR>Labeling support&#151;Mislabeling and failing to label backup media can cause big problems when the need to restore arises. It is easy to reuse the wrong tape and overwrite an important backup. Commercial software should assist the operator in labeling 
+
+media so as to minimize this kind of error. Software labeling and verification of the backup media is even better; if your backup software rejects a tape because it isn't the proper one to overwrite, you have an important safeguard against ruining backups 
+
+you might still need. On the other hand, you should always have access to a fresh tape, because the expected tape might have &quot;gone south.&quot;
+
+
+
+<BR>Revision control&#151;Keep track of versions of a file and which appears on which backup. If casual users can determine which version of a file they need, this is ideal.</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>High-Reliability Technology</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Some technology that has been developed in response to the need for high reliability has reduced the requirement for more traditional backup. Disk mirroring, for example, in which two or more disks are updated at the same time and therefore are replicas 
+
+of each other, provides protection against data loss resulting from certain types of catastrophe&#151;such as a single disk crash&#151;but not others. Replication of disk images does not help recover files that are intentionally erased from the disk (and 
+the removal is replicated as well) and does not prevent data loss due to failing disk controllers (which is likely to trash files on both the original and replication disks).
+
+<BR></P>
+
+<P>Technology that periodically provides a snapshot of one disk onto another provides some protection. The utility of this protection, however, is tightly tied to the frequency of the replication and the method used to detect the loss in the first place.
+
+<BR></P>
+
+<P>Replication technology can guard against certain types of data loss but is seldom a complete replacement for traditional backup.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>With a well-planned backup schedule and a modest degree of automation, you can take most of the drudgery out of backing up your systems and make it possible to recover from most inadvertent or catastrophic file losses.
+
+<BR></P>
+
+<P><A HREF="unx31.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx31.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt7au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt7au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

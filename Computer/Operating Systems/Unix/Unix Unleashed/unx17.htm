@@ -1,0 +1,1764 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx17.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt4au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt4au.htm">
+
+<LINK REL="Previous" HREF="unx16.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx16.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx16.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx16.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt4au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt4au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">17 &#151; The C Programming Language</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By James Armstrong</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">The History of C</A></LI>
+
+<LI>
+
+<A HREF="#I5">Creating, Compiling, and Executing Your First Program</A></LI>
+
+<LI>
+
+<A HREF="#I6">An Overview of the C Language</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I7">Elementary C Syntax</A></LI>
+
+<LI>
+
+<A HREF="#I8">Expressions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Comparison Expressions</A></LI>
+
+<LI>
+
+<A HREF="#I10">Mathematical Expressions</A></LI>
+
+<LI>
+
+<A HREF="#I11">Bitwise Operations</A></LI></UL>
+
+<LI>
+
+<A HREF="#I12">Statement Controls</A></LI></UL>
+
+<LI>
+
+<A HREF="#I13">Creating a Simple Program</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">Writing the Code</A></LI>
+
+<LI>
+
+<A HREF="#I15">Compiling the Program</A></LI>
+
+<LI>
+
+<A HREF="#I16">Executing the Program</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Building Large Applications</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">Making Libraries with ar</A></LI>
+
+<LI>
+
+<A HREF="#I19">Building Large Applications with make</A></LI></UL>
+
+<LI>
+
+<A HREF="#I20">Debugging Tools</A></LI>
+
+<LI>
+
+<A HREF="#I21">Summary</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>17 &#151; The C Programming Language</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By James Armstrong</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>C is the programming language most frequently associated with UNIX. Since the 1970s, the bulk of the operating system and applications have been written in C. This is one of the major reasons why UNIX is a portable operating system.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>The History of C</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>C was first designed by Dennis Ritchie for use with UNIX on DEC PDP-11 computers. The language evolved from Martin Richard's BCPL, and one of its earlier forms was the B language, which was written by Ken Thompson for the DEC PDP-7. The first book on C 
+
+was The C Programming Language by Brian Kernighan and Dennis Ritchie, published in 1978.
+
+<BR></P>
+
+<P>In 1983, the American National Standards Institute established a committee to standardize the definition of C. Termed ANSI C, it is the recognized standard for the language grammar and a core set of libraries. The syntax is slightly different from the 
+original C language, which is frequently called K&amp;R&#151;for Kernighan and Ritchie.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Creating, Compiling, and Executing Your First Program</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The development of a C program is an iterative procedure. Many UNIX tools are involved in this four-step process. They are familiar to software developers:
+
+<BR></P>
+
+<OL>
+
+<LI>Using an editor, write the code into a text file.
+
+<BR>
+
+<BR></LI>
+
+<LI>Compile the program.
+
+<BR>
+
+<BR></LI>
+
+<LI>Execute the program.
+
+<BR>
+
+<BR></LI>
+
+<LI>Debug the program.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>The first two steps are repeated until the program compiles successfully. Then the execution and debugging begin. Many of the concepts presented may seem strange to non-programmers. This chapter endeavors to introduce C as a programming language.
+
+<BR></P>
+
+<P>The typical first C program is almost a clich&#233;. It is the &quot;Hello, World&quot; program, and it prints the simple line Hello, World. Listing 17.1 is the source of the program.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.1. Source of </B><B>Hello World</B><B>.</B></LH></UL>
+
+<PRE>main()
+
+{
+
+printf(&quot;Hello, World\n&quot;);
+
+}</PRE>
+
+<P>This program can be compiled and executed as follows:
+
+<BR></P>
+
+<PRE>$ cc hello.c
+
+$ a.out
+
+Hello, World
+
+$</PRE>
+
+<P>The program is compiled with the cc command, which creates a program a.out if the code is correct. Just typing a.out will run the program. The program includes only one function, main. Every C program must have a main function; it is where the program's 
+
+execution begins. The only statement is a call to the printf library function, which passes the string Hello, World\n. (Functions are described in detail later in this chapter.) The last two characters of the string, \n, represent the carriage return-line 
+
+feed character.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>An Overview of the C Language</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As with all programming languages, C programs must follow rules. These rules describe how a program should appear, and what those words and symbols mean. This is the syntax of a programming language. Think of a program as a story. Each sentence must 
+have a noun and a verb. Sentences form paragraphs, and the paragraphs tell the story. Similarly, C statements can build into functions and programs.
+
+<BR></P>
+
+<P>For more information about programming in C, I recommend the following books from Sams Publishing:
+
+<BR></P>
+
+<UL>
+
+<LI>Teach Yourself C in 21 Days by Peter Aitken and Bradley Jones
+
+<BR>
+
+<BR></LI>
+
+<LI>Programming in ANSI C by Stephen G. Kochan
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Elementary C Syntax</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Like all languages, C deals primarily with the manipulation and presentation of data. BCPL deals with data as data. C, however, goes one step further to use the concept of data types. The basic data types are character, integer, and floating point 
+numbers. Other data types are built from these three basic types.
+
+<BR></P>
+
+<P>Integers are the basic mathematical data type. They can be classified as long and short integers, and the size is implementation-dependent. With a few exceptions, integers are four bytes in length, and they can range from 2,147,483,648 to 2,147,483,647. 
+
+In ANSI C, these values are defined in a header&#151;limit.h&#151;as INT_MIN and INT_MAX. The qualifier unsigned moves the range one bit higher, to the equivalent of INT_MAX-INT_MIN.
+
+<BR></P>
+
+<P>Floating point numbers are used for more complicated mathematics. Integer mathematics is limited to integer results. With integers, 3/2 equals 1. Floating point numbers give a greater amount of precision to mathematical calculations: 3/2 equals 1.5. 
+Floating point numbers can be represented by a decimal number, such as 687.534, or with scientific notation: 8.87534E+2. For larger numbers, scientific notation is preferred. For even greater precision, the type double provides a greater range. Again, 
+specific ranges are implementation-dependent.
+
+<BR></P>
+
+<P>Characters are usually implemented as single bytes, although some international character sets require two bytes. One common set of character representations is ASCII, and is found on most U.S. computers.
+
+<BR></P>
+
+<P>An array is used for a sequence of values that are often position-dependent. An array is useful when a range of values of a given type is needed. Related to the array is the pointer. Variables are stored in memory, and a pointer is the physical address 
+
+of that memory. In a sense, a pointer and an array are similar, except when a program is invoked. The space needed for the data of an array is allocated when the routine that needs the space is invoked. For a pointer, the space must be allocated by the 
+programmer, or the variable must be assigned by dereferencing a variable. The ampersand is used to indicate dereferencing, and an asterisk is used to when the value pointed at is required. Here are some sample declarations:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>int i;</P>
+
+<TD>
+
+<P>Declares an integer</P>
+
+<TR>
+
+<TD>
+
+<P>char c;</P>
+
+<TD>
+
+<P>Declares a character</P>
+
+<TR>
+
+<TD>
+
+<P>char *ptr;</P>
+
+<TD>
+
+<P>Declares a pointer to a character</P>
+
+<TR>
+
+<TD>
+
+<P>double temp[16];</P>
+
+<TD>
+
+<P>Declares an array of double-precision floating point numbers with 16 values</P></TABLE>
+
+<P>Listing 17.2 shows an example of a program with pointers.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.2. An example of a program with pointers.</B></LH></UL>
+
+<PRE>int i;
+
+int *ptr;
+
+i=5;
+
+ptr = &amp;i;
+
+printf(&quot;%d %x %d\n&quot;, i,ptr,*ptr);
+
+output is: 5 f7fffa6c 5</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A pointer is just a memory address and will tell you the address of any variable.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>There is no specific type for a string. An array of characters is used to represent strings. They can be printed using an %s flag, instead of %c.
+
+<BR></P>
+
+<P>Simple output is created by the printf function. printf takes a format string and the list of arguments to be printed. A complete set of format options is presented in Table 17.1. Format options can be modified with sizes. Check the documentation for 
+the full specification.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 17.1. Format conversions for </B><B>printf</B><B>.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Conversion</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>%%</P>
+
+<TD>
+
+<P>Percentage sign</P>
+
+<TR>
+
+<TD>
+
+<P>%E</P>
+
+<TD>
+
+<P>Double (scientific notation)</P>
+
+<TR>
+
+<TD>
+
+<P>%G</P>
+
+<TD>
+
+<P>Double (format depends on value)</P>
+
+<TR>
+
+<TD>
+
+<P>%X</P>
+
+<TD>
+
+<P>Hexadecimal (letters are capitalized)</P>
+
+<TR>
+
+<TD>
+
+<P>%c</P>
+
+<TD>
+
+<P>Single character</P>
+
+<TR>
+
+<TD>
+
+<P>%d</P>
+
+<TD>
+
+<P>Integer</P>
+
+<TR>
+
+<TD>
+
+<P>%e</P>
+
+<TD>
+
+<P>Double (scientific notation)</P>
+
+<TR>
+
+<TD>
+
+<P>%f</P>
+
+<TD>
+
+<P>Double of the form mmm.ddd</P>
+
+<TR>
+
+<TD>
+
+<P>%g</P>
+
+<TD>
+
+<P>Double (format depends on value)</P>
+
+<TR>
+
+<TD>
+
+<P>%i</P>
+
+<TD>
+
+<P>Integer</P>
+
+<TR>
+
+<TD>
+
+<P>%ld</P>
+
+<TD>
+
+<P>Long integer</P>
+
+<TR>
+
+<TD>
+
+<P>%n</P>
+
+<TD>
+
+<P>Count of characters written in current printf</P>
+
+<TR>
+
+<TD>
+
+<P>%o</P>
+
+<TD>
+
+<P>Octal</P>
+
+<TR>
+
+<TD>
+
+<P>%p</P>
+
+<TD>
+
+<P>Print as a pointer</P>
+
+<TR>
+
+<TD>
+
+<P>%s</P>
+
+<TD>
+
+<P>Character pointer (string)</P>
+
+<TR>
+
+<TD>
+
+<P>%u</P>
+
+<TD>
+
+<P>Unsigned integer</P>
+
+<TR>
+
+<TD>
+
+<P>%x</P>
+
+<TD>
+
+<P>Hexadecimal</P></TABLE>
+
+<P>Some characters cannot be included easily in a program. New lines, for example, require a special escape sequence, because there cannot be an unescaped newline in a string. Table 17.2 contains a complete list of escape sequences.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 17.2. Escape characters for strings.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Escape Sequence</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>\&quot;</P>
+
+<TD>
+
+<P>Double quote</P>
+
+<TR>
+
+<TD>
+
+<P>\'</P>
+
+<TD>
+
+<P>Single quote</P>
+
+<TR>
+
+<TD>
+
+<P>\?</P>
+
+<TD>
+
+<P>Question mark</P>
+
+<TR>
+
+<TD>
+
+<P>\\</P>
+
+<TD>
+
+<P>Backslash</P>
+
+<TR>
+
+<TD>
+
+<P>\a</P>
+
+<TD>
+
+<P>Audible bell</P>
+
+<TR>
+
+<TD>
+
+<P>\b</P>
+
+<TD>
+
+<P>Backspace</P>
+
+<TR>
+
+<TD>
+
+<P>\f</P>
+
+<TD>
+
+<P>Form feed (new page)</P>
+
+<TR>
+
+<TD>
+
+<P>\n</P>
+
+<TD>
+
+<P>New line</P>
+
+<TR>
+
+<TD>
+
+<P>\ooo</P>
+
+<TD>
+
+<P>Octal number</P>
+
+<TR>
+
+<TD>
+
+<P>\r</P>
+
+<TD>
+
+<P>Carriage return</P>
+
+<TR>
+
+<TD>
+
+<P>\t</P>
+
+<TD>
+
+<P>Horizontal tab</P>
+
+<TR>
+
+<TD>
+
+<P>\v</P>
+
+<TD>
+
+<P>Vertical tab</P>
+
+<TR>
+
+<TD>
+
+<P>\xhh</P>
+
+<TD>
+
+<P>Hexadecimal number</P></TABLE>
+
+<P>A full program is compilation of statements. Statements are separated by semicolons. They can be grouped in blocks of statements surrounded by curly braces. The simplest statement is an assignment. A variable on the left side is assigned the value of an 
+
+expression on the right.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Expressions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>At the heart of the C programming language are expressions. These are techniques to combine simple values into new values. There are three basic types of expressions: comparison, numerical, and bitwise expressions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Comparison Expressions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The simplest expression is a comparison. A comparison evaluates to a TRUE or a FALSE value. In C, TRUE is a non-zero value, and FALSE is a zero value. Table 17.3 contains a list of comparison operators.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 17.3. Comparison operators.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>&lt;</P>
+
+<TD>
+
+<P>Less than</P>
+
+<TD>
+
+<P>&gt;=</P>
+
+<TD>
+
+<P>Greater than or equal to</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;</P>
+
+<TD>
+
+<P>Greater than</P>
+
+<TD>
+
+<P>||</P>
+
+<TD>
+
+<P>Or</P>
+
+<TR>
+
+<TD>
+
+<P>==</P>
+
+<TD>
+
+<P>Equal to</P>
+
+<TD>
+
+<P>&amp;&amp;</P>
+
+<TD>
+
+<P>And</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;=</P>
+
+<TD>
+
+<P>Less than or equal to</P>
+
+<TD><BR>
+
+<TD><BR></TABLE>
+
+<P>Expressions can be built by combining simple comparisons with ANDs and ORs to make complex expressions. Consider the definition of a leap year. In words, it is any year divisible by 4, except a year divisible by 100 unless that year is divisible by 400. 
+
+If year is the variable, a leap year can be defined with this expression.
+
+<BR></P>
+
+<PRE>((((year%4)==0)&amp;&amp;((year%100)!=0))||((year%400)==0))</PRE>
+
+<P>On first inspection, this code might look complicated, but it isn't. The parentheses group the simple expressions with the ANDs and ORs to make a complex expression.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Mathematical Expressions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>One convenient aspect of C is that expressions can be treated as mathematical values, and mathematical statements can be used in expressions. In fact, any statement&#151;even a simple assignment&#151;has values that can be used in other places as an 
+expression.
+
+<BR></P>
+
+<P>The mathematics of C is straightforward. Barring parenthetical groupings, multiplication and division have higher precedence than addition and subtraction. The operators are standard. They are listed in Table 17.4.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 17.4. Mathematical operators.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>+</P>
+
+<TD>
+
+<P>Addition</P>
+
+<TD>
+
+<P>/</P>
+
+<TD>
+
+<P>Division</P>
+
+<TR>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>Subtraction</P>
+
+<TD>
+
+<P>%</P>
+
+<TD>
+
+<P>Integer remainder</P>
+
+<TR>
+
+<TD>
+
+<P>*</P>
+
+<TD>
+
+<P>Multiplication</P>
+
+<TD>
+
+<P>^</P>
+
+<TD>
+
+<P>Exponentiation</P></TABLE>
+
+<P>There are also unary operators, which effect a single variable. These are ++ (increment by one) and &#151; (decrement by one). These shorthand versions are quite useful.
+
+<BR></P>
+
+<P>There are also shorthands for situations in which you want to change the value of a variable. For example, if you want to add an expression to a variable called a and assign the new value to a, the shorthand a+=expr is the same as a=a+expr. The 
+expression can be as complex or as simple as required.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Most UNIX functions take advantage of the truth values and return 0 for success. This enables a programmer to write code such as
+
+<BR>
+
+<BR>if (function())
+
+<BR>        {
+
+<BR>        error condition
+
+<BR>        }
+
+<BR>
+
+<BR>The return value of a function determines whether the function worked.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Bitwise Operations</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Because a variable is just a string of bits, many operations work on those bit patterns. Table 17.5 lists the bit operators.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 17.5. Bit operators.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>&amp;</P>
+
+<TD>
+
+<P>Logical AND</P>
+
+<TD>
+
+<P>&lt;&lt;</P>
+
+<TD>
+
+<P>Bit shift left</P>
+
+<TR>
+
+<TD>
+
+<P>|</P>
+
+<TD>
+
+<P>Logical OR</P>
+
+<TD>
+
+<P>&gt;&gt;</P>
+
+<TD>
+
+<P>Bit shift right</P></TABLE>
+
+<P>A logical AND compares the individual bits in place. If both are 1, the value 1 is assigned to the expression. Otherwise, 0 is assigned. For a logical OR, 1 is assigned if either value is a 1. Bit shift operations move the bits a number of positions to 
+
+the right or left. Mathematically, this is the same as multiplying or dividing by 2, but circumstances exist where the bit shift is preferred.
+
+<BR></P>
+
+<P>Bit operations are often used for masking values and for comparisons. A simple way to determine whether a value is odd or even is to perform a logical AND with the integer value 1. If it is TRUE, the number is odd.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Statement Controls</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>With what you've seen so far, you can create a list of statements that are executed only once, after which the program terminates. To control the flow of commands, three types of loops exist in C. The simplest is the while loop. The syntax is
+
+<BR></P>
+
+<PRE>while (expression)
+
+       statement</PRE>
+
+<P>So long as the expression between parentheses evaluates as non-zero&#151;or TRUE in C&#151;the statement is executed. The statement actually can be a list of statements blocked off with curly braces. If the expression evaluates to zero the first time it 
+
+is reached, the statement is never executed. To force at least one execution of the statement, use a do loop. The syntax for a do loop is
+
+<BR></P>
+
+<PRE>do
+
+        statement
+
+        while (expression);</PRE>
+
+<P>The third type of control flow is the for loop. This is more complicated. The syntax is
+
+<BR></P>
+
+<PRE>for(expr1;expr2;expr3) statement</PRE>
+
+<P>When the expression is reached for the first time, expr1 is evaluated. Next, expr2 is evaluated. If expr2 is non-zero, the statement is executed, followed by expr3. Then, expr2 is tested again, followed by the statement and expr3, until expr2 evaluates 
+
+to zero. Strictly speaking, this is a notational convenience, for a while loop can be structured to perform the same actions. For example,
+
+<BR></P>
+
+<PRE>expr1;
+
+while (expr2) {
+
+        statement;
+
+        expr3
+
+        }</PRE>
+
+<P>Loops can be interrupted in three ways. A break statement terminates execution in a loop and exits it. continue terminates the current iteration and retests the loop before possibly re-executing the statement. For an unconventional exit, you can use 
+goto. goto changes the program's execution to a labelled statement. According to many programmers, goto is poor programming practice, and you should avoid using it.
+
+<BR></P>
+
+<P>Statements can also be executed conditionally. Again, there are three different formats for statement execution. The simplest is an if statement. The syntax is
+
+<BR></P>
+
+<PRE>if (expr) statement</PRE>
+
+<P>If the expression expr evaluates to non-zero, the statement is executed. You can expand this with an else, the second type of conditional execution. The syntax for else is
+
+<BR></P>
+
+<PRE>if (expr) statement else statement</PRE>
+
+<P>If the expression evaluates to zero, the second statement is executed.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The second statement in an else condition can be another if statement. This situation might cause the grammar to be indeterminant if the structure
+
+<BR>
+
+<BR>if (expr) if (expr) statment else statement
+
+<BR>
+
+<BR>is not parsed cleanly.
+
+<BR>
+
+<BR>As the code is written, the else is considered applicable to the second if. To make it applicable with the first if, surround the second if statement with curly braces. For example:
+
+<BR>
+
+<BR>$ if (expr) {if (expr) statement} else statement
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The third type of conditional execution is more complicated. The switch statement first evaluates an expression. Then it looks down a series of case statements to find a label that matches the expression's value and executes the statements following the 
+
+label. A special label default exists if no other conditions are met. If you want only a set of statements executed for each label, you must use the break statement to leave the switch statement.
+
+<BR></P>
+
+<P>This covers the simplest building blocks of a C program. You can add more power by using functions and by declaring complex data types.
+
+<BR></P>
+
+<P>If your program requires different pieces of data to be grouped on a consistent basis, you can group them into structures. Listing 17.3 shows a structure for a California driver's license. Note that it includes integer, character, and character array 
+(string) types.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.3. An example of a structure.</B></LH></UL>
+
+<PRE>struct license {
+
+        char name[128];
+
+        char address[3][128];
+
+        int zipcode;
+
+        int height, weight,month, day, year;
+
+        char license_letter;
+
+        int license_number;
+
+        };
+
+struct license licensee;
+
+struct license *user;</PRE>
+
+<P>Since California driver's license numbers consist of a single character followed by a seven digit number, the license ID is broken into two components. Similarly, the licensee's address is broken into three lines, represented by three arrays of 128 
+characters.
+
+<BR></P>
+
+<P>Accessing individual fields of a structure requires two different techniques. To read a member of a locally defined structure, you append a dot to the variable, then the field name. For example:
+
+<BR></P>
+
+<PRE>licensee.zipcode=94404;</PRE>
+
+<P>To use a pointer, to the structure, you need -&gt; to point to the member:
+
+<BR></P>
+
+<PRE>user-&gt;zipcode=94404;</PRE>
+
+<P>Interestingly, if the structure pointer is incremented, the address is increased not by 1, but by the size of the structure.
+
+<BR></P>
+
+<P>Functions are an easy way to group statements and to give them a name. These are usually related statements that perform repetitive tasks such as I/O. printf, described above, is a function. It is provided with the standard C library. Listing 17.4 
+illustrates a function definition, a function call, and a function.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The three-dot ellipsis simply means that some lines of sample code are not shown here, in order to save space.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LH><B>Listing 17.4. An example of a function.</B></LH></UL>
+
+<PRE>int swapandmin( int *, int *);        /* Function declaration */
+
+...
+
+int i,j,lower;
+
+i=2; j=4;
+
+lower=swapandmin(&amp;i, &amp;j);            /* Function call */
+
+...
+
+int swapandmin(int *a,int *b)        /* Function definition */
+
+{
+
+int tmp;
+
+tmp=(*a);
+
+(*a)=(*b);
+
+(*b)=tmp;
+
+if ((*a)&lt;(*b)) return(*a);
+
+return(*b);
+
+}</PRE>
+
+<P>ANSI C and K&amp;R differ most in function declarations and calls. ANSI requires that function arguments be prototyped when the function is declared. K&amp;R required only the name and the type of the returned value. The declaration in Listing 17.4 
+states that a function swapandmin will take two pointers to integers as arguments and that it will return an integer. The function call takes the addresses of two integers and sets the variable named lower with the return value of the function.
+
+<BR></P>
+
+<P>When a function is called from a C program, the values of the arguments are passed to the function. Therefore, if any of the arguments will be changed for the calling function, you can't pass only the variable&#151;you must pass the address, too. 
+Likewise, to change the value of the argument in the calling routine of the function, you must assign the new value to the address.
+
+<BR></P>
+
+<P>In the function in Listing 17.4, the value pointed to by a is assigned to the tmp variable. b is assigned to a, and tmp is assigned to b. *a is used instead of a to ensure that the change is reflected in the calling routine. Finally, the values of *a 
+and *b are compared, and the lower of the two is returned.
+
+<BR></P>
+
+<P>If you included the line
+
+<BR></P>
+
+<PRE>printf(&quot;%d %d %d&quot;,lower,i,j);</PRE>
+
+<P>after the function call, you would see 2 4 2 on the output.
+
+<BR></P>
+
+<P>This sample function is quite simple, and it is ideal for a macro. A macro is a technique used to replace a token with different text. You can use macros to make code more readable. For example, you might use EOF instead of (-1) to indicate the end of a 
+
+file. You can also use macros to replace code. Listing 17.5 is the same as Listing 17.4 except that it uses macros.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.5. An example of macros.</B></LH></UL>
+
+<PRE>#define SWAP(X,Y) {int tmp; tmp=X; X=Y; Y=tmp; }
+
+#define MIN(X,Y) ((X&lt;Y) ? X : Y )
+
+...
+
+int i,j,lower;
+
+i=2; j=4;
+
+SWAP(i,j);
+
+lower=MIN(i,j);</PRE>
+
+<P>When a C program is compiled, macro replacement is one of the first steps performed. Listing 17.6 illustrates the result of the replacement.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.6. An example of macro replacement.</B></LH></UL>
+
+<PRE>int i,j,lower;
+
+i=2; j=4;
+
+{int tmp; tmp=i; i=j; j=tmp; };
+
+lower= ((i&lt;j) ? i : j );</PRE>
+
+<P>The macros make the code easier to read and understand.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Creating a Simple Program</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>For your first program, write a program that prints a chart of the first ten integers and their squares, cubes, and square roots.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Writing the Code</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Using the text editor of your choice, enter all the code in Listing 17.7 and save it in a file called sample.c.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.7. Source code for </B><B>sample.c</B><B>.</B></LH></UL>
+
+<PRE>#include &lt;stdio.h&gt;
+
+#include &lt;math.h&gt;
+
+main()
+
+{
+
+int i;
+
+double a;
+
+for(i=1;i&lt;11;i++)
+
+        {
+
+        a=i*1.0;
+
+        printf(&quot;%2d. %3d %4d %7.5f\n&quot;,i,i*i,i*i*i,sqrt);
+
+        }
+
+}</PRE>
+
+<P>The first two lines are header files. The stdio.h file provides the function definitions and structures associated with the C input and output libraries. The math.h file includes the definitions of mathematical library functions. You need it for the 
+square root function.
+
+<BR></P>
+
+<P>The main loop is the only function that you need to write for this example. It takes no arguments. You define two variables. One is the integer i, and the other is a double-precision floating point number called a. You wouldn't have to use a, but you 
+can for the sake of convenience.
+
+<BR></P>
+
+<P>The program is a simple for loop that starts at 1 and ends at 11. It increments i by 1 each time through. When i equals 11, the for loop stops executing. You could have also written i&lt;=10, because the expressions have the same meaning.
+
+<BR></P>
+
+<P>First, you multiply i by 1.0 and assign the product to a. A simple assignment would also work, but the multiplication reminds you that you are converting the value to a double-precision floating point number.
+
+<BR></P>
+
+<P>Next, you call the print function. The format string includes three integers of widths 2, 3, and 4. After the first integer is printed, you print a period. After the first integer is printed, you print a floating point number that is seven characters 
+wide with five digits following the decimal point. The arguments after the format string show that you print the integer, the square of the integer, the cube of the integer, and the square root of the integer.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Compiling the Program</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To compile this program using the C compiler, enter the following command:
+
+<BR></P>
+
+<PRE>cc sample.c -lm</PRE>
+
+<P>This command produces an output file called a.out. This is the simplest use of the C compiler. It is one of the most powerful and flexible commands on a UNIX system.
+
+<BR></P>
+
+<P>A number of different flags can change the compiler's output. These flags are often dependent on the system or compiler. Some flags are common to all C compilers. These are described in the following paragraphs.
+
+<BR></P>
+
+<P>The -o flag tells the compiler to write the output to the file named after the flag. The cc -o sample sample.c command would put the program in a file named sample.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The output discussed here is the compiler's output, not the sample program. Compiler output is usually the program, and in every example here, it is an executable program.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The -g flag tells the compiler to keep the symbol table (the data used by a program to associate variable names with memory locations), which is necessary for debuggers. Its opposite is the -O flag, which tells the compiler to optimize the 
+code&#151;that is, to make it more efficient. You can change the search path for header files with the -I flag, and you can add libraries with the -l and -L flags.
+
+<BR></P>
+
+<P>The compilation process takes place in several steps.
+
+<BR></P>
+
+<OL>
+
+<LI>First, the C preprocessor parses the file. To parse the file, it sequentially reads the lines, includes header files, and performs macro replacement.
+
+<BR>
+
+<BR></LI>
+
+<LI>The compiler parses the modified code for correct syntax. This builds a symbol table and creates an intermediate object format. Most symbols have specific memory addresses assigned, although symbols defined in other modules, such as external variables, 
+
+do not.
+
+<BR>
+
+<BR></LI>
+
+<LI>The last compilation stage, linking, ties together different files and libraries and links the files by resolving the symbols that have not been resolved yet.
+
+<BR>
+
+<BR></LI></OL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Executing the Program</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The output from this program appears in Listing 17.8.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.8. Output from the </B><B>sample.c</B><B> program.</B></LH></UL>
+
+<PRE>$ sample.c
+
+ 1.   1    1 1.00000
+
+ 2.   4    8 1.41421
+
+ 3.   9   27 1.73205
+
+ 4.  16   64 2.00000
+
+ 5.  25  125 2.23607
+
+ 6.  36  216 2.44949
+
+ 7.  49  343 2.64575
+
+ 8.  64  512 2.82843
+
+ 9.  81  729 3.00000
+
+10. 100 1000 3.16228</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To execute a program, just type its name at a shell prompt. The output will immediately follow.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Building Large Applications</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>C programs can be broken into any number of files, so long as no function spans more than one file. To compile this program, you compile each source file into an intermediate object before you link all the objects into a single executable. The -c flag 
+tells the compiler to stop at this stage. During the link stage, all the object files should be listed on the command line. Object files are identified by the .o suffix.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Making Libraries with </B><B><I>ar</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If several different programs use the same functions, they can be combined in a single library archive. The ar command is used to build a library. When this library is included on the compile line, the archive is searched to resolve any external 
+symbols. Listing 17.9 shows an example of building and using a library.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.9. Building a large application.</B></LH></UL>
+
+<PRE>cc -c sine.c
+
+cc -c cosine.c
+
+cc -c tangent.c
+
+ar c libtrig.a sine.o cosine.o tangent.o
+
+cc -c mainprog.c
+
+cc -o mainprog mainprog.o libtrig.a</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Building Large Applications with </B><B><I>make</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Of course, managing the process of compiling large applications can be difficult. UNIX provides a tool that takes care of this for you. make looks for a makefile, which includes directions for building the application.
+
+<BR></P>
+
+<P>You can think of the makefile as being its own programming language. The syntax is
+
+<BR></P>
+
+<PRE>target: dependencies
+
+        Commandlist</PRE>
+
+<P>Dependencies can be targets declared elsewhere in the makefile, and they can have their own dependencies. When a make command is issued, the target on the command line is checked; if no targets are specified on the command line, the first target listed 
+
+in the file is checked.
+
+<BR></P>
+
+<P>When make tries to build a target, first the dependencies list is checked. If any of them requires rebuilding, it is rebuilt. Then, the command list specified for the target itself is executed.
+
+<BR></P>
+
+<P>make has its own set of default rules, which are executed if no other rules are specified. One rule specifies that an object is created from a C source file using $(cc) $(CFLAGS) -c (source file). CFLAGS is a special variable; a list of flags that will 
+
+be used with each compilation can be stored there. These flags can be specified in the makefile, on the make command line, or in an environment variable. make checks the dependencies to determine whether a file needs to be made. It uses the mtime field of 
+
+a file's status. If the file has been modified more recently than the target, the target is remade.
+
+<BR></P>
+
+<P>Listing 17.10 shows an example of a makefile.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.10. An example of a </B><B>makefile</B><B>.</B></LH></UL>
+
+<PRE>CFLAGS= -g
+
+igfl: igfl.o igflsubs.o
+
+        cc -g -o igfl igfl.o igflsubs.o -lm
+
+igflsubs.o: igfl.h
+
+clean:
+
+        rm -f *.o</PRE>
+
+<P>Listing 17.10 uses several targets to make a single executable called igfl. The two C files are compiled into objects by implicit rules. Only igflsubs.o is dependent on a file, igfl.h. If igfl.h has been modified more recently than igflsubs.o, a new 
+igfl.o is compiled.
+
+<BR></P>
+
+<P>Note that there is a target called clean. Because there are no dependencies, the command is always executed when clean is specified. This command removes all the intermediate files. Listing 17.11 shows the output of make when it is executed for the 
+first time.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 17.11. Output of </B><B>make</B><B>.</B></LH></UL>
+
+<PRE>cc -g  -target sun4 -c  igfl.c
+
+cc -g  -target sun4 -c  igflsubs.c
+
+cc -g -o igfl igfl.o igflsubs.o -lm</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=4><B>Debugging Tools</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Debugging is a science and an art unto itself. Sometimes, the simplest tool&#151;the code listing&#151;is best. At other times, however, you need to use other tools. Three of these tools are lint, prof, and sdb. Other available tools include escape, 
+cxref, and cb. Many UNIX commands have debugging uses.
+
+<BR></P>
+
+<P>lint is a command that examines source code for possible problems. The code might meet the standards for C and compile cleanly, but it might not execute correctly. Two things checked by lint are type mismatches and incorrect argument counts on function 
+
+calls. lint uses the C preprocessor, so you can use similar command-like options as you would use for cc.
+
+<BR></P>
+
+<P>The prof command is used to study where a program is spending its time. If a program is compiled and linked with -p as a flag, when it executes, a mon.out file is created with data on how often each function is called and how much time is spent in each 
+
+function. This data is parsed and displayed with prof. An analysis of the output generated by prof helps you determine where performance bottlenecks occur. Although optimizing compilers can speed your programs, this analysis significantly improves program 
+
+performance.
+
+<BR></P>
+
+<P>The third tool is sdb&#151;a symbolic debugger. When a program is compiled with -g, the symbol tables are retained, and a symbolic debugger can be used to track program bugs. The basic technique is to invoke sdb after a core dump and get a stack trace. 
+
+This indicates the source line where the core dump occurred and the functions that were called to reach that line. Often, this is enough to identify the problem. It is not the limit of sdb, though.
+
+<BR></P>
+
+<P>sdb also provides an environment for debugging programs interactively. Invoking sdb with a program enables you to set breakpoints, examine variable values, and monitor variables. If you suspect a problem near a line of code, you can set a breakpoint at 
+
+that line and run the program. When the line is reached, execution is interrupted. You can check variable values, examine the stack trace, and observe the program's environment. You can single-step through the program, checking values. You can resume 
+execution at any point. By using breakpoints, you can discover many of the bugs in your code that you've missed.
+
+<BR></P>
+
+<P>cpp is another tool that can be used to debug programs. It will perform macro replacements, include headers, and parse the code. The output is the actual module to be compiled. Normally, though, cpp is never executed by the programmer directly. Instead 
+
+it is invoked through cc with either a -E or -P option. -E will put the output directly to the terminal; -P will make a file with a .i suffix.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter, we've discussed the basics of the C language: building C programs, running them, and debugging them. While this overview isn't enough to make you an expert C programmer, you can now understand how programmers develop their products. You 
+
+should also be able to read a C program and know what the program is doing.
+
+<BR></P>
+
+<P><A HREF="unx16.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx16.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt4au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt4au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

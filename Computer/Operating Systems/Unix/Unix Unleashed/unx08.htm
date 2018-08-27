@@ -1,0 +1,2348 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx08.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx09.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx09.htm">
+
+<LINK REL="Previous" HREF="unx07.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx07.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx07.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx07.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx09.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx09.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">8</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Getting Around the Network</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">By Rachel and Robert Sartin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">What Is a Network?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">UUCP&#151;The Basic Networking Utilities</A></LI>
+
+<LI>
+
+<A HREF="#I7">TCP/IP&#151;LAN, WAN, and the Internet</A></LI>
+
+<LI>
+
+<A HREF="#I8">Names and Addresses</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">What's in a Name?</A></LI>
+
+<LI>
+
+<A HREF="#I10">Using Shorter Names</A></LI>
+
+<LI>
+
+<A HREF="#I11">Decoding Addresses and Ports</A></LI>
+
+<LI>
+
+<A HREF="#I12">Converting Names to Addresses</A></LI>
+
+<LI>
+
+<A HREF="#I13">A Brief Introduction to NIS</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I14">I'm on the Wire&#151;rlogin, telnet, cu</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">Before Using rlogin, rsh, and rcp</A></LI>
+
+<LI>
+
+<A HREF="#I16">Using rlogin</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">Establishing an rlogin Connection</A></LI>
+
+<LI>
+
+<A HREF="#I18">Failed Connect</A></LI>
+
+<LI>
+
+<A HREF="#I19">Using the Remote Login Session</A></LI>
+
+<LI>
+
+<A HREF="#I20">Using the Escape Character</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Using Telnet</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">open</A></LI>
+
+<LI>
+
+<A HREF="#I23">close</A></LI>
+
+<LI>
+
+<A HREF="#I24">quit</A></LI>
+
+<LI>
+
+<A HREF="#I25">set</A></LI>
+
+<LI>
+
+<A HREF="#I26">?</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">Before Using cu</A></LI>
+
+<LI>
+
+<A HREF="#I28">Using cu</A></LI></UL>
+
+<LI>
+
+<A HREF="#I29">Transferring Files&#151;rcp, ftp, uucp</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I30">Using rcp</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I31">Specifying a Remote File</A></LI>
+
+<LI>
+
+<A HREF="#I32">Understanding the rcp Command Line Syntax</A></LI></UL>
+
+<LI>
+
+<A HREF="#I33">Using ftp</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I34">Connection-Related Commands</A></LI>
+
+<LI>
+
+<A HREF="#I35">File Transfer&#151;Related Commands</A></LI>
+
+<LI>
+
+<A HREF="#I36">File- and Directory-Management Commands</A></LI>
+
+<LI>
+
+<A HREF="#I37">Miscellaneous Commands</A></LI>
+
+<LI>
+
+<A HREF="#I38">Configuring with .netrc</A></LI>
+
+<LI>
+
+<A HREF="#I39">Anonymous ftp</A></LI></UL>
+
+<LI>
+
+<A HREF="#I40">Using uucp, uuto, and uupick</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I41">uucp</A></LI>
+
+<LI>
+
+<A HREF="#I42">uuto and uupick</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I43">Other Networking Services</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I44">archie</A></LI>
+
+<LI>
+
+<A HREF="#I45">gopher</A></LI>
+
+<LI>
+
+<A HREF="#I46">WorldWide Web</A></LI></UL>
+
+<LI>
+
+<A HREF="#I47">Troubleshooting TCP/IP</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I48">nslookup to Check Address Mapping</A></LI>
+
+<LI>
+
+<A HREF="#I49">Is There Anybody Out There? (ping)</A></LI></UL>
+
+<LI>
+
+<A HREF="#I50">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>8</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Getting Around the Network</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B>By Rachel and Robert Sartin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The &quot;information superhighway&quot; has received a lot of attention recently. Much of this &quot;network of the future&quot; is with us today. This chapter introduces you to the basic UNIX software that is used today to connect hundreds of 
+thousands of machines together in the Internet and USENET.
+
+<BR></P>
+
+<P>Connecting machines in a network gives you even more computing and information resources than you can get from simply having a computer at your desk or in your computing center. With a network of machines connected together, you will be able to share 
+data files with co-workers, send electronic mail, play multiuser games with people from all over the world, read USENET news articles, contribute to worldwide discussions, perform searches for software or information you need, and much more. In this 
+chapter you will learn about the two most common ways to connect UNIX machines together in a network: UUCP and TCP/IP. On this simple base exists a worldwide network of machines and services that has the potential to greatly increase your productivity. By 
+
+learning to use these services effectively, you will open the door to new possibilities using your computer. This chapter only begins to probe the extent of available software and resources. Please refer to the Sams Publishing book Internet Unleashed for 
+even more information on this topic.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>What Is a Network?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A network is a system of two or more computers connected to one another. In this chapter you will learn about some of the common ways to network UNIX machines together. At the simplest end of the scale, a network can be two UNIX machines connected to 
+each other using a serial line (typically through a modem) and running UUCP, the UNIX-to-UNIX Copy Program. More complicated network configurations run TCP/IP, the Transfer Control Protocol/Internet Protocol, the common name for the protocol family used on 
+
+the Internet, a collection of networks that allows you to connect your computer to hundreds of thousands of other computers.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>UUCP&#151;The Basic Networking Utilities</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Early in the history of UNIX, it became apparent that it would be advantageous to connect UNIX machines so that they could share some resources. One of the attempts to connect machines together resulted in the UUCP protocol, which allows you to connect 
+
+two UNIX machines to each other using a serial line (often with a modem attached). The primary focus of UUCP is to allow files to be copied between two UNIX machines, but there are services built on top of UUCP that allow execution of certain commands, 
+such as news and mail commands, thus enabling more sophisticated processing. You can use UUCP to send electronic mail between two UNIX machines and to transmit and receive USENET news articles. The most common release of UUCP available now is often called 
+
+either BNU, the Basic Networking Utilities&#151;the System V version of UUCP, or HoneyDanBer (HDB). There are other freely available and commercial implementations of UUCP. Although UUCP originated on UNIX and was designed specifically for copying between 
+
+UNIX machines, there are now versions of UUCP that run on MS-DOS and other platforms.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Just in case your UNIX machine does not include UUCP, there is a freely available version of UUCP (Taylor UUCP) on the CD-ROM. You can build this version on your UNIX machine and it will interoperate 
+
+with HDB UUCP.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>TCP/IP&#151;LAN, WAN, and the Internet</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the 1970s, the United States Department of Defense began a research program called DARPA, the Defense Advanced Research Projects Administration. One of the efforts of DARPA was to create an Internet, an interconnected set of networks, that would 
+allow research labs across the country to interact. This network was called the ARPAnet and the protocol that ran the interconnections was and is called IP, or Internet Protocol. Since the original ARPAnet, internetworking has grown incredibly and there is 
+
+now a huge and difficult-to-define thing called the Internet that allows interconnections between computers all over the world. The Internet includes hundreds of thousands of machines (because of the amorphous nature of the Internet, it is difficult even 
+to get an accurate count) connected through a series of public and private networks.
+
+<BR></P>
+
+<P>The Internet Protocol allows the sending of packets between any two computers that are connected to the Internet. IP supplies only a primitive service and further levels of protocol exist that use IP to perform useful functions. Two very common 
+protocols are TCP/IP and UDP/IP. TCP/IP connects two programs in much the same way a serial line connects two computers. UDP/IP, the User Datagram Protocol/IP, supplies a simple way of sending short messages between two programs. Most interesting user 
+programs that use IP networking use TCP to create a connection, so &quot;TCP/IP&quot; is often used to refer to the interconnection protocol on the Internet.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Names and Addresses</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To use machines and resource on the network, you need to locate them. Hostnames use a hierarchical naming space that allows each hostname to be unique, without forcing it to be obscure or unpronounceable. For example, ftp.uu.net is the name of one host 
+
+on the Internet. IP itself uses Internet addresses, unique identifiers of Internet hosts, which are usually written in dot notation, four numbers (each between 0 and 255), separated by periods. For example, 192.48.96.9 is the address (as of this writing) 
+of the host ftp.uu.net, which is covered in the section &quot;Transferring Files&#151;rcp, ftp, uucp.&quot;
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>What's in a Name?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Hostnames on the Internet are a series of &quot;words&quot; separated by periods, or dots. The dots separate different parts of the name. The naming system used is called the domain naming system (DNS) because it separates responsibility for unique 
+names into administrative domains. The administrator of each domain is responsible for managing and assigning unique names within that domain. The management of the top-level or root domain, the extreme right word in a hostname, is responsible for the 
+naming conventions. The best way to understand hostnames is to start out by reading them right to left, one word at a time. See Figure 8.1 for a sketch of the hierarchical name space used in these examples.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="08unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/08unx01.gif">Figure 8.1. A tree of hostnames.</A></B>
+
+<BR></P>
+
+<P>Look at the hostname ftp.uu.net. Reading right to left, the first word is net, which means that the hostname is a network service provider; see Table 8.1 for explanations of this and other top-level names. The next word is uu. Within .net, uu belongs to 
+
+UUNET Communications, a company that supplies networking services. Elsewhere in the domain naming space, the name uu may mean something else.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 8.1. Top-level domains.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Domain</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>EDU</P>
+
+<TD>
+
+<P>Educational. Colleges and Universities.</P>
+
+<TR>
+
+<TD>
+
+<P>ORG</P>
+
+<TD>
+
+<P>Organizations. Nonprofit and not-for profit.</P>
+
+<TR>
+
+<TD>
+
+<P>NET</P>
+
+<TD>
+
+<P>Networks. Networking services providers (some under COM).</P>
+
+<TR>
+
+<TD>
+
+<P>COM</P>
+
+<TD>
+
+<P>Commercial. Businesses.</P>
+
+<TR>
+
+<TD>
+
+<P>GOV</P>
+
+<TD>
+
+<P>Government. United States government offices.</P>
+
+<TR>
+
+<TD>
+
+<P>MIL</P>
+
+<TD>
+
+<P>Military. The U.S. Armed Forces.</P>
+
+<TR>
+
+<TD>
+
+<P><I>cc</I></P>
+
+<TD>
+
+<P>Countries. cc is an ISO country code.</P>
+
+<TR>
+
+<TD>
+
+<P>US</P>
+
+<TD>
+
+<P>An example of a country code. The United States.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Due in part to the history of the ARPAnet, most hosts in the United States (and some international organizations and businesses) are under EDU, ORG, NET, COM, GOV, or MIL. Many hosts in other 
+countries are under a top-level domain that is the two-character ISO country code for the country. To further confuse things, the United States has a U.S. zone that includes local organizations, primary and secondary schools, and local governments.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Look at the hostnames conch.newcastle.org and conch.austin.tx.us. The org means that the name belongs to an organization. The newcastle means that Newcastle Associates is the owner. Finally, conch is a particular host in Newcastle's network. In the 
+second name, us means the United States, tx means Texas, austin means the city Austin, and conch is a particular hostname. Note that the two machines are completely different machines with different owners. They happen to share one component of their name, 
+
+but that is not a problem because of the hierarchical namespace presented by DNS. 
+
+<BR></P>
+
+<P>In fact, there are many repetitions of names. There are many machines on the Internet that have ftp as the first part of their domain names, and many that have www as the first part of their names. The advantage of using the DNS is that these 
+repetitions are not in conflict. It has been said about names that &quot;all the good ones are taken,&quot; but the DNS allows you to reuse some of the good ones in a different context. Try using Figure 8.1 to figure out these hostnames:
+
+<BR></P>
+
+<PRE>ftp.x.org
+
+ftp.uu.net
+
+ftp.newcastle.org
+
+rs.internic.net
+
+utc.univ-coop.austin.tx.us</PRE>
+
+<P>Notice that utc.univ-coop.austin.tx.us has a different number of components than some of the other names you looked at. The DNS can grow by creating a deeper tree. The owner of a domain may add new domains to make it easier to add more hosts.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> In addition to having an official name, some hosts have aliases as well. The alias is simply another name for the host. For example, ftp.x.org is actually an alias for the current machine being used 
+for ftp by x.org.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Using Shorter Names</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Usually, the DNS is configured to use a search path for hostnames that don't end in a dot. This lets you use shorter names for hosts in your search path. Typically, your DNS will be configured to search your domain and then search progressively up to 
+the root domain. Check your system documentation to see if you can change the DNS search path. If you were on cnidaria.newcastle.org and used the name newcstle.net, it would try the following names, matching the first one that exists:
+
+<BR></P>
+
+<UL>
+
+<LI>newcstle.net.newcastle.org
+
+<BR>
+
+<BR></LI>
+
+<LI>newcstle.net.org
+
+<BR>
+
+<BR></LI>
+
+<LI>newcstle.net
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Because of the search algorithm, you may see faster network access if you use full names ending in a dot for machines outside your local domain.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Decoding Addresses and Ports</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Although DNS names are a reasonably convenient way for humans to refer to hosts, the Internet Protocol needs to use a 32-bit Internet address to find a host on the network. For example, as of this writing the host ftp.uu.net has the Internet Address 
+192.48.96.9. Internet address are usually written using dot names, with four numbers between 0 and 255, separated by dots. Note that each of the four numbers is 8 bits, so you end up with a 32-bit Internet address.
+
+<BR></P>
+
+<P>It is not enough just to connect to the correct machine. You also need to connect to the correct program. TCP/IP and UDP/IP use ports to specify where a connection will go. In order to make a connection to a remote computer, there has to be some program 
+
+listening on the correct port. If you think of IP addresses as being like phone numbers, a port number is like an extension. Once your IP message reaches the correct machine, the port number enables it to be delivered to the correct program.
+
+<BR></P>
+
+<P>When a new protocol is adopted as a standard, it is assigned a port number that will always be used for that protocol. For example, the login protocol used to implement rlogin is assigned port 513, and telnet is assigned port 23. You can examine the 
+assignments of ports to protocols by looking at the file /etc/services on your machine. If you are running NIS (the Network Information System, formerly called the Yellow Pages), you can run the command ypcat services to look at the map.
+
+<BR></P>
+
+<P>Look at what happens when you run the command rlogin <I>remotehost</I>. If <I>remotehost</I> is willing to accept rlogin requests, there is a program waiting for connections on port 513 on <I>remotehost</I>; this program (called inetd) will handle all 
+of the work on <I>remotehost</I> that needs to be performed to allow you to use rlogin (inetd does this by handing the incoming connection to a program called rlogind, which implements the protocol). The rlogin program on your host attempts to open a 
+connection to port 513 on the <I>remotehost</I>. The program monitoring port 513 on <I>remotehost</I> will accept the connection and let your rlogin program perform the setup necessary to perform a login.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Converting Names to Addresses</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You have seen what hostnames look like and what the low-level Internet address and port numbers are, but you still need to learn how names get converted to addresses.
+
+<BR></P>
+
+<P>Hostname conversion is usually handled by the domain naming system, which, in addition to specifying what hostnames look like, specifies a protocol for translating hostnames to addresses. First look at a hostname conversion of the name ftp.x.org. When 
+your local host tries to convert the name ftp.x.org to an IP address, it contacts a nameserver, a machine that has DNS mappings loaded and is prepared to answer questions about them. Your nameserver is also configured with information about how to contact 
+
+other nameservers so it can look up names that it doesn't already know.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>A Brief Introduction to NIS</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When implementing a network, one of the common problems that arises is management of passwd and group files. Some organizations wish to have a common user and group list for all or most hosts in a network. The Network Information Service, introduced by 
+
+Sun, is one way to solve this problem. NIS allows sharing of passwd, group, and other information between hosts that share administrative control. Other (commercial and freely available) solutions to this problem exist, but none have yet become as 
+widespread as NIS.
+
+<BR></P>
+
+<P>If you are running NIS, you should use the command ypcat passwd to examine the passwd information on your system. The actual /etc/passwd file will not list all of the users who can log in to a machine running NIS. If you are using NIS to manage passwd 
+files, your password will be the same on any machine in your network that runs NIS. NIS may also be used to create an environment where you can share files transparently between systems. This is done using the network file system, NFS, which enables you to 
+
+mount a file  system from a mount computer and access it as if it were local. Some computing environments configure NIS so that your HOME is always the same directory, no matter what machine you use. This means that your files will be accessible no matter 
+
+what machine in the network you are using. Check with your system administrators to find out if NIS is running and if it is being used to handle automounting of home (and other) directories.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>I'm on the Wire&#151;</B><B>rlogin</B><B>, </B><B>telnet</B><B>, </B><B>cu</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>With the three services rlogin, telnet, and cu, you can connect to a remote computer over the network. rlogin uses the login service to connect using the TCP/IP protocol over the network, telnet uses the telnet service to connect using the TCP/IP 
+protocol over the network, and cu connects over a phone line.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Before Using </B><B>rlogin</B><B>, </B><B>rsh</B><B>, and </B><B>rcp</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before you use rlogin, some user configuration may be needed. The same configuration is used for rsh and rcp. You should refer to these details when reading the next section as well. For reference, <I>loc-host</I> is used as the local machine name and 
+<I>rem-host</I> is the name of the remote machine.
+
+<BR></P>
+
+<P>Two files on the remote machine affect your remote access ability: /etc/hosts.equiv and .rhosts in the remote user's home directory. The hosts.equiv file contains a list of hostnames. Each machine in this list is considered to be a trusted host. Any 
+user who has an account on both <I>loc-host</I> and <I>rem-host</I> is allowed to access the remote machine from the local machine without question. The &quot;without question&quot; is important and means that the user does not have to supply a password 
+for access.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>System administrators should seriously consider disabling the rlogin and rexec protocols on machines that are directly connected to the Internet since the authentication used on these protocols is very 
+
+weak. At the very least, be extremely careful about entries in /etc/hosts.equiv and any .rhosts files.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The .rhosts file in the remote user's home directory contains a list of trusted host and user pairs. This is similar to the trusted hosts of the hosts.equiv file, but gives a finer grain of control. Each entry grants trusted access to one particular 
+user on a particular host rather than to all common users on a particular host. Lines in .rhosts that name only a machine will grant access to a user with the same login name. The user on <I>loc-host</I> can access <I>rem-host</I> without question (that 
+is, without specifying a password). The user authentication is done by the protocol.
+
+<BR></P>
+
+<P>Usually only the system administrator can change the values in the /etc/hosts.equiv file. Since this file allows many users access, this is a system configuration file. But each user can set up his or her own .rhosts file. This file must live in the 
+user's home directory and be owned by the user (or by root). The ownership restrictions are security measures preventing a user from gaining access to another user's account.
+
+<BR></P>
+
+<P>Listing 8.1 and Listing 8.2 show examples of the hosts.equiv and .rhosts files. These two files are located on the machine called flounder, and the .rhosts file is owned by user rob and is located in his home directory. The two hosts listed in the 
+/etc/hosts.equiv file, manatee and dolphin, are trusted hosts to flounder. Any user with an account on manatee and flounder may remotely access flounder from manatee without specifying a password. Likewise, any user with an account on dolphin and flounder 
+
+may remotely access flounder from dolphin without specifying a password.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 8.1. /etc/hosts.equiv and $HOME/.rhosts files.</B></LH></UL>
+
+<PRE>manatee
+
+dolphin</PRE>
+
+<UL>
+
+<LH><B>Listing 8.2. </B><B>/users/rob/.rhosts</B><B> on machine </B><B>flounder</B><B>.</B></LH></UL>
+
+<PRE>french-angel
+
+rob yellowtail
+
+rob dolphin
+
+rob dolphin
+
+root dolphin
+
+diane stingray
+
+rob stingray
+
+root flying-gurnard
+
+root</PRE>
+
+<P>The .rhosts file of the user rob contains a list of users on a remote machine who may access flounder as user rob without specifying a password. That sentence packed several important points together that need expanding:
+
+<BR></P>
+
+<UL>
+
+<LI><B>The </B><B>.rhosts</B><B> file of user </B><B>rob</B><B>.</B> This implies that the machine flounder has a user account, with rob as the user name. The home directory of user rob (the example implies it is /users/rob) has a file named .rhosts that 
+is owned by rob.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Users on a remote machine who may access </B><B>flounder</B><B>.</B> Each entry in the list is a pair of names&#151;the machine name and the associated user name. This pair of names describes one particular user who may access flounder. That user 
+must be accessing flounder from the specified machine. It is not enough for the user to simply have an account on the machine; the remote access must be initiated from that machine (by that user).
+
+<BR>
+
+<BR></LI>
+
+<LI><B>As user </B><B>rob</B><B>.</B> This is probably the most subtle of all the points, so be careful here. Any of the users who are in the list may access rob's account on flounder, as rob. They &quot;become&quot; rob on flounder even if they were a 
+different user on the initiating machine. This is effectively the same as giving rob's password on machine flounder to this user. Because of this, be extremely selective about entries in your .rhosts files!
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Without specifying a password.</B> Some services (rlogin) allow for the possibility of a password prompt. If the user authentication was not successful via the equivalence files, the service is able to fall back on the prompt method of 
+authentication. So the ability to access a remote host without specifying a password may not be needed. Other services (rsh and rcp) do not have a way to prompt for a password. In order to use these services, the access must be configured so that 
+specifying a password is unnecessary.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Using Listing 8.2, for each of the following scenarios, decide if the user would be able to access flounder&#151;as rob&#151;without a password. Assume that each user has an account on the local machine in the question, as well as on flounder.
+
+<BR></P>
+
+<OL>
+
+<LI>User root on machine stingray?
+
+<BR>
+
+<BR></LI>
+
+<LI>User root on machine manatee?
+
+<BR>
+
+<BR></LI>
+
+<LI>User root on machine french-angel?
+
+<BR>
+
+<BR></LI>
+
+<LI>User frank on machine dolphin?
+
+<BR>
+
+<BR></LI>
+
+<LI>User frank on machine stingray?
+
+<BR>
+
+<BR></LI>
+
+<LI>User frank on machine tarpon?
+
+<BR>
+
+<BR></LI>
+
+<LI>User diane on machine manatee?
+
+<BR>
+
+<BR></LI>
+
+<LI>User diane on machine dolphin?
+
+<BR>
+
+<BR></LI>
+
+<LI>User diane on machine flying-gurnard?
+
+<BR>
+
+<BR></LI>
+
+<LI>User rob on machine yellowtail?
+
+<BR>
+
+<BR></LI>
+
+<LI>User rob on machine dolphin?
+
+<BR>
+
+<BR></LI>
+
+<LI>User rob on machine manatee?
+
+<BR>
+
+<BR></LI>
+
+<LI>User rob on machine flying-gurnard?
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Here are the answers:
+
+<BR></P>
+
+<OL>
+
+<LI>Yes; rob's .rhosts file has an entry stingray root.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry manatee root. However, root from manatee could access flounder&#151;as root&#151;without a password, because manatee is listed in /etc/hosts.equiv.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry french-angel root.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry dolphin frank. However, frank from dolphin could access flounder&#151;as frank&#151;without a password, because dolphin is listed in /etc/hosts.equiv.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry stingray frank.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry tarpon frank.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry manatee diane. However, diane from manatee could access flounder&#151;as diane&#151;without a password, because manatee is listed in /etc/hosts.equiv.
+
+<BR>
+
+<BR></LI>
+
+<LI>Yes; rob's .rhosts file has an entry stingray diane.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; rob's .rhosts file does not have an entry flying-gurnard diane.
+
+<BR>
+
+<BR></LI>
+
+<LI>Yes; rob's .rhosts file has an entry yellowtail rob.
+
+<BR>
+
+<BR></LI>
+
+<LI>Yes; the /etc/hosts.equiv file has an entry dolphin. Note that if the system administrator removed this entry, this answer would still be yes because of the dolphin rob entry in his .rhosts file.
+
+<BR>
+
+<BR></LI>
+
+<LI>Yes; the /etc/hosts.equiv file has an entry manatee rob.
+
+<BR>
+
+<BR></LI>
+
+<LI>No; the /etc/hosts.equiv file does not have an entry flying-gurnard nor does rob's .rhosts file have an entry flying-gurnard rob.
+
+<BR>
+
+<BR></LI></OL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Using </B><B>rlogin</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you need or wish to be logged in to a computer that is away from your current location, rlogin can help you. The rlogin application establishes a remote login session from your machine to another machine that is connected via the network. This 
+machine could be next door, next to you on your desk, or even on a different continent. When you successfully execute an rlogin from your screen, whether it is a terminal, or one window of your graphical display, the shell that prompts you and the commands 
+
+you enter are executing on the remote machine just as if you sat down in front of the machine and entered login.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Establishing an </B><B>rlogin</B><B> Connection</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The rlogin command takes a mandatory argument that specifies the remote host. Both the local and remote host must have rlogin available for a connection to be established. If this is the case, the local rlogin will connect to the specified remote 
+machine and start a login session.
+
+<BR></P>
+
+<P>During a nonremote login, the login process prompts you for two things: your user name and your password. Your user name identifies you to the computer and your password authenticates that the requester is really you. During an rlogin, the rlogin 
+protocol takes care of some (or even all) of this identification/authorization procedure for you. The rlogin protocol initiates the login session on the remote host for a particular user. By default, this user is the same as the local user (that is, you). 
+
+In this case, you never have to type in your user name. However, if you wish to log in to the remote host as a different user, you may override the default user name by using the -l option to specify a user name.
+
+<BR></P>
+
+<P>The rlogin protocol may even take care of the authentication for you. If you (or your system administrator) have made the proper entry in the /etc/hosts.equiv or your $HOME/.rhosts file, no authentication is necessary (that is, you will not be prompted 
+
+for your password). If these files do not have entries for your host and user name, a password prompt will be printed just like in a local login attempt.
+
+<BR></P>
+
+<P>Let's look at a few examples. Assume that your user name is rachel and the local machine to which you're logged in is called moray-eel. To log in as yourself on machine flounder you would enter this:
+
+<BR></P>
+
+<PRE>$rlogin flounder</PRE>
+
+<P>The connection to flounder would take place, and a login session would be initiated for user rachel (and fail if user rachel doesn't exist on flounder). Next, the rlogin protocol checks the special files to see if authentication is necessary. If 
+moray-eel is listed in the file /etc/hosts.equiv or in ~rachel/.rhosts, no authentication is needed.
+
+<BR></P>
+
+<P>To log in to flounder as user arnie you would enter rlogin -l arnie flounder.
+
+<BR></P>
+
+<P>Here the login session is initiated with the user name arnie. If user arnie exists on flounder, the special files are checked for authentication. Since the user name for the remote login is different than the local user name, the /etc/hosts.equiv file 
+does not provide authentication. If the file ~arnie/.rhosts has an entry moray-eel rachel, no authentication is necessary (that is, login succeeds without password). If this entry does not exist, the password prompt will appear and you must enter the 
+password associated with user arnie. This is not a prompt for your password.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Failed Connect</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Several things may go wrong when you try to connect to a remote machine via rlogin. Some of these are problems that are out of your control. In these instances, you should contact a system administrator to help you solve the problem.
+
+<BR></P>
+
+<P>In cases where authentication is necessary, you might enter the password incorrectly. If this happens, the result is the same as in a local login attempt. The login process lets you try again by prompting first for your user name and then your password. 
+
+Note that this is the only situation in which you must supply your user name if you're trying to rlogin as yourself.
+
+<BR></P>
+
+<P>For most other problems you will need your system administrator's help. See the section &quot;Troubleshooting&quot; for ways to identify the cause of the problem. Any details about the problem symptoms will help the person who is responsible for fixing 
+
+the problem. Some of the problems you might see are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>The user account does not exist on the remote.
+
+<BR>
+
+<BR></LI>
+
+<LI>Your local host is not connected to the remote via the network.
+
+<BR>
+
+<BR></LI>
+
+<LI>The remote host is down.
+
+<BR>
+
+<BR></LI>
+
+<LI>The remote host does not support rlogin.
+
+<BR>
+
+<BR></LI>
+
+<LI>The network between the local and remote hosts is having problems.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Using the Remote Login Session</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>After a successful remote login, the rlogin protocol initiates your session using some information from your local session. This saves you the trouble of having to initialize your environment totally from scratch. Your terminal type (the value of the 
+TERM environment variable) is propagated. Other information, such as baud rate and your screen (window) size, may also be propagated, depending on what the local and remote hosts support.
+
+<BR></P>
+
+<P>Then the login process proceeds as if you were actually directly connected to this machine. All of the information and files are taken from the remote. The remote password file contains the user account information, including the login shell to be 
+executed and the starting (HOME) directory. All shell start-up files (found on the remote) execute, which further initializes your environment. When the start-up completes, the shell prompt you see is the shell that is running on the remote host.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> In some LAN environments, the network is configured such that your HOME directory is on a remote file server that is mounted on each machine you access. In this case, you actually have just one 
+physical HOME directory, and thus just one set of dot files (for example, .login). This results in the same login environment for you on each machine. However, this makes writing your dot files a little more complicated because you need to take into 
+account all the different machines to accommodate.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Because the remote prompt and local prompt may look alike, you may wish to include <I>hostname</I> in your prompt variable (PS1). If you're ever in doubt about what host the shell prompt is coming from, 
+
+use the <I>hostname</I> command.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>When you see the remote prompt, you can enter any commands you would in a local environment. The rlogin protocol transfers input and output between the local and remote hosts. This transfer is transparent to you. Sometimes you may notice slow 
+performance, depending on the network speed and load.
+
+<BR></P>
+
+<P>During your remote session, you may want to access your local machine. You could just exit your remote session, at which point you would be back at your local prompt. But if you aren't finished using the remote, using exit followed by another rlogin, 
+possibly multiple times, is tedious. There is a better way&#151;using the escape character.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Using the Escape Character</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The rlogin protocol provides an escape character that, when typed as the first character on the command line, is treated specially. The default escape character is the tilde (~) character, but you may change this on the rlogin command line via the -e 
+option. If the character immediately following the escape character is one that the local rlogin process recognizes, it performs the function associated with this character. Otherwise the escape character (and the remaining characters) are executed on the 
+
+remote.
+
+<BR></P>
+
+<P>The ~. character sequence is the command to disconnect from remote. This is not a graceful disconnect, as in an exit. It immediately disconnects from the remote. This should only be used when, for some reason, you are unable to execute the exit command.
+
+
+
+<BR></P>
+
+<P>If the local rlogin was executed by a job-control shell (C shell or Korn shell), then you can suspend the rlogin by the escape sequence <I>~susp</I>, where <I>susp</I> is your suspend control character, usually Ctrl+Z. This is very convenient. It saves 
+
+the multiple exit followed by another rlogin sequence you would otherwise need for accessing the local machine. In a graphical user interface environment, having two windows&#151;one for the rlogin and one locally&#151;solves this problem as well.
+
+<BR></P>
+
+<P>It is possible to rlogin to one machine, then rlogin from there to another machine. You can use multiple escape characters to denote any one of the machines in this chain. As an example, say you are locally logged in to Host A. You are using a 
+job-control shell with suspend set to Ctrl+Z. From Host A, you rlogin to Host B. From there you log in to Host C. And from there you rlogin to host D. At this point, everything you enter is going all the way to D to execute. In order to reach any host in 
+the chain, just associate one escape character with each host. You must start with your local host, and then go in the same order as the rlogins. In this example, a single ~ refers to Host A, ~~ refers to Host B, ~~~ refers to Host C.
+
+<BR></P>
+
+<P>To suspend the rlogin from Host B to Host C you would type <I>~~^Z</I>. This will leave you in your original shell on Host B. In order to return to rlogin you would use the fg command as with any suspended process.
+
+<BR></P>
+
+<P>To disconnect the rlogin from Host C to Host D you would type ~~~..
+
+<BR></P>
+
+<P>One very common escape sequence, which is not supported on all platforms, is the shell escape, ~!. Typing this sequence causes the rlogin to give you a subshell on the machine that is referred to by ~. You can use multiple escape characters to denote 
+any host within a chain of rlogins. To return to the rlogin, simply exit the subshell.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> There is a difference between <I>~susp</I> and ~!. The suspend command will put rlogin in the background and let you interact with your original shell (the one from which you ran rlogin). The shell 
+escape will start a new shell as a child of rlogin. (See Figure 8.2.)
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>
+
+<BR><B><A HREF="08unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/08unx02.gif">Figure 8.2. Processes for suspend and shell </B><B>escape.</A></B>
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Using Telnet</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The telnet service is used to communicate with a remote host via the telnet protocol. Invoking telnet with the remote host as an argument causes telnet to connect to that host. The remote telnet server usually initiates a login just as you would get on 
+
+a terminal connected to the machine. After your login name and password are entered and verified, you will see the shell prompt on the remote machine. All commands and input you enter go to the remote; all output you receive comes from the remote.
+
+<BR></P>
+
+<P>If you wish to enter telnet command mode while you are connected to a remote, type the escape character. The default escape character is Ctrl+], but this can be changed via the set command. To return to the remote connection, simply execute a command. A 
+
+set command will do this. If you have nothing you want to send or set, do a send nop. The nop argument stands for no operation. 
+
+<BR></P>
+
+<P>If you enter telnet without any arguments, you will start up the telnet service in command mode. You will see a special telnet prompt (telnet&gt;). You can enter any of the telnet commands. Following is a list of some of the most common commands you 
+might use. Refer to your system's manual for telnet, for a complete list.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>open</P>
+
+<TD>
+
+<P>Connects to specified host.</P>
+
+<TR>
+
+<TD>
+
+<P>close</P>
+
+<TD>
+
+<P>Disconnects from host and returns to command mode.</P>
+
+<TR>
+
+<TD>
+
+<P>quit</P>
+
+<TD>
+
+<P>Closes the connection (if one exists) and exits telnet.</P>
+
+<TR>
+
+<TD>
+
+<P>set</P>
+
+<TD>
+
+<P>Changes the value for a given argument.</P>
+
+<TR>
+
+<TD>
+
+<P>send</P>
+
+<TD>
+
+<P>Sends a command to the remote and returns to remote connection.</P>
+
+<TR>
+
+<TD>
+
+<P>display</P>
+
+<TD>
+
+<P>Shows current setting of telnet configuration.</P>
+
+<TR>
+
+<TD>
+
+<P>status</P>
+
+<TD>
+
+<P>Shows current status of telnet connection.</P>
+
+<TR>
+
+<TD>
+
+<P>?</P>
+
+<TD>
+
+<P>Gives help.</P></TABLE>
+
+<P>The following sections look at some of these in a bit more detail.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>open</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The open command takes two parameters, host and port. The host, which is mandatory, can be a hostname or an IP address. This specifies the remote host to which a connection is to be established. This remote host must be reachable via the network and 
+must support the telnet service. The port, which is optional, specifies the port number to use in connecting to the remote host. By default, the port to which telnet connects is the well-known telnet port (23). When a connection on the remote comes in on 
+the telnet port, the remote's telnet service handles the connection. The remote telnet service assumes that the local connector wants to log in and invokes the login process on this connection. You can use this feature to do certain kinds of debugging and 
+
+troubleshooting. For example, to connect to the mail server on a machine, you could enter telnet <I>hostname</I> smtp (or replace smtp with 25 if the first doesn't work). This will connect you directly to the Simple Mail Transfer Protocol on 
+<I>hostname</I> and you can use this connection to troubleshoot mail problems. Sometimes network services are offered by telnet to a specific port number. For example, many gopher and WWW providers offer a special port for telnet access to the service.
+
+<BR></P>
+
+<P>In this default mode, a telnet open is somewhat like an rlogin. A remote login is initiated on the remote host. But the telnet protocol, unlike rlogin, does not perform any conveniences for you. It does not propagate any of your local environment. It 
+does not perform any part of the login procedure (user identification and authentication). 
+
+<BR></P>
+
+<P>If the first thing you will use telnet for is an open command, you do not need to enter telnet command mode at all. On the telnet command line, you can enter a host followed optionally by a port number. This causes telnet to immediately do an open with 
+
+the command-line arguments.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>close</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The close command terminates the open connection (if one exists). On some versions of telnet, this does not exit telnet command mode. So if you are connected to Host B but decide you really want to be connected to Host C, enter close and then enter an 
+open B command.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>quit</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The quit command should be used when you are finished using telnet. This will perform a close on the open connection (if one exists). Then it terminates the telnet service, returning you to your local shell prompt.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>set</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Telnet has several internal variables used for configuration. You can use the set command to change these values. To see the current variable values, use the display command. The telnet escape character can be changed via set.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You can set certain special characters (such as erase) with telnet, but these settings may only work if you run telnet in line mode. Line mode is often used for connecting to remote machines that have 
+line-oriented user interfaces and allows you to compose an entire line of text input before sending it to the remote (when you press return). You should probably not use line mode when connecting to a UNIX machine since interactive commands (such as vi), 
+job control, and some shell history (ksh interactive command editing) rely on receiving characters as they are typed.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The question mark (?) is a telnet command that, without arguments, gives a list of all the telnet commands. This is useful if you've forgotten the name of a command. To get help about a specific command, use ? with the command as an argument. The ? can 
+
+also be used as an argument to the set, send, and toggle commands to list the valid arguments of the command.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Before Using </B><B>cu</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before you can use cu, your system administrator will need to configure the appropriate devices and machines for UUCP access. Check your system's UUCP documentation for information on how to do this.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Using </B><B>cu</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The cu service calls up another system. This service is used only to connect two computers via phone lines. Your local host must have an outgoing modem and the remote host must have a modem that supports incoming calls.
+
+<BR></P>
+
+<P>Your system administrator may have configured the parameters necessary to call up certain systems. This configuration is kept in the file /etc/uucp/Systems. 
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The actual file depends on which version of UUCP you have. This is correct for SVR4. Since the location may vary, consider this the &quot;systems&quot; file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can enter cu <I>system-name</I> to dial the remote host. If the remote host has not been configured in the /etc/uucp/Systems file, you can specify the necessary parameters on the command line. The cu <I>phone-number</I> command will call up the 
+specified phone number. For example, cu 9=14085551212 will call using the ad device and give it the phone number 914085551212. The equals sign specifies that a pause is desired before the next digit is dialed.
+
+<BR></P>
+
+<P>You can also call up using a local device by specifying it with the -l option. You can use the -l option to specify the device to use for making the connection. This is generally used only for hardwired connections: cu -l <I>dev</I> dir will connect 
+directly to the line named dev.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=4><B>Transferring Files&#151;</B><B>rcp</B><B>, </B><B>ftp</B><B>, </B><B>uucp</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Files are the basis for everything you do in UNIX. When you execute a command (aside from Shell built-ins), the associated file contains the executing instructions. When you store or retrieve information, the data is kept in one or more files. The UNIX 
+
+interface to hardware devices is through device files. Files are pervasive. Therefore, having the necessary files within your reach is extremely important.
+
+<BR></P>
+
+<P>Sometimes files you need are not stored on your local machine. Client-server environments are designed to provide a means of sharing files among many machines. When machines on a LAN are configured to share files (via the network), many more files 
+become reachable to you. If you are using NFS, some directories on your system will be mounted from remote machines. These directories and files will be available as part of the normal UNIX file system, and you need no special techniques to access them.
+
+<BR></P>
+
+<P>Not all UNIX environments are configured this way. Even those that are may not share all file systems of all machines. Many files exist outside of a local LAN environment. In these cases, you may want to obtain a copy of a file from somewhere other than 
+
+your local environment. You could use the tools in I'm on the wire to remotely log in and access them. But if you need to execute the file locally, or wish to have your own copy of the file, you need to copy the remote file to your local system.
+
+<BR></P>
+
+<P>The next section presents several tools to do remote copies. Your local configuration, the remote configuration, the way the remote and local configurations are connected, as well as your personal preference will determine which tool you choose.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Using </B><B>rcp</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before you read this subsection, you should review the section &quot;Before Using rlogin, rsh, and rcp.&quot; For rcp to work, you must configure the remote machine(s) so that user authentication is not necessary. For each remote you access via rcp, an 
+
+entry in one or both of /etc/hosts.equiv and $HOME/.rhosts is mandatory. This is because rcp does not have a mechanism for in-process authentication (unlike rlogin).
+
+<BR></P>
+
+<P>Once the configuration is complete, you can use rcp in much the same way you use the cp command. Each command basically says to &quot;copy File A to Location B.&quot; The rcp command adds some syntax that enables you to specify remote machines and 
+users.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Specifying a Remote File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You can specify a remote file in several different ways. In general, unless a hostname is specified, the file is considered local. If the character string has a colon (:) before any slashes (/), the string before the colon specifies the remote host and 
+
+the string after the colon specifies the file path. Here are three forms of the complete remote file specification:
+
+<BR></P>
+
+<PRE>
+
+<BR>hostname:filepath
+
+
+
+<BR>user@hostname:filepath
+
+
+
+<BR>user@hostname.domain:filepath</PRE>
+
+<P>The file path in each can be an absolute path, a relative path, or blank. If it is relative, is it relative to the remote user's HOME directory. The remote user is considered the same as the local user unless explicitly included in the remote 
+specification. In the second and third forms above, the remote user is explicitly included.
+
+<BR></P>
+
+<P>If the file path is absolute, this is an absolute path on the remote system. If the file path is blank, the user's HOME directory is assumed.
+
+<BR></P>
+
+<P>The hostname can be a simple name or an alias of the remote machine, or it can be a host domain name as in the third form above.
+
+<BR></P>
+
+<P>If you wish to use a different user account on the remote machine, you can specify the remote file, including the user name. The user name must refer to an account on the remote machine, and the user's $HOME/.rhosts file must contain the proper entry 
+for your local machine.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Understanding the </B><B>rcp</B><B> Command Line Syntax</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The rcp command line is flexible; to support this flexibility, there are a few variations of the command line:
+
+<BR></P>
+
+<UL>
+
+<LI><B>rcp single-file dest</B><B>.</B> In this variation, the first argument, single-file, is a single file. This file is copied to the destination dest. If dest is an existing directory, the file dest/single-file is created. If dest is an existing file, 
+
+dest is overwritten with single-file. Otherwise the file dest is created by copying single-file. 
+
+<BR>
+
+<BR></LI>
+
+<LI><B>rcp sources dest</B><B>.</B> In this variation, the first argument, sources, is one or more files and/or directories. dest must be a directory. Only the members of sources that are files are copied to the destination dest. If dest is an existing 
+directory, the files are copied under directory dest. It is unwise to specify a dest directory that does not exist with this form of the rcp command. The results vary from system to system. See the next form for copying a single directory.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>rcp -r sources dest</B><B>.</B> By adding the option -r, the files in source as well as the directories (and all their subdirectories) are copied to dest.
+
+<BR>
+
+<BR>If sources is a single directory, it is okay to specify a destination dest that doesn't exist. The directory will be created for you. This is probably what you want. Beware of this situation, because if dest does exist, the copied directory will be 
+placed as a subdirectory of dest.
+
+<BR>
+
+<BR>If sources is multiple directories and/or files, dest must be an existing directory. If it doesn't exist, the results are not specified and differ from one UNIX system to another.
+
+<BR>
+
+<BR>Each version of the rcp command line supports an additional option, -p. This option causes rcp to preserve the modification times as well as the modes when the copy is made.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Using ftp</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The ftp service is the interface to the file transfer protocol. This service provides a connection service to a remote computer along with file manipulation functions including sending and receiving files. It also provides user authentication, unlike 
+rcp. It supports different file types.
+
+<BR></P>
+
+<P>To connect with a remote host, you can simply type ftp <I>hostname</I>. The <I>hostname</I> can either be a hostname or an Internet address. If you do not specify a remote host on the command line, you enter ftp command mode. Then you can use the open 
+command to initiate a connection.
+
+<BR></P>
+
+<P>By default, when a connection is initiated via ftp, the remote ftp server starts up the login process. You must enter a valid user name and password in order to access the remote system. Once you have been authenticated, you are connected to the remote 
+
+ftp server and it awaits your commands. 
+
+<BR></P>
+
+<P>The ftp service has a large number of commands. Several common commands are covered in Table 8.2. For complete details, refer to your system's manual for ftp.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 8.2. Common ftp service commands.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<P><B>Connection-Related Commands</B></P>
+
+<TR>
+
+<TD>
+
+<P>open</P>
+
+<TD>
+
+<P>Open a connection to specified host.</P>
+
+<TR>
+
+<TD>
+
+<P>close</P>
+
+<TD>
+
+<P>Close current open connection. </P>
+
+<TR>
+
+<TD>
+
+<P>quit</P>
+
+<TD>
+
+<P>Close current open connection and exit ftp.</P>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<P><B>File Transfer&#151;Related Commands</B></P>
+
+<TR>
+
+<TD>
+
+<P>binary</P>
+
+<TD>
+
+<P>Change the file representation type to binary.</P>
+
+<TR>
+
+<TD>
+
+<P>ascii</P>
+
+<TD>
+
+<P>Change the file representation type to ascii.</P>
+
+<TR>
+
+<TD>
+
+<P>put</P>
+
+<TD>
+
+<P>Transfer a single file from the local to the remote host.</P>
+
+<TR>
+
+<TD>
+
+<P>mput</P>
+
+<TD>
+
+<P>Transfer multiple files from the local to the remote host.</P>
+
+<TR>
+
+<TD>
+
+<P>get</P>
+
+<TD>
+
+<P>Transfer a single file from the remote to the local host.</P>
+
+<TR>
+
+<TD>
+
+<P>mget</P>
+
+<TD>
+
+<P>Transfer multiple files from the remote to the local host.</P>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<P><B>File- and Directory-Management Commands</B></P>
+
+<TR>
+
+<TD>
+
+<P>cd</P>
+
+<TD>
+
+<P>Change remote's current working directory (UNIX cd).</P>
+
+<TR>
+
+<TD>
+
+<P>lcd</P>
+
+<TD>
+
+<P>Change the local's current working directory (UNIX cd).</P>
+
+<TR>
+
+<TD>
+
+<P>cdup</P>
+
+<TD>
+
+<P>Change remote's current working directory to be the parent directory (UNIX cd ..).</P>
+
+<TR>
+
+<TD>
+
+<P>dir</P>
+
+<TD>
+
+<P>List the remote's current working directory (UNIX ls).</P>
+
+<TR>
+
+<TD>
+
+<P>pwd</P>
+
+<TD>
+
+<P>Print the remote's current working directory (UNIX pwd).</P>
+
+<TR>
+
+<TD>
+
+<P>mkdir</P>
+
+<TD>
+
+<P>Make a new directory on the remote (UNIX mkdir).</P>
+
+<TR>
+
+<TD>
+
+<P>rmdir</P>
+
+<TD>
+
+<P>Delete a directory on the remote (UNIX rmdir).</P>
+
+<TR>
+
+<TD>
+
+<P>rename</P>
+
+<TD>
+
+<P>Change the name of a remote file or directory (UNIX mv).</P>
+
+<TR>
+
+<TD>
+
+<P>delete</P>
+
+<TD>
+
+<P>Delete a remote file (UNIX rm, with one file specified).</P>
+
+<TR>
+
+<TD>
+
+<P>mdelete</P>
+
+<TD>
+
+<P>Delete multiple remote files (UNIX rm, with multiple files).</P>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<P><B>Miscellaneous Commands</B></P>
+
+<TR>
+
+<TD>
+
+<P>?</P>
+
+<TD>
+
+<P>Obtain help about ftp.</P>
+
+<TR>
+
+<TD>
+
+<P>!</P>
+
+<TD>
+
+<P>Escape shell.</P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Connection-Related Commands</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The ftp connection-related commands are fairly straightforward. The open command tries to connect to the ftp server on the specified remote host. The close command terminates the open connection (if one exists) and then returns to command mode. This is 
+
+usually used when you want to connect to a different host, so you will commonly follow it with an open. The quit command closes the connection and then exits ftp.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>File Transfer&#151;Related Commands</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The ftp service defines several file representation types for transfer. The two most common are ascii and binary. By default, the type is set to ascii. Any file that is plain ASCII text can be transferred using ascii type. Binary files, like a compiled 
+
+and linked executable file, must be transferred using binary type. Be sure to set the correct type before transferring any files.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Transferring ASCII text files between UNIX machines is slightly faster with binary type, but using binary type to transfer an ASCII text file between a UNIX and a non-UNIX machine may corrupt the file. 
+
+
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you are having trouble decoding or executing a binary file you get elsewhere, check to make sure you used binary type transfer.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The get and mget commands transfer files from the remote to the local host. The put and mput commands transfer files from the local to the remote host. Both get and put transfer one file per command. On both of these commands you may specify the 
+destination for the file copy. If the destination is not specified, the file is placed in the current working directory. Both mget and mput transfer multiple files per command. The files are placed in the current working directory.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>File- and Directory-Management Commands</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The file- and directory-management commands are analogous to UNIX file and directory commands. In Table 8.2, the UNIX command that is analogous to the ftp command is given in parentheses. Remember that all of these commands, except lcd, operate on the 
+remote file system. If you need to perform more in-depth local file management, use the shell escape command (!) to escape to a local shell prompt.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Miscellaneous Commands</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The ? command provides help about ftp commands. If you want help about a specific command, you can specify this command as the first argument to the ?. The shell escape command (!) is used to start a subshell on the local machine. This is very useful if 
+
+you need to perform some operations on your local host while you are connected to a remote ftp server. After you are finished working on the local host, simply exit the (sub)shell and you will return to ftp.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Configuring with </B><B>.netrc</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The ftp command can automatically perform the login to remote ftp servers and initialize your connection. It does this by reading in the .netrc file in your home directory. You can configure the login, password, and account (some ftp servers allow or 
+require an extra account specification at authentication time) to use for a particular machine. In the following example from the .netrc file, automatic login is included as anonymous for several popular servers:
+
+<BR></P>
+
+<PRE>machine dg-rtp.rtp.dg.com login anonymous password sartin@pencom.com
+
+machine town.hall.org login anonymous password sartin@pencom.com
+
+machine ftp.uu.net login anonymous password sartin@pencom.com
+
+machine rtfm.mit.edu login anonymous password sartin@pencom.com
+
+machine ftp.x.org login anonymous password sartin@pencom.com
+
+machine prep.ai.mit.edu login anonymous password sartin@pencom.com
+
+machine ftp.ncsa.uiuc.edu login anonymous password sartin@pencom.com
+
+machine emx.cc.utexas.edu login anonymous password sartin@pencom.com
+
+machine boombox.micro.umn.edu login anonymous password sartin@pencom.com
+
+machine rs.internic.net login anonymous password guest</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Most versions of ftp will use your .netrc for password information only if the file is readable by you only. For password security this file should be unreadable by others or, better yet, should contain 
+
+no sensitive passwords.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Anonymous ftp</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>There is a special login for ftp that allows you to anonymously access files on part of a remote machine. Anonymous access is not entirely anonymous, since some machines will log the connection, the password used, and all files retrieved. To use 
+anonymous ftp, you use the login anonymous (on some machines, the login ftp will work) and supply any non-empty string for the password.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Some machines do password validation on anonymous logins. Most require that you supply a valid e-mail address.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Once you have successfully logged in as anonymous you will be granted limited access to the anonymous ftp subtree on the remote machine. All of the commands described in this section can be used. Some sites have a directory called /incoming (or a 
+directory named incoming somewhere in the ftp tree) where you will be able to put files. Many sites put the publicly accessible files under /pub.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Using </B><B>uucp</B><B>, </B><B>uuto</B><B>, and </B><B>uupick</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The file copying tools, uucp, uuto, uupick, are part of the Basic Networking Utilities software release. These may not be on your UNIX system. Even if they are, more recent networking services (for example, ftp and rcp) are preferred. If you are 
+interested in using the uu tools, check your system documentation to see if they are supported.
+
+<BR></P>
+
+<P>Following, for the sake of completeness, is a brief summary of these tools. For details, check your system's manual entry for each command.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>uucp</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The UUCP service copies one or more files from one UNIX machine to another UNIX machine. Use the uuname command to see what remote machines you can reach via uucp. uucp uses an older host naming scheme in the form <I>hostname</I>!<I>filepath</I>. To 
+copy a local file, <I>myfile</I>, to remote machine <I>rem-host</I> to directory <I>/tmp</I>, enter the command uucp <I>myfile rem-host!</I>/tmp/.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>uuto and uupick</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The uuto tool sends a file to a specific user on a remote UNIX host. The file is deposited in a special place on the specified remote host. In order for the remote user to receive this file, she or he must use the uupick tool. The remote host and user 
+are specified by the syntax <I>rem-host</I>!<I>username</I>. To send the local file <I>myfile</I> to user arnie on machine sturgeon enter the command uuto <I>myfile</I> sturgeon!arnie
+
+<BR></P>
+
+<P>Then user arnie must use the uupick tool to receive the file.
+
+<BR></P>
+
+<P>When you are ready to receive files that were sent via uuto, simply enter the uuto command without any arguments. Each file that has been sent to you is displayed, one at a time. As each is displayed, you have the choice of skipping it, moving it, 
+deleting it, or printing it.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=4><B>Other Networking Services</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section gives a very abbreviated introduction to some other services that are currently available on the Internet. These services give you access to the wealth of information available on the Internet, including source code, current weather 
+information, financial data, computer conferences on a wide variety of topics, and some more frivolous programs, including a computerized tarot reader.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>These programs will only be useful to you if you are connected to the Internet and have a gateway that allows you to make outgoing connections. Check your local network configuration to be sure.
+
+
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>These programs can be addictive. Make sure you get enough sleep and social activity between your net surfing excursions.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>archie</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The archie program offers access to a large list of files that are available via anonymous ftp. When you run an archie <I>string</I> search, the server will search for a name that is an exact match for <I>string</I> in its list of archives and will 
+return the matches to you. You can modify the search behavior by specifying one of the following:
+
+<BR></P>
+
+<PRE>
+
+<BR>-c  Case-sensitive substring search.
+
+
+
+<BR>-r  Regular expression search.
+
+
+
+<BR>-s  Case-insensitive substring match. For example, if you 
+
+<BR>    were looking for the source to xmosaic, you could enter 
+
+<BR>    archie -s xmosaic. The output lists a large number of 
+
+<BR>    sites that have xmosaic available via anonymous ftp. 
+
+<BR>    Here is part of the response from archie -s xmosaic:
+
+     Host ftp.engr.ucf.edu
+
+<BR>     
+
+<BR>     Location: /pub/linux-mirrors/tsx11/binaries/usr.bin.X11.nomirror
+
+<BR>     FILE -rw-r&#151;r&#151;     497473  Dec 26 18:06  xmosaic-1.2.term.tar.z</PRE>
+
+<P>For each host that had a match of the string there is a list of locations that had matches. The best way to use archie output is to look for a host &quot;near&quot; you (for example, your service provider, someone in the same city/state as your service 
+
+provider, someone in the same country) and use ftp to retrieve the desired files.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>gopher</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The University of Minnesota has developed a program called gopher, that you can use to retrieve information over the Internet. They report (in the 00README file available by anonymous ftp from boombox.umn.edu in /pub/gopher/00README):
+
+<BR></P>
+
+<PRE>The internet Gopher uses a simple client/server protocol that can be used to publish and search for information held on a distributed network of hosts. Gopher clients have a seamless view of the information in the gopher  world even though the 
+information is distributed over many  different hosts. Clients can either navigate through a  hierarchy of directories and documents -or- ask an index server to return a list of all documents that contain one  or more words. Since the index server does 
+full-text searches every word in every document is a keyword.
+
+If you want to test a gopher client without setting up your own gopher server you should configure the client to talk to &quot;gopher.micro.umn.edu&quot; at port 70. This will  allow you to explore the distributed network of gopher servers at the 
+University of Minnesota. You can try the Unix client by telneting to consultant.micro.umn.edu and logging in as &quot;gopher&quot;.</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>WorldWide Web</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In 1991 the European Laboratory for Particle Physics began a project that turned into the WorldWide Web, also known as WWW or W3. WWW is fairly hard to pigeonhole, and the best way to become familiar with it is to explore it. WWW is a set of software, 
+conventions, servers, and a protocol (HTTP) for organizing information in a hypertext structure. It allows linking of pictures (both still and moving), sounds, and text of various kinds into a web of knowledge. You can start at any place (a particularly 
+good place to start is the default home page at NCSA or a copy of it, using xmosaic) and choose the links that interest you. Information is located using a Uniform Resource Locator (URL), which generally looks like this: 
+<I>protocol</I>://<I>hostname</I>/<I>path</I>. The <I>protocol</I> tells how to access the data (and is often http, which indicates the HyperText transfer protocol). The <I>hostname</I> tells the name of the host to access. The <I>path</I> gives a 
+host-specific location for the resource; paths often look like normal UNIX filenames. A big difference between a URL path and a filename is that a URL path often points to information that is generated on the fly (for example, a current weather report), 
+and the actual data returned may depend on what features your WWW client supports. By exploring the Web, you will be able to find information ranging from your personal biorhythms to common questions about the PowerPC to an archive of SCUBA diving 
+destination reports.
+
+<BR></P>
+
+<P>The National Center for Supercomputing Applications at the University of Illinois has developed World Wide Web interfaces called Mosaic. The UNIX version runs with Motif widgets using X11 and is called xmosaic.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=4><B>Troubleshooting TCP/IP</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Sometimes you may find that your attempts at making network connection are not working. Some of the common errors for each command were covered in the sections &quot;I'm on the Wire&#151;rlogin, telnet, cu&quot; and &quot;Transferring Files&#151;rcp, 
+ftp, uucp.&quot; This section covers some system-level troubleshooting you might want to try if you are having trouble making network connections using TCP/IP (rlogin, telnet, rcp, ftp, and the commands mentioned in the section &quot;Other Services&quot;). 
+
+The suggestions here will help solve simple problems and will help classify problems. See Chapter 37, &quot;Networking,&quot; for more information on troubleshooting network problems.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>nslookup</B><B> to Check Address Mapping</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One common failure in trying to make network connections is either having the wrong hostname or encountering an error or delay in the name service. One way to check the validity of the hostname is to try using the nslookup command. The simplest way to 
+run the nslookup command is nslookup <I>hostname</I>:
+
+<BR></P>
+
+<PRE>$ nslookup ftp.uu.net.
+
+Name Server:  lazerus.pencom.com
+
+Address:  198.3.201.57
+
+Name:    ftp.uu.net
+
+Address:  192.48.96.9
+
+$ nslookup no.such.name.org
+
+Name Server:  lazerus.pencom.com
+
+Address:  198.3.201.57
+
+*** lazerus.pencom.com can't find no.such.name.org: Non-existent domain
+
+$ </PRE>
+
+<P>This will query the DNS for the name of <I>hostname</I> (ftp.uu.net in the first example, no.such.name.org in the second).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>When a machine is newly added to the DNS, it may take a while before the nameservers learn about it. During that time, you may get &quot;unknown host&quot; errors. The person who adds a new host to the 
+
+DNS should be able to give an estimate of how long to wait before a DNS failure should be considered an error.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Is There Anybody Out There? (</B><B>ping</B><B>)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you can find the address of a host but your connections are failing, it may be because the host is unreachable or down. Sometimes you may get a &quot;host unreachable&quot; or &quot;network unreachable&quot; error. You will get these messages when 
+the software that manages interconnections was able to determine that it could not send a packet to the remote host. The network routing software has internal tables that tell it how to reach other networks and hosts and these error messages indicate that 
+
+there is no table entry that lets you reach the desired network or host.
+
+<BR></P>
+
+<P>When a host is simply down, you may get connection time-outs. You may want to try using the ping command to test if a host is running. The ping command sends a special kind of message called an Internet control echo request message or ICMP echo request 
+
+(ICMP is the Internet control message protocol). This message asks the remote computer to send back an echo reply that duplicates the data of the echo request message. The low-level networking software of the remote computer will handle responding to an 
+echo request, so a machine should be able to respond to a ping as long as the network software is running.
+
+<BR></P>
+
+<P>In the following example, we use ping to check the status of two hosts:
+
+<BR></P>
+
+<PRE>$ /etc/ping conch 100 10
+
+PING conch.pencom.com: 100 byte packets
+
+100 bytes from 198.3.200.86: icmp_seq=0. time=3. ms
+
+100 bytes from 198.3.200.86: icmp_seq=1. time=4. ms
+
+100 bytes from 198.3.200.86: icmp_seq=2. time=3. ms
+
+100 bytes from 198.3.200.86: icmp_seq=3. time=5. ms
+
+100 bytes from 198.3.200.86: icmp_seq=4. time=4. ms
+
+100 bytes from 198.3.200.86: icmp_seq=5. time=8. ms
+
+100 bytes from 198.3.200.86: icmp_seq=6. time=3. ms
+
+100 bytes from 198.3.200.86: icmp_seq=7. time=3. ms
+
+100 bytes from 198.3.200.86: icmp_seq=8. time=3. ms
+
+100 bytes from 198.3.200.86: icmp_seq=9. time=3. ms
+
+conch.pencom.com PING Statistics&#151;
+
+10 packets transmitted, 10 packets received, 0% packet loss
+
+round-trip (ms)  min/avg/max = 3/3/8
+
+$ /etc/ping brat 100 10
+
+PING brat.pencom.com: 100 byte packets
+
+&#151;brat.pencom.com PING Statistics&#151;
+
+10 packets transmitted, 0 packets received, 100% packet loss
+
+$ </PRE>
+
+<P>In the first example, the 100 says to use 100 bytes of data in each message and the 10 says to use 10 messages. All 10 message were returned. The second example shows what happens when you attempt to ping a host that is not up.
+
+<BR></P>
+
+<P>Once you determine that the remote host is not responding, you can either attempt to get the machine back up or wait until later to use it. If the machine is on your LAN, it should be fairly easy to go to it and start it running or talk to a local 
+administrator. If the machine is somewhere remote, you may need to phone or e-mail someone to get assistance. If the machine is a resource on the Internet that is offered by some other school or company, you should probably just wait until it is running 
+again unless your need is urgent (for both you and the remote administrator).
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter, you have learned how UNIX machines are networked and how to take advantage of that networking. You have learned to log in to remote machines, copy files, begin to surf the Internet, and troubleshoot minor problems. By using these 
+network services, you will be able to perform useful work on networked systems and explore the &quot;information superhighway.&quot;
+
+<BR></P>
+
+<P><A HREF="unx07.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx07.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx09.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx09.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

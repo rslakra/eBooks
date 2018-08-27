@@ -1,0 +1,1970 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx43.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx44.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx44.htm">
+
+<LINK REL="Previous" HREF="unx42.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx42.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx42.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx42.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx44.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx44.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">43 &#151; UUCP Administration</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By James C. Armstrong, Jr.</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">What Is UUCP?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Transferring Files</A></LI>
+
+<LI>
+
+<A HREF="#I6">Running Remote Commands</A></LI>
+
+<LI>
+
+<A HREF="#I7">Under It All</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I8">Chat Scripts</A></LI>
+
+<LI>
+
+<A HREF="#I9">Connection Files</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I10">Setting Up UUCP</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">Receiving UUCP Calls</A></LI>
+
+<LI>
+
+<A HREF="#I12">Initiating UUCP Calls</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I13">Testing the Connection</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">More on Chat Scripts</A></LI>
+
+<LI>
+
+<A HREF="#I15">Administering the Files</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Devices</A></LI>
+
+<LI>
+
+<A HREF="#I17">Dialers</A></LI>
+
+<LI>
+
+<A HREF="#I18">Dialcodes</A></LI>
+
+<LI>
+
+<A HREF="#I19">Permissions</A></LI>
+
+<LI>
+
+<A HREF="#I20">Sysfiles</A></LI>
+
+<LI>
+
+<A HREF="#I21">Poll</A></LI></UL>
+
+<LI>
+
+<A HREF="#I22">Supporting Files</A></LI>
+
+<LI>
+
+<A HREF="#I23">UUCP Daemons</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I24">The admin Daemon</A></LI>
+
+<LI>
+
+<A HREF="#I25">The cleanup Daemon</A></LI>
+
+<LI>
+
+<A HREF="#I26">The polling Daemon</A></LI>
+
+<LI>
+
+<A HREF="#I27">The hourly Daemon</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I28">Using UUCP</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I29">uuto and uupick</A></LI></UL>
+
+<LI>
+
+<A HREF="#I30">UUCP Utilities</A></LI>
+
+<LI>
+
+<A HREF="#I31">Summary</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>43 &#151; UUCP Administration</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By James C. Armstrong, Jr.</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Long before the days of Networking, TCP/IP, NFS, and the like, there was still the need for UNIX machines to communicate with each other, to pass data, and to transfer files. Modern networks make this task easy, but if your machine is not attached to 
+one of these networks, or if there is no direct network connection between your machine's network and the target machine's network, then there must be a technique for this communication. The package that handles these transfers is UUCP.
+
+<BR></P>
+
+<P>UUCP was originally written by Mike Lesk at Bell Labs in the mid-1970s, to facilitate communication between the growing network of UNIX machines. It has been modified several times since then, with the most fundamental changes occurring in 1983, when 
+UUCP was rewritten by Peter Honeyman, David A. Nowitz, and Brian E. Redman. This is the standard UUCP distributed with System V Release 4, and sometimes goes by the moniker HoneyDanBer. It is this version of UUCP that this chapter covers.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What Is UUCP?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UUCP is the package of commands that allows a user to transfer data from one machine to another across a serial port, usually via a modem. Probably the most common uses of UUCP are the transfer of network e-mail and netnews, as described in Chapter 41, 
+
+&quot;Mail Administration&quot;, and Chapter 42 &quot;News Administration&quot;. In both cases, the underlying UUCP commands are hidden from the regular user.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Transferring Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The most likely contact a regular UNIX user has with UUCP is the command uucp. This is just an expansion of the cp command, with a special format to indicate the transfer to a new machine. The target machine and path are illustrated with an exclamation 
+
+point. Assume that I have a file named data on a local machine named duke. I want to transfer that file to my home directory, /usr/james, on a machine named unc. This is the command I'd use:
+
+<BR></P>
+
+<PRE>uucp data unc!/usr/james/data</PRE>
+
+<P>I do not need to specify the machine I am on, so I indicate just the current file. I then indicate that I want to send the file to the machine unc, with the file name there as /usr/james/data. This is an example of pushing a file to a new machine via 
+uucp.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Most systems set up permissions on data transfers that make the uucp command invalid, unless copied to one specific directory on the remote machine. Furthermore, setting permissions to allow 
+transfers to and from any directory is very risky and is not secure. Permissions are discussed later in the chapter.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Files may also be pulled from machines. Suppose I have successfully copied data to unc, and now I need a copy back. I can do this with this command:
+
+<BR></P>
+
+<PRE>uucp unc!/usr/james/data .</PRE>
+
+<P>In this case, the source file is on the unc machine, and I pull over a copy. If unc has the correct permissions, I can pull the needed file over to my machine and place it in my current directory.
+
+<BR></P>
+
+<P>Files can be transferred from one remote machine to another. In the first example, if I were on machine ncsu when I wanted to transfer a file from duke to unc, I could do it with this command:
+
+<BR></P>
+
+<PRE>uucp duke!/usr/james/data unc!/usr/james/data 2</PRE>
+
+<P>The syntax of the command says &quot;Go to machine duke and find the file /usr/james/data, then send it to machine unc to the destination /usr/james/data 2.&quot; Finally, if I want to send the file from duke to wake, but wake only has a link with unc, 
+
+I can specify a path like this:
+
+<BR></P>
+
+<PRE>uucp duke!/usr/james/data unc!wake!/usr/james/data</PRE>
+
+<P>If the permissions at unc allow the transfer, the file is first sent to unc, then sent from unc to wake.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You may have attempted these commands and received an error message such as /usr/james/data: Event not found. This is because the ! is significant to the C shell&#151;it implies history substitution. 
+
+To avoid this problem, you should escape the ! with a backslash (\), making the command uucp duke\!/usr/james/data unc\!/usr/james/data. This will also work with the Bourne and Korn shells and is a practice I find useful.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>A much easier technique for transferring files from the local machine to a remote machine is using uuto and uupick. These commands are simply shell scripts that change their arguments into a 
+well-constructed uucp command for you. Their usage is described in more detail in the section &quot;UUCP Utilities.&quot;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Running Remote Commands</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UUCP also provides a command that allows the user to run commands remotely. The uux command enables a user to request that a remote machine run a command. It will accept redirection of standard input and output, and options can be used to indicate that 
+
+the redirection should apply to the remote command's execution. For example, this command will return the output of the date command as run on unc:
+
+<BR></P>
+
+<PRE>uux unc!date</PRE>
+
+<P>uux is normally hidden from the user, but it is the backbone for mail and news transfer. On my machine, I transfer news to a remote machine by piping the article into the command uux - -r -gd netcomsv!rnews. While this may look complicated, all it 
+really says is that the standard input of this command will be fed to the remote machine netcomsv, and there the command rnews will be run. The -r option says to queue the request, and -gd sets a system priority on the request. Both options could easily be 
+
+omitted.
+
+<BR></P>
+
+<P>The command for transferring mail is even simpler. When my mailer gets the request to send mail to a remote system, it executes uux - -r netcomsv!rmail. This is simplicity itself&#151;it just pipes the mail message to rmail on netcomsv.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> For security reasons, most sites have cut off remote execution of commands other than rmail and rnews. If you plan on needing to execute commands other than rnews and rmail, you should consult with 
+the administrator of the remote machine.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Under It All</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Beneath all the UUCP commands is the uucico command. This is the process that implements the actual communication between UNIX machines. Most users will never need to use this command, and its use by administrators is also rare.
+
+<BR></P>
+
+<P>uucico examines a series of data files to make its connection. These files include information such as which tty is used as a port, what modem commands are needed to use the attached modem, what is the phone number of the remote system, and what is the 
+
+login protocol. Attached to both the modem commands and the login commands are what is called a &quot;chat script.&quot; These chat scripts are the essence of UUCP communications.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Chat Scripts</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Chat scripts are simply pairs of expect/send sequences. When all the criteria are met for communications, the uucico process waits on the port until it sees the next expect sequence. After that sequence is seen, the next send sequence is sent down the 
+line. If the expect sequence is not seen in a certain period of time, a time-out occurs, and a different send sequence can be sent. If all expect/send sequences are completed, the connection starts to transfer data. If the send sequences are exhausted and 
+
+no connection is made, the command fails.
+
+<BR></P>
+
+<P>The following is an example of a chat script for logging in to a machine:
+
+<BR></P>
+
+<PRE>&quot;&quot; \n in:&#151;in: mylogin word: mypassword</PRE>
+
+<P>Interpreted, this means that I first expect nothing and send a carriage return. When I see the sequence in: I send the sequence mylogin. If I don't see in:, then I wait for a time-out and send a new carriage return and continue to look for in:. Once I 
+send mylogin, I wait for word:. Once I see that, I send mypassword and expect to start the data transfer.
+
+<BR></P>
+
+<P>The &#151; in the expect sequence indicates that I might get a time-out and I might need to send more data. Any character sequence can be between the two dashes, and these are sent, along with a carriage return, and then a time-out occurs. Any number of 
+
+these time-out sequences can occur in an expect pattern. If a line is known to be slow to acknowledge the connection, one may see the sequence in:&#151;in:&#151;in:&#151;in:, which means to try four times to get the login: prompt before timing out. Some 
+experimentation may be necessary to determine the exact chat script to connect to a machine. This is described in the section &quot;Setting Up UUCP.&quot;
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Permissions to see the UUCP chat scripts should be restricted. One of the limitations of UUCP is that the remote machine passwords must be listed in the chat script and must be clear ASCII text. 
+
+Anyone with the correct permissions can look at the file and steal the passwords for UUCP. None of the passwords indicated in this chapter are real.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Connection Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The first task of uucico is to determine the target machine for the connection. When it determines the machine name, it examines the Systems file. This includes the system name, the connect times, devices, and speeds, the connection address, and the 
+chat script to make the connection. This is not enough to make the connection.
+
+<BR></P>
+
+<P>Given the device type and speed, uucico must next examine the Devices file. This provides a list of devices and speeds, and associates them with actual ports and dialers to connect with those ports.
+
+<BR></P>
+
+<P>The dialers to connect to the port need to be looked up in the Dialers file, where a specific dialer can be associated with a chat script. That chat script should set up the modem in the proper format, and then dial the address provided by the Systems 
+file. Sometimes, this address may need further expanding. The Dialcodes file provides some expansion for the address.
+
+<BR></P>
+
+<P>Addresses need not be telephone numbers. UUCP is capable of handling telephone calls via modems, as well as connections via local area networks such as Starlan, and even direct connections between machines. Each one requires different devices and dialer 
+
+chat scripts to make the connection.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Setting Up UUCP</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UUCP requires two sites willing to set up a connection. In the early days of UNIX, this was simply a matter of calling local UNIX sites and asking if they would be willing to transfer data for you. In those days, often the answer was yes, and you'd set 
+
+up a link. With the development of the Internet, these connections are becoming less frequent, and many main sites no longer even use UUCP.
+
+<BR></P>
+
+<P>For my home machine, I sought a service provider. The local provider with a decent reputation was Netcom, based in the San Francisco Bay area. Netcom offers a UUCP service for a reasonable amount each month, including registering a domain name for 
+Internet addressing. Netcom is not the only provider, but it's local for me.
+
+<BR></P>
+
+<P>When you've found a partner for exchanging UUCP, you'll need to determine how the connections will be made. There are three options: Your site could make all the calls to the provider's site (this is fairly standard with paid service providers), your 
+site could receive calls only from the remote site, or the calls could go both ways. This results in two different administrative tasks for UUCP: setting up your system to receive calls and setting up your system to place calls.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Receiving UUCP Calls</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Since UUCP accesses a system in the same way as a user&#151;by logging in&#151;you'll need to set up your system to allow UUCP to log in. One of your serial ports will need a modem attached. One action you'll need to take is to establish an account for 
+
+UUCP to use. You'll need to use your administrative tools to edit the /etc/passwd file. You'll need root permissions to create the account. Some UNIX systems come with a default entry, nuucp, for UUCP connections. I prefer to set up a different account for 
+
+each machine, prefixing the machine name with a U. That way I know just by using the who command who is logging in to transfer data at what times.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Prefixing UUCP accounts with U also increases the administrative trail of user logins; although UUCP does give excellent logs, by keeping different login names the /etc/wtmp file will also keep a record 
+
+that can identify call times and durations.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The /etc/passwd entry should have the same owner and group as your uucp account. This way, the remote site will be able to write correctly to the designated files; UUCP does not run in any privileged mode&#151;it is just another user on the system. You 
+
+should also make the home directory /var/spool/uucppublic. This directory is a standard UNIX directory, designated for file transfers. It should be owned by uucp, it should be of group uucp, and it should have permissions set to 777. That way, any user 
+desiring to transfer files can write to the directory.
+
+<BR></P>
+
+<P>The unique aspect of the /etc/passwd entry is the default shell. Most users will have something like /bin/sh, /bin/csh, or some other command shell. Your UUCP entry should have /usr/lib/uucp/uucico, which is the command for data transfer. This means 
+that when your UUCP successfully logs in, it will immediately start to transfer files.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You may have noticed that the same transfer command is used both for sending and receiving data. So how do you know which is which? It's simple&#151;you don't. The same uucico command will both send 
+and receive files during a single phone call. The two commands stay synchronized because of the master/slave role. The command that is sending is considered the master, the command receiving is the slave. The slave role is the default. To be the master 
+uucico, the uucico command must receive the flag -r1. Master and slave roles can switch during a phone call, and there is no limit to the number of times this switch happens.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You will also need to set a password for the UUCP account. To do this, you need to be root. Run the passwd command on the account and enter a password. After you have done this, you can notify the other site of its UUCP account and password.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>For the password you can use any combination of characters that are valid, and because this is not one you'll need to keep memorized, it can be any random sequence desired.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>This is not all that's needed to set up the connection, however. You'll need to run the command that gives the UNIX prompt, /etc/getty. This command is kept in the file /etc/inittab. You'll need to include an entry that looks like this:
+
+<BR></P>
+
+<PRE>ucp:23:respawn:/etc/getty ttya 9600</PRE>
+
+<P>Each field is separated by colons, so this has four fields. The first is a unique identifier in the inittab and can be anything. The second field specifies run states, the third is an action, and the fourth is a command. This file is monitored by the 
+init daemon. The respawn action indicates that when a command is finished, a new getty command should be run. The run states indicate that the command should be run only in multiuser mode.
+
+<BR></P>
+
+<P>getty is the standard UNIX command for providing a login prompt. The two arguments indicate which port is used and the expected speed. Here the modem is on ttya and is 9600 baud. Your port and numbers may be different. For more details on the inittab 
+and getty, see the section &quot;Boot States.&quot;
+
+<BR></P>
+
+<P>There is a problem with getty: It can only receive calls. If you intend for your modem to have two-way traffic, you'll need to use the uugetty command. This command will know not to put up a login prompt when you are using the port to make outgoing 
+calls. To use it, replace /etc/getty with /usr/lib/uucp/uugetty -r. The -r option tells uugetty not to put up a login prompt until it gets a character, which is usually a carriage return.
+
+<BR></P>
+
+<P>Permissions also need to be set, restricting what the calling system can do to your system. These will be covered later in the chapter, but for starters, consider restricting read and write access to /var/spool/uucppublic, and allow only the execution 
+of rmail, and if you want netnews, rnews.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Initiating UUCP Calls</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Initiating UUCP connections is a proactive job. The simplest way to set up a system to make UUCP calls is for the administrator to modify a single file, the Systems file. This file contains the specific information needed to contact a remote system. 
+Each line is a separate entry, and each line must have six entries. The first entry on a line is the remote system's name. UUCP expects the first seven letters to be unique, so the system names newyorkcity and newyorkstate would be considered the same. 
+Each system can have any number of entries&#151;they are tried in the order found in the file, until one is successful.
+
+<BR></P>
+
+<P>The second field is a schedule field. Normally, the word Any will be here, meaning that the connection can be made at any time. Never means don't call; this entry is usually made when a system is polled; this means that a remote system will call to get 
+
+what it wants. The schedule field Wk means weekdays only. A schedule field can be quite complicated. The schedule field can have an unlimited number of comma-separated schedule descriptions. Each description has a day code, an optional time code, and an 
+option grade code. The day codes are easy to understand&#151;Su, Mo, Tu, We, Th, Fr, and Sa. Any number and combination can be present. So if you only want to call a site on Fridays, Saturdays, and Sundays, you'd have FrSaSu as the schedule field. The 
+start time can be after the end time, which would seem to include midnight, but that is not true. Instead, it means from midnight on the specified days to the end time, and the start time to midnight on the same day. So Wk1900-0700 means any weekday before 
+
+7 AM or after 7 PM.
+
+<BR></P>
+
+<P>Finally, the grade is a restriction on priority of transfers. By limiting the grade, only transfers of that grade or higher are made during that time. The grade is identified by a slash followed by a number or letter.
+
+<BR></P>
+
+<P>A full schedule specification may look like this:
+
+<BR></P>
+
+<PRE>SaSu,Wk0900-1700/C,Wk1700-0900</PRE>
+
+<P>This means that transfers may occur at any time on Saturdays and Sundays, between 9 AM and 5 PM weekdays, only items grade C and above, and any time between 5 PM and 9 AM. This effectively says it's possible to transfer anything at any time except 
+during work hours, when you move only priority material.
+
+<BR></P>
+
+<P>Finally, if a comma and number follow the schedule, this sets a minimum retry time. UUCP will make retry attempts based on its own internal formula, but that formula can be overridden in the schedule field.
+
+<BR></P>
+
+<P>The third field is the device field. This field is a lot simpler than the schedule field. It consists of a pointer to a device type. The devices are kept in the file Devices, usually in the same directory as Systems. UUCP will look up the device name in 
+
+the Devices file and use the first free device found. The only option is that protocols may be specified after the device, preceded by a comma. Supported protocols include UUCP's g protocol for communication on a telephone line, as well as an x and an e 
+protocol for devices that support those protocols.
+
+<BR></P>
+
+<P>The fourth field is the speed, or baud rate, of the connection. This is usually your modem's top speed, but different values may be present for different numbers, and different speeds also apply for direct connections.
+
+<BR></P>
+
+<P>The fifth field is the connection number. Usually it is a telephone number, but for UUCP connections over direct lines or for data switches, it is a connection address or path. For telephone numbers, it is the sequence of numbers needed to dial the 
+remote modem. Note that an optional alphanumeric string can precede the phone number (this will be interpreted in the Dialcodes file).
+
+<BR></P>
+
+<P>The last field is the chat script. These are a sequence of text patterns that are expect/send pairs. The uucp command will read the data coming in from the remote site and attempt to match the expected text with the incoming text. When a match is found, 
+
+the send text is transmitted with a new line, and a new expect pattern is found, until the entire chat script is completed. If successfully completed, the UUCP process starts; otherwise, an error is recorded and the connection is terminated.
+
+<BR></P>
+
+<P>Chat scripts can be filled with special character escapes. Table 43.1 shows Chat script escape sequences.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 43.1. Chat Script Escape Sequences.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Escape Sequence</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>&quot;&quot;</P>
+
+<TD>
+
+<P>Expect a null string</P>
+
+<TR>
+
+<TD>
+
+<P>EOT</P>
+
+<TD>
+
+<P>End of transmission</P>
+
+<TR>
+
+<TD>
+
+<P>BREAK</P>
+
+<TD>
+
+<P>Cause a break signal</P>
+
+<TR>
+
+<TD>
+
+<P>\b</P>
+
+<TD>
+
+<P>Backspace</P>
+
+<TR>
+
+<TD>
+
+<P>\c</P>
+
+<TD>
+
+<P>Suppress a new line at the end of the send string</P>
+
+<TR>
+
+<TD>
+
+<P>\d</P>
+
+<TD>
+
+<P>Delay for one second</P>
+
+<TR>
+
+<TD>
+
+<P>\K</P>
+
+<TD>
+
+<P>Insert a Break</P>
+
+<TR>
+
+<TD>
+
+<P>\n</P>
+
+<TD>
+
+<P>Send a new line</P>
+
+<TR>
+
+<TD>
+
+<P>\N</P>
+
+<TD>
+
+<P>Send a null</P>
+
+<TR>
+
+<TD>
+
+<P>\p</P>
+
+<TD>
+
+<P>Pause for a fraction of a second</P>
+
+<TR>
+
+<TD>
+
+<P>\r</P>
+
+<TD>
+
+<P>Carriage return</P>
+
+<TR>
+
+<TD>
+
+<P>\s</P>
+
+<TD>
+
+<P>Send a space</P>
+
+<TR>
+
+<TD>
+
+<P>\t</P>
+
+<TD>
+
+<P>Send a tab</P>
+
+<TR>
+
+<TD>
+
+<P>\\</P>
+
+<TD>
+
+<P>Send a backslash</P>
+
+<TR>
+
+<TD>
+
+<P>\xxx</P>
+
+<TD>
+
+<P>Send the ASCII character with the octal value xxx</P></TABLE>
+
+<P>A complete sample of Systems file entries is included here. Note that the sensitive data is changed, but reflects accurately my Systems file on sagarmatha.com:
+
+<BR></P>
+
+<PRE>machine1 Any ACU 9600 9899685 in:&#151;in: uduke word: mypass
+
+mach Never ACU 9600 9895690 in:&#151;in: jca
+
+tyler Any ACU 9600 5565935 &quot;&quot; \K\d\r :&#151;: mygate &quot;&quot; \d\d &gt;-\r-&gt;\
+
+<BR> mylog &gt; rlogin\styler in:&#151;in: uduke word: Strange1</PRE>
+
+<P>I have three machines registered. All are within my local area code. I have set the machine to never call mach. Instead, I use that as an entry for the cu command. Also note that both machine1 and tyler have given me the UUCP account name uduke.
+
+<BR></P>
+
+<P>The machine tyler is an interesting case. I have to go through a switch to reach that machine. The first expect says that I don't expect anything, so the machine immediately sends the control characters \K\d\r. This means send a break, wait a second, 
+and send a carriage return. UUCP then expects a colon, and to access this switch, I enter mygate. I then need to wait two seconds, with \d\d, to get the &gt; character. I send mylog. I expect another &gt;, and I send rlogin tyler. Here, I begin a more 
+recognizable login session.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> In the early days of UNIX networking, the need for unique system names was great, as this was the only way to identify a machine for electronic mail and network news. As there was no registry, 
+conflicts sometimes did occur. In the mid-1980s, I administered a machine named terminus while working for AT&amp;T. At one point, I started receiving some very odd mail to the administrative accounts; it turns out that somebody else, in Colorado, had 
+named a system terminus. Once the problem was identified, the name conflict was resolved.
+
+<BR>
+
+<BR>Currently, the Internet has fully qualified domains, which separate our machines and networks. These domains are registered to prevent conflicts. My home machine is registered in the domain sagarmatha.com, but its UUCP name is duke. Because my service 
+
+provider does not connect to Duke University or anyone else by this name, there is no name conflict.
+
+<BR>
+
+<BR>Interestingly, this is not the hostname. My UUCP machine at home has a hostname of krzyzewski, after Duke University's head basketball coach. Other machines at home have names of assistant coaches, amaker, gaudet, and brey. Because of the 
+seven-character restriction on the UUCP name, I opted for duke, rather than abbreviating the hostname.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Testing the Connection</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Once the Systems file is complete, you have to test the entry to see if the connection is actually being made, and if not, you need to figure out what is wrong. For this you use the command Uutry.
+
+<BR></P>
+
+<P>Uutry is a shell script that calls uucico with a debugging flag set, and then performs a tail on the output. You can press the Delete key any time to terminate Uutry. The default debug level is 5, but this can be changed with the -x option.
+
+<BR></P>
+
+<P>The example in Listing 43.2 shows what happens when the password is incorrect.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 43.1. A failed UUCP call.</B></LH></UL>
+
+<PRE>$ /usr/lib/uucp/Uutry machine1
+
+/usr/lib/uucp/uucico -r1 -smachine1 -x5 &gt;/tmp/machine1 2&gt;&amp;1&amp;
+
+tmp=/tmp/machine1
+
+mchFind called (machine1)
+
+conn(machine1)
+
+Device Type ACU wanted
+
+mlock ttya succeeded
+
+processdev: calling setdevcfg(uucico, ACU)
+
+gdial(tb9600) called
+
+expect: (&quot;&quot;)
+
+got it
+
+sendthem (????????)
+
+expect: (OK)
+
+AT^M^M^JOKgot it
+
+sendthem (DELAY
+
+????????PAUSE
+
+????????PAUSE
+
+????????PAUSE
+
+&lt;NO CR&gt;????????)
+
+expect: (OK^M)
+
+^M^JAAATE1V1X1Q0S2=255S12=255S50=6S58=2S68=2S7=80^M^M^JOK^Mgot it
+
+sendthem (ECHO CHECK ON
+
+&lt;NO CR&gt;?????????????????????????)
+
+expect: (CONNECT 9600)
+
+^M^JCONNECT 9600got it
+
+getto ret 6
+
+expect: (in:)
+
+^M^Jsendthem (????????)
+
+expect: (in:)
+
+^M^Jmachine1 login:got it
+
+sendthem (????????)
+
+expect: (word:)
+
+ uduke^M^JPassword:got it
+
+sendthem (????????)
+
+LOGIN FAILED - failed
+
+exit code 101
+
+Conversation Complete: Status FAILED</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Please note that a lot of what is sent is not visible to the user. This is not the case if Uutry is run as root. In that case, the send information, including the password, would be echoed in the 
+parentheses. Because Uutry leaves files in /tmp, I prefer to use it with my own account and just use root to edit the administrative files.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can only see what is echoed back to you&#151;your commands that are not echoed, such as your password, are not visible. By correcting the password in the Systems file and rerunning Uutry, you get the output in Listing 43.2.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 43.2. A successful UUCP call.</B></LH></UL>
+
+<PRE>$ /usr/lib/uucp/Uutry machine1
+
+mchFind called (machine1)
+
+conn(machine1)
+
+Device Type ACU wanted
+
+mlock ttya succeeded
+
+processdev: calling setdevcfg(uucico, ACU)
+
+gdial(tb9600) called
+
+expect: (&quot;&quot;)
+
+got it
+
+sendthem (????????)
+
+expect: (OK)
+
+AT^M^M^JOKgot it
+
+sendthem (DELAY
+
+????????PAUSE
+
+????????PAUSE
+
+????????PAUSE
+
+&lt;NO CR&gt;????????)
+
+expect: (OK^M)
+
+^M^JAAATE1V1X1Q0S2=255S12=255S50=6S58=2S68=2S7=80^M^M^JOK^Mgot it
+
+sendthem (ECHO CHECK ON
+
+&lt;NO CR&gt;?????????????????????????)
+
+expect: (CONNECT 9600)
+
+^M^JCONNECT 9600got it
+
+getto ret 6
+
+expect: (in:)
+
+^M^J^M^Jmachine1 login:got it
+
+sendthem (????????)
+
+expect: (word:)
+
+ uduke^M^JPassword:got it
+
+sendthem (????????)
+
+Login Successful: System=machine1
+
+msg-ROK
+
+ Rmtname machine1, Role MASTER, Ifn - 6, Loginuser - james
+
+rmesg - 'P' got Pgetxf
+
+wmesg 'U'g
+
+Proto started g
+
+*** TOP ***  -  role=1, setline - X
+
+Request: duke!D.dukeb2ee40e &#151;&gt; machine1!D.dukeb2ee40e (james)
+
+wrktype - S
+
+ wmesg 'S' D.dukeb2ee40e D.dukeb2ee40e james - D.dukeb2ee40e 0666 james
+
+rmesg - 'S' got SY
+
+ PROCESS: msg - SY
+
+SNDFILE:
+
+-&gt; 835 / 0.972 secs, 859 bytes/sec
+
+rmesg - 'C' got CY
+
+ PROCESS: msg - CY
+
+RQSTCMPT:
+
+mailopt 0, statfopt 0</PRE>
+
+<P>Another debugging tool is cu. This command also uses the UUCP files to try to connect to the remote machine, but when you are connected to the remote machine, cu terminates and you must complete the login yourself. This is very useful for debugging 
+telephone numbers and Dialer scripts. Also, by using cu to connect to the modem itself, you can alter the modem parameters that may have been set incorrectly.
+
+<BR></P>
+
+<P>Another debugging tool is uucico. By calling uucico with the option -x and a single number, you will get output showing the steps for the UUCP call. This, however, cannot be interrupted, so you should use it sparingly.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>More on Chat Scripts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Chat scripts are the heart of UUCP communication. The concept of a chat script is phenomenally simple&#151;read a port until you match a string, then send a response. It is found in two UUCP-related files, the Systems file and the Dialers file. The 
+concept is rather portable, although it could have supported regular expressions for pattern matching.
+
+<BR></P>
+
+<P>Any number of expect/send pairs could be present. When attempting to navigate UUCP through a network of data switches to reach a destination, you may need a large number of pairs before you reach the login prompt.
+
+<BR></P>
+
+<P>The longer the chat script, the greater the chance that an error may occur. Normally, an error in the chat will result in the call failing; however, there are some error correction techniques. The uucico command will take a time-out after 30 seconds if 
+
+an expected pattern is not seen. At that time, an alternate send sequence can be issued, and a new pattern expected. This alternate send is enclosed in dashes, with the new expect pattern following the second dash. There can be no spaces in this pattern, 
+or UUCP will see it as a new member of an expect/send pair.
+
+<BR></P>
+
+<P>Often, this is seen with the login prompt and looks like this:
+
+<BR></P>
+
+<PRE>in:&#151;in:</PRE>
+
+<P>This pattern means, wait for in:, and if it is not found, send a carriage return and wait again for in:. (Remember that each send pattern is followed by a carriage return, even if it is an alternate send.)
+
+<BR></P>
+
+<P>Another frequent alternate sequence is \K. Sometimes, when calling a modem that operates at multiple speeds, sending a break down the line will allow the modem to change its speed to match yours. When you see a sequence like this:
+
+<BR></P>
+
+<PRE>in:-\K-in:&#151;in:-\K-in:</PRE>
+
+<P>there are four separate instances of an expected login prompt. If not found the first time, send a break, then a carriage return, then another break. Although this may look excessive, it is sometimes necessary.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Administering the Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Besides the files already mentioned, there are six important UUCP files that need regular administration. They are the Devices, Dialers, Dialcodes, Permissions, Sysfiles, and Poll files. Each has its own format and usage.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Devices</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Devices file is just a list of the devices found on the system, with an identification of their use. The purpose of this file is to tie the device specification in the Systems file to a physical device with a known means of access. Each entry in the 
+
+Devices file is a single line long, must start in the first column, and has five fields. The file permits comments, identified by the # character in the first column. It ignores lines with no entry in that column.
+
+<BR></P>
+
+<P>The first field is the device type. It must match exactly the device specified in the Systems file. Devices will be tried in order down the file until one is found to be available. This way, a system with multiple modems can have one entry in the 
+Systems file. Some devices have standard identifiers. An <I>ACU</I> is an &quot;automated call unit,&quot; better known as a modem. direct signifies that the link to the device is a direct link.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> For you to use cu -l, the line specified must have a direct entry in the Devices file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The second field is the data port. This is the filename of the special file in the /dev directory that matches the physical device, and will be the port through which the data communication is made.
+
+<BR></P>
+
+<P>The third field is the dialer port. This is a bit of an anachronism, but in the past, some modems required a separate dialer device to make the phone call. This was the special file that pointed to the dialer for that modem. If the modem is capable of 
+dialing, this field is marked with a dash.
+
+<BR></P>
+
+<P>The fourth field is the speed of the device. This is also used for matching the Systems file. That way a site can indicate multiple speeds for connections through multiple devices.
+
+<BR></P>
+
+<P>The last field is the dialer token pairs. This specifies a specific dialer pattern, found in the Dialers file, and any arguments passed thereto. Normally, only a single pair (or single entry, if it gets no arguments) is found; however, if the system 
+needs to go through a switch to reach the modem, a chat script may be expected.
+
+<BR></P>
+
+<P>My Devices file is rather small, and it looks like this:
+
+<BR></P>
+
+<PRE>ACU ttya - 9600 tb9600
+
+Direct ttya - 9600 direct</PRE>
+
+<P>I have only the single modem, a Telebit QBlazer at 9600 baud. It is attached to /dev/ttya and uses the tb9600 dialer script when I connect via UUCP. It is configured to allow me to use cu to talk to the modem.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Dialers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Dialers file is used to initiate conversation with the modem. It ties the dialer specified in the Devices file to a chat script. It consists of three fields. The first is the name of the dialer script. This must match exactly with the dialer 
+specified in the Devices file. Like with devices, all dialers are one line and are started in the first column. The #, or white space, in the first column indicates a comment.
+
+<BR></P>
+
+<P>The second field is a translation table for older communication devices.
+
+<BR></P>
+
+<P>The third field is the chat script needed to talk with the modem and to place the call. My machine came with several dialers already installed, including dialers for penril, ventel, micom, hayes, and telebit modems. I looked over my set of telebit 
+dialers, listed below, and selected tbfast for my first dialer for my ACU.
+
+<BR></P>
+
+<PRE>tb1200    =W-, &quot;&quot; \dA\pA\pA\pTE1V1X1Q0S2=255S12=255S50=2\r\c\
+
+<BR> OK\r \EATDT\T\r\c CONNECT\s1200
+
+tb2400    =W-, &quot;&quot; \dA\pA\pA\pTE1V1X1Q0S2=255S12=255S50=3\r\c\
+
+<BR> OK\r \EATDT\T\r\c CONNECT\s2400
+
+tbfast    =W-, &quot;&quot; \dA\pA\pA\pTE1V1X1Q0S2=255S12=255S50=255\r\c\
+
+<BR> OK\r \EATDT\T\r\c CONNECT\sFAST</PRE>
+
+<P>I knew I wasn't connecting at 1200 or 2400 baud, so it seemed that the fast connection was the way to go. I quickly learned that this was wrong! By using cu to mimic the dialing of the UUCP number, I saw that the final message was not CONNECT FAST, but 
+
+CONNECT 9600. I first considered altering tbfast, but instead opted to write my own dialer, tb9600, in case I need to make other changes.
+
+<BR></P>
+
+<P>Note that each of these dialers has a long, confusing list of numbers and characters as the first send sequence. These are the parameters that need to be set in the modem for the UUCP call to take place, in a language the modem understands. Although the 
+
+hayes modem syntax is fairly common, some modems do not use it, so you'll need to check your modem's documentation to determine the correct settings.
+
+<BR></P>
+
+<P>In my efforts, I found that by sending just the string to the modem, I'd get an error, because I didn't yet have the modem's attention. To get its attention, I'd need to send AT to the modem and receive back OK. I placed this at the beginning of my chat 
+
+script. Testing also revealed that the best modem settings were different from those above, so I added them to the chat script, as well. It ended up looking like this:
+
+<BR></P>
+
+<PRE>tb9600    =W-, &quot;&quot; AT OK-AT-OK \dA\pA\pA\pTE1V1X1Q0S2=255S12=255S50=6S58=2S68=2S7=80\r\c\
+
+<BR> OK\r \EATDT\T\r\c CONNECT\s9600-\c-CONNECT\s9600</PRE>
+
+<P>Basically, I am setting modem registers to match what I need. I also wait for CONNECT 9600 a bit longer than the time-out, so if I don't get it, I just sit a little while longer. This is the dialer I use for my UUCP connections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Dialcodes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Dialcodes file is an optional file that equates some string with a series of numbers to be dialed. Although UUCP is perfectly happy to have a sequence such as 1028801144716194550,,2354 to reach a distant computer in the city of London, for a human 
+being glancing at the file it may not be obvious. So Dialcodes permits the human to tie a string, innerlondon, to a dialing sequence 102880114471.
+
+<BR></P>
+
+<P>Because I have only one number, I don't use a Dialcodes file, but if you call many places nationwide, it might be useful.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Permissions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>System security is one of the most pressing issues in the computer industry, and in UUCP it is no exception. Originally, UUCP allowed any user to write to any directory on the remote system, as long as the user ID for UUCP had write permissions. 
+Similarly, reading files was also possible. This had the ugly effect of enabling users to steal remote password files with a simple UUCP command, and if any accounts weren't protected with passwords, those systems were definitely compromised. Similarly, 
+with incorrect permissions, a remote user could do significant damage by moving or destroying important files.
+
+<BR></P>
+
+<P>The way around this problem is to use the Permissions file. This mechanism ties remote systems and accounts to specific read, write, and execute permissions. There are 13 different Permissions file entries, each with the format Option=Value. They must 
+all be on the same line, although these lines may be broken with a backslash. Multiple values for an option are separated by colons. The 13 options are LOGNAME, MACHINE, REQUEST, SENDFILES,  READ, WRITE, NOREAD, NOWRITE, CALLBACK, COMMANDS, VALIDATE, 
+MYNAME, and PUBDIR.
+
+<BR></P>
+
+<P>The meaning of each option are described below.
+
+<BR></P>
+
+<P>LOGNAME refers to a specific login name used by the remote site to gain access. By specifying the LOGNAME, you can tie various options to the login call.
+
+<BR></P>
+
+<P>MACHINE refers to the machine name of the remote UUCP site. Specific permissions can be tied to a LOGNAME or to a MACHINE.
+
+<BR></P>
+
+<P>REQUEST is a yes/no flag indicating whether a remote machine can request files from your machine. The default is no. By permitting a remote system to request files, a command such as uucp mymach!myfile anotherfile can be executed from a remote machine. 
+
+On a trusted network, that may be fine, but it is an invitation to trouble if set up on a link where you don't always know who is on the other end.
+
+<BR></P>
+
+<P>SENDFILES is another yes/no flag, but it is only tied to the LOGNAME. If set to yes, your system will send files to the remote system even if the remote system initiates the call. If you set the value to no, you will never send out files, and if you set 
+
+it to call, you will send out files only when you have initiated the call.
+
+<BR></P>
+
+<P>READ specifies the directories from which uucico can access files for transfer. The default is /var/spool/ucppublic.
+
+<BR></P>
+
+<P>WRITE specifies the directories to which uucico may write files. Again, the default is /var/spool/uucppublic. These two options are designed to keep harm from uucp restricted to a public file system.
+
+<BR></P>
+
+<P>NOREAD and NOWRITE are exceptions to the other directories. For example, on a trusted network, you may want to set your directory open to reading, by setting READ=/home/james. However, you might have your own private directory that you don't want anyone 
+
+to touch. To set this, you can have the options read READ=/home/james NOREAD=/home/james/.Private.
+
+<BR></P>
+
+<P>CALLBACK is another yes/no option. When set to yes, your system must call the remote system back before any transactions may take place. The default value is no. Be particularly careful using this option, because if both machines set CALLBACK to yes, 
+they will never communicate. Also, if one system sets SENDFILES to call, and the other has CALLBACK as yes, the first system will never transfer files to the second. CALLBACK is definitely a security feature, because a remote site could always fake a 
+machine name and steal a password, so by calling back you know with whom you are talking. It is also useful if one site has a particularly cheaper phone rate than the other.
+
+<BR></P>
+
+<P>COMMANDS is a very important option. The default is usually to permit rmail and rnews, the programs to receive mail and netnews. If set to ALL, any command that can be found in the local path of uuxqt will be executed. Because this often includes 
+commands such as cat and rm, this is usually not recommended. The COMMANDS option is tied to a MACHINE name calling in.
+
+<BR></P>
+
+<P>VALIDATE is an option tied to the LOGNAME, and if set to yes, will validate the calling system's identity.
+
+<BR></P>
+
+<P>MYNAME is an option to provide another system name for the local name. This is useful if you need an alternate UUCP name.
+
+<BR></P>
+
+<P>PUBDIR is an option to specify a directory to be treated as the public directory for reading and writing. The default is /var/spool/uucppublic.
+
+<BR></P>
+
+<P>Although this may seem complicated, the default permissions are designed to keep a system secure, and it is only when you want to loosen permissions that you need to edit the Permissions file.
+
+<BR></P>
+
+<P>My Permissions file is rather simple, with a single entry:
+
+<BR></P>
+
+<PRE>MACHINE=netcomsv COMMANDS=rmail:rnews SENDFILES=yes</PRE>
+
+<P>It enables the machine netcomsv to execute rmail and rnews, and it enables me to send files to them.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Sysfiles</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Sysfiles is a special addition that allows the system to specify different Systems files for different services. It also allows for multiple Systems, Devices, and Dialers files, should these become long.
+
+<BR></P>
+
+<P>The format is simple. There are four keywords: service, systems, devices, and dialers. The format is always keyword=value. The service keywords can be uucico or cu, the two commands that access the UUCP files. The other three are files that replace the 
+
+Systems, Devices, and Dialers files for that service. Each field is separated by a colon.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Poll</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Poll file is a list of times to poll a remote system. It is accessed by an administrative daemon to establish a fake request and force a UUCP call at a specific time. Its format is a system name followed by a tab, and a space-separated list of 
+integers from 0 to 23, representing the hours of a 24-hour clock.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Supporting Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UUCP creates many different files and file types. Briefly, they are work files, data files, status files, lock files, log files, and temporary files.
+
+<BR></P>
+
+<P>Work files are located in /var/spool/uucp/<I>machine name</I>, and are prefixed with the letter C. They are the workhorse for UUCP, because they list the specific files to be transferred, including the local and remote names, permissions, and owner. A 
+request to send remote mail may look like this:
+
+<BR></P>
+
+<PRE>S D.dukeb3ae48e D.dukeb3ae48e james - D.dukeb3ae48e 0666 james
+
+S D.netco0c7f621 X.dukeNb3ae james - D.netco0c7f621 0666 james</PRE>
+
+<P>This indicates that two files are to be transferred.
+
+<BR></P>
+
+<P>The data files are kept in the same directory, but are prefixed with D. Even the files that specify remote execution are prefixed with D. In this request are two data files being transferred, one to become a data file on the remote machine, the other to 
+
+become an execute file.
+
+<BR></P>
+
+<P>Execute files are identified by the prefix X. This prefix is sought by uuxqt, which is the program that actually runs the requested commands. These have their own format, indicating the command to be run and the input file to use.
+
+<BR></P>
+
+<P>Status files are kept in /var/spool/uucp/.Status, and have a specific format. There is a single status file per system, with six fields. The first is a type field, the second is a count field (used to indicate the number of retries, for example). The 
+third field is a UNIX time to identify the last connection attempt. The fourth is the number of seconds before a retry attempt may be taken, the fifth is ASCII text to describe the status, and the sixth is the machine name. Status files are usually 
+accessed by the uustat command.
+
+<BR></P>
+
+<P>Lock files are created when a call is attempted, and the lock files are in /var/spool/locks. These files contain the process ID of the uucico request that has locked the system.
+
+<BR></P>
+
+<P>Log files are kept in /var/spool/uucp/.Log. They are cleaned out daily by a daemon to prevent them from growing beyond control. Separate logs are kept for the uucico, uucp, uux, and uuxqt commands, each in a file named for the remote system. These are 
+often accessed with the uulog command.
+
+<BR></P>
+
+<P>Finally, temporary files may be created by UUCP. These are in the directory with the work files and are prefixed with TM.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>UUCP Daemons</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are four UUCP daemons that should be invoked on a regular basis. They are the admin daemon, the cleanup daemon, the polling daemon, and the hourly daemon. These are all started out of cron.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>The </B><B><I>admin</I></B><B> Daemon</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The admin daemon is a daemon that should be invoked at least once a day. It will give, by e-mail, a brief image of the state of UUCP, including a snapshot of the running processes and a listing of the job queue. It will also check the log files to see 
+if there have been any attempts to transfer the passwd file.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>The </B><B><I>cleanup</I></B><B> Daemon</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The cleanup daemon is one of the hardest workers. It should be invoked daily, at a time when few users are likely to be on the system. It will back up all the log files and save them for three days. It will then make the current log files zero length. 
+Other administrative files not discussed here are also backed up.
+
+<BR></P>
+
+<P>The cleanup daemon will invoke the uucleanup command. This command removes old jobs from the queue, based on a command line argument. On my system, I have stuck with the defaults, seven days until a delete, and one day until a warning.
+
+<BR></P>
+
+<P>The daemon then removes old files, empty subdirectories, and core files. When it finishes this, it sends e-mail to the UUCP administrator announcing what it has done.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>The </B><B><I>polling</I></B><B> Daemon</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This daemon quickly examines the Poll file to create polling requests for uucico. This is essentially touching a file in the spool directory. It should be executed hourly.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>The </B><B><I>hourly</I></B><B> Daemon</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The hourly demon should be invoked each hour. It just runs the uusched command, which examines the spool to find any queued jobs, and if it finds jobs, it runs uucico for that system. When it finishes, it runs uuxqt to execute any incoming jobs.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=4><B>Using UUCP</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Earlier in this chapter you were introduced to the commands uucp and uux, which are two of the most common commands for UUCP. There are two alternate commands, uuto and uupick, which ease the process.
+
+<BR></P>
+
+<P>The uucp command is the basic command for the transportation of files from one machine to another. The basic form allows for the specification of two paths to files, one being the original file, the other being the destination. uucp can take a number of 
+
+arguments to help facilitate the transfer. By default, uucp will use the source file for originating the transfer. This means that if the source file is changed before the transfer is completed, the changed file will be sent. If that is not desired, the 
+file can be copied to a temporary file for uucp, which is done by specifying the -C option. By default, uucp will also create the necessary destination directories, if it has permission to do so. This is the -d option and is turned off by -f. uucp also 
+will assign a job ID to the transfer with the -j option. The -m option can be used to let the sender know when the job is complete (uucp will send a mail message to the requestor). The -g option enables the user to set the transfer grade (a single 
+character from 0 to 9, A to Z, or a to z. 0 is highest, and z is lowest).
+
+<BR></P>
+
+<P>Similar to the -m option, the -n option followed by a user name will notify the user at the remote machine when the transfer is complete. Debugging information can be found with -x. To prevent an immediate start of uucico, use -r.
+
+<BR></P>
+
+<P>So if I want to copy a file, data, but might change it later, and I am not worried about speed, I might try this:
+
+<BR></P>
+
+<PRE>uucp -r -C -gz data remote!data</PRE>
+
+<P>If I also want to know when it is done and want to send mail to my friend Joe at the remote machine, I'd expand it to this:
+
+<BR></P>
+
+<PRE>uucp -r -C -gz -m -njoe data remote!data</PRE>
+
+<P>That's an ugly command, to say the least!
+
+<BR></P>
+
+<P>uux is another command frequently used to execute remote programs. Most remote sites restrict this command, but imagine that you are on a very friendly network. At minimum, you need a command string, which is just a machine name followed by an 
+exclamation point and a command. The command is the same as a command typed on the system in the uucppublic directory. At minimum, you need this:
+
+<BR></P>
+
+<PRE>uux remote!date</PRE>
+
+<P>That will run the date command on the remote system. Standard output is sent back to you. Assume that you want to put a message on your friend Joe's screen. If you were on the system, you'd use the command write joe and type something in. What you've 
+typed in is standard input, but you can't type on Joe's machine. uux will accept standard input on your screen, if we include the - on the command line. So you'd type this:
+
+<BR></P>
+
+<PRE>uux - remote!write joe</PRE>
+
+<P>Then you'd enter your message. Note that you don't need to quote the command because anything after the command is considered an argument.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Filenames for uux commands can be machine specified, as well. uux will attempt to get all the files needed to the remote machine before executing the command there.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>uux also takes some other arguments. The -b option tells uux to return the standard input if the remote execution failed. Files may be copied to the spool with -C, and -j controls the ID string. The -n option tells uux not to return any indication of 
+success or failure by mail. By default, uux will send mail to the originator, letting that person know whether the command worked. Standard input can also be used with -p, and -r doesn't immediately start uucico. The grade can be set with -g, and -x 
+controls debugging. The originator name can be altered with -a.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>uuto and uupick</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>These commands are complicated and can baffle the novice user. Fortunately, UNIX provides two friendlier commands, uuto and uupick, for transferring files. These two commands work together. The syntax for uuto is simple:
+
+<BR></P>
+
+<PRE>uuto file file file machine!user</PRE>
+
+<P>Any number of files can be listed on the line&#151;they'll all be transferred to the remote machine using uucp. Note that a user on the remote machine must be specified. This way, the file is placed in a directory on the remote machine identified by the 
+
+user's name. Only two arguments are accepted for uuto: -m says to send mail to the originator when the transfer is complete, and -p says to copy the file to the spool before transmission. In the case of transferring a file to my friend Joe, I'd set up this 
+
+command:
+
+<BR></P>
+
+<PRE>uuto -m file1 remote!joe</PRE>
+
+<P>This is all I need to do. The uuto command will convert it to this:
+
+<BR></P>
+
+<PRE>uucp -d -m -njoe file1 remote!~/receive/joe/duke</PRE>
+
+<P>The remote machine will then have a directory hierarchy for my friend Joe, under the receive directory, and with a subdirectory duke. A short time later, I'll get some e-mail that says (SYSTEM remote) copy succeeded and I will find a reference to the 
+file in the header.
+
+<BR></P>
+
+<P>On the other machine, Joe will also receive some e-mail, saying /usr/spool/uucppublic/receive/james/duke/file1 from duke!james arrived, which lets him know that he has a file in the uucppublic directory.
+
+<BR></P>
+
+<P>Getting that file is easy using uupick. This is another shell script that searches the public directory for files under your name in a receive directory. If it finds any files, it prompts you for what you want to do. The actions are fairly 
+straightforward:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>New line:
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Go to the next entry
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>d
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Delete the file
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>m [dir]
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Move the file to a directory dir
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>a [dir]
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Move all files from the present system to a directory
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>p
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Print the file
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>q
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Quit
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Control+D
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Quit
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>!command
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Run the command
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>*
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Print the command summary</PRE></TABLE>
+
+<P>So if you enter uupick, Joe will be prompted with this:
+
+<BR></P>
+
+<PRE>from system duke: file file1 ?</PRE>
+
+<P>If he types m, the file is placed in his current directory, and the transfer is complete.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>With uuto and uupick, the user is completely removed from the messy details of uucp. Furthermore, on many systems uuto and uupick are all most users need to know.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=4><B>UUCP Utilities</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are two notable UUCP utilities available to the user. One examines log files, the other provides transfer status information.
+
+<BR></P>
+
+<P>UUCP keeps some very detailed log files in /var/spool/uucp/.Log. The uulog command is designed to access the two busiest of those logs. It always takes a system name as an argument. By default, or with the -s flag, it will display the transfer 
+information for a given system. Here is a sample:
+
+<BR></P>
+
+<PRE>uucp remote  (5/14-19:18:42,9604,0) CONN FAILED (CALLER SCRIPT FAILED)
+
+uucp remote  (5/14-19:48:40,9792,0) SUCCEEDED (call to remote )
+
+uucp remote  (5/14-19:48:43,9792,0) OK (startup)
+
+uucp remote  (5/14-19:48:44,9792,0) REMOTE REQUESTED (remote!D.netco56c3c71\
+
+<BR> &#151;&gt; duke!D.netco56c3c71 (netnews))
+
+uucp remote  (5/14-19:48:55,9792,1) REMOTE REQUESTED (remote!D.duke4f4de04\
+
+<BR> &#151;&gt; duke!X.netcomsd56c3 (netnews))
+
+uucp remote  (5/14-19:48:57,9792,2) REMOTE REQUESTED (remote!D.netcobeb02bd\
+
+<BR> &#151;&gt; duke!D.netcobeb02bd (netnews))
+
+uucp remote  (5/14-19:49:14,9792,3) REMOTE REQUESTED (remote!D.duke4f4e043\
+
+<BR> &#151;&gt; duke!X.netcomsdbeb0 (netnews))
+
+uucp remote  (5/14-19:49:17,9792,4) OK (conversation complete ttya 136)
+
+uucp remote  (5/14-20:18:41,9972,0) FAILED (LOGIN FAILED)
+
+uucp remote  (5/14-20:18:41,9972,0) CONN FAILED (CALLER SCRIPT FAILED)</PRE>
+
+<P>From this log you can see that a connection failed at 7:18 PM, succeeded at 7:48, and failed again at 8:18. Normally this file would be fairly long, but I used the -N option to cut it to the last 10 lines of the file. If I wanted to wait on the file, I 
+
+could have used -f. This is the same flag as for tail.
+
+<BR></P>
+
+<P>The only other option is -x. It gives details of the commands executed on the local system from UUCP. An example of the output (again, truncated to just the last 10 lines) is this:
+
+<BR></P>
+
+<PRE>uucp remote duked4f46 (5/14-17:32:37,9158,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f43 (5/14-17:32:38,9158,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f47 (5/14-17:52:08,9225,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f48 (5/14-18:32:49,9287,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f49 (5/14-18:32:50,9287,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f4a (5/14-18:32:51,9287,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f4b (5/14-18:32:52,9287,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f4c (5/14-18:32:53,9287,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f4d (5/14-19:49:19,9793,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )
+
+uucp remote duked4f4e (5/14-19:49:20,9793,0) remote!remote!uucp-bounce XQT\
+
+<BR> (PATH=/bin:/usr/bin  USER=uucp UU_MACHINE=remote UU_USER=remote!uucp-bounce\
+
+<BR> export UU_MACHINE UU_USER PATH; rnews )</PRE>
+
+<P>Every command executed has been rnews, for transmission of netnews. To examine the other two files, my uux requests on a remote system, and my uucp requests to a remote system, I'd need to examine the files using an editor or other UNIX tools.
+
+<BR></P>
+
+<P>The other notable command is the uustat command. It has a lot of power, including the ability to delete jobs. There are several options.
+
+<BR></P>
+
+<P>The command uustat -a will give a listing of all jobs currently in the queue. Here is a sample:
+
+<BR></P>
+
+<PRE>netcomsn0000  05/14-20:45:00  (POLL)
+
+remoteNb1ae  05/14-19:53  S  remote  james 48871\
+
+<BR> /home/james/Docs/Sams/Uucp/file1</PRE>
+
+<P>This indicates that a poll request is in for netcom, and a file transfer request for remote.
+
+<BR></P>
+
+<P>To check the accessibility of machines, use uustat -m. It will give a listing such as this:
+
+<BR></P>
+
+<PRE>netcomsv   05/14-20:18 CALLER SCRIPT FAILED
+
+remote     05/14-20:20 LOGIN FAILED  Count: 2</PRE>
+
+<P>This indicates that there are presently problems reaching both machines. The command uustat -p will perform a ps command for every PID found in a lock file. uustat -q will give a listing of the state of the queue for each machine. It is similar to 
+uustat -m, but it also includes a count of outstanding jobs.
+
+<BR></P>
+
+<P>Detailed job information, similar to that obtained with uustat -a, can be found for a given system or a given user with uustat -s<I>system</I> or uustat -u<I>user</I>. Finally, a user may kill a job or rejuvenate a job. The uustat -a command will give a 
+
+job ID in the first field. By specifying that job with a -k option, it will be removed from the queue. By using the -r option, it will be touched, and spared from any administrative daemons.
+
+<BR></P>
+
+<P>With these two commands, a user can determine the status of jobs already sent but not yet complete.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This chapter has provided a brief overview of the use and administration for UUCP. The uucp, uux, uuto, and uupick commands are used for data and command transfers. The uustat and uulog commands are used to check on the status and actions of UUCP. 
+Different files are used to administer the UUCP system, with the power to restrict types of access and facilitate data transfers.
+
+<BR></P>
+
+<P><A HREF="unx42.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx42.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx44.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx44.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

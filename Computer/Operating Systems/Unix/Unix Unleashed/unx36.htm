@@ -1,0 +1,1753 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx36.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx37.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx37.htm">
+
+<LINK REL="Previous" HREF="unx35.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx35.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx35.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx35.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx37.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx37.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">36 &#151; User Administration</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Sydney S. Weinstein</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">What Makes Up a User Account</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">The User's Home Directory</A></LI>
+
+<LI>
+
+<A HREF="#I6">The User's Mail File</A></LI>
+
+<LI>
+
+<A HREF="#I7">Mail Alias File Entries</A></LI>
+
+<LI>
+
+<A HREF="#I8">The Shell Start-up Files</A></LI>
+
+<LI>
+
+<A HREF="#I9">The User's passwd File Entry or NIS/NIS+ Database Entry</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">User Name</A></LI>
+
+<LI>
+
+<A HREF="#I11">Password (if Not Using a Shadow Password Scheme)</A></LI>
+
+<LI>
+
+<A HREF="#I12">User ID</A></LI>
+
+<LI>
+
+<A HREF="#I13">Default Group ID</A></LI>
+
+<LI>
+
+<A HREF="#I14">Full Name (GCOS Field)</A></LI>
+
+<LI>
+
+<A HREF="#I15">Initial Home Directory</A></LI>
+
+<LI>
+
+<A HREF="#I16">Shell</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Shadow File Entry (NIS/NIS+ database entry)</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">User Name</A></LI>
+
+<LI>
+
+<A HREF="#I19">Password</A></LI>
+
+<LI>
+
+<A HREF="#I20">Password Last Changed Date</A></LI>
+
+<LI>
+
+<A HREF="#I21">Minimum Number of Days Between Password Changes</A></LI>
+
+<LI>
+
+<A HREF="#I22">Maximum Number of Days a Password Is Valid</A></LI>
+
+<LI>
+
+<A HREF="#I23">Number of Days to Warn User to Change passwd</A></LI>
+
+<LI>
+
+<A HREF="#I24">Number of Days the Login May Be Inactive</A></LI>
+
+<LI>
+
+<A HREF="#I25">Date When the Login Is No Longer Valid</A></LI></UL>
+
+<LI>
+
+<A HREF="#I26">The /etc/group File</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">Building the Skeleton</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">Creating Skeleton Shell Files</A></LI>
+
+<LI>
+
+<A HREF="#I29">Additional Files You May Wish to Create</A></LI></UL>
+
+<LI>
+
+<A HREF="#I30">Adding a User</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I31">Before Adding the User</A></LI>
+
+<LI>
+
+<A HREF="#I32">Running useradd</A></LI>
+
+<LI>
+
+<A HREF="#I33">Creating Mail Alias Entries</A></LI>
+
+<LI>
+
+<A HREF="#I34">NIS Effects</A></LI></UL>
+
+<LI>
+
+<A HREF="#I35">Removing a User</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I36">Disabling the User's Login</A></LI>
+
+<LI>
+
+<A HREF="#I37">Cleaning Up Disk Space Assigned to This User</A></LI>
+
+<LI>
+
+<A HREF="#I38">Final User Removal After All Files Are Handled</A></LI></UL>
+
+<LI>
+
+<A HREF="#I39">Summary</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>36 &#151; User Administration</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Sydney S. Weinstein</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Although users may be the reason for the existence of your UNIX system, they also can be the sysadmin's worst nightmare. Users are always making demands and changing things. The one thing that remains constant is that users come and go, but the system 
+remains.
+
+<BR></P>
+
+<P>As system administrator, you will have to add and remove users from the system. It is also your task to provide the default environment so users can get their jobs done. This chapter shows what makes up a user's account, how to create new user accounts, 
+
+and what to do when a user leaves and his account must be removed.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What Makes Up a User Account</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Users see UNIX as a home directory and a shell. Behind the scenes are many other files and parameters that affect the user. This section explains each part of the user's account and how it affects the user.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>The User's Home Directory</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Every process in UNIX has a current directory. This is no different for the login shell for a user. The initial current directory for a login shell is called its home directory. The login program sets the HOME environment variable to the full pathname 
+to this directory. It is in this directory that the login shell looks for its start-up files. It is also in this directory that system daemons look for the following:
+
+<BR></P>
+
+<UL>
+
+<LI>.Xauthority&#151;the processes that are allowed to access the X screen being used by this user.
+
+<BR>
+
+<BR></LI>
+
+<LI>.Xdefaults&#151;X programs keep default values for their options in this file.
+
+<BR>
+
+<BR></LI>
+
+<LI>.cshrc&#151;csh/tcsh start-up script.
+
+<BR>
+
+<BR></LI>
+
+<LI>.exrc&#151;vi/ex start-up script.
+
+<BR>
+
+<BR></LI>
+
+<LI>.forward&#151;mail redirection file. In this file you place the address or addresses to forward your mail. It allows you to receive mail from many accounts on a single account, or to pass your mail through a program to filter it before reading it.
+
+<BR>
+
+<BR></LI>
+
+<LI>.history&#151;holds the last set of commands you executed in the shell for use in the history shell command.
+
+<BR>
+
+<BR></LI>
+
+<LI>.ksh_env&#151;ksh start-up script.
+
+<BR>
+
+<BR></LI>
+
+<LI>.login&#151;csh login script, which is executed once at login after .cshrc.
+
+<BR>
+
+<BR></LI>
+
+<LI>.mailrc&#151;mail start-up script.
+
+<BR>
+
+<BR></LI>
+
+<LI>.mwmrc&#151;motif window manager start-up script.
+
+<BR>
+
+<BR></LI>
+
+<LI>.openwin-init&#151;openlook window manager start-up script.
+
+<BR>
+
+<BR></LI>
+
+<LI>.openwin-menu&#151;openlook window manager root menu.
+
+<BR>
+
+<BR></LI>
+
+<LI>.profile&#151;sh/ksh login script, which is executed once at login, after /etc/profile.
+
+<BR>
+
+<BR></LI>
+
+<LI>.rhosts&#151;the remote hosts and users that are equivalent to this user. Equivalent means can log in as this user from a remote system without specifying a password and can access files and perform commands as this user on this system without being 
+challenged for a password. (Used by the networking commands rsh, rexec, rcp, and rlogin.)
+
+<BR>
+
+<BR></LI>
+
+<LI>.xinitrc&#151;X start-up file.
+
+<BR>
+
+<BR></LI>
+
+<LI>.xmodmaprc&#151;X keyboard remapping file.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Many other programs also look for special start-up files in the user's home directory.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>The User's Mail File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Each user on a UNIX system is eligible to receive electronic mail. Normally, this file is in one of these systemwide spool directories:
+
+<BR></P>
+
+<UL>
+
+<LI>/var/mail&#151;System V&#151;derived systems (obsolete name /usr/mail)
+
+<BR>
+
+<BR></LI>
+
+<LI>/var/spool/mail&#151;Berkeley-derived systems (obsolete name /usr/spool/mail)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Some systems now place this mail file in the user's home directory. No matter where it's located, this file will hold the mail this user has yet to read, delete, or move into other folders.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Mail Alias File Entries</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In addition to the mail file, the user name might be listed in the systemwide mail alias file. This file resides in one of several places:
+
+<BR></P>
+
+<UL>
+
+<LI>/etc/aliases
+
+<BR>
+
+<BR></LI>
+
+<LI>/etc/mail/aliases
+
+<BR>
+
+<BR></LI>
+
+<LI>/usr/lib/aliases
+
+<BR>
+
+<BR></LI>
+
+<LI>/usr/lib/mail/aliases
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Regardless of where the alias file resides, it consists of lines containing the alias and the mail address to use for mail received for that alias. Aliases are checked before local user names when mail is being delivered, so you can even alias a local 
+user name to a different machine or user. Listing 36.1 is a small excerpt from a mail alias file. It has the required postmaster alias and some local aliases.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 36.1. Excerpt from a sample mail alias file.</B></LH></UL>
+
+<PRE>## 
+
+#  Aliases can have any mix of upper and lower case on the 
+
+#    left-hand side,     but the right-hand side should be proper
+
+#    case (usually lower)
+
+#
+
+#    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;     The program &quot;newaliases&quot; will need to be run 
+
+#    &gt;&gt; NOTE &gt;&gt; after    this file is updated for any changes to
+
+#    &gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;     show through to sendmail.
+
+##
+
+# Following alias is required by the mail protocol, RFC 822
+
+# Set it to the address of a HUMAN who deals with this system's 
+
+Postmaster: root
+
+nobody: /dev/null
+
+# Sample aliases:
+
+# Alias for distribution list, members specified here:
+
+#staff:wnj,mosher,sam,ecc,mckusick,sklower,olson,rwh@ernie
+
+# Alias for distribution list, members specified elsewhere:
+
+#keyboards: :include:/usr/jfarrell/keyboards.list
+
+# Alias for a person, so they can receive mail by several names:
+
+#epa:eric
+
+#######################
+
+# Local aliases below #
+
+#######################
+
+Syd.Weinstein:      syd
+
+Sydney.Weinstein:   syd</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> As demonstrated in the end of Listing 36.1, it is wise to create full-name aliases. These aliases let someone be addressed by their full name, without the sender knowing the user name. Since aliases are 
+
+case insensitive, it doesn't matter how you list the full name. Remember, however, that delivery addresses (the part after the colon) are case sensitive.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>An alias can point to another alias. Aliases listed in this file are systemwide, and are addresses to which another user can reply. This is not true of private aliases users might enter into their mail reader's start-up files.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>The Shell Start-up Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Each user interacts with UNIX via a command shell. The command shells use a file in the user's home directory to customize themselves for each user. As administrator, it is your responsibility to provide a default shell customization file. There are two 
+
+different sets of customization files&#151;the one you use depends on the shell family being used. For shells that are derived from /bin/sh the initialization file is .profile, with the Korn shell using an additional file whose name is user definable, but 
+
+is often called .ksh_env. Shells derived from Berkeley's C-shell use .login and .cshrc. A short explanation of the purpose and contents of these 4 files is as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>.profile
+
+<BR>
+
+<BR>This is the start-up file executed by Bourne (/bin/sh) and Korn (/bin/ksh) shells at login. This is the file where you place changes to environment variables and global settings. This file is executed after /etc/profile is executed.
+
+<BR>
+
+<BR></LI>
+
+<LI>.ksh_env
+
+<BR>
+
+<BR>The Bourne shell does not have a start-up file for non&#151;login-level shells. The Korn shell does, as it supports aliases and functions that are not exported from the login shell to subshells. If the login shell, via the .profile file, exports the 
+variable ENV, each Korn shell will read the file named in that environment variable on start-up. This file should not include changes to environment variables, but should include function and alias definitions. For login shells, this file is run after 
+/etc/profile and .profile. For subshells, it is the only file executed.
+
+<BR>
+
+<BR></LI>
+
+<LI>.login
+
+<BR>
+
+<BR>This file is run only at login by the C-shell. It should contain environment variable and global settings. It is executed after /etc/cshrc and .cshrc are executed.
+
+<BR>
+
+<BR></LI>
+
+<LI>.cshrc
+
+<BR>
+
+<BR>This file is run by all C-shells at start-up. It is used to initialize aliases and local variables. Changes to environment variables should not be made in this file. For login shells, this file is run after /etc/cshrc and before .login. For subshells, 
+
+it is the only file executed.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>The User's </B><B><I>passwd</I></B><B> File Entry or NIS/NIS+ Database Entry</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The system keeps track of users via an entry in the password database. This databases is maintained in the following ways:
+
+<BR></P>
+
+<UL>
+
+<LI>traditionally&#151;in /etc/passwd
+
+<BR>
+
+<BR></LI>
+
+<LI>SVR4 style&#151;in /etc/passwd and /etc/shadow
+
+<BR>
+
+<BR></LI>
+
+<LI>NIS/NIS+&#151;in a networkwide database, and on the NIS/NIS+ master in files specified at the time that NIS/NIS+ is configured.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>It really doesn't matter which method is used because all of them track the same information. It is this information that defines the user to the UNIX system.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> In a networked environment, it is very important that every system on the network use the same user ID for the same user. Although NIS and other methods share the password information to achieve 
+
+this, that is not required. All that is required is that any systems that share files via NFS also share user IDs.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The passwd file, as shown in Listing 36.2, is composed of single-line entries. Each must appear on a single line and cannot be continued. All the lines must have seven fields, delimited by colons. No comments or blank lines are allowed in this file. 
+This file is world readable, so it does not contain plain-text passwords.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 36.2. Excerpts from a sample </B><B>/etc/passwd</B><B> file from an SVR4 </B><B>system.</B></LH></UL>
+
+<PRE>root:x:0:1:0000-Admin(0000):/:/sbin/sh
+
+daemon:x:1:1:0000-Admin(0000):/:
+
+bin:x:2:2:0000-Admin(0000):/usr/bin:
+
+sys:x:3:3:0000-Admin(0000):/:
+
+adm:x:4:4:0000-Admin(0000):/var/adm:
+
+lp:x:71:8:0000-lp(0000):/usr/spool/lp:
+
+smtp:x:0:0:mail daemon user:/:
+
+uucp:x:5:5:0000-uucp(0000):/usr/lib/uucp:
+
+nuucp:x:9:9:0000-uucp(0000):/var/spool/uucppublic:/usr/lib/uucp/uucico
+
+listen:x:37:4:Network Admin:/usr/net/nls:
+
+syd:x:201:200:Syd Weinstein:/home/syd:/usr/bin/ksh
+
+Pwcsite:x:9001:9:PPP from wc:/:/usr/sbin/aspppls
+
+nobody:x:60001:60001:uid no body:/:
+
+noaccess:x:60002:60002:uid no access:/:</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Be very careful that all the lines have six colons separating the seven fields. A blank line will be taken as an alternate entry for the root user with no password.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The seven fields, in order, in the passwd file are described in the following sections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>User Name</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This is a one- to eight-character alphanumeric field that represents the user's login name. Traditionally the name is all lowercase characters. Any value may be used for this field. To make it easy to tell a user name from a user ID, the name should not 
+
+start with a number.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Accounts fall into two basic categories: human users and computer users. UUCP accounts are an example of the latter. To make it easy to spot accounts that are used by other computers to log in for uucp 
+
+transfers, a convention is to start all those user names with an uppercase U.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Password (if Not Using a Shadow Password Scheme)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The users password, encrypted with a one-way cipher is stored in the second field. Only the first 8 characters of the password are used. These are mixed with a 2-character salt to produce a 13-character encrypted password. When it is necessary to 
+compare a password, the plain text is encrypted with the salt, and a comparison is made against the encrypted version. If the passwd field is empty, this account has no password, and none is required to log in.
+
+<BR></P>
+
+<P>On systems that support password aging and place the password in the passwd file, the password data can be followed by a comma and four characters that describe the aging information. Each of these characters is drawn from the following character set:
+
+<BR></P>
+
+<UL>
+
+<LI>. = 0
+
+<BR>
+
+<BR></LI>
+
+<LI>/ = 1
+
+<BR>
+
+<BR></LI>
+
+<LI>0&#151;9 = 2&#151;11
+
+<BR>
+
+<BR></LI>
+
+<LI>A&#151;Z = 12&#151;37
+
+<BR>
+
+<BR></LI>
+
+<LI>a&#151;z = 38&#151;63
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The first character after the comma denotes the maximum number of weeks the password is valid. The second character is the minimum number of weeks required between password changes. If both of these characters are zero (..), the user is forced to change 
+
+his password the next time he logs in. If the change interval is larger than the valid interval, only the root user can change the password.
+
+<BR></P>
+
+<P>The remaining two characters are the number of weeks since the epoch when the password was last changed. In UNIX, the current epoch, or beginning of time, is January 1, 1970, 00:00 GMT.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You must manually edit the passwd file to set the aging characters the first time. They are not created automatically by the system. Be sure to use vipw when editing the passwd file to be sure it is 
+locked while you are in it.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>On systems that do not use the passwd file to hold the password, such as those using /etc/shadow or some password adjunct scheme, this field contains a fixed string that has fewer than 13 characters.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If you need to temporarily lock out a user, insert the string *LK* on the front of that user's encrypted password string. It now will never match any valid password, as the encryption string uses the 
+same character set as the aging characters, and * is not in the set. You can delete *LK* from the front when you need to re-enable the account, and the original password is intact.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To lock an account against being used for logins, use a fixed string that contains an invalid password character to prevent logins. The convention is to use *LK* for accounts that are locked against 
+login.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>User ID</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>UNIX internally uses a numeric ID to refer to a user. This is the user ID field of the passwd file. It is a number in the range 0&#151;32767 on older systems, 0&#151;65535 on some systems, and 0&#151;2147483648 on SVR4 systems. The number 0 is reserved 
+
+for the root user, the user with special privileges. Many networked systems save -1 for no access and -2 for nobody.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> These two values, -1 and -2, have been known to be a security hole. On systems that did not handle sign extension correctly in the user ID, any user ID that mapped to a negative value caused a 
+security hole due to other assumptions those systems made about checking. They have been replaced by positive values for noaccess and nobody.
+
+<BR>
+
+<BR>noaccess is the value to use when a file is to be made so that it is not owned by root, but no one will be able to access it. nobody is used by NFS. Remote users with the ID 0 (root) are mapped to the nobody ID on NFS accesses unless the file system is 
+
+exported with root access permission. See Chapter 37, &quot;Networking,&quot; for more details.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Although you have total control over the user IDs, it is best to follow a convention that will make it easier to determine which IDs are being used for which purpose.
+
+<BR>
+
+<BR>UNIX has several accounts that are required. These all have low numbered IDs. It's wise to reserve all the IDs below 100 for these reserved system accounts.
+
+<BR>
+
+<BR>In addition, there are several accounts that are for nonhuman use. These include UUCP access accounts and file ownership accounts. (A file ownership account is one that has no person associated with it, but is designed to hold the ownership of a set of 
+
+files for a department. Then when changes to those files need to be made, any member of the department can su to that user to make the changes.
+
+<BR>
+
+<BR>Consider breaking the numbering space apart into the following:
+
+<BR>
+
+<UL>
+
+<LI>Restricted accounts&#151;system use: 0&#151;99
+
+<BR></LI>
+
+<LI>Networkwide user accounts&#151;100&#151;19999
+
+<BR></LI>
+
+<LI>System restricted user accounts&#151;20000&#151;29999 (These are still unique on the network, but the account is valid only on one system.)
+
+<BR></LI>
+
+<LI>UUCP access accounts&#151;30000&#151;30999
+
+<BR></LI>
+
+<LI>File ownership accounts&#151;31000&#151;31999
+
+<BR></LI>
+
+<LI>nobody&#151;32000
+
+<BR></LI>
+
+<LI>noaccess&#151;32001
+
+<BR></LI></UL>
+
+Of course, if you need more accounts than this scheme supports, and if your system supports extended user IDs, move the regions around to make them bigger.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Default Group ID</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>UNIX file permissions have three fields: owner (user ID), group (group ID), and world. The default group for files created by this user is the ID listed for this field. Groups are listed in the file /etc/group or in the file specified by the NIS/NIS+ 
+configuration.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> As with user IDs, consider breaking up this numbering space as well. A numbering scheme similar to the one proposed for user IDs is just as valid.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Full Name (GCOS Field)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In the original versions of UNIX at Bell Laboratories, UNIX was also used as a front end computer to submit jobs to the GE/Honeywell mainframe. This system ran GECOS/GCOS, and this field was used to store the mainframe account information for this user.
+
+
+
+<BR></P>
+
+<P>This is obsolete and of little use outside the labs, so this field was usurped and used to hold the full name of the user. It is used for placing the full name on printouts and on electronic mail. It is stored in one of two formats:
+
+<BR></P>
+
+<UL>
+
+<LI>System V Format: nnnn-Name(nnnn)
+
+<BR>
+
+<BR>The first four digits are the GCOS account number. The name is everything after the - and before the (. The number in the parentheses is the GCOS box number.
+
+<BR>
+
+<BR></LI>
+
+<LI>Berkeley Format: Name, comments
+
+<BR>
+
+<BR>Everything in the field up to the comma is the name. After the comma can go comments about the account that are not part of the name.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Initial Home Directory</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The login program changes to this directory before starting the shell, and sets the HOME environment variable to its value. The user's login scripts can change this value and define a different home directory, which is why this is called the initial 
+home directory.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Shell</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This field contains the full pathname of which script or program is started by the login program as the shell. If this field is empty, the Bourne shell is used by default. For UUCP accounts, the full pathname to the uucico program is the program to be 
+run by login, and it appears in this field.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Shadow File Entry (NIS/NIS+ database entry)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Since the passwd file is world readable, as an added measure of security, SVR4 UNIX systems use a shadow file to hold the password information. It is readable only by root. It contains the password field data in an expanded format.
+
+<BR></P>
+
+<P>The shadow file, as shown in Listing 36.3, is not designed to be edited directly, but instead is modified by the passwd command automatically as needed. The passwd command has the ability to convert dates from standard format to the number of days since 
+
+January 1, 1970, as needed in the date fields in this file.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 36.3. Excerpts from a sample </B><B>/etc/shadow</B><B> file from an SVR4 </B><B>system.</B></LH></UL>
+
+<PRE>root:03de466J423f5:6445::::::
+
+daemon:NP:6445::::::
+
+bin:NP:6445::::::
+
+sys:NP:6445::::::
+
+adm:NP:6445::::::
+
+lp:NP:6445::::::
+
+smtp:NP:6445::::::
+
+uucp:NP:6445::::::
+
+nuucp:NP:6445::::::
+
+listen:*LK*:::::::
+
+Pwcsite:x3d5dtyfetonK:8774::::::
+
+syd:43ASxete436h.:8776:0:168:7:::
+
+nobody:NP:6445::::::
+
+noaccess:NP:6445::::::</PRE>
+
+<P>The shadow file consists of the following fields:
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>User Name</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This name is used to match against the name in the passwd file.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Password</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The user's password, encrypted with a one-way cipher, is stored in the second field. Only the first 8 characters of the password are used. These are mixed with a 2-character salt to produce a 13-character encrypted password. When it is necessary to 
+compare a password, the plain text is encrypted with the salt, and a comparison is made against the encrypted version. If the passwd field is empty, the account has no password, and none is required to log in.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Password Last Changed Date</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The number of days between January 1, 1970, and the date that the password was last modified. It is stored as an integer value. All the remaining day fields are relative to this date.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Minimum Number of Days Between Password Changes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The user is not allowed to change his password until the number of days specified in this field after the last password change. The number of days is specified by the system administrator. 0 means that no limit is enforced, and the user may change his 
+password at anytime.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Maximum Number of Days a Password Is Valid</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The user is required to change his password when the number of days specified in this field has passed since the last change. An empty field means the password never expires.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Do not enable password aging (leave this field blank) for UUCP accounts. The UUCP chat script cannot handle requests to change an expired password.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Number of Days to Warn User to Change </B><B><I>passwd</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Beginning this many days before password expiration, on login the user is warned that his password is about to expire and will need to be changed.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Number of Days the Login May Be Inactive</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If the account is inactive for more than this number of days, the login is considered locked and requires administrative action to reset a new date.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Date When the Login Is No Longer Valid</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>After this date, again specified as the number of days since January 1, 1970, the account is locked and may not be used for login.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>The </B><B><I>/etc/group</I></B><B> File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A user can belong to more than one group. He has access rights to files in every group of which he is a member. The groups file, like the passwd file, is delimited by colons as shown in Listing 36.4.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 36.4. A sample </B><B>/etc/group</B><B> file from an SVR4 system.</B></LH></UL>
+
+<PRE>root::0:root
+
+other::1:
+
+bin::2:root,bin,daemon
+
+sys::3:root,bin,sys,adm
+
+adm::4:root,adm,daemon
+
+uucp::5:root,uucp
+
+mail::6:root
+
+tty::7:root,tty,adm
+
+lp::8:root,lp,adm
+
+nuucp::9:root,nuucp
+
+staff::10:
+
+daemon::12:root,daemon
+
+nobody::60001:
+
+noaccess::60002:</PRE>
+
+<P>The following are the fields in the group file:
+
+<BR></P>
+
+<UL>
+
+<LI>Group name&#151;text name of the group, up to eight alphanumeric characters. Again, to avoid confusion with IDs it's best to begin with a letter.
+
+<BR>
+
+<BR></LI>
+
+<LI>Group password&#151;a password that users can use with the newgrp command to make this group their current default group ID.
+
+<BR>
+
+<BR></LI>
+
+<LI>Group ID&#151;the numeric representation of the group name.
+
+<BR>
+
+<BR></LI>
+
+<LI>Members&#151;names of users who are members of this group. It is this section that is scanned to determine the other groups to which a user belongs.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Many systems have a limit as to the number of groups to which a user can belong. The most common limit is 16. Placing a user in more than this number of groups prevents the user from being able 
+
+to log in at all.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Building the Skeleton</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Rather than building all of the configuration files by hand for each user as you create the user, UNIX provides the concept of a skeleton user. The files created for the skeleton are copied automatically to the home directory of the newly created user. 
+
+The skeleton is located in /etc/skel. Any files found in this directory are copied by the useradd command to the newly created home directory. Note that the useradd command allows using alternate skeletons via the -k argument.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Creating Skeleton Shell Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the /etc/skel directory there are the following files:
+
+<BR></P>
+
+<UL>
+
+<LI>.login, .cshrc, .profile
+
+<BR>
+
+<BR>These are in the SVR4 version of the directory. They are the default files provided by the vendor. You can use a text editor to customize them as necessary.
+
+<BR>
+
+<BR></LI>
+
+<LI>local.login, local.cshrc, local.profile
+
+<BR>
+
+<BR>This is the Solaris version of the directory. These files must be edited and renamed .login, .cshrc, and .profile.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Edit these files to alter the path lines for local conventions, and to add any local start-up options desired.
+
+<BR></P>
+
+<P>Samples named .login, .cshrc, and .profile can be found on the CD-ROM, along with a file named .ksh_env.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Additional Files You May Wish to Create</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In addition to the default shell files, a user skeleton should consider adding the following:
+
+<BR></P>
+
+<UL>
+
+<LI>.mailrc&#151;mailx start-up script&#151;In this file it is helpful to set some local mail options, such as when to use an external pager (set crt=22). See the Mail or mailx command page.
+
+<BR>
+
+<BR></LI>
+
+<LI>.mwmrc&#151;motif window manager start-up script&#151;You might want to provide a localized main menu for motif.
+
+<BR>
+
+<BR></LI>
+
+<LI>.openwin-menu&#151;openlook window manager root menu&#151;You might want to provide a localized main menu for openlook window manager.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>You add these files not just to change the defaults but to show the users what files they can customize and what the current values are.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=4><B>Adding a User</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are three ways to add a user:
+
+<BR></P>
+
+<UL>
+
+<LI>Edit the passwd, shadow, and associated files yourself by hand.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the useradd command.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the specialized Graphical User Interface (GUI) interface provided by your UNIX vendor, such as admintool under Solaris or LoginMgr under UnixWare.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>It is no longer recommended using the first option to prevent errors. The useradd command is very easy to use, and can handle all the internal security files directly. The GUI interfaces are also very easy to use and will guide you through the steps.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Before Adding the User</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In any case, before actually adding the user you need to do the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Choose a user name&#151;Often used are the first name, the first name with the first letter of the last name, the last name, the first letter of the first name and the last name. It really doesn't matter. Each name must be unique in the network and 
+consistent on all machines the user is valid to log into.
+
+<BR>
+
+<BR></LI>
+
+<LI>Assign a user ID&#151;Use the grouping of user ID values previously described and choose a user ID that has never been used. It is not a good idea to recycle user IDs, as a file in the system might still be owned by the old user of that ID, and would 
+then belong to the new user of that ID.
+
+<BR>
+
+<BR></LI>
+
+<LI>Choose group memberships&#151;Determine which groups best fit this user as the primary group and as supplemental groups.
+
+<BR>
+
+<BR></LI>
+
+<LI>Choose the location for the user's home directory&#151;Using symbolic links you can later move the home directory to any disk drive that has storage. Consider using a common /home directory and symlinks to where space is available, on an as-needed 
+basis.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Running </B><B><I>useradd</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The useradd command takes many arguments that specify the answers to the questions you asked yourself in the previous section. From the man page, the command line arguments are these:
+
+<BR></P>
+
+<PRE>useradd [ -c comment ] [ -d dir ] [ -e expire ] [ -f inactive ] 
+
+[ -g group ] [ -G group [, group...]]  [ -m [ -k skel_dir ]]
+
+[   - u uid [ -o]] [ -s shell ] login</PRE>
+
+<P>The following list goes over where each of these arguments ends up in the files:
+
+<BR></P>
+
+<UL>
+
+<LI>-c comment&#151;This is the GCOS field of the /etc/passwd file. Put the full information for this field here. Use the Berkeley format if you do not need the GCOS features. Here is an example of a - c argument:
+
+<BR>
+
+<BR>-c &quot;Syd Weinstein, Room 101&quot;
+
+<BR></LI>
+
+<LI>-d dir&#151;This is the home directory field of the /etc/passwd file:
+
+<BR>
+
+<BR>
+
+<BR></LI>
+
+<LI>-e expire&#151;This is the ending date for this login. This field is not required, and if omitted no expiration date will be used. The date is converted from the input format to the days since January 1, 1970, and placed in the /etc/shadow file. Any 
+input date format except a Julian date can be used. For example:
+
+<BR>
+
+<BR>-e &quot;January 1, 1995&quot; or -e 1/1/95
+
+<BR>
+
+<BR></LI>
+
+<LI>-f inactive&#151;This is the maximum number of days this login can be inactive before being invalidated. It is stored in the number of days inactive field of the /etc/shadow file. If this argument is omitted, no checking for inactivity is performed.
+
+<BR>
+
+<BR></LI>
+
+<LI>-g group&#151;This is the primary group ID field of the /etc/passwd file. Either a group name or a numeric ID may be supplied.
+
+<BR>
+
+<BR></LI>
+
+<LI>-G group [, group .\x11.\x11.     ]&#151;These are the secondary groups. The user's name is added to each of these group entries in the /etc/group file. Again, either a name or a numeric ID may be supplied.
+
+<BR>
+
+<BR></LI>
+
+<LI>-m [ -k skel_dir ]&#151;If no -k argument is given, create a home directory for this user and copy the files from:
+
+<BR>
+
+<BR>/etc/skel
+
+<BR>
+
+<BR>If the -k argument is given, create a home directory and copy the files from the specified directory instead of the default /etc/skel directory.
+
+<BR>
+
+<BR></LI>
+
+<LI>-u uid [ -o]&#151;This is the user ID field of the /etc/passwd file. If the -o flag is given, the uid does not have to be unique. It is not recommended for more than one user to share a user ID.
+
+<BR>
+
+<BR></LI>
+
+<LI>-s shell&#151;This is the full pathname of the login shell and is the shell field of the /etc/passwd file.
+
+<BR>
+
+<BR></LI>
+
+<LI>login&#151;This is the login name you have assigned this user.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Creating Mail Alias Entries</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After the user is added you should update the mail alias file. Add an alias for this user for the full spelling of his name to map to his user name. After the aliases are added, run the newaliases command to compile the alias hash table.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>NIS Effects</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are running NIS, most of this doesn't apply to you, although understanding it will help you do what NIS needs. NIS uses a different set of configuration files that parallel the /etc/passwd file. The files used are totally under your control, but 
+
+a common convention is to use /etc/passwd for accounts local to this machine and /etc/yppasswd for the remainder of the accounts. See Chapter 37 for more information on NIS.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=4><B>Removing a User</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The first thing to understand about removing a user is don't. When a user must be denied access to the UNIX system, disable him instead. You don't want to remove him for the following reasons:
+
+<BR></P>
+
+<UL>
+
+<LI>By not deleting, you prevent reuse of user IDs
+
+<BR>
+
+<BR>You need to track which user IDs have been used to avoid reuse. One way of knowing this is to keep an entry in the password file with the deleted user's ID.
+
+<BR>
+
+<BR></LI>
+
+<LI>You may need to recover old files
+
+<BR>
+
+<BR>When you recover files from an old tape, some of them might belong to the deleted user's ID. If the entry still exists, ls will be able to tell you who they belonged to so you can reassign them. This is another reason not to reuse user IDs.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Disabling the User's Login</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>It is very easy to disable the user's login. An option to the passwd command, when run by root, will mark the login as locked. Once locked, the user will not be able to log in. The command to lock a user is:
+
+<BR></P>
+
+<PRE>passwd -l user</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Just locking the account is not enough. You need to do the following:
+
+<BR>
+
+<BR>Make sure the user is not logged on anywhere in the network. If so, he could use the passwd command to re-enable his login.
+
+<BR>
+
+<BR>Remove or move to another name the .rhosts file in his home directory to prevent him from logging in as himself from another system.
+
+<BR>
+
+<BR>Check the system to make sure there are no setuid programs with his user ID. This can be done with the command
+
+<BR>
+
+<BR>find / -user user_name -perm -04000 -print
+
+<BR>
+
+<BR>Any of these files should be modified to clear the setuid bit. If a production application requires these files to have this bit set, have someone verify that these files are not a security risk.
+
+<BR>
+
+<BR>Remember to run the find command on every system in the network.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Cleaning Up Disk Space Assigned to This User</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After the user's login has been disabled, you need to clean up after him. This takes four steps:
+
+<BR></P>
+
+<OL>
+
+<LI>Find files owned by this user.
+
+<BR>
+
+<BR>The find command traverses the file systems and prints the names of all files owned by this user. The ones in the user's home directory tree may be obvious, but there often are others elsewhere in the hierarchy. For example
+
+<BR>
+
+<BR>find / -user user_name -print
+
+<BR>
+
+<BR>prints a listing of the names of all the files owned by the user user_name. This should be run on each system in the network.
+
+<BR>
+
+<BR></LI>
+
+<LI>Back up the files to tape.
+
+<BR>
+
+<BR>In case you make a mistake, or there is a question later, make a tape backup of all of this user's files.
+
+<BR>
+
+<BR></LI>
+
+<LI>Reassign the ownership of files you desire to retain.
+
+<BR>
+
+<BR>This is performed with the chown command.
+
+<BR>
+
+<BR></LI>
+
+<LI>Remove the remaining files you wish to discard.
+
+<BR>
+
+<BR>You can use the xargs command with the files left on the list after you have deleted all the ones you reassigned ownership with the command
+
+<BR>
+
+<BR>xargs rm &lt; remaining_list
+
+<BR></LI></OL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Final User Removal After All Files Are Handled</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you are sure you no longer need to access this user ID, because all the files have been handled and the home directory is removed, it's time to make the remaining password entry totally unusable by any shell program.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>After you do this you will be unable to su to this user ID, so be sure you really do not need to be this user anymore before clearing the entry.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To make sure that the password entry is only used as a uid placeholder, four fields in the entry should be changed:
+
+<BR></P>
+
+<UL>
+
+<LI>User name&#151;While the user name is available, it can still receive mail. This can cause any mail being received for this now-deleted user to clutter up your mail spool directory. Changing the user name will cause any mail received for this user to 
+bounce back to the sender.
+
+<BR>
+
+<BR>So that you know the entry is now a placeholder, use a pattern for the login name, perhaps d_uid, to indicate that this is a deleted entry for <I>uid uid.</I>
+
+<BR>
+
+<BR></LI>
+
+<LI>GCOS (comment/full name)&#151;Update the full name field to show when this entry was deleted. Leave the old user's name in there so you know who it belonged to when files are recovered that have this owner ID.
+
+<BR>
+
+<BR></LI>
+
+<LI>Home directory&#151;To prevent logging in to this user, set the login directory to a known nonexistent directory. This will prevent others from using su to use this user ID.
+
+<BR>
+
+<BR></LI>
+
+<LI>Login shell&#151;Finally, change the shell to /usr/bin/false. This will also prevent any accesses by remote commands for this user. This is accomplished with the usermod command:
+
+<BR>
+
+<BR>usermod -l d_100 -c &quot;Syd Weinstein, deleted 4/1/94 by ssw&quot;\
+
+<BR> -d /nodir -s /usr/bin/false syd
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The last step is to remove this user from any mail aliases to which he was a member. This is done by editing the alias file and searching for all occurrences of the user name. Remember also to remove occurrences of alternatives to his name listed in the 
+
+alias file.
+
+<BR></P>
+
+<P>When the backups have rolled around, such that there are no longer any tapes from when this user was around, and you are sure you will never need the ID again, you can remove the placeholder from the /etc/passwd file to reduce the clutter in that file.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Dealing with user accounts is much easier once you know where everything is located. This chapter shows you where the UNIX system keeps the information on the user's account. With this information you can decide which options to the useradd, usermod, 
+groupadd, and groupmod commands you need to use. You can even decide if you need to directly edit the files and go around these commands (but be cautious if you do so!).
+
+<BR></P>
+
+<P>The new user's account starts with the skeleton. It's from the skeleton that the initial contents of his home directory are created. You have to create the skeleton to meet your local needs. A simple default is delivered with the UNIX system, but it is 
+
+up to you to modify that to fit local conventions.
+
+<BR></P>
+
+<P>Finally, eventually you need to remove users. This chapter gives a set of steps you can follow when that becomes necessary.
+
+<BR></P>
+
+<P><A HREF="unx35.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx35.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx37.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx37.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

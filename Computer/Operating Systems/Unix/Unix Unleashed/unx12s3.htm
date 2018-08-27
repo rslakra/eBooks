@@ -1,0 +1,3021 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx12.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx13.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx13.htm">
+
+<LINK REL="Previous" HREF="unx12s2.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s2.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx13.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx13.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<A HREF="#I48">Variable Arithmetic</A>
+
+<UL>
+
+<LI>
+
+<A HREF="#I49">Using typeset</A></LI>
+
+<LI>
+
+<A HREF="#I50">Using let</A></LI>
+
+<LI>
+
+<A HREF="#I51">Some Practical Examples of Arithmetic</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I52">Shell Programming</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I53">Conditional Expressions</A></LI>
+
+<LI>
+
+<A HREF="#I54">Functions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I55">Defining Functions</A></LI>
+
+<LI>
+
+<A HREF="#I56">Using Variables in Functions</A></LI>
+
+<LI>
+
+<A HREF="#I57">Using Traps in Functions</A></LI>
+
+<LI>
+
+<A HREF="#I58">Using Autoload Functions</A></LI>
+
+<LI>
+
+<A HREF="#I59">Undefining Functions</A></LI>
+
+<LI>
+
+<A HREF="#I60">When To Use Functions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I61">Scanning Arguments with getopts</A></LI>
+
+<LI>
+
+<A HREF="#I62">Using the select Statement</A></LI>
+
+<LI>
+
+<A HREF="#I63">Using Coprocesses</A></LI></UL>
+
+<LI>
+
+<A HREF="#I64">Customizing</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I65">Setting Control Keys with stty</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I66">Setting Environment Variables</A></LI></UL>
+
+<LI>
+
+<A HREF="#I67">Setting Local Variables for Shell Control</A></LI>
+
+<LI>
+
+<A HREF="#I68">Defining Aliases</A></LI>
+
+<LI>
+
+<A HREF="#I69">Defining Functions</A></LI>
+
+<LI>
+
+<A HREF="#I70">Setting Shell Options</A></LI>
+
+<LI>
+
+<A HREF="#I71">Executing Commands Every Time You Login</A></LI>
+
+<LI>
+
+<A HREF="#I72">Executing Your .profile After Changing It</A></LI>
+
+<LI>
+
+<A HREF="#I73">Creating an ENV File</A></LI>
+
+<LI>
+
+<A HREF="#I74">Adding Settings for Other Programs to Your .profile</A></LI>
+
+<LI>
+
+<A HREF="#I75">Job Control</A></LI>
+
+<LI>
+
+<A HREF="#I76">Displaying Background Jobs and Their Status</A></LI>
+
+<LI>
+
+<A HREF="#I77">Sending Signals to a Job</A></LI>
+
+<LI>
+
+<A HREF="#I78">Suspending the Shell Until a Job Finishes</A></LI>
+
+<LI>
+
+<A HREF="#I79">Moving Background Jobs into the Foreground</A></LI>
+
+<LI>
+
+<A HREF="#I80">Moving Foreground Jobs into the Background</A></LI></UL>
+
+<LI>
+
+<A HREF="#I81">Summary</A></LI>
+
+
+
+<CENTER>
+
+<H3><B>Section 3</B></H3>
+
+</CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Variable Arithmetic</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>An exciting new addition to the capabilities of the old Bourne shell offered by the Korn shell is the capability to do arithmetic. The Bourne shell provides no built-in calculating capability, so even the simplest arithmetic requires command 
+substitutions that resort to calling other UNIX programs. The Korn shell adds some built-in capability to do basic arithmetic.
+
+<BR></P>
+
+<P>The two major tools you'll use when doing arithmetic inside the Korn shell are the typeset command and the let command. The typeset command provides number formatting capability and the capability to declare&#151;or set aside&#151;some variables for the 
+
+special purpose of doing arithmetic. The let command is where all this magic really happens.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Using typeset</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Korn shell is still a very slow tool for doing repetitive calculations, even with the typeset statement. Floating-point&#151;real numbers with decimal points and fractions and the like&#151;isn't supported. Therefore, all your calculations must use 
+
+integer values, and they will yield integer results. However, the shell arithmetic is sufficient to support programming concepts such as loop control with counters.
+
+<BR></P>
+
+<P>The typeset statement is an extension provided by the Korn shell to permit some amount of control over the format and usage of shell variables. When typeset is used for managing variables, its syntax is
+
+<BR></P>
+
+<PRE>typeset [ [pm]HLRZilrtux [n] ] [ name[=value] ] ...</PRE>
+
+<P>The particular set of options that you use with the command determines the required format for the syntax of the command. Not all combinations of option letters are legal. Only the following options should be specified:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-i</P>
+
+<TD>
+
+<P>Declares the variable to be of type integer. Use the optional n to specify the number base to which the value should be converted on substitution. The number is always carried in base 10, and only base 10 decimal values should be assigned to the 
+variable. On substitution, however, the value is converted to the equivalent octal digit string. You may also specify one of the -L, -LZ, -R, or RZ options for the named variable(s).</P>
+
+<TR>
+
+<TD>
+
+<P>-l</P>
+
+<TD>
+
+<P>The value of the named variable(s) should be converted to all lowercase letters when it is substituted. Don't specify this option together with -u. You must specify at least one name argument, and you may provide an optional initial value for some or 
+all of the named variables.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>The named variable(s) will be treated as read-only, meaning that subsequent assignments of a value to the named variables will be inhibited. If the variable is to have a non-null value, you should supply a <I>value</I> for the listed variable names. You 
+
+must name at least one variable to have the read-only attribute. You can use the -r option in combination with any of the other options.</P>
+
+<TR>
+
+<TD>
+
+<P>-u</P>
+
+<TD>
+
+<P>The value of the named variable(s) should be converted to all uppercase letters when it is substituted. Don't specify this option together with -l. You must specify at least one <I>name</I> argument, and you may provide an option initial value for some 
+
+or all of the named variables.</P>
+
+<TR>
+
+<TD>
+
+<P>-x</P>
+
+<TD>
+
+<P>The named variables should be exported&#151;made available&#151;to shell scripts and subshells. Note that typeset -x is the only command provided by the Korn shell for establishing exported variables. A command alias is provided automatically at 
+start-up by the shell named export, which is equivalent to the command typeset -x. Unlike the Bourne shell export statement, which permits only variable names, the Korn shell (using command alias) supports statements of the form export name=value ..., 
+providing an initial value for each exported variable. If the variable already exists when the typeset -x command is given, the shell adds the export attribute to the variable. If a you define a new variable but specify no <I>value</I>, the variable is 
+initialized to the null string and is marked exportable.</P>
+
+<TR>
+
+<TD>
+
+<P>-L</P>
+
+<TD>
+
+<P>The value of the named variable(s) should be left-justified and padded with blanks on the right to a length of n when it is substituted. Obviously, you must specify a field length n. For example, -L4 expands the variable value to four characters on 
+substitution. You must specify at least one <I>name</I> argument, and you may provide an optional initial value for some or all of the named variables.</P>
+
+<TR>
+
+<TD>
+
+<P>-LZ</P>
+
+<TD>
+
+<P>Similar to -L, but it strips any leading zeroes from the variable value before substitution.</P>
+
+<TR>
+
+<TD>
+
+<P>-R</P>
+
+<TD>
+
+<P>The value of the named variable(s) should be right-justified and padded with blanks on the left to a length of n when it is substituted. You must specify a field length n. For example, -R4 expands the variable value to four characters on substitution. 
+You must specify at least one <I>name</I> argument, and you may provide an optional initial value for some or all of the named variables. Don't specify the -L or -LZ options together with -R.</P>
+
+<TR>
+
+<TD>
+
+<P>-RZ</P>
+
+<TD>
+
+<P>Similar to -R, but it pads the value with zeroes on the left. If the value of the named variable contains only digits, the result is a numeric field of length n.</P>
+
+<TR>
+
+<TD>
+
+<P>-Z</P>
+
+<TD>
+
+<P>Same as -RZ.</P>
+
+<TR>
+
+<TD>
+
+<P>-H</P>
+
+<TD>
+
+<P>The -H option is supported only by versions of the Korn shell that execute on non-UNIX operating systems. When -H is specified, each of the <I>name</I> variables is presumed to be used to hold a filename or pathname. Assignment of a value to the 
+variable causes mapping of the name to filename formats compatible with the host operating system. You can then use the variable as a filename argument on subsequent commands. You must specify one or more <I>name</I> arguments with this option. The H 
+option is ignored on UNIX operating systems.</P></TABLE>
+
+<P>Apart from exporting variables&#151;usually by way of the export alias&#151;the typeset command is mainly used for two purposes: setting up variables that you plan to use for calculation as integer variables, and defining special formatting options for 
+
+variables.
+
+<BR></P>
+
+<P>Although the Korn shell doesn't require that a variable be declared as integer to do arithmetic with it, doing so provides some advantages. Calculations are more efficient when you use arithmetic variables in the let statement, because the shell can 
+maintain the numeric value of the variable in an internal binary format, which is more suitable to the computer's math instructions. Likewise, there are contexts where the shell will recognize arithmetic operators in an expression if the expression 
+contains integer variables, but it won't if the expression uses standard variables.
+
+<BR></P>
+
+<P>The general procedure for using typeset to define integer variables is straightforward. Before using variables for calculation, simply issue a typeset command to declare the variables as integers. For example,
+
+<BR></P>
+
+<PRE>typeset -i x y sum
+
+read x y
+
+let sum=x+y
+
+print $sum</PRE>
+
+<P>The Korn shell automatically defines an alias named integer which is equivalent to typeset -i:
+
+<BR></P>
+
+<PRE>alias integer=&quot;typeset -i&quot;</PRE>
+
+<P>You can use the alias to make your integer definitions more readable, as in the following revision of the previous example:
+
+<BR></P>
+
+<PRE>integer x y sum
+
+read x y
+
+let sum=x+y
+
+print $sum</PRE>
+
+<P>The second use of typeset&#151;to set up output formatting options for variables&#151;is of interest primarily to shell script writers who want to generate nicely formatted output. The formatting options -L, -R, -LZ, and -RZ are also of some use in 
+generating filenames. Suppose, for example, that you want to create a series of files that all end with a four-digit number. By writing the typedef statement
+
+<BR></P>
+
+<PRE>typeset -Z4 suffix</PRE>
+
+<P>you can easily generate the required filenames by using code such as
+
+<BR></P>
+
+<PRE>typeset -Z4 suffix=0
+
+while ...
+
+do
+
+   let suffix=suffix+1
+
+   print sampfile.$suffix
+
+done</PRE>
+
+<P>The Korn shell automatically right-justifies the value of $suffix in a four-character field and fills the number out to four digits with leading zeros. Thus, it generates the series of filenames sampefile.0001, sampfile.0002, and so on.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Using </B><B><I>let</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Use let to perform an arithmetic calculation. The syntax for the let statement, the second major element in the shell's support for arithmetic, is simple. It is
+
+<BR></P>
+
+<PRE>let <I>expr</I></PRE>
+
+<P>For <I>expr</I>, write an expression that consists of terms and operators. A term is a variable or a literal integer number&#151;for example, 3 or 512. A literal integer number is assumed to be written in base 10. You can specify another base using the 
+
+format <I>radix#number</I>, where <I>radix</I> is the number base, and <I>number</I> is the value of the number. For a radix greater than 10, digits consist of the characters 0 through 9 and A through Z. For example, in radix 16 (hexadecimal), the digits 
+are 0 through 9 and A through F.
+
+<BR></P>
+
+<P>Table 12.4 shows the arithmetic operators supported by the Korn shell for use in arithmetic expressions.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 12.4. Arithmetic operators in the Korn shell.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Expression</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Value of Expression</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-exp</P>
+
+<TD>
+
+<P>Unary minus&#151;the negative of exp</P>
+
+<TR>
+
+<TD>
+
+<P>!</P>
+
+<TD>
+
+<P>!exp</P>
+
+<TD>
+
+<P>0 when exp is non-zero; Otherwise, 1</P>
+
+<TR>
+
+<TD>
+
+<P>~</P>
+
+<TD>
+
+<P>~exp</P>
+
+<TD>
+
+<P>Complement of exp</P>
+
+<TR>
+
+<TD>
+
+<P>*</P>
+
+<TD>
+
+<P>exp1<I> </I>* exp2</P>
+
+<TD>
+
+<P>Product of exp1 and exp2</P>
+
+<TR>
+
+<TD>
+
+<P>/</P>
+
+<TD>
+
+<P>exp1<I> </I>/ exp2</P>
+
+<TD>
+
+<P>Quotient of dividing exp1 by exp2</P>
+
+<TR>
+
+<TD>
+
+<P>%</P>
+
+<TD>
+
+<P>exp1<I> </I>% exp2</P>
+
+<TD>
+
+<P>Remainder of dividing exp1 by exp2</P>
+
+<TR>
+
+<TD>
+
+<P>+</P>
+
+<TD>
+
+<P>exp1<I> </I>+<I> </I>exp2</P>
+
+<TD>
+
+<P>Sum of exp1 and exp2</P>
+
+<TR>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>exp1<I> </I>-<I> </I>exp2</P>
+
+<TD>
+
+<P>Difference of exp2 from exp1</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;&lt;</P>
+
+<TD>
+
+<P>exp1<I> </I>&lt;&lt;<I> </I>exp2</P>
+
+<TD>
+
+<P>exp1 is shifted left exp2 bits</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;&gt;</P>
+
+<TD>
+
+<P>exp1<I> </I>&gt;&gt;<I> </I>exp2</P>
+
+<TD>
+
+<P>exp1 is shifted right exp2 bits</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;=</P>
+
+<TD>
+
+<P>exp1<I> </I>&lt;=<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is less than or equal to exp2; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;=</P>
+
+<TD>
+
+<P>exp1<I> </I>&gt;=<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is greater than or equal to exp2; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;</P>
+
+<TD>
+
+<P>exp1<I> </I>&lt;<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is less than exp2; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;</P>
+
+<TD>
+
+<P>exp1<I> </I>&gt;<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is greater than exp2; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>==</P>
+
+<TD>
+
+<P>exp1<I> </I>==<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is equal to exp2; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>!=</P>
+
+<TD>
+
+<P>exp1<I> </I>!=<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is not equal to exp2; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>&amp;</P>
+
+<TD>
+
+<P>exp1<I> </I>&amp;<I> </I>exp2</P>
+
+<TD>
+
+<P>Bitwise AND of exp1 and exp2</P>
+
+<TR>
+
+<TD>
+
+<P>^</P>
+
+<TD>
+
+<P>exp1<I> </I>^<I> </I>exp2</P>
+
+<TD>
+
+<P>Exclusive OR of exp1 and exp2</P>
+
+<TR>
+
+<TD>
+
+<P>|</P>
+
+<TD>
+
+<P>exp1<I> </I>|<I> </I>exp2</P>
+
+<TD>
+
+<P>Bitwise OR of exp1 and exp2</P>
+
+<TR>
+
+<TD>
+
+<P>&amp;&amp;</P>
+
+<TD>
+
+<P>exp1<I> </I>&amp;&amp;<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is non-zero and exp2 is non-zero; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>||</P>
+
+<TD>
+
+<P>exp1<I> </I>||<I> </I>exp2</P>
+
+<TD>
+
+<P>1 if exp1 is non-zero or exp2 is non-zero; otherwise, 0</P>
+
+<TR>
+
+<TD>
+
+<P>=</P>
+
+<TD>
+
+<P>var<I> </I>=<I> </I>exp</P>
+
+<TD>
+
+<P>Assigns the value of exp to identifier id</P>
+
+<TR>
+
+<TD>
+
+<P>+=</P>
+
+<TD>
+
+<P>var<I> </I>+= exp</P>
+
+<TD>
+
+<P>Add exp to variable id</P>
+
+<TR>
+
+<TD>
+
+<P>-=</P>
+
+<TD>
+
+<P>var<I> </I>-=<I> </I>exp</P>
+
+<TD>
+
+<P>Subtracts exp from variable id</P>
+
+<TR>
+
+<TD>
+
+<P>*=</P>
+
+<TD>
+
+<P>var<I> </I>*=<I> </I>exp</P>
+
+<TD>
+
+<P>Multiplies var by exp</P>
+
+<TR>
+
+<TD>
+
+<P>/=</P>
+
+<TD>
+
+<P>var<I> </I>/=<I> </I>exp</P>
+
+<TD>
+
+<P>Divides var by exp</P>
+
+<TR>
+
+<TD>
+
+<P>%=</P>
+
+<TD>
+
+<P>var<I> </I>%=<I> </I>exp</P>
+
+<TD>
+
+<P>Assigns the remainder of var divided by exp to var</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;&lt;=</P>
+
+<TD>
+
+<P>var<I> </I>&lt;&lt;=<I> </I>exp</P>
+
+<TD>
+
+<P>Shifts var left exp bits</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;&gt;=</P>
+
+<TD>
+
+<P>var<I> </I>&gt;&gt;=<I> </I>exp</P>
+
+<TD>
+
+<P>Shifts var right exp bits</P>
+
+<TR>
+
+<TD>
+
+<P>&amp;=</P>
+
+<TD>
+
+<P>var<I> </I>&amp;=<I> </I>exp</P>
+
+<TD>
+
+<P>Assigns the bitwise AND of var and exp to var</P>
+
+<TR>
+
+<TD>
+
+<P>|=</P>
+
+<TD>
+
+<P>var<I> </I>|=<I> </I>exp</P>
+
+<TD>
+
+<P>Assigns the bitwise OR of var and exp to var</P>
+
+<TR>
+
+<TD>
+
+<P>^=</P>
+
+<TD>
+
+<P>var<I> </I>^=<I> </I>exp</P>
+
+<TD>
+
+<P>Assigns the exclusive OR of var and exp to var</P></TABLE>
+
+<P>The Korn shell also supports expression grouping using parentheses. An expression in parentheses is evaluated as a unit before any terms outside the expression are evaluated. Parentheses are used to override the normal precedence of operators.
+
+<BR></P>
+
+<P>Operators in Table 12.4 are listed in decreasing order of precedence. The Korn shell uses the normal precedence for arithmetic operators, which you know from the C programming language or from the use of an ordinary calculator. Because of these 
+precedence rules, the expression a+b*y is computed by first multiplying b*y, and then adding the product to a, just as though the expression had been written a+(b*y). With parentheses, you can change the order of calculation. For example, (a+b)*y would be 
+
+computed by first adding a and b, and then multiplying the sum by y.
+
+<BR></P>
+
+<P>The let command is a shell built-in command. Like any command, it sets an exit value. The exit value of the let command is 0 if the value of the last or only expression computed is non-zero. Conversely, if the last or only expression evaluates to 0, the 
+
+exit value of the let command is 1. This strange inversion is an adaptation to the if statement, where a command setting a zero exit value is true&#151;that is, causes execution of the then clause&#151;and a command setting a non-zero exit value is 
+false&#151;that is, causes execution of the else clause.
+
+<BR></P>
+
+<P>For example, because of the let command's inverted exit value, the statement if let &quot;a == b&quot;, when a and b are equal, is considered true. The logical result of the equality comparison would be 1, which is equivalent to if let 1. The last 
+expression has a value of 1. Therefore, the exit value from let is 0, and the if statement is considered true, thus invoking the then clause as expected.
+
+<BR></P>
+
+<P>Notice that you need to quote operators used in a let expression that are special to the shell. The command let prod=x|y would give very strange results if it were written without quotes. The shell would see a pipe between the two commands let prod=x 
+and y. Acceptable quoting is any of the following forms:
+
+<BR></P>
+
+<PRE>
+
+<BR>let &quot;prod=x|y&quot;
+
+
+
+<BR>let prod=&quot;x|y&quot;
+
+
+
+<BR>let prod=x\|y</PRE>
+
+<P>Many Korn shell users use the convention of always quoting an expression in its entirety and, thereby, avoid the problem of shell metacharacters entirely.
+
+<BR></P>
+
+<P>Take another look at the syntax of the let command. Notice that each of its terms are arbitrary expressions. A command such as let x+y is valid, but it is ordinarily of little use. This is because the sum of variables x and y is computed but the result 
+
+is thrown away. You should use an assignment expression&#151;for example, let sum=x+y&#151;to retain the result of the calculation in a variable named sum for later reference. The only time when it makes sense to evaluate an expression without assigning 
+the result to a new variable is when the purpose of the let command is to set a command exit value&#151;namely, for use in statements such as if and while. In these cases, however, you can use a more convenient form of the let statement: the (( )) 
+expression.
+
+<BR></P>
+
+<P>A statement such as
+
+<BR></P>
+
+<PRE>if (( x+y &lt; 25 ))
+
+then ...
+
+fi</PRE>
+
+<P>is more clearly readable than the equivalent if let &quot;x+y &lt; 25&quot;. An additional advantage is that using quotes to hide operators is unnecessary inside an (( )) expression. The (( and )) operators are in effect a special kind of parentheses. 
+They notify the Korn shell that the text they enclose is intended to be an arithmetic expression; this turns off the normal interpretation of metacharacters such as &lt; and |, and it permits the unambiguous interpretation of these symbols as operators. 
+Compatibility with the Bourne shell isn't compromised, for the (( and )) operators don't occur in shell scripts written for the Bourne shell.
+
+<BR></P>
+
+<P>You can use the (( )) expression form wherever the let command itself would be valid and in a number of other places as well. Unlike the let command, however, the (( )) syntax permits only one expression between the doubled parentheses.
+
+<BR></P>
+
+<P>You can use arithmetic expressions in any of the following contexts: as an array subscript, as arguments of the let command, inside doubled parentheses (( )), as the shift count in shift, as operands of the -eq, -ne, -gt, -lt, -ge, and -le operators in 
+
+test, [, and [[ commands, as resource limits in ulimit, or as the right-hand side of an assignment statement&#151;but only when the variable name being assigned was previously defined as an integer variable with the typeset or integer statement.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>Some Practical Examples of Arithmetic</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Having reviewed all the basics of arithmetic in the Korn shell, you should take a look now at some specific examples. For instance,
+
+<BR></P>
+
+<PRE>$ x=4 y=5
+
+$ print x+y
+
+x+y</PRE>
+
+<P>is an example of how not to use arithmetic expressions. The first command line assigns numeric values to the non-integer variables x and y. The print line attempts to print their sum, but the print command isn't one of the places where arithmetic 
+expressions are supported. The result is fully compatible with the Bourne shell. The print statement simply echoes its arguments.
+
+<BR></P>
+
+<P>Now look at a first attempt to fix the problem:
+
+<BR></P>
+
+<PRE>$ let x=4 y=5
+
+$ print $x+$y
+
+4+5</PRE>
+
+<P>The assignment statements have been changed to a let command, which has no significant affect on anything. The dollar signs on the print statement help the shell recognize that x and y are variables. The variable references are substituted with their 
+respective values, but the Korn shell still persists in failing to recognize the presence of an expression on the print command argument. There is, in fact, no way to get the shell to recognize an expression and to evaluate it on a print command.
+
+<BR></P>
+
+<P>Here is a working solution:
+
+<BR></P>
+
+<PRE>$ integer x=4 y=5
+
+$ let sum=x+y
+
+$ print $sum
+
+9</PRE>
+
+<P>The key element of the solution is the use of the let statement to calculate the sum. It stores the calculated result in a new variable called sum, which can be referenced later.
+
+<BR></P>
+
+<P>You might think that using a hand calculator would be an easier way to do a simple arithmetic problem at the keyboard, and I would tend to agree with you. At the keyboard, a more effective approach is simply use the expr command. For example,
+
+<BR></P>
+
+<PRE>$ expr 4 + 5
+
+9</PRE>
+
+<P>expr achieves the same result at the keyboard, but it is of little use inside shell scripts, where the result of the expr calculation&#151;written to standard output&#151;isn't readily available for use.
+
+<BR></P>
+
+<P>Now consider this example of a counter-controlled loop:
+
+<BR></P>
+
+<PRE>integer i=0
+
+while (( i&lt;5 ))
+
+do
+
+   i=i+1
+
+   print $i
+
+done</PRE>
+
+<P>This little program simply prints the numbers 1 through 5. Notice the use of an assignment statement instead of a let command to increment i. This works only because the variable i was previously declared an integer. The example works fine typed in at 
+the keyboard. Try it.
+
+<BR></P>
+
+<P>For a more practical example, consider the following:
+
+<BR></P>
+
+<PRE>$ typeset -i16 hex
+
+$ hex=125
+
+$ print $hex
+
+7D</PRE>
+
+<P>Here, the variable hex has been declared to be integer and to be represented in base 16. The second line assigns a normal integer numeric value to the hex variable, and the third line prints it out. Magically, though, the effect of the 16 from the 
+typeset command becomes clear: The value of hex is shown in hexadecimal (base 16) notation. Going the other way&#151;that is, converting from hexadecimal to decimal&#151;is just as easy:
+
+<BR></P>
+
+<PRE>$ integer n
+
+$ n=16#7d
+
+$ print $n
+
+125</PRE>
+
+<P>At the keyboard, once you've declared the hex and n variables, they remain in effect indefinitely. You can use them repeatedly to convert between hexadecimal. For example,
+
+<BR></P>
+
+<PRE>$ hex=4096; print $hex
+
+1000
+
+$ n=16#1000; print $n
+
+4096</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=4><B>Shell Programming</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Although the main thrust of the Korn shell's features is to enhance productivity at the keyboard, the Korn shell also provides a number of boons for writing shell scripts, making the Korn shell an attractive environment for program development. In this 
+
+section, I review the Korn shell enhancements that apply to shell script writing. Of course, all the programming constructs of the Bourne shell are available, so the material in Chapter 11, &quot;Bourne Shell,&quot; pertains equally to the Korn shell; it 
+won't be repeated here.
+
+<BR></P>
+
+<P>The Korn shell extensions useful in writing shell scripts are conditional expressions, which enhance the flexibility of if, while, and until statements; array variables, integer variables, extended variable reference expressions, and arithmetic 
+expressions; a new select statement for constructing a menu of prompts from which the user may select a choice; extended support for functions, including autoload functions; an enhanced form of the command expression&#151;$(...)&#151;that is simpler to use 
+
+than the backquoted form '...', the command operator for coprocessing&#151;|&amp;.
+
+<BR></P>
+
+<P>The section &quot;Variables&quot; earlier in this chapter discussed the Korn shell's extended variable support, including array variables, integer variables, variable reference expressions, and arithmetic expressions. The other new features are 
+explained below.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Conditional Expressions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The if, while, and until statements support two new kinds of expressions. The (( )) doubled parentheses operator, which evaluates an arithmetic expression, enables you to perform complex arithmetic tests. A zero result is considered true, and a non-zero 
+
+result is considered false. You may also write an extended conditional test expression as the argument of if, while, or until. A conditional test expression has the general form
+
+<BR></P>
+
+<P>[[ conditional-exp ]]
+
+<BR></P>
+
+<P>where conditional-exp is any of the forms shown in Table 12.2.
+
+<BR></P>
+
+<P>Notice that the conditional expression forms are similar to those of the test or [ ] expression. The Korn shell supports the test and [ ] expressions identically with how the Bourne shell does. The [[ ]] expression provides extended capabilities without 
+
+compromising compatibility with the Bourne shell.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 12.5. Conditional expressions.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Expression</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Condition When True</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-r file</P>
+
+<TD>
+
+<P>file exists.</P>
+
+<TR>
+
+<TD>
+
+<P>-w file</P>
+
+<TD>
+
+<P>file exists and has write permission enabled. The file might not be writable even if write permission is set, or if it is within a file system that has been mounted read-only.</P>
+
+<TR>
+
+<TD>
+
+<P>-x file</P>
+
+<TD>
+
+<P>file exists and has execute permission set. The file might not actually be executable. Directories usually have the execute permission flag set.</P>
+
+<TR>
+
+<TD>
+
+<P>-f file</P>
+
+<TD>
+
+<P>file exists and is a regular file.</P>
+
+<TR>
+
+<TD>
+
+<P>-d file</P>
+
+<TD>
+
+<P>file exists and is a directory.</P>
+
+<TR>
+
+<TD>
+
+<P>-c file</P>
+
+<TD>
+
+<P>file exists and is a character-special file.</P>
+
+<TR>
+
+<TD>
+
+<P>-b file</P>
+
+<TD>
+
+<P>file exists and is a block-special file.</P>
+
+<TR>
+
+<TD>
+
+<P>-p file</P>
+
+<TD>
+
+<P>file exists and is a named pipe.</P>
+
+<TR>
+
+<TD>
+
+<P>-u <I>file</I></P>
+
+<TD>
+
+<P>The set-uid permission flag is set for <I>file</I>.</P>
+
+<TR>
+
+<TD>
+
+<P>-g <I>file</I></P>
+
+<TD>
+
+<P>The set-group-id permission flag is set for <I>file</I>.</P>
+
+<TR>
+
+<TD>
+
+<P>-k <I>file</I></P>
+
+<TD>
+
+<P>The sticky permission flag is set for <I>file</I>.</P>
+
+<TR>
+
+<TD>
+
+<P>-s file</P>
+
+<TD>
+
+<P>file has a size greater than zero.</P>
+
+<TR>
+
+<TD>
+
+<P>-L file</P>
+
+<TD>
+
+<P>file is a symbolic link.</P>
+
+<TR>
+
+<TD>
+
+<P>-O file</P>
+
+<TD>
+
+<P>file has an owner ID equal to the effective user ID of the current process.</P>
+
+<TR>
+
+<TD>
+
+<P>-G file</P>
+
+<TD>
+
+<P>file has a group ID equal to the effective group ID of the current process.</P>
+
+<TR>
+
+<TD>
+
+<P>-S file</P>
+
+<TD>
+
+<P>file is a socket.</P>
+
+<TR>
+
+<TD>
+
+<P>-t [ fildes ]</P>
+
+<TD>
+
+<P>The file descriptor fildes&#151;whose default is 1&#151;is a terminal.</P>
+
+<TR>
+
+<TD>
+
+<P>-o option</P>
+
+<TD>
+
+<P>The named option is set.</P>
+
+<TR>
+
+<TD>
+
+<P>-z string</P>
+
+<TD>
+
+<P>string is a zero-length string.</P>
+
+<TR>
+
+<TD>
+
+<P>-n string</P>
+
+<TD>
+
+<P>string is not a zero-length string.</P>
+
+<TR>
+
+<TD>
+
+<P>string</P>
+
+<TD>
+
+<P>string is not a zero-length, or null, string.</P>
+
+<TR>
+
+<TD>
+
+<P>string = pat</P>
+
+<TD>
+
+<P>string matches the pattern pat.</P>
+
+<TR>
+
+<TD>
+
+<P>string != pat</P>
+
+<TD>
+
+<P>string does not match the pattern pat.</P>
+
+<TR>
+
+<TD>
+
+<P>s1 &lt; s2</P>
+
+<TD>
+
+<P>String s1 is less than string s2. That is, pat collates before s2.</P>
+
+<TR>
+
+<TD>
+
+<P>s1 &gt; s2</P>
+
+<TD>
+
+<P>String s1 is greater than string s2. That is, pat collates after s2.</P>
+
+<TR>
+
+<TD>
+
+<P><I>file1</I> -nt <I>file2</I></P>
+
+<TD>
+
+<P>File <I>file1</I> is newer than file <I>file2</I>.</P>
+
+<TR>
+
+<TD>
+
+<P><I>file1</I> -ot <I>file2</I></P>
+
+<TD>
+
+<P>File <I>file1</I> is older than file <I>file2</I>.</P>
+
+<TR>
+
+<TD>
+
+<P><I>file1</I> -ef <I>file2</I></P>
+
+<TD>
+
+<P>File <I>file1</I> is the same file as file <I>file2</I>.</P>
+
+<TR>
+
+<TD>
+
+<P><I>e1</I> -eq <I>e2</I></P>
+
+<TD>
+
+<P>Expressions <I>e1</I> and <I>e2</I> are equal.</P>
+
+<TR>
+
+<TD>
+
+<P><I>e1</I> -ne <I>e2</I></P>
+
+<TD>
+
+<P>Expressions <I>e1</I> and <I>e2</I> are not equal.</P>
+
+<TR>
+
+<TD>
+
+<P><I>e1</I> -gt <I>e2</I></P>
+
+<TD>
+
+<P>Expression <I>e1</I> is greater than <I>e2</I>.</P>
+
+<TR>
+
+<TD>
+
+<P><I>e1</I> -ge <I>e2</I></P>
+
+<TD>
+
+<P>Expression <I>e1</I> is greater than or equal to <I>e2</I>.</P>
+
+<TR>
+
+<TD>
+
+<P><I>e1</I> -lt <I>e2</I></P>
+
+<TD>
+
+<P>Expression <I>e1</I> is less than <I>e2</I>.</P>
+
+<TR>
+
+<TD>
+
+<P<I>e1</I> -le <I>e2</I></P>
+
+<TD>
+
+<P>Expression <I>e1</I> is less than or equal to <I>e2</I>.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>Functions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Korn shell fully supports Bourne shell functions. It also provides some extensions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Defining Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In addition to the Bourne shell syntax, the Korn shell supports the following alternate syntax for defining a function:
+
+<BR></P>
+
+<PRE>function identifier
+
+{
+
+     command-list
+
+}</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>Using Variables in Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Korn shell allows a function to have local variables. A local variable exists only during the execution of the function and is destroyed when the function returns. A local variable can have the same name as a variable in the calling environment. 
+During execution of the function, the local variable hides the outer variable. You define a local variable with the typeset command. For example,
+
+<BR></P>
+
+<PRE>function square
+
+{
+
+    typeset product
+
+    let &quot;product=$1*$1&quot;
+
+    print $product
+
+    return
+
+}</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>Using Traps in Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In the Bourne shell, traps set with the trap command remain in force after the function's return. In the Korn shell, traps set in the calling environment are saved and restored.
+
+<BR></P>
+
+<P>You can use the typeset command with option -f to manage functions. The -f option has four forms:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>typeset -f
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Lists the functions currently defined and their definitions. The predefined alias functions does the same thing.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>typeset -ft name ...
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Activates the xtrace option whenever function name is invoked. Tracing reverts to its former state when the function returns.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>typeset -fx name ...
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Defines functions as exported. Exported functions are inherited by shell scripts. However, a function cannot be exported to another instance of ksh. There is no method for passing function definitions through the command environment, as there is for 
+variables.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>typeset -fu name ...
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Defines functions for autoload. A call to an autoload function before its definition is recognized as a function call when the function has been declared with typeset. The Korn shell searches the directories named in the FPATH variable for a file that 
+
+has the same name as the function. If the Korn shell finds such a file, the function is loaded and executed, and the definition is retained as though an inline definition of the function had been read at that point.</P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>Using Autoload Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Autoload functions provide superior performance versus conventional shell scripts, because they are retained in memory for fast execution on repeated calls, yet unreferenced functions incur no overhead other than processing of the typeset -fu command. 
+You create autoload functions in much the same manner as shell scripts, except that the definition file should be in the form of a function. That is, it should begin with the statement function <I>name</I>. To use autoload functions, you must set the FPATH 
+
+environment variable to the directory or directories to be searched&#151;in the same manner as you set the PATH environment variable&#151;and you must declare the functions in advance with the typeset -fu command.
+
+<BR></P>
+
+<P>Any function definition is eligible for use as an autoload function, although frequently used functions are preferred. Remember, once an autoload function has been read, its definition is retained in the shell's available memory. Large programs should 
+be written as conventional shell scripts instead of as autoload functions, unless the program is heavily used.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>Undefining Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To undefine a function, use the unset command:
+
+<BR></P>
+
+<PRE>unset -f <I>name</I> ....</PRE>
+
+<P>The named functions are purged from memory, and any typeset -fu declaration for the named function is deleted. The unset -f command is not often used, but it is particularly useful when debugging a function. Using unset -f is the only way to force the 
+shell to reread an autoload function definition file.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>When To Use Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Functions are a handy way of creating new keyboard commands. Because a function executes as part of the current shell environment, a directory change made with the cd command remains in force after the function exits. This isn't true for ordinary 
+commands and shell scripts. Because I almost always like to take a quick peek at a directory's contents after changing to it, I created the following short function definition and added it to my login profile:
+
+<BR></P>
+
+<PRE>function go
+
+{
+
+    cd $1
+
+    /usr/bin/ls -FC
+
+}</PRE>
+
+<P>The go function, used in the form go <I>dirname</I>, not only changes to the directory but also prints a sorted listing so that I can see immediately what's in the directory.
+
+<BR></P>
+
+<P>Adding the go function to my login profile means that it's always present in the shell memory. Because go is a small function, this does no harm, considering how often I use it. For larger functions, it is better to store the function definition in a 
+separate file and to replace the function definition in the profile with a typeset -fu declaration, thus making the function an autoload function.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Scanning Arguments with </B><B><I>getopts</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Bourne shell provides negligible assistance with the processing of command-line options. As a result, many user-written shell scripts process options clumsily at best, and they often don't support the generalized UNIX command format for options. The 
+
+getopt command, long a standard part of the UNIX command set, helps a little. The Korn shell, however, goes one step further by adding a built-in command called getopts, which provides the same power and flexibility to script writers that C programmers 
+have long enjoyed.
+
+<BR></P>
+
+<P>The syntax of the getopts built-in command is straightforward:
+
+<BR></P>
+
+<PRE>getopts options <I>var</I> [ <I>arg</I> ... ]</PRE>
+
+<P>For options, provide a string that defines the letters that can legally appear as command-line options. If an option letter can be followed by a value string, indicate this in the <I>options</I> string by following the letter with :. For example, I: 
+represents the option syntax -I<I>string</I>.
+
+<BR></P>
+
+<P>If <I>options</I> begins with :, the Korn shell provides user error handling. The invalid option letter is placed in OPTARG, and <I>var</I> is set to ?. Without :, the getopts command issues an automatic error message on an invalid letter and sets 
+<I>var</I> to ? so that you can recognize that an error occurred and skip the invalid option, but it doesn't tell you what the invalid letter is.
+
+<BR></P>
+
+<P>For <I>var</I>, write the name of a variable to receive the option letter. The shell stores the letter in <I>var</I> when it identifies the letter as an option in the command line.
+
+<BR></P>
+
+<P>For <I>arg</I>, write the argument list from the command line that is to be scanned for options. The <I>arg</I> list is usually written in the form $* or &quot;$@&quot;.
+
+<BR></P>
+
+<P>For reasons of practicality, the getopts command cannot scan, identify, and process all option letters in a command on one invocation. Rather, each time you call getopts, you get the next option on the command line. Of course, getopts can't look at the 
+
+real command line that invoked your shell script. It examines the <I>arg</I> list that you provide with getopts, stepping once through the list on each call.
+
+<BR></P>
+
+<P>When you call getopts, it starts by determining its current position in the <I>arg</I> list. If its current position is within a word and the word starts with -, the next character in the word is taken as an option letter. If this is your first call to 
+
+getopts or the last invocation finished scanning a word, getopts examines the next <I>arg</I> for a leading hyphen.
+
+<BR></P>
+
+<P>In any case, when getopts identifies an option, it stores the letter in <I>var</I>. If the option takes a value string&#151;indicated in the <I>option</I> string by being followed by :&#151;the option value is scanned and stored in a predefined variable 
+
+named OPTARG. If getopts has started a new <I>arg</I> variable, it increments the predefined variable OPTIND to indicate which argument it is working on&#151;1, 2, and so on. It then updates its position in the argument list and exits.
+
+<BR></P>
+
+<P>After calling getopts, you inspect the <I>var</I> variable to find out which option has been identified. If the option takes a value, you'll find its value string in the predefined variable OPTARG. The return value from getopts is zero if it finds an 
+option, or non-zero if it can find no more options in the command-line argument list.
+
+<BR></P>
+
+<P>The code for using getopts is almost a set piece that you need to memorize. Listing 12.1 is a shell program for scanning command-line options like those you might find in a script file. Here, the example merely prints the options it recognizes.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 12.1. Scanning options with </B><B>getopts</B><B><I>.</I></B></LH></UL>
+
+<PRE># A routine to scan options
+
+# ... allowable options are -a, -c, -R, -Aname, or -Iname.
+
+while getopts :acRA:I: KEY $*
+
+do
+
+    case $KEY in
+
+    a)   print Found option -a;;
+
+    c)   print Found option -c ;;
+
+    R)   print Found option -R ;;
+
+    A)   print Found option -A, value is &quot;'$OPTARG'&quot; ;;
+
+    I)   print Found option -I, value is &quot;'$OPTARG'&quot; ;;
+
+    *)   print -u2 Illegal option: -$OPTARG
+
+    esac
+
+done
+
+# Strip option arguments, leaving positional args
+
+shift OPTIND-1
+
+print ARGS: $*</PRE>
+
+<P>The code in Listing 12.1 is executable. Enter the statements into a file and mark the file executable with chmod +x <I>filename</I> (refer to the &quot;Keeping Secrets: File and Directory Permissions&quot; section in Chapter 3). Then invoke the file's 
+name with a sample set of option letters and arguments. You'll see the shell script's idea of the options and positional arguments that you entered.
+
+<BR></P>
+
+<P>There are two special points to note about Listing 12.1. First, the <I>option</I> string for the getopts command begins with a colon (:). When the <I>option</I> string begins with a colon, the getopts command provides user error handling; an 
+unrecognized option letter is put into the OPTARG variable, and the <I>var</I> keyletter variable is set to ?. You can test explicitly for ? as the letter value, or you can simply provide your own error message for any unrecognized option letter.
+
+<BR></P>
+
+<P>If the <I>option</I> string doesn't begin with :, getopts provides its own error handling. Upon finding an unrecognized option letter, getopts prints an error message and sets <I>var</I> to ?, but it doesn't set the option letter in OPTARG. Therefore, 
+although you can tell that an invalid option has been found, you don't know what the invalid letter is. Of course, an invalid option letter is simply any letter that doesn't appear in the <I>option</I> string.
+
+<BR></P>
+
+<P>Second, note the use of the shift statement to identify the remaining position arguments from the original command line. By itself, the getopts command doesn't strip words containing options from the <I>arg</I> list. However, after identifying options 
+with getopts, you don't want to see them again when you examine the remaining positional arguments. You must throw the option words away yourself. The shift statement, inherited from the Bourne shell, does the job eminently well, assisted by the arithmetic 
+
+expression handling syntax of the Korn shell. The expression OPTIND-1 computes the number of positional arguments remaining on the command line. Notice that, because OPTIND-1 occurs in the shift command line in the position of an expression, OPTIND is 
+automatically recognized as a variable reference, and you don't need to write a dollar sign in front of it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Using the </B><B><I>select</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you've ever written a shell script that enables the user to specify values either on the command line or to be prompted for them, you know what an elaborate piece of drudgery such a user-interface nicety can be. The Korn shell helps you out, though, 
+
+with a new built-in command that automates the entire process&#151;from printing a selection menu to prompting for the user's choice to reading it.
+
+<BR></P>
+
+<P>In fact, because the user might choose an illegal option&#151;requiring you to repeat the menu selection process&#151;or in case you want to display the menu repeatedly until the user decides to quit, the select statement is actually an iterative 
+statement, much like while or until. You must use the break statement to terminate execution of select.
+
+<BR></P>
+
+<P>The syntax of the select statement is
+
+<BR></P>
+
+<PRE>select <I>identifier</I> [ in <I>word</I> ... ]
+
+do command-list
+
+done</PRE>
+
+<P>The select statement first displays the word list (<I>word</I> ...) in one or more columns. If the LINES variable is set and specifies an integer number, it is taken as the maximum number of lines available for displaying the word list. If there are 
+more items to display than this maximum, the list is broken into a multicolumn display. Each <I>word</I> is prefixed by a number starting at one. <I>word</I> may be a single word or a quoted string. It is scanned for variable and command substitutions 
+prior to display.
+
+<BR></P>
+
+<P>In effect, the list of strings that you specify for <I>word</I> ... becomes a series of menu items, which are automatically numbered and displayed for the user.
+
+<BR></P>
+
+<P>The select statement next displays the value of variable PS3 as a menu prompt. By default, the value of PS3 is #?, suggesting that the user should enter a number. If you want a different prompt, assign a value to PS3 before you execute the select 
+statement.
+
+<BR></P>
+
+<P>The select statement next reads a reply from the user. The entire line entered by the user is saved in the special shell variable REPLY. If the user enters a null line&#151;that is, presses Enter or Return without typing anything&#151;select redisplays 
+
+the list and issues the prompt again without invoking <I>command-list</I>. Otherwise, if the user entered a number, the variable named <I>identifier</I> is set to the <I>word</I> corresponding to that number. That is, entering 1 sets <I>identifier</I> to 
+the first <I>word</I>; entering <I>2</I> sets <I>identifier</I> to the second <I>word</I>; and so on. If the number is greater than the number of words or if the user input isn't a number, <I>select</I> sets <I>identifier</I> to null. In any case, the 
+<I>select</I> statement then executes <I>command-list</I>.
+
+<BR></P>
+
+<P>Consider the following example, in which the user is given a choice of colors from which to select. The select statement continues to execute until the user chooses one of the allowable color names.
+
+<BR></P>
+
+<PRE>PS3=&quot;Select color by number (e.g., 3):&quot;
+
+select color in Blue Green Yellow Red White Black Burnt-umber &quot;Natural Wool&quot;
+
+do case $color in\
+
+    Blue | Green | Yellow | Red | White | Black |
+
+    Burnt-umber | &quot;Natural Wool&quot;) break ;;
+
+    *) print &quot;Please enter a number from 1-8. Try again.&quot; ;;
+
+    esac
+
+done
+
+print &quot;Your color choice is: $color&quot;</PRE>
+
+<P>Notice the use of quotes to specify Natural Wool as one of the menu choices. If the words were not quoted, the select statement would view them as two separate menu items, and the user would be able to select either Natural (item 8) or Wool (item 9).
+
+<BR></P>
+
+<P>Also note that the example does nothing to execute the menu choice procedure repetitively until the user enters a valid selection. Iteration of select is automatic. It is the valid choices that must do something special to break out of the select 
+loop&#151;in this case, by executing the break statement.
+
+<BR></P>
+
+<P>Nothing prevents you from implementing a primitive menu-driven system with select. Listing 12.2 uses the select statement to offer the user a choice of application actions. The example continues to execute until the user chooses the Exit item. Then the 
+
+select statement and any shell script in which it might be contained is terminated with the exit shell built-in command.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 12.2. Implementing a menu system with </B><B>select</B><B><I>.</I></B></LH></UL>
+
+<PRE>PS3=Choice?
+
+select choice in &quot;Enter Transactions&quot; \
+
+       &quot;Print trial balance&quot; \
+
+       &quot;Print invoices&quot; \
+
+       &quot;Exit&quot;
+
+do case &quot;$choice&quot; in
+
+     &quot;Enter Transactions&quot;)  . daily-trans ;;
+
+     &quot;Print trial balance&quot;) . trial-balance ;;
+
+     &quot;Print invoices&quot;)      . invoices ;;
+
+     &quot;Exit&quot;)                print &quot;That's all, folks!&quot;; exit ;;
+
+     *)  print -u2 &quot;Wrong choice. Enter a number (1-4).&quot;
+
+    esac
+
+done</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Using Coprocesses</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Bourne shell supports a minimal amount of communication between processes&#151;typically, by way of the pipe operator. For example, you can invoke the ed line editor from a shell script to make a specific text change by using a command such as the 
+one shown below.
+
+<BR></P>
+
+<PRE>(echo &quot;/^Payroll
+
++1
+
+i&quot;
+
+cat newlist
+
+echo &quot;.&quot;
+
+echo &quot;w&quot;
+
+echo &quot;q&quot;
+
+) | ed - paylist</PRE>
+
+<P>This form of intertask communication is sufficient if you need only to pass some data to another command or to read its output. Suppose, however, that in the Listing 12.4 you wanted to provide for the case that the file paylist doesn't contain a line 
+beginning with Payroll by skipping the insert, write, and quit editor commands. With the Bourne shell, you couldn't do this. With the Korn shell, you can maintain an interactive session with the ed command, with your program providing the instructions to 
+ed and responding to its output.
+
+<BR></P>
+
+<P>To use coprocessing&#151;a fancy term for the simultaneous execution of two procedures that read each other's output&#151;you first must launch the program with which you want to communicate as a background process, by using the special operator |&amp;. 
+
+The |&amp; operator is intended to suggest a combination of &amp; (background execution) and | (the pipe operator). When the background command is started, its standard and standard output are assigned to pipes connected to your own process&#151;one for 
+writing to the command and one for reading the command's output.
+
+<BR></P>
+
+<P>The simplest way of sending a line to the coprocess is to use the print -p command. The -p option tells print to write to the coprocess's input pipe. To read output from the coprocess, use read p. Once again, the -p tells read to read from the coprocess 
+
+pipe.
+
+<BR></P>
+
+<P>Using these facilities, you could rewrite the preceding procedure like this:
+
+<BR></P>
+
+<PRE>ed paylist |&amp;
+
+exec 3&gt;&amp;p
+
+exec 4&lt;&amp;p
+
+read -u4               # discard initial message line
+
+print -u3 P            # Turn on prompting
+
+print -u3 &quot;/^Payroll&quot;  # search for the insert location
+
+read -u3               # read prompt indicating success or failure
+
+case &quot;$REPLY&quot; in
+
+    '*'*) # search must have been successful
+
+          print -u3 i
+
+          cat text &gt;&amp;3 # file containing data to be inserted
+
+          print -u3 .
+
+          read -u4 # read the ending prompt
+
+          print -u3 w; read -u4
+
+          print -u3 q
+
+          ;;
+
+    *)    # not found
+
+          print -u3 q
+
+          echo &quot;invalid paylist file&quot;
+
+          exit 1
+
+          ;;
+
+    esac
+
+done</PRE>
+
+<P>You should note the following in this example: The exec command (exec 3&gt;&amp;p) is used to move the coprocess input pipe from its default location to a numbered file descriptor. The exec command (exec 4&lt;&amp;p) is used again to move the coprocess 
+
+output pipe to number file descriptor 4. Subsequent read and print commands specify the file descriptor as the source or sink of the operation, using the -u option. Ordinary UNIX commands can write to the coprocess by redirecting to file descriptor 3 (cat 
+
+filename &gt;&amp;3).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Use read -p or print -p to read from or write to the coprocess until you have moved the coprocess input or output to a number file descriptor; then read or write to that file descriptor: read -u4 or 
+print -u3.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Admittedly, the program using coprocessing is more complicated than the earlier version, but it is also safer. The Bourne shell version would have added new lines after the first line if the search for Payroll failed. The Korn shell version fails 
+gracefully, without damaging the paylist file.
+
+<BR></P>
+
+<P>Notice that the Korn shell example of coprocessing in Listing 12.5 contains an incomplete cat command. This is because you need a special syntax to transcribe a file into the coprocess pipe. The standard Bourne shell syntax&#151;&gt;filename and 
+&gt;&amp;fildes&#151;is inadequate. This is because &gt;filename and &gt;&amp;fildes provide you with no way to reference the coprocess input and output pipes.
+
+<BR></P>
+
+<P>Actually, by using a Korn shell feature designed especially to support coprocessing, you can use I/O redirection to send output to or read input from the background process with any UNIX command. The technique required is to switch the default input and 
+
+output pipes created by the |&amp; operator to explicit file descriptors. You use the exec command to do this:
+
+<BR></P>
+
+<PRE>exec 3&gt;&amp;p</PRE>
+
+<P>When used with the exec command, this special form of the output redirection operator causes the pipe for writing to the coprocess to be assigned to file descriptor 3. (The lack of a command on the exec statement, of course, tips off the Korn shell that 
+
+you want to modify the current environment rather than execute another program.)
+
+<BR></P>
+
+<P>Similarly, the following code reassigns the pipe for reading from the coprocess:
+
+<BR></P>
+
+<PRE>exec 4&lt;&amp;p</PRE>
+
+<P>If you place these lines at the front of the ed example, the cat command can be written in the familiar fashion&#151;by using I/O redirection to an open file descriptor. For example,
+
+<BR></P>
+
+<PRE>cat newlist &gt;&amp;3</PRE>
+
+<P>Of course, the new syntax for the exec statement is a terrible kludge, amounting to a form of syntactic code that is difficult to remember. However, the basic outlines of coprocessing, including the |&amp; operator and the -p options for print and read, 
+
+are straightforward enough, as is the underlying concept. Coprocessing is a powerful capability, making it possible to do things in a shell script that previously required the C programming language. So sharpen up your coding pencils, and try your hand at 
+
+coprocessing.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=4><B>Customizing</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>It almost might be said that the term shell refers to what you have before you customize it&#151;an empty shell. Of course, that's a gross exaggeration. The shell is more feature-laden than most programs you'll get an opportunity to shake a stick at. 
+Still, the Korn shell permits so much customization that it's no exaggeration to say you might find another user's login environment so foreign as to be almost unusable by you. Indeed, some places try to place a limit on user customization.
+
+<BR></P>
+
+<P>There are many ways to adapt the Korn shell to your preferred way of working. Of course, bear in mind that if you're a beginning UNIX user, you might not have many preferences to cater to. As your familiarity with UNIX and with the Korn shell increases, 
+
+you'll find many conveniences, shorthand methods, and customary usages that seem comfortable to you. The Korn shell helps you along by enabling you to encapsulate favorite behaviors into your login profile script and elsewhere.
+
+<BR></P>
+
+<P>Customizing the Korn shell begins with your login profile script, which is named .profile and which resides in your home directory. The file $HOME/.profile is of special importance because the Korn shell executes it every time you log in&#151;or, more 
+precisely, every time you launch an interactive shell.
+
+<BR></P>
+
+<P>Often the system administrator will place a starter .profile script in your home directory when he creates your login. Don't let yourself be cowed into thinking that there is anything sacrosanct in the hand-me-down .profile given to you. The contents of 
+
+your .profile script affect only you. It is specific to your login name and home directory. Altering it could conceivably affect only those people who have your password and can log in with your login name. Almost always, that is only you. Therefore, you 
+should feel free to add to, change, or delete anything in the .profile script, including deleting the whole file, if you want to. It doesn't matter to the shell. The .profile is supported only for your convenience; it isn't needed for Korn shell operation.
+
+
+
+<BR></P>
+
+<P>Your .profile script is, in fact, a shell script. Any shell programming techniques valid in a shell script are valid in the .profile script. If you're not a shell programmer, don't be daunted. Useful login profiles can be made up that contain nothing 
+more than straightforward UNIX and shell commands, without an if or while statement in sight. If you know how to use shell conditional and iterative statements, so much the better. Don't, however, think that mastery of them is essential to writing good 
+profile scripts. It isn't.
+
+<BR></P>
+
+<P>Your .profile script is an ideal place to put your favorite things. You might want to do the following things with your .profile. You should also observe the order in which the following are listed. Placing similar things together helps simplify the job 
+
+of maintaining your .profile.
+
+<BR></P>
+
+<UL>
+
+<LI>Set control keys with the stty command.
+
+<BR>
+
+<BR></LI>
+
+<LI>Set environment variables.
+
+<BR>
+
+<BR></LI>
+
+<LI>Set local variables for shell control.
+
+<BR>
+
+<BR></LI>
+
+<LI>Define aliases that you like to use.
+
+<BR>
+
+<BR></LI>
+
+<LI>Define functions that you like to use, including autoload functions.
+
+<BR>
+
+<BR></LI>
+
+<LI>Set your favorite shell options.
+
+<BR>
+
+<BR></LI>
+
+<LI>Execute commands that you want to run each time you log in.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>Setting Control Keys with </B><B><I>stty</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use the stty command to establish the control keys that you prefer to use. The default Erase key is #, and the default Kill key is @. Both are bad choices because their use as terminal control characters conflicts with their use as ordinary text 
+characters. You should redefine these keys with a statement similar to
+
+<BR></P>
+
+<PRE>stty erase '^H' kill '^U' intr '^C'</PRE>
+
+<P>This example uses the caret (^) in front of an upper or lower case letter to designate a control key combination. Thus, erase '^H' specifies the Ctrl-h key combination as your backspace key. Of course, you would prefer to specify the actual characters 
+generated by your backspace key as the value for the erase character&#151;if you can figure out what it is. The presence of a caret forces the use of quote marks. The caret is special to the shell; without quotes, it will cause improper interpretation of 
+the stty command. (For details about the stty command, refer to your UNIX user's reference manual.)
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=3><B>Setting Environment Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>At the very least, you'll want to make sure that the variables PATH and MAIL have values. Usually, you'll want to set a great many more. If you use Bourne shell syntax, your variable settings will look like this:
+
+<BR></P>
+
+<PRE>PATH=/usr/bin:/usr/ucb:/usr/local/bin:$HOME/bin:
+
+MAIL=/var/spool/mail/$LOGNAME
+
+MAILCHECK=60
+
+FCEDIT=/usr/bin/vi
+
+VISUAL=/usr/bin/vi
+
+export PATH MAIL MAILCHECK FCEDIT VISUAL</PRE>
+
+<P>Alternatively, you can use the Korn shell export alias to avoid the need to remember to add each variable that you set to the export variable list&#151;it does little good to set a variable if you don't export it. Using the export alias, the previous 
+code would look like this:
+
+<BR></P>
+
+<PRE>export PATH=/usr/bin:/usr/ucb:/usr/local/bin:$HOME/bin:
+
+export MAIL=/var/spool/mail/$LOGNAME
+
+export MAILCHECK=60
+
+export FCEDIT=/usr/bin/vi
+
+export VISUAL=/usr/bin/vi</PRE>
+
+<P>When you write your environment variable settings, keep in mind that some are automatically set by the UNIX login processor. Your system administrator can also provide a login script to set values before your .profile script runs. For example, the PATH 
+
+and MAIL variables usually have initial values already set when your script starts. Overriding the default PATH variable is usually a good idea; you should have full control over your program search path, starting with its initial value. Overriding the 
+default MAIL or MAILPATH variable is risky, unless you know what mail subsystems are in use.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=3><B>Setting Local Variables for Shell Control</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Local variables are variables that the shell uses but which don't be exported. They include FCEDIT&#151;which designates the text editor to be used by the fc command&#151;and the PS1 variable&#151;which is your primary prompt string. You might also want 
+
+to define a few local variables to hold the names of directories that you commonly access, which enables you to use cd $dir instead of the longer full pathname.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=3><B>Defining Aliases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Define the aliases that you like to use. You must invent your own aliases; each user tends to have a different set. Most users, however, make up some aliases for the ls command. You can even redefine the default behavior of the ls command by defining an 
+
+alias named ls. Here are some typical aliases that I like to use:
+
+<BR></P>
+
+<PRE>alias lx='/usr/bin/ls -FC'
+
+alias l='/usr/bin/ls -l'
+
+alias pg='/usr/bin/pg -cns -p&quot;Page %d:&quot;'
+
+alias -t vi</PRE>
+
+<P>Notice that in most cases I tend to use the full pathname for commands in the alias definition. I do this because it eliminates directory searches for the command, and it provides much the same effect as the Korn shell's alias tracking mechanism. Note 
+also the explicit use of the alias -t command to request the shell to track the vi command. The shell looks up the full pathname of the vi command and defines an alias named vi for me so that the plain command vi has all the performance but none of the 
+typing overhead of /usr/bin/vi.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=3><B>Defining Functions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Define any functions that you like to use, including autoload functions. I use some function definitions as keyboard shorthand because a function can do things that an alias can't. For example, you might want to use the go function, described earlier in 
+
+this chapter, for switching directories.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B>Setting Shell Options</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you find yourself frequently setting the same shell options at the command line, you could set them in your .profile instead. To set the preferred shell options, use the set command. For example, if you prefer to use the vi mode for command history 
+and editing, and you want full job control support, you might add these two lines to your .profile: 
+
+<BR></P>
+
+<PRE>set -o vi
+
+set -o monitor</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=3><B>Executing Commands Every Time You Login</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Execute commands that you like to run every time you login. For example, you might want to run the who command to find out who's currently logged in. Likewise, the df, which isn't present on all UNIX systems, displays the amount of free disk space 
+available on mounted filesystems.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=3><B>Executing Your </B><B><I>.profile</I></B><B> After Changing It</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Whenever you change your .profile script, you should execute it before you log out. If you make an error in your script, you might have difficulty logging back in. To test your .profile script, you can run it with the . (dot) command:
+
+<BR></P>
+
+<PRE>$ . ./.profile</PRE>
+
+<P>Be sure to leave a space after the first period: it's the command name, and ./.profile is the command argument. (Although .profile will usually be adequate by itself, you might need to use ./.profile if your current directory is not in the search path.) 
+
+The dot command not only executes the script but also leaves any environment changes in effect after the script terminates.
+
+<BR></P>
+
+<P>Alternatively, you can run the script with ksh -v to have the shell execute the script and print each statement as it is executed:
+
+<BR></P>
+
+<PRE>$ ksh -v ./.profile</PRE>
+
+<P>Using the -n option would cause the Korn shell to read your .profile and check it for syntax errors, but not execute the commands it contains.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=3><B>Creating an </B><B><I>ENV</I></B><B> File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After you have your .profile set up the way you want, you're ready to tackle the environment file. The environment file is any file that contains shell scripts that you designate by assigning its pathname to the ENV variable. The shell automatically 
+executes the ENV file whenever you start a new invocation of the shell, and when it executes a command. If you've ever shelled out from commands like pg and vi, you know that when you call the shell again, some environment settings, such as aliases, aren't 
+
+carried over from your login shell. By placing aliases, function definitions, and even global variable settings in a separate file and setting ENV to its pathname in your .profile script, you can ensure that you have a consistent Korn shell environment at 
+
+all times.
+
+<BR></P>
+
+<P>Don't get carried away, though. In some cases, the file designated by the pathname value of ENV is executed in front of shell commands that you call. Because many UNIX commands are implemented as shell scripts, this means that a large environment file 
+can add surprising overhead to some unexpected places.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> As a rule, the environment file is executed as a preliminary step to invoking a shell script only when the shell script requires a new invocation of the Korn shell. This usually isn't the case when 
+you invoke a shell script by its name.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To use an environment file create a file that contains the aliases, functions, and exported variable settings that you prefer. Then add the statement export ENV=<I>pathname</I>, where <I>pathname</I> is the full pathname of your environment file, to 
+your .profile. The environment file will become effective the next time you log in. It will become effective immediately if you test your .profile with the following . command:
+
+<BR></P>
+
+<PRE>. .profile</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I74" NAME="I74">
+
+<FONT SIZE=3><B>Adding Settings for Other Programs to Your </B><B><I>.profile</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Customizing your environment doesn't stop with using the login profile and environment file to establish shell options and settings you want; it's also a handy place to put settings used by other programs. For example, one way to customize your vi 
+editing environment is by defining a variable EXINIT that contains the commands vi will run every time you start it. You could place the EXINIT variable setting in your login profile to establish your preferred vi settings. Many UNIX commands respond to 
+environment variables, which enables you to customize these commands in your login profile.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I75" NAME="I75">
+
+<FONT SIZE=3><B>Job Control</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The idea of a job may be somewhat foreign to UNIX users, for in UNIX most of the action is interactive. Nevertheless, even the Bourne shell provides basic tools for running background jobs, and UNIX the operating system has always provided such tools. 
+The more recent releases of UNIX have even enhanced background job management.
+
+<BR></P>
+
+<P>The basic idea of a background job is simple. It's a program that can run without prompts or other manual interaction and can run in parallel with other active processes. With the Bourne shell, you launch a background job with the &amp; operator. For 
+example, the command cc myprog.c &amp; compiles the source program myprog.c without tying up the terminal. You can do other work, even edit files with a full-screen editor, while the cc command works behind the scenes.
+
+<BR></P>
+
+<P>Enhancements to the stty command and the terminal driver in recent UNIX releases have added a new control key to your terminal: Suspend. Suspend is usually Ctrl-z. This new tool enables you to take an interactive program that you're currently running, 
+such as a vi editing session, and to put it temporarily into the background. If the program wants to talk to your terminal, the system suspends the program. Otherwise, it continues running.
+
+<BR></P>
+
+<P>The Korn shell adds some tools that help you manage the family of processes you can accumulate. These tools consist of the jobs, kill, wait, bg, and fg commands.
+
+<BR></P>
+
+<P>To use the Korn shell's job control tools, you must have the monitor option enabled. Normally, the monitor option is enabled for you automatically; it's the default for interactive shells. If your operating system doesn't support job management, the 
+default for the monitor option is off. Even without operating system support&#151;the Suspend key and stty function is an operating system service, not a Korn shell service&#151;you can still use some of the Korn shell's job control tools, but you must set 
+
+the monitor option on yourself. You do that with the command set -o monitor.
+
+<BR></P>
+
+<P>The jobs command, which takes no arguments, simply lists the jobs that you currently have active. The output of jobs looks like this:
+
+<BR></P>
+
+<PRE>$ jobs
+
+[1] + Running               xlogo&amp;
+
+[2] + Running               xclock -bg LightGreen&amp;
+
+[3] + Stopped               vi myprog.c</PRE>
+
+<P>You use the kill, bg, and fg commands to manage jobs. When referring to a job, you use the job number shown in brackets in the output of jobs, preceded by a percent (%) sign. For example, kill %1 would terminate the xlogo program that you currently have 
+
+running. The wait, kill, bg, and fg commands can also refer to background jobs by their process ID, which you can generally obtain from the output of the ps command. However, the use of Korn shell job numbers is preferred, because they are simpler and 
+safer to use than process IDs. Refer to Chapters 18 and 19 for more details on processes.
+
+<BR></P>
+
+<P>You create jobs in one of three ways by explicitly designating a command for background execution with the &amp; operator; by switching a job into the background with the Korn shell bg command; or by pressing the Suspend key&#151;usually 
+Ctrl-z&#151;while a foreground program is running.
+
+<BR></P>
+
+<P>By convention, a job started or switched into the background continues to run until it tries to read from your terminal. Then it is suspended by the operating system until you intervene. When it is in this state, the jobs command shows that the command 
+
+is Stopped.
+
+<BR></P>
+
+<P>A job that has been stopped usually needs to talk to you before it can continue. In the previous jobs example, the vi command is shown to be stopped. The command won't continue until you reconnect it to your terminal. You do this with the fg 
+command&#151;for example, fg %3 or fg %vi. The vi command then becomes the foreground process, and it resumes normal interactive execution with you.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A full-screen program, such as vi, probably won't recognize that the screen no longer matches your last edit screen. You probably will need to press Ctrl-l to redraw the screen before you resume your 
+
+edit session. Other programs that merely need your response to a prompt don't require any special action when you resume them with fg.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The full syntax of the % argument accepted by the wait, kill, fg, and bg commands is shown in Table 12.6.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 12.6. Job reference argument syntax.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Syntax</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>%number</P>
+
+<TD>
+
+<P>References job number</P>
+
+<TR>
+
+<TD>
+
+<P>%string</P>
+
+<TD>
+
+<P>References the job whose command begins with string</P>
+
+<TR>
+
+<TD>
+
+<P>%?string</P>
+
+<TD>
+
+<P>References the job whose command contains string</P>
+
+<TR>
+
+<TD>
+
+<P>%%</P>
+
+<TD>
+
+<P>The current job</P>
+
+<TR>
+
+<TD>
+
+<P>%+</P>
+
+<TD>
+
+<P>The current job (also %%)</P>
+
+<TR>
+
+<TD>
+
+<P>%-</P>
+
+<TD>
+
+<P>The previous job</P></TABLE>
+
+<P>The syntax of the Korn shell job control commands are summarized below.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I76" NAME="I76">
+
+<FONT SIZE=3><B>Displaying Background Jobs and Their Status</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use the jobs command to display background jobs and their status. For example,
+
+<BR></P>
+
+<PRE>jobs [ -lp ] [ job ... ]</PRE>
+
+<P>The -l option causes the jobs command to list the process ID for each job in addition to its job number. The -p option causes the jobs command to list only the process ID for each job instead of its job number.
+
+<BR></P>
+
+<P>If you omit the job arguments, jobs displays information about all background jobs, as in this example:
+
+<BR></P>
+
+<PRE>$ jobs
+
+[1] + Running               xlogo&amp;
+
+[2] + Running               xclock -bg LightGreen&amp;
+
+[3] + Stopped               vi myprog.c</PRE>
+
+<P>If you include <I>job</I> arguments, it displays information only for the specified jobs. For <I>job</I>, specify a process ID or a job reference beginning with %. For instance, to find out whether job 2 from the previous example is still running, you 
+would enter this command:
+
+<BR></P>
+
+<PRE>$ <B>jobs</B> %2
+
+[2] + Running               xclock -bg LightGreen&amp;</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I77" NAME="I77">
+
+<FONT SIZE=3><B>Sending Signals to a Job</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use the kill command to send a signal to the specified jobs. Some signals cause a job to terminate. The TERM signal&#151;also called signal 15, or interrupt&#151;usually causes a job to terminate gracefully, whereas signal 9 always terminates a job but 
+
+may leave files unclosed or wreak other havoc on the job that was in progress. You should use kill -9 only when you cannot terminate the job any other way.
+
+<BR></P>
+
+<P>The kill command is normally a UNIX system command, but the Korn shell provides kill as a built-in command with enhanced capabilities. The Korn shell supports the basic functionality of the UNIX kill command transparently. Its syntax is
+
+<BR></P>
+
+<PRE>kill [ -<I>signal</I> ] <I>job </I>...</PRE>
+
+<P>For <I>signal</I> specify a signal number or a signal name. Signal numbers 1 through 15 are always valid. A signal name is one of a predefined list of mnemonic symbols that correspond to the valid signal numbers. Use kill -l to obtain a list of the 
+valid signal names. The names TERM (terminate) and HUP (hang-up) are always valid. (Refer to your UNIX user's reference manual for more information about the kill and signal commands.)
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The reason for the vagueness about signal names is that they vary from one version of UNIX to another. You'll have to use kill -l to find out the names that pertain specifically to your system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For <I>job</I>, provide one or more process ID numbers or job references. Job references begin with %. You must provide at least one <I>job</I> argument with the kill command.
+
+<BR></P>
+
+<P>By way of example, suppose you have started an xclock process, displaying a clock on your X terminal screen:
+
+<BR></P>
+
+<PRE>$ xclock -bg LightGreen&amp;
+
+[4] + Running   xclock -bg LightGreen&amp;</PRE>
+
+<P>You can cancel the xclock window (a background job) with either of the following commands:
+
+<BR></P>
+
+<PRE>$ kill %4</PRE>
+
+<P>or
+
+<BR></P>
+
+<PRE>$ kill %xclock</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I78" NAME="I78">
+
+<FONT SIZE=3><B>Suspending the Shell Until a Job Finishes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use wait to suspend the shell until the specified job, if any, finishes. The visible effect of wait is simply to cause the shell not to issue another prompt to you. To get the prompt back if you decide not to wait, simply press Enter. This causes the 
+shell to issue a prompt, and it terminates the wait command. The syntax of the wait command is
+
+<BR></P>
+
+<PRE>wait [ <I>job</I> ... ]</PRE>
+
+<P>For job, specify one or more process ID numbers or job references that designate the job or jobs you want to wait for. If you specify no jobs, the shell waits until any job finishes. If you specify two or more jobs, the shell waits until all the 
+specified jobs finish.
+
+<BR></P>
+
+<P>You won't use the wait command too often, but it is convenient when you have done all the interactive work you have and need the results of one or more background jobs before you continue. Without the wait command, you would have to execute the jobs 
+command repetitively until the job or jobs that you wanted were marked Done.
+
+<BR></P>
+
+<P>One situation where the wait command comes in useful is when developing some formatted text files. You may want to run nroff or troff as background jobs, capturing the output to a disk file for review. While the nroff or troff job is running, you can 
+edit other text files. However, when you have no other editing work to do, you'll need to wait for nroff or troff to finish because you have nothing else to do but review your previous work. A hypothetical console session might look like this:
+
+<BR></P>
+
+<PRE>$ vi chap1.nr
+
+$ nroff -me chap1.nr &gt;chap1.nrf &amp;
+
+[4] + Running     nroff -me chap1.nr
+
+$ vi chap2.nr
+
+$ nroff -me chap2.nr &gt; chap2.nrf &amp;
+
+[5]   Running     nroff -me chap2.nr
+
+$ jobs
+
+[4]   Running     nroff -me chap1.nr
+
+[5]   Running     nroff -me chap2.nr
+
+$ wait</PRE>
+
+<P>In this example, you overlapped editing of chap2.nr with formatted printing of chap1.nr. However, after finishing the edit of chap2.nr, you see by running the jobs command that both nroff jobs are still running. Since you have no more editing tasks to 
+perform, you can use the wait command to wait until one of the two background jobs finishes. The shell will not issue another prompt until one of the two jobs is done, then you'll receive a Done message:
+
+<BR></P>
+
+<PRE>$ wait
+
+[5]   Done        nroff -me chap2.nr
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I79" NAME="I79">
+
+<FONT SIZE=3><B>Moving Background Jobs into the Foreground</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use fg to move background jobs into the foreground. Foreground execution implies interactive processing in connection with the terminal. Therefore, using fg to bring more than one job into the foreground establishes a race condition. The first job to 
+get your terminal wins, and the others revert to Stopped status in the background. The syntax for fg is
+
+<BR></P>
+
+<PRE>fg [ <I>job</I> ... ]</PRE>
+
+<P>For <I>job</I>, specify one or more process ID numbers or job references. If you omit <I>job</I>, the current background process is brought into the foreground. The current job is the job that you most recently stopped or started.
+
+<BR></P>
+
+<P>The need to use the fg command often arises as a result of actions you take yourself. For example, suppose you are editing a text file with vi and, when trying to save the file and quit, you discover that you do not have write permission for the file. 
+You can't save the file until you correct the condition, but you're currently stuck inside the editor. What do you do?
+
+<BR></P>
+
+<P>First, stop the vi editor session by pressing Ctrl-z. You'll immediately get the following console output:
+
+<BR></P>
+
+<PRE>[1]   Stopped     vi chap2.nr
+
+$</PRE>
+
+<P>Now, determine the cause of the problem and correct it. For the sake of brevity, we'll assume that the problem is nothing more than that you've tried to edit a file you've write-protected:
+
+<BR></P>
+
+<PRE>$ ls -l chap2.nr
+
+-r&#151;r&#151;r&#151;   1  barbara   user     21506 May 5 10:52
+
+$ chmod u+w chap2.nr
+
+$ ls -l chap2.nr
+
+-rw-r&#151;r&#151;   1  barbara   user     21506 May 5 10:52</PRE>
+
+<P>Finally, use the fg command to bring the vi edit session, currently stopped in background, back into execution:
+
+<BR></P>
+
+<PRE>$ fg %vi</PRE>
+
+<P>You might need to type Ctrl-l (a vi editor command) to redraw the screen.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I80" NAME="I80">
+
+<FONT SIZE=3><B>Moving Foreground Jobs into the Background</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Use the bg command to place jobs currently in the Stopped status (as indicated by the jobs command) into the background and to resume execution. Note that a job will immediately switch back into the Stopped state if it requires terminal input. The 
+syntax for bg is
+
+<BR></P>
+
+<PRE>bg [ <I>job</I> ... ]</PRE>
+
+<P>For <I>job</I>, specify one or more process ID numbers or job references. A job reference begins with %. If you omit <I>job</I>, the command refers to the current job, which is the job that you most recently started or stopped.
+
+<BR></P>
+
+<P>In actual practice, you don't use the bg command to move a foreground job into the background, because there's no way to do so: the shell is not listening to your terminal while a foreground job is running. To get the shell's attention while a 
+foreground command is running, you'll need to use Ctrl-z to stop (suspend) the foreground job.
+
+<BR></P>
+
+<P>Once you've stopped the job and have a shell prompt, you'll need to decide what to do with the job you stopped. You can perform other tasks, and when finished restart the stopped job with the fg command, as described earlier. But if the job you stopped 
+
+is not interactive, that is, if it can run without constant input from you, then you can tell the shell to restart the job but leave it in the background.
+
+<BR></P>
+
+<P>As an example, suppose you've started a long-running format of a text file using the troff command:
+
+<BR></P>
+
+<PRE>$ troff -me chap1.nr &gt; chap1.trf</PRE>
+
+<P>If, after waiting a few minutes for the job to finish, you find that you want to do something else instead of just sitting there, you can use the following sequence to switch the troff command to background execution:
+
+<BR></P>
+
+<PRE>[ctrl-z]
+
+$ <B>bg</B>
+
+$</PRE>
+
+<P>By default, the shell assumes you mean the job you last stopped. Now that the troff command is running in the background, you can do other work.
+
+<BR></P>
+
+<P>The net result of these actions is the same as if you had started the troff job in the background to begin with:
+
+<BR></P>
+
+<PRE>$ troff -me chap1.nr &gt; chap1.trf &amp;</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I81" NAME="I81">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This chapter presented the features of the Korn shell. Because the Korn shell has many features in common with Bourne Shell, only the features special to the Korn shell were discussed in this chapter.
+
+<BR></P>
+
+<P>The Korn shell is one of several shells available to you on most contemporary versions of the UNIX operating system. It is a newer, enhanced version of the original Bourne shell, with command history, command editing, command aliases, and job control to 
+
+improve your keyboard productivity. It also offers a number of improvements for the shell script writer, including arithmetic variables and arithmetic expressions, array variables, a select statement for prompting the user with menus, and a coprocess 
+mechanism for interactively executing other UNIX commands from within a shell script.
+
+<BR></P>
+
+<P>The initial impetus for construction of the Korn shell was to bring many of the enhancements in csh to users in a format consistent with the Bourne shell syntax and behavior. The C shell (csh) was implemented by the Berkeley group and was initially 
+offered only in the BSD variant of UNIX. The Korn shell ported its extensions, together with many additional improvements, into the System V environment. Many people feel that the Korn shell is a successor to both the Bourne and C shells. It is now the 
+shell of choice for use at the keyboard and for writing shell scripts.
+
+<BR></P>
+
+<P>The command history feature provides for capturing in a disk file each command as you execute it. The file is preserved across logins so that you have some of the context of your previous session when you next log in. You can use the command history 
+file for reference or for reexecuting commands. When you reexecute a command, you can use it as it was originally written or you can modify it before execution. The fc command and the history and r aliases provide the user interface to the command history 
+
+file.
+
+<BR></P>
+
+<P>The command editing feature provides two different text editor styles for editing commands as you write them. You must explicitly enable command editing to use it. By default the Korn shell manages the command line in the same way as the Bourne shell 
+does. The vi edit mode implements most of the vi input and command modes, and it enables you to access and reuse commands stored in the command history file. The EMACS edit mode is compatible with the EMACS editor commands. Most users find either the vi or 
+
+EMACS command editing mode to be more natural than the equivalent bang (!) notation of the C shell.
+
+<BR></P>
+
+<P>The command alias feature enables you to define new command names that stand for a leading portion of the command line of existing commands. The definition of an alias can replace not only the name of an existing command but also initial options and 
+arguments of the command line. This greatly reduces the amount of typing needed for frequently executed commands. The feature also replaces the command tracking feature of the Bourne shell.
+
+<BR></P>
+
+<P>Extensions to wildcard file naming patterns provide more complex expressions that you can use to narrow in on the specific files you want to reference.
+
+<BR></P>
+
+<P>Features added for the benefit of the script writer are numerous and powerful. They eliminate some of the kludges that you used to have to deal with when writing new commands.
+
+<BR></P>
+
+<P>The typeset command provides a host of new features surrounding the use of shell variables. Array variables with the form ${<I>name</I>[n]} permit convenient processing of lists. Integer variables defined with typeset, the let command, and the (( )) 
+expression notation enable you to do basic numeric calculations without having to leave the shell environment. You no longer have to resort to command substitution for the expr or bc commands.
+
+<BR></P>
+
+<P>An improved syntax for command substitution makes even this chore more palatable. The syntax $(...) for command replacement reduces the need for quoting substrings inside backquoted expressions. You can even nest them, which permits expressions such as 
+
+$(...$(...)...) on the command line.
+
+<BR></P>
+
+<P>Coprocessing, a new feature of the shell, enables you to read and write from background commands, using them in interactive fashion. You can respond to error messages produced by the invoked command, and you can provide a programmed response. You launch 
+
+a coprocess with the |&amp; operator, using it in place of the &amp; symbol. Once launched, a coprocess runs in parallel with your shell's process. To write to the command, use print -p. To read its output, use read -p. You can reassign the input and 
+output pipes by using the exec <I>fd&gt;&amp;p</I> and exec <I>fd&lt;&amp;p</I> special commands. Now the script writer can do things previously possible only in the C programming language.
+
+<BR></P>
+
+<P>Another boon is the privileged shell mode. You can set the set-uid and set-gid flags on your shell scripts. You can use the set -o privileged or set -p option to toggle between the user's real user ID and the effective user ID. Use this feature to write 
+
+special system services&#151;for example, a tape library management system, a device allocation facility, or a file sharing system.
+
+<BR></P>
+
+<P>Last but not least, the Korn shell provides a way of getting around the problem of not being able to export aliases and functions. Using the ENV exported variable, you can define a miniprofile to be executed at each invocation of the shell. You no 
+longer have to switch to the shell from vi, pg, or sdb only to find a bare-bones environment without your favorite aliases and functions.
+
+<BR></P>
+
+<P>All in all, the Korn shell seems to be just about the final word in command-line environments. Now your main concern will be whether compatibility constraints enable you to use the Korn shell for script writing. Although the Korn shell can execute 
+Bourne shell scripts, the Bourne shell can't execute Korn shell scripts, and only the C shell can execute C shell scripts. At least you're free to use it for your keyboard environment, which is a step up for sure!</P>
+
+<P><A HREF="unx12s2.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s2.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx13.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx13.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,708 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx45.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx46.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx46.htm">
+
+<LINK REL="Previous" HREF="unxpt8au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt8au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt8au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt8au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx46.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx46.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">45 &#151; UNIX Flavors</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By S. Lee Henry</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">The Beginnings of UNIX</A></LI>
+
+<LI>
+
+<A HREF="#I5">From Lab to Mainstream</A></LI>
+
+<LI>
+
+<A HREF="#I6">Factors Leading to UNIX's Early Success</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I7">The UNIX Model of Computing</A></LI>
+
+<LI>
+
+<A HREF="#I8">Portability</A></LI>
+
+<LI>
+
+<A HREF="#I9">Extensibility</A></LI>
+
+<LI>
+
+<A HREF="#I10">Additional Features</A></LI>
+
+<LI>
+
+<A HREF="#I11">Appeal</A></LI></UL>
+
+<LI>
+
+<A HREF="#I12">Flavors BSD and System V</A></LI>
+
+<LI>
+
+<A HREF="#I13">Open Systems</A></LI>
+
+<LI>
+
+<A HREF="#I14">The Role of Standards and Consortiums</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">SVID</A></LI>
+
+<LI>
+
+<A HREF="#I16">POSIX</A></LI>
+
+<LI>
+
+<A HREF="#I17">X/Open</A></LI>
+
+<LI>
+
+<A HREF="#I18">COSE/CDE</A></LI></UL>
+
+<LI>
+
+<A HREF="#I19">War and Peace</A></LI>
+
+<LI>
+
+<A HREF="#I20">The UNIX Future</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>45 &#151; UNIX Flavors</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By S. Lee Henry</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The UNIX operating system has clearly emerged as one of the primary software platforms for the '90s, providing distributed computing capabilities for even the most diverse networks. Its remarkable success has been due both to its portability and to its 
+
+long history of innovation. In the more than 25 years that UNIX has been around, it has had plenty of time to &quot;soak up&quot; good ideas from some of the sharpest computer people in the business. From AT&amp;T, the University of California at Berkeley, 
+
+Sun Microsystems, and many other companies, UNIX has acquired a tremendous collection of powerful tools and maintained an open architecture that continues to invite development.
+
+<BR></P>
+
+<P>UNIX today runs on three or four million computers, maybe more. These computers range from very small personal computers to Crays. The concept of creating ad hoc &quot;programs&quot; by interconnecting commands is extremely powerful whether you're 
+working on a laptop or a supercomputer.
+
+<BR></P>
+
+<P>Because of its portability and because of an elegant design that appeals to developers, UNIX has proliferated into many different &quot;flavors&quot; over the past couple decades. As much as this divergence has profited UNIX by providing many venues for 
+
+innovation, it has also frustrated the growing need for portable applications. Without an adequate market share, any particular UNIX flavor has suffered from a dearth of software or, at least, a dearth of affordable software, especially compared with 
+personal computer systems such as those built by IBM and Apple. The flavors of UNIX are different enough that it became difficult and, therefore, costly to port applications from one to the other. In addition, UNIX is not the same simple creature that it 
+was back in Bell Labs. Windowing systems, graphical user interfaces, and years of innovation have complicated UNIX and dramatically affected the complexity of porting applications.
+
+<BR></P>
+
+<P>The need for simplified application portability was not, however, the only factor pushing for a more unified UNIX. Improvements in networking put interoperability among different UNIX systems, as well as between UNIX and non-UNIX systems, high on 
+everyone's agenda. Today's businesses are demanding enterprise-wide computing solutions. These solutions entail a high degree of data sharing&#151;both distributed applications and an ease of moving information and people expertise around the organization. 
+
+Today's procurements are specifying standard interfaces and protocols to help meet this demand and leverage organizations' investments in computing technology.
+
+<BR></P>
+
+<P>As a result, the UNIX command sets and the programming interfaces are becoming increasingly standardized and a number of startling alliances between UNIX competitors are bringing a new unity to UNIX.
+
+<BR></P>
+
+<P>This chapter briefly reviews the history of UNIX, describes some of the main &quot;flavors&quot; of UNIX that are popular today, addresses the most important standards that are helping to bring unity to UNIX, and predicts what will happen to UNIX in the 
+
+remainder of the '90s.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>The Beginnings of UNIX</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you feel that you've cut your teeth on UNIX, its early history at Bell Labs may seem extremely remote. UNIX was created at AT&amp;T's Bell Labs roughly 25 years ago, where technological innovation and engineering elegance seemed to reign over more 
+worldly concerns such as proprietorship.
+
+<BR></P>
+
+<P>In those days, operating systems were difficult to use and programmers had to work hard to make their programs acceptable to the difficult-to-please computers. The convenient shell environments that you use today did not, for the most part, exist.
+
+<BR></P>
+
+<P>UNIX, first called UNICS, was built to run on the DEC PDP-7 and PDP-11 systems. It was not intended to be a product. Its designers, Ken Thompson and Dennis Ritchie, were after usability and had no thoughts about marketing it. They were simply looking to 
+
+create a more hospitable programming environment, so they created and enhanced UNIX basically for their own use. In time, other people at Bell Labs contributed additional concepts and tools and, by 1969, the basics of UNIX were established.
+
+<BR></P>
+
+<P>Given this beginning, it is extremely ironic that UNIX has become not only one of the most successful operating systems ever but that it has influenced every other important operating system as well. For an operating system first developed by experts 
+for experts, the impact that UNIX has had on the industry has been nothing short of staggering. UNIX has had a transforming influence on all computer operating systems since its first introduction into popular use. Even single-user operating systems such 
+as DOS (in releases after 2.0) have taken on many of the characteristics and capabilities of UNIX. The hierarchical file system, which allows a much better way of organizing files than the previous &quot;flat&quot; file space, for example, is incorporated 
+
+into DOS (except that it does not have a root directory). Search paths and pipes have also worked their way into DOS as has the more command for viewing subsequent pieces of a file.
+
+<BR></P>
+
+<P>The more modern Windows NT incorporates many characteristics of UNIX from the basic file metaphor (that is, virtually everything is a file) and hierarchical file system to support for named pipes for interprocess communication and the use of STREAMS in 
+
+networking. Windows NT has also implemented many of the most important features of UNIX, including multitasking, multiprocessing, and security. Although UNIX has had enhancing effects on many other operating systems, its capabilities still continue to set 
+
+it in a class by itself. Among these capabilities, its availability over a variety of hardware platforms, its multiuser character, and its support of parallel processing and distributed file systems make it ideal for large heterogeneous networks.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>From Lab to Mainstream</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The small group of people who created UNIX consisted of AT&amp;T members of a development team looking at an operating system called MULTICS. MULTICS was a time-sharing and multitasking operating system developed at MIT in the '60s. It ran on computers 
+
+built by General Electric. MULTICS had many important features, but it was complex and unwieldy. When AT&amp;T eventually withdrew its participants, they were left without an operating system but with plenty of good ideas about what a modern time-sharing 
+system should be like. In fact, despite the early disappearance of MULTICS, the astounding success of UNIX owes a considerable amount to several ideas of this then-aggressive operating system. MULTICS had the concept of the shell as command interpreter and 
+
+a hierarchically arranged file system. Both of these features became features of the new UNIX system as well. Just as important, MULTICS was also one of the first operating systems to support more than one user at a time. This one feature made UNIX 
+especially valuable in its early customer environments, most notably academic and research establishments, where the need to share computer systems was extremely important.
+
+<BR></P>
+
+<P>When AT&amp;T decided to license UNIX on DEC minicomputers to educational institutions in 1974, it gave no-cost licenses and source code. Unlike companies such as Microsoft that maintain tight control over source code, AT&amp;T practically gave UNIX 
+away, complete with source code, for the asking. This early availability of UNIX source code to universities meant that hundreds of thousands of bright computer scientists and engineers who could use UNIX, support UNIX, and modify UNIX began flooding the 
+market a few years later. Their expertise led to the early success of UNIX and to much of the divergence of UNIX into many custom versions. The further development of UNIX both within the universities and within the organizations that these UNIX experts 
+began working for quickly began moving UNIX in many new directions at once.
+
+<BR></P>
+
+<P>By 1977, UNIX was ready for more commercial use. Digital Equipment was, at the time, emphasizing smaller systems with fewer users. The minicomputer era was getting off the ground, and UNIX had an ideal platform in the PDP series systems because even 
+universities could afford to own them.
+
+<BR></P>
+
+<P>Within several years of its commercial availability, UNIX existed in so many different versions that, like the aftermath of the tower of Babel, its followers did not all speak the same language.
+
+<BR></P>
+
+<P>Many proprietary versions of UNIX came into being during these times. Some were based on the AT&amp;T release and others on the Berkeley Software Distribution (BSD), often combining features of both. Digital Equipment's Ultrix, for example, was based on 
+
+the Berkeley release but incorporated some System V features as well. SunOS was moving to the Berkeley release but incorporated System V features, too. Even HP-UX was primarily BSD but added some System V features. IBM's AIX, on the other hand, was based 
+on System V and added some BSD features, as did Apple's AUX. Users and administrators could move between these different versions of the UNIX operating system but not without a fair degree of stress and retooling. The command rsh, for example, was a remote 
+
+shell command in the Berkeley release, but was the restricted shell command in System V. These differences, along with significantly different print subsystems, were enough to make the different flavors of UNIX an issue for just about anyone who had to 
+move between them.
+
+<BR></P>
+
+<P>By the time UNIX realized it was without the stabilizing influence of standards, commercialism had taken over and many UNIX products were being sold and used in large quantity. UNIX had been thrown into the world of big business, government, and 
+competition.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Factors Leading to UNIX's Early Success</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The quick acceptance of UNIX and its move from the laboratory into big business and government was based on a number of compelling advantages that this powerful operating system offered to its users.
+
+<BR></P>
+
+<P>A few underlying concepts of UNIX really work well: the tree-structured file system, the fact that a file is a sequence of bytes, and the fact that objects can be accessed as files. UNIX also survived, even embraced, the advent of networks. Its survival 
+
+made it the operating system of choice in many campus environments and gave it an early mandate for interoperability.
+
+<BR></P>
+
+<P>The features that most contributed to the success of UNIX include its model of computing, its portability, and events in its history that allowed its proliferation and encouraged innovation.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>The UNIX Model of Computing</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The UNIX kernel became the core of the operating system, which generally only UNIX wizards concern themselves with; the shells' environments became the messengers, making the wishes of users palatable before delivering them to the kernel; and the shells 
+
+(Bourne and C) created the working environments of users. This organization of UNIX into a kernel surrounded by the shell and by user commands was a revolutionary concept in the early days of UNIX.
+
+<BR></P>
+
+<P>The UNIX kernel became the core of the system, interacting directly with the hardware while providing services to programs to insulate them from hardware details. The kernel provided essential control and support for the many processes needing to use 
+the CPU. It managed the sequential sharing of the CPU to effect time sharing in such a way that it appeared to users that their processes were continuously running when, in fact, they were running only intermittently. The kernel also maintained the file 
+system and handled interrupts (for example, devices requesting attention). Processes interacted with the kernel through system calls.
+
+<BR></P>
+
+<P>The UNIX shells act both as command interpreters and as mini programming languages. Shells read and interpret user commands, expanding filenames and substituting variables with their values before passing commands to the kernel for execution. Over the 
+years, a number of shells have been added to UNIX. The Bourne shell (sh) is the standard UNIX shell; the C shell (csh) and Korn shell (ksh) bring many modern features. Other shells available in some UNIX systems provide limited-access environments with 
+restricted shells such as rsh and process (that is, job) control with jsh. Additionally, public-domain utilities such as PERL and tcsh are used on many UNIX systems.
+
+<BR></P>
+
+<P>The simple yet powerful concepts of pipes and redirects are clearly two of the most important features of UNIX. The ability to string together commands to create new tools brings the extensibility of UNIX to every user. When a user feeds the output of a 
+
+cat command into grep or sort, for example, and then to awk for reformatting or sed for string substitution, he or she is creating a new tool &quot;on the fly.&quot;
+
+<BR></P>
+
+<P>UNIX also contains several hundred commands and utilities. Many of these, such as sed and awk, are languages with powerful capabilities. Others, such as fold, have a single, simple function.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Portability</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>From a technical point of view, portability was probably the most important factor in the overall success of UNIX. Users could move UNIX to many different platforms with very little change. Coded in the high-level language C, UNIX was easily ported to a 
+
+variety of very different hardware platforms. For any large organization, the ability to run the same operating system on virtually all of its computers continues to have considerable appeal. The overhead associated with using and managing these systems is 
+
+significantly reduced.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Extensibility</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Another reason for the early success of UNIX was its extensibility and simplicity. UNIX was able to grow without losing its fundamental elegance and without excessive risk of introducing serious new bugs. Previously, as systems grew, they became 
+increasingly complex and increasingly difficult to maintain. Each feature that was added affected other features, and the likelihood of introducing errors was considerable. It was nearly impossible to maintain or control a single feature without 
+considering its effect on the rest of the operating system.
+
+<BR></P>
+
+<P>UNIX, on the other hand, with its simple modularity, allowed developers of new tools to code them fairly independently of other tools and commands. The developers merely had to build tools so that they worked with standard input, standard output, and 
+standard error. In addition, many requirements for additional features could be answered by innovative use of existing UNIX commands. The &quot;UNIX way&quot; suggested simple robust tools that could be used almost like tinker toys to create command 
+one-liners that could accomplish more than complex programs in any other operating system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Additional Features</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The multiuser and multiprocessing nature of UNIX greatly amplified the productivity of its users; they could work on several things at a time.
+
+<BR></P>
+
+<P>UNIX also became ready for networking at an early age. With the TCP/IP protocol suite that was derived from the Berkeley work, network-ready UNIX implementations arrived early and fulfilled important needs.
+
+<BR></P>
+
+<P>Although you may have heard complaints about UNIX security, the security of UNIX was, in fact, another key feature that helped it to make its way into business and government sites. Operating system security was almost totally lacking in earlier 
+operating systems. In UNIX, file permissions and fairly secure passwords created a paradigm for privacy.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Appeal</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Finally, the success of UNIX is based on its appeal to its users. Enthusiasm for UNIX is generally correlated with the time people spend with it. Users must get to a certain level of expertise before they can string together commands and 
+&quot;compose&quot; their own functionality or embed their tricks into scripts that they use as if they were UNIX commands themselves. Once they've mastered this skill, however, UNIX is extremely powerful and compelling. UNIX wizards have many tricks up 
+their sleeves and are always looking for that new clever combination to further streamline their work. The almost endless ways that commands can be combined and data extracted and manipulated is unique to UNIX.
+
+<BR></P>
+
+<P>UNIX is composed of many small pieces. UNIX commands don't try to do everything; instead, they do something simple well. Because UNIX offers so many commands, even those who consider themselves experts are constantly discovering new commands and new 
+options. At the same time, much of the detail even the experts don't need to concern themselves with at all. They don't worry, for example, if their data is coming from a file or a device or even from another program. It doesn't matter. The experts can 
+plug the pieces together whenever they need to without having to make allowances for the source or destination of the data.
+
+<BR></P>
+
+<P>The early creators of UNIX got to name all the tools that were added to the growing set of commands and utilities that was early UNIX. Some, with names such as sed and grep, are acronyms. Others were given names such as biff (after a dog) and awk (after 
+
+its creators). The mix of meaningful and arbitrary command names gave an odd character to this revolutionary operating system. Interestingly, you might notice that UNIX has only advocates and enemies. Almost no one who knows anything about UNIX is neutral.
+
+
+
+<BR></P>
+
+<P>Some people are overwhelmed by the hundreds of commands and tools that comprise UNIX, and they consider UNIX to be a &quot;four-letter word.&quot; It has a terse syntax and oddly named commands, some with an overwhelming set of options. Other people are 
+
+fond of individual commands or tools. Talk to a UNIX devotee about awk, if you don't believe this devotion. UNIX people can talk at length about the power of the operating system and their favorite utilities.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Flavors BSD and System V</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>By the time UNIX had become mainstream, there were two primary flavors, each with its own strengths and markets. For the most part, BSD has become firmly entrenched in the academic and research environments and has maintained a lead in innovation. The 
+System V version has moved toward more strictly commercial applications and stresses robustness and rugged error handling. Each of the UNIX camps has become devoted to its own particular flavor of UNIX, and each has resisted standardization.
+
+<BR></P>
+
+<P>The BSD and System V versions differ in many ways. Many of the basic commands, such as ls and cd, are the same, but other major components are different. The print subsystems, for example, in BSD and System V are different. The files required to set up 
+
+and provide access to printers and the commands to issue print requests and check the print queue also are different.
+
+<BR></P>
+
+<P>For system administrators, moving from one flavor of UNIX to another involves additional troubles. Many of the start-up and configuration files in the /etc directory are differently named or differently formatted so that administering a System V host is 
+
+quite different from administering a BSD system. Files used during the bootup process include /etc/rc.local and /etc/rc.boot on BSD systems and /etc/rc0 and /etc/rc2 on System V. In addition, many scripts and utilities for facilitating system 
+administration (for example, adding and removing users) exist in one and not the other. Enough differences exist that a system administrator always encounters some degree of difficulty moving between the two major flavors of UNIX.
+
+<BR></P>
+
+<P>Despite the fact that the BSD and AT&amp;T UNIX flavors compete, they have benefitted from considerable cross-fertilization. This cross-fertilization helped both major versions of UNIX evolve but also proliferated many different proprietary UNIX 
+implementations that included some features from both systems. Some System V versions of UNIX have BSD enhancements, and some BSD versions have System V support. Saying &quot;I use UNIX&quot; isn't enough anymore. The particular command set that you know 
+may be a grab bag of features from both BSD and System V. The merge of the BSD and System V into SVR4 will end much of the stress involved in moving between versions of UNIX.
+
+<BR></P>
+
+<P>Among the many popular flavors of UNIX in use today are many BSD and System V representatives. SunOS 4.1, for example, is a BSD-based UNIX. SGI's IRIX is based on System V. SCO UNIX, a popular UNIX for personal computers, is based on System V. NeXTStep 
+
+is based on Carnegie-Mellon's Mach, which is based on BSD.
+
+<BR></P>
+
+<P>The following factors differentiate the popular flavors of UNIX today: completeness of the command set, availability of different shells, support for diverse file systems, sophistication of system administration tools, networking features and support, 
+user interface and desktop tools, support for internationalization, application development support, memory management, and adherence to standards
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Open Systems</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When the phrase open systems emerged, it caught on quickly. Soon, every computer vendor was using the term. After all, open systems had a ring of idealism and an appeal to buyers. Initially, however, vendors didn't all mean the same thing when they used 
+
+the term. For some, open meant that an operating system ran on more than one vendor's equipment. For others, it meant that the systems could be purchased from more than one source.
+
+<BR></P>
+
+<P>The valid definition of open systems is the one that vendor consortiums use. An open system is one that uses published interface specifications to promote interoperability and portability. The standards groups that promote open systems pursue 
+interoperability and portability to facilitate innovation and preserve the investment that both users and developers make in their systems. Once developers, for example, can spend less time worrying about porting their code between vastly different 
+systems, they can spend more time working on improvements and new features.
+
+<BR></P>
+
+<P>Open can refer to licensing as well as to specifications. Open licensing means that technology produced by one company can be licensed for use by another, allowing for a good degree of interoperability. Open licensing, however, generally means that a 
+single vendor is responsible for the technology. Open specifications, on the other hand, allow for many vendors to participate in defining the specifications and permit the creation of a vendor-neutral environment for development and innovation.
+
+<BR></P>
+
+<P>In contrast to open is the concept of proprietary. Proprietary systems do not use open specifications or open licensing. The Macintosh operating system is an example of a proprietary operating system; it is neither openly licensed nor openly specified. 
+
+It isn't licensed to other vendors nor are its specifications determined by vendors outside of Apple. In sharp contrast, the TCP/IP protocol suite is both openly specified in extensive documents (RFCs) and influenced by a large population of users.
+
+<BR></P>
+
+<P>Software that is built to open standards, whether through open specifications or open licensing, promotes interoperability. Consider the example of the role that Sun Microsystems has had in promoting open systems. The published specifications for its 
+network file system (NFS) have allowed it to be incorporated or otherwise made available in most every UNIX operating system and as an add-on utility for personal systems such as PCs and Macintosh systems. NFS was designed to provide distributed file 
+systems between computers from different manufacturers running different operating systems. Sun, more than any computer corporation, has used the standards process both to its own strategic advantage and to promote open systems.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>The Role of Standards and Consortiums</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Slowly, the evolution of standards has begun to ease the work of UNIX developers and end users. Users of heterogeneous networks with computers from many different vendors are finding ways to share information effectively. Software products are finding 
+easier ports to new platforms. Standards are also becoming big business as the specification of compliance with the emerging set of important standards is increasingly included in large contracts. If a federal procurement requires POSIX compliance, large 
+vendors will scramble to make their offerings POSIX compliant. Standards affect the way that a UNIX system acts both on the outside (for example, the syntax of user commands) and on the inside (for example, how it does system calls).
+
+<BR></P>
+
+<P>Standards are important to end users because following standards leads to software becoming cheaper to produce, with a resultant drop in price and increase in availability. In the past, it may have cost ten times as much to buy a software product for 
+most UNIX platforms simply because the ratio of development cost to customer base was too large. With effective standards, software can be ported at considerably less cost, resulting in a higher availability of inexpensive software for all UNIX systems.
+
+<BR></P>
+
+<P>Both SVR4 and OSF/1 include specification of an application binary interface (ABI), which allows compiled code to be run on diverse hosts if they can run the ABI interface software. The ABI promises shrink-wrapped software that says just 
+&quot;UNIX&quot; on the box; this is certainly an ideal. The idea is not entirely new. The Pascal language included a very similar concept with its use of p-code. Pascal compiles to the intermediate p-code, which can then be compiled or interpreted by a 
+small piece of machine-specific software. Software that runs using an ABI will take advantage of a similar technique.
+
+<BR></P>
+
+<P>UNIX vendors are not the only ones interested in standards. System administrators are interested in standards that facilitate management of large collections of often diverse systems. Administrators often have the superset of problems that face 
+developers, end users, and system integrators. Standards of interest to systems administrators include distributed management of resources. Standards for network management, distributed systems administration, and distributed computing are high on their 
+lists. Programmers, on the other hand, want standard interfaces to facilitate program development and standard development tools.
+
+<BR></P>
+
+<P>Indeed, the move toward a uniform UNIX has created some strange bedfellows. Alliances between previously bitter rivals have become commonplace as the drive to define a unified UNIX and the drive to maintain market leadership force UNIX vendors to take 
+strange turns. The major UNIX vendors are all participating in efforts to end the UNIX feuds.
+
+<BR></P>
+
+<P>Some of the most important standards that apply to UNIX are described briefly in the following sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>SVID</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SVID, the System V Interface Definition and Verification Suite, has increasingly more clout as large backers, including the federal government, look to standards to protect their investment in computer technology and ease the work of managing huge 
+information processing operations. SVID standards also include conformance testing. The System V Verification Suite is used to gauge adherence to SVID. SVR4 is, as you might have guessed, SVID-compliant.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>POSIX</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>POSIX, a standard started by /usr/group, an organization made up of UNIX System users, and eventually IEEE-supported, sets a standard for a portable operating system interface for computer environments. POSIX defines the way applications interact with 
+the operating system. It defines, for example, system calls, libraries, tools, and security.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>X/Open</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>X/Open is a consortium that was started by European companies. X/Open publishes guidelines for compatibility leading to portability and interoperability. The X/Open portability guide was first published in 1985. At one time, both OSF and UI were 
+members, but OSF has left the group. X/Open has a series of groups in areas such as the UNIX kernel, distributed processing, and security.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>COSE/CDE</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Another vendor-driven alliance, the Common Open Software Environment (COSE)&#151;with partners IBM, HP, SunSoft, UNIX System Laboratories, Univel, and the Santa Cruz Operation&#151;formed to work on a common graphical interface for UNIX based on 
+OSF/Motif. Sun's involvement in this coalition and its adoption of Motif ended a longtime standoff in the UNIX GUI battleground. A large part of what this group is defining is called the Common Desktop Environment (CDE).
+
+<BR></P>
+
+<P>The COSE efforts are bringing a unified look-and-feel and behavior model to the UNIX desktop. UNIX has always lacked a unified model even though the desktops of many popular versions of UNIX have been easy to use. To the extent that this effort is 
+successful, the skills of UNIX end users can carry over from one UNIX system to the next.
+
+<BR></P>
+
+<P>CDE itself is based on a long list of standards that the UNIX community has been using and relying on for some time. These standards include the X11R5 windowing environment, the OSF/Motif GUI, and the ICCCM standard for interclient communications. COSE 
+
+will also develop a style guide for CDE.
+
+<BR></P>
+
+<P>SunSoft's desktop tools, including a calendar manager, file manager, and mail tool, and SunSoft's ToolTalk for messaging between applications are also being incorporated into the CDE. HP's Visual User Environment and the windowing Korn shell will also 
+be incorporated.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>War and Peace</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The stage was finally set for the development of a unified UNIX when, in 1988, AT&amp;T purchased a percentage of Sun. Immediately following the fairly startling announcement of this purchase, a group of vendors, including IBM, DEC, and HP, set out to 
+compete with the SVR4 direction that Sun and AT&amp;T were taking. Calling themselves the Open Software Foundation (OSF), they were clearly reacting against the evidence of impending collaboration between Sun and AT&amp;T that would unify UNIX and possibly 
+
+give them a competitive advantage in marketing their products. OSF quickly raised $90 million for the development of their own standard, intent on avoiding licensing fees and possible &quot;control&quot; of UNIX by competitors.
+
+<BR></P>
+
+<P>AT&amp;T and Sun Microsystems then reacted to the formation of OSF by establishing UNIX International, a set of System V endorsers that would be responsible for its future specifications. This consortium would oversee the development of the standard 
+UNIX. Sun and AT&amp;T hoped to ward off complications that would result from the establishment of yet another standard for UNIX. This move, apparently, did not appease the founders of OSF, and both organizations continued their efforts to bring about 
+their own answer to the need for a unified UNIX.
+
+<BR></P>
+
+<P>OSF developed the Motif GUI and the OSF/1 version of UNIX. OSF/1 is based on the Mach system, which is, in turn, based on UNIX System V Release 3.
+
+<BR></P>
+
+<P>Although the ultimate success of OSF/1 was still in question, the division of UNIX into another pair of competing technologies threatened the unification of UNIX envisioned by the Sun/AT&amp;T establishment of SVR4.
+
+<BR></P>
+
+<P>For years, these vendor groups were at odds. Sun swore that it would never endorse OSF's Motif GUI standard, and OSF steadfastly pursued development of its own technology, charging fees for licensing Motif. In March 1993, however, Sun adopted Motif as a 
+
+windowing direction, promising to end the &quot;GUI Wars,&quot; which complicated the lives of UNIX users looking for products that complied with Motif or Sun's Open Look, depending on their preferences, or living with a mixed-GUI desktop that sometimes 
+made moving from one tool to another difficult.
+
+<BR></P>
+
+<P>When OSF reorganized in March 1994, however, it revised its charter to focus closely on specifications of vendor-neutral standards, rather than creating licensable technology. This change left participating vendors able to use these specifications to 
+develop their own implementations (which they then own and don't have to license) and brings greater adherence to OSF's standards to most of the UNIX community.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=4><B>The UNIX Future</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX is, in most ways, stronger than ever. The alliances that have formed to bring about a uniformity will dramatically simplify portability of applications and allow end users to develop transferable skills on most UNIX desktops.
+
+<BR></P>
+
+<P>UNIX rarely comes with source code anymore, and one effect of compliance with a myriad of standards is to slow innovation. You will never have UNIX quite the way it was in its formative years&#151;small and pliable. Those times are lost, a necessary 
+cost of UNIX's amazing success. Today, the UNIX system is not quite so simple as it was back then. When networking was added, followed by Windows and GUI support, UNIX became increasingly complicated. The exception, however, is the continued availability 
+of the Berkeley version of UNIX through Berkeley Systems Design, Inc. Available with and without source code, BSDI's UNIX product runs on Intel systems.
+
+<BR></P>
+
+<P>At the same time, UNIX continues to provide stunning new capabilities. Real-time features, multi-threaded kernels, virtual file systems, and user desktops that provide intuitive access to the system not only to end users but to system administrators are 
+
+only examples.
+
+<BR></P>
+
+<P>The strong appeal of interoperability is increasingly important as large companies and government agencies plan how they will tie their resources together in enterprise networks in what is left of the 1990s. End users want portability because it saves 
+them money. Developers want it to reduce their workload and lower their costs. Big customers want to leverage their investments. You are likely to see many organizations running UNIX across the enterprise and many others with UNIX on servers and 
+workstations and other operating systems on personal computers.
+
+<BR></P>
+
+<P>UNIX is becoming less and less a system that only wizards and programmers use and more a system that everyone&#151;including businesspeople&#151;use. UNIX has not sacrificed, however, any of its elegance but acquired a veneer that appeals to less 
+system-savvy users. Users today want services transparently and, for the most part, don't really want to use computers so much as to get some job done. They are not the same people who made UNIX popular in the early days. UNIX has made it into big business 
+
+and into big finance and sits on the desktop of CEOs and secretaries, not just programmers and engineers. These users want GUIs, desktop tools, and transparent access to remote and disparate systems without having to be conscious of the differences between 
+
+their platforms.
+
+<BR></P>
+
+<P>The development of a common desktop will allow users to move easily from one UNIX system to another without &quot;retraining their fingers.&quot; Until a true binary standard (ABI) appears, you will still be driven, in part, by applications that may be 
+
+available on one platform and not another. Just as many personal computers were once sold because users wanted to use the Lotus spreadsheet, systems still sometimes sell on the strength of powerful or customer-specific software&#151;such as Wolfram's 
+Mathematica&#151;that may not be available on every UNIX platform.
+
+<BR></P>
+
+<P>Another similar trend is the appearance of system-management tools that provide uniform management of diverse systems to even the most heterogeneous networks. Hiding the platform-specific details from the user relieves the systems administrator from 
+having to be an expert on every different system on the network.
+
+<BR></P>
+
+<P>When you really get down to it, the differences between flavors of UNIX are not really all that great, given adherence to the current set of standards. Almost any current operating system with any relation to UNIX will conform to the standards such as 
+SVID and POSIX and the X/Open guidelines. The cohesiveness of heterogeneous networks and the common desktop environment for UNIX systems are likely to be the factors that most heavily influence the future success of UNIX. At the same time, companies will 
+be motivated to differentiate their versions of UNIX in spite of their support to the goals of a unified UNIX in order to sell their product.
+
+<BR></P>
+
+<P>The war is no longer UNIX vs. UNIX, even though battles will still be fought between vendors competing for your purchases with whatever added value they can bring to their products without violating the alliances they have joined to support the unified 
+
+UNIX. The war will be between open and proprietary, between standards-backed UNIX and contenders such as Windows NT vying for the desktop in the enterprise network. If the open systems movement is to continue to bring value to the working lives of 
+programmers, systems administrators, and end users of UNIX systems, they must continue to insist on adherence to open standards and the &quot;plug and play&quot; desktop.
+
+<BR></P>
+
+<P><A HREF="unxpt8au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt8au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx46.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx46.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

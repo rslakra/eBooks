@@ -1,0 +1,5020 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx09.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt2au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt2au.htm">
+
+<LINK REL="Previous" HREF="unx08.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx08.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx08.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx08.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt2au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt2au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">9</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Communicating with Others</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">By Ron Dippold</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">Electronic Mail (E-Mail)</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Basic Concepts</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I7">Internet Mail Is More Than Internet</A></LI>
+
+<LI>
+
+<A HREF="#I8">E-Mail Is Text</A></LI>
+
+<LI>
+
+<A HREF="#I9">E-Mail Formats</A></LI>
+
+<LI>
+
+<A HREF="#I10">E-Mail Addressing</A></LI></UL>
+
+<LI>
+
+<A HREF="#I11">E-Mail Headers</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I12">Header Format</A></LI>
+
+<LI>
+
+<A HREF="#I13">Minimal Header Items</A></LI>
+
+<LI>
+
+<A HREF="#I14">Common Header Items</A></LI>
+
+<LI>
+
+<A HREF="#I15">Other Header Items</A></LI>
+
+<LI>
+
+<A HREF="#I16">Date Fields</A></LI>
+
+<LI>
+
+<A HREF="#I17">Don't Sweat the Headers</A></LI></UL>
+
+<LI>
+
+<A HREF="#I18">Mail Programs</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I19">Your Mail Files</A></LI>
+
+<LI>
+
+<A HREF="#I20">Using Mail Programs</A></LI>
+
+<LI>
+
+<A HREF="#I21">Common Mail Programs</A></LI>
+
+<LI>
+
+<A HREF="#I22">Remote Mail Clients</A></LI>
+
+<LI>
+
+<A HREF="#I23">A Few Mail Clients</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">Internet E-Mail Gateways</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I25">Addressing Issues</A></LI>
+
+<LI>
+
+<A HREF="#I26">Other Gateway Issues</A></LI>
+
+<LI>
+
+<A HREF="#I27">Gateway Translation Specifics</A></LI></UL>
+
+<LI>
+
+<A HREF="#I28">Finding Addresses</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I29">Send Reverse Mail</A></LI>
+
+<LI>
+
+<A HREF="#I30">Directories</A></LI>
+
+<LI>
+
+<A HREF="#I31">USENET Address Server</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">Your Address and Business Card</A></LI>
+
+<LI>
+
+<A HREF="#I33">Mailing Lists</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I34">Clutter</A></LI>
+
+<LI>
+
+<A HREF="#I35">Finding Lists</A></LI>
+
+<LI>
+
+<A HREF="#I36">LISTSERV Sites</A></LI>
+
+<LI>
+
+<A HREF="#I37">Joining and Dropping</A></LI></UL>
+
+<LI>
+
+<A HREF="#I38">Automatic Mail Sorting</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I39">procmail</A></LI>
+
+<LI>
+
+<A HREF="#I40">deliver</A></LI>
+
+<LI>
+
+<A HREF="#I41">mailagent</A></LI>
+
+<LI>
+
+<A HREF="#I42">Elm</A></LI></UL>
+
+<LI>
+
+<A HREF="#I43">Sending Programs and Graphics</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I44">uuencode</A></LI>
+
+<LI>
+
+<A HREF="#I45">uudecode</A></LI>
+
+<LI>
+
+<A HREF="#I46">split</A></LI>
+
+<LI>
+
+<A HREF="#I47">Getting uuencode for Your System</A></LI></UL>
+
+<LI>
+
+<A HREF="#I48">MIME</A></LI>
+
+<LI>
+
+<A HREF="#I49">Au Revoir, E-Mail</A></LI></UL>
+
+<LI>
+
+<A HREF="#I50">USENET</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I51">What Is USENET?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I52">Analogies</A></LI>
+
+<LI>
+
+<A HREF="#I53">USENET Is Not Internet</A></LI>
+
+<LI>
+
+<A HREF="#I54">USENET Is Usenet Is NetNews</A></LI>
+
+<LI>
+
+<A HREF="#I55">USENET Is Too Big</A></LI>
+
+<LI>
+
+<A HREF="#I56">USENET Is an Information Bonanza</A></LI>
+
+<LI>
+
+<A HREF="#I57">USENET Is a Noise Overload</A></LI>
+
+<LI>
+
+<A HREF="#I58">USENET Is a Controlled Anarchy</A></LI>
+
+<LI>
+
+<A HREF="#I59">USENET Sounds Intimidating</A></LI></UL>
+
+<LI>
+
+<A HREF="#I60">Underlying Concepts</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I61">USENET Messages</A></LI>
+
+<LI>
+
+<A HREF="#I62">The USENET Distribution Model</A></LI>
+
+<LI>
+
+<A HREF="#I63">Newsgroup Names</A></LI>
+
+<LI>
+
+<A HREF="#I64">Threads</A></LI></UL>
+
+<LI>
+
+<A HREF="#I65">Newsreaders</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I66">rn (readnews)</A></LI>
+
+<LI>
+
+<A HREF="#I67">Message Overview and Threading</A></LI>
+
+<LI>
+
+<A HREF="#I68">Kill Files</A></LI>
+
+<LI>
+
+<A HREF="#I69">Which Newsreader?</A></LI>
+
+<LI>
+
+<A HREF="#I70">NN (No News)</A></LI>
+
+<LI>
+
+<A HREF="#I71">Other UNIX Readers</A></LI>
+
+<LI>
+
+<A HREF="#I72">Other Readers</A></LI>
+
+<LI>
+
+<A HREF="#I73">Offline Readers</A></LI></UL>
+
+<LI>
+
+<A HREF="#I74">Finding Your Groups</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I75">The Hierarchies</A></LI>
+
+<LI>
+
+<A HREF="#I76">The Big Seven Hierarchies</A></LI>
+
+<LI>
+
+<A HREF="#I77">The Sewer of .alt</A></LI>
+
+<LI>
+
+<A HREF="#I78">The Other Hierarchies</A></LI>
+
+<LI>
+
+<A HREF="#I79">Where Do I Go?</A></LI></UL>
+
+<LI>
+
+<A HREF="#I80">Netiquette</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I81">Newbie</A></LI>
+
+<LI>
+
+<A HREF="#I82">Newbie No More</A></LI>
+
+<LI>
+
+<A HREF="#I83">Signature Files</A></LI>
+
+<LI>
+
+<A HREF="#I84">Excessive Quoting</A></LI>
+
+<LI>
+
+<A HREF="#I85">Pyramid Schemes</A></LI>
+
+<LI>
+
+<A HREF="#I86">Excessive Crossposting</A></LI>
+
+<LI>
+
+<A HREF="#I87">Read the FAQ!</A></LI>
+
+<LI>
+
+<A HREF="#I88">Keep the Flaming to a Minimum</A></LI>
+
+<LI>
+
+<A HREF="#I89">Don't Bluff</A></LI>
+
+<LI>
+
+<A HREF="#I90">Whew!</A></LI></UL>
+
+<LI>
+
+<A HREF="#I91">USENET Miscellany</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I92">Creating a New Group</A></LI>
+
+<LI>
+
+<A HREF="#I93">How Can I Get That Person Off the Net?</A></LI>
+
+<LI>
+
+<A HREF="#I94">Recommend Some Newsgroups!</A></LI></UL>
+
+<LI>
+
+<A HREF="#I95">Watch Out for Pranks</A></LI>
+
+<LI>
+
+<A HREF="#I96">USENET Adieu</A></LI></UL>
+
+<LI>
+
+<A HREF="#I97">Talk</A></LI>
+
+<LI>
+
+<A HREF="#I98">Internet Relay Chat (IRC)</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I99">Basic IRC Structure</A></LI>
+
+<LI>
+
+<A HREF="#I100">Getting IRC Clients</A></LI>
+
+<LI>
+
+<A HREF="#I101">Connecting to a Server</A></LI>
+
+<LI>
+
+<A HREF="#I102">Choosing Channels</A></LI>
+
+<LI>
+
+<A HREF="#I103">Need Help?</A></LI>
+
+<LI>
+
+<A HREF="#I104">Bad Moves</A></LI>
+
+<LI>
+
+<A HREF="#I105">Further Info</A></LI></UL>
+
+<LI>
+
+<A HREF="#I106">Is That It?</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>9</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Communicating with Others</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B>By Ron Dippold</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Internet would be useful as simply a data-sharing device&#151;being able to FTP to another site and grab a program is quite useful, as is being able to log on to another machine using telnet. But there's a special type of data that comprises most of 
+
+the appeal of the Internet&#151;person-to-person communication. You can talk with people around the world, a message at a time or even in real-time.
+
+<BR></P>
+
+<P>This chapter covers the following topics regarding communications:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>E-mail</P>
+
+<TD>
+
+<P>Electronic mail enables you to exchange messages with anyone who is a member of any of the major information networks. It's faster and cheaper than snail-mail (the Post Office), and it's often cheaper and more convenient than a phone call.</P>
+
+<TR>
+
+<TD>
+
+<P>USENET</P>
+
+<TD>
+
+<P>Whereas e-mail is person-to-person messaging, USENET is person-to-millions-of-persons messaging on literally thousands of different topics. This is more information per day than any person can read completely, even if all they did was read it.</P>
+
+<TR>
+
+<TD>
+
+<P>Talk</P>
+
+<TD>
+
+<P>Simple person-to-person chat.</P>
+
+<TR>
+
+<TD>
+
+<P>IRC</P>
+
+<TD>
+
+<P>Internet Relay Chat is a multiple-person discussion forum, much like a CB radio channel. It is reportedly more addictive than drugs.</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Electronic Mail (E-Mail)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>E-mail is one of the most important applications of the Internet as far as companies, schools, and government agencies are concerned. Since these are the entities that heavily influence Internet development by deciding to hook up and offer Internet to 
+their members, it's often considered one of the most important (if not the most important) service the Internet offers. For major online services such as CompuServe, GEnie, or SprintMail, which offer their users access to the Internet for mailing purposes, 
+
+it's the only Internet service.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Basic Concepts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The basic principle behind e-mail is simple. You write a message using your computer, send it to another computer user, and it appears on that user's computer, where the user reads it. You probably know from experience that composing the letter is not a 
+
+major technical chore, nor is reading it. The first problem is the same one you encounter with all computer data&#151;organizing your data, in this case e-mail. The second problem is how to format the information&#151;how do you send a program by mail? The 
+
+third problem, which is far larger, is exactly how you get your message from your machine in Walla Walla, Washington, United States, to your friend's computer in Reykjavik, Iceland. And, since he's probably sharing his Internet computer with other people, 
+
+how you get it to his account.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Internet Mail Is More Than Internet</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The Internet proper is composed of computers tied together at all times by direct links. If your computer is &quot;on the Internet&quot; and my computer is &quot;on the Internet,&quot; our machines should be able to exchange data without any dialing 
+involved.
+
+<BR></P>
+
+<P>If you think about messages, however, you'll see that individual messages are transferable between machines that connect only occasionally. Each machine can save up messages that need to be sent, then exchange messages when they connect. Bulletin board 
+
+systems (BBSes) do this routinely. This concept is exploited by many systems that offer &quot;Internet Mail&quot;&#151;the systems can exchange e-mail with other Internet sites even though they are not part of the Internet itself. They do this by 
+occasionally connecting to a system that is really on the Internet and exchanging mail. This is an important concept.
+
+<BR></P>
+
+<P>A computer system does not actually have to be part of the Internet to offer Internet Mail access. Since true Internet access is expensive, if you need only e-mail access you will be able to obtain it much more cheaply than true Internet access. There 
+is probably at least one BBS in your area that offers Internet Mail access cheaply, sometimes even for free.
+
+<BR></P>
+
+<P>Mail will be slower on such systems. Since they only connect to a true Internet machine occasionally (maybe only once a day), all your outgoing mail and any incoming mail for you is held until this occurs. This introduces a delay of several hours. Since 
+
+the delivery time for e-mail from one Internet machine to another is often measured in minutes, this is a substantial difference. If you want more, you pay more.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>E-Mail Is Text</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As far as Internet is concerned, e-mail is plain text, nothing more: This means all letters a through z, numbers 0 through 9, and various punctuation. You can't just send a program using e-mail. Various computers along the way will almost certainly 
+eliminate over half of the message, if it gets transferred at all.
+
+<BR></P>
+
+<P>This imposes certain limitations&#151;if you want to do anything special, such as carry other information about the message other than just the basic content, you have to do it within this constraint.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>E-Mail Formats</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A message from you to another person will probably travel through several machines. Typically, mail from your computer goes to the mail computer for your site, then to your service provider's computer, then to a large &quot;backbone&quot; site. From 
+there it goes to another backbone site, to the recipient's service provider, to the recipient's site, then to the recipient's computer. Obviously, you need some way of addressing mail to a specific person&#151;just sending mail to &quot;John Smith&quot; 
+isn't going to work.
+
+<BR></P>
+
+<P>You need some delivery information to go along with the message, but you don't want to modify the vital contents of the message. If you're sending the latest Lorena Bobbitt joke to a friend, you don't want a piece of it chopped off (or otherwise 
+modified).
+
+<BR></P>
+
+<P>On the Macintosh, a similar problem is solved by splitting a file into its Resource and Data forks. OS/2 uses extended attributes. You can't do this with the Internet, because e-mail is text only, by definition. You get around this problem by defining 
+every piece of e-mail to consist of two basic pieces&#151;a header and a body.
+
+<BR></P>
+
+<P>Internet mail consists of a header and a body. The header comes first, and contains all the information about the message, such as who it came from and who it's for. The end of the header is given by a completely blank line&#151;not even any spaces. The 
+
+body of the message, which consists of the actual message content, follows.
+
+<BR></P>
+
+<P>Actually, a message can consist of a header only. This isn't usual, but it's common enough, usually due to user error, that you shouldn't be surprised to see it.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>E-Mail Addressing</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>How do you get mail to a person on another computer, considering that the mail probably has to pass through several computers?
+
+<BR></P>
+
+<P>One way is to list the computers the mail should pass through with the recipient. This is done on the Internet by an almost obsolete format known as UUCP bang-path:
+
+<BR></P>
+
+<PRE>comp01!comp02!comp03!username</PRE>
+
+<P>It's called a bang-path because of the exclamation points: bang! bang! bang! Computer people, UNIX types especially, love short names. Exclamation is four syllables, and bang is only one. Plus, it's easier to spell. Thus, a mail path delimited by bangs 
+
+is a bang-path.
+
+<BR></P>
+
+<P>This indicates that you want the mail to pass successively through the computers known as comp01, comp02, and comp03. Once on comp03 it should go to user username. This type of addressing is simple if you know exactly where your mail is going, and it 
+makes it easy for systems along the way to figure out where to send your mail next; but it is a crawling horror otherwise. Imagine if you had to address your snail-mail (post office) mail like this&#151;from my mailbox to my local post office, then the 
+central office, then the regional office, then another regional office, then the central office, then the local office, then the recipient's mailbox. What if one of the offices along the way changes? Oh yes, the names of the offices can each be only six 
+letters long (a UUCP host name limitation).
+
+<BR></P>
+
+<P>The post office uses a different concept&#151;each person is identified by country, state, city, and address. A parallel system for the post office (the ZIP code) makes sorting faster for humans, and it guards against sloppy writing causing too many 
+problems. To get a message to someone from anywhere in the world, you just identify them with this information. You don't need to care about the path it takes to get there.
+
+<BR></P>
+
+<P>The more standard Internet version of this is domain name addressing, often just called Internet addressing. It looks like this:
+
+<BR></P>
+
+<PRE>localname@domain</PRE>
+
+<P>Both pieces are extensible, although localname is usually just your user ID. The domain is read from right to left and specifies a series of progressively smaller logical domains (such as country, state, city, then street address). Here's an example:
+
+<BR></P>
+
+<PRE>jfaceless@wubba.sales.hugeco.com</PRE>
+
+<P>The far right of the domain, com, indicates that this is a commercial site. The period separates it from the next item in the domain. hugeco is the name of the entity, in this case HugeCo, Ltd. sales specifies a specific department or site within the 
+entity. Finally, wubba is the specific computer within the site.
+
+<BR></P>
+
+<P>This is known as a &quot;fully-qualified domain name&quot;&#151;the address includes complete information on how to reach good old Joe Faceless, right down to the specific machine. Usually you don't have to be this specific. If there's only one 
+jfaceless account within the company, for instance, HugeCo's mail computers should be smart enough to figure out how to route incoming mail to him. In this case, the Internet address he would proudly put on all his business cards would be this:
+
+<BR></P>
+
+<PRE>jfaceless@hugeco.com</PRE>
+
+<P>Obviously, if rawthah@harvard.edu sends mail to jfaceless@hugeco.com, someone needs to figure out how to get it to him&#151;this is the province of domain name servers. Let these computers do the work, and you usually don't have to worry about it.
+
+<BR></P>
+
+<P>By Internet convention, capitalization in the domain name is ignored. So you could use HugeCo.Com, HUGECO.COM, or hugeco.com. They're all the same. The same thing should happen with the user name as well, but this is not required, and if the site is 
+using poor software it may consider JFaceless and jfaceless to be different users. It's safest always to preserve the case.
+
+<BR></P>
+
+<P>The far-right component of the domain is known as the top-level domain name. The most common in the United States are edu (educational sites), com (commercial sites), gov (government sites), and mil (military sites). For other countries, the top-level 
+domain is the two-letter ISO country code. For example, hans@bratwurst.edu.de is a user in Germany. This isn't foolproof, as there are sites in Canada that don't bother with using the .ca code for Canada.
+
+<BR></P>
+
+<P>Sometimes you'll see something like this:
+
+<BR></P>
+
+<PRE>uuhost!foobar%yowza@ancient.edu</PRE>
+
+<P>This indicates that once the mail gets to the site ancient.edu some other form of addressing takes over. You usually see this when dealing with an ancient system, or when transferring mail with another network.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>E-Mail Headers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As explained earlier, the header of a message contains all the information about the message. This generally includes who the message is from, who the message is going to, the date the message was sent, a message subject, and information about computers 
+
+the message has passed through. These are the usual items, and there can be more. It's not unusual for the header of the message to be larger than the actual contents of the message!
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Header Format</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A header item looks like this:
+
+<BR></P>
+
+<PRE>keyword: value</PRE>
+
+<P>keyword identifies the specific type of information this header item contains. It must start at the beginning of the line. value contains the actual value of this item. It can stretch over multiple lines&#151;this is indicated by starting following 
+lines with white space (a tab or space).
+
+<BR></P>
+
+<P>Here's a common header item:
+
+<BR></P>
+
+<PRE>From: wakko@watertower.com</PRE>
+
+<P>This identifies that the message is from wakko@watertower.com. Generally, the item is referred to by keyword, so this would be legitimately referred to as the From header of the message. This is opposed to just the header, which consists of all the 
+header items in the message.
+
+<BR></P>
+
+<P>Here's an example of a header including a multiline header item:
+
+<BR></P>
+
+<PRE>From: luke@yoda.jedi.edu
+
+Subject: Note how this subject is split and the
+
+subsequent lines are started with spaces, as
+
+opposed to the keywords, which are flush left
+
+To: darth@deathstar.empire.gov</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Minimal Header Items</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Technically, the only header item you need to send mail to someone is the To header:
+
+<BR></P>
+
+<PRE>To: userid@domain</PRE>
+
+<P>Normally, however, you will be asked for a Subject header when you compose the message. The recipient can view just the subject for a quick idea of what the message is about.
+
+<BR></P>
+
+<P>In addition, your mail program will probably add a Date header giving the time the message was sent, and a From header indicating your address. Here's a typical message just before it's sent:
+
+<BR></P>
+
+<PRE>From: cerebus@aardvarks.sim.com
+
+To: astoria@regency.com
+
+Date: Wed, 13 Sep 1312 13:43:12 -0300 (PST)
+
+Subject: Talking
+
+Cerebus is sick of your ceaseless talking. The
+
+next time he sees you, Cerebus will use his sword,
+
+then talk.</PRE>
+
+<P>As your message travels from machine to machine, each machine along the way will add some routing information.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Common Header Items</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The best way to learn about common headers you will see on messages you receive is to examine an actual message. Most of this is an actual header from a message received by me, with names and addresses tampered with sufficiently to prevent the actual 
+sender from getting strange e-mail.
+
+<BR></P>
+
+<PRE>From nihil@eniac.seas.void.edu Wed Feb  1 08:15:01 1993
+
+Flags: 000000000015
+
+Received: from phones.com (phones.com [229.46.62.22]) by
+
+happy.phones.com (8.6.5/QC-BSD-2.1) via ESMTP;
+
+id IAA13973 Wed, 1 Feb 1993 08:14:59 -0800 for
+
+&lt;rdippold@happy.phones.com&gt;
+
+Received: from linc.cis.void.edu (root@LINC.CIS.VOID.EDU
+
+[230.91.6.8]) by phones.com (8.6.5/QC-main-2.3) via ESMTP;
+
+id IAA14773 Wed, 1 Feb 1993 08:14:56 -0800 for
+
+&lt;rdippold@phones.com&gt;
+
+Received: from eniac.seas.void.edu (nihil@ENIAC.SEAS.VOID.EDU
+
+[230.91.4.1]) by linc.cis.void.edu (8.6.5/VOID 1.4) with
+
+ESMTP id LAA17163 for &lt;rdippold@phones.com&gt;
+
+Wed, 1 Feb 1993 11:14:45 -0500
+
+Received: from localhost by eniac.seas.void.edu
+
+id LAA24236; Wed, 1 Feb 1993 11:14:44 -0500
+
+From: nihil@eniac.seas.void.edu (Ex Nihilo Nihil Fit)
+
+Sender: nihil@ocean.void.edu
+
+Reply-To: nihil@void.edu,nihil@freenet.com
+
+Cc: group-stuff@uunet.UU.NET
+
+Cc: james@foobar.com
+
+Message-Id: &lt;199302011614.LAA24236@eniac.seas.void.edu&gt;
+
+Subject: Re: Apple IIe/IIgs Software and books for SALE...
+
+To: rdippold@phones.com (Ron Dippold)
+
+Date: Wed, 1 Feb 93 11:14:44 EST
+
+In-Reply-To:     &lt;CMM.342342.rdippold@happy.phones.com&gt;;
+
+from &quot;Ron Dippold&quot; at Feb 1, 93 1:00 am
+
+X-Mailer: ELM [version 2.3 PL11-void1.13]
+
+Mime-Version: 1.0
+
+Content-Type: text/plain; charset=US-ASCII
+
+Content-Transfer-Encoding: 7bit
+
+Content-Length: 10234</PRE>
+
+<P>I told you headers could be large_normally they're not this big, but this is a good example of all the major header items you need to know.
+
+<BR></P>
+
+<P>Here's the first line:
+
+<BR></P>
+
+<PRE>From nihil@eniac.seas.void.edu Wed Feb  1 08:15:01 1993</PRE>
+
+<P>This line is actually added by my local mail program. It is used both as a quick message summary (who and when) and as a way to separate messages. A typical mail file is just a big text file, so you need some way to tell the start of one message from 
+the end of the next. For most places, this is the text From at the start of a line. This also means that if you try to place a From at the start of a line of text in your actual message, your mail program should place a &gt; or some other character before 
+
+it so that it doesn't falsely indicate the start of a new message.
+
+<BR></P>
+
+<PRE>Flags: 000000000015</PRE>
+
+<P>Again, this is used by the local mail program. Each message can have several different statuses, such as deleted, unread, and flagged for further attention. This varies from program to program.
+
+<BR></P>
+
+<PRE>Received: from phones.com (phones.com [229.46.62.22]) by
+
+happy.phones.com (8.6.5/QC-BSD-2.1) via ESMTP;
+
+id IAA13973 Wed, 1 Feb 1993 08:14:59 -0800 for
+
+&lt;rdippold@happy.phones.com&gt;</PRE>
+
+<P>Remember that each machine that receives mail adds its own Received header to the top of the message. This is the first such header in the message, so it must be the last mail transfer. The machine happy.phones.com (where my mail is located) received 
+the message from phones.com (our company gateway) on February 1, 1993. The transfer was done using sendmail 8.6.5 (you can't know from this header that it was sendmail) and the protocol used was ESMTP. The intended recipient is listed last&#151;this can 
+change as the message goes through gateways, so it's helpful for tracking mail problems.
+
+<BR></P>
+
+<PRE>Received: from linc.cis.void.edu (root@LINC.CIS.VOID.EDU
+
+[230.91.6.8]) by phones.com (8.6.5/QC-main-2.3) via ESMTP;
+
+id IAA14773 Wed, 1 Feb 1993 08:14:56 -0800 for
+
+&lt;rdippold@phones.com&gt;</PRE>
+
+<P>Here's the mail transfer that got the message from void.edu to my site. It's a direct connection with no intermediaries.
+
+<BR></P>
+
+<PRE>Received: from eniac.seas.void.edu (nihil@ENIAC.SEAS.VOID.EDU
+
+[230.91.4.1]) by linc.cis.void.edu (8.6.5/VOID 1.4) with
+
+ESMTP id LAA17163 for &lt;rdippold@phones.com&gt;
+
+Wed, 1 Feb 1993 11:14:45 -0500</PRE>
+
+<P>Here the mail machine (linc.cis) at void.edu received the mail from another machine at void.edu (eniac.seas).
+
+<BR></P>
+
+<PRE>Received: from localhost by eniac.seas.void.edu
+
+id LAA24236; Wed, 1 Feb 1993 11:14:44 -0500</PRE>
+
+<P>Finally, here's the original sending of the message. One interesting piece of information that can be gleaned from this whole exchange is how long it took the mail to get from the sender to me. The message was sent at 11:14:44 -0500 and was received at 
+
+08:14:59 -0800 on the same day. The -0500 and -0800 show the time zone differences. To get equivalent times for both messages, you add 5 hours to the time of the sending and add 8 hours to the time of receipt, to get 16:14:44 and 16:14:59, respectively. 
+The message arrived in 15 seconds!
+
+<BR></P>
+
+<PRE>From: nihil@eniac.seas.void.edu (Ex Nihilo Nihil Fit)</PRE>
+
+<P>This is who sent me the message. The portion in parentheses is a comment. It usually contains the person's name, but in this case is a saying in Latin.
+
+<BR></P>
+
+<PRE>Sender: nihil@ocean.void.edu</PRE>
+
+<P>Sender is the &quot;authenticated identity&quot; of the person who sent the message. This is where the sending computer tells you that, as nearly as it can determine, this is the account that actually sent the message, regardless of what the From header 
+
+says. This is useful if one person is authorized to send mail for another, such as a secretary, or if one member of a group is sending a message for the whole group. If the Sender header is the same as the From header, it doesn't need to be added. In this 
+
+case, Nihil sent mail from a machine within his organization different from the one given in his address. This isn't a big deal. If the From and Sender headers are radically different, however, the mail may be a forgery.
+
+<BR></P>
+
+<PRE>Reply-To: nihil@void.edu,nihil@freenet.com</PRE>
+
+<P>The Reply-To header specifies who your reply should go to if you respond. Your mail software should be smart enough to do this automatically. There are usually two reasons for using a Reply-To header. The first is if the address given in the From header 
+
+is broken and you can't fix it&#151;usually because your mail administrator doesn't know what he or she is doing or doesn't care. The second is if your primary address is somewhat unreliable. Nihil has another mail account at freenet.com&#151;if for some 
+reason void.edu goes offline, he can still get much of his mail at his freenet account.
+
+<BR></P>
+
+<PRE>Cc: group-stuff@zznet.ZZ.NET
+
+Cc: james@foobar.com</PRE>
+
+<P>The message was also sent to group-stuff@zznet.ZZ.NET and james@foobar.com. You can choose whether to include them in your reply. This also could have been done in a single header statement:
+
+<BR></P>
+
+<PRE>Cc: group-stuff@zznet.ZZ.NET,james@foobar.com</PRE>
+
+<P>Either form is acceptable. Headers such as From or Sender, however, should appear only once in the entire header.
+
+<BR></P>
+
+<PRE>Message-Id: &lt;199302011614.LAA24236@eniac.seas.void.edu&gt;</PRE>
+
+<P>It is very helpful when trying to track a message for debugging, cancellation, or other purposes if every message has a unique identification. The method of generating this unique ID varies from site to site. There should never be another message with 
+this specific ID generated by any machine anywhere on the network. Using @eniac.seas.void.edu makes it a local problem only.
+
+<BR></P>
+
+<PRE>Subject: Re: Apple IIe/IIgs Software and books for SALE...</PRE>
+
+<P>This is the subject of the message. My mail program shows me a one-line summary of each message, including the From, Date, and Subject headers.
+
+<BR></P>
+
+<PRE>To: rdippold@phones.com (Ron Dippold)</PRE>
+
+<P>This is who the message was sent to (me, in this case). Sometimes your local computer will strip off the @phones.com part.
+
+<BR></P>
+
+<PRE>Date: Wed, 1 Feb 93 11:14:44 EST</PRE>
+
+<P>This is the date the mail was originally sent. EST is Eastern Standard Time&#151;another way of giving the time zone.
+
+<BR></P>
+
+<PRE>In-Reply-To:  &lt;CMM.342342.rdippold@happy.phones.com&gt;;
+
+from &quot;Ron Dippold&quot; at Feb 1, 93 1:00 am</PRE>
+
+<P>This message is a reply to a message that I sent with the message ID given above.
+
+<BR></P>
+
+<PRE>X-Mailer: ELM [version 2.3 PL11-void1.13]</PRE>
+
+<P>The sender used the Elm Mail System to send this piece of mail. This can be useful in debugging, but usually it's a bit of self-promotion by the mail program.
+
+<BR></P>
+
+<PRE>Mime-Version: 1.0
+
+Content-Type: text/plain; charset=US-ASCII
+
+Content-Transfer-Encoding: 7bit</PRE>
+
+<P>This deals with something that will be discussed later, MIME message format. Briefly, this says that the message contains only 7-bit text, which is nothing out of the ordinary.
+
+<BR></P>
+
+<PRE>Content-Length: 10234</PRE>
+
+<P>The length of the body of the message (not shown here) is 10,234 characters.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Other Header Items</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>There are some other header items that might be occasionally useful for you to know:
+
+<BR></P>
+
+<PRE>Bcc: recipient</PRE>
+
+<P>Bcc is blind carbon copy. This is like the Cc header, except that those who are sent the message because their address appears in the Cc or From headers don't see that the message was sent to those specified in the Bcc header. Use this to send a copy of 
+
+a message to someone without letting the others know you're sending it.
+
+<BR></P>
+
+<PRE>Keywords: keyword, keyword</PRE>
+
+<P>These are keywords relating to the message. This is mostly a comment field&#151;some mail programs will let you search on <I>keyword</I>.
+
+<BR></P>
+
+<PRE>Comments: comments</PRE>
+
+<P>This allows you to make comments on the message without actually including them in the body of the message.
+
+<BR></P>
+
+<PRE>Encrypted: software keyhelp</PRE>
+
+<P>This indicates that the message body is encrypted with encryption software, and the optional keyhelp helps with selecting the key to decode with. Note that the header itself cannot be encrypted since it contains vital routing information.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Date Fields</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Dates used in headers look like this:
+
+<BR></P>
+
+<PRE>Wed, 1 Feb 93 11:44 -500</PRE>
+
+<P>The day of week (Wed) is optional. The time is given as 24 hour format (00:00&#151;23:59) local time. The last field is the time zone in one of several formats.
+
+<BR></P>
+
+<PRE>UT or GMT      Universal/Greenwich Mean Time
+
+EST or EDT     Eastern time zone
+
+CST or CDT     Central time zone
+
+MST or MDT     Mountain time zone
+
+PST or PDT     Pacific time zone
+
+-HHMM          HH hours and MM minutes earlier than UT
+
++HHMM          HH hours and MM minutes later than UT</PRE>
+
+<P>If EST is Eastern Standards time and EDT is Eastern Daylight Time, you can figure out the abbreviations for the Central, Mountain, and Pacific time zones. The -HHMM format is probably the least confusing_-0500 makes it much easier to translate the time 
+
+to local time than does EST.
+
+<BR></P>
+
+<P>You may also see the following military codes used:
+
+<BR></P>
+
+<PRE>Z          Universal Time
+
+A          UT - 1 hour
+
+M          UT - 12 hours
+
+N          UT + 1 hour
+
+Y          UT + 12 hours</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Don't Sweat the Headers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If all this header information is giving you information overload, don't sweat it. The really important fields are From, To, Date, and Subject, and it's pretty obvious what those mean. The other information is there in case you need it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Mail Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are actually several components involved in sending mail. First there's the hardware: Mail has to be physically transferred somehow, either along a dedicated phone line, via satellite, or over a modem. Then there's the link layer: The systems on 
+either end of the hardware connection have to agree on how to communicate with each other. Next is the transport agent: Mail transport agents (MTAs) worry about all the complexities involved in routing mail and sending mail from one site to another. 
+Finally, there's the user agent: The mail user agent (MUA) is the software you use to read all your mail, manipulate it, and send your mail. This is what people usually mean when they talk about a &quot;mail program.&quot;
+
+<BR></P>
+
+<P>The first three layers aren't usually your concern, unless the MTA places some special constraints on what you can send. You're concerned with the user agents.
+
+<BR></P>
+
+<P>There are many mail programs you can use. This chapter does not cover any one program, but it covers the elements that are common to them all.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Your Mail Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Normally, you have a mail account on whatever computer handles your mail. Often, you can do other things with your account besides access your mail, but that's not important for now. All your new mail, known as incoming mail, is kept in what is usually 
+
+called a mail spool file. It's quite common for your computer to occasionally look at the spool file and notify you if you have new mail. This is your clue to run your mail program.
+
+<BR></P>
+
+<P>Your mail program then grabs all the incoming mail and displays it for your edification. If you don't delete the mail, it is placed in your mailbox file. This is not the same as your incoming mail file&#151;the mailbox file holds all your old mail. Many 
+
+users eventually outgrow the single mailbox and have several for different subjects, but there is almost always a default mailbox used whenever you run your mail program, and this is what is referred to as &quot;your mailbox.&quot;
+
+<BR></P>
+
+<P>If you send mail to someone else, it is sent directly to your site's mail computer, which can do what it pleases with the mail&#151;it either sends it on immediately or saves the mail up to save in batches.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Using Mail Programs</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As mentioned earlier, there are many mail programs, each with their own quirks. But they try to accomplish the same task and tend to present the messages in a similar format. Learning about one mail program will give you the concepts needed to use 
+almost any program in existence.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Message Summaries</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Almost every program in existence summarizes your messages like this:
+
+<BR></P>
+
+<PRE>FA    1) 14-Dec Tanya Harding      Where can I get a lead pipe? (2457 chars)
+
+F     2) 11-Jan Ken Bibb      rdippold.ps.gz (1/1) (17464 chars)
+
+F     4)  8-Feb Neil Gaiman      Greek Mythology (2576 chars)
+
+F D   5) 10-Feb clinton@whiteho This is a stickup (13786 chars)
+
+FA    6) 15-Feb Robbin Hughes      Re: REX test driver (1451 chars)
+
+U      7) 16-Feb The King      Re: Chili Donuts (2653 chars)</PRE>
+
+<P>There's one line per message. Again, the information for each message won't always be presented in exactly the same format, but the contents should be similar. From left to right for this mail program (named mm90). These lines give the following 
+information:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Message flags.</B> Each message has several state variables associated with it. In this case, the flags are whether the message is unread (U), whether I have answered the message , whether the message is deleted , and whether I have flagged the 
+message for further attention . Some programs let you give each message one of several priority levels.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Message number.</B> It helps to be able to refer to a message by a unique identifier for printing, reading, or deleting. Usually, the mail program just calls the first message in your mailbox 1 and counts up from there.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Date.</B> This tells when the message was sent, from the Date header of the message.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Name.</B> This is the name of the person who sent the mail, from the From header. If no name is given, the Internet address of the person is used.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Subject.</B> When the sender entered the message, his or her mail program asked for a message subject. It's shown here. If there's not enough room, the subject is truncated.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Length.</B> This shows how large the message is. Here it's given in characters&#151;other programs give it in number of lines.
+
+<BR>
+
+<BR></LI></UL>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Reading New Messages</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>All mail programs have a &quot;read new mail&quot; command. Usually, you use just r or press Enter. This shows you your new messages one at a time. When you're reading each message you have several options available, such as replying or deleting the 
+message.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Operating on Old Messages</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The same functions that are available when you're reading a message are usually available when you're not reading any particular message, and can apply to a single old message or to a group of them. As an example, when you're reading a message you can 
+tell the mail program to delete the message. When you're not reading any messages you should be able to tell the mail program &quot;Delete message number 4&quot; or even &quot;Delete messages 4 through 6.&quot;
+
+<BR></P>
+
+<P>Messages are usually given by number, but if you're using a mail program that uses a mouse you may be able to select messages by clicking on them.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Common Mail Functions</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Here's the standard list of mail functions you should learn how to do in your program:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Read message(s).</B> Obviously, if you can't do this, not much else matters.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Delete message(s).</B> Mailboxes can become very cluttered with old mail and you can even &quot;lose&quot; important mail because it's so buried in junk. You need to be able to get rid of mail you don't care about.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Flag message(s).</B> You should be able to flag messages as being important. The mail program should then make them stand out in some way so you remember to deal with them later.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Send message.</B> You should be able to send mail to other people.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Reply to message.</B> You should be able to easily send a response to the person who sent you a piece of mail, and include a portion of the sender's message text for reference.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Save message(s) to file.</B> You'll probably get mail that contains important information you want to use in another program. You should be able to save the body of a message to file, which you can then manipulate at will.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Switch to other mailbox.</B> If you start getting enough mail, you may find it handy to create other mailboxes. Perhaps one for the Bulgarian cooking mailing list of which you're a member. Your mail program should be able to handle several 
+mailboxes.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Move message(s) to other mailbox.</B> If you have multiple mailboxes, it should be possible to move mail from one to another.
+
+<BR>
+
+<BR></LI></UL>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Mail Configuration File</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Since how you handle your mail involves a lot of personal preference, almost all mail programs have many options that can be set. So that you don't have to set these every time you run your mail program, most mail programs have some sort of 
+configuration file that is read every time the program starts.
+
+<BR></P>
+
+<P>You should definitely look into how to set this up for your mail program&#151;while doing so you will often find many options you didn't even know about. For instance, many programs will let you set aliases; for example, you can use just bill instead of 
+
+wblowhard@longname.deep.stuff.edu. The mail program turns the alias into the full name.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Common Mail Programs</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>There are dozens of mail programs out there, and they can't all be covered here. Instead, this chapter touches on a few common ones.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Mail (Berkeley Mail)</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Most UNIX boxes come with a simple program known just as mail, or as mailx. This is some variation on the mail program from Berkeley UNIX, so it's sometimes called Berkeley Mail. This program is minimal in functionality and presentation, but it works, 
+and many people still use it. If you like mail I would recommend that you upgrade to mm90, which is discussed in the section, &quot;mm90 (Mail Manager 0.90).&quot;
+
+<BR></P>
+
+<P>mail has the capability of being used in a noninteractive mode. You can send a file to someone in this way:
+
+<BR></P>
+
+<PRE>mail -s &quot;subject&quot; recipient &lt; messagefile</PRE>
+
+<P>Again, on some systems you need to use mailx. mail. recipient is who to send it to, subject is some message subject, and messagefile is the name of the file to send. You also can send the output of a program in a similar fashion:
+
+<BR></P>
+
+<PRE>program commands | mail -s &quot;subject&quot; recipient</PRE>
+
+<P>You could instead save the output of the program to a file first, but why introduce an additional step if you don't need to?
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>The Elm Mail System</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>If you're the type of person who likes full-screen, menu-driven (and other hyphenated adjectives) interfaces, Elm might be up your alley. It was created as an easy-to-use UNIX mail program, but actually has a fair amount of configurability and power. 
+The support programs that come with it might be worth getting on their own. And if you like printed manuals, it comes with over a hundred pages of documentation in PostScript format.
+
+<BR></P>
+
+<P>The Elm system is probably not standard on your system, so you'll have to get it yourself or beg your sysadmin for it. You can anonymous ftp it from ftp.uu.net under /networking/mail/elm, or from wuarchive.wustl.edu under /mirrors/elm. The packed source 
+
+code is about a megabyte. You'll need to compile it and answer a few system configuration questions.
+
+<BR></P>
+
+<P>Messages are displayed in a format close to the &quot;standard&quot; one-message-per-line format described earlier, but now you can use your arrow keys to scroll about the messages and just press a key to inflict your wishes on the current message. The 
+
+online help isn't bad&#151;just press ? at any time.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Elm tip 1: Press o from the main menu to get the options screen. Press &gt; and Elm creates a file named .elm/elmrc&#151;this is a special options file that you can edit with vi or emacs (or whatever 
+you use). Most of these options aren't easily set from inside Elm. Be sure to read the Ref.guide file for more information on these options.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Elm tip 2: Elm can act as a command-line mailer just like Berkeley mail does&#151;it even uses the same syntax:
+
+<BR>
+
+<BR>elm -s &quot;subject&quot; recipient &lt; messagefile
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Elm tip 3: Don't ignore the support programs that come with Elm. A few of the most useful ones are the following:
+
+<BR>
+
+<BR>autoreply answers all your incoming e-mail with an automatic reply. This is good if your mailbox is backlogged, or if you go on vacation or otherwise want to let people know that you're behind on reading your mail.
+
+<BR>
+
+<BR>filter saves your incoming e-mail to different incoming mailboxes, deletes it, forwards it, and so on, based on the content of the e-mail message or its headers. This is useful if you subscribe to a mailing list or get lots of mail on a particular 
+subject.
+
+<BR>
+
+<BR>frm lists From and Subject headers for each message, one line per message. This is useful for quickly checking your incoming e-mail.
+
+<BR>
+
+<BR>messages gives a quick count of the messages in your mailbox.
+
+<BR>
+
+<BR>newmail and wnewmail are programs that immediately inform you when new e-mail has arrived. wnewmail runs in a window.
+
+<BR>
+
+<BR>readmsg takes selected messages from a mailbox and sends them to standard output. This is good for quickly extracting and processing mail messages in bizarre ways.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>There's even a USENET group for Elm: comp.mail.elm.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Pine</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>If Elm is still too complex for you, Pine is next on the list. Pine stands for Pine is not Elm (trust me, this is considered prime mail humor), and it's somewhat similar to Elm_but different.
+
+<BR></P>
+
+<P>It uses the same one-message-per-line, scroll-through-them-and-use-hotkeys-to-act-on-them principles as Elm, but Pine makes things a little easier. The number of features is less overwhelming, and there's a concerted effort to keep the same keys 
+performing the same functions from screen to screen. Several items (such as address books) you'll have to &quot;suffer&quot; through with Elm rate their own full-screen editors in Pine. Pine even comes with its own text editor, Pico, which can be used as a 
+
+general text editor. For the faint of heart, it's certainly an improvement over emacs or vi.
+
+<BR></P>
+
+<P>And there's good news on the installation, if you're lucky. You can anonymous ftp to ftp.cac.washington.edu and look in the /mail directory. Precompiled versions for AIX3.2, HP/UX 9.01, Linux, NeXTstep, Solaris 2.2 (SPARC), and SunOS 4.1.3 (SPARC) are 
+available in the UNIX-BINARIES subdirectory, if you're lucky enough to be using one of these. If you need to compile your own version, get pine.tar.Z and warm up your C compiler.
+
+<BR></P>
+
+<P>Future versions of Pine will include built-in configuration, but if you want to set some Pine options, run it once, then use a text editor to edit the file .pinerc in your home directory. The configuration items are explained fairly well. There's not a 
+
+whole lot to do here, but make sure you set personal-name, smtp-server (if you're using SMTP), and inbox-path (usually /usr/spool/mail/yourid).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Remote Mail Clients</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The &quot;Common Mail Programs&quot; section has generally assumed that you will run your mail program on the computer that contains your Internet mail. In many cases, however, you will wish to do all your mail reading on your personal computer, both 
+because you may be charged for all the time you are logged onto your mail account, and because the programs on Macs and PCs are much friendlier than those on many UNIX systems.
+
+<BR></P>
+
+<P>What you want is a program that will call the system that receives your mail (or that will connect to it by whatever means necessary), grab all your new mail, and disconnect. Then you can read your mail at your leisure and enter new messages. If there 
+are any new messages, the program should call your mail system and give it the new messages for delivery. As you have probably guessed, these programs exist and are known as mail clients.
+
+<BR></P>
+
+<P>The big difference between this approach and the &quot;read your mail on your Internet computer&quot; approach is that your mailbox is kept on your personal computer instead of on the Internet computer.
+
+<BR></P>
+
+<P>Obviously, there has to be a way for your mail client to talk to your Internet computer and transfer messages. There are several standards for this.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>SMTP&#151;Simple Mail Transfer Protocol</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Simple Mail Transfer Protocol (SMTP), or some variation of it (such as Extended SMTP) is used by computers on the Internet which handle mail to transfer messages from one machine to another. It's a one-way protocol&#151;the SMTP client contacts the SMTP 
+
+server and gives it a mail message.
+
+<BR></P>
+
+<P>Most mail client programs support SMTP for sending outgoing mail, simply because it's very easy to implement. Few mail clients support SMTP for incoming mail, because normally your mail computer can't contact your personal computer at will to give it 
+mail. It's possible if your personal computer happens to be permanently networked to the mail computer via EtherNet, for instance, or if your mail computer knows how to use a modem to call your personal computer, but in most cases this isn't done.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>POP3 (Post Office Protocol 3)</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The standard protocol used by most mail clients to retrieve mail from a remote system is one of the post office protocols, either POP2 or usually its successor POP3. These protocols enable your mail client to grab new messages, delete messages, and do 
+other things necessary for reading your incoming mail. POP only requires a rather &quot;stupid&quot; mail server in the sense that your mail client needs to have most of the intelligence needed for managing mail. It's a very simple protocol, and is offered 
+
+by most mail clients.
+
+<BR></P>
+
+<P>POP3 is somewhat insecure in that your mail client needs to send your account name and password every time it calls. The more you do this, the greater the chance that someone with a network snooper might get both. (I'm not trying to scare you, but it's 
+
+possible.) An extension known as APOP uses a secure algorithm known as MD5 to encrypt your password for each session.
+
+<BR></P>
+
+<P>Finally, note that standard POP3 has no way to send mail back to the mail server. There is an optional extension to POP3 known as XTND XMIT that allows this, but both the client and the server have to support it. Generally, a mail client uses SMTP to 
+send messages and POP3 to retrieve them.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Desirable Features in Mail Clients</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Here are some useful features to look for when shopping for a mail client:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Delete on retrieve.</B> The client should have the option to automatically delete mail on the server after it has been downloaded. If you only read mail using your client, you don't want a huge mail file building up on the server. On the other hand, 
+
+if you only occasionally use your mail client you might want to leave your mail messages on the host so you can access them with your UNIX mail program.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Header only retrieve.</B> You can tell quite a bit about a message just by looking at the message header. If reconnecting to your server is easy, you might want to have your mail program download only the header. Then, if you want to see the actual 
+
+text of the message, the program will download that. This can be very useful if some idiot mails you a humongous file&#151;you can be spared the time it takes to download the whole thing to your computer.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Name server support.</B> A machine name such as mailserv.bozo.edu is actually just a logical name for a computer that is truly identified by its IP number, something that looks like 130.029.13.12. Obviously, the machine name is easier to remember, 
+and if anything happens to mailserv that requires the machine to move to a new IP address (such as a hardware upgrade), the administrators can map the name to the new IP address and you won't even notice. Those who are accessing the machine by number will 
+
+have to find the new number and enter it. To turn the name into an IP number, though, your client needs to be smart enough to use a domain name server, which keeps track of what numbers go to what names.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>POP3.</B> This is the standard way for a mail client to retrieve mail from the mail server. If your client doesn't support this, it darn well better have some way to retrieve mail that your mail server understands (for example, IMAP2 or PCMAIL).
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Retrieve on start-up.</B> The client should enable you to immediately contact your mail server and retrieve all unread mail whenever you start it, because this will probably be your most common operation.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Separate SMTP server.</B> In some cases you will need to use a different machine to send mail (using SMTP) than you use to retrieve mail (using POP3). A good mail client should let you specify a different server for each.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>SMTP.</B> This is the standard way for a mail client to give mail to the mail server. If your mail client doesn't understand SMTP, it should have some special protocol that your mail server understands to do the same thing (unless you don't want to 
+
+send mail, of course). Some mail clients support SMTP connections as a way to receive messages, which can be useful if you expect your computer to be hooked up to the network all the time.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>TCP/IP, SLIP, or PPP.</B> Your client should be able to access whatever network your mail host is on. Otherwise you'll just be talking to yourself. TCP/IP and TCP/SLIP are the most common network protocols mail programs are likely to need, and PPP 
+is becoming more popular. If you have a SLIP or PPP driver that looks like TCP/IP to your mail program, all it needs is TCP/IP support.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Timed retrieval.</B> The client should be able to automatically connect to your mail server and check for new mail every so often, and beep if it finds new mail. If you're calling in using a modem, you might want to make this every few hours, or 
+even once a day, but if you're directly networked with the server (perhaps via EtherNet), you might want to check every five minutes.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Other mail items.</B> A good mail client makes reading your mail as easy as possible. You shouldn't have to give up any of the features you enjoy under a UNIX mail program. These include a good text editor, header field filtering, an address book 
+(aliases), and multiple mailboxes.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>A Few Mail Clients</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Again, there are dozens of mail clients out there. If your organization has standardized on one of the big ones, such as cc:Mail, Microsoft Mail, Lotus Notes, or BeyondMail, you're already familiar with one. These clients are a bit more 
+&quot;homegrown&quot; on the Internet and have at least a demo version you can try first, before you buy the real (and expensive) program.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>CommSet</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Actually, this is a bit more than a mail client&#151;it's an entire TCP/IP (plus SLIP and PPP) suite for DOS. All its components are in one package, which allows multiple-window, simultaneous sessions. You can have ftp in one window, telnet in another, 
+
+and run mail or gopher in another. This isn't a big deal under UNIX, OS/2, or Windows, but it's pretty nice for a single-tasking system such as DOS. I'm including it here because its low price makes it worth looking at if you're searching for a mailer 
+under DOS. This is what I use when I need TCP/IP under DOS.
+
+<BR></P>
+
+<P>You can anonymous ftp a demo version of CommSet from ftp.cybercon.nb.ca, or you can send mail to info@cybercon.nb.ca requesting information. The final price (before educational discount) should be around $99.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Eudora</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Disclaimer: I work for QUALCOMM&#151;in a different department, but I thought you should know_
+
+<BR></P>
+
+<P>Eudora is a full-featured mail client for Macs or PCs running Windows. It comes in two sub-flavors: Version 1 of Eudora is free, and Version 2 and above are commercial. Obviously, Version 2 has nifty features not available in 1, but 1 is pretty powerful 
+
+by itself.
+
+<BR></P>
+
+<P>Eudora is fully windows-, menu-, and icon-driven, so you are bound to like this program. Eudora pretty much has it all&#151;features galore. The only thing I could ask for is a native OS/2 version_
+
+<BR></P>
+
+<P>To test the free versions of Eudora, anonymous ftp to ftp.qualcomm.com. The PC version is under /pceudora/windows (get all the files). The Mac version is under /mac/eudora. For a Mac you need to decide which version you want to try&#151;if you have 
+System 6, get 1.3. Otherwise grab 1.4 (or higher).
+
+<BR></P>
+
+<P>Single-copy pricing is about $65, with an educational discount available. Send e-mail to eudora-sales@qualcomm.com for more info, or call 1-800-2-Eudora.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Pegasus Mail</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Pegasus Mail runs on Novell and supports HMS and SMTP. It has DOS, Windows, and Macintosh versions, which gives you a wide range of platforms with a single program. There are a number of utilities available for use with it, such as Mercury, which is an 
+
+SMTP gateway for Novell. It's fairly flexible in allowing you to set up user-defined mail gateways and has a large features list.
+
+<BR></P>
+
+<P>It's got its own text editor, which is integrated with the rest of the program, although if you're attached to your text editor (I couldn't give up QEdit), you can define your own external editor.
+
+<BR></P>
+
+<P>To find all the versions and add-on utilities, you can anonymous ftp to risc.ua.edu, under /pub/network/pegasus. The software is free! If you want manuals, it'll cost you $150 for a five-copy license. That's only $30 apiece. You can contact David Harris 
+
+by fax in New Zealand at (+64) 3 453-6612, or send inquiries to david@pmail.gen.nz.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Pine</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Didn't we just cover this? Yep_this is a DOS version of the UNIX Pine mail program. You can have the same mail interface on your UNIX and DOS platforms. Pine's big limitation is that it doesn't support POP3&#151;it only supports IMAP2 and SMTP. For more 
+
+information on Pine, see the section, &quot;Common Mail Programs,&quot; where the UNIX version is discussed.
+
+<BR></P>
+
+<P>To get it, anonymous ftp to ftp.cac.washington.edu and look in the /mail/PC-PINE directory. Grab the file that's appropriate for your networking software: FTP's PC/TCP (pcpine_f.zip), the generic packet driver using built-in Waterloo TCP/IP 
+(pcpine_p.zip), Novell's LANWorkPlace (pcpine_n.zip), or Sun's PC/NFS (pcpine_s.zip). If you don't have one of these, try the Waterloo TCP/IP version&#151;it should only require the basic packet drivers.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>ECSMail</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>ECSMail is impressive for its wide range of support. It includes not only a mail client, but mail transport and handling services, so you can build a complete mail system. All the components run under UNIX, OS/2, OpenVMS, or Windows NT, and mail clients 
+
+are available for MS-DOS, Windows, and the Mac (System 7). We're talking enterprise-wide solution here, if you're into that level of standardization.
+
+<BR></P>
+
+<P>Contact ECS (in Canada) by calling 1-403-420-8081, or send mail to ECS Sales at ecs-sales@edm.isac.ca.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Other Mail Programs/Clients</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This isn't all that's available for mail, by a long shot. Read the USENET group comp.mail.misc for more information.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Internet E-Mail Gateways</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Internet Mail is more than just Internet. Because Internet is everywhere, it interests all the right people. In this case, the right people are all the other services that offer electronic mail and who want a piece of the action.
+
+<BR></P>
+
+<P>In theory, the Internet is a competitor with all the existing services such as AT&amp;T Mail, CompuServe, and the rest. In practice, it's a neutral competitor&#151;it's not some guided, malevolent entity that is trying to do away with any of the other 
+services. Rather, it competes just by its existence; it offers more information and more connectivity than most of the services can ever hope to offer. Smart information services finally realized that this could be put to their advantage&#151;anyone who 
+cares to can join the Internet, and a service that joins the Internet has advantages over its competitors.
+
+<BR></P>
+
+<P>One huge advantage is connectivity. As soon as a mail service adds a computer (known as a gateway) that can transfer from its system to the Internet and vice versa, its users can exchange mail with anyone on the service or with anyone on the Internet. 
+That's a lot of people. So a lot of services are now offering some sort of mail gateway. Even Prodigy, which was somewhat late to grasp the possibilities, has one now.
+
+<BR></P>
+
+<P>Instead of GEnie needing to install a special gateway to talk to Prodigy, and one to CompuServe, and one to SprintMail, and one to BubbaNet, it can set up and maintain just one gateway to the Internet through which everything flows. Given the glacial 
+speed with which most of the online services implement upgrades like this, requiring only a single gateway is a good thing.
+
+<BR></P>
+
+<P>So now anyone can send e-mail anywhere! All is fluffy and bright and beautiful, right? Well, not quite_
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Addressing Issues</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>It turns out that the services that connect to the Internet keep their same old account names and horrible mail systems. CompuServe's octal account addresses are as much of an anachronism as punch cards, but because of the company's current investment, 
+
+they're not going to change it. (The Cubs will win the World Series first.) And you can't just send a mail message to a CompuServe account using an Internet-style address. A CompuServe ID looks something like this:
+
+<BR></P>
+
+<PRE>77777,777</PRE>
+
+<P>In Internet addressing, a comma separates members of a list so you can't use the comma in the Compuserve address. There's a way around that (use a period instead of a comma) but you have to know that in advance. Someone trying to send mail to a system 
+has to deal with those quirks. Hence this section, which details the translation that has to be done between the major networks.
+
+<BR></P>
+
+<P>Again, an Internet e-mail address looks something like this:
+
+<BR></P>
+
+<PRE>user@machine.site.domain</PRE>
+
+<P>Any address to a mail gateway is going to be some variation (minor or major) on this theme.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Other Gateway Issues</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>There are a few &quot;gotchas&quot; you should know about before starting on your gateway quest. With luck, they'll never affect you, but the pessimistic might claim that Murphy's Law almost guarantees they will at some time.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Cash, Money, Moolah</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Some of these services charge money for every mail message that gets sent or is received. And with their pricing plans in such flux (a year is the normal lifespan), it's impossible to keep track of more than a few at a time. However, since the Internet 
+
+has no billing mechanisms and the commercial systems do, the users of the commercial systems end up paying for the mail. So be careful when sending mail to these poor slobs. If they ask you for it that's one thing, but unsolicited mail is another.
+
+<BR></P>
+
+<P>Furthermore, sending large files across any of the gateways is usually frowned upon.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Case Sensitivity</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>By custom, Internet addresses are case insensitive. That is, mail to bozo@clown.edu is the same as mail to BOZO@CLOWN.EDU or BozO@CloWN.EdU. Not all of the information services are so enlightened. Wherever possible, keep upper- and lowercase exactly as 
+
+you are given them by the recipient, just in case. Chances are it doesn't matter, but why take those chances?
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>X.400 Addressing</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The Internet uses what is formally known as RFC-822 addressing. Many large commercial services specializing in electronic mail use something known as an X.400 gateway to talk to the Internet. Those addresses look something like this:
+
+<BR></P>
+
+<PRE>/A=value/B=value/C=value</PRE>
+
+<P>This style is usable from the Internet, because RFC-822 allows slashes and equals signs. In fact, there's the opposite problem: RFC-822 allows many characters to be used in addressing that cause an X.400 gateway to go into convulsions. This includes the 
+
+@ character&#151;because this appears in all Internet-style mail addresses, there's an obvious problem.
+
+<BR></P>
+
+<P>Whenever the Internet address has a &quot;special&quot; character, you need to use the following translation table:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Internet</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>X.400</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>@</P>
+
+<TD><P>(a)</P>
+
+<TR>
+
+<TD>
+
+<P>%</P>
+
+<TD>
+
+<P>(p)</P>
+
+<TR>
+
+<TD>
+
+<P>!</P>
+
+<TD><P>(b)</P>
+
+<TR>
+
+<TD>
+
+<P>&quot;</P>
+
+<TD>
+
+<P>(q)</P>
+
+<TR>
+
+<TD>
+
+<P>_</P>
+
+<TD>
+
+<P>(u)</P>
+
+<TR>
+
+<TD>
+
+<P> (</P>
+
+<TD>
+
+<P>(l)</P>
+
+<TR>
+
+<TD>
+
+<P>)</P>
+
+<TD>
+
+<P>(r)</P></TABLE>
+
+<P>For any other special character, such as #, substitute (<I>xxx</I>), where <I>xxx</I> is the three-digit decimal ASCII code for the character. For #, you would use (035).
+
+<BR></P>
+
+<P>For example, then, to convert the Internet address
+
+<BR></P>
+
+<PRE>oldvax!Mutt#Jeff@cartoon.com</PRE>
+
+<P>into something that can be sent from an X.400 service such as MCI Mail, you need to turn it into this:
+
+<BR></P>
+
+<PRE>oldvaxMutt(035)Jeffcartoon.com</PRE>
+
+<P>What a pain_but it works.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> By the way, the ! is replaced with  because computer users like short names, and refer to an exclamation point as a &quot;bang.&quot; Bang! Bang! Bang!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Gateway Translation Specifics</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Using the following instructions should be fairly easy. To send mail to CompuServe from an Internet mail account, see the translation instructions in the section &quot;CompuServe.&quot;
+
+<BR></P>
+
+<P>Parts of the address that you have to replace with appropriate information are given in italics. For instance, with
+
+<BR></P>
+
+<PRE><I>userid</I>@aol.com</PRE>
+
+<P>you need to replace <I>userid</I> with the recipient's account name or number. <I>domain</I> is the part of the Internet address after the @.
+
+<BR></P>
+
+<P>If you are sending mail from one service to another through the Internet, for example from WWIVNet to CompuServe, you will have to do two translations. First, check the section &quot;CompuServe&quot; and see how to translate the ID &quot;From 
+Internet.&quot; Then check the section &quot;WWIVNet&quot; and see how to translate that address &quot;To Internet.&quot; If you do this from one strange network to another, the name may be a crawling horror, but at least it should be possible.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>America Online</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>America Online (AOL) is a major commercial information system that recently joined the Internet (although it has had Internet e-mail for a while). Its Internet e-mail is seamless from an Internet point of view_
+
+<BR></P>
+
+<P>From Internet: America Online looks just like any other normal Internet site.
+
+<BR></P>
+
+<PRE><I>userid</I>@aol.com</PRE>
+
+<P>Example: jjones@aol.com
+
+<BR></P>
+
+<P>To Internet: There's no need to do anything special; just use the regular Internet format.
+
+<BR></P>
+
+<PRE>userid@domain</PRE>
+
+<P>Example: bsmith@wubba.edu
+
+<BR></P>
+
+<P>To Others: America Online lets you use special abbreviated domains for mail to AppleLink, CompuServe, or GEnie. Send your mail to <I>userid</I>@applelink, <I>userid</I>@cis, or <I>userid</I>@genie, respectively.
+
+<BR></P>
+
+<P>Example: 11111.2222@cis
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>AppleLink</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>AppleLink is Apple Computer's network.
+
+<BR></P>
+
+<P>From Internet: Use standard Internet addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>@applelink.apple.com</PRE>
+
+<P>Example: exnihil@applelink.apple.com
+
+<BR></P>
+
+<P>To Internet: This is a bit nastier. You must address it like this:
+
+<BR></P>
+
+<PRE><I>user</I>@<I>domain</I>@internet#</PRE>
+
+<P>The whole thing must fit in 35 characters or less, so some addresses may be flat out impossible by normal methods. That's life_
+
+<BR></P>
+
+<P>Example: bsmith@wubba.edu@internet#
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>AT&amp;T Mail</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>AT&amp;T Mail is a commercial e-mail service provided by AT&amp;T. You know who they are. AT&amp;T mail doesn't use an X.400 gateway, thankfully.
+
+<BR></P>
+
+<P>From Internet: Use standard Internet addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>@attmail.com</PRE>
+
+<P>To Internet: Use the following:
+
+<BR></P>
+
+<PRE>internet!domain!userid</PRE>
+
+<P>Note the backward order here&#151;this is the old bang-path type addressing. Oh well.
+
+<BR></P>
+
+<P>Example: internet!wubba.edu!bsmith
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>BITNET</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>BITNET is an old academic network that is becoming less important as more and more of it gets sucked into Internet, but you still might have to use it to contact someone at an educational site.
+
+<BR></P>
+
+<P>From Internet: Use the following addressing:
+
+<BR></P>
+
+<PRE>userid%bitnetsitename.bitnet@gateway</PRE>
+
+<P><I>bitnetsitename</I> is the name of the BITNET site where the person's account resides. <I>gateway</I> is the name of a site that is both on the Internet and on BITNET and can route mail between them. A commonly used one is mitvma.mit.edu, but you may 
+
+have a closer one you can use. Ask your administrator.
+
+<BR></P>
+
+<P>Example: jjones%uxavax.bitnet@mitvma.mit.edu
+
+<BR></P>
+
+<P>To Internet: Oh boy_each BITNET site varies in the mail software it uses. If you're lucky, you can just use the Internet address and the gatewaying will happen automatically:
+
+<BR></P>
+
+<PRE>userid@domain</PRE>
+
+<P>If that doesn't work, try this:
+
+<BR></P>
+
+<PRE>userid%domain@gateway</PRE>
+
+<P>If neither of these methods works, ask your administrator.
+
+<BR></P>
+
+<P>Example: bsmith%wubba.edu@mitvma.mit.edu
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>BIX</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>BIX is the Byte magazine Information eXchange, a commercial service oriented toward techies and/or Byte magazine readers. It's been bought by Delphi, but still operates as a separate source.
+
+<BR></P>
+
+<P>From Internet: Use standard Internet addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>@bix.com</PRE>
+
+<P>Example: jjones@bix.com
+
+<BR></P>
+
+<P>To Internet: You'll need to use the Internet Services menu option from the main menu, then use standard Internet addressing:
+
+<BR></P>
+
+<PRE>userid@domain</PRE>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>CompuServe</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>CompuServe is a very large commercial system. It's so large that it hasn't yet felt the pressure to join the Internet except by offering a mail gateway.
+
+<BR></P>
+
+<P>From Internet: Use standard Internet addressing with one difference: CompuServe IDs are in the form <I>77777,7777</I>. Since Internet dislikes commas in addresses, you need to change the comma to a period:
+
+<BR></P>
+
+<PRE><I>77777.7777</I>@compuserve.com</PRE>
+
+<P>Example: 12345.677@compuserve.com
+
+<BR></P>
+
+<P>To Internet: You need to add a prefix to the standard Internet addressing:
+
+<BR></P>
+
+<PRE>&gt;INTERNET:<I>userid</I>@<I>domain</I></PRE>
+
+<P>Example: &gt;INTERNET:bsmith@wubba.edu
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Delphi</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Delphi was the first of the large commercial services to really embrace Internet. It looks like any standard Internet site as far as Internet Mail is concerned:
+
+<BR></P>
+
+<P>From Internet: Use the following addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>@delphi.com</PRE>
+
+<P>Example: jjones@delphi.com
+
+<BR></P>
+
+<P>To Internet: There's no need to do anything special; just use the regular Internet format:
+
+<BR></P>
+
+<PRE>userid@domain</PRE>
+
+<P>Example: bsmith@wubba.edu
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Easylink</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This is another commercial system from AT&amp;T.
+
+<BR></P>
+
+<P>From Internet: Use the following addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>@eln.attmail.com</PRE>
+
+<P>To Internet: As far as I can tell (from the AT&amp;T types I spoke to), this isn't currently available.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Envoy-100</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This is Telecom Canada's commercial service with X.400 gatewaying.
+
+<BR></P>
+
+<P>From Internet: Use the following addressing:
+
+<BR></P>
+
+<PRE>uunet.uu.net!att!attmail!mhs!envoy!<I>userid</I></PRE>
+
+<P>Remember that I told you the bang-path format is almost obsolete? That's not true here yet.
+
+<BR></P>
+
+<P>Example: uunet.uu.net!att!attmail!mhs!envoy!12345
+
+<BR></P>
+
+<P>To Internet: Brace yourself_you need to use the following addressing:
+
+<BR></P>
+
+<PRE> [RFC-822=&quot;useriddomain&quot;]INTERNET/TELEMAIL/US</PRE>
+
+<P> replaces @ because X.400 doesn't like the @ character. For other special X.400 characters, see the section &quot;X.400 Addressing.&quot;
+
+<BR></P>
+
+<P>Example: [RFC-822=&quot;bsmithwubba&quot;]INTERNET/TELEMAIL/US
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>FidoNet</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>FidoNet is a large international BBS network&#151;sort of the Internet for the BBSing crowd. It's not as fast as the Internet, but access is usually very cheap, and chances are there's a FidoNet BBS in your area.
+
+<BR></P>
+
+<P>Because it's run over phone lines, the BBS operators will rack up long-distance charges for any mail transferred, so please don't send large messages to FidoNet sites. Many sites will even chop your messages to 8000 or 16000 bytes, so much of your 
+message won't get through.
+
+<BR></P>
+
+<P>From Internet: First, you need to know the network address of the BBS your recipient is on. It will be in a form such as Z:N/F.P. Then send the mail to the following address:
+
+<BR></P>
+
+<PRE><I>userid</I>@p<I>P</I>.f<I>F</I>.n<I>N</I>.z<I>Z</I>.fidonet.org</PRE>
+
+<P>If the network address of the BBS doesn't have a <I>P</I> component, leave the p<I>P</I>. part out of the address. For the <I>userid</I> replace any nonalphanumeric characters (such as spaces) with periods (.).
+
+<BR></P>
+
+<P>Example: Jim_Jones@p4.f3.n2.z1.fidonet.org
+
+<BR></P>
+
+<P>To Internet: Use standard Internet addressing with a suffix:
+
+<BR></P>
+
+<PRE>userid@userid ON gateway</PRE>
+
+<P>The <I>gateway</I> is a special FidoNet site that acts as a gateway to Internet. You can use 1:1/31 unless you find a better one.
+
+<BR></P>
+
+<P>Example: bsmith@wubba.edu ON 1:1/31
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>GEnie</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>GEnie is General Electric's commercial information service.
+
+<BR></P>
+
+<P>From Internet: Use standard Internet addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>@genie.geis.com</PRE>
+
+<P>Example: jjones@genie.geis.com
+
+<BR></P>
+
+<P>To Internet: Use standard Internet addressing with a suffix:
+
+<BR></P>
+
+<PRE>userid@domain@INET#</PRE>
+
+<P>Example: bsmith@wubba.edu@INET#
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Gold 400</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Gold 400 is British Telecom's commercial X.400 system.
+
+<BR></P>
+
+<P>From Internet: Use the following addressing:
+
+<BR></P>
+
+<PRE>userid@org_unit.org.prmd.gold-400.gb</PRE>
+
+<P>You'll need to have the recipient tell you his or her <I>userid</I>, <I>org_unit</I> (organization unit), <I>org</I> (organization), and <I>prmd</I> (private mail domain).
+
+<BR></P>
+
+<P>Example: jjones@foo.bar.baz.gold-400.gb
+
+<BR></P>
+
+<P>To Internet: Again, see the section &quot;X.400 Addressing&quot; to see how to handle nonstandard characters in addresses, but here's the format:
+
+<BR></P>
+
+<PRE>/DD.RFC-822=<I>useriddomain</I>%%/O=uknet/PRMD=uk.ac/ADMD=gold 400/C=GB</PRE>
+
+<P>Example: /DD.RFC-822=bsmithwubba.edu/O=uknet/PRMD=uk.ac/ADMD=gold 400/C=GB
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>KeyLink</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>KeyLink is Telecom Australia's commercial X.400 mail service.
+
+<BR></P>
+
+<P>From Internet: Use the following addressing:
+
+<BR></P>
+
+<PRE>userid@org_unit.org.telememo.au</PRE>
+
+<P>You'll need to have the recipient tell you his or her <I>userid</I>, <I>org_unit</I> (organization unit), and <I>org</I> (organization). The <I>org_unit</I> might not be used&#151;in that case, just eliminate it and the period that follows it.
+
+<BR></P>
+
+<P>Example: jjones@froboz.grue.telememo.au
+
+<BR></P>
+
+<P>To Internet: Again, see the section &quot;X.400 Addressing&quot; to see how to handle nonstandard characters in addresses, but this is the general format:
+
+<BR></P>
+
+<PRE> (C:au,A:telememo,P:oz.au,&quot;RFC-822&quot;:&quot;<I>name</I> - &lt;<I>useriddomain</I>&gt;&quot;)</PRE>
+
+<P><I>name</I> isn't actually used for delivery, just as a comment.
+
+<BR></P>
+
+<P>Example: (C:au,A:telememo,P:oz.au,&quot;RFC-822&quot;:&quot;Bubba Smith - &lt;bsmithwubba.edu&gt;&quot;)
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>MCI Mail</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>MCI Mail is MCI's commercial e-mail service.
+
+<BR></P>
+
+<P>From Internet: There are several options. Each MCI user has a name (Jim Jones) and a phone number (123-4567) associated with his or her account. The number is unique to that account, so you can always send mail to an address such as the following:
+
+<BR></P>
+
+<PRE><I>number</I>@mcimail.com</PRE>
+
+<P>Example: 1234567@mcimail.com
+
+<BR></P>
+
+<P>If you know there is only one J Jones with an account at MCI Mail, you can send mail to
+
+<BR></P>
+
+<PRE><I>FLast</I>@mcimail.com</PRE>
+
+<P>where <I>F</I> is the first initial and <I>Last</I> is the last name. Or, if you know there is only one Jim Jones you can send mail to
+
+<BR></P>
+
+<PRE><I>First_Last</I>@mcimail.com</PRE>
+
+<P>where <I>First</I> is the first name and <I>Last</I> is the last name. Note the underscore between them.
+
+<BR></P>
+
+<P>Example: Jim_Jones@mcimail.com
+
+<BR></P>
+
+<P>To Internet: When MCI prompts you with To: enter
+
+<BR></P>
+
+<PRE>$$<I>name</I> (EMS)</PRE>
+
+<P><I>name</I> isn't actually used for mail delivery, but you can put the person's real name here. MCI then prompts you with EMS:. Respond with
+
+<BR></P>
+
+<PRE>INTERNET</PRE>
+
+<P>Then MCI asks for Mbx: and here you can enter the real Internet address:
+
+<BR></P>
+
+<PRE>userid@domain</PRE>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>PRODIGY</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Prodigy is a large commercial service, Prodigy Information Services (jointly developed by Sears and IBM).
+
+<BR></P>
+
+<P>From Internet: Use standard Internet addressing:
+
+<BR></P>
+
+<PRE>domain@prodigy.com</PRE>
+
+<P>Example: jone45a@prodigy.com
+
+<BR></P>
+
+<P>To Internet: This is a little tougher. Support for doing this isn't integrated into the standard Prodigy software, so you need to use their special offline Mail Manager program. It works only for IBM PC users and it'll cost you $4.95. When online, Jump 
+
+to 'ABOUT MAIL MANAGER' and proceed from there.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>SprintMail</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Hmm_AT&amp;T and MCI have commercial mail services. Sprint has to have one, if only for the principle of the matter. Actually, to be fair, Sprint has always been one of the more network-oriented phone companies. You may have used their Telenet network.
+
+<BR></P>
+
+<P>From Internet: Use this addressing:
+
+<BR></P>
+
+<PRE>/G=<I>first</I>/S=<I>last</I>/O=<I>organization</I>/ADMD=TELEMAIL/C=US/@sprint.com</PRE>
+
+<P><I>first</I> and <I>last</I> are the recipient's first and last names, of course, and <I>organization</I> is the recipient's SprintMail organization name.
+
+<BR></P>
+
+<P>Example: /G=Chris/S=Smith/O=FooInc/ADMD=TELEMAIL/C=US/@sprint.com
+
+<BR></P>
+
+<P>To Internet: Use this addressing:
+
+<BR></P>
+
+<PRE>C:USA,A:TELEMAIL,P:INTERNET,&quot;RFC-822&quot;:&lt;<I>useriddomain</I>&gt;) DEL</PRE>
+
+<P>Again, see the section &quot;X.400 Addressing&quot; to see how to handle nonstandard characters in addresses.
+
+<BR></P>
+
+<P>Example: C:USA,A:TELEMAIL,P:INTERNET,&quot;RFC-822&quot;:&lt;bsmithwubba.edu&gt;) DEL
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>WWIVNet</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>WWIVNet is the largest of several networks for BBSes running WWIV (World War IV) software. Traffic from node to node is long distance in several places, and the gateway site uses long distance as well, so please be courteous and don't send or receive 
+anything large (over 8 KB or so).
+
+<BR></P>
+
+<P>From Internet: Use this addressing:
+
+<BR></P>
+
+<PRE><I>userid</I>-<I>node</I>@wwiv.tfsquad.mn.org</PRE>
+
+<P>You'll need to find out from your recipient his or her <I>userid</I> and <I>node</I>&#151;they'll both be numbers.
+
+<BR></P>
+
+<P>Example: 99-8765@wwiv.tfsquad.mn.org
+
+<BR></P>
+
+<P>To Internet: Use this addressing:
+
+<BR></P>
+
+<P>This is almost standard Internet format, but you replace the @ with a # and add a suffix:
+
+<BR></P>
+
+<PRE>userid#domain@506</PRE>
+
+<P>Example: bsmith#wubba.edu@506
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Other Gateways</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>There are other gateways around and more are sure to appear. Most services offering this type of gateway should have at least some clue of how the address translation needs to be done&#151;ask the service if you need to know.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Finding Addresses</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>How do you find someone's e-mail address? Usually the best way is just to ask the person, but I've met several people who know they have an account but don't know exactly what their mail address is! They do most of their work locally and receive no 
+outside mail.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Send Reverse Mail</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you're the solid type who knows your e-mail address, you can have the unfortunate type who doesn't know his or hers send you e-mail. If that person is on another network, you may have to do the translation as detailed in the section &quot;Internet 
+E-Mail Gateways.&quot; When you get the mail, 95% of the time the From header will include the address information you need, including all the network translation crud. The only way to be sure is to try it.
+
+<BR></P>
+
+<P>If that doesn't work, you can try examining the Received and Reply-To headers to see exactly what's going on.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Directories</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>There are many places that keep mail address compilations. If the person you are looking for belongs to a commercial system, you may have to log on to that system (or have someone else do it for you) and look up the account.
+
+<BR></P>
+
+<P>For many Internet addresses, you can send mail to the Internet address whois@whois.internic.net with just help as the body of the message.
+
+<BR></P>
+
+<P>For BITNET addresses, send mail to the Internet address listserv@bitnic.bitnet with send bitnet servers as the body of the message. This should give you a current list of BITNET nameservers you can query.
+
+<BR></P>
+
+<P>To find someone in the communications field, try RPI's address server. Send mail to Internet address comserve@vm.its.rpi.edu with help as the body of the message.
+
+<BR></P>
+
+<P>UNINNETT of Norway maintains an X.500 address registry service. Send mail to Internet address directory@uninett.no with help as the body of the message.
+
+<BR></P>
+
+<P>PSI runs an X.500 service at Internet address whitepages@wp.psi.com with help as the message body.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>USENET Address Server</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>MIT keeps track of every person who has ever posted an article to USENET since the late 1980s (many USENET readers would be shocked to know this). This includes those from other networks who use a news gateway. If the person you are looking for has 
+posted an article to USENET since then, he or she might be in this database.
+
+<BR></P>
+
+<P>Send mail to the Internet address mail-server@rtfm.mit.edu. In the body of the message, put this:
+
+<BR></P>
+
+<PRE>send usenet-addresses/<I>key1 key2 key...</I></PRE>
+
+<P>The keys should include all the words you think might appear in the address, usually parts of the person's name. In many cases you will use only <I>key1</I>. The keys are case insensitive.
+
+<BR></P>
+
+<P>You can try the following:
+
+<BR></P>
+
+<PRE>send usenet-addresses/dippold</PRE>
+
+<P>to return several entries. The server will return only 40 matches, so if your keys are overly general (&quot;Smith&quot;) you will need to give more keys, such as a first name, to narrow the search.
+
+<BR></P>
+
+<P>You can do several searches at once by placing several send usenet-addresses/<I>keys</I> lines in the message.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Your Address and Business Card</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>What's on your business card? Probably your name, company, position, phone and fax numbers, your address, and maybe some spiffy design.
+
+<BR></P>
+
+<P>Well, the business card of the 1990s also includes your Internet address. E-mail is almost always cheaper, faster, and more convenient than a fax or snail-mail. Putting your e-mail address on your business cards is one of the best ways to encourage 
+people to use it. Not only is this useful, it's got more than a certain amount of trendiness, if you like that. With everybody and their cousin &quot;discovering&quot; the Internet, it's hip, it's happening, it's all the right adjectives. The trend may 
+pass, but the e-mail address will still be useful.
+
+<BR></P>
+
+<P>Now, how do you give your address on your business card? I've heard people recommend &quot;E-mail Address,&quot; &quot;E-mail,&quot; &quot;Internet,&quot; and other variations. My suggested solution is simple and elegant: just give your address without 
+
+giving it any kind of label at all. The &quot;@&quot; should start frantic alarms ringing in the head of anyone who would know how to use your address, and if they don't know what it means, no explanation you can fit on your card is going to help.
+
+<BR></P>
+
+<P>For best results, give the address in Internet format, even if your account is on another service. If you're on CompuServe as ID 11111,2222, give your address as 11111.2222@compuserve.com rather than as CompuServe ID: 11111,2222. With the first format 
+anyone who can send Internet mail can reach you, and CompuServe users will be smart enough to realize that the first part is your CompuServe ID. The second format requires that someone know how to do the 11111,2222 to 11111.2222@compuserve.com conversion, 
+
+and they haven't all read this book. Of course, this assumes that you want non-CompuServe people sending you mail.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Mailing Lists</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>With e-mail you can carry on a conversation with another person. But why not with three others? Easy enough&#151;just use the Cc header or specify multiple recipients on the To header. What about hundreds? Well, that might be tough. But what if there 
+were enough interest in something (such as the band REM) that someone agreed to serve as a central dispatch point? All mail to that account would be sent to all other people in the discussion. This is known as a mailing list, and they are quite popular. 
+The REM list mentioned has over 800 subscribers.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Clutter</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The first thing you have to realize is that when you join (subscribe to) a mailing list, all of a sudden you're going to have a lot of messages in your mailbox. Can you handle the extra time it's going to take to read these new messages? Are you paying 
+
+for mail? Many people don't comprehend exactly what they're getting into when they sign up for a mailing list. Remember to save the instructions on how to unsubscribe from the group, so you don't send your unsubscribe request to all the members of the 
+group and feel like a fool.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Finding Lists</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>First you need to find some lists. Every month several informative postings are made to the USENET group news.answers, describing hundreds of mailing lists and how to subscribe to them. David Lawrence posts &quot;Mailing Lists Available in USENET.&quot; 
+
+Stephanie da Silva posts &quot;Publicly Accessible Mailing Lists.&quot; If you have USENET access, news.answers is your best bet. Perhaps some of the people you correspond with know of some lists.
+
+<BR></P>
+
+<P>If neither approach works, you can use the uga.cc.uga.edu mailserver described in the following section.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>LISTSERV Sites</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>LISTSERVers are nifty automatic programs that handle much of the drudgery involved in maintaining a mailing list. There are several such LISTSERVs, but you need only one to get started. I suggest you use listserv@uga.cc.uga.edu. Others include 
+listserv@mizzou1.missouri.edu, listserv@jhuvm.bitnet, listserv@vm1.nodak.edu, listserv@ucsd.edu, listserv@unl.edu, LISTSERV@PSUVM.PSU.EDU, and LISTSERV@SJSUVM1.SJSU.EDU.
+
+<BR></P>
+
+<P>Commands to these sites are simple. You can give a new instruction on each line of the body if you like, although generally most of your requests will consist of a single line.
+
+<BR></P>
+
+<P>To start with, try sending mail to listserv@uga.cc.uga.edu with only the text help in the body of the message (the subject doesn't matter). You should get back a list of valid commands. Probably the most interesting for you will be listserv refcard, 
+which returns a reference card and lists global, which returns a big list of all known mailing lists on many LISTSERVers&#151;it's over 300,000 bytes. You're in mailing list heaven! If that's too big, try just lists.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Joining and Dropping</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If your mailing list is managed by a LISTSERVer, joining a list is easy. Send mail to listserv@domain, with the following message line:
+
+<BR></P>
+
+<PRE>SUB LISTNAME Firstname Lastname</PRE>
+
+<P><I>LISTNAME</I> is the name of the list, such as HUMOR. <I>Firstname</I> and <I>Lastname</I> are your first and last names.
+
+<BR></P>
+
+<P>To sign off the list, use this:
+
+<BR></P>
+
+<PRE>SIGNOFF <I>LISTNAME</I></PRE>
+
+<P>Do not send your unsubscribe request to the mailing list itself. You'll just irritate people and they'll laugh at you.
+
+<BR></P>
+
+<P>If you would rather get one mailing a day&#151;consisting of all the posts to the mailing list in one big chunk&#151;rather than receiving dozens of little messages during the day, use this:
+
+<BR></P>
+
+<PRE>SET <I>LISTNAME</I> DIGEST</PRE>
+
+<P>To get each piece as it is sent, use this:
+
+<BR></P>
+
+<PRE>SET <I>LISTNAME</I> MAIL</PRE>
+
+<P>There are other commands&#151;the help command should get them for you.
+
+<BR></P>
+
+<P>If the mailing list isn't being handled by a LISTSERVer, you're at the mercy of the mailing list maintainer as to how subscriptions are handled.
+
+<BR></P>
+
+<P>Generally, the address to send messages to for a mailing list is this:
+
+<BR></P>
+
+<PRE>listname@domain</PRE>
+
+<P>The address to send messages to for subscribing and unsubscribing is this:
+
+<BR></P>
+
+<PRE>listname-request@domain</PRE>
+
+<P>However, you can't always count on these. Sigh. In this case you have to rely on the instructions for the specific list, which you need to get from the maintainer or a friend.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Automatic Mail Sorting</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>I'm not going to go into too much detail about mail sorting because it's a rather complex subject, but sometimes you get to the point where you can't treat your incoming mail file as a single entity.
+
+<BR></P>
+
+<P>I get literally hundreds of messages a day, and I would go insane if I didn't use a program known as a mail filter. These look at your incoming mail, and based on criteria you set regarding the contents of header items or message text, they sort the 
+mail into several mailboxes before you even see them.
+
+<BR></P>
+
+<P>For instance, I subscribe to several mailing lists. I route messages from each of these into a separate mailbox for reading at my leisure. I have USENET voting ballots arriving all the time&#151;these go into a special voting file for processing by the 
+
+voting software. Everything that's left goes into my general mailbox for normal reading.
+
+<BR></P>
+
+<P>Actually, mail filters can often do more than this. You can use them to selectively forward mail to other users, or to send automatic responses to certain messages. You can even have them send only a single informational message to anyone who mails you 
+
+while you're on vacation, no matter how many messages they send you during that time.
+
+<BR></P>
+
+<P>The drawback to a filter program is that they can be tough to set up, unless you're using a mail client with the capability built in (for example, Eudora). You need to carefully check your configuration files to make sure you aren't accidentally 
+dropping messages on the floor!
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>procmail</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>procmail is probably the most popular of the mail filters. You have quite a bit of control over your messages, and can even pass them through other programs, such as a formatter, before they are saved. It can execute other programs on demand, and can be 
+
+used to run simple mailing lists or mail servers. It's been extensively tested, it is stable, and it is fast. Be careful, though, that you don't accidentally tell it to send some of your mail into a black hole.
+
+<BR></P>
+
+<P>You can get the latest version by anonymous ftp to ftp.informatik.rwth-aachen.de as pub/unix/procmail.tar.Z.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>deliver</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Although procmail is the king of the hill for mail filter programs, I personally like deliver. You write shell scripts to handle all incoming messages. This requires more work on your part, usually, than would procmail, but it's very clean, almost 
+infinitely flexible, and limits what you can do with your e-mail only to how well you can program scripts. The speed shouldn't be too much of a concern on that fast machine of yours.
+
+<BR></P>
+
+<P>I found deliver by anonymous ftp at sunsite.unc.edu as /pub/Linux/distributions/slackware/nl/deliver.tgz.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>mailagent</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>I can't recommend or condemn this program, as I'm not that familiar with it, but it's another well-known e-mail filter. This one is written in the perl language, which again means that you can do anything with your e-mail by extending mailagent yourself 
+
+(if you know perl). It comes with quite a few built-in features. I'd suggest this if you know perl. Anonymous ftp to ftp.eff.org and get /pub/net-tools/perl-mailagent.tar.Z.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Elm</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Elm comes with a support program named filter, which does mail filtering. See the section &quot;The Elm Mail System&quot; to see where to get this.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Sending Programs and Graphics</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As mentioned before, standard Internet mail allows only normal text in the message body, nothing fancy like programs or graphics. This is just one of the ways the Internet is showing its age.
+
+<BR></P>
+
+<P>However, as soon as someone realizes there's a limitation, someone else comes up with a way to circumvent it. There are two major ways this particular problem is dealt with: the quick hack and the long-term solution.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>uuencode</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This is the quick hack. uuencode is a program that takes a program or an 8-bit file (such as a GIF) and encodes it as 6-bit printable characters. Because all Internet mail sites are supposed to pass normal ASCII printable characters unmodified, the data 
+
+should make it through to the other side.
+
+<BR></P>
+
+<P>Here's a simple example. The file test1 contains the text This is a test. Run it through uuencode and place the result in test1.uue:
+
+<BR></P>
+
+<PRE>uuencode test1 test1 &gt; test1.uue</PRE>
+
+<P>This is the standard uuencode command format: first the name of the file you want to encode, then the name the file will be given when it is unpacked on the other end, and then the command to send the output to a file. Normally, you want the file to 
+have the same name when it is unpacked as it does now, so both names (test1 and test1) will usually be the same in any uuencode you do. When you cat test1.uue you get this:
+
+<BR></P>
+
+<PRE>begin 660 test1
+
+.5&amp;AI&lt;R!I&lt;R!A('1E&lt;W1!
+
+end</PRE>
+
+<P>The first line contains uuencode's begin signal, then the UNIX file permissions of the file, then the name to which the file should be unpacked. The second line contains the encoded data, which consists of all printable characters. Finally, a blank line 
+
+and end (to end the file). You can freely send this through almost any mail system.
+
+<BR></P>
+
+<P>You can even send the uuencoded data directly to someone else without an intermediate file:
+
+<BR></P>
+
+<PRE>uuencode ttt.exe ttt.exe | mail -s &quot;Tic Tac Toe&quot; mybuddy</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The uuencoded file will be about 35 percent larger than the original file. About 33 percent of that comes from converting 8-bit bytes to 6-bit bytes; the other 2 percent comes from control information 
+
+in the encoding.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>uudecode</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Now that you have the encoded program, you have to decode it. For that you use uudecode.
+
+<BR></P>
+
+<P>First, save the e-mail message to a file. In mm90 I'd use move test1.uue (the .uue just reminds you that it's a uuencoded file). Then decode it:
+
+<BR></P>
+
+<PRE>uudecode test1.uue</PRE>
+
+<P>It's as simple as that. Well, not quite. A lot of other crud, such as message headers, ended up in the test1.uue file. Sometimes the sender adds some commentary before the data. uudecode is supposed to find the beginning of the actual uuencoded data in 
+
+the file, but sometimes it gets confused, and you might have to use your editor to trim off everything before the begin line and after the end line.
+
+<BR></P>
+
+<P>Now look at the resulting file with cat test1:
+
+<BR></P>
+
+<PRE>This is a test</PRE>
+
+<P>It worked! You could have just sent this sentence through the mail, of course, but programs should work this same way, but it's tough to show their contents in print, except as a hex dump. This would probably send weaker readers screaming, hence the 
+example shows just the simple sentence.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>split</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Wait! All is not paradise. test1 was a short file. What if you want to send a 200,000 byte file? Add the 35 percent, and we have 270,000 bytes after the file is encoded. That's a hefty message by any estimation. Although you usually won't run into the 
+problem with normal messages, some sites have a limit on message size, usually around 64,000 bytes. If you send your file as one big chunk, only a fourth of it may get there. What you need to do is split it up into smaller chunks.
+
+<BR></P>
+
+<P>You can do this manually, but there's a UNIX program that will do the job for you: split. Just tell split the number of lines you want in each piece, and it'll go snicker-snack, sending that big file galumphing back. The number of lines doesn't tell you 
+
+the size exactly, but you can experiment. I find that using 800 lines per piece will give you nice, safe 50,000 byte chunks. Here's how it works:
+
+<BR></P>
+
+<PRE>uuencode bigfile bigfile &gt; bigfile.uue
+
+split -800 bigfile.uue splits
+
+mail -s &quot;Bigfile.uue 1/3&quot; mybuddy &lt; splitsaa
+
+mail -s &quot;Bigfile.uue 2/3&quot; mybuddy &lt; splitsab
+
+mail -s &quot;Bigfile.uue 3/3&quot; mybuddy &lt; splitsac
+
+rm bigfile.uue splits??</PRE>
+
+<P>The hidden piece of the puzzle is that split takes the number of lines and the file to split, then a base name for the output files. In this case it's splits. It then names the resulting files splitsaa, splitsab, splitsac, and if necessary, all the way 
+
+up to splitszz. This gives you 676 pieces. If that's not enough, you're cleaning your house with a toothbrush&#151;you should probably use another method to transfer the files. The subjects with 1/3, 2/3, and 3/3 are just to let the receiver know how many 
+
+pieces total there are and which piece of the whole each message is.
+
+<BR></P>
+
+<P>Now the receiver has to save all the messages into a big file, edit out everything except the uuencoded stuff, then run uudecode on the resulting file. It's cumbersome, but it works. If you do this a lot you can use a program that automates the uuencode 
+
+splitting, mailing, and recombining. There's a program for everything.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Getting </B><B>uuencode</B><B> for Your System</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you're on a UNIX system, uuencode, uudecode, and split should come standard. If you're using DOS or a Mac, you'll have to get one from a friend or via ftp.
+
+<BR></P>
+
+<P>If you're using DOS, anonymous ftp to oak.oakland.edu. Go to the directory /pub/msdos/decode and grab uuexe525.zip. This is a very nice uuencode and uudecode for the PC that is actually superior to the standard UNIX version. For instance, it will 
+automatically reorder the pieces of the file if they're out of order.
+
+<BR></P>
+
+<P>If you're using a Mac, anonymous ftp to sumex-aim.stanford.edu and grab /info-mac/cmp/uu-lite-15.hqx. It's a very full-featured uuencoder for the Mac.
+
+<BR></P>
+
+<P>For any computer for which you have a C compiler available, you can anonymous ftp to oak.oakland.edu. Go to the directory /pub/misc/unix and grab uuencode.c and uudecode.c. This is the portable C source for the standard uuencode and uudecode and should 
+
+work on almost any computer. The portable C versions of uuencode and uudecode are simple but are always there.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>MIME</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>No, silent weirdos in whiteface haven't invaded Internet. MIME is a specification for the extension of Internet mail to include attachments of programs, data, and multimedia. This is one of the long-term solutions.
+
+<BR></P>
+
+<P>You should be able to use one MIME application to mail full-motion video with sound to someone who can use a MIME application to play it back. In reality it's not quite that easy except in some very specific cases (such as the exact same program being 
+used on both ends). However, it has advanced to the stage where many mail programs are MIME compatible enough that they can encode and decode files, as well as pictures, enclosed with a mail message.
+
+<BR></P>
+
+<P>This can be a useful feature if you're going to be sending a large number of files via mail, although, of course, the sender has to support it as well.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Au Revoir, E-Mail</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Whew! There's a lot to talk about regarding e-mail (and there's more yet to learn). If you've read this section and understand a good portion of it, you know more about mail than the great majority of Internet users. And if you're using it as a 
+reference, I hope it serves well. Here we fondly bid farewell to e-mail and move on to something even bigger.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=4><B>USENET</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Ah, USENET! Consumer of more person-hours than the great pyramids of Egypt. An information (and noise) source of unimaginable proportions.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>What Is USENET?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you say USENET people tend to think of Internet. What is it, really?
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=3><B>Analogies</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The best way to describe USENET is in terms of e-mail (since you've just read that subject to death). Think of your mailbox, with all its new and old messages. Imagine what it might be like if everyone on Internet could read that mailbox, enter new 
+messages, and leave replies. Now imagine having 5,000 mailboxes. That's USENET.
+
+<BR></P>
+
+<P>Or think of USENET as a huge set of public bulletin boards that millions of people read. Occasionally these folks write their own notices to nail to the church door, as it were. That's USENET.
+
+<BR></P>
+
+<P>Okay, you want to get away from cheesy analogies. USENET is a huge public messaging system. It is divided into thousands of discussions of different subjects&#151;each separate piece is known as a newsgroup, or group. When someone enters a message while 
+
+&quot;in&quot; a group, that message goes to all other USENET sites in the world, and people reading that same group can read the message and reply to it if they care to. Generally, there are dozens of different conversations (&quot;threads&quot;) going on 
+
+in any particular group&#151;each is distinguished by a subject name, much like the Subject in a mail message. There are thousands of new messages posted each day. That's USENET.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>USENET Is Not Internet</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>USENET is commonly thought of as being the same thing as the Internet, but they're not the same thing. The Internet is an international network of computers tied together via dedicated lines. USENET is just one of the services that uses the Internet. If 
+
+you're familiar with bulletin board systems (BBSes), you might think of the Internet as the BBS hardware, and USENET as the message bases.
+
+<BR></P>
+
+<P>Not all computers on the Internet have USENET (it can take a lot of space!). Not all computers carrying USENET groups are on the Internet&#151;like e-mail, some systems call Internet systems to exchange USENET messages. Don't say one when you mean the 
+other.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>USENET Is Usenet Is NetNews</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Frankly, capitalization standards on Internet are quite relaxed. You can call it USENET, you can call it Usenet, you can call it UseNet. People will know what you mean. If you call it UsEnEt, people will start edging nervously for the exits. You can 
+even refer to it by the ancient moniker Netnews (or NetNews). People will understand what you mean.
+
+<BR></P>
+
+<P>You can call the subject groupings into which USENET is divided groups or newsgroups. Please don't call them BBoards, as for some reason this upsets some inhabitants.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>USENET Is Too Big</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>USENET comprises tens of megabytes of new posts a day and over 5,000 groups. Nobody can read it all, even if they go with an IV and read 24 hours a day. Your goal is to find as much possible useful information on subjects that interest you in the time 
+you allot for yourself each day.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>USENET Is an Information Bonanza</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you're interested in something, it's probably talked about in some group on USENET, and the amount of information is staggering. It can quickly become your prime information source for several of your interest areas.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>USENET Is a Noise Overload</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>That information is buried among lots of noise&#151;things you aren't interested in or posts that are of no use to anybody and may even be designed to confuse. Your goal is to separate the wheat from the chaff with maximum efficiency&#151;hopefully 
+keeping the wheat.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>USENET Is a Controlled Anarchy</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>USENET isn't an anarchy in the popular sense of being total chaos. But while anarchy excludes outside control, it doesn't preclude self-control, and USENET is a web of written and unwritten agreements on the proper rules of behavior. Your goal is to 
+avoid violating these codes of behavior until you know enough about them to decide when they can be broken.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>USENET Sounds Intimidating</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Well, it can be intimidating, especially if you just jump in as though you're on a local BBS discussion group. However, there are tried and true ways to ease painlessly into USENET, and I'm here to help you with those. I can help you attain your goals.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>Underlying Concepts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This isn't a technical overview of USENET, but there are a few concepts you should know before you begin.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>USENET Messages</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>USENET messages are much like the Internet mail messages described earlier this chapter&#151;they consist of a header, which has information about the message, and the body, which has the actual message. They even use the same format as mail messages, 
+and most of the same headers are valid. There are a few new ones, which are covered in the following sections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>The USENET Distribution Model</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Every computer that gets USENET keeps a database of USENET messages. When a new message is entered, it is sent to neighboring USENET sites using NNTP (Network News Transfer Protocol). These distribute the post to other sites, until it is on every 
+machine on USENET. There are various mechanisms to prevent a message from showing up on the same machine more than once, which we don't need to get into here. Only occasionally does a broken machine (usually a FidoNet gateway) regurgitate old articles back 
+
+onto the Net.
+
+<BR></P>
+
+<P>Because posts can take different paths to reach different machines, there's no guarantee that you'll see a specific post before you see the reply to the post. For example, someone posts a message from Machine A, which sends the post through slow Machine 
+
+B to get to your machine. It also sends the post to another machine, C, which gets it immediately. Someone there replies to it quickly, and C sends out the post to its neighbors, including Machine D. Machine D sends the reply on to you, where you see it 
+immediately. In the meantime, the original post still hasn't gotten past Machine B to your computer. This is fairly common, although the scenario is usually more complicated. Don't be alarmed.
+
+<BR></P>
+
+<P>I said that all machines get all posts. Well, sort of_because USENET is so huge, many sites only carry a subset of all the available groups. A site won't get posts for groups it doesn't care about, or if it does, it won't keep them. In addition, there's 
+
+something called a Distribution header that you can put in your message to try to restrict its distribution to a geographical area, such as San Diego. This is useful for messages that affect only San Diego.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Newsgroup Names</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Newsgroups are named like this:
+
+<BR></P>
+
+<PRE>comp.sys.ibm.pc.games.action</PRE>
+
+<P>This is a hierarchy reading down from left to right. Reading the group name, you have a computer group for computer systems from ibm, the pcs to be exact. You're talking about games for those systems, more specifically action games.
+
+<BR></P>
+
+<P>Here's another one:
+
+<BR></P>
+
+<PRE>talk.politics.guns</PRE>
+
+<P>You have a group for talk about politics, more specifically gun control. I'll talk more about these hierarchies later.
+
+<BR></P>
+
+<P>The newsgroup with which your post is associated is given in the header of the message, in the Newsgroups item. It looks like this:
+
+<BR></P>
+
+<PRE>Newsgroups: news.announce.newgroups</PRE>
+
+<P>That's not much of a concept, but here's a mindblowing concept if you're used to traditional BBSes. Each post can go in multiple groups! If I do this:
+
+<BR></P>
+
+<PRE>Newsgroups: alt.usenet.future,news.groups</PRE>
+
+<P>my post will appear in both groups. This is known as crossposting. While you should know it is possible, you shouldn't actually do this until you've looked around a while, because frivolous crossposting is frowned on.
+
+<BR></P>
+
+<P>In fact, there's another header that can be used to send any replies back to a specific group. For instance, you might make a wide informational post to several groups, but specify that the discussion (if any) should be only in a single group. This is 
+the Followup-To header. Together, the headers look like this:
+
+<BR></P>
+
+<PRE>Newsgroups: rec.arts.comics.misc,rec.arts.comics.strips,
+
+rec.arts.comics.animation
+
+Followup-To: rec.arts.comics.animation</PRE>
+
+<P>Remember from the e-mail header discussion that one header can spread over several lines, as long as succeeding lines are indented. That's what you did to split Newsgroups over two lines. All replies to the post will go to rec.arts.comics.animation, 
+unless the person replying overrides that.
+
+<BR></P>
+
+<P>Crossposting can be abused, but more on that later.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=3><B>Threads</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>An original post and all the replies to it are considered to be a single &quot;thread&quot; of conversation. This can actually look more like a Christmas tree than a straight line, as there are replies to replies, and replies to those replies, which 
+branch off until each sub-branch dies of finality or boredom.
+
+<BR></P>
+
+<P>Each USENET message has a Subject associated with it that is supposed to summarize the contents of the message (although this is often not the case). One way to track a thread is to note the message subjects, which those who reply to the post are 
+supposed to preserve until the discussion wanders too far from the original subject. The only way to fully keep track of threads is to use a threaded newsreader, which is discussed in the next section.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>Newsreaders</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first item of business is which program you will use to read USENET. Your choice of these programs (known as newsreaders) can hugely impact how you read the Net, how much information you get out of it, and how much garbage you have to sludge 
+through.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=3><B>rn</B><B> (readnews)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>rn is free, so there's a good chance the system you use to read mail has it, and a good chance that it will be offered to you as your default newsreader. Avoid using it if you can!
+
+<BR></P>
+
+<P>Back when rn was first written, one person could read every single message posted to USENET and still have time for a life. It reflects those simpler times&#151;its default is to dive in and show you all the messages in the group, one at a time.
+
+<BR></P>
+
+<P>This sounds reasonable, but it's a fact that the majority of the posts on most newsgroups you will read are of no interest to you. &quot;What?!&quot; you cry. &quot;I could never get enough information on Mystery Science Theater 3000!&quot; You wouldn't 
+
+think so, but there will come a time when you no longer wish to slog through every post on the group and become choosy about which posts you read. rn does not let you do this easily. Since popular groups can get over 100 messages a day, rn's preference for 
+
+showing you every single message really wastes your time.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=3><B>Message Overview and Threading</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Just how much of your time rn wastes is evident the first time you run another news program that first gives you an overview of the group. It provides you with a summary line for each post, just as a mail program does&#151;it gives you the poster's 
+name, the subject, and possibly the message size. Scroll through the pages of summaries and choose which posts look interesting. When you're done choosing, read the posts you've selected.
+
+<BR></P>
+
+<P>This is already a major shift in concept&#151;instead of having to read everything to decide what you don't want to read, you are choosing which few posts look interesting.
+
+<BR></P>
+
+<P>Now I'll add another concept to that&#151;the newsreader should keep track of which posts are related to each other and group them, so you can select or ignore whole groups of posts at once. It can do this by noticing the threads and subject names 
+mentioned before.
+
+<BR></P>
+
+<P>These two changes account for an almost unbelievable difference in speed between a good threaded newsreader and something line rn. Now that I've gotten good at determining which threads look promising and which don't, I can read USENET literally 100 
+times faster than I could before. I'll recommend some right after this_
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=3><B>Kill Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>What if you knew a particular subject were of no interest to you, and that you would never read a post by that name again? It's a waste of time for the newsreader to even offer it to you. This goes doubly for certain people who do nothing but generate 
+noise on USENET. It'd be nice never to see any of their posts.
+
+<BR></P>
+
+<P>This is what a kill file is for. In its most primitive form, you give it a subject or poster whom you never wish to hear from again. Usually you'll be allowed a little bit of fine-tuning&#151;you may wish to kill that subject only in one particular 
+newsgroup.
+
+<BR></P>
+
+<P>In a group where over half the discussion is about something you don't care about (for instance, a particular author on a fantasy group), having the newsreader kill all articles relating to that author can save you time and make you less likely to lose 
+
+valuable articles in the crush.
+
+<BR></P>
+
+<P>There's also the opposite of a kill file. If you know you will want to read every posting on a particular subject or from a particular person, a selection file lets you have the newsreader automatically mark them for reading. This isn't quite as common 
+
+as the kill file.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=3><B>Which Newsreader?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This is one of those religious preference questions, similar to &quot;What's the best editor?&quot; I would say that any newsreader that has the following features is a contender:
+
+<BR></P>
+
+<UL>
+
+<LI>Offers a message overview that lets you select messages to read before actually reading any.
+
+<BR>
+
+<BR></LI>
+
+<LI>Enables you to group posts together by common subject and/or thread.
+
+<BR>
+
+<BR></LI>
+
+<LI>Lets you specify authors or subjects that will be automatically killed by the newsreader so you never see them. You should be able to do this for one group or for all groups.
+
+<BR>
+
+<BR></LI>
+
+<LI>Lets you do the opposite&#151;automatically select certain authors or subjects.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The rest is just gravy, although I'm tempted to add &quot;Is very configurable&quot; to the list.
+
+<BR></P>
+
+<P>Unfortunately, compiling and configuring a new newsreader can be a very hairy business, especially if you're new to USENET. For now, you might have to use whatever your system has available&#151;if there's nothing but rn, pester your administrator.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B>NN (No News)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>NN (No News [Is Good News]) has probably the largest number of users of any newsreader other than rn. It's fast, flexible, very configurable, has very nice kill and selection options, sorts messages in several ways, and offers several ways to manage the 
+
+old messages. It's even got its own group, news.software.nn. This is definitely worth a look.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=3><B>Other UNIX Readers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Other UNIX readers that are worth looking at (if your site offers them) are TRN, STRN, and TIN. They meet or exceed the criteria given. You can also read the USENET group news.software.readers for the latest information.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=3><B>Other Readers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>For other systems, you should be reading the USENET groups comp.os.msdos.mail-news and news.software.readers. There are, most likely, programs out there for your system. For instance, there's Trumpet for DOS and WinTrumpet for Windows. If you have a 
+complete TCP/IP package, you might want to see if it includes a mail reader (other than rn).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=3><B>Offline Readers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Just as you can use a mail client to do your mail processing offline, you can use an offline reader to do your USENET processing offline. This is useful if you're paying by the minute for your connect time. See the group alt.usenet.offline-reader for 
+help with these.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I74" NAME="I74">
+
+<FONT SIZE=3><B>Finding Your Groups</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>How do you find the groups that interest you? Say you want to find a beer group. Now what?
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I75" NAME="I75">
+
+<FONT SIZE=3><B>The Hierarchies</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As mentioned earlier, group names are arranged in hierarchies from left to right. The left item is known as the top-level of the hierarchy. In the case of a group such as this:
+
+<BR></P>
+
+<PRE>alt.tv.animaniacs</PRE>
+
+<P>it is said that the group is &quot;in the alt hierarchy&quot; (or &quot;alt. hierarchy&quot;). The Net is organized into seven major hierarchies, one anarchic hierarchy, and a bunch of smaller, less important hierarchies.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I76" NAME="I76">
+
+<FONT SIZE=3><B>The Big Seven Hierarchies</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The big seven hierarchies are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>comp.</P>
+
+<TD>
+
+<P><B>Computer topics.</B> This ranges from programming to hardware to peripherals to folklore. Most popular computer systems and operating systems have their own set of groups here.</P>
+
+<TR>
+
+<TD>
+
+<P>misc.</P>
+
+<TD>
+
+<P><B>Miscellaneous.</B> When nobody can figure out where to put a new group, it often ends up under misc.. For example, the misc.jobs groups don't clearly belong in any of the other six hierarchies, so they go under misc..</P>
+
+<TR>
+
+<TD>
+
+<P>news.</P>
+
+<TD>
+
+<P><B>The business of USENET.</B> This is where people talk about USENET administration, propose new groups, and argue about when USENET is going to die of its own excesses.</P>
+
+<TR>
+
+<TD>
+
+<P>rec.</P>
+
+<TD>
+
+<P><B>Recreational topics.</B> This is where most of the hobbyist stuff, such as rec.crafts.jewelry, goes. It also contains artistic and music discussions, crafts, and more in that vein.</P>
+
+<TR>
+
+<TD>
+
+<P>sci.</P>
+
+<TD>
+
+<P><B>Science.</B> This is where the math and physics types hang out. Medical, too, such as sci.med.radiology.</P>
+
+<TR>
+
+<TD>
+
+<P>soc.</P>
+
+<TD>
+
+<P><B>Social topics.</B> This is a grab bag of many cultural groups for different regions, such as soc.culture.chile, social research groups, religious discussion groups, and alternative lifestyle groups. It's something of a milder version of the talk 
+hierarchy.</P>
+
+<TR>
+
+<TD>
+
+<P>talk.</P>
+
+<TD>
+
+<P><B>Heated debate</B>. Incredibly vicious personal attacks by people (most of whom seemingly haven't even heard of the concept of &quot;critical thinking&quot;) that go on interminably about all the things you would expect&#151;politics and religion. See 
+
+talk.politics.mideast, for example. No debate here is ever really ended.</P></TABLE>
+
+<P>These hierarchies are sometimes known as USENET proper and are considered by many news administrators to be the only &quot;real&quot; hierarchies. For a new group to be created in any of these seven hierarchies, it has to go through a group interest 
+polling procedure that discourages overly frivolous group creation. More on this later.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I77" NAME="I77">
+
+<FONT SIZE=3><B>The Sewer of </B><B>.alt</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Actually, some of my favorite groups are in the .alt hierarchy, but it has a mixed reputation. Unlike the big seven hierarchies, anyone who cares to send a group creation message for a new group can make an .alt group. This is often followed by someone 
+
+else sending out a group removal message if they consider the group outrageous, but still it's a lot looser than the big seven groups. For instance, one group in the alt. hierarchy is alt.barney.dinosaur.die.die.die. The alt. hierarchy is also 
+controversial because groups such as alt.sex.stories reside here, and because of the alt.binaries.pictures groups, which involve huge amounts of message space chewed up by pictures. Because of all the hassles involved with alt., many sites don't carry any 
+
+of the groups.
+
+<BR></P>
+
+<P>I consider that a shame, because alt. is also a haven for groups that can't find a home in the big seven hierarchies. For instance, discussions of TV shows are generally considered transitory, since interest in the show will probably eventually die out. 
+
+For this reason, people are unwilling to vote to place a group for a show such as &quot;Twin Peaks&quot; in the big seven hierarchies, so they end up in the fertile alt.tv section of the alt. hierarchy, where they are the source of years of enjoyment to 
+many (I feel like a commercial).
+
+<BR></P>
+
+<P>alt. is also nice because groups can be quickly created, unlike in the big seven, where it takes two months. So a group such as alt.current-events.la-quake can be created overnight in response to special situations.
+
+<BR></P>
+
+<P>alt. has become somewhat more organized in the past year. Anyone can create a new group, but anyone can also send out a removal message, and there are several alt. volunteer police who will summarily do so if the group hasn't been proposed on alt.config 
+
+or if it's clearly a joke group. This has cut down on the number of &quot;triple-word&quot; joke groups, such as alt.french.captain.borg.borg.borg, which were first made popular by the group alt.swedish.chef.bork.bork.bork. But it isn't the big seven by a 
+
+long shot, and I'd hate to see the day when it is.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I78" NAME="I78">
+
+<FONT SIZE=3><B>The Other Hierarchies</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Anybody can create a hierarchy for a specialized reason (all you have to do is persuade other sites to carry the groups), and there are often good reasons for doing so. Especially useful are hierarchies for regional groups. For instance, there are many 
+
+ca. groups for discussion of California topics (for example, ca.politics). This keeps local stuff where the rest of the Net doesn't have to read it. Cities that have active Net communities often have their own hierarchies, such as sdnet. for San Diego. The 
+
+same goes for universities (ucsd.) and companies.
+
+<BR></P>
+
+<P>There are other hierarchies that are intended to be more widely spread, but are limited for other reasons. Many of the BITNET mailing lists are echoed on USENET in the bit. groups. Much child education discussion goes on in the k12. groups.
+
+<BR></P>
+
+<P>A few hierarchies have made a bid for the big seven but have failed. trial. and us. both failed from lack of interest, although at this time people are trying to resurrect the us. hierarchy.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I79" NAME="I79">
+
+<FONT SIZE=3><B>Where Do I Go?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Back to your original question&#151;how do you know where to go for a particular subject? There are several ways.
+
+<BR></P>
+
+<P>First, your newsreader may be smart enough to find part of a group name. If I tell NN to go to group beer, for instance, it asks me if I mean alt.beer or rec.food.drink.beer. In this way I just found two groups, and if I look for brewing I'll find more.
+
+
+
+<BR></P>
+
+<P>Dave Lawrence posts &quot;List of Active Newsgroups&quot; and &quot;Alternative Newsgroup Hierarchies&quot; to news.groups and news.answers. This is the mother lode&#151;all &quot;official&quot; groups (although with alt. &quot;official&quot; doesn't 
+mean much), each with a short description. Get it if you can.
+
+<BR></P>
+
+<P>Your newsreader probably has a way to show you a list of all groups. This might take some digging to find. (It's :show groups all in NN.)
+
+<BR></P>
+
+<P>Next, you can look through a file your newsreader leaves in your home directory, named .newsrc or something similar. This is just a list of group names, but they might give you some hints.
+
+<BR></P>
+
+<P>You can always ask for help on the group news.groups.questions, which is just for this sort of question.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I80" NAME="I80">
+
+<FONT SIZE=3><B>Netiquette</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This is perhaps the most important piece of this USENET section. You can muddle through the rest, but your use of netiquette (Net etiquette&#151;more geek hilarity) determines how you are perceived by others on the Net&#151;and a reputation can be a 
+very hard thing to get rid of. You may be shocked to engage in a debate and find someone dredging up a post from six months ago that you're not too proud of.
+
+<BR></P>
+
+<P>The Net doesn't have rules, per se, but it has customs that are often stronger than the force of law would be. People routinely violate U.S. laws on USENET because they consider them to be a joke&#151;and most of the other users seem to agree, so they 
+ignore it. But violate the USENET customs and watch out.
+
+<BR></P>
+
+<P>Of course, there comes a time when any given rule should be broken, but until you get the nuances down, try to respect the customs.
+
+<BR></P>
+
+<P>I hope I'm not being too intimidating here. USENET is a wonderful place once you're acclimated to it. You just need a little help getting over the initial growing pains, and reading this will hopefully help. I'm going to tell you some horror stories, 
+yes, but just so you can learn from them.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I81" NAME="I81">
+
+<FONT SIZE=3><B>Newbie</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you're reading this, you're probably a newbie. That's USENET slang for &quot;new person.&quot; It's not a bad thing to be a newbie, nor is it a hanging offense (or even something most people will look down at you for). People just treat newbies with 
+
+a bit more caution, because they know that people who haven't grasped the local customs are more likely to commit a faux pas.
+
+<BR></P>
+
+<P>Even if you've been posting on your local BBS or FidoNet for 10 years, you're still a newbie. The customs are unique. Welcome to the Jungle, please obey our laws.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I82" NAME="I82">
+
+<FONT SIZE=3><B>Newbie No More</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This piece of advice is probably worth the whole price of the book if you're going to be on USENET for a while: The best way to learn the customs of USENET at absolutely no risk to yourself is just to read it without posting for six weeks.
+
+<BR></P>
+
+<P>You can watch newbies who weren't so cautious commit the same blunders that you might have done and get upbraided, just because they, unlike you, didn't know. You can see the conversational tactics that are used by the pros, when they'll press a point 
+and when they'll back off. You also get the feel of each group&#151;each one has its own special ambience.
+
+<BR></P>
+
+<P>The length of time you should read before posting varies according to what you feel comfortable with. Most people on USENET are actually full-time &quot;lurkers&quot;&#151;they just read and don't post. Sometimes this is by choice, sometimes it's due to 
+
+software or administrative limitations. But it's estimated that there are more than 100 readers of a group for every person who posts to it.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I83" NAME="I83">
+
+<FONT SIZE=3><B>Signature Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Most newsreaders enable you to attach a signature to every post you make. It takes the contents of the file .signature in your home directory and attaches it to the end of the post. This is intended to be used for identification purposes&#151;perhaps 
+your name and place of work if it's not obvious from the header. Or sometimes it's used for disclaimers.
+
+<BR></P>
+
+<P>By far, the most common use is as a small personality statement&#151;this usually involves your name, Internet address, a favorite quote, and maybe a small picture drawn with text characters. I often identify people by their signatures, rather than by 
+looking at the header, since they're immediately recognizable by general look.
+
+<BR></P>
+
+<P>Some people always go overboard, however, and this results in huge signatures with big ugly fonts, ASCII graphics, loads of stupid quotes, three different addresses, five phone numbers_you get the picture. Suddenly, the signature is a significant amount 
+
+of information (done in wretched style) that has to be ignored every time, even as it pushes the real content of the post off the page. After seeing this a dozen times, people get irritated.
+
+<BR></P>
+
+<P>There's even a group dedicated to ragging on people with horrendous signatures, and even some standard &quot;scoring&quot; guidelines. You lose points for having the following in your signature:
+
+<BR></P>
+
+<UL>
+
+<LI>BUAG (Butt Ugly ASCII Font&#151;big letters made up of multiple characters)
+
+<BR>
+
+<BR></LI>
+
+<LI>A border all the way around it
+
+<BR>
+
+<BR></LI>
+
+<LI>A border partially around it
+
+<BR>
+
+<BR></LI>
+
+<LI>A bad quote
+
+<BR>
+
+<BR></LI>
+
+<LI>Duplicate mail addresses
+
+<BR>
+
+<BR></LI>
+
+<LI>Lots of wasted space
+
+<BR>
+
+<BR></LI>
+
+<LI>Bad misspellings
+
+<BR>
+
+<BR></LI>
+
+<LI>More than four signature lines
+
+<BR>
+
+<BR></LI>
+
+<LI>Bad pictures &quot;drawn&quot; with text
+
+<BR>
+
+<BR></LI>
+
+<LI>A big, ugly Amiga check mark
+
+<BR>
+
+<BR></LI>
+
+<LI>Quotes from the group Rush (because of sheer overuse)
+
+<BR>
+
+<BR></LI>
+
+<LI>A &quot;map&quot; of Australia
+
+<BR>
+
+<BR></LI>
+
+<LI>High-bit characters
+
+<BR>
+
+<BR></LI>
+
+<LI>Tab damage (You need to use spaces instead of tabs so it won't look horrible on systems that handle tabs differently, or if the signature is quoted.)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Readers of this group (alt.fan.warlord) take great pride in their skill at tearing bad signatures apart. But here's my hint for the day: If your signature is four or fewer lines, as called for by netiquette, nobody is going to care what you put in it.
+
+<BR></P>
+
+<P>Going over four lines makes it open season. Luckily, four lines is more than enough for almost any &quot;vital&quot; information you'd need to put there.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I84" NAME="I84">
+
+<FONT SIZE=3><B>Excessive Quoting</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Because of the nature of the Net, it's easy to lose track of where you were in a conversation or debate. If someone just replies, &quot;That's the stupidest thing I ever heard!&quot; you may have a hard time determining just who they were talking about 
+
+or which side they're taking. Comments need a bit of context.
+
+<BR></P>
+
+<P>For that reason, most news software &quot;quotes&quot; the entire previous message into your editor for you. It does this by putting a quote character, usually a &gt;, to the left of each line of text. You are supposed to trim this message down to the 
+bare essentials necessary for context to be established for your following comments.
+
+<BR></P>
+
+<P>A lot of people seem to be incapable of grasping this concept. In the most heinous cases, they quote pages and pages of a previous message, including the person's signature, only to add a single line comment such as &quot;This is stupid.&quot; Please 
+trim your quotes. It means less space spent storing redundant data, it means people can read your message quicker, which makes them happier, and it makes your comments much more understandable.
+
+<BR></P>
+
+<P>It's up to your personal preference, but I've generally found that I never need more than about four lines of text from the previous message for any point I wish to make. In responding to a complex message it's quite acceptable to quote some text, reply 
+
+to it, quote some more text, reply to it, and so on. You can even quote the entire message doing this in a few cases, but since you're doing it to establish context for each of your quotes, it's considered acceptable.
+
+<BR></P>
+
+<P>Also, watch how deep the quotes go. Someone quoting your message will also quote text you quoted&#151;that text then has a &gt;&gt; in front of it. Too many levels of this gets confusing and makes it more likely that someone will be misattributed.
+
+<BR></P>
+
+<P>One final caution&#151;while your quoting doesn't have to preserve the full context of the person's message, using &quot;selective quoting&quot; to make it appear that someone argued a point they never argued is viewed with much the same approval as 
+hitting a pregnant woman. You're in trouble if you do this. And if you ever actually modify the text of a quote, lordy help you_
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I85" NAME="I85">
+
+<FONT SIZE=3><B>Pyramid Schemes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Occasionally, you'll see something about &quot;Make Money Fast,&quot; usually with the name Dave Rhodes somewhere in it. Don't Do It!
+
+<BR></P>
+
+<P>This chain letter never goes away, and since the people who post it tend to be very obnoxious about where they post it (some even post it to every single group on USENET&#151;think about that), people are not tolerant of this at all. You'll get a few 
+thousand upset e-mail messages that will probably shut down your machine and make your administrator less than amiable. Also, it may be illegal.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I86" NAME="I86">
+
+<FONT SIZE=3><B>Excessive Crossposting</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Earlier, I showed how to make a post go to several groups at once, which is known as crossposting. Crossposting is hardly ever necessary, and only once in a blue moon is it necessary to crosspost to more than four groups at once except for special 
+informational USENET postings.
+
+<BR></P>
+
+<P>Newbies usually mess up on crossposting a plea for help&#151;they're not sure where to ask for it, so they crosspost to any group that looks like it might have something to do with it. They always manage to hit a few inappropriate groups, and between 
+the complaints about the crossposting and the alienation of those who might have helped due to the crossposting, the newbie doesn't get the question answered.
+
+<BR></P>
+
+<P>Take the time to look at a few messages in each group to see if it looks appropriate. If you find one that looks right, post to that one group asking your question. You can note that you're not 100 percent sure if you're in the right place and ask for 
+better directions. People are usually very friendly to this type of posting. And, of course, you can ask on the group news.groups.questions where you should direct your questions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I87" NAME="I87">
+
+<FONT SIZE=3><B>Read the FAQ!</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>One day, the people of USENET noted that new users all tended to ask the same few questions. They decided to create a Frequently Asked Questions List (FAQ&#151;the L just didn't sound good), which would present the answers to these questions, just 
+preventing them from being asked over and over and over and over and over and over and, well_
+
+<BR></P>
+
+<P>That worked pretty well, and now many groups have FAQs. This means that if you pop up on a group and ask a question that is in the FAQ, you're going to get some very negative responses (&quot;Read the FAQing FAQ!&quot;) If you enter a new group for the 
+
+purpose of asking a question, make sure you look for a post with &quot;FAQ&quot; in the title. If you find any, read them first. Your answers (and answers to questions you hadn't even thought of yet) may be in there.
+
+<BR></P>
+
+<P>If you're looking for information in general, most FAQs are posted to news.answers. You can go there and browse all the beautiful FAQs.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I88" NAME="I88">
+
+<FONT SIZE=3><B>Keep the Flaming to a Minimum</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In Net parlance, a flame is a heated attack on someone or something. An extended series of exchanged flames (flames are catching, it seems) are a flamewar.
+
+<BR></P>
+
+<P>An occasional flame is usually warranted and cleans out your system, but be careful of letting it get away with you. Some people have a reputation of being much too quick to flame&#151;even an honest mistake might earn you a litany of your mother's 
+dating habits from this kind of person. Others have the reputation of enjoying flaming just for the sake of doing it. Actually, there's a whole group for these people (alt.flame).
+
+<BR></P>
+
+<P>If you ever want to acquire a reputation as being a cool-headed, capable debater, however, watch yourself. I find it useful to let the message sit for five minutes, then come back to it. You may find, as I do, that a nonantagonistic-appearing message is 
+
+actually more damaging to the other person's case. And if you watch carefully, you can see what the Net pros have learned: how to flame with a precise acetylene torch, deftly vaporizing someone's ill-thought post with facts, style, and wit. This is much 
+more devastating than the standard &quot;Oh, yeah? Moron!&quot; type of argument.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I89" NAME="I89">
+
+<FONT SIZE=3><B>Don't Bluff</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Trying to pretend you know something you don't is bound for failure on the Net much more often than you might think. There are a large number of well-informed people on the Net (some seem to be virtual information sinks on certain subjects), and chances 
+
+are good that someone who knows more than you do is going to call your bluff.
+
+<BR></P>
+
+<P>This extends to less drastic claims as well&#151;if you're going to make a claim, you had better be prepared to back it up. It's not known as the Net of a Million Lies for nothing, and most users who have been there awhile tend to be a bit skeptical. 
+And then there are the people who actively oppose your position and have the facts to argue their side_
+
+<BR></P>
+
+<P>It's somewhat sad to see someone backing down from an ill-advised position, so be careful. And if you should ever be caught in an out-and-out falsehood, you might as well start humming a funeral march.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I90" NAME="I90">
+
+<FONT SIZE=3><B>Whew!</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Looking back on that list of &quot;Don't do this,&quot; &quot;Beware of that&quot; is a bit exhausting. Again, I don't want you to be afraid of USENET&#151;the worst that will probably happen if you do screw up royally is that someone writes you a nasty 
+
+letter. Remember, you can absorb all this by osmosis just by reading newsgroups for a period of time before you post to them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I91" NAME="I91">
+
+<FONT SIZE=3><B>USENET Miscellany</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Wait, I'm not done with you yet&#151;I have so much more to give! This section contains some random bits of advice and frequently asked questions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I92" NAME="I92">
+
+<FONT SIZE=3><B>Creating a New Group</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This one comes up often. &quot;Hey, there's no group for discussing indigo feebles! How do I start one?&quot;
+
+<BR></P>
+
+<P>In this case, I doubly recommend reading both news.announce.newgroups and news.groups for a three-month period before you try to create your own group. This seems extreme, but it's a whole new level of politics, written and unwritten rules, and various 
+
+subtleties.
+
+<BR></P>
+
+<P>To help, you should grab the posts &quot;How to Create a USENET Newsgroup&quot; and the &quot;USENET Newsgroup Creation Companion&quot; from news.groups. The first is the official guidelines, the second is a helper I wrote.
+
+<BR></P>
+
+<P>Basically, creating a new group boils down to this: You issue a Request for Discussion (RFD), crossposted to news.announce.newgroups, news.groups, and any interested groups. It should give the proposed name of your group, its charter, and why it should 
+
+be created. Follow-up discussion will take place in news.groups.
+
+<BR></P>
+
+<P>If the discussion yields any major changes to the name or charter, you'll need to issue a second RFD explaining the changes. This repeats until a consensus is reached.
+
+<BR></P>
+
+<P>The Call for Votes (CFV) can be held 30 days after the first RFD. You should contact the USENET Volunteer Votetakers (UVV) at rdippold@qualcomm.com to have your vote run by an experienced group of neutral votetakers. The UVV will take care of the 
+voting, which runs 22 days. At the end of this time, the votes are tallied. If your proposed group has at least 100 more YES votes regarding its creation than it has NO votes, and if there are twice as many YES votes as NO votes, then the group passes and 
+
+will be created by the news.announce.newgroups moderator after five days or so.
+
+<BR></P>
+
+<P>All this is a massive oversimplification, but it gives you some idea of the work involved, and the time period (two months). You might consider whether you want an alt. hierarchy group instead (read alt.config) or if you want to start a mailing list.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I93" NAME="I93">
+
+<FONT SIZE=3><B>How Can I Get That Person Off the Net?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Uh oh_someone called you some nasty names or said something you consider offensive. Now what? Well, now you deal with it by yourself. Among the advantages of the Net is that someone with an unpopular viewpoint can't be kicked off just because their 
+philosophy isn't in line with what the Acceptable Opinions Squad have decided are the required ways of thinking this year. This is somewhat of a disadvantage in that some people use it as just an excuse to be rude. You're an adult&#151;you can presumably 
+figure out some way to deal with it, such as just ignoring the person. If you go complaining to someone's administrator just because they called you a name, you're probably going to be disappointed, not to mention mocked.
+
+<BR></P>
+
+<P>There are a few situations in which it is considered okay to contact someone's administrator: if you receive an actual threat of violence and think it's serious, or if you are clearly defrauded by said person in a transaction that was arranged on the 
+Net. You can probably see the trend here&#151;if there was actual (or threatened) damage that occurred in the real world, you certainly might be justified.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I94" NAME="I94">
+
+<FONT SIZE=3><B>Recommend Some Newsgroups!</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>I showed you earlier how to retrieve the posting of all the newsgroups and their short descriptions. I could really send my page count through the roof by just including that here, but I'll settle for recommending a few varied ones that might interest 
+you:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>alt.binaries.*</P>
+
+<TD>
+
+<P>This is where all the pictures and other data are posted. You can get pictures, sounds, and music files among these groups.</P>
+
+<TR>
+
+<TD>
+
+<P>alt.config</P>
+
+<TD>
+
+<P>This is where group creation in the alt. hierarchy is discussed.</P>
+
+<TR>
+
+<TD>
+
+<P>alt.culture.usenet</P>
+
+<TD>
+
+<P>Yes, USENET has a culture, though this group is spotty.</P>
+
+<TR>
+
+<TD>
+
+<P>alt.fan.pratchett</P>
+
+<TD>
+
+<P>Getcher real live author here! Terry Pratchett, author of the sidesplitting Discworld books, chats with his fans.</P>
+
+<TR>
+
+<TD>
+
+<P>alt.folklore.computers</P>
+
+<TD>
+
+<P>This is anything you wanted to know (or didn't) about the history of computers. Some of it is even true.</P>
+
+<TR>
+
+<TD>
+
+<P>alt.folklore.urban</P>
+
+<TD>
+
+<P>Randy Beaman knew this kid who drank Pop Rocks and soda at the same time, and his head exploded! Okay, bye. Folk tales_</P>
+
+<TR>
+
+<TD>
+
+<P>alt.internet.services</P>
+
+<TD>
+
+<P>This shows what's where on the Internet.</P>
+
+<TR>
+
+<TD>
+
+<P>alt.quotations</P>
+
+<TD>
+
+<P>This is just what it looks like&#151;lots of quotations.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.risks</P>
+
+<TD>
+
+<P>This is the RISKS digest&#151;examining the risks involved with technology.</P>
+
+<TR>
+
+<TD>
+
+<P>comp.sys.*</P>
+
+<TD>
+
+<P>Do you have a computer? It's probably got its own groups under comp.sys. Even the redoubtable HP 48 calculator has its own.</P>
+
+<TR>
+
+<TD>
+
+<P>control</P>
+
+<TD>
+
+<P>This is where newsgroup creation and removal actually takes place. It's interesting to watch if you read alt.config or news.groups.</P>
+
+<TR>
+
+<TD>
+
+<P>news.answers</P>
+
+<TD>
+
+<P>All the FAQs get posted here. It's information central.</P>
+
+<TR>
+
+<TD>
+
+<P>news.future</P>
+
+<TD>
+
+<P>Shows the future of the Net&#151;a bit whiny, but sometimes interesting.</P>
+
+<TR>
+
+<TD>
+
+<P>news.groups</P>
+
+<TD>
+
+<P>This is for the discussion of USENET group creation and is the focus of a lot of USENET politics.</P>
+
+<TR>
+
+<TD>
+
+<P>news.newusers.questions</P>
+
+<TD>
+
+<P>This is just what it looks like. Ask away! Or at least read this for a while.</P>
+
+<TR>
+
+<TD>
+
+<P>news.software.readers</P>
+
+<TD>
+
+<P>Is your newsreader up to snuff?</P>
+
+<TR>
+
+<TD>
+
+<P>rec.arts.movies</P>
+
+<TD>
+
+<P>There's lots of information here about, like, movies.</P>
+
+<TR>
+
+<TD>
+
+<P>rec.humor.oracle</P>
+
+<TD>
+
+<P>This is the USENET oracle. It's definitely something different.</P>
+
+<TR>
+
+<TD>
+
+<P>talk.politics.misc</P>
+
+<TD>
+
+<P>Newbies seem to like to talk politics, but be careful! This is one of the most cutthroat groups on the Net.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I95" NAME="I95">
+
+<FONT SIZE=3><B>Watch Out for Pranks</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You may take USENET utterly seriously, or you may treat is as a playground for pranks. Most people fall somewhere in between, but there are a lot of people who lean towards the latter.
+
+<BR></P>
+
+<P>If you see something that seems too strange to be true, it probably is. Check the Newsgroups header line and look at the crossposts&#151;if it's posted to a bizarre group, chances are someone's being funny. If you post a heated response, you'll just end 
+
+up looking silly.
+
+<BR></P>
+
+<P>Look carefully at the Followup-To header&#151;a favorite of those soft in the head is to send your reply to misc.test, alt.dev.null, or some totally inappropriate group. Whenever you reply to a message, you should always get in the habit of noticing 
+which Newsgroups your message is being sent to so you don't get caught by something like this.
+
+<BR></P>
+
+<P>This baiting of the gullible is known as &quot;trolling&quot; and is quite a pastime on some groups, such as alt.folklore.urban. Basically, there are subjects that have come up so often that they're beyond Frequently Asked Questions and into &quot;Good 
+
+Grief!&quot; status. After the subject has been dormant for awhile, someone who's been on the group awhile will make a post that ostensibly asks for information or makes a claim related to the subject. It'll be a post of the type that will make all newbies 
+
+immediately want to write &quot;Geesh, what are you? Stupid?&quot; The group oldies will, of course, obtain great entertainment value from these posts. The more insulting, the better. You've been reeled in. How do you tell a troll from someone actually 
+saying something stupid? Often, you can't unless you've been reading the group for awhile.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I96" NAME="I96">
+
+<FONT SIZE=3><B>USENET Adieu</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Obviously, I could go on for 200 pages about USENET. But you've got more than enough information now to fortify you. I think you'll find that USENET can be quite rewarding.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I97" NAME="I97">
+
+<FONT SIZE=4><B>Talk</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>After those long e-mail and USENET sections, this piece seems almost naked.
+
+<BR></P>
+
+<P>Talk is a simple utility available on many networked systems. It allows you to &quot;converse&quot; in real-time with someone else. Anything you type automagically appears in one-half of the screen, anything the other person types appears in the other. 
+
+It's easy to use:
+
+<BR></P>
+
+<PRE>talk userid@domain</PRE>
+
+<P>If that person is logged on, he or she should get a message saying that someone wants to talk, and that the person should either enter <I>answer</I> or talk <I>youruserid</I>@<I>yourdomain</I> to talk to you.
+
+<BR></P>
+
+<P>When you're done, press Ctrl+C to exit. The first one to do this wins.
+
+<BR></P>
+
+<P>Talk is not as convenient as just calling the person. But sometimes you don't know the other person's number, sometimes you don't have a free phone line, or perhaps the person is long distance. Talk is cheap. (Ow! Lethally bad pun there_)
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I98" NAME="I98">
+
+<FONT SIZE=4><B>Internet Relay Chat (IRC)</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>I'd feel guilty if I didn't tell you about this, although I can hear hundreds of system administrators yelling &quot;No, don't!&quot; IRC is simply live multiple-person &quot;chat&quot; via the keyboard. That's it. Oh yes, it's apparently more addictive 
+
+than cocaine, without the benefits.
+
+<BR></P>
+
+<P>Well, maybe that's a little harsh, but you would have to see the depths to which some people have become IRC-addicted to believe it. It's amazing how such a simple concept can be so captivating.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I99" NAME="I99">
+
+<FONT SIZE=3><B>Basic IRC Structure</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>First, someone sets up an IRC server. Then those who wish to access it use their IRC client software.
+
+<BR></P>
+
+<P>The IRC &quot;universe&quot; consists of hundreds of channels with names such as #initgame. Users join (using their client software) in a channel that interests them and are then in conversation with everyone else who is on that same channel. You can 
+talk with everyone or direct your comments to certain individuals. This is a flexible format that allows something as free-form as a general babble to many pairs of private conversations to a game of IRC Jeopardy, which plays much like the TV show. Some 
+channels are private.
+
+<BR></P>
+
+<P>IRC users have their own nicknames and become quite attached to them (since your reputation goes with your nickname, this is quite understandable). A nickname database, NickServ, has been set up to eliminate accidental collisions.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I100" NAME="I100">
+
+<FONT SIZE=3><B>Getting IRC Clients</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before you can do anything you'll need an IRC client. You'll need to grab the source code appropriate for your machine and compile it. If you absolutely can't get the source code running, and can't get someone else to do it for you, you can use the IRC 
+
+telnet server:
+
+<BR></P>
+
+<PRE>telnet bradenville.andrew.cmu.edu</PRE>
+
+<P>This site can't handle too much of a load, so you should use it only as a last resort.
+
+<BR></P>
+
+<P>You can get the UNIX IRC client by anonymous ftp to cs.bu.edu under /irc/clients. Look to see which file the symbolic link CURRENT points to&#151;it will be linked to the latest UNIX source code for ircII.
+
+<BR></P>
+
+<P>A PC client running under MS-DOS or Windows can anonymous ftp to cs.bu.edu and look under /irc/clients/msdos. You'll have your choice of several for DOS, or winirc for Windows.
+
+<BR></P>
+
+<P>A Mac client can anonymous ftp to cs.bu.edu and look under /irc/clients/macintosh. Grab the latest version of Homer you find there.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I101" NAME="I101">
+
+<FONT SIZE=3><B>Connecting to a Server</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once you have your client, you need to figure out which IRC server you will be talking to. Anonymous ftp to cs.bu.edu and look under /irc/support. There should be a file named servers.940201 (the last number is the date, so that part will change). Grab 
+
+this and look for a server that's close to you.
+
+<BR></P>
+
+<P>Then tell your client to connect to this server. With luck, it'll talk back to you and you'll be in the world of IRC.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I102" NAME="I102">
+
+<FONT SIZE=3><B>Choosing Channels</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once you get on an IRC server, all commands start with a /.
+
+<BR></P>
+
+<P>/help gives you a list of commands. To get the new user help, do /help intro then /help newuser.
+
+<BR></P>
+
+<P>/list shows all the current IRC channels. It looks something like this, except that there will be a heck of a lot more channels:
+
+<BR></P>
+
+<PRE>*** Channel    Users  Topic
+
+*** #wubba     3     Wherefore the wubba?
+
+*** #hoffa     5     i know where the body is
+
+*** #litldog   2     where oh where has he gone</PRE>
+
+<P>/names might be more interesting. It shows who's logged on each channel and whether it's a private or public channel:
+
+<BR></P>
+
+<PRE>Pub: #wubba      @wubba jblow jdoe
+
+Prv: *    marla donald ivana bill hillary
+
+Pub: #litldog   @yakko dot</PRE>
+
+<P>Then use /join <I>channel</I> to participate on <I>channel</I>. Here you might do a /join #wubba.
+
+<BR></P>
+
+<P>/nick <I>nickname</I> enables you to change to a new nickname in case your old one is too stodgy.
+
+<BR></P>
+
+<P>/msg <I>nickname</I> <I>message</I> enables you to send a private <I>message</I> to <I>nickname</I>. Use the /query <I>nickname</I> to enter a private conversation with <I>nickname</I>. Use /query to exit it.
+
+<BR></P>
+
+<P>If you get ambitious and create a channel (using /join on a nonexistent channel creates it), be sure to look at the /mode command, which lets you determine the behavior of the channel.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I103" NAME="I103">
+
+<FONT SIZE=3><B>Need Help?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>/join #Twilight_zone is where IRC operators often hang out, and some are willing to help. Just ask your question&#151;don't announce that you need to ask a question first.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I104" NAME="I104">
+
+<FONT SIZE=3><B>Bad Moves</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Don't use someone else's nickname if you can help it&#151;people are very protective about them.
+
+<BR></P>
+
+<P>Never type anything that someone asks you to type if you aren't sure what it does. You might find that you've just given someone else control of your client!
+
+<BR></P>
+
+<P>Don't abuse the telnet server. If you're going to IRC a lot, get your own client.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I105" NAME="I105">
+
+<FONT SIZE=3><B>Further Info</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Anonymous ftp to cs.bu.edu and go to /irc/support. There's some interesting info here. IRC also has several alt. groups dedicated to it: alt.irc.corruption, alt.irc.ircii, alt.irc.lamers, alt.irc.opers, alt.irc.questions, alt.irc.recovery, and 
+alt.irc.undernet. The corruption group probably won't be too interesting to you now, and you don't need the recovery group yet.
+
+<BR></P>
+
+<P>Good luck, and may you never op on request.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I106" NAME="I106">
+
+<FONT SIZE=4><B>Is That It?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Is that all there is to UNIX communications? Well, that's 99% of it ...
+
+<BR></P>
+
+<P>To review, the Internet is the largest network in the world, comprising an international network of networks. Its lifeblood is data, and much of that data consists of user to user communications. The most basic and possibly the most fundamentally useful 
+
+of these communications is Internet Mail, person-to-person messages. In fact, it is so useful that its reach far exceeds the reach of Internet itself, to other service providers such as Compuserve.
+
+<BR></P>
+
+<P>Internet Mail can be extended to multiple-person mailing lists, using list servers, but for public messaging, USENET is the preferred choice. It offers public posts on thousands of different subjects, with more being offered every day. You just need to 
+
+explore the waters carefully at first and make sure you don't violate any of the customs.
+
+<BR></P>
+
+<P>Those two services constitute the vast majority of personal communications on the Internet, but there are other specialized applications, such as MUDs (Multi User Dungeons), mostly for real-time conversations. Two of the most popular are Talk, for 
+single person to single person real-time &quot;chatting&quot; and Internet Relay Chat (IRC), for multiple person real-time conversations.
+
+<BR></P>
+
+<P>I'm sure that you will find that communication with others is a large part of your Internet experience.
+
+<BR></P>
+
+<P><A HREF="unx08.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx08.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt2au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt2au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

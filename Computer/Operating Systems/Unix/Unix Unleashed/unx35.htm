@@ -1,0 +1,3463 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx35.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx36.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx36.htm">
+
+<LINK REL="Previous" HREF="unx34.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx34.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx34.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx34.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx36.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx36.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">35 &#151; File System Administration</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Sidney Weinstein</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">How UNIX Uses Disks</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">The Pathname</A></LI>
+
+<LI>
+
+<A HREF="#I6">Some Definitions</A></LI>
+
+<LI>
+
+<A HREF="#I7">The System V Release 4 File System Layout</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">Formatting a Disk</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Low-Level Format</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">Formatting ESDI, MFM, or SMD Drives</A></LI>
+
+<LI>
+
+<A HREF="#I11">IDE</A></LI>
+
+<LI>
+
+<A HREF="#I12">SCSI</A></LI></UL>
+
+<LI>
+
+<A HREF="#I13">Dealing with Flawed Sectors</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">Factory Flaw Map</A></LI>
+
+<LI>
+
+<A HREF="#I15">Newly Developed Flaws After Formatting</A></LI></UL>
+
+<LI>
+
+<A HREF="#I16">Labeling the Disk</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">PC Partitions Versus UNIX Slices</A></LI>
+
+<LI>
+
+<A HREF="#I18">UNIX Slices</A></LI>
+
+<LI>
+
+<A HREF="#I19">Configuring the Slices</A></LI>
+
+<LI>
+
+<A HREF="#I20">Partition Uses</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I21">Preparing a File System</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">Choosing a File System Type</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I23">s5&#151;The System V File System</A></LI>
+
+<LI>
+
+<A HREF="#I24">ufs&#151;The UNIX File System (Formerly the Berkeley Fast File System)</A></LI>
+
+<LI>
+
+<A HREF="#I25">vxfs&#151;The Veritas Extent-Based File System</A></LI></UL>
+
+<LI>
+
+<A HREF="#I26">Choosing File System Parameters</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I27">Number of Inodes</A></LI>
+
+<LI>
+
+<A HREF="#I28">Block Size</A></LI>
+
+<LI>
+
+<A HREF="#I29">Expected Fragmentation/Fragment Size</A></LI>
+
+<LI>
+
+<A HREF="#I30">Cylinder Size</A></LI>
+
+<LI>
+
+<A HREF="#I31">Rotational Delay</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">Making File Systems with newfs</A></LI>
+
+<LI>
+
+<A HREF="#I33">Making File Systems with mkfs</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I34">Making ufs File Systems</A></LI>
+
+<LI>
+
+<A HREF="#I35">Making vxfs File Systems</A></LI></UL>
+
+<LI>
+
+<A HREF="#I36">The lost+found Directory</A></LI></UL>
+
+<LI>
+
+<A HREF="#I37">Mounting File Systems</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I38">Where to Mount</A></LI>
+
+<LI>
+
+<A HREF="#I39">How Permissions of the Underlying Mount Point Affect the Mounted File System</A></LI>
+
+<LI>
+
+<A HREF="#I40">Mounting a File System One Time</A></LI>
+
+<LI>
+
+<A HREF="#I41">Mounting a File System Every Time at Boot</A></LI>
+
+<LI>
+
+<A HREF="#I42">Unmounting a File System</A></LI></UL>
+
+<LI>
+
+<A HREF="#I43">Checking File Systems</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I44">The fsck Utility</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I45">The Super-Block</A></LI>
+
+<LI>
+
+<A HREF="#I46">Inodes</A></LI></UL>
+
+<LI>
+
+<A HREF="#I47">What Is a Clean (Stable) File System?</A></LI>
+
+<LI>
+
+<A HREF="#I48">Where Is fsck?</A></LI>
+
+<LI>
+
+<A HREF="#I49">When Should I Run fsck?</A></LI>
+
+<LI>
+
+<A HREF="#I50">How Do I Run fsck?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I51">Checking s5 File Systems</A></LI>
+
+<LI>
+
+<A HREF="#I52">Checking ufs File Systems</A></LI>
+
+<LI>
+
+<A HREF="#I53">Checking vxfs File Systems</A></LI></UL>
+
+<LI>
+
+<A HREF="#I54">What Do I Do After fsck Finishes?</A></LI>
+
+<LI>
+
+<A HREF="#I55">Dealing with What Is in lost+found</A></LI></UL>
+
+<LI>
+
+<A HREF="#I56">Finding and Reclaiming Space</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I57">What Takes Space</A></LI>
+
+<LI>
+
+<A HREF="#I58">Determining Who Is Using Up the Disk</A></LI>
+
+<LI>
+
+<A HREF="#I59">The System Administrator's Friend The find Utility</A></LI></UL>
+
+<LI>
+
+<A HREF="#I60">Reorganizing the File System Hierarchy</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I61">Using Symbolic Links to Hide Actual Disk Locations</A></LI>
+
+<LI>
+
+<A HREF="#I62">Moving Trees via cpio</A></LI></UL>
+
+<LI>
+
+<A HREF="#I63">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>35 &#151; File System Administration</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Sidney Weinstein</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In DOS, the primary division of file storage space is disk drives. These are further broken down into directories. UNIX uses a slightly different system that is also a bit more flexible. The primary division of file storage space is the file system. 
+File systems can be placed anywhere in the directory hierarchy, enabling the tree to be expanded wherever space is needed.
+
+<BR></P>
+
+<P>In DOS, a disk drive is divided into partitions, each of which is a logical drive letter. In UNIX, a disk drive is divided into slices, each one of which can be a file system. Both are dividing the disk into logical disks for use by their respective 
+operating systems.
+
+<BR></P>
+
+<P>This chapter walks you through adding, administering, checking, and backing up UNIX file systems. From a basic review of where UNIX places things, to how to install, configure, and use disk drives, you will see how UNIX deals with disk devices. The file 
+
+system section describes how to administer and maintain the files and free space. Finally, I cover protecting your data from destruction from hardware failure, software failure, and pilot error by performing regular backups using the backup tools built 
+into each UNIX system.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>How UNIX Uses Disks</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX views all disks as a continuous hierarchy starting at /, the root. It doesn't matter whether they are on the same disk drive, of the same file system type, or even on the same computer. What makes this possible is the file system. Each file system 
+
+is independent of the others and allows UNIX to make them all look the same. Before I delve into creating and administering the disk space, some definitions and introduction are in order.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>The Pathname</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A UNIX file is addressed by its pathname. This is the collection of directories starting in one of two places:
+
+<BR></P>
+
+<UL>
+
+<LI>From the top of the tree (/), showing each directory from the root to the file, called an absolute pathname
+
+<BR>
+
+<BR>/usr/bin/cat
+
+<BR>
+
+<BR></LI>
+
+<LI>From the current directory, going up or down the hierarchy to the file, called a relative pathname
+
+<BR>
+
+<BR>bin/cat
+
+<BR></LI></UL>
+
+<P>Each element between the pathname delimiters (/) is a directory, and the last element is the item being addressed, which in this case is a file.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Some Definitions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<UL>
+
+<LI><B>File.</B> A collection of bytes on the disk. Its characteristics are specified by the inode in the file system that describes it. Its name is specified by the directory entries that point to that inode. It has no structure but is just a collection 
+of bytes.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Directory.</B> A file with a special meaning overlaid on top of the collection of bytes. The contents of the file are a list of filenames and inode numbers. These are the files in this directory. Although there is a one-to-one mapping of inode to 
+disk blocks, there can be a many-to-one mapping from directory entry to inode. Thus, the directory contains the list of items in this directory, but those items might also appear in a different directory.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Device.</B> A device is a special type of inode entry. It describes a driver in the UNIX kernel. Using this entry, the system performs the I/O via the device driver. These types of entries are used to access the raw underlying disk drive. The UNIX 
+device driver makes a device pointed to by these entries appear as a stream of bytes, just like any other file.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Link (Hard Link).</B> A link is the name given to a directory entry. It links the directory entry to the inode that describes the actual item (file, device, and so on). This physical linking is a map directly to the inode, and the inode describes 
+space on this file system. Thus, the link can be a file only on this file system. Each file has one or more links. (When a file is removed from a directory, the link count is decremented. When it reaches zero, the inode and the disk space it points to are 
+
+freed, causing the data to be deleted.) The number of links to a given inode is shown in the ls -l output.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>I created a directory, t, and made three empty directories underneath it to show how UNIX makes use of links to tie the file system hierarchy together. The empty directories are a, b, and c. Here is an ls -liR output of the tree, starting at t:
+
+<BR></P>
+
+<PRE>total 40
+
+   23 drwxr-xr-x   5 syd      users    91 Feb 26 10:18 .
+
+    2 drwxrwxrwx   5 root     root    408 Feb 26 10:18 ..
+
+   27 drwxr-xr-x   2 syd      users    37 Feb 26 10:18 a
+
+   31 drwxr-xr-x   2 syd      users    37 Feb 26 10:18 b
+
+   33 drwxr-xr-x   2 syd      users    37 Feb 26 10:18 c
+
+./a:
+
+total 16
+
+   27 drwxr-xr-x   2 syd      users    37 Feb 26 10:18 .
+
+   23 drwxr-xr-x   5 syd      users    91 Feb 26 10:18 ..
+
+./b:
+
+total 16
+
+   31 drwxr-xr-x   2 syd      users    37 Feb 26 10:18 .
+
+   23 drwxr-xr-x   5 syd      users    91 Feb 26 10:18 ..
+
+./c:
+
+total 16
+
+   33 drwxr-xr-x   2 syd      users    37 Feb 26 10:18 .
+
+   23 drwxr-xr-x   5 syd      users    91 Feb 26 10:18 ..</PRE>
+
+<P>The first number on each line is the inode number, followed by the permission mask. The next number is the hard link count. This is the number of times that this inode appears in a directory entry. The last column is the filename (remember, directories 
+
+are just files with special characteristics). The file . is the current directory, which is pointed to by inode 23. The file .. is the parent of this directory, and for the directory t, it is inode 2, the root of this file system. Notice how in directories 
+
+a, b, and c, the .. entries are also inode 23. By mapping the name .. to the same inode as the parent directory, UNIX has built the reverse link in the file system. This listing shows four entries with the inode number 23, yet the link count on each is 5. 
+
+The fifth link is the entry in the root directory for t, this directory itself.
+
+<BR></P>
+
+<PRE>23 drwxr-xr-x   5 syd      users       91 Feb 26 10:18 t</PRE>
+
+<UL>
+
+<LI><B>Symlink (Soft Link).</B> A symlink or symbolic link is a file whose contents are treated as a pathname. This pathname is used whenever the symlink is referenced. Because it is just a pathname (relative or absolute), it can cross file system 
+boundaries. Unlike links, creating a symlink does not require the existence of the file it points to, and removing the symlink does not remove the file. It is merely a pointer to the file to be used whenever this symlink is referenced.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Symbolic links were developed in the Berkeley derivatives of UNIX. They are available on any derivative of the Berkeley fast file system, such as ufs file systems. They are not available on the older 
+
+UNIX s5 type file system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Because symbolic links can point anywhere, they are a wonderful tool to remap directories to other file systems when space is a problem, or to make multiple links into the same directory (something UNIX 
+
+does not allow with hard links because it would mess up the meaning of ..). Just move the files to the new file system, then create a symlink in the old directory pointing to the new location. It will cause a problem, however, in traversing back up the 
+chain using .. unless the shell you use is aware of symlinks and compensates for the problem. The Korn Shell under SVR4 does handle this correctly.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI><B>Mount Point.</B> This is the directory entry in the file system hierarchy where the root directory of a different file system is overlaid over the directory entry. UNIX keeps track of mount points and accesses the root directory of the mounted file 
+
+system instead of the underlying directory. A file system can be mounted at any point in the hierarchy, and any type of file system can be mounted&#151;it doesn't have to be the same type as its parent.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Because the new file system is mounted on top of a directory of its parent, its parent must be mounted first. Also, this hides the underlying directory entry and any contents it had. See the 
+section titled &quot;Mounting File Systems&quot; later in this chapter.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI><B>Inode.</B> This is the building block of the UNIX file system. Each file system contains an array of inodes. They contain a complete description of the directory entry, including the following:
+
+<BR>
+
+<BR>mode Permission mask and type of file. The bit mask in this field defines whether the file is an ordinary file, directory, device, symlink, or other special type of entry. It also describes the permissions. This is the field that is decoded into the 
+drwxr-xr-x string by the ls command.
+
+<BR>
+
+<BR>link count The number of links to this file (the number of directories that contain an entry with this inode number).
+
+<BR>
+
+<BR>user ID User ID of the owner of the file.
+
+<BR>
+
+<BR>group ID Group ID of the owner of the file, used to map the group access permissions in mode.
+
+<BR>
+
+<BR>size Number of bytes in the file.
+
+<BR>
+
+<BR>access time Time (in UNIX time format) that the file was last accessed.
+
+<BR>
+
+<BR>mod time Time (in UNIX time format) that the file was last modified.
+
+<BR>
+
+<BR>inode time Time (in UNIX time format) that the inode entry was last modified. This does not include changes to the size or time fields.
+
+<BR>
+
+<BR>block list A list of the disk block numbers of the first few blocks in the file. Only the first few (10&#151;12, it varies depending on file system type) are kept directly in the inode.
+
+<BR>
+
+<BR>indirect list A list of the disk block numbers holding the single, double, and triple indirect blocks.
+
+<BR>
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A trade-off of size versus speed was made in the design of the original UNIX file system; it was effective and has remained. Most files in UNIX are small. By placing only the first 10&#151;12 block 
+numbers in the inode, the space used by the inode table can be kept small. Yet for normal files that are small (less than 96 KB on ufs file systems), all of the block numbers are immediately accessible in the inode. For larger files, a disk block is used 
+to hold a list of block numbers. This is called the single indirect block. Still larger files use a block containing a list of blocks containing the block numbers or a double indirect block. The largest files can use triple indirect blocks. (See Figure 
+35.1.) The largest file that can be described is a ufs file system with
+
+<P>
+
+<BR><B><A HREF="35unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/35unx01.gif">Figure 35.1. </B><B><I>ufs</I></B><B> disk allocation block layout.</A></B>
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>no indirects</P>
+
+<TD>
+
+<P>12<B>&#180;</B>8192 = 96 KB or 98,304 bytes</P>
+
+<TR>
+
+<TD>
+
+<P>only single</P>
+
+<TD>
+
+<P>no indirect + 2048<B>&#180;</B>8192 = 16,480 KB or 16,875,520 bytes</P>
+
+<TR>
+
+<TD>
+
+<P>only double</P>
+
+<TD>
+
+<P>single indirect + 2048<B>&#180;</B>2048<B>&#180;</B>8192 = 32,784 MB or 34,376,613,888 bytes</P>
+
+<TR>
+
+<TD>
+
+<P>with triple</P>
+
+<TD>
+
+<P>double indirect + 2048<B>&#180;</B>2048<B>&#180;</B>2048<B>&#180;</B>8192 = 67,141,648 MB or 70,403,120,791,552 bytes (if you could find a disk that large)</P></TABLE>
+
+<BR>
+
+In UNIX, the inode, not the directory entry, contains all the information about the file. The only information in the directory is the filename and its inode number. This indirection from the filename to inode entry is what allows for links.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI><B>Super-block.</B> The controlling block of a file system. It contains the information about the file system and the heads of several lists, including the inode list, the free inode list, and the free block list. This block is cached in memory for all 
+
+mounted file systems and is periodically also written to the disk.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>The System V Release 4 File System Layout</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As installed in Chapter 33, the files in a UNIX installation are split into several file systems. One typical layout is shown in Figure 35.2.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="35unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/35unx02.gif">Figure 35.2. Typical UNIX System V Release 4 file </B><B>system layout.</A></B>
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Note that in Figure 35.2, the file systems have been split across the two disks in an attempt to allow for parallel access to the file systems. Files are accessed from usr and opt quite often. Files are 
+
+written to var and home frequently. These are split across the two disk drives.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Formatting a Disk</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Adding a disk to a UNIX system requires the following three steps:
+
+<BR></P>
+
+<UL>
+
+<LI>Low level formatting&#151;Writing the sector addresses to the disk
+
+<BR>
+
+<BR></LI>
+
+<LI>Labeling&#151;Writing the slice information to the disk
+
+<BR>
+
+<BR></LI>
+
+<LI>Making file systems&#151;Writing the file system header information to a slice
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The first two are covered in this section and making file systems is covered in the next section.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Low-Level Format</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before any operating system can use a disk, it must be initialized. This low-level format writes the head, track, and sector numbers in a sector preamble and a checksum in the postamble to every sector on the disk. At the same time, any sectors that are 
+
+unusable due to flaws in the disk surface are so marked and, depending on the disk format, an alternate sector might be mapped in place to replace the flawed sector.
+
+<BR></P>
+
+<P>Low-level disk formatting is performed differently for the three types of disk drives used by UNIX systems.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Formatting ESDI, MFM, or SMD Drives</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>UNIX cannot format these drives while it is running. Instead, a stand-alone format program is used. It is usually provided by the manufacturer of the computer or the disk controller board. On PC hardware, this formatter runs either in 'Debug' mode 
+(before the operating system is loaded) or as an MS-DOS utility. Follow the manufacturer's directions for formatting these drives and be sure to have the drive mark the flawed sectors into the flaw map. UNIX will make use of this flaw map when creating its 
+
+alternate track list.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> All three of these disk types are obsolete and slow. UNIX performance is very dependent on disk access times and transfer rate. It would be best to consider replacing these disks as soon as practical 
+with SCSI disks.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>When adding this disk to your UNIX system, UNIX will insist on scanning the disk for flawed sectors, destroying any information on the disk. It needs to do this because UNIX file systems expect 
+
+the disk to be flawless. The operating system or the disk drive itself is expected to map out bad sectors. For performance reasons, it often flaws entire tracks when any sector is bad. This can cause the actual disk space to be less than the drive 
+indicates.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>IDE</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>These drives are found on PC systems and extend the PC's ISA bus directly into the disk drive. They were designed to reduce the cost of MS-DOS PCs, and they come preformatted from the factory. Most format utilities are unable to low-level format these 
+drives.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Do not attempt to format an IDE drive without a specialized format utility approved for the specific IDE drive you are using. Normally there is no need to low-level format these drives, because 
+
+they come from the factory preformatted.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>SCSI</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Most current UNIX systems are designed for SCSI disks. These disks come preformatted from the factory and normally do not need to be reformatted in the field. They also handle bad sector remapping internally. There is no reason to scan these disks for 
+flawed sectors.
+
+<BR></P>
+
+<P>If you do need to reformat these disks, you generally have three options:
+
+<BR></P>
+
+<UL>
+
+<LI>Use the UNIX vendor's format utility. Most workstation vendors include such a utility. SCSI disks do their own formatting when sent a format command. Just select the format menu option, and the SCSI disk will do the rest. Because the disk does its own 
+
+formatting, there is normally no progress indication. Low-level formatting can take from several minutes to an hour or so.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use a third-party disk management utility. These applications, such as SpeedStor for UNIX, provide a button on their window to directly format the SCSI disk.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the disk controller's MS-DOS utility. For PCs, where most UNIX vendors have not provided a utility to format the disk, boot MS-DOS and use the disk controller vendor's format utility to format the disk.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Unlike MFM, ESDI, and SMD disks, where it matters what controller did the formatting, SCSI disks can be formatted on any system. If you don't want to take down the UNIX system for an hour or more to 
+format the disk, use some other system or PC to do the format. Then just add the disk to the SCSI chain on the UNIX system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Unless your disk enclosure came with a Hot Swap tray, do not plug it in while power is applied. SCSI uses a fuse on the terminator power line, and plugging and unplugging the cable while the 
+system and drives are powered up can blow this fuse, making the controller, and thus the computer system, unusable until it is repaired.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Dealing with Flawed Sectors</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As I mentioned, UNIX expects the disks to be flawless. However, this is rarely true. It is too expensive to build large disks with no flaws. By allowing for a relatively small number of flaws, the price of drives can be much lower. UNIX can deal with 
+flawed sectors in several ways:
+
+<BR></P>
+
+<UL>
+
+<LI>Alternate sectors per track. In this scheme, one or two sectors per track are reserved for use in remapping flawed sectors. If a sector is flawed, its sector ID is instead written to the mapped sector. This reduces the overall storage capacity of the 
+drive by some fixed percentage, to allow for flaws. This method has a problem if the track has more than the reserved number of bad sectors. This method is used mostly on SMD disks.
+
+<BR>
+
+<BR></LI>
+
+<LI>Alternate tracks. In this scheme, several tracks are set aside, and whenever a track has a flawed sector, the operating system substitutes one of these tracks for the flawed track. Again, the storage space on all of the alternate tracks is lost. This 
+method has a problem in that a single flaw wastes an entire track.
+
+<BR>
+
+<BR></LI>
+
+<LI>Letting the disk controller map out bad blocks. In this scheme, the disk controller handles remapping the blocks, and the disk appears flawless. This is the method used by SCSI disks, where the disk controller is actually on the disk itself and the 
+controller in the computer is really a SCSI bus controller.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Factory Flaw Map</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In either of the first two cases, the factory performs tests on the disk and writes to a special location on the disk the list of sectors found to be flawed or weak. This is referred to as the factory flaw map. Every sector on this map should be entered 
+
+as flawed, even if it passes the UNIX bad sector test. This is because some of them might be weak and intermittently change over time. SCSI disks automatically access the factory flaw map when they perform their internal format. For non-SCSI disks, you 
+will either access the factory flaw map with the formatting utility or enter it by hand from a table that is either attached to the top of the drive or enclosed with it when it is shipped.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Newly Developed Flaws After Formatting</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Disk sectors can also go bad for several reasons after formatting. Sometimes there is a hardware problem and the formatting information for that sector is ruined. Other times the sector was weak to begin with or gets physically damaged. Either way, the 
+
+disk is no longer flawless. This causes a problem because UNIX expects flawless disks.
+
+<BR></P>
+
+<P>You will see this problem when UNIX reports to the console log that it had an Unrecoverable Read or Unrecoverable Write error on a disk block. A warning about an upcoming problem would be a set of recoverable errors. You will need to map this block 
+number to an absolute disk block. UNIX reports the block number, starting with block 0 at the beginning of each logical device. To convert the block number to absolute, you need to add the starting block number to the number reported in the log. To perform 
+
+this conversion, you must meet the following requirements:
+
+<BR></P>
+
+<OL>
+
+<LI>logical disk starting sector = starting cylinder of the logical slice <B>&#180;</B> number of heads <B>&#180;</B> number of sectors/track
+
+<BR>
+
+<BR></LI>
+
+<LI>logical disk starting block = logical disk starting sector / number of sectors per block
+
+<BR>
+
+<BR></LI>
+
+<LI>absolute block = logical disk starting block + reported block number from error message
+
+<BR>
+
+<BR></LI></OL>
+
+<P>You will then need to repair or map the flawed sector.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Most repair methods will destroy the data on the block. In addition, the flaw makes the file under the block damaged. Either way, recovery of that file will be necessary. However, if you make a 
+
+mistake, you could damage the data on the entire disk. Therefore, always perform and verify a backup before attempting to repair a disk block.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Non-SCSI Disks</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>To repair a formatting problem, if your format utility allows it, just reformat the sectors that were damaged. Perform a nondestructive scan for unflawed defective sectors and reformat only those sectors.
+
+<BR></P>
+
+<P>If your format utility does not support repairing a single sector, you can flaw the sector, causing it to remap. Most formatting utilities provide an option to perform this automatically on the nondestructive scan.
+
+<BR></P>
+
+<P>Lastly, you can reformat the entire disk. Of course, this will lose all the data on the disk. You will have to re-install UNIX or restore from backup after this kind of repair.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>SCSI Disks</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Older SCSI disks required reformatting to add flaws. Newer disks fall into two categories:
+
+<BR></P>
+
+<UL>
+
+<LI>Automatic repair: Most newer SCSI disks automatically detect the problem and remap the sector on the fly. These generally do not even report a problem.
+
+<BR>
+
+<BR></LI>
+
+<LI>Manual Repair: There is a SCSI command to ask the disk to repair the sector. This command is activated by the vendor's disk utility.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Your last resort is to reformat the entire disk. Of course, this will lose all the data on the disk. You will have to re-install UNIX or restore from backup after this kind of repair.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Labeling the Disk</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once the disk is formatted, it needs to have a special block, called the label, written to it. This block describes the geometry of the disk (heads, tracks, sectors) and how to split the disk into multiple logical disks (virtual table of contents).
+
+<BR></P>
+
+<P>On UNIX, it is often convenient to use multiple file systems. These provide protection from overruns and changes and can increase performance. However, it is expensive to place each file system on its own disk drive. Some are too small to warrant a 
+drive, and requiring eight or ten disk drives would be too expensive. UNIX works around this by splitting the disk into logical disks. The label records how the disk is split.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>PC Partitions Versus UNIX Slices</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>On a PC-based system, to be compatible with DOS, disks 0 and 1 are first labeled with the DOS fdisk partition table. The UNIX partition is marked NON-DOS and active. The fdisk partition table can be written by the DOS utility fdisk, by the disk 
+controller vendor's formatting utility, or during the UNIX disk add sequence (by the UNIX command fdisk).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Because PCs often require DOS programs to format disks and use the DOS utility to access the ESDI configuration utility, placing a small DOS partition on the hard disk is very useful. In addition, most 
+
+UNIX systems let you boot from that DOS partition by typing the command DOS during the boot cycle.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The UNIX label is not the same thing as the DOS fdisk partition table. Instead, it is written to the first block of the UNIX partition along with the UNIX boot block.
+
+<BR></P>
+
+<P>On non-PC systems, the label is written directly to the first block of the disk along with the UNIX boot block.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>UNIX Slices</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The virtual table of contents in the label is used to split the disk into 8 or 16 logical disks. (Some UNIX vendors allow for 8, some for 16&#151;you don't make the choice yourself.) Once the system boots, each of these logical disks looks like a 
+complete disk to UNIX. By convention, one of the slices is used to refer to the entire physical disk drive, and the remaining slices are left for you to configure.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Configuring the Slices</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When you installed the system (see Chapter 33), you were prompted to enter the configuration information for each slice. When adding a disk, you will have to do the same thing. SVR4 will walk you through this using the adddisk option of the System 
+Administrator shell (sysadm). Other systems require you to run a command to define the virtual table of contents (format on Solaris or SunOS, disksetup on Unixware).
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Adding a Disk Using the Solaris </B><B><I>format</I></B><B> Command</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>By convention, disk drives on Solaris are set at SCSI target addresses 0&#151;3. Targets 4 and 5 are for tape drives, and target 6 is for the CD-ROM drive. Configure the disk to an unused SCSI, target it, and add it to the SCSI chain. Then reboot the 
+system. Once booted, log in and become root. Then run the format command and select the new disk from the list of available disks, as follows:
+
+<BR></P>
+
+<PRE># format
+
+Searching for disks...done
+
+AVAILABLE DISK SELECTIONS:
+
+       0. c0t1d0 &lt;SUN1.05 cyl 2036 alt 2 hd 14 sec 72&gt;
+
+/iommu@f,e0000000/sbus@f,e0001000/espdma@f,400000/esp@f,800000/sd@1,0
+
+       1. c0t2d0 &lt;DEC DSP5350 cyl 2343 alt 2 hd 25 sec 119&gt;
+
+/iommu@f,e0000000/sbus@f,e0001000/espdma@f,400000/esp@f,800000/sd@2,0
+
+       2. c0t3d0 &lt;SUN1.05 cyl 2036 alt 2 hd 14 sec 72&gt;
+
+/iommu@f,e0000000/sbus@f,e0001000/espdma@f,400000/esp@f,800000/sd@3,0
+
+Specify disk (enter its number): 0
+
+selecting c0t1d0
+
+[disk formatted]
+
+FORMAT MENU:
+
+        disk       - select a disk
+
+        type       - select (define) a disk type
+
+        partition  - select (define) a partition table
+
+        current    - describe the current disk
+
+        format     - format and analyze the disk
+
+        repair     - repair a defective sector
+
+        label      - write label to the disk
+
+        analyze    - surface analysis
+
+        defect     - defect list management
+
+        backup     - search for backup labels
+
+        verify     - read and display labels
+
+        save       - save new disk/partition definitions
+
+        inquiry    - show vendor, product and revision
+
+        volname    - set 8-character volume name
+
+        quit</PRE>
+
+<P>If the disk is already labeled, its label type will be show on the selection list. Otherwise, the disk will be shown with the type unknown.
+
+<BR></P>
+
+<PRE>format&gt; <B>type</B>
+
+AVAILABLE DRIVE TYPES:
+
+        0. Auto configure
+
+        1. Quantum ProDrive 80S
+
+        2. Quantum ProDrive 105S
+
+        3. CDC Wren IV 94171-344
+
+        . . .
+
+       16. other
+
+Specify disk type (enter its number)[12]: <B>16</B>
+
+Enter number of data cylinders: <B>2034</B></PRE>
+
+<P>The number of data cylinders is set to the number of cylinders minus the number of alternate cylinders for bad block mapping. The default number of cylinders for bad block mapping in Solaris is 2, so set this to the number of cylinders reported by the 
+drive minus 2 cylinders.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Many SCSI drives use a variable number of sectors per cylinder. In this case, map the drive to provide an even number of heads and sectors per track. The allocation of data to cylinders works best if a 
+
+cylinder is an integral number of disk blocks. Try to make sectors * heads a multiple of 16 (for 8 KB file systems). Then just divide the number of blocks by this product to get the number of cylinders. However, most disk drive vendors can provide you with 
+
+a Sun format.dat entry for your drive. This will have all of these parameters already listed for you.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>Enter number of alternate cylinders[2]:
+
+Enter number of physical cylinders[2036]:
+
+Enter number of heads: <B>14</B>
+
+Enter physical number of heads[default]:
+
+Enter number of data sectors/track: <B>72</B>
+
+Enter number of physical sectors/track[default]:
+
+Enter rpm of drive[3600]:
+
+Enter format time[default]:
+
+Enter cylinder skew[default]:
+
+Enter track skew[default]:
+
+Enter tracks per zone[default]:
+
+Enter alternate tracks[default]:
+
+Enter alternate sectors[default]:
+
+Enter cache control[default]:
+
+Enter prefetch threshold[default]:
+
+Enter minimum prefetch[default]:
+
+Enter maximum prefetch[default]:
+
+Enter disk type name (remember quotes): &quot;New Disk Type&quot;</PRE>
+
+<P>Assign the drive a name that matches the manufacturer and model of the drive. Use the other drive names shown in the selection list as examples. It is best to take the default values for the SCSI parameters&#151;the system will fetch them from the SCSI 
+
+pages in the drive.
+
+<BR></P>
+
+<P>Next you have to define the slices (partitions). This is performed from the partition menu, as follows:
+
+<BR></P>
+
+<PRE>format&gt;  <B>par</B>
+
+PARTITION MENU:
+
+        0      - change '0' partition
+
+        1      - change '1' partition
+
+        2      - change '2' partition
+
+        3      - change '3' partition
+
+        4      - change '4' partition
+
+        5      - change '5' partition
+
+        6      - change '6' partition
+
+        7      - change '7' partition
+
+        select - select a predefined table
+
+        modify - modify a predefined partition table
+
+        name   - name the current table
+
+        print  - display the current table
+
+        label  - write partition map and label to the disk
+
+        quit</PRE>
+
+<P>Partition 2 is the Sun convention for the entire disk. The remaining partitions on a non-boot disk can be used for any section of the disk.
+
+<BR></P>
+
+<PRE>partition&gt; 0
+
+Part      Tag    Flag     Cylinders        Size       Blocks
+
+0   unassigned   wm       0                0          (0/0/0)
+
+Enter partition id tag[unassigned]: <B>?</B>
+
+Expecting one of the following: (abbreviations ok):
+
+        unassigned    boot          root          swap
+
+        usr           backup        var           home</PRE>
+
+<P>If you are unsure of an answer, you can type ?, and the system will prompt you for the choices. The types of partition IDs are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>unassigned</P>
+
+<TD>
+
+<P>This partition entry will not be used; the starting cylinder and size should be 0</P>
+
+<TR>
+
+<TD>
+
+<P>boot</P>
+
+<TD>
+
+<P>Stand-alone boot images</P>
+
+<TR>
+
+<TD>
+
+<P>backup</P>
+
+<TD>
+
+<P>The entire disk, used to back up the disk in image format</P>
+
+<TR>
+
+<TD>
+
+<P>root</P>
+
+<TD>
+
+<P>The root file system</P>
+
+<TR>
+
+<TD>
+
+<P>swap</P>
+
+<TD>
+
+<P>Swap partition</P>
+
+<TR>
+
+<TD>
+
+<P>var</P>
+
+<TD>
+
+<P>System partition for local data</P>
+
+<TR>
+
+<TD>
+
+<P>usr</P>
+
+<TD>
+
+<P>System partition for system files</P>
+
+<TR>
+
+<TD>
+
+<P>home</P>
+
+<TD>
+
+<P>Any partition for user files</P></TABLE>
+
+<PRE>Enter partition id tag[unassigned]: <B>home</B>
+
+Enter partition permission flags[wm]: <B>?</B>
+
+Expecting one of the following: (abbreviations ok):
+
+     wm    - read-write, mountable
+
+     wu    - read-write, unmountable
+
+     rm    - read-only, mountable
+
+     ru    - read-only, unmountable</PRE>
+
+<P>Mountable partitions hold file systems; unmountable ones are for raw data, such as databases.
+
+<BR></P>
+
+<PRE>Enter partition permission flags[wm]:
+
+Enter new starting cyl[0]:</PRE>
+
+<P>Although partitions can sometimes overlap, if they are to be used at the same time, they cannot overlap. Normally, set the starting cylinder for each new partition to the starting cylinder + the number of cylinders in the prior partition.
+
+<BR></P>
+
+<PRE>Enter partition size[0b, 0c, 0.00mb]: <B>?</B>
+
+Expecting up to 2052288 blocks, 2036 cylinders, or 1002.09 megabytes
+
+Enter partition size[0b, 0c, 0.00mb]: <B>1024c</B></PRE>
+
+<P>Repeat the prior step until all the partitions are completed. Then use the p (print) command to check that it is correct. No partitions should overlap, except where you intend to use one or the other of them. Of course, partition 2, being the entire 
+disk, will overlap everything.
+
+<BR></P>
+
+<P>When you are satisfied that the information is correct, label the disk
+
+<BR></P>
+
+<PRE>partition&gt; <B>label</B></PRE>
+
+<P>and quit the format program.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Adding a Disk Using the Unixware </B><B><I>disksetup</I></B><B> Command</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Configure the disk to an unused SCSI target that is higher than the target ID of the boot disk and add it to the SCSI chain. Then reboot the system. Unixware will detect the new device on boot and automatically create all the device entries. Once 
+booted, log in and become root. Then run the fdisk command to add a partition table to the new disk drive. The argument to fdisk is the raw device entry for slice 0 on the disk. This is determined by taking the string /dev/rdsk/ and entering the controller 
+
+and target numbers as cNtM. Slice 0 is always d0s0.
+
+<BR></P>
+
+<PRE># fdisk /dev/rdsk/c0t1d0s0
+
+The recommended default partitioning for your disk is:
+
+  a 100% &quot;UNIX System&quot; partition.
+
+To select this, please type &quot;y&quot;.  To partition your disk differently,
+
+type &quot;n&quot; and the &quot;fdisk&quot; program will let you select other partitions. <B>y</B></PRE>
+
+<P>Unless you intend to place a DOS partition onto the drive, answer yes and let Unixware default the entire disk to UNIX. Then run disksetup, which takes the same argument as fdisk.
+
+<BR></P>
+
+<PRE># disksetup -I /dev/rdsk/c0t1d0s0
+
+Surface analysis of your disk is recommended
+
+but not required.
+
+Do you wish to skip surface analysis? (y/n) <B>y</B></PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If the disk is a SCSI disk that handles bad block mapping itself, you can safely skip the surface analysis. For ESDI, MFM, and SMD disks, always run the surface analysis.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>You will now be queried on the setup of your disk. After you
+
+have determined which slices will be created, you will be
+
+queried to designate the sizes of the various slices.
+
+How many slices/filesystems do you want created on the disk (1 - 13)? <B>2</B></PRE>
+
+<P>Unixware supports 16 slices per disk. However, it reserves three of them for its own use to hold the boot track, the bad track map, and the alternate sector tracks.
+
+<BR></P>
+
+<PRE>Please enter the absolute pathname (e.g., /usr3) for
+
+slice/filesystem 1 (1 - 32 chars)? <B>/opt</B></PRE>
+
+<P>This is the mount point for the file system. Non-file-system partitions can have an identifier entered here to remind you of the usage of this partition, because it won't be used in a mount command.
+
+<BR></P>
+
+<PRE>Enter the filesystem type for this slice (vxfs,ufs,s5,sfs),
+
+type 'na' if no filesystem is needed, or press
+
+&lt;ENTER&gt; to use the default (vxfs):
+
+Specify the block size from the following list
+
+(1024, 2048, 4096, 8192), or press &lt;ENTER&gt; to use the first one:
+
+Should /opt be automatically mounted during a reboot?
+
+Type &quot;no&quot; to override auto-mount or press enter to enable the option:
+
+Please enter the absolute pathname (e.g., /usr3) for
+
+slice/filesystem 2 (1 - 32 chars)? <B>/home</B></PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Be sure to save any files at the new mount point before running the disksetup command. Remove those files so there are no files or directories in the mount directory. The mount will hide any 
+files in the parent file system at and below the mount point. After the disksetup command is completed, restore the saved files onto the new disk partition.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>Enter the filesystem type for this slice (vxfs,ufs,s5,sfs),
+
+type 'na' if no filesystem is needed, or press
+
+&lt;ENTER&gt; to use the default (vxfs):
+
+Specify the block size from the following list
+
+(1024, 2048, 4096, 8192), or press &lt;ENTER&gt; to use the first one:
+
+Should /home be automatically mounted during a reboot?
+
+Type &quot;no&quot; to override auto-mount or press enter to enable the option:
+
+You will now specify the size in cylinders of each slice.
+
+(One megabyte of disk space is approximately 1 cylinder.)
+
+How many cylinders would you like for /opt (0 - 638)?
+
+Hit &lt;ENTER&gt; for 0 cylinders: <B>320</B>
+
+How many cylinders would you like for /home (0 - 318)?
+
+Hit &lt;ENTER&gt; for 0 cylinders: <B>318</B>
+
+You have specified the following disk configuration:
+
+A /opt filesystem with 320 cylinders (320.0 MB)
+
+A /home filesystem with 318 cylinders (318.0 MB)
+
+Is this allocation acceptable to you (y/n)? <B>y</B>
+
+Filesystems will now be created on the needed slices
+
+Creating the /opt filesystem on /dev/rdsk/c0t1d0s1
+
+Allocated approximately 81888 inodes for this file system.
+
+Specify a new value or press &lt;Enter&gt; to use the default:
+
+WARNING: This file system will be able to support more than 65,536 files. Some older applications (written for UNIX System V Release 3.2 or before) may not work correctly on such a file system, even if fewer than 65,536 files are actually present. If you 
+wish to run such applications (without recompiling them), you should restrict the maximum number of files that may be created to fewer than 65,536.</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> In System V Release 4, the inode number was increased from a 16-bit to a 32-bit field. If the pre-4.0 application performs a stat call, it might not be capable of understanding the inode number that is 
+
+returned. This is a problem for only a small number of applications. Normally you can safely ignore this message and allow the increased number of inodes.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>Your choices are:
+
+1. Restrict this file system to fewer than 65,536 files.
+
+2. Allow this file system to contain more than 65,536 files
+
+   (not compatible with some older applications).
+
+Press '1' or '2' followed by 'ENTER': <B>2</B>
+
+Creating the /home filesystem on /dev/rdsk/c0t1d0s2
+
+Allocated approximately 81376 inodes for this file system.
+
+Specify a new value or press &lt;Enter&gt; to use the default:
+
+WARNING: This file system will be able to support more than 65,536 files. Some older applications (written for UNIX System V Release 3.2 or before) may not work correctly on such a file system, even if fewer than 65,536 files are actually present. If you 
+wish to run such applications (without recompiling them), you should restrict the maximum number of files that may be created to fewer than 65,536.
+
+Your choices are:
+
+1. Restrict this file system to fewer than 65,536 files.
+
+2. Allow this file system to contain more than 65,536 files
+
+   (not compatible with some older applications).
+
+Press '1' or '2' followed by 'ENTER': <B>1</B></PRE>
+
+<P>Other systems are similar to either the Solaris or Unixware examples.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Partition Uses</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Partitions can be used for file systems or as raw data areas. Uses of raw data areas include the following:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Swap space.</B> Swap space can be split across several drives. This is normally done if the system grows and RAM is added, making more swap space necessary.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Backup staging area.</B> Perform your backups to disk and then copy them to tape at high speed after they complete. Then the backup is also available online for immediate access.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Database devices.</B> Many UNIX databases perform faster and more reliably if they do not have to use the UNIX file system cache.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> The label for a disk is stored in block 0. UNIX file systems skip block 0, reserving it for the boot block and label. If you create a non-file-system slice at the front of a disk, do not include 
+
+block 0 in the slice. This will prevent the raw slice from overwriting the label and losing the partition layout of the disk.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Preparing a File System</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Once the disk is partitioned and labeled with its slices, you are ready to make a file system. The Unixware disksetup utility combined this with the labeling step, but it allowed only the default values for most of the parameters, allowing you a choice 
+
+only of file system type and number of inodes. In addition, it does not help you build a file system after the disk is already labeled. For that you still have to use the traditional methods of building a file system.
+
+<BR></P>
+
+<P>UNIX supports several file system types, and each of them has several tuning options. The steps in preparing a file system follow:
+
+<BR></P>
+
+<OL>
+
+<LI>Choose the type of file system.
+
+<BR>
+
+<BR></LI>
+
+<LI>Select the proper cluster size, block size, and number of inodes.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use mkfs or newfs to build the file system.
+
+<BR>
+
+<BR></LI></OL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Choosing a File System Type</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Of the many types of file systems supported under UNIX, the first three listed here are normally used:
+
+<BR></P>
+
+<UL>
+
+<LI>s5 The older System V file system. A low overhead file system useful for removable media.
+
+<BR>
+
+<BR></LI>
+
+<LI>ufs The new name for the Berkeley Fast File System.
+
+<BR>
+
+<BR></LI>
+
+<LI>vxfs The Veritas Extent-Based File System.
+
+<BR>
+
+<BR></LI>
+
+<LI>pcfs MS-DOS FAT-based File System. Used to access DOS floppies and hard disk partitions. Although this file system type is compatible with DOS, it is not as robust as the UNIX formats and should be used only for exchange media with DOS systems.
+
+<BR>
+
+<BR></LI>
+
+<LI>hsfs High Sierra File System. Used by ISO-9660 CD-ROMs. Often used with the Rock Ridge extensions to map UNIX filenaming conventions to the ISO-9660 standard layout.
+
+<BR>
+
+<BR></LI>
+
+<LI>cfs Cached File System. A local storage area for caching an NFS file system. See Chapter 37 for further information on Network File Systems.
+
+<BR>
+
+<BR></LI>
+
+<LI>bfs A very simplistic file system used to hold stand-alone boot images. It supports only contiguous files and is not intended for use beyond the system boot images.
+
+<BR>
+
+<BR></LI>
+
+<LI>tmpfs A RAM-based file system used for the /tmp directory. It shares paging space with the swap partition. It is available on only a small number of UNIX systems.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B><I>s5</I></B><B>&#151;The System V File System</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Before System V Release 4 adopted the ufs file system, this was the de facto standard for UNIX. It is a low overhead file system that supports only 14-character filenames and a restricted number of inodes (65536). In addition, it is prone to 
+fragmentation, which can slow down access to the disk. It is currently used when sharing removable media between older systems and current ones is desired, and for floppies where the overhead of ufs wastes too much space. Except for backward compatibility 
+
+uses, it should be limited to file systems of 2 MB or less.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B><I>ufs</I></B><B>&#151;The UNIX File System (Formerly the Berkeley Fast File System)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This file system is based on cylinder groups. It groups files together to reduce access times and reduce fragmentation. To achieve this, it extracts a 10&#151;20 percent space overhead on the drive. It supports long filenames and is not restricted as to 
+
+the number of inodes. This is the default file system type on Solaris. The ufs file system is the only one that supports disk quotas, restricting the amount of disk space a user can use.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B><I>vxfs</I></B><B>&#151;The Veritas Extent-Based File System</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>s5 and ufs file systems rely on the full structural verification check in the fsck utility to recover from system failures. This takes several minutes per disk after a system crash. Normally not much is lost, usually just what was still in the file 
+system cache in RAM, but the delay on boot can be large. On a file server it can add over an hour to the boot time.
+
+<BR></P>
+
+<P>The vxfs file system provides recovery in seconds after a system failure by using a tracking feature called intent logging. The fsck utility scans this log and needs to check only those intents that were not yet completed. In addition, the vxfs uses 
+extent-based allocation to further reduce fragmentation.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If the vxfs file system type is available, it is the file system type of choice except for some special conditions. Use a ufs file system in the following circumstances:
+
+<BR>
+
+<BR>The file system is going to consist of many small short-lived files.
+
+<BR>
+
+<BR>You are going to have a set of files that will be growing, causing many extents to be needed.
+
+<BR>
+
+<BR>You need to enforce quotas.
+
+<BR>
+
+<BR>The file system is static and read-only.
+
+<BR>
+
+<BR>Use an s5 file system in the following circumstances:
+
+<BR>
+
+<BR>Backward compatibility is required.
+
+<BR>
+
+<BR>The removable media is small and the overhead of vxfs and ufs use too much of the available space.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Choosing File System Parameters</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most of the time the default parameters chosen by disksetup or newfs are sufficient. This section will explain the meaning of these parameters in case you ever have to tune them. The most common ones to tune are
+
+<BR></P>
+
+<UL>
+
+<LI>Number of inodes
+
+<BR>
+
+<BR></LI>
+
+<LI>Number of cylinders per group (ufs only)
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Number of Inodes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Each file takes one inode. Each inode also takes space: 128 bytes. There is a trade-off between the number of inodes and the size of the partition. If your average file is many megabytes long, the default of 1 inode per 4 KB will generate many more 
+inodes than needed, wasting space on the file system. On the other hand, if the partition is full of small files, such as a USENET Network News partition, you might run out of inodes before you run out of space. If you know how many files to expect, you 
+can tune this parameter to wring more space out of the slice.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Block Size</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>For ufs file systems, this should be the same as the page size of the memory management system: either 4 KB or 8 KB. There is little reason to change this. However, if a disk will be moved between systems with 4 KB and 8 KB page sizes, it is best to use 
+
+4 KB for the partition. The larger the block size, the large the amount of data per I/O. However, small files will also need more fragmentation space.
+
+<BR></P>
+
+<P>For s5 file systems, this is both the I/O block size and the file allocation increment. If the media is small, consider making this 512 bytes to squeeze as much as you can on the disk. The default value is tuned more toward performance at 2 KB.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Expected Fragmentation/Fragment Size</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>On ufs file systems, the last block of the file is usually not full. Rather than wasting 4 KB or 8 KB for the last block, it places multiple fragments of files into one block. If you have a large number of very small files, make this parameter small to 
+
+avoid wasting so much space. It defaults to 1 KB but can be set as low as 512 bytes. The default of 1 KB is sufficient in almost all cases.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Cylinder Size</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In ufs file systems, files are grouped together into cylinder groups to reduce seeks. A cylinder group consists of 1 to 32 cylinders. If you set it to 1 cylinder, the file systems do very little seeking while reading a single file. The trade-off is 
+space overhead. Each cylinder group has a set of structures including a backup copy of the super-block in case the main one gets damaged. Increasing the number of cylinders reduces overhead but also increases seeks. It is the classic trade-off of space 
+versus performance. The default of 16 is normally adequate. It is usually changed only to wring the last bit of space out of a file system.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Rotational Delay</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To optimize disk performance, the system tries to slip the sector usage from cylinder to cylinder to compensate for the track-to-track seek time of the disk. By starting each cylinder on a different sector number, it can try to avoid a complete rotation 
+
+after a seek to an adjacent track. On modern SCSI disks, there is little or no correlation between block number and the actual layout of the disk. This is due to using a variable number of sectors per track to increase the storage capacity of the drive. 
+For SCSI disks, this parameter should be 0. For ESDI, MFM, and SMD disks, vary this parameter while writing a large file to try to achieve the optimum performance from the drive.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Making File Systems with </B><B><I>newfs</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>So you have decided on an appropriate file system type for the slice and have determined approximately what order of magnitude of inodes will be required. Now it is time to actually make the file systems. This task is controlled by the newfs utility on 
+
+Solaris. newfs uses the information in the label to choose appropriate defaults for the file system.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Use the -Nv option of newfs to display what it is going to do first. Then you can tune the parameters. Once you like the results, just edit the command line and delete the N flag, and newfs will make 
+the file system, showing you what it did.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE># newfs -Nv /dev/rdsk/c0t3d0s7
+
+/dev/rdsk/c0t3d0s7:</PRE>
+
+<P>newfs reports the name of the partition you passed to it and its size from the label. It then passes the arguments to mkfs. Because it is computing all of the arguments, it passes them as a direct vector in a compact format. mkfs does allow a simpler 
+argument format if you have to run it yourself.
+
+<BR></P>
+
+<PRE>mkfs -F ufs -o N /dev/rdsk/c0t3d0s7 228816 72 14 8192 1024 16 10 90 2048 t 0 -1 8 -1
+
+228816 sectors in 227 cylinders of 14 tracks, 72 sectors
+
+     111.7MB in 15 cyl groups (16 c/g, 7.88MB/g, 3776 i/g)
+
+super-block backups (for fsck -F ufs -o b=#) at:
+
+ 32, 16240, 32448, 48656, 64864, 81072, 97280, 113488, 129696,
+
+ 145904, 162112, 178320, 194528, 210736, 226944,</PRE>
+
+<P>See the next section on mkfs for the meaning of the output from mkfs.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Keep a hard copy of the output from the newfs command in a safe place. One of the times you run it with the -N flag, redirect the output to the printer. You will need the information if you ever 
+
+have a disk failure or severe system crash where you need to use the alternate super-block list for recovery. In addition, you will have a record of the parameters you used if you decide to rebuild the file system later to tune the number of inodes.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>To tune the number of inodes, you cannot directly enter the number but must vary the number of bytes per inode using the -i parameter. The default value is 2048. This is a good value for file systems 
+with many small files and a few big ones. If the file system has a large number of symbolic links or very small files, you might want to drop this a bit. If it has mostly larger files, increase it.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Making File Systems with </B><B><I>mkfs</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Unixware does not use the newfs command; it was a Berkeley-derived command. It requires you to directly invoke mkfs. This isn't as bad as it seems because most of the parameters shown in the prior section on newfs would have been computed by default by 
+
+mkfs anyway.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Making </B><B><I>ufs</I></B><B> File Systems</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The only required options to mkfs are the file system type, character special device name, and the size in sectors of the file system to be built. The remaining options will all default. However, these defaults do not come from the label. Running the 
+same partition through mkfs with default values yields the following:
+
+<BR></P>
+
+<PRE># mkfs -F ufs -o N /dev/rdsk/c0t3d0s7 228816
+
+Warning: 48 sector(s) in last cylinder unallocated
+
+/dev/rdsk/c0t3d0s7:
+
+228816 sectors in 447 cylinders of 16 tracks, 32 sectors
+
+     111.7MB in 28 cyl groups (16 c/g, 4.00MB/g, 1920 i/g)</PRE>
+
+<P>Notice that it chose the default values of 16 tracks per cylinder (heads) and 32 sectors per track. To make the layout optimum for the disk, use the parameters nsect and ntrack.
+
+<BR></P>
+
+<PRE># mkfs -F ufs -o N,nsect=72,ntrack=14 /dev/rdsk/c0t3d0s7 228816
+
+/dev/rdsk/c0t3d0s7:
+
+228816 sectors in 227 cylinders of 14 tracks, 72 sectors
+
+     111.7MB in 15 cyl groups (16 c/g, 7.88MB/g, 3776 i/g)
+
+super-block backups (for fsck -F ufs -o b=#) at:
+
+ 32, 16240, 32448, 48656, 64864, 81072, 97280, 113488, 129696,
+
+ 145904, 162112, 178320, 194528, 210736, 226944,</PRE>
+
+<P>This produces the same output as the newfs command.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> As mentioned earlier under newfs, keep a hard copy of the output from the mkfs command in a safe place. One of the times you run it with the -N flag, redirect the output to the printer. You will 
+
+need the information if you ever have a disk failure or severe system crash where you need to use the alternate super-block list for recovery. In addition, you will have a record of the parameters you used if you decide to rebuild the file system later to 
+
+tune the number of inodes.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>As the caution states, one of the important pieces of output produced by mkfs is the list of backup super-blocks. If some disk error destroys or corrupts the primary super-block, the file system would be totally lost without backup copies. To avoid this 
+
+catastrophe, ufs file systems place backup copies of the super-block in every cylinder group header. The file system check utility, fsck, can use these backup copies to restore the master super-block and recover the file system if needed. The reason for 
+saving a paper copy is that if the master super-block is destroyed, it will not be possible to get the system to print out the block numbers of the backup super-block. Of course, one backup is always available at block number 32, but if you overwrite the 
+front of the disk slice, you will probably lose the primary super-block and that backup copy as well, so store the paper copy for safe keeping.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Making </B><B><I>vxfs</I></B><B> File Systems</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The vxfs file system requires less tuning from the default values than ufs file systems. There is little reason to change the block size or allocation unit parameters. The only two parameters worth tuning are as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>ninode. Number of inodes to allocate. vxfs file systems allow direct entry of the number of inodes. The default value is computed using the formula
+
+<BR>
+
+<BR>ninode = number of sectors / (block size * 4)
+
+<BR>
+
+<BR>The L option can be used to prevent being asked the question about having more than 65536 inodes. The C option can be used to force no more that 65536 inodes when the default formula is used.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The actual number of inodes could be slightly less than the number specified. The mkfs command computes the number of allocation blocks required to hold the inode list and rounds down the number of 
+inodes to fit an integral number of blocks.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI>logsize. The number of blocks of size blocksize to use for the log region. Large, actively changing file systems might want to increase this parameter by a factor of 2 from its default value. For most file systems, the default value is sufficient.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The mkfs command for vxfs file systems reads
+
+<BR></P>
+
+<PRE># mkfs -F vxfs -o N,L,ninode=128000 /dev/rdsk/c0t3d0s7 228816</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>The </B><B><I>lost+found</I></B><B> Directory</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you make a new file system, mkfs automatically creates a directory in it called <I>lost+found</I>. The lost+found directory is a placeholder. It is space that you set aside to hold pointers to inodes whose directory entries are corrupted. When the 
+
+file system checks utility, fsck runs and detects a problem with an inode; if it cannot patch up the directory entries pointing to that inode, it clears them and makes a new directory entry in the lost+found directory. Because it doesn't know the proper 
+name for the file, it calls it #inode-number.
+
+<BR></P>
+
+<P>Rather than lose the files entirely, when fsck detects some problems, it reconnects the inode into the lost+found directory. If this directory does not exist, fsck does not want to risk writing over blocks that might mistakenly be on the free list to 
+create it. Then the files would be lost instead of reconnected.
+
+<BR></P>
+
+<P>The name comes from those files that have been disconnected from all directories (lost) and still have data blocks allocated to them. They are found and returned to the lost+found department in that directory.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> You should periodically peruse the lost+found directory of every file system to see if any automatic reboots after crashes have placed any files in them. If the file is a plain file, you can look at the 
+
+contents to try to guess the filename. Because all the information about a file except its filename is kept in the inode, the remaining information, including its owner, can help you determine what the file is and what its name used to be.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If the file is a directory, all of the files in the directory will still have their proper names. The owner of the directory can usually tell you what its name should have been. Then just remake the directory and move its contents back to where they 
+belong and delete the directory entry in lost+found. Although you could do a mvdir command to move the entry back where it belongs, remaking it will also reorder and compact the directory.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=4><B>Mounting File Systems</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You've now built the file system, but no one can use it until it is made part of the file hierarchy. This is called mounting the file system. The new file system is placed on top of an existing directory in the hierarchy and replaces that directory. 
+Thus file systems can be seamlessly grafted anywhere in the hierarchy.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Where to Mount</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first decision is where to place the new file system. Sometimes this decision is very simple. If you create a file system to hold the X11 utilities, the logical mount point is /usr/X. But if it is a general-purpose file system, to be shared by many 
+
+projects and users, where do you mount it?
+
+<BR></P>
+
+<P>A file system can be mounted anywhere in the hierarchy. However, it does hide the directory it replaces. Mounting a new file system at the root (/) would be useless because the entire system would then be hidden.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>The files in the directory of an underlying mount point, for example, /usr/X when a file system is being mounted on /usr/X, are no longer accessible while the new file system is mounted. The 
+root directory of the new file system replaces the mount point's directory in the hierarchy. If you intend to permanently mount a file system, be sure the mount point's directory is empty. Otherwise the space consumed by the files in and under the 
+underlying mount point will be wasted.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>There is no single correct place to mount file systems. However, just using them to extend directories in the hierarchy that run out of space can needlessly fragment the hierarchy. Instead, consider placing several large file systems near the top of the 
+
+hierarchy, perhaps in the root directory, and then using symbolic links to link them into places in the hierarchy that need additional space. For example:
+
+<BR></P>
+
+<PRE>       /home/users/john -&gt; /files1/john
+
+       /home/users/tim -&gt; /files1/tim
+
+       /home/users/bob -&gt; /files2/bob
+
+       /proj/development -&gt; /files2/development</PRE>
+
+<P>In this example, two file systems are created and mounted as /files1 and /files2. Rather than mount them as /home/users or /proj, they are mounted in the root directory. Then symbolic links are created from the home/users and /proj directories to these 
+
+file systems as space is needed. This way, if development outgrew the space available on /files2, it could easily be moved to a new file system, /files3, just by copying the files and changing the symlink to
+
+<BR></P>
+
+<PRE>       /proj/development -&gt; /files3/development</PRE>
+
+<P>Everyone would still refer to the files as /proj/development.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>How Permissions of the Underlying Mount Point Affect the Mounted File </B><B>System</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Every directory on UNIX has a permission mask. This indicates who is allowed to create and remove files in the directory (the w bits), see which files are in the directory (the r bits), and use this directory as part of a pathname (the x bits). This is 
+
+just as true for the root directory of a file system. However, the UNIX system adds one more restriction. It ands the two permission bit masks. Thus, if the underlying mount point directory is
+
+<BR></P>
+
+<PRE>       drwxrwxr-x (775)</PRE>
+
+<P>allowing all access but file creation or destruction to the public, and the permissions of the root directory of the file system is
+
+<BR></P>
+
+<PRE>       drwxrwx-wx (773)</PRE>
+
+<P>allowing all access but seeing what files are in the directory to the public, the permission when mounted would be
+
+<BR></P>
+
+<PRE>       drwxrwxr-x &amp; drwxrwx-wx or (775 &amp; 773) = drwxrwx&#151;x (771)</PRE>
+
+<P>This would allow the public to use this directory only in a search path and not create or destroy files or see what is in the directory.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Although UNIX enforces this anding of the permission masks, the ls command displays the contents of the inode of the root of the mounted file system. This is just one part of the and. If you are 
+
+having permission problems with the root directory of a mounted file system, unmount it and check the permissions of the underlying mount point.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Should all mount points have their permissions wide open (drwxrwxrwx (777))? Not necessarily. If the mount point is for a file system where the root directory would normally have its permissions 
+restricted, changing the underlying mount point's permission mask is a safeguard to prevent someone else from creating new files in the root of the mount point. I generally keep the mount points of my file systems at drwxr-xr-x (755) and do not allow users 
+
+to create files in the root of a mounted file system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Mounting a File System One Time</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You decided where to mount it, created the mount point's directory if it didn't already exist, and are now ready to mount the file system. It is time to use the mount command. There are two ways to use mount: one specifies everything, the other uses the 
+
+file /etc/vfstab to determine how to mount the file system.
+
+<BR></P>
+
+<UL>
+
+<LI>Doing the mount manually
+
+<BR>
+
+<BR> If you are just checking the mount point, or mounting a file system in a different place temporarily, perhaps to copy the files to a new disk, you enter three parameters to the mount command: type of file system, block special device of the slice, and 
+
+the mount point
+
+<BR>
+
+<BR>mount -F vxfs /dev/dsk/c0t3d0s7 /opt
+
+<BR>
+
+<BR>If you wish only to look and want to prevent changes to the file system, you can mount it in read-only mode by adding an -r option
+
+<BR>
+
+<BR>mount -F vxfs -r /dev/dsk/c0t3d0s7 /opt
+
+<BR></LI>
+
+<LI>Using /etc/vfstab
+
+<BR>
+
+<BR>If the file system is already defined in /etc/vfstab, then the mount command can be shortened to just the mount point.
+
+<BR>
+
+<BR>mount /opt
+
+<BR>
+
+<BR>Likewise, for read-only mounting it would be
+
+<BR>
+
+<BR>mount -r /opt
+
+<BR></LI></UL>
+
+<P>To add a manually mounted file system to /etc/vfstab, see the next section, but set the mount at boot time column to no.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Mounting a File System Every Time at Boot</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The system will mount at boot time all file systems specified in the virtual file system table, or /etc/vfstab. This file specifies all the parameters it needs for mounting local and remote file systems. (See Chapter 37 for more information on remote 
+file systems.) The file is just a text file and can be edited with any text editor. The Unixware command disksetup automatically adds the slices it creates to this file if you specify boot time mounting.
+
+<BR></P>
+
+<P>The file consists of seven columns of data separated by white space (usually tabs).
+
+<BR></P>
+
+<PRE>#device             device               mount         FS    fsck   mount    mount
+
+#to mount           to fsck              point        type   pass   at boot  options
+
+#
+
+/dev/dsk/c0t3d0s0   /dev/rdsk/c0t3d0s0   /             ufs   1      no        -
+
+/dev/dsk/c0t3d0s6   /dev/rdsk/c0t3d0s6   /usr          ufs   2      no        -
+
+/dev/dsk/c0t3d0s7   /dev/rdsk/c0t3d0s7   /var          ufs   4      no        -
+
+/dev/dsk/c0t2d0s6   /dev/rdsk/c0t2d0s6   /files        ufs   5      yes       -
+
+/dev/dsk/c0t2d0s7   /dev/rdsk/c0t2d0s7   /files4       ufs   6      yes       -
+
+/dev/dsk/c0t1d0s2   /dev/rdsk/c0t1d0s2   /opt          ufs   11     yes       -
+
+/dev/dsk/c0t3d0s5   /dev/rdsk/c0t3d0s5   /usr/openwin  ufs   12     yes       -
+
+/dev/dsk/c0t3d0s1   -                    -             swap  -      no        -</PRE>
+
+<P>The preceding comment lines explain pretty well all of the columns except fsck pass and mount options.
+
+<BR></P>
+
+<P>fsck pass is designed for allowing fsck to run on multiple disk drives in parallel. The fsck passes are executed in order, and any file systems with the same pass number are allowed to be executed in parallel.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Never place two file systems on the same spindle or RAID device in the same pass. It will dramatically slow the check down because it tries to seek over both file systems simultaneously.
+
+<BR>
+
+<BR>Running in parallel might not be any faster if the SCSI channel is close to saturation or the system does not have enough RAM to buffer all the structures. It can cause slowdowns as it pages the structures out to swap space on the disk.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Mount options are passed to the mount command as part of the -o option and are entered here exactly as they would be entered in the -o option list of the mount command. Mark read-only file systems as ro, not -r, because the -o flag for read-only is -o 
+ro.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Note that /, /usr, and /var are not marked mount at boot time. It's not that they are not mounted all the time, but they are mounted by the startup scripts prior to mounting the rest of the file 
+systems. Because they are already mounted, there is no need to mount them again.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Unmounting a File System</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A file system must be unmounted to check it, and if it is a removable media, it must be unmounted before it is removed. The umount command is used to unmount file systems, as in
+
+<BR></P>
+
+<PRE>        umount /opt</PRE>
+
+<P>No options are needed on the umount command.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Do not eject any removable media that is still mounted. UNIX caches in memory important information about the file system and writes that back when you use the umount command.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If you get
+
+<BR>
+
+<BR>/opt: busy
+
+<BR>
+
+<BR>back from the umount command, it means that some processes are still using the file system. The first thing to check is that you don't have your current directory set to somewhere within that file system. If you do, change back to the root file system 
+
+and try again. If it still reports as busy, use the fuser command to determine which processes are still using the file system.
+
+<BR>
+
+<BR>#<B> fuser -cu /opt</B>
+
+<BR>/opt:   1189t(syd)    1105t(syd)     871to(syd)     838t(syd)
+
+<BR>        229to(root)     164t(root)
+
+<BR>
+
+<BR>The number is the process ID that is using the file system; the letter is as follows:
+
+<BR>
+
+<BR>c&#151;has a current directory on the file system
+
+<BR>
+
+<BR>o&#151;has an open file on the file system
+
+<BR>
+
+<BR>r&#151;has its root directory on the file system
+
+<BR>
+
+<BR>t&#151;has a program running from the file system (needs access to the file system to handle page faults)
+
+<BR>
+
+<BR>The name in parentheses is the owner of the process.
+
+<BR>
+
+<BR>If necessary, you can then send the kill signal to any processes that are using the file system to get it unmounted.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=4><B>Checking File Systems</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Sooner or later it happens. Someone turns off the power switch. The power outage lasts longer than your UPS's batteries and you didn't shut down the system. Someone presses the reset button. Someone overwrites part of your disk. A critical sector on the 
+
+disk develops a flaw. If you run UNIX long enough, eventually a halt occurs where the system did not write the remaining cached information (sync'ed) to the disks.
+
+<BR></P>
+
+<P>When this happens, you need to verify the integrity of each of the file systems. This is necessary because if the structure is not correct, using them could quickly damage them beyond repair. Over the years, UNIX has developed a very sophisticated file 
+
+system integrity check that can usually recover the problem. It's called fsck. Of course, if it cannot handle the problem, the gurus out there can always try fsdb, the file system debugger.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>The </B><B><I>fsck</I></B><B> Utility</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The fsck utility takes its understanding of the internals of the various UNIX file systems and attempts to verify that all the links and blocks are correctly tied together. It runs in five passes, each of which checks a different part of the linkage and 
+
+each of which builds on the verifications and corrections of the prior passes.
+
+<BR></P>
+
+<P>fsck walks the file system, starting with the super-block. It then deals with the allocated disk blocks, pathnames, directory connectivity, link reference counts, and the free list of blocks and inodes.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>The Super-Block</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Every change to the file system affects the super-block, which is why it is cached in RAM. Periodically, at the sync interval, it is written to disk. If it is corrupted, fsck will check and correct it. If it is so badly corrupted that fsck cannot do its 
+
+work, find the paper you saved when you built the file system and use the -b option to fsck to give it an alternate super-block to use. The super-block is the head of each of the lists that make up the file system and maintains counts of free blocks and 
+inodes.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>Inodes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>fsck validates each of the inodes. It makes sure that each block in the block allocation list is not on the block allocation list in any other inode, that the size is correct, and that the link count is correct. If the inodes are correct, then the data 
+
+is accessible. All that's left is to verify the pathnames.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>What Is a Clean (Stable) File System?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Some times fsck responds
+
+<BR></P>
+
+<PRE>        /opt: stable                        (ufs file systems)
+
+        file system is clean - log replay not required (vxfs file systems)</PRE>
+
+<P>This means that the super-block is marked clean and that no changes have been made to the file system since it was marked clean. What the system does is first mark the super-block dirty, then it starts modifying the rest of the file system. When the 
+buffer cache is empty and all pending writes are complete, it goes back and marks the super-block as clean. If it is marked clean, there is normally no reason to run fsck, so unless fsck is told to ignore the clean flag, it just prints this notice and 
+skips over this file system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Where Is </B><B><I>fsck</I></B><B>?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you run fsck, you are running an executable in the /usr/sbin directory called /usr/sbin/fsck, but this is not the real fsck. It is just a dispatcher that invokes a file system type-specific fsck utility. In the directory /usr/lib/fs resides a 
+directory for each supported file system type. There are specific programs in this directory for dealing with a particular file system type.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>When Should I Run </B><B><I>fsck</I></B><B>?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Normally you do not have to run fsck. The system runs it automatically when you try to mount a file system that is dirty. However, problems can creep up on you. Software and hardware glitches do occur from time to time. It wouldn't hurt to run fsck just 
+
+after performing the monthly backups.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>It is better to run fsck after the backups rather than before. If fsck finds major problems, it could leave the file system in worse shape than it was prior to running. Then you can just build 
+an empty file system and reread your backup, which will also clean up the file system. If you did it in the other order, you would be left with no backup and no file system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>How Do I Run </B><B><I>fsck</I></B><B>?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Because the system normally runs it for you, running fsck is not an everyday occurrence for you to remember. However, it is quite simple and mostly automatic.
+
+<BR></P>
+
+<P>First, to run fsck, the file system you intend to check must not be mounted. This is a bit hard to do if you are in multiuser mode most of the time, so to run a full system fsck you should shut the system down to single user mode. For System V type 
+systems, such as Unixware or Solaris, use
+
+<BR></P>
+
+<PRE>        shutdown -i s</PRE>
+
+<P>to transition the system to state s, or single user. For older Berkeley style systems, such as SunOS, shut down the system entirely and reboot into single user mode using
+
+<BR></P>
+
+<PRE>        boot -s</PRE>
+
+<P>In single user mode you need to invoke fsck, giving it the options to force a check of all file systems, even if they are already stable.
+
+<BR></P>
+
+<PRE>        fsck -o f                        (ufs file systems)
+
+        fsck -o full                     (vxfs file systems)</PRE>
+
+<P>If you wish to check a single specific file system, type its character special device name
+
+<BR></P>
+
+<PRE>        fsck -o full /dev/rdsk/c0t1d0s1</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>Checking </B><B><I>s5</I></B><B> File Systems</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>For s5 file systems, fsck is a 5- or 6-phase process, depending on what errors were found, if any. fsck can automatically correct most of these errors and will do so if invoked by the mount command to automatically check a dirty file system. However, 
+when it is run manually you will be asked to answer the questions that the system would automatically answer.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 1: Blocks and Sizes</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>During this phase, fsck checks that a file has an appropriate number of blocks allocated for its size and begins to scan for blocks being allocated to more than one file.
+
+<BR></P>
+
+<P>You may have to approve (answer yes or no) for clearing inode entries for
+
+<BR></P>
+
+<PRE>UNKNOWN FILE TYPE I=<I>inode number</I> (CLEAR?)
+
+PARTIALLY ALLOCATED INODE I=<I>inode number</I> (CLEAR?)</PRE>
+
+<P>In both of these cases, the entire file is lost. Other errors you may be asked to handle include
+
+<BR></P>
+
+<PRE>SIZE ERROR I=<I>inode number</I>
+
+DELETE OR RECOVER EXCESS DATA</PRE>
+
+<P>If the file appears to be of a different size than allocated, you can either delete the excess data or extend the inode to cover the excess data.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> If you get the error
+
+<BR>
+
+<BR>WARNING: SUPER BLOCK, ROOT INODE, OR ROOT DIRECTORY ON fs MAY BE CORRUPTED. fsck CAN'T DETERMINE LOGICAL BLOCK SIZE OF fs BLOCK SIZE COULD BE 512, 1024, OR 2048 BYTES. ENTER LOGICAL BLOCK SIZE OF fs IN BYTES (NOTE: INCORRECT RESPONSE COULD DAMAGE FILE 
+
+SYSTEM BEYOND REPAIR!) ENTER 512, 1024, OR 2048 OR ENTER s TO SKIP THIS FILE SYSTEM: ENTER 512, 1024, 2048, OR s:
+
+<BR>
+
+<BR>be very careful what you answer. Be sure you have a backup before proceeding. Find the sheet you saved when you built the file system, and retrieve the value from that sheet. If you do enter the correct value, fsck has a good chance of recovering the 
+file system, unless something else was really written over it.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>BAD BLK blocknum I=inode number
+
+EXCESSIVE BAD BLKS I=<I>inode number</I></PRE>
+
+<P>fsck will ask you if you want to clear (erase) this file. One of the files with the duplicate blocks will have to be erased.
+
+<BR></P>
+
+<PRE>DUP BLK blocknum I=inode number
+
+EXCESSIVE DUP BLKS I=<I>inode number</I></PRE>
+
+<P>If duplicate blocks are found, a phase 1b will be run to scan for the original file that has the duplicate blocks.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 2: Pathnames</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase removes directory entries from bad inodes found in phase 1 and 1b and checks for directories with inode pointers that are out of range or pointing to bad inodes. You might have to handle
+
+<BR></P>
+
+<PRE>ROOT INODE NOT DIRECTORY (FIX?)</PRE>
+
+<P>You can convert inode 2, the root directory, back into a directory, but this usually means there is major damage to the inode table.
+
+<BR></P>
+
+<PRE>I OUT OF RANGE I=<I>inode number</I> NAME=<I>file name</I> (REMOVE?)
+
+UNALLOCATED I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T NAME=<I>file name</I> (REMOVE?)
+
+BAD/DUP I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T DIR=<I>file name</I> (REMOVE?)
+
+BAD/DUP I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T FILE=<I>file name</I> (REMOVE?)</PRE>
+
+<P>A bad inode number was found, an unallocated inode was used in a directory, or an inode that had a bad or duplicate block number in it is referenced. You are given the choice to remove the file, losing the data, or to leave the error. If you leave the 
+error, the file system is still damaged, but you have the chance to try to dump the file first and salvage part of the data before rerunning fsck to remove the entry.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 3: Connectivity</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase checks for unreferenced directories and connects them into the lost+found directory. Errors occur only if there isn't enough room in lost+found or if the lost+found directory does not exist. Status messages are printed for each reconnection.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 4: Reference Counts</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase uses the information from phases 2 and 3 to check for unreferenced files and incorrect link counts on files, directories, or special files.
+
+<BR></P>
+
+<PRE>UNREF FILE I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T (RECONNECT?)</PRE>
+
+<P>The filename is not known (it is an unreferenced file), so it is reconnected into the lost+found directory with the inode number as its name. If you clear the file, its contents are lost. Unreferenced files that are empty are cleared automatically.
+
+<BR></P>
+
+<PRE>LINK COUNT FILE I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T COUNT=X (ADJUST?)
+
+LINK COUNT DIR I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T COUNT=X (ADJUST?)</PRE>
+
+<P>In both cases, an entry was found with a different number of references than what was listed in the inode. You should let fsck adjust the count.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 5: Free List</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The list of free-blocks is checked for duplicates, bad blocks (block number is invalid), and blocks that are in use. If there is a problem, you will be asked to salvage the free list. This will run a sixth phase to reconstruct the free list.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=3><B>Checking </B><B><I>ufs</I></B><B> File Systems</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>For ufs file systems, fsck is a 5-phase process. fsck can automatically correct most of these errors and will do so if invoked by the mount command to automatically check a dirty file system. However, when run manually you will be asked to answer the 
+questions that the system would automatically answer.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Serious errors reported by ufs's fsck at the very beginning, especially before reporting the start of phase 1, indicate an invalid super-block. fsck should be terminated and restarted with the 
+-b option specifying one of the alternate super-blocks. Block 32 is always an alternate and can be tried first, but if the front of the file system was overwritten, it also may be damaged. Use the hard copy you saved from the mkfs to find an alternate from 
+
+later in the file system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 1: Check Blocks and Sizes</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase checks the inode list, looking for invalid inode entries. Errors requiring answers include
+
+<BR></P>
+
+<PRE>UNKNOWN FILE TYPE I=<I>inode number</I> (CLEAR)</PRE>
+
+<P>The file type bits are invalid in the inode. Options are to leave the problem and attempt to recover the data by hand later or to erase the entry and its data by clearing the inode.
+
+<BR></P>
+
+<PRE>PARTIALLY TRUNCATED INODE I=<I>inode number</I> (SALVAGE)</PRE>
+
+<P>The inode appears to point to less data than the file does. This is safely salvaged, because it indicates a crash while truncating the file to shorten it.
+
+<BR></P>
+
+<PRE>block BAD I=inode number
+
+block DUP I=inode number</PRE>
+
+<P>The disk block pointed to by the inode is either out of range for this inode or already in use by another file. This is an informational message. If a duplicate block is found, phase 1b will be run to report the inode number of the file that originally 
+
+used this block.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 2: Check Pathnames</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase removes directory entries from bad inodes found in phase 1 and 1b and checks for directories with inode pointers that are out of range or pointing to bad inodes. You may have to handle
+
+<BR></P>
+
+<PRE>ROOT INODE NOT DIRECTORY (FIX?)</PRE>
+
+<P>You can convert inode 2, the root directory, back into a directory, but this usually means there is major damage to the inode table.
+
+<BR></P>
+
+<PRE>I=OUT OF RANGE I=<I>inode number</I> NAME=<I>file name</I> (REMOVE?)
+
+UNALLOCATED I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T TYPE=F (REMOVE?)
+
+BAD/DUP I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T TYPE=F (REMOVE?)</PRE>
+
+<P>A bad inode number was found, an unallocated inode was used in a directory, or an inode that had a bad or duplicate block number in it is referenced. You are given the choice to remove the file, losing the data, or to leave the error. If you leave the 
+error, the file system is still damaged, but you have the chance to try to dump the file first and salvage part of the data before rerunning fsck to remove the entry.
+
+<BR></P>
+
+<PRE>Various Directory Length Errors: zero length, too short, not multiple of block size, corrupted</PRE>
+
+<P>You will be given the chance to have fsck fix or remove the directory as appropriate. These errors are all correctable with little chance of subsequent damage.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 3: Check Connectivity</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase will detect errors in unreferenced directories. It will create or expand the lost+found directory if needed and connect these directories into the lost+found directory. It prints status messages for all directories placed in lost+found.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 4: Check Reference Counts</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase uses the information from phases 2 and 3 to check for unreferenced files and incorrect link counts on files, directories, or special files.
+
+<BR></P>
+
+<PRE>UNREF FILE I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T (RECONNECT?)</PRE>
+
+<P>The filename is not known (it is an unreferenced file), so it is reconnected into the lost+found directory with the inode number as its name. If you clear the file, its contents are lost. Unreferenced files that are empty are cleared automatically.
+
+<BR></P>
+
+<PRE>LINK COUNT FILE I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T COUNT=X (ADJUST?)
+
+LINK COUNT DIR I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T COUNT=X (ADJUST?)</PRE>
+
+<P>In both cases, an entry was found with a different number of references than what was listed in the inode. You should let fsck adjust the count.
+
+<BR></P>
+
+<PRE>BAD/DUP FILE I=<I>inode number</I> OWNER=O MODE=M SIZE=S MTIME=T (CLEAR)</PRE>
+
+<P>A file or directory has a bad or duplicate block in it. If you clear it now, the data is lost. You can leave the error and attempt to recover the data, and rerun fsck later to clear the file.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Phase 5: Check Cylinder Groups</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>This phase checks the free block and unused inode maps. It will automatically correct the free lists if necessary, although in manual mode it will ask permission first.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Checking </B><B><I>vxfs</I></B><B> File Systems</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Although s5 and ufs file systems are not all that different in their fsck, vxfs is totally different. It first runs a sanity check on the file system recovering the super-block from the first allocation unit if needed or any allocation unit headers from 
+
+the super-block if needed. Then, unless a full fsck was requested, it replays the intent log and exits in a few seconds. No intervention is needed.
+
+<BR></P>
+
+<P>If a full fsck is requested&#151;this should be needed only in cases of hardware failure&#151;you should run it in interactive mode (no -p, -y or -n options on the fsck command line) and answer yes to the questions. Errors in connecting files or 
+directories will clear those files or directories. It will then be necessary to recover them from backups.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>What Do I Do After </B><B><I>fsck</I></B><B> Finishes?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>First relax, because fsck rarely finds anything serious wrong, except in cases of hardware failure where the disk drive is failing or where you copied something on top of the file system. UNIX file systems really are very robust.
+
+<BR></P>
+
+<P>However, if fsck did find major problems or made a large number of corrections, rerun it to be sure the disk isn't undergoing hardware failure. It shouldn't find more errors in a second run. Then recover any files that it may have deleted. If you keep a 
+
+log of the inodes it clears, you can go to a backup tape and dump the list of inodes on the tape. Recover just those inodes to restore the files.
+
+<BR></P>
+
+<P>Back up the system again, because there is no reason to have to do this all over again.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Dealing with What Is in </B><B><I>lost+found</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If fsck reconnected unreferenced entries, it placed them in the lost+found directory. They are safe there, and the system should be backed up in case you lose them while trying to move them back to where they belong. Items in lost+found can be of any 
+type: files, directories, special files (devices), or fifos. If it is a fifo, you can safely delete it: the process that opened it is long since gone and will open a new one when it runs again.
+
+<BR></P>
+
+<P>For files, use the owner name to contact the owner and have him look at the contents and see if the file is worth keeping. Often it is a file that was deleted and is no longer needed, but the system crashed before it could be fully removed.
+
+<BR></P>
+
+<P>For directories, the files in the directory should help you and the owner determine where they belong. You can look on the backup tape lists for a directory with those contents if necessary. Then just remake the directory and move the files back. Then 
+remove the directory entry in lost+found. This re-creation and move has the added benefit of cleaning up the directory.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=4><B>Finding and Reclaiming Space</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One of the banes of system administrators is that users always use 100 percent of the disk space available to them on a system. It always falls on the systems administrator to prod users into removing files and directory trees they no longer need. It 
+helps if you can attack the portion of the problem that will yield the greatest reward: the users with large files and the users tying up the most space.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>What Takes Space</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Besides users leaving around files they no longer need, two types of files are often blamed for taking up a lot of wasted space: core files and backup images.
+
+<BR></P>
+
+<P>Whenever a user program aborts on a programming error, a copy of the data space is made to a file named core. Core files are very useful for debugging but if left around can take up large amounts of space.
+
+<BR></P>
+
+<P>Backup images are made whenever a program automatically saves a backup copy before modifying a file. Many UNIX programs have this behavior. Often old backups remain long after the file has stopped being modified. Some examples of this are .orig files 
+from patch, .backup files from frame, and name% files from emacs.
+
+<BR></P>
+
+<P>Developers also often make backup copies of directories before working on them, and they may forget to remove these when completed. It all adds up to large amounts of disk being used for nonproductive files.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>Determining Who Is Using Up the Disk</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UNIX provides several tools for determining disk utilization. These include the accounting system, which can track the ownership of disk storage on a daily basis, du for determining where storage is being used, and the diskusg family of utilities for 
+determining totals per user ID. For information on du, see Chapter 38, &quot;Accounting System.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>The System Administrator's Friend The </B><B><I>find</I></B><B> Utility</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the most useful tools for a system administrator is the find utility. It traverses all or sections of the UNIX file system hierarchy and can perform tests and execute commands on the files it visits, including the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Finding core files
+
+<BR>
+
+<BR>Many sites run the script findcores from cron each night to find and remove old core files. It contains one line:
+
+<BR>
+
+<BR>find / -local -name core -mtime +7 -print | xargs rm -f
+
+<BR>
+
+<BR>This use of find starts at the root. It traverses only local file systems, avoiding ones on other machines on the network. If the file is named core and has not been modified for at least seven days, it prints its name. Then the xargs utility is used 
+to remove these core files.
+
+<BR>
+
+<BR></LI>
+
+<LI>Finding files not accessed recently
+
+<BR>
+
+<BR>Files that are on the disk but never read are prime candidates for removal when space is at a premium. The find statement
+
+<BR>
+
+<BR>find / -local -atime +60 -a -mtime +60 -print | sort
+
+<BR>
+
+<BR>will produce a useful list of files that have not been accessed or modified in the past 60 days. Because find traverses the file system tree in the order of the directory entries (the order in which they were created, not the alphabetical order shown 
+by ls), the sort utility is a handy way of making the output of the list appear in a more human readable order.
+
+<BR>
+
+<BR></LI>
+
+<LI>Finding large files
+
+<BR>
+
+<BR>Of course, large files are the easiest targets. Finding them is just as easy.
+
+<BR>
+
+<BR>find / -local -size +500 -print | sort | xargs ls -lsd
+
+<BR>
+
+<BR>will produce a listing of all files larger than 500 blocks. The use of the xargs command will produce a listing showing the owner and size in both blocks and bytes for each file. The sort step will place files in the same directory together in the 
+listing; otherwise, the quantization effects of the xargs command could separate these files in the listing.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=4><B>Reorganizing the File System Hierarchy</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Sooner or later, you'll have to add space to the system. The only way to make more space on a disk drive without deleting the files is to move the files on part of that drive somewhere else. Using the move command to move the files one at a time is 
+tedious and prone to mistakes. The cp -r command will move a directory and its descendents, but it changes the owner and time stamps, which is sort of intrusive. However, all is not lost. UNIX does provide utilities to make moving files around simple.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Using Symbolic Links to Hide Actual Disk Locations</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the goals in moving the files was to make space, but that conflicts with the goal of not disturbing the user. It would be best if the user could still think the files were in the old directory even though you have moved them. Symbolic links are 
+the answer. Using a symbolic link from the old location to the new location makes the files appear to still be in the old location.
+
+<BR></P>
+
+<P>All that is left is to move the files and create the symbolic link.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Moving Trees via </B><B><I>cpio</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>cpio, or cp in/out, has one more mode that when combined with the find utility lets you easily move entire directory trees. This is the pass mode. In this mode, it takes entire hierarchies from one place on the disk and makes a perfect replica of them 
+in another. To move the files in /home/bob to /disks/bob, all you do is
+
+<BR></P>
+
+<PRE>cd /home
+
+find bob -print | cpio -pdluam /disks
+
+rm -rf bob
+
+ln -s /disks/bob bob</PRE>
+
+<P>and you are done. The find command prints a list of all the files in and below bob in the tree. cpio then re-creates these files under the /disks directory. The arguments used for cpio are as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>p&#151;Pass mode; create a replica of the pathnames read on standard input
+
+<BR>
+
+<BR></LI>
+
+<LI>d&#151;Create directories as needed
+
+<BR>
+
+<BR></LI>
+
+<LI>l&#151;Create links if possible (hard links)
+
+<BR>
+
+<BR></LI>
+
+<LI>u&#151;Unconditional; overwrite the file if it already exists and is newer than the copy
+
+<BR>
+
+<BR></LI>
+
+<LI>a&#151;Reset the access time of the original and replica file to what it was prior to cpio running
+
+<BR>
+
+<BR></LI>
+
+<LI>m&#151;Reset the modification time of the replica file to match the modification time of the original
+
+<BR>
+
+<BR></LI></UL>
+
+<P>cpio copies everything about the file. It even copies special files.
+
+<BR></P>
+
+<P>The rm command removes the original files after the copy is complete, and the ln creates the symbolic link.
+
+<BR></P>
+
+<P>See Chapters 31, &quot;Archiving&quot; and 32, &quot;Backups,&quot; for information on the other archiving methods, dump and tar.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In UNIX, the following is true:
+
+<BR></P>
+
+<UL>
+
+<LI>Disks are a sequence of bytes.
+
+<BR>
+
+<BR></LI>
+
+<LI>Disks are split into sections called slices.
+
+<BR>
+
+<BR></LI>
+
+<LI>After a disk is formatted and partitioned, a label is written to the disk to define the slices in a virtual table of contents.
+
+<BR>
+
+<BR></LI>
+
+<LI>The slices appear as disk drives.
+
+<BR>
+
+<BR></LI>
+
+<LI>Each slice can hold one file system. Some slices are used as raw data areas for swap space or application-specific data such as for databases.
+
+<BR>
+
+<BR></LI>
+
+<LI>The file system hierarchy is a tree.
+
+<BR>
+
+<BR></LI>
+
+<LI>New file systems can be mounted onto that tree at any place.
+
+<BR>
+
+<BR></LI>
+
+<LI>Mounted file systems obscure the mount point directory.
+
+<BR>
+
+<BR></LI>
+
+<LI>The basis of a file system is the inode list. It contains all the information about a file.
+
+<BR>
+
+<BR></LI>
+
+<LI>Support is provided for multiple types of file systems.
+
+<BR>
+
+<BR></LI>
+
+<LI>Multiple methods are provided for backing up these file systems.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>As a Systems Administrator, the following are your responsibilities:
+
+<BR></P>
+
+<UL>
+
+<LI>Monitor the available space on the file systems.
+
+<BR>
+
+<BR>The tools provided in this chapter will help you keep track of usage.
+
+<BR>
+
+<BR></LI>
+
+<LI>Perform regular checks on file system integrity.
+
+<BR>
+
+<BR>UNIX file systems are very stable, but it doesn't hurt to check them out once a month.
+
+<BR>
+
+<BR></LI>
+
+<LI>Perform and verify the readability of backups.
+
+<BR>
+
+<BR>Perform them daily. UNIX's tools make full and incremental backups easy to interleave.
+
+<BR>
+
+<BR></LI></UL>
+
+<P><A HREF="unx34.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx34.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx36.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx36.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

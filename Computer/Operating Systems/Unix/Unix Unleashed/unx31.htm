@@ -1,0 +1,581 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx31.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx32.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx32.htm">
+
+<LINK REL="Previous" HREF="unx30.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx30.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx30.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx30.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx32.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx32.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">31 &#151; Archiving</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By S. Lee Henry</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">The tar Command</A></LI>
+
+<LI>
+
+<A HREF="#I5">Shell Archives</A></LI>
+
+<LI>
+
+<A HREF="#I6">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>31 &#151; Archiving</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By S. Lee Henry</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The very worst thing about using computers is how easily you can throw away weeks of work. Even with fast, sophisticated file systems and almost countless options for how you store your files, you can easily make big mistakes. Human error is recognized 
+
+as the biggest cause of data loss. Disk crashes and deranged controllers trail far behind as contenders for this honor. Yet, as easy as it is to remove files you might need, it is also far too easy to fill up disks with files you don't need. Electronic 
+pack rats are so common that management of disk space is at the top among the concerns of system administrators everywhere.
+
+<BR></P>
+
+<P>Archiving important files is, therefore, a very good thing to do. Preserving your work at important times&#151;such as when you've just completed a large proposal or debugged a major program&#151;may save hours and weeks of your important time, not to 
+mention the frustration of re-creating something you have just finished. In addition, reliable archiving of important files that you want to save makes it easier for you to be comfortable removing the electronic clutter that would otherwise fill your disk 
+
+and complicate your view of your electronic &quot;holdings.&quot; Once you know you've got the good stuff tucked away, you don't have to be so careful getting rid of the clutter.
+
+<BR></P>
+
+<P>You might also want to create archives of your work when you are moving to another site within your company or simply as a way to reorganize files you want to preserve during spring-cleaning.
+
+<BR></P>
+
+<P>Archives give you a reliable point to return to when subsequent changes, deliberate or unintentional, make it necessary to revert to previous copies of single files or restore entire directories.
+
+<BR></P>
+
+<P>An equally important use of archives is to organize and store software and documents for public or limited access, often over the Internet. Given a limited set of popularly used formats, creating, retrieving, and using archives is fairly easy for you 
+and everyone else. Exchange of archive files between ftp sites on the Internet, for example, is a thriving activity.
+
+<BR></P>
+
+<P>There are a number of popular formats that you can use for archives and, of course, various commands to create and extract data from these formats. In addition, used in conjunction with other UNIX commands, archiving commands provide many ways to select 
+
+what you store. You also may have a wide variety of choices over what media to use for your archives, including hard disk, tape, diskette, and optical drives.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>The </B><B><I>tar</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One of the simplest and most versatile commands for creating archives is the tar command. Although you may have used this command only to read and write tapes in the past, tar offers advantages that make it an excellent utility for reading and writing 
+disk-based archives as well. It is also a good command for copying directories between systems and between locations on a single system.
+
+<BR></P>
+
+<P>The tar command can specify a list of files or directories and can include name substitution characters. The filenames always follow any arguments corresponding to specified options, as shown in Figure 31.1.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="31unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/31unx01.gif">Figure 31.1. Anatomy of the </B><B><I>tar</I></B><B> command.</A></B>
+
+<BR></P>
+
+<P>Most often, the tar command for creating a tar archive uses a string of options as well as a list of what files are to be included and names the device to be written to. The default device, /dev/rmt0, is seldom used today. Most sites have higher density 
+
+devices available to them. Since it is the nature of UNIX to treat devices and files identically, you can archive to a file as easily as to a tape device. The two commands
+
+<BR></P>
+
+<PRE>boson% tar cvf /dev/rst0 datafiles
+
+boson% tar cvf datafiles.tar datafiles</PRE>
+
+<P>archive the same files. The first command writes to a tape device and the second creates a disk-based file called datafiles.tar.
+
+<BR></P>
+
+<P>The cvf argument string specifies that you are writing files (c for create), providing feedback to the user (v for verbose), and specifying the device rather than using the default (f for file).
+
+<BR></P>
+
+<P>Archives created with the tar command will almost always have the file extension .tar. Naming conventions such as this make it obvious to you and to anyone else who needs to use these files just what they are. Further, unless an archive is to be used 
+immediately, and almost always if it is to be available for access using ftp, it is a good idea to compress the file. This significantly reduces the space required to store the file and the time required to transfer it. Most often, compressed tar files 
+will end with .tar.Z. However, you will likely encounter compressed files with other extensions, such as .gz, which signify that a different compression routine was used; in this case, the public domain utility gzip was used.
+
+<BR></P>
+
+<P>To compress the tar file using the standard compress utility, use the command compress <I>&lt;filename&gt;</I>, as shown in this example:
+
+<BR></P>
+
+<PRE>boson% compress datafiles.tar
+
+boson% ls datafiles.*
+
+datafiles.tar.Z</PRE>
+
+<P>The tar command on most UNIX systems also enables you to create lists of files that should be included or excluded from the archive. The options -I and X represent include and exclude. Both are accomplished through lists of files to either include in or 
+
+exclude from the directory. If you had an exclude file containing its own name and two other files, such as
+
+<BR></P>
+
+<PRE>eta% cat exclude
+
+exclude
+
+foo
+
+SAMS.tar</PRE>
+
+<P>these files would not be included in a tar file that references the file exclude through the X option. It's a good idea to exclude the exclude file itself, as well as the tar file that you are creating in your exclude file. Notice that this has been 
+done in the following example:
+
+<BR></P>
+
+<PRE>eta# tar cvfX SAMS.tar exclude *
+
+a Archiving 21 blocks
+
+a Backups 37 blocks
+
+a dickens 1 blocks
+
+a Flavors 0 blocks
+
+a SAMS.tar excluded
+
+a dickens.shar 1 blocks
+
+a exclude excluded
+
+a tmp0 1 blocks
+
+a tmp1 1 blocks
+
+a update_motd 2 blocks</PRE>
+
+<P>Similarly, the include file can be used to specify which files should be included. In the next example, both an include and an exclude file are used. Any file that appears in both files, by the way, will be included.
+
+<BR></P>
+
+<PRE>boson% tar cvfX tar.tar exclude -I include</PRE>
+
+<P>Notice that the -I option stands apart from the rest of the tar options. This is because it is a substitute for the list of filenames that normally occupies this position at the end of the command.
+
+<BR></P>
+
+<P>Keep in mind that the include and exclude files can have any name you want. The files in the example are called include or exclude simply to be obvious.
+
+<BR></P>
+
+<P>Combining tar with the find utility, you can archive files based on many criteria, including such things as how old the files are, how big, and how recently used. The following sequence of commands locates files that are newer than a particular file and 
+
+creates an include file of files to be backed up.
+
+<BR></P>
+
+<PRE>boson% find -newer lastproject -print &gt;&gt; include
+
+boson% tar cvf myfiles.tar -I include</PRE>
+
+<P>GNU tar has some features that enable it to mimic the behavior of find and tar in a single command. Some of the most impressive options of GNU tar include appending to an existing archive, looking for differences between an archive and a 
+&quot;live&quot; file system, deleting files from an archive (not for tapes), only archiving files created or modified since a given date, and compressing during creation of a tar file using either compress or gzip.
+
+<BR></P>
+
+<P>If you're moving files from one location on a UNIX system to another, or even between systems, you can use tar without ever creating a tar file by piping one tar command to another.
+
+<BR></P>
+
+<PRE>boson% (cd mydata; tar cvf - *) | tar xvpBf -</PRE>
+
+<P>What this command does is move to a subdirectory and read files, which it then pipes to an extract at the current working directory. The parentheses group the cd and tar commands so that you can be working in two directories at the same time. The two - 
+
+characters in this command represent standard output and standard input, informing the respective tar commands where to write and read data. The - designator thereby allows tar commands to be chained in this way. The following command is similar, but it 
+reads the files from the local system and extracts them on a remote host:
+
+<BR></P>
+
+<PRE>boson% tar cvf - mydata | rsh boson &quot;cd /pub/data; tar xvpBf -&quot;</PRE>
+
+<P>Archives created with tar can include executables. This is an important consideration when you are determining what style of archiving you want to do. Text files, source code, and binary data can all be included in the same tar file without any 
+particular thought given to the file types. The file ownership, file permissions, and access and creation dates of the files all remain intact as well. Once the files are extracted from a tar file they look the same in content and description as they did 
+when archived. The p (preserve) option will restore file permissions to the original state. This is usually good since you'll ordinarily want to preserve permissions as well as dates so that executables will execute and you can determine how old they are. 
+
+In some situations, you might not like that original owners are retrieved, since the original owners may be people at some other organization altogether. The tar command will set up ownership according to the numeric UID of the original owner. If someone 
+in your local passwd file or network information service has the same UID, that person will become the owner; otherwise the owner will display numerically. Obviously, ownership can be altered later.
+
+<BR></P>
+
+<P>To list the contents of a tar file without extracting, use the t option as shown below. Including the v option as well results in a long listing.
+
+<BR></P>
+
+<PRE>boson% tar tf myfiles.tar
+
+boson% tar tvf myfiles.tar</PRE>
+
+<P>Tar archives can be transferred with remote copy commands rcp, ftp, kermit, and uucp. These utilities know how to deal with binary data. You will generally not use tar when mailing archived files, but you can first encode the files to make it work. The 
+
+uuencode command turns the contents of files into printable characters using a fixed-width format that allows them to be mailed and subsequently decoded easily. The resultant file will be larger than the file before uuencoding; after all, uuencode must map 
+
+a larger character set of printable and nonprintable characters to a smaller one of printable characters, so it uses extra bits to do this, and the file will be about a third larger than the original.
+
+<BR></P>
+
+<P>To get an idea of what uuencode does to a file, try this simple example:
+
+<BR></P>
+
+<PRE>boson%  uuencode dickens dickens &gt; dickens.uu</PRE>
+
+<P>This command uses uuencode on the file dickens. The filename to be used upon extraction is also included in this command as well as the filename resulting from this use of uuencode (see Figure 31.2).
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="31unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/31unx02.gif">Figure 31.2. Syntax of the </B><B><I>uuencode</I></B><B> command.</A></B>
+
+<BR></P>
+
+<P>When you take the file dickens, which has the following contents:
+
+<BR></P>
+
+<PRE>&quot;Buried how long?&quot;
+
+The answer was always the same: &quot;Almost eighteen years.&quot;
+
+&quot;You had abandoned all hope of being dug out?&quot;
+
+&quot;Long ago.&quot;
+
+&quot;You know that you are recalled to life?&quot;
+
+&quot;They tell me so.&quot;
+
+&quot;I hope that you care to live?&quot;
+
+&quot;I can't say.&quot;
+
+Charles Dickens, A Tale of Two Cities</PRE>
+
+<P>and use uuencode on it, it looks like this:
+
+<BR></P>
+
+<PRE>begin 644 dickens
+
+MU&lt;FEE9&quot;!H;W&lt;@;&amp;]N9S\B&quot;E1H92!A;G-W97(@=V%S(&amp;%L=V%Y&lt;R!T:&amp;4@
+
+M&lt;V%M93H@(D%L;6]S=&quot;!E:6=H=&amp;5E;B!Y96%R&lt;RXB&quot;B)9;W4@:&amp;%D(&amp;%B86YD
+
+M;VYE9&quot;!A;&amp;P@:&amp;]P92!O9B!B96EN9R!D=6&lt;@;W5T/R(*(DQO;F&lt;@86=O+B(*
+
+M(EEO=2!K;F]W('1H870@&gt;6]U(&amp;%R92!R96-A;&amp;QE9&quot;!T;R!L:69E/R(*(E1H
+
+M97D@=&amp;5L;&quot;!M92!S;RXB&quot;B))(&amp;AO&lt;&amp;4@=&amp;AA=&quot;!Y;W4@8V%R92!T;R!L:79E
+
+M/R(*(DD@8V%N)W0@&lt;V%Y+B(*&quot;D-H87)L97,@1&amp;EC:V5N&lt;RP@02!486QE(&amp;]F
+
+,(%1W;R!#:71I97,*
+
+ 
+
+end</PRE>
+
+<P>The first line of the uuencode file lists the permissions that the file will have and the name it will have once it's extracted (see Figure 31.3).
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="31unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/31unx03.gif">Figure 31.3. First line of file created by </B><B><I>uuencode</I></B><B>.</A></B>
+
+<BR></P>
+
+<P>If you receive in the mail a file on which uudecode has been used, you can retrieve the original file using the reverse process of what has been described. Strip the mail header off until you get to just the file on which uudecode has been used (so that 
+
+it looks like what is shown in the example). Then use the uudecode file to extract the original file.
+
+<BR></P>
+
+<PRE>boson% uudecode dickens.uu
+
+boson% ls dickens*
+
+dickens
+
+dickens.uu</PRE>
+
+<P>Notice that the file on which uuencode was used will still be there. The uudecode command does not decode &quot;in place&quot; the way uncompress decompresses in place. Instead, it extracts to whatever filename you included in the uuencode process.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Shell Archives</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Another common format for archives is the shell archive. Shell archives are also called shar files and have, by convention, the extension .shar. They are very different from tar archives in that they do not allow inclusion of executables. They also do 
+not include any of the file descriptive information, such as permissions and ownership. Shar files are just text files with the shell commands for extracting the original files embedded between the text of the files themselves.
+
+<BR></P>
+
+<P>Shar files are extracted using the Bourne shell command, sh. It is easy to create a shar file and it is easy to extract from one. It is likewise easy to create a script that creates shell archives.
+
+<BR></P>
+
+<P>The basic &quot;trick&quot; in creating shar files is knowing how to use what is known as the &quot;here&quot; document. In the Bourne shell, the operator &lt;&lt; instructs the shell to accept input until it encounters a given string (which you 
+provide) and uses this input as input to a command.
+
+<BR></P>
+
+<P>Type these commands on your system:
+
+<BR></P>
+
+<PRE>echo Extracting File from Shell Archive
+
+cat &gt; dickens &lt;&lt; TheEnd
+
+&quot;Buried how long?&quot;
+
+The answer was always the same: &quot;Almost eighteen years.&quot;
+
+&quot;You had abandoned all hope of being dug out?&quot;
+
+&quot;Long ago.&quot;
+
+&quot;You know that you are recalled to life?&quot;
+
+&quot;They tell me so.&quot;
+
+&quot;I hope that you care to live?&quot;
+
+&quot;I can't say.&quot;
+
+Charles Dickens, A Tale of Two Cities
+
+TheEnd</PRE>
+
+<P>You get a file dickens with the content specified between the cat command and the TheEnd marker. If you imbed these same commands in an executable file and invoke it, you get the same thing. You can, therefore, create files including such sequences and 
+
+provide them to other people so that they can extract your original files using a command like this:
+
+<BR></P>
+
+<PRE>myhost% /bin/sh anyname.shar</PRE>
+
+<P>Better still, you can create a script which takes any file you want to share and wraps it in the appropriate here document commands. To create such a script, you first need to include the here document commands. You can easily modify the commands you 
+entered above to read:
+
+<BR></P>
+
+<PRE>echo &quot;echo Extracting File from Shell Archive&quot;
+
+echo &quot;cat &gt; dickens &lt;&lt; TheEnd&quot;
+
+cat dickens
+
+echo TheEnd</PRE>
+
+<P>You can then insert them into your shell script.
+
+<BR></P>
+
+<P>This command sequence looks a little peculiar, but you need to examine it closely to understand what it is doing. First, it creates the line echo Extracting File from Shell Archive. Next it adds the line cat &gt; dickens &lt;&lt; 'TheEnd' to the file. 
+This is the command that is going to create the file dickens when the extraction is done. It will cause data following this line to be read until the line TheEnd is encountered. Then you actually use cat to add the file to the archive, followed by the end 
+
+marker you selected, 'TheEnd'.
+
+<BR></P>
+
+<P>To make this script general-purpose, you should replace the specified filename with an argument.
+
+<BR></P>
+
+<PRE>echo &quot;echo Extracting File from Shell Archive&quot;
+
+echo &quot;cat &gt; $1 &lt;&lt; TheEnd&quot;
+
+cat $1
+
+echo TheEnd</PRE>
+
+<P>You can then use this script like this to create a shar archive from any file. Make sure that your script is executable and redirect its output to the file that you will share.
+
+<BR></P>
+
+<PRE>mk_shar dickens &gt; dickens.shar</PRE>
+
+<P>So, here's what the archive, dickens.shar, will look like when you're done:
+
+<BR></P>
+
+<PRE>echo Extracting File from Shell Archive
+
+cat &gt; dickens &lt;&lt; 'TheEnd'
+
+&quot;Buried how long?&quot;
+
+The answer was always the same: &quot;Almost eighteen years.&quot;
+
+&quot;You had abandoned all hope of being dug out?&quot;
+
+&quot;Long ago.&quot;
+
+&quot;You know that you are recalled to life?&quot;
+
+&quot;They tell me so.&quot;
+
+&quot;I hope that you care to live?&quot;
+
+&quot;I can't say.&quot;
+
+Charles Dickens, A Tale of Two Cities
+
+TheEnd</PRE>
+
+<P>When you extract this file, you will get a file dickens.
+
+<BR></P>
+
+<PRE>boson% sh dickens.shar</PRE>
+
+<P>Notice that you can include multiple files in the same shar archive by using the append operator, &gt;&gt;.
+
+<BR></P>
+
+<PRE>mk_shar dickens2 &gt;&gt; dickens.shar</PRE>
+
+<P>Clearly, you can string together multiple files in this way, creating a very useful archiving method since you can group together related files in a text-only format that clearly remembers the filenames and marks their beginnings and endings. Shell 
+archives can also be read on just about any UNIX system. It would be surprising if you found any UNIX system without the Bourne shell.
+
+<BR></P>
+
+<P>Shar files, obviously, do not save any space. Since you have the original files plus some overhead for packing them in the simple structure of extract commands, text, and end-of-file markers, the resultant archive is somewhat larger than the original 
+files. Generally, the extra length is considerably less than the extra space taken by using uuencode.
+
+<BR></P>
+
+<P>Shar files are nice because it is obvious what you're getting. You can easily examine them before extracting from them to be sure that this is what you want. You can check out the filenames and look for extraneous commands that you might not want to 
+execute. Keep in mind that &quot;stray&quot; commands included in an archive when you extract from it will also be executed, provided that they are not within the beginning and end markers of a here document.
+
+<BR></P>
+
+<P>In any case, you should always examine shar files before extracting them, even if they're from someone you trust (that person may have gotten them from somewhere else). The following simple awk script could be used to quickly scan through a shell 
+archive, looking for commands that are extraneous and possibly sinister. It looks for the beginning and the end of each here document and prints anything not enclosed within these documents. If used against the dickens.shar file presented in this chapter, 
+
+it would print the string echo Extracting File from Shell Archive.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Note that this particular awk script expects the filenames of the extracted files to contain only alphabetic and numeric characters. You can expand this expression if necessary.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>#
+
+BEGIN {OK = &quot;OFF&quot;}
+
+$0 ~ /^cat &gt; [A-Za-z0-9]+ &lt;&lt;/ { OK = &quot;ON&quot;;TERMINATOR = $5 }
+
+{
+
+if (OK == &quot;OFF&quot;)
+
+     print $0
+
+if ($0 == TERMINATOR) {
+
+     OK = &quot;OFF&quot;
+
+}
+
+}</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The commands that UNIX provides for archiving your files allow you to recover from disastrous mistakes, as well as conveniently share files with strangers who will not need to know anything about your systems (except how to access them) to make use of 
+them.
+
+<BR></P>
+
+<P>Almost no one archives files too often. Regular use of the commands described in this chapter will help you manage your systems.
+
+<BR></P>
+
+<P><A HREF="unx30.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx30.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx32.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx32.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

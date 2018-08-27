@@ -1,0 +1,6252 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx06.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx07.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx07.htm">
+
+<LINK REL="Previous" HREF="unx05.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx05.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx05.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx05.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx07.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx07.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">6 &#151; Popular File Tools</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Pete Holsberg</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Determing the Nature of a File's Contents with file</A></LI>
+
+<LI>
+
+<A HREF="#I5">Browsing Through Text Files with more (page), and pg</A></LI>
+
+<LI>
+
+<A HREF="#I6">Searching for Stringswith the grep Family</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I7">Regular Expressions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I8">Regular Expression Characters</A></LI>
+
+<LI>
+
+<A HREF="#I9">A Regular Expression with No Special Characters</A></LI>
+
+<LI>
+
+<A HREF="#I10">Special Characters</A></LI>
+
+<LI>
+
+<A HREF="#I11">Regular Expression Examples</A></LI>
+
+<LI>
+
+<A HREF="#I12">The grep Command</A></LI>
+
+<LI>
+
+<A HREF="#I13">The egrep Command</A></LI>
+
+<LI>
+
+<A HREF="#I14">The fgrep Command</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I15">Compressing Files&#151;compress, uncompress, and zcat</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Printing with pr</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Printing Hard Copy Output</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">Requesting To Print</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I19">The lp Command</A></LI>
+
+<LI>
+
+<A HREF="#I20">The cancel Command</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Getting Printer and Print Request Status</A></LI></UL>
+
+<LI>
+
+<A HREF="#I22">Comparing Directories with dircmp</A></LI>
+
+<LI>
+
+<A HREF="#I23">Encrypting a File with the crypt Command</A></LI>
+
+<LI>
+
+<A HREF="#I24">Printing the Beginning or End of a File with head and tail</A></LI>
+
+<LI>
+
+<A HREF="#I25">Pipe Fitting with tee</A></LI>
+
+<LI>
+
+<A HREF="#I26">Updating a File's Time and Date with touch</A></LI>
+
+<LI>
+
+<A HREF="#I27">Splitting Files with split and csplit</A></LI>
+
+<LI>
+
+<A HREF="#I28">Comparing Files with cmp and diff</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I29">The cmp Command</A></LI>
+
+<LI>
+
+<A HREF="#I30">The dif command</A></LI></UL>
+
+<LI>
+
+<A HREF="#I31">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>6 &#151; Popular File Tools</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Pete Holsberg</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Files are the heart of UNIX. Unlike most other operating systems, UNIX was designed with a simple, yet highly sophisticated, view of files: Everything is a file. Information stored in an area of a disk or memory is a file; a directory is a file; the 
+keyboard is a file; the screen is a file.
+
+<BR></P>
+
+<P>This single-minded view makes it easy to write tools that manipulate files, because files have no structure&#151;UNIX sees every file merely as a simple stream of bytes. This makes life much simpler for both the UNIX programmer and the UNIX user. The 
+user benefits from being able to send the contents of a file to a command without having to go through a complex process of opening the file. In a similar way, the user can capture the output of a command in a file without having previously created that 
+file. And perhaps most importantly, the user can send the output of one command directly to the input of another, using memory as a temporary storage device or file. Finally, users benefit from UNIX's unstructured files because they are simply easier to 
+use than files that must conform to one of several highly structured formats.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Determing the Nature of a File's Contents with </B><B><I>file</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A user&#151;especially a power user&#151;must take a closer look at a file before manipulating it. If you've ever sent a binary file to a printer, you're aware of the mess that can result. Murphy's Law assures that every binary file includes a string of 
+
+bytes that does one or more of the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Spew a ream of paper through the printer before you can shut it off, printing just enough on each page to render the paper fit only for the recycling bin
+
+<BR>
+
+<BR></LI>
+
+<LI>Put the printer into a print mode that prints all characters at 1/10 their intended size
+
+<BR>
+
+<BR></LI>
+
+<LI>Lock your keyboard
+
+<BR>
+
+<BR></LI>
+
+<LI>Dump core&#151;that is, create a file consisting of whatever was in memory at that instant of time!
+
+<BR>
+
+<BR></LI></UL>
+
+<P>In a similar way, sending a binary file to the screen can lock the keyboard, put the screen in a mode that changes the displayed character set to one that is clearly not English, dump core, and so on.
+
+<BR></P>
+
+<P>While it's true that many files already stored on the system&#151;and certainly every file you create with a text editor (see Chapter 7)&#151;are text files, many are not. UNIX provides a command, file, that attempts to determine the nature of the 
+contents of files when you supply their file names as arguments. You can invoke the file command in one of two ways:
+
+<BR></P>
+
+<PRE>file [-h] [-m <I>mfile</I>] [-f <I>ffile</I>] <I>arg(s)</I>
+
+file [-h] [-m <I>mfile</I>] -f <I>ffile</I></PRE>
+
+<P>The file command performs a series of tests on each file in the list of <I>arg(s)</I> or on the list of files whose names are contained in the file <I>ffile</I>. If the file being tested is a text file, file examines the first 512 bytes and tries to 
+determine the language in which it is written. The identification is worded by means of the contents of a file called /etc/magic. If you don't like what's in the file, you can use the -m mfile option, replacing mfile with the name of the &quot;magic 
+file&quot; you'd like to use. (Consult your local magician for suitable spells and potions!) Here are the kinds of text files that Unixware Version 1.0's file command can identify:
+
+<BR></P>
+
+<UL>
+
+<LI>Empty files
+
+<BR>
+
+<BR></LI>
+
+<LI>SCCS files
+
+<BR>
+
+<BR></LI>
+
+<LI>troff (typesetter runoff) output files
+
+<BR>
+
+<BR></LI>
+
+<LI>Data files
+
+<BR>
+
+<BR></LI>
+
+<LI>C program text files (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>FORTRAN program text files (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>Assembler program text files (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>[nt]roff, tbl, or eqn input text (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>Command text files (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>English text files (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>ASCII text files (with or without garbage)
+
+<BR>
+
+<BR></LI>
+
+<LI>PostScript program text files (with or without garbage)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Don't be concerned if you're not familiar with some of these kinds of text. Many of them are peculiar to UNIX and are explained in later chapters.
+
+<BR></P>
+
+<P>If the file is not text, file looks near the beginning of the file for a magic number&#151;a number or string that is associated with a file type; an arbitrary value that is couple with a descriptive phrase. Then file uses /etc/magic, which provides a 
+database of magic numbers and kinds of files, or the file specified as <I>mfile</I> to determine the file's contents. If the file being tested is a symbolic link, file follows the link and tries to determine the nature of the contents of the file to which 
+
+it is linked. The -h option causes file to ignore symbolic links.
+
+<BR></P>
+
+<P>The /etc/magic file contains the table of magic numbers and their meanings. For example, here is an excerpt from Unixware Version 1.0's /etc/magic file. The number following uxcore: is the magic number, and the phrase that follows is the file type. The 
+
+other columns tell file how and where to look for the magic number:
+
+<BR></P>
+
+<PRE>&gt;16  short    2        uxcore:231     executable
+
+0    string            uxcore:648     expanded ASCII cpio archive
+
+0    string            uxcore:650     ASCII cpio archive
+
+&gt;1   byte     0235     uxcore:571     compressed data
+
+0    string            uxcore:248     current ar archive
+
+0    short    0432     uxcore:256     Compiled Terminfo Entry
+
+0    short    0434     uxcore:257     Curses screen image
+
+0    short    0570     uxcore:259     vax executable
+
+0    short    0510     uxcore:263     x86 executable
+
+0    short    0560     uxcore:267     WE32000 executable
+
+0    string   070701   uxcore:565     DOS executable (EXE)
+
+0    string   070707   uxcore:566     DOS built-in
+
+0    byte     0xe9     uxcore:567     DOS executable (COM)
+
+0    short    0520     uxcore:277     mc68k executable
+
+0    string            uxcore:569     core file (Xenix)
+
+0    byte     0x80     uxcore:280     8086 relocatable (Microsoft)</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Human beings cannot read any of the files listed in this excerpt, so you should not send any of these files to the screen or the printer. The same is true for any of the previously listed text 
+files that have garbage.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Browsing Through Text Files with </B><B><I>more (page)</I></B><B>, and </B><B><I>pg</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>After you identify a file as being a text file that humans can read, you may want to read it. The cat command streams the contents of a file to the screen, but you must be quick with the Scroll Lock (or equivalent) key so that the file content does not 
+
+flash by so quickly that you cannot read it (your speed-reading lessons notwithstanding). UNIX provides a pair of programs that present the contents of a file one screen at a time.
+
+<BR></P>
+
+<P>The more(page) programs are almost identical, and will be discussed as if they were a simple program. The only differences are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>page clears the screen automatically between pages, but more does not.
+
+<BR>
+
+<BR></LI>
+
+<LI>more provides a two-line overlap from one screen to the next, while page provides only a one-line overlap.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Both more and page have several commands, many of which take a numerical argument that controls the number of times the command is actually executed. You can issue these commands while using the more or page program (see the syntax below), and none of 
+these commands are echoed to the screen. Table 6.1 lists the major commands.
+
+<BR></P>
+
+<PRE><B>more</B> [-<B>cdflrsuw</B>] [-<I>lines</I>] [+<I>linenumber</I>] [+/<I>pattern</I>] [<I>file(s)</I>]
+
+<B>page</B> [-<B>cdflrsuw</B>] [-<I>lines</I>] [+<I>linenumber</I>] [+/<I>pattern</I>] [<I>file(s)</I>]</PRE>
+
+<UL>
+
+<LH><B>Table 6.1. Commands for </B><B>more(page)</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P><I>n</I>Spacebar</P>
+
+<TD>
+
+<P>If no positive number is entered, display the next screenfull. If an <I>n</I> value is entered, display <I>n</I> more lines.</P>
+
+<TR>
+
+<TD>
+
+<P><I>n</I>Return</P>
+
+<TD>
+
+<P>If no positive number is entered, display another line. If an <I>n</I> value is entered, display <I>n</I> more lines. (Depending on your keyboard, you can press either the Return or Enter key.)</P>
+
+<TR>
+
+<TD>
+
+<P>n^D, nd</P>
+
+<TD>
+
+<P>If no positive number is entered, scroll down 11 more lines. If an n value is given, scroll the screen down n times.</P>
+
+<TR>
+
+<TD>
+
+<P>nz</P>
+
+<TD>
+
+<P>Same as nSpacebar, except that if an n value is entered, it becomes the new number of lines per screenfull.</P>
+
+<TR>
+
+<TD>
+
+<P><I>n</I>^B, <I>n</I>b</P>
+
+<TD>
+
+<P>Skip back <I>n</I> screensfull and then print a screenfull.</P>
+
+<TR>
+
+<TD>
+
+<P>q, Q</P>
+
+<TD>
+
+<P>Exit from more or page.</P>
+
+<TR>
+
+<TD>
+
+<P>=</P>
+
+<TD>
+
+<P>Display the number of the current line.</P>
+
+<TR>
+
+<TD>
+
+<P>v</P>
+
+<TD>
+
+<P>Drop into the editor (see Chapter 7) indicated by the EDITOR environment variable (see Chapters 11, 12, 13), at the current line of the current file.</P>
+
+<TR>
+
+<TD>
+
+<P>h</P>
+
+<TD>
+
+<P>Display a Help screen that describes all the more or page commands.</P>
+
+<TR>
+
+<TD>
+
+<P>:f </P>
+
+<TD>
+
+<P>Display the name and current line number of the file that you are viewing.</P>
+
+<TR>
+
+<TD>
+
+<P>:q, :Q</P>
+
+<TD>
+
+<P>Exit from more or page (same as q or Q).</P>
+
+<TR>
+
+<TD>
+
+<P>_  (dot) </P>
+
+<TD>
+
+<P>Repeat the previous command.</P></TABLE>
+
+<P>After you type the more and page programs' commands, you need not press the Enter or Return key (except, of course, in the case of the <I>n</I>Return command). The programs execute the commands immediately after you type them.
+
+<BR></P>
+
+<P>You can invoke more(page) with certain options that specify the program's behavior. For example, these programs can display explicit error messages instead of just beeping. Table 6.2 lists the most commonly used options for more and page.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 6.2. Options for </B><B>more</B><B> and </B><B>page</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Clear before displaying. To display screens more quickly, this option redraws the screen instead of scrolling. You need not use this option with page.</P>
+
+<TR>
+
+<TD>
+
+<P>-d</P>
+
+<TD>
+
+<P>Display an error message instead of beeping if an unrecognized command is typed.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Display each control character as a two-character pattern consisting of a caret followed by the specified character, as in ^C.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Replace any number of consecutive blank lines with a single blank line.</P>
+
+<TR>
+
+<TD>
+
+<P>-lines</P>
+
+<TD>
+
+<P>Make lines the number of lines in a screenfull.</P>
+
+<TR>
+
+<TD>
+
+<P>+n</P>
+
+<TD>
+
+<P>Start at line number n.</P>
+
+<TR>
+
+<TD>
+
+<P>+/pattern</P>
+
+<TD>
+
+<P>Start two lines above the line that contains the regular expression pattern. (Regular expressions are explained in the next section.)</P></TABLE>
+
+<P>The more(page) program is a legacy from the Berkeley version of UNIX. System V variants give us pg, another screen-at-a-time file viewer. The pg program offers a little more versatility by giving you more control over your movement within a file (you 
+can move both forward and backward) and your search for patterns. The program has its own commands and a set of command-line options. Table 6.3 lists the more frequently used commands. Unlike more and page, the pg program requires that you always press the 
+
+Return or Enter key to execute its commands.
+
+<BR></P>
+
+<PRE>$pg [options] file</PRE>
+
+<UL>
+
+<LH><B>Table 6.3. Commands for </B><B>pg</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P><I>n</I>Return</P>
+
+<TD>
+
+<P>If no <I>n</I> value is entered or if a value of +1 is entered, display the next page. If the value of n is &#151;1, display the previous page. If the value of <I>n</I> has no sign, display page number n. For example, a value of 3 causes pg to display 
+page 3. (Depending on your keyboard, you can press either the Return or Enter key.)</P>
+
+<TR>
+
+<TD>
+
+<P><I>n</I>d, ^D</P>
+
+<TD>
+
+<P>Scroll half a screen. The value <I>n</I> can be positive or negative. So, for example, 2d will scroll full screen forward, and -3d will scroll one and a half screens back.</P>
+
+<TR>
+
+<TD>
+
+<P>nz</P>
+
+<TD>
+
+<P>Same as nReturn except that if an n value is entered, it becomes the number of lines per screenfull.</P>
+
+<TR>
+
+<TD>
+
+<P>., ^L</P>
+
+<TD>
+
+<P>Redisplay (clear the screen and then display again) the current page of text.</P>
+
+<TR>
+
+<TD>
+
+<P>$</P>
+
+<TD>
+
+<P>Displays the last screenfull in the file.</P>
+
+<TR>
+
+<TD>
+
+<P>n/pattern/</P>
+
+<TD>
+
+<P>Search forward for the nth occurrence of pattern. (The default value for n is 1.) Searching begins immediately after the current page and continues to the end of the current file, without wrap-around.</P>
+
+<TR>
+
+<TD>
+
+<P>n?pattern?</P>
+
+<TD>
+
+<P>Search backward for the nth occurrence of pattern. (The default value for n is 1.) Searching begins immediately before the current page and continues to the beginning of the current file, without wrap-around.</P>
+
+<TR>
+
+<TD>
+
+<P>h</P>
+
+<TD>
+
+<P>Display an abbreviated summary of available commands.</P>
+
+<TR>
+
+<TD>
+
+<P>q, Q</P>
+
+<TD>
+
+<P>Quit pg.</P>
+
+<TR>
+
+<TD>
+
+<P>!command</P>
+
+<TD>
+
+<P>Execute the shell command command as if it were typed on a command line.</P></TABLE>
+
+<P>Addressing is the ability to specify a number with a sign or a number without a sign. A number with no sign provides absolute addressing; for example, pressing 3 followed by the Return key displays page 3. A number with a sign provides relative 
+addressing; that is, the command moves you to a line relative to the current line.
+
+<BR></P>
+
+<P>The pg program has several startup options that modify its behavior. Table 6.4 describes the most frequently used options.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 6.4. Some of </B><B>pg</B><B>'s Startup Options</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Options</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meanings</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-<I>n</I></P>
+
+<TD>
+
+<P>Change the number of lines per page to the value of <I>n</I>. Otherwise, the number of lines is determined automatically by the terminal. For example, a 24-line terminal automatically uses 23 lines per page.</P>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Clear the screen before displaying a page.</P>
+
+<TR>
+
+<TD>
+
+<P>-n</P>
+
+<TD>
+
+<P>Remove the requirement that you press Return or Enter after you type the command. Note: Some commands will still require that you press Enter or Return.</P>
+
+<TR>
+
+<TD>
+
+<P>-p string</P>
+
+<TD>
+
+<P>Change the prompt from a colon (:) to string. If string contains the two characters %d, they are replaced by the current page number when the prompt appears.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Prevent the use of !command and display an error message if the user attempts to use it.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Print all messages and prompts in standout mode (which is usually inverse video).</P>
+
+<TR>
+
+<TD>
+
+<P>+<I>n</I></P>
+
+<TD>
+
+<P>Start the display at line number <I>n</I>.</P>
+
+<TR>
+
+<TD>
+
+<P>+/pattern/</P>
+
+<TD>
+
+<P>Start the display at the first line that contains the regular expression pattern. Regular expressions are explained in the next section.</P></TABLE>
+
+<P>Each of the commands discussed in this section can accept a list of file names on the command line, and display the next file when it reaches the end of the current file. 
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Searching for Stringswith the </B><B><I>grep</I></B><B> Family</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Suppose that you want to know whether a certain person has an account on your system. You can use more, page, or pg to browse through /etc/passwd looking for that person's name, but if your system has many users, that can take a long time. Besides, an 
+easier way is available: grep. It searches one or more files for the pattern of the characters that you specify and displays every line in the file or files that has that pattern in it.
+
+<BR></P>
+
+<P>grep stands for global/regular expression/print; that is, search through an entire file (do a global search) for a specified regular expression (the pattern that you specified) and display the line or lines that contain the pattern.
+
+<BR></P>
+
+<P>Before you can use grep and the other members of the grep family, you must explore regular expressions, which are what gives the grep commands (and many other UNIX commands) their power. After that, you will learn all of the details of the grep family 
+of commands.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Regular Expressions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A regular expression is a sequence of ordinary characters and special operators. Ordinary characters include the set of all uppercase and lowercase letters, digits, and other commonly used characters: the tilde (~), the back quotation mark ('), the 
+exclamation mark (!), the &quot;at&quot; sign (@), the pound sign (#), the underscore (_), the hyphen (-), the equals sign (=), the colon (:), the semicolon (;), the comma (,), and the slash (/). The special operators are backslash (\), dot (.), asterisk 
+(*), left square bracket ([), caret (^), dollar sign ($), right square bracket (]).
+
+<BR></P>
+
+<P>By using regular expressions, you can search for general strings in a file. For example, you can tell grep to show you all lines in a file that contain any of the following:  the word Unix, the word UNIX, a pattern consisting of four digits, a ZIP code, 
+
+a name, nothing, or all the vowels in alphabetic order.
+
+<BR></P>
+
+<P>You can also combine two strings into a pattern. For example, to combine a search for Unix and UNIX, you can specify a word that begins with U, followed by n or N, followed by i or I, and ending with x or X.
+
+<BR></P>
+
+<P>Several UNIX commands use regular expressions to find text in files. Usually you supply a regular expression to a command to tell that command what to search for. Most regular expressions match more than one text string.
+
+<BR></P>
+
+<P>There are two kinds of regular expressions: limited and full (sometimes called extended). Limited regular expressions are a subset of full regular expressions, but UNIX commands are inconsistent in the extended operations that they permit. At the end of 
+
+this discussion, you'll find a table that lists the most common commands in UNIX System V Release 4 that use regular expressions, along with the operations that they can perform.
+
+<BR></P>
+
+<P>The simplest form of a regular expression includes only ordinary characters, and is called a string. The grep family (grep, egrep, and fgrep) matches a string wherever it finds the regular expression, even if it's surrounded by other characters. For 
+example, the is a regular expression that matches only the three-letter sequence t, h, and e. This string is found in the words the, therefore, bother, and many others.
+
+<BR></P>
+
+<P>Two of the members of the grep family use regular expressions&#151;the third, fgrep, operates only on strings:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>grep</P>
+
+<TD>
+
+<P>The name means to search globally (throughout the entire file) for a regular expression and print the line that contains it. In its simplest form, grep is called as follows:</P>
+
+<TR>
+
+<TD>
+
+<P><BR>]</P>
+
+<TD>
+
+<P>grep regular_expression filename</P>
+
+<TR>
+
+<TD>
+
+<P><BR>]</P>
+
+<TD>
+
+<P>When grep finds a match of regular_expression, it displays the line of the file that contains it and then continues searching for a subsequent match. Thus, grep displays every line of a file that contains a text string that matches the regular 
+expression.</P>
+
+<TR>
+
+<TD>
+
+<P>egrep</P>
+
+<TD>
+
+<P>You call this member exactly the same way as you call grep. However, this member uses an extended set of regular expression operators, that will be explained later, after you master the usual set.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> None of these commands alter the original file. Output goes to stdout (by default, stdout is the screen). To save the results, you must redirect the output to a file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The contents of the following file are used in subsequent sections to demonstrate how you can use the grep family to search for regular expressions:
+
+<BR></P>
+
+<PRE>$ cat REfile
+
+A regular expression is a sequence of characters taken
+
+from the set of uppercase and lowercase letters, digits,
+
+punctuation marks, etc., plus a set of special regular
+
+expression operators. Some of these operators may remind
+
+you of file name matching, but be forewarned: in general,
+
+regular expression operators are different from the
+
+shell metacharacters we discussed in Chapter 1.
+
+The simplest form of a regular expression is one that
+
+includes only letters. For example, they would match only
+
+the three-letter sequence t, h, e. This pattern is found
+
+in the following words: the, therefore, bother. In other
+
+words, wherever the regular expression pattern is found
+
+&#151; even if it is surrounded by other characters &#151; it will
+
+be matched.</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Regular Expression Characters</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Regular expressions match patterns that consist of a combination of ordinary characters, such as letters, digits, and various other characters used as operators. You will meet examples of these below. A character's use often determines its meaning in a 
+
+regular expression. All programs that use regular expressions have a search pattern. The editor family of programs (vi, ex, ed, and sed; see Chapter 7, &quot;Editing Text Files&quot;) also has a replacement pattern. In some cases, the meaning of a special 
+
+character differs depending on whether it's used as part of the search pattern or in the replacement pattern.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>A Regular Expression with No Special Characters</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Here's an example of a simple search for an regular expression. This regular expression is a character string with no special characters in it.
+
+<BR></P>
+
+<PRE>$ grep only REfile
+
+includes only letters. For example, the would match only</PRE>
+
+<P>The sole occurrence of only satisfied grep's search, so grep printed the matching line.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Special Characters</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Certain characters have special meanings when used in regular expressions, and some of them have special meanings depending on their position in the regular expression. Some of these characters are used as placeholders and some as operators. Some are 
+used for both, depending on their position in the regular expression.
+
+<BR></P>
+
+<UL>
+
+<LI>The dot (.), asterisk (*), left square bracket ([) and backslash (\) are special except when they appear between a left and right pair of square brackets ([]).
+
+<BR>
+
+<BR></LI>
+
+<LI>A circumflex or caret (^) is special when it's the first character of a regular expression, and also when it's the first character after the opening left square bracket in a left and right pair of square brackets.
+
+<BR>
+
+<BR></LI>
+
+<LI>A dollar sign ($) is special when it's the last character of a regular expression.
+
+<BR>
+
+<BR></LI>
+
+<LI>A pair of delimiters, usually a pair of slash characters (//), is special because it delimits the regular expression.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Any character not used in the current regular expression can be used as the delimiter, but the slash is traditional.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI>A special character preceded by a backslash is matched by the character itself. This is called escaping. When a special character is escaped, the command recognizes it as a literal&#151;the actual character with no special meaning. In other words, as 
+in file-name matching, the backslash cancels the special meaning of the character that follows it.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Now let's look at each character in detail.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Matching Any One Character</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The dot matches any one character except a newline. For example, consider the following:
+
+<BR></P>
+
+<PRE>$ grep 'w.r' REfile
+
+from the set of uppercase and lowercase letters, digits,
+
+you of file name matching, but be forewarned: in general,
+
+in the following words: the, therefore, bother. In other
+
+words, wherever the regular expression pattern is found</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The regular expression w.r appears within a set of apostrophes (referred to by UNIXees as &quot;single quotes&quot;). Their use is mandatory if grep is to function properly. If they are omitted, the 
+shell (see Chapters 11, 12, and 13) may interpret certain special characters in the regular expressio as if they were &quot;shell special characters&quot; rather than &quot;grep special characters&quot; and the result will be unexpected.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The pattern w.r matches wer in lowercase on the first displayed line, by war in forewarned on the second, by wor in words on the third, and by wor in words on the fourth. Expressed in English, the sample command says &quot;Find and display all lines 
+that match the following pattern: w followed by any character except a newline followed by r.&quot;
+
+<BR></P>
+
+<P>You can form a somewhat different one-character regular expression by enclosing a list of characters in a left and right pair of square brackets. The matching is limited to those characters listed between the brackets. For example, the pattern
+
+<BR></P>
+
+<PRE>[aei135XYZ]</PRE>
+
+<P>matches any one of the characters a, e, i, 1, 3, 5, X, Y, or Z.
+
+<BR></P>
+
+<P>Consider the following example:
+
+<BR></P>
+
+<PRE>$ grep 'w[fhmkz]' REfile
+
+words, wherever the regular expression pattern is found</PRE>
+
+<P>This time, the match was satisfied only by the wh in wherever, matching the pattern &quot;w followed by either f, h, m, k, or z.&quot;
+
+<BR></P>
+
+<P>If the first character in the list is a right square bracket (]), it does not terminate the list&#151;that would make the list empty, which is not permitted. Instead, ] itself becomes one of the possible characters in the search pattern. For example, 
+the pattern
+
+<BR></P>
+
+<PRE>[]a]</PRE>
+
+<P>matches either ] or a.
+
+<BR></P>
+
+<P>If the first character in the list is a circumflex (also called a caret), the match occurs on any character that is not in the list:
+
+<BR></P>
+
+<PRE>$ grep 'w[^fhmkz]' REfile
+
+from the set of uppercase and lowercase letters, digits,
+
+you of file name matching, but be forewarned: in general,
+
+shell metacharacters we discussed in Chapter 1.
+
+includes only letters. For example, the would match only
+
+in the following words: the, therefore, bother. In other
+
+words, wherever the regular expression pattern is found
+
+&#151; even if it is surrounded by other characters &#151; it will</PRE>
+
+<P>The pattern &quot;w followed by anything except  f, h, m, k, or z&quot; has many matches. On line 1, we in lowercase is a &quot;w followed by anything except an f, an h, an m, a k, or a z.&quot; On line 2, wa in forewarned is a match, as is the word we 
+
+on line 3. Line 4 contains wo in would, and line 5 contains wo in words. Line 6 has wo in words as its match. The other possible matches on line 6 are ignored because the match is satisfied at the beginning of the line. Finally, at the end of line 7, wi in 
+
+will matches.
+
+<BR></P>
+
+<P>You can use a minus sign (-) inside the left and right pair of square brackets to indicate a range of letters or digits. For example, the pattern
+
+<BR></P>
+
+<PRE>[a-z]</PRE>
+
+<P>matches any lowercase letter.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You cannot write the range &quot;backward&quot;; that is, _ [z-a] is illegal.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Consider the following example:
+
+<BR></P>
+
+<PRE>$ grep 'w[a-f]' REfile
+
+from the set of uppercase and lowercase letters, digits,
+
+you of file name matching, but be forewarned: in general,
+
+shell metacharacters we discussed in Chapter 1.</PRE>
+
+<P>The matches are we on line 1, wa on line 2, and we on line 3. Look at REfile again and note how many potential matches are omitted because the character following the w is not one of the group a through f.
+
+<BR></P>
+
+<P>Furthermore, you can include several ranges in one set of brackets. For example, the pattern
+
+<BR></P>
+
+<PRE>[a-zA-Z]</PRE>
+
+<P>matches any letter, lower- or uppercase.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Matching Multiples of a Single Character</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>If you want to specify precisely how many of a given character you want the regular expression to match, you can use the escaped left and right curly brace pair (\{____\}). For example, the pattern
+
+<BR></P>
+
+<PRE>X\{2,5\}</PRE>
+
+<P>matches at least two but not more than five Xs. That is, it matches XX, XXX, XXXX, or XXXXX. The minimum number of matches is written immediately after the escaped left curly brace, followed by a comma (,) and then the maximum value.
+
+<BR></P>
+
+<P>If you omit the maximum value (but not the comma), as in
+
+<BR></P>
+
+<PRE>X\{2,\}</PRE>
+
+<P>you specify that the match should occur for at least two Xs.
+
+<BR></P>
+
+<P>If you write just a single value, omitting the comma, you specify the exact number of matches, no more and no less. For example, the pattern
+
+<BR></P>
+
+<PRE>X\{4\}</PRE>
+
+<P>matches only XXXX. Here are some examples of this kind of regular expression:
+
+<BR></P>
+
+<PRE>$ grep 'p\{2\}' REfile
+
+from the set of uppercase and lowercase letters, digits,</PRE>
+
+<P>This is the only line that contains &quot;pp.&quot;
+
+<BR></P>
+
+<PRE>$ grep 'p\{1\}' REfile
+
+A regular expression is a sequence of characters taken
+
+from the set of uppercase and lowercase letters, digits,
+
+punctuation marks, etc., plus a set of special regular
+
+expression operators. Some of these operators may remind
+
+regular expression operators are different from the
+
+shell metacharacters we discussed in Chapter 1.
+
+The simplest form of a regular expression is one that
+
+includes only letters. For example, the would match only
+
+the three-letter sequence t, h, e. This pattern is found
+
+words, wherever the regular expression pattern is found</PRE>
+
+<P>Notice that on the second line, the first &quot;p&quot; in &quot;uppercase&quot; satisfies the search. The grep program doesn't even see the second &quot;p&quot; in the word because it stops searching as soon as it finds one &quot;p.&quot;
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Matching Multiples of a Regular Expression</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The asterisk (*) matches zero or more of the preceding regular expression. Therefore, the pattern
+
+<BR></P>
+
+<PRE>X*</PRE>
+
+<P>matches zero or more Xs: nothing, X, XX, XXX, and so on. To ensure that you get at least one character in the match, use
+
+<BR></P>
+
+<PRE>XX*</PRE>
+
+<P>For example, the command
+
+<BR></P>
+
+<PRE>$ grep 'p*' REfile</PRE>
+
+<P>displays the entire file, because every line can match &quot;zero or more instances of the letter p.&quot; However, note the output of the following commands:
+
+<BR></P>
+
+<PRE>$ grep 'pp*' REfile
+
+A regular expression is a sequence of characters taken
+
+from the set of uppercase and lowercase letters, digits,
+
+punctuation marks, etc., plus a set of special regular
+
+expression operators. Some of these operators may remind
+
+regular expression operators are different from the
+
+shell metacharacters we discussed in Chapter 1.
+
+The simplest form of a regular expression is one that
+
+includes only letters. For example, the would match only
+
+the three-letter sequence t, h, e. This pattern is found
+
+words, wherever the regular expression pattern is found
+
+$ grep 'ppp*' REfile
+
+from the set of uppercase and lowercase letters, digits,</PRE>
+
+<P>The regular expression ppp* matches &quot;pp followed by zero or more instances of the letter p,&quot; or, in other words, &quot;two or more instances of the letter p.&quot;
+
+<BR></P>
+
+<P>The extended set of regular expressions includes two additional operators that are similar to the asterisk: the plus sign (+) and the question mark (?). The plus sign is used to match one or more occurrences of the preceding character, and the question 
+
+mark is used to match zero or one occurrences. For example, the command
+
+<BR></P>
+
+<PRE>$ egrep 'p?' REfile</PRE>
+
+<P>outputs the entire file because every line contains zero or one p. However, note the output of the following command:
+
+<BR></P>
+
+<PRE>$ egrep 'p+' REfile
+
+A regular expression is a sequence of characters taken
+
+from the set of uppercase and lowercase letters, digits,
+
+punctuation marks, etc., plus a set of special regular
+
+expression operators. Some of these operators may remind
+
+regular expression operators are different from the
+
+shell metacharacters we discussed in Chapter 1.
+
+The simplest form of a regular expression is one that
+
+includes only letters. For example, the would match only
+
+the three-letter sequence t, h, e. This pattern is found
+
+words, wherever the regular expression pattern is found</PRE>
+
+<P>Another possibility is [a-z]+. This pattern matches one or more occurrences of any lowercase letter.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Anchoring the Match</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>A circumflex (^) used as the first character of the pattern anchors the regular expression to the beginning of the line. Therefore, the pattern
+
+<BR></P>
+
+<PRE>^[Tt]he</PRE>
+
+<P>matches a line that begins with either The or the, but does not match a line that has a The or the at any other position on the line. Note, for example, the output of the following two commands:
+
+<BR></P>
+
+<PRE>$ grep '[Tt]he' REfile
+
+from the set of uppercase and lowercase letters, digits,
+
+expression operators. Some of these operators may remind
+
+regular expression operators are different from the
+
+The simplest form of a regular expression is one that
+
+includes only letters. For example, the would match only
+
+the three-letter sequence t, h, e. This pattern is found
+
+in the following words: the, therefore, bother. In other
+
+words, wherever the regular expression pattern is found
+
+&#151; even if it is surrounded by other characters &#151; it is
+
+$ grep '^[Tt]he' REfile
+
+The simplest form of a regular expression is one that
+
+the three-letter sequence t, h, e. This pattern is found</PRE>
+
+<P>A dollar sign as the last character of the pattern anchors the regular expression to the end of the line, as in the following example:
+
+<BR></P>
+
+<PRE>$ grep '1\.$' REfile
+
+shell metacharacters we discussed in Chapter 1.</PRE>
+
+<P>This anchoring occurs because the line ends in a match of the regular expression. The period in the regular expression is preceded by a backslash, so the program knows that it's looking for a period and not just any character.
+
+<BR></P>
+
+<P>Here's another example that uses REfile:
+
+<BR></P>
+
+<PRE>$ grep '[Tt]he$' REfile
+
+regular expression operators are different from the</PRE>
+
+<P>The regular expression .* is an idiom that is used to match zero or more occurrences of any sequence of any characters. Any multicharacter regular expression always matches the longest string of characters that fits the regular expression description. 
+Consequently, .* used as the entire regular expression always matches an entire line of text. Therefore, the command
+
+<BR></P>
+
+<PRE>$ grep '^.*$' REfile</PRE>
+
+<P>prints the entire file. Note that in this case the anchoring characters are redundant.
+
+<BR></P>
+
+<P>When used as part of an &quot;unanchored&quot; regular expression, that idiomatic regular expression matches the longest string that fits the description, as in the following example:
+
+<BR></P>
+
+<PRE>$ grep 'C.*1' REfile
+
+shell metacharacters we discussed in Chapter 1.</PRE>
+
+<P>The regular expression C.*1 matches the longest string that begins with a C and ends with a 1.
+
+<BR></P>
+
+<P>Another expression, d.*d, matches the longest string that begins and ends with a d. On each line of output in the following example, the matched string is highlighted with italics:
+
+<BR></P>
+
+<PRE>$ grep 'd.*d' REfile
+
+from the set of uppercase an<I>d lowercase letters, d</I>igits,
+
+shell metacharacters we <I>discussed</I> in Chapter 1.
+
+includes only letters. For example, the would match only
+
+words, wherever the regular expression pattern is found
+
+&#151; even if it is surroun<I>ded</I> by other characters &#151; it is</PRE>
+
+<P>You've seen that a regular expression command such as grep finds a match even if the regular expression is surrounded by other characters. For example, the pattern
+
+<BR></P>
+
+<PRE>[Tt]he</PRE>
+
+<P>matches the, The, there, There, other, oTher, and so on (even though the last word is unlikely to be used). Suppose that you're looking for the word The or the and do not want to match other, There, or there. In a few of the commands that use full 
+regular expressions, you can surround the regular expression with escaped angle brackets (\&lt;___\&gt;). For example, the pattern
+
+<BR></P>
+
+<PRE>\&lt;the\&gt;</PRE>
+
+<P>represents the string the, where t follows a character that is not a letter, digit, or underscore, and where e is followed by a character that is not a letter, digit, or underscore. If you need not completely isolate letters, digits, and underscores, 
+you can use the angle brackets singly. That is, the pattern \&lt;the matches anything that begins with the, and ter\&gt; matches anything that ends with ter.
+
+<BR></P>
+
+<P>You can tell egrep (but not grep) to search for either of two regular expressions as follows:
+
+<BR></P>
+
+<PRE>$ egrep 'regular expression-1 | regular expression-2' filename</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Regular Expression Examples</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When you first look at the list of special characters used with regular expressions, constructing search-and-replacement patterns seems to be a complex process. A few examples and exercises, however, can make the process easier to understand.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Example 1: Matching Lines That Contain a Date</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>A standard USA date consists of a pattern that includes the capitalized name of a month, a space, a one- or two-digit number representing the day, a comma, a space, and a four-digit number representing the year. For example, Feb 9, 1994 is a standard 
+USA date. You can write that pattern as a regular expression:
+
+<BR></P>
+
+<PRE>[A-Z][a-z]* [0-9]\{1,2\}, [0-9]\{4\}</PRE>
+
+<P>You can improve this pattern so that it recognizes that May&#151;the month with the shortest name&#151;has three letters, and that September has nine:
+
+<BR></P>
+
+<PRE>[A-Z][a-z]\{3,9\} [0-9]\{1,2\}, [0-9]\{4\}</PRE>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Example 2: Matching Social Security Numbers</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Social security numbers also are highly structured: three digits, a dash, two digits, a dash, and four digits. Here's how you can write a regular expression for social security numbers:
+
+<BR></P>
+
+<PRE> [0-9]\{3\}-[0-9]\{\2\}-[0-9]\{4\}</PRE>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Example 3: Matching Telephone Numbers</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Another familiar structured pattern is found in telephone numbers, such as 1-800-555-1212. Here's a regular expression that matches that pattern:
+
+<BR></P>
+
+<PRE>1-[0-9]\{3\}-[0-9]\{3\}-[0-9]\{4\}</PRE>
+
+<P><B>Family</B>
+
+<BR></P>
+
+<P>The grep family consists of three members:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>grep</P>
+
+<TD>
+
+<P>This command uses a limited set of regular expressions. See table.</P>
+
+<TR>
+
+<TD>
+
+<P>egrep</P>
+
+<TD>
+
+<P>Extended grep. This command uses full regular expressions (expressions that have string values and use the full set of alphanumeric and special characters) to match patterns. Full regular expressions include all the limited regular expressions of grep 
+(except for \( and \)), as well as the following ones (where <I>RE</I> is any regular expression):</P>
+
+<TR>
+
+<TD>
+
+<P>RE+</P>
+
+<TD>
+
+<P>Matches one or more occurrences of RE. (Contrast that with RE*, which matches zero or more occurrences of RE.)</P>
+
+<TR>
+
+<TD>
+
+<P>RE?</P>
+
+<TD>
+
+<P>Matches zero or one occurrence of RE.</P>
+
+<TR>
+
+<TD>
+
+<P><I>RE</I>1 | <I>RE</I>2</P>
+
+<TD>
+
+<P>Matches either <I>RE</I>1 or <I>RE</I>2. The | acts as a logical OR operator.</P>
+
+<TR>
+
+<TD>
+
+<P> (<I>RE</I>)</P>
+
+<TD>
+
+<P>Groups multiple regular expressions.</P>
+
+<TR>
+
+<TD>
+
+<P><BR>]</P>
+
+<TD>
+
+<P>The section &quot;The egrep Command&quot; provides examples of these expressions.</P>
+
+<TR>
+
+<TD>
+
+<P>fgrep</P>
+
+<TD>
+
+<P>Fast grep. This command searches for a string, not a pattern. Because fgrep does not use regular expressions, it interprets $, *, [, ], (, ), and \ as ordinary characters. Modern implementations of grep appear to be just as fast as fgrep, so using fgrep 
+
+is becoming obsolete&#151;except when your search involves the previously mentioned characters.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The $, *, [, ], (, ), and \ regular expression metacharacters also have special meaning to the shell, so you must enclose them within single quotation marks to prevent the shell from interpreting 
+them. (See Chapters 11, 12, and 13.)
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>The </B><B>grep</B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The most frequently used command in the family is grep. Its complete syntax is
+
+<BR></P>
+
+<PRE>$grep [options] RE [file(s)]</PRE>
+
+<P>where <I>RE</I> is a limited regular expression. Table 6.5 lists the regular expressions that grep recognizes.
+
+<BR></P>
+
+<P>The grep command reads from the specified file on the command line or, if no files are specified, from standard input. Table 6.5 lists the command-line options that grep takes.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 6.5. Command-Line Options for </B><B>grep</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Result</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-b</P>
+
+<TD>
+
+<P>Display, at the beginning of the output line, the number of the block in which the regular expression was found. This can be helpful in locating block numbers by context. (The first block is block zero.)</P>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Print the number of lines that contain the pattern, that is, the number of matching lines.</P>
+
+<TR>
+
+<TD>
+
+<P>-h</P>
+
+<TD>
+
+<P>Prevent the name of the file that contains the matching line from being displayed at the beginning of that line. NOTE: When searching multiple files, grep normally reports not only the matching line but also the name of the file that contains it.</P>
+
+<TR>
+
+<TD>
+
+<P>-i</P>
+
+<TD>
+
+<P>Ignore distinctions between uppercase and lowercase during comparisons.</P>
+
+<TR>
+
+<TD>
+
+<P>-l</P>
+
+<TD>
+
+<P>Print one time the name of each file that contains lines that match the pattern&#151;regardless of the actual number of matching lines in each file&#151;on separate lines of the screen.</P>
+
+<TR>
+
+<TD>
+
+<P>-n</P>
+
+<TD>
+
+<P>Precede each matching line by its line number in the file.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Suppress error messages about nonexistent or unreadable files.</P>
+
+<TR>
+
+<TD>
+
+<P>-v</P>
+
+<TD>
+
+<P>Print all lines except those that contain the pattern. This reverses the logic of the search.</P></TABLE>
+
+<P>Here are two sample files on which to exercise grep:
+
+<BR></P>
+
+<PRE>$ cat cron
+
+In SCO Xenix 2.3, or SCO UNIX, you can edit a
+
+crontab file to your heart's content, but it will
+
+not be re-read, and your changes will not take
+
+effect, until you come out of multi-user run
+
+level (thus killing cron), and then re-enter
+
+multi-user run level, when a new cron is started;
+
+or until you do a reboot.
+
+The proper way to install a new version of a
+
+crontab (for root, or for any other user) is to
+
+issue the command &quot;crontab new.jobs&quot;, or &quot;cat
+
+new.jobs | crontab&quot;, or if in 'vi' with a new
+
+version of the commands, &quot;w ! crontab&quot;. I find it
+
+easy to type &quot;vi /tmp/tbl&quot;, then &quot;:0 r !crontab
+
+-l&quot; to read the existing crontab into the vi
+
+buffer, then edit, then type &quot;:w !crontab&quot;, or
+
+&quot;!crontab %&quot; to replace the existing crontab with
+
+what I see on vi's screen.
+
+$ cat pax
+
+This is an announcement for the MS-DOS version of
+
+PAX version 2. See the README file and the man
+
+pages for more information on how to run PAX,
+
+TAR, and CPIO.
+
+For those of you who don't know, pax is a 3 in 1
+
+program that gives the functionality of pax, tar,
+
+and cpio. It supports both the DOS filesystem
+
+and the raw &quot;tape on a disk&quot; system used by most
+
+micro UNIX systems. This will allow for easy
+
+transfer of files to and from UNIX systems. It
+
+also supports multiple volumes. Floppy density
+
+for raw UNIX type read/writes can be specified on
+
+the command line.
+
+The source will eventually be posted to one of
+
+the source groups.
+
+Be sure to use a blocking factor of 20 with
+
+pax-as-tar and B with pax-as-cpio for best
+
+performance.</PRE>
+
+<P>The following examples show how to find a string in a file:
+
+<BR></P>
+
+<PRE>$ grep 'you' pax
+
+For those of you who don't know, pax is a 3 in 1
+
+$ grep 'you' cron
+
+In SCO Xenix 2.3, or SCO UNIX, you can edit a
+
+crontab file to your heart's content, but it will
+
+not be re-read, and your changes will not take
+
+effect, until you come out of multi-user run
+
+or until you do a reboot.</PRE>
+
+<P>Note that you appears in your in the second and third lines.
+
+<BR></P>
+
+<P>You can find the same string in two or more files by using a variety of options. In this first example, case is ignored:
+
+<BR></P>
+
+<PRE>$ grep -i 'you' pax cron
+
+pax:For those of you who don't know, pax is a 3 in 1
+
+cron:In SCO Xenix 2.3, or SCO UNIX, you can edit a
+
+cron:crontab file to your heart's content, but it will
+
+cron:not be re-read, and your changes will not take
+
+cron:effect, until you come out of multi-user run
+
+cron:or until you do a reboot.</PRE>
+
+<P>Notice that each line of output begins with the name of the file that contains a match. In the following example, the output includes the name of the file and the number of the line of that file on which the match is found:
+
+<BR></P>
+
+<PRE>$ grep -n 'you' pax cron
+
+pax:6:For those of you who don't know, pax is a 3 in 1
+
+cron:1:In SCO Xenix 2.3, or SCO UNIX, you can edit a
+
+cron:2:crontab file to your heart's content, but it will
+
+cron:3:not be re-read, and your changes will not take
+
+cron:4:effect, until you come out of multi-user run
+
+cron:7:or until you do a reboot.</PRE>
+
+<P>The following example shows how to inhibit printing the lines themselves:
+
+<BR></P>
+
+<PRE>$ grep -c 'you' pax cron
+
+pax:1
+
+cron:5</PRE>
+
+<P>The following output shows the matching lines without specifying the files from which they came:
+
+<BR></P>
+
+<PRE>$ grep -h 'you' pax cron
+
+For those of you who don't know, pax is a 3 in 1
+
+In SCO Xenix 2.3, or SCO UNIX, you can edit a
+
+crontab file to your heart's content, but it will
+
+not be re-read, and your changes will not take
+
+effect, until you come out of multi-user run
+
+or until you do a reboot.</PRE>
+
+<P>The following specifies output of &quot;every line in pax and cron that does not have [Yy][Oo][Uu] in it&quot;:
+
+<BR></P>
+
+<PRE>$ grep -iv 'you' pax cron
+
+pax:This is an announcement for the MS-DOS version of
+
+pax:PAX version 2. See the README file and the man
+
+pax:pages for more information on how to run PAX,
+
+pax:TAR, and CPIO.
+
+pax:
+
+pax:program that gives the functionality of pax, tar,
+
+pax:and cpio. It supports both the DOS filesystem
+
+pax:and the raw &quot;tape on a disk&quot; system used by most
+
+pax:micro UNIX systems. This will allow for easy
+
+pax:transfer of files to and from UNIX systems. It
+
+pax:also support multiple volumes. Floppy density
+
+pax:for raw UNIX type read/writes can be specified on
+
+pax:the command line.
+
+pax:
+
+pax:The source will eventually be posted to one of
+
+pax:the source groups.
+
+pax:
+
+pax:Be sure to use a blocking factor of 20 with
+
+pax:pax-as-tar and B with pax-as-cpio for best
+
+pax:performance.
+
+cron:level (thus killing cron), and then re-enter
+
+cron:multi-user run level, when a new cron is started;
+
+cron:
+
+cron:The proper way to install a new version of a
+
+cron:crontab (for root, or for any other user) is to
+
+cron:issue the command &quot;crontab new.jobs&quot;, or &quot;cat
+
+cron:new.jobs | crontab&quot;, or if in 'vi' with a new
+
+cron:version of the commands, &quot;w ! crontab&quot;. I find it
+
+cron:easy to type &quot;vi /tmp/tbl&quot;, then &quot;:0 r !crontab
+
+cron:-l&quot; to read the existing crontab into the vi
+
+cron:buffer, then edit, then type &quot;:w !crontab&quot;, or
+
+cron:&quot;!crontab %&quot; to replace the existing crontab with
+
+cron:what I see on vi's screen.</PRE>
+
+<P>Note that blank lines are considered to be lines that do not match the given regular expression.
+
+<BR></P>
+
+<P>The following example is quite interesting. It lists every line that has r.*t in it and of course it matches the longest possible string in each line. First, let's see exactly how the strings are matched. The matching strings in the listing are 
+highlighted in italics so that you can see what grep actually matches:
+
+<BR></P>
+
+<PRE>$ grep 'r.*t' pax cron
+
+pax:This is an announcement fo<I>r t</I>he MS-DOS version of
+
+pax:PAX version 2. See the README file and the man
+
+pax:pages for more information on how to run PAX,
+
+pax:Fo<I>r those of you who don't</I> know, pax is a 3 in 1
+
+pax:program that gives the functionality of pax, tar,
+
+pax:and cpio. It suppo<I>rts both the DOS filesyst</I>em
+
+pax:and the raw &quot;tape on a disk&quot; system used by most
+
+pax:mic<I>ro UNIX systems. T</I>his will allow for easy
+
+pax:transfer of files to and from UNIX systems. It
+
+pax:also support multiple volumes. Floppy density
+
+pax:fo<I>r raw UNIX type read/writ</I>es can be specified on
+
+pax:The source will eventually be posted to one of
+
+pax:Be sure to use a blocking factor of 20 with
+
+pax:pax-as-tar and B with pax-as-cpio for best
+
+cron:In SCO Xenix 2.3, o<I>r SCO UNIX, you can edit</I> a
+
+cron:crontab file to your heart's content, but it will
+
+cron:not be re-read, and your changes will not take
+
+cron:level (thus killing c<I>ron), and then re-ent</I>er
+
+cron:multi-user run level, when a new cron is started;
+
+cron:or until you do a reboot.
+
+cron:The prope<I>r way to inst</I>all a new version of a
+
+cron:crontab (for root, or for any other user) is to
+
+cron:issue the command &quot;c<I>rontab new.jobs&quot;, or &quot;cat</I>
+
+cron:new.jobs | c<I>ront</I>ab&quot;, or if in 'vi' with a new
+
+cron:version of the commands, &quot;w ! crontab&quot;. I find it
+
+cron:easy to type &quot;vi /tmp/tbl&quot;, then &quot;:0 <I>r !cront</I>ab
+
+cron:-l&quot; to read the existing crontab into the vi
+
+cron:buffer, then edit, then type &quot;:w !crontab&quot;, or
+
+cron:&quot;!crontab %&quot; to replace the existing crontab with</PRE>
+
+<P>You can obtain for free a version of grep that highlights the matched string, but the standard version of grep simply shows the line that contains the match.
+
+<BR></P>
+
+<P>If you are thinking that grep doesn't seem to do anything with the patterns that it matches, you are correct. But in Chapter 7, &quot;Editing Text Files,&quot; you will see how the sed command does replacements.
+
+<BR></P>
+
+<P>Now let's look for two or more ls (two ls followed by zero or more ls):
+
+<BR></P>
+
+<PRE>$ grep 'lll*' pax cron
+
+pax:micro UNIX systems. This wi<I>ll</I> allow for easy
+
+pax:The source wi<I>ll</I> eventually be posted to one of
+
+cron:crontab file to your heart's content, but it wi<I>ll</I>
+
+cron:not be re-read, and your changes wi<I>ll</I> not take
+
+cron:level (thus ki<I>ll</I>ing cron), and then re-enter
+
+cron:The proper way to insta<I>ll</I> a new version of a</PRE>
+
+<P>The following command finds lines that begin with The:
+
+<BR></P>
+
+<PRE>$ grep '^The' pax cron
+
+pax:The source will eventually be posted to one of
+
+cron:The proper way to install a new version of a</PRE>
+
+<P>The next command finds lines that end with n:
+
+<BR></P>
+
+<PRE>$ grep 'n$' pax cron
+
+pax:PAX version 2. See the README file and the man
+
+pax:for raw UNIX type read/writes can be specified on
+
+cron:effect, until you come out of multi-user run</PRE>
+
+<P>You can easily use the grep command to search for two or more consecutive uppercase letters:
+
+<BR></P>
+
+<PRE>$ grep '[A-Z]\{2,\}' pax cron
+
+pax:This is an announcement for the <I>MS</I>-DOS version of
+
+pax:<I>PAX</I> version 2. See the README file and the man
+
+pax:pages for more information on how to run <I>PAX</I>,
+
+pax:<I>TAR</I>, and CPIO.
+
+pax:and cpio. It supports both the <I>DOS</I> filesystem
+
+pax:micro <I>UNIX</I> systems. This will allow for easy
+
+pax:transfer of files to and from <I>UNIX</I> systems. It
+
+pax:for raw <I>UNIX</I> type read/writes can be specified on
+
+cron:In <I>SCO</I> Xenix 2.3, or SCO UNIX, you can edit a</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>The </B><B>egrep</B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As mentioned earlier, egrep uses full regular expressions in the pattern string. The syntax of egrep is the same as that for grep:
+
+<BR></P>
+
+<PRE>$egrep [options] RE [files]</PRE>
+
+<P>where <I>RE</I> is a regular expression.
+
+<BR></P>
+
+<P>The egrep command uses the same regular expressions as the grep command, except for \( and \), and includes the following additional patterns:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>RE+</P>
+
+<TD>
+
+<P>Matches one or more occurrence(s) of RE. (Contrast this with grep's RE* pattern, which matches zero or more occurrences of RE.)</P>
+
+<TR>
+
+<TD>
+
+<P>RE?</P>
+
+<TD>
+
+<P>Matches zero or one occurrence of RE.</P>
+
+<TR>
+
+<TD>
+
+<P><I>RE</I>1 | <I>RE</I>2</P>
+
+<TD>
+
+<P>Matches either <I>RE</I>1 or <I>RE</I>2. The | acts as a logical OR operator.</P>
+
+<TR>
+
+<TD>
+
+<P>(<I>RE</I>)</P>
+
+<TD>
+
+<P>Groups multiple regular expressions.</P></TABLE>
+
+<P>The egrep command accepts the same command-line options as grep  (see Table 6.6) as well as the following additional command-line options:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-e special_expression</P>
+
+<TD>
+
+<P>Search for a special expression (that is, a regular expression that begins with a -)</P>
+
+<TR>
+
+<TD>
+
+<P>-f file</P>
+
+<TD>
+
+<P>Put the regular expressions into file</P></TABLE>
+
+<P>Here are a few examples of egrep's extended regular expressions. The first finds two or more consecutive uppercase letters:
+
+<BR></P>
+
+<PRE>$ egrep '[A-Z][A-Z]+' pax cron
+
+pax:This is an announcement for the MS-DOS version of
+
+pax:PAX version 2. See the README file and the man
+
+pax:pages for more information on how to run PAX,
+
+pax:TAR, and CPIO.
+
+pax:For those of you who don't know, PAX is a 3-in-1
+
+pax:and cpio. It supports both the DOS filesystem
+
+pax:micro UNIX systems. This allows for easy
+
+pax:transfer of files to and from UNIX systems. It
+
+pax:for raw UNIX type read/writes can be specified on</PRE>
+
+<P>The following command finds each line that contains either DOS or SCO:
+
+<BR></P>
+
+<PRE>$ egrep 'DOS|SCO' pax cron
+
+pax:This is an announcement for the MS-DOS version of
+
+pax:and cpio. It supports both the DOS filesystem
+
+cron:In SCO Xenix 2.3, or SCO UNIX, you can edit a</PRE>
+
+<P>The next example finds all lines that contain either new or now:
+
+<BR></P>
+
+<PRE>$ egrep 'n(e|o)w' cron
+
+multi-user run level, when a new cron is started;
+
+The proper way to install a new version of a
+
+issue the command &quot;crontab new.jobs&quot;, or &quot;cat
+
+new.jobs | crontab&quot;, or if in 'vi' with a new</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>The </B><B>fgrep</B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The fgrep command searches a file for a character string and prints all lines that contain the string. Unlike grep and egrep, fgrep interprets each character in the search string as a literal character, because fgrep has no metacharacters.
+
+<BR></P>
+
+<P>The syntax of fgrep is
+
+<BR></P>
+
+<PRE>fgrep [options] string [files]</PRE>
+
+<P>The options you use with the fgrep command are exactly the same as those that you use for egrep, with the addition of -x, which prints only the lines that are matched in their entirety.
+
+<BR></P>
+
+<P>As an example of fgrep's -x option, consider the following file named sample:
+
+<BR></P>
+
+<PRE>$ cat sample
+
+this is
+
+a
+
+file for testing
+
+egrep's x
+
+option.</PRE>
+
+<P>Now, invoke fgrep with the -x option and a as the pattern.
+
+<BR></P>
+
+<PRE>$ fgrep -x a sample
+
+a</PRE>
+
+<P>That matches the second line of the file, but
+
+<BR></P>
+
+<PRE>$ fgrep -x option sample</PRE>
+
+<P>outputs nothing, as option doesn't match a line in the file. However,
+
+<BR></P>
+
+<PRE>$ fgrep -x option. sample
+
+option.</PRE>
+
+<P>matches the entire last line.
+
+<BR></P>
+
+<P><B>Files</B>
+
+<BR></P>
+
+<P>UNIX provides two commands that are useful when you are sorting text files: sort and uniq. The sort command merges text files together, and the uniq command compares adjacent lines of a file and eliminates all but one occurrence of adjacent duplicate 
+lines.
+
+<BR></P>
+
+<P><B>Command</B>
+
+<BR></P>
+
+<P>The sort command is useful with database files&#151;files that are line- and field-oriented&#151;because it can sort or merge one or more text files into a sequence that you select.
+
+<BR></P>
+
+<P>The command normally treats a blank or a tab as a delimiter. If the file has multiple blanks, multiple tabs, or both between two fields, only the first is considered a delimiter; all the others belong to the next field. The -b option tells sort to 
+ignore the blanks and tabs that are not delimiters, discarding them instead of adding them to the beginning of the next field.
+
+<BR></P>
+
+<P>The normal ordering for sort follows the ASCII code sequence.
+
+<BR></P>
+
+<P>The syntax for sort is
+
+<BR></P>
+
+<PRE>$sort [-cmu] [-ooutfile] [-ymemsize] [-zrecsize] [-dfiMnr] [-btchar]
+
+<B>[+</B>pos1<B> [-</B>pos2<B>]] [</B>file(s)<B>]</B></PRE>
+
+<P>Table 6.6 describes the options of sort.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 6.6. The </B><B>sort</B><B> Command's Options</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Tells sort to check only whether the file is in the order specified.</P>
+
+<TR>
+
+<TD>
+
+<P>-u</P>
+
+<TD>
+
+<P>Tells sort to ignore any repeated lines (but see the next section, &quot;The uniq Command&quot;).</P>
+
+<TR>
+
+<TD>
+
+<P>-m</P>
+
+<TD>
+
+<P>Tells sort to merge (and sort) the files that are already sorted. (This section features an example.)</P>
+
+<TR>
+
+<TD>
+
+<P>-zrecsize</P>
+
+<TD>
+
+<P>Specifies the length of the longest line to be merged and prevents sort from terminating abnormally when it sees a line that is longer than usual. You use this option only when merging files.</P>
+
+<TR>
+
+<TD>
+
+<P>-ooutfile</P>
+
+<TD>
+
+<P>Specifies the name of the output file. This option is an alternative to and an improvement on redirection, in that outfile can have the same name as the file being sorted.</P>
+
+<TR>
+
+<TD>
+
+<P>-<I>ymemsize</I></P>
+
+<TD>
+
+<P>Specifies the amount of memory that sort uses. This option keeps sort from consuming all the available memory. -y0 causes sort to begin with the minimum possible memory that your system permits, and -y initially gives sort the most it can get. 
+<I>memsize</I> is specified in kilobytes.</P>
+
+<TR>
+
+<TD>
+
+<P>-d</P>
+
+<TD>
+
+<P>Causes a dictionary order sort, in which sort ignores everything except letters, digits, blanks, and tabs.</P>
+
+<TR>
+
+<TD>
+
+<P>-f</P>
+
+<TD>
+
+<P>Causes sort to ignore upper- and lowercase distinctions when sorting.</P>
+
+<TR>
+
+<TD>
+
+<P>-i</P>
+
+<TD>
+
+<P>Causes sort to ignore nonprinting characters (decimal ASCII codes 0 to 31 and 127).</P>
+
+<TR>
+
+<TD>
+
+<P>-M</P>
+
+<TD>
+
+<P>Compares the contents of specified fields as if they contained the name of month, by examining the first three letters or digits in each field, converting the letters to uppercase, and sorting them in calendar order.</P>
+
+<TR>
+
+<TD>
+
+<P>-n</P>
+
+<TD>
+
+<P>Causes sort to ignore blanks and sort in numerical order. Digits and associated characters&#151;the plus sign, the minus sign, the decimal point, and so on&#151;have their usual mathematical meanings.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>When added to any option, causes sort to sort in reverse.</P>
+
+<TR>
+
+<TD>
+
+<P>-tchar</P>
+
+<TD>
+
+<P>Selects the delimiter used in the file. (This option is unnecessary if the file uses a blank or a tab as its delimiter.)</P>
+
+<TR>
+
+<TD>
+
+<P>+pos1 [-pos2]</P>
+
+<TD>
+
+<P>Restricts the key on which the sort is based to one that begins at field pos1 and ends at field pos2. For example, to sort on field number 2, you must use +1 -2 (begin just after field 1 and continue through field 2).</P></TABLE>
+
+<P>In addition, you can use - as an argument to force sort to take its input from stdin.
+
+<BR></P>
+
+<P>Here are some examples that demonstrate some common options. The file auto is a tab-delimited list of the results of an automobile race. From left to right, the fields list the class, driver's name, car year, car make, car model, and time:
+
+<BR></P>
+
+<PRE>$ cat auto
+
+ES   Arther    85   Honda     Prelude   49.412
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+AS   Saint     88   BMW       M-3       46.629
+
+ES   Straw     86   Honda     Civic     49.543
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Smith     86   VW        GTI       47.154
+
+AS   Neuman    84   Porsche   911       47.201
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+DS   Kegler    84   Honda     Civic     47.429
+
+ES   Sherman   83   VW        GTI       48.489
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+ES   Shorn     87   VW        GTI       49.357
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+DS   Lisanti   73   Porsche   914       50.609
+
+CS   McGill    83   Porsche   944       50.642
+
+AS   Lisle     72   Porsche   911       51.030
+
+ES   Peerson   86   VW        Golf      54.493</PRE>
+
+<P>If you invoke sort with no options, it sorts on the entire line:
+
+<BR></P>
+
+<PRE>$ sort auto
+
+AS   Lisle     72   Porsche   911       51.030
+
+AS   Neuman    84   Porsche   911       47.201
+
+AS   Saint     88   BMW       M-3       46.629
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+CS   McGill    83   Porsche   944       50.642
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+DS   Kegler    84   Honda     Civic     47.429
+
+DS   Lisanti   73   Porsche   914       50.609
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+ES   Arther    85   Honda     Prelude   49.412
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Peerson   86   VW        Golf      54.493
+
+ES   Sherman   83   VW        GTI       48.489
+
+ES   Shorn     87   VW        GTI       49.357
+
+ES   Smith     86   VW        GTI       47.154
+
+ES   Straw     86   Honda     Civic     49.543</PRE>
+
+<P>To alphabetize a list by the driver's name, you need sort to begin with the second field (+1 means skip the first field). Sort normall treats the first blank (space or tab) in a sequence of blanks as the field separator, and consider that reht rest of 
+the blanks are part of the next field. This has no effect on sorting on the second field because there is an equal number of blanks between the class letters and driver's name. However, whenever a field is &quot;rapped&quot;&#151;for example, driver's 
+name, car make, and car model&#151;the next field will include leading blanks:
+
+<BR></P>
+
+<PRE>$ sort +1 auto
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+ES   Arther    85   Honda     Prelude   49.412
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+ES   Downs     83   VW        GTI       47.133
+
+DS   Karle     74   Porsche   914       48.826
+
+DS   Kegler    84   Honda     Civic     47.429
+
+DS   Lisanti   73   Porsche   914       50.609
+
+AS   Lisle     72   Porsche   911       51.030
+
+CS   McGill    83   Porsche   944       50.642
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+AS   Neuman    84   Porsche   911       47.201
+
+ES   Peerson   86   VW        Golf      54.493
+
+AS   Saint     88   BMW       M-3       46.629
+
+ES   Sherman   83   VW        GTI       48.489
+
+ES   Shorn     87   VW        GTI       49.357
+
+ES   Smith     86   VW        GTI       47.154
+
+ES   Straw     86   Honda     Civic     49.543
+
+DS   Swazy     87   Honda     CRX-Si    49.693</PRE>
+
+<P>Note that the key to this sort is only the driver's name. However, if two drivers had the same name, they would have been further sorted by the car year. In other words, +1 actually means skip the first field and sort on the rest of the line.
+
+<BR></P>
+
+<P>Here's a list sorted by race times:
+
+<BR></P>
+
+<PRE>$ sort -b +5 auto
+
+AS   Saint     88   BMW       M-3       46.629
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Smith     86   VW        GTI       47.154
+
+AS   Neuman    84   Porsche   911       47.201
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+DS   Kegler    84   Honda     Civic     47.429
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+ES   Sherman   83   VW        GTI       48.489
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+ES   Shorn     87   VW        GTI       49.357
+
+ES   Arther    85   Honda     Prelude   49.412
+
+ES   Straw     86   Honda     Civic     49.543
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+DS   Lisanti   73   Porsche   914       50.609
+
+CS   McGill    83   Porsche   944       50.642
+
+AS   Lisle     72   Porsche   911       51.030
+
+ES   Peerson   86   VW        Golf      54.493</PRE>
+
+<P>The -b means do not treat the blanks between the car model (e.g. M-3) and the race time as part of the race time.
+
+<BR></P>
+
+<P>Suppose that you want a list of times by class. You try the following command and discover that it fails:
+
+<BR></P>
+
+<PRE>$ sort +0 -b +5 auto
+
+AS   Lisle     72   Porsche   911       51.030
+
+AS   Neuman    84   Porsche   911       47.201
+
+AS   Saint     88   BMW       M-3       46.629
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+CS   McGill    83   Porsche   944       50.642
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+DS   Kegler    84   Honda     Civic     47.429
+
+DS   Lisanti   73   Porsche   914       50.609
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+ES   Arther    85   Honda     Prelude   49.412
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Peerson   86   VW        Golf      54.493
+
+ES   Sherman   83   VW        GTI       48.489
+
+ES   Shorn     87   VW        GTI       49.357
+
+ES   Smith     86   VW        GTI       47.154
+
+ES   Straw     86   Honda     Civic     49.543</PRE>
+
+<P>This command line fails because it tells sort to skip nothing and sort on the rest of the line, then sort on the sixth field. To restrict the first sort to just the class, and then sort on time as the secondary sort, use the following expression:
+
+<BR></P>
+
+<PRE>$ sort +0 -1 -b +5 auto
+
+AS   Saint     88   BMW       M-3       46.629
+
+AS   Neuman    84   Porsche   911       47.201
+
+AS   Lisle     72   Porsche   911       51.030
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+CS   McGill    83   Porsche   944       50.642
+
+DS   Kegler    84   Honda     Civic     47.429
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+DS   Lisanti   73   Porsche   914       50.609
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Smith     86   VW        GTI       47.154
+
+ES   Sherman   83   VW        GTI       48.489
+
+ES   Shorn     87   VW        GTI       49.357
+
+ES   Arther    85   Honda     Prelude   49.412
+
+ES   Straw     86   Honda     Civic     49.543
+
+ES   Peerson   86   VW        Golf      54.493</PRE>
+
+<P>This command says skip nothing and stop after sorting on the first field, then skip to the end of the fifth field and sort on the rest of the line. In this case, the rest of the line is just the sixth field.
+
+<BR></P>
+
+<P>Here's a simple merge example. Notice that both files are already sorted by class and name.
+
+<BR></P>
+
+<PRE>$ cat auto.1
+
+AS   Neuman    84   Porsche   911       47.201
+
+AS   Saint     88   BMW       M-3       46.629
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+ES   Arther    85   Honda     Prelude   49.412
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Smith     86   VW        GTI       47.154
+
+ES   Straw     86   Honda     Civic     49.543
+
+$ cat auto.2
+
+AS   Lisle     72   Porsche   911       51.030
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+CS   McGill    83   Porsche   944       50.642
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+DS   Kegler    84   Honda     Civic     47.429
+
+DS   Lisanti   73   Porsche   914       50.609
+
+ES   Peerson   86   VW        Golf      54.493
+
+ES   Sherman   83   VW        GTI       48.489
+
+ES   Shorn     87   VW        GTI       49.357
+
+$ sort -m auto.1 auto.2
+
+AS   Lisle     72   Porsche   911       51.030
+
+AS   Neuman    84   Porsche   911       47.201
+
+AS   Saint     88   BMW       M-3       46.629
+
+BS   Barker    90   Nissan    300ZX     48.209
+
+CS   Carlson   88   Pontiac   Fiero     47.398
+
+CS   Chunk     85   Toyota    MR2       49.558
+
+CS   Cohen     91   Mazda     Miata     50.046
+
+CS   McGill    83   Porsche   944       50.642
+
+CS   Miller    84   Mazda     RX-7      47.291
+
+DS   Arbiter   86   Honda     CRX-Si    48.628
+
+DS   Karle     74   Porsche   914       48.826
+
+DS   Kegler    84   Honda     Civic     47.429
+
+DS   Lisanti   73   Porsche   914       50.609
+
+DS   Swazy     87   Honda     CRX-Si    49.693
+
+ES   Arther    85   Honda     Prelude   49.412
+
+ES   Downs     83   VW        GTI       47.133
+
+ES   Peerson   86   VW        Golf      54.493
+
+ES   Sherman   83   VW        GTI       48.489
+
+ES   Shorn     87   VW        GTI       49.357
+
+ES   Smith     86   VW        GTI       47.154
+
+ES   Straw     86   Honda     Civic     49.543</PRE>
+
+<P>For a final example, pass1 is an excerpt from /etc/passwd and Sort it on the user ID field&#151;field number 3. Specify the -t option so that the field separator used by sort is the colon, as used by /etc/passwd.
+
+<BR></P>
+
+<PRE>$ cat pass1
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:
+
+labuucp:x:21:100:shevett's UPC:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+pcuucp:x:35:100:PCLAB:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+techuucp:x:36:100:The 6386:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+lkh:x:250:1:lkh:/usr/lkh:/bin/ksh
+
+shevett:x:251:1:dave shevett:/usr/shevett:/bin/ksh
+
+mccollo:x:329:1:Carol McCollough:/usr/home/mccollo:/bin/ksh
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+grice:x:273:20:grice steven a:/u1/fall91/dp270/grice:/bin/ksh
+
+gross:x:305:20:gross james l:/u1/fall91/dp168/gross:/bin/ksh
+
+hagerho:x:326:20:hagerhorst paul j:/u1/fall91/dp168/hagerho:/bin/ksh
+
+hendric:x:274:20:hendrickson robbin:/u1/fall91/dp270/hendric:/bin/ksh
+
+hinnega:x:320:20:hinnegan dianna:/u1/fall91/dp163/hinnega:/bin/ksh
+
+innis:x:262:20:innis rafael f:/u1/fall91/dp270/innis:/bin/ksh
+
+intorel:x:286:20:intorelli anthony:/u1/fall91/dp168/intorel:/bin/ksh</PRE>
+
+<P>Now run sort with the delimiter set to a colon:
+
+<BR></P>
+
+<PRE>$ sort -t: +2 -3 pass1
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+labuucp:x:21:100:shevett's UPC:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+lkh:x:250:1:lkh:/usr/lkh:/bin/ksh
+
+shevett:x:251:1:dave shevett:/usr/shevett:/bin/ksh
+
+innis:x:262:20:innis rafael f:/u1/fall91/dp270/innis:/bin/ksh
+
+grice:x:273:20:grice steven a:/u1/fall91/dp270/grice:/bin/ksh
+
+hendric:x:274:20:hendrickson robbin:/u1/fall91/dp270/hendric:/bin/ksh
+
+intorel:x:286:20:intorelli anthony:/u1/fall91/dp168/intorel:/bin/ksh
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+gross:x:305:20:gross james l:/u1/fall91/dp168/gross:/bin/ksh
+
+hinnega:x:320:20:hinnegan dianna:/u1/fall91/dp163/hinnega:/bin/ksh
+
+hagerho:x:326:20:hagerhorst paul j:/u1/fall91/dp168/hagerho:/bin/ksh
+
+mccollo:x:329:1:Carol McCollough:/usr/home/mccollo:/bin/ksh
+
+pcuucp:x:35:100:PCLAB:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+techuucp:x:36:100:The 6386:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:</PRE>
+
+<P>Note that 35 comes after 329, because sort does not recognize numeric characters as being numbers. You want the user ID field to be sorted by numerical value, so correct the command by adding the -n option:
+
+<BR></P>
+
+<PRE>$ sort -t: -n +2 -3 pass1
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+labuucp:x:21:100:shevett's UPC:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+pcuucp:x:35:100:PCLAB:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+techuucp:x:36:100:The 6386:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+lkh:x:250:1:lkh:/usr/lkh:/bin/ksh
+
+shevett:x:251:1:dave shevett:/usr/shevett:/bin/ksh
+
+innis:x:262:20:innis rafael f:/u1/fall91/dp270/innis:/bin/ksh
+
+grice:x:273:20:grice steven a:/u1/fall91/dp270/grice:/bin/ksh
+
+hendric:x:274:20:hendrickson robbin:/u1/fall91/dp270/hendric:/bin/ksh
+
+intorel:x:286:20:intorelli anthony:/u1/fall91/dp168/intorel:/bin/ksh
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+gross:x:305:20:gross james l:/u1/fall91/dp168/gross:/bin/ksh
+
+hinnega:x:320:20:hinnegan dianna:/u1/fall91/dp163/hinnega:/bin/ksh
+
+hagerho:x:326:20:hagerhorst paul j:/u1/fall91/dp168/hagerho:/bin/ksh
+
+mccollo:x:329:1:Carol McCollough:/usr/home/mccollo:/bin/ksh</PRE>
+
+<P><B>Command</B>
+
+<BR></P>
+
+<P>The uniq command compares adjacent lines of a file. If it finds duplicates, it passes only one copy to stdout.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Duplicate adjacent lines imply that the file was sorted before it was given to uniq for processing. Make sure that you sort a file before you feed it to uniq.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Here is uniq's syntax:
+
+<BR></P>
+
+<PRE>uniq [-udc [+<I>n</I>] [-<I>m</I>]] [<I>input.file</I> [<I>output.file</I>]]</PRE>
+
+<P>The following examples demonstrate the options. The sample file contains the results of a survey taken by a USENET news administrator on a local computer. He asked users what newsgroups they read (newsgroups are a part of the structure of USENET News, 
+an international electronic bulletin board), used cat to merge the users' responses into a single file, and used sort to sort the file. ngs is a piece of that file.
+
+<BR></P>
+
+<PRE>$ cat ngs
+
+alt.dcom.telecom
+
+alt.sources
+
+comp.archives
+
+comp.bugs.sys5
+
+comp.databases
+
+comp.databases.informix
+
+comp.dcom.telecom
+
+comp.lang.c
+
+comp.lang.c
+
+comp.lang.c
+
+comp.lang.c
+
+comp.lang.c++
+
+comp.lang.c++
+
+comp.lang.postscript
+
+comp.laserprinters
+
+comp.mail.maps
+
+comp.sources
+
+comp.sources.3b
+
+comp.sources.3b
+
+comp.sources.3b
+
+comp.sources.bugs
+
+comp.sources.d
+
+comp.sources.misc
+
+comp.sources.reviewed
+
+comp.sources.unix
+
+comp.sources.unix
+
+comp.sources.wanted
+
+comp.std.c
+
+comp.std.c
+
+comp.std.c++
+
+comp.std.c++
+
+comp.std.unix
+
+comp.std.unix
+
+comp.sys.3b
+
+comp.sys.att
+
+comp.sys.att
+
+comp.unix.questions
+
+comp.unix.shell
+
+comp.unix.sysv386
+
+comp.unix.wizards
+
+u3b.sources</PRE>
+
+<P>To produce a list that contains no duplicates, simply invoke uniq:
+
+<BR></P>
+
+<PRE>$ uniq ngs
+
+alt.dcom.telecom
+
+alt.sources
+
+comp.archives
+
+comp.bugs.sys5
+
+comp.databases
+
+comp.databases.informix
+
+comp.dcom.telecom
+
+comp.lang.c
+
+comp.lang.c++
+
+comp.lang.postscript
+
+comp.laserprinters
+
+comp.mail.maps
+
+comp.sources
+
+comp.sources.3b
+
+comp.sources.bugs
+
+comp.sources.d
+
+comp.sources.misc
+
+comp.sources.reviewed
+
+comp.sources.unix
+
+comp.sources.wanted
+
+comp.std.c
+
+comp.std.c++
+
+comp.std.unix
+
+comp.sys.3b
+
+comp.sys.att
+
+comp.unix.questions
+
+comp.unix.shell
+
+comp.unix.sysv386
+
+comp.unix.wizards
+
+u3b.sources</PRE>
+
+<P>This is the desired list. Of course, you can get the same result by using the sort command's -u option while sorting the original file.
+
+<BR></P>
+
+<P>The -c option displays the so-called repetition count&#151;the number of times each line appears in the original file:
+
+<BR></P>
+
+<PRE>$ uniq -c ngs
+
+1 alt.dcom.telecom
+
+1 alt.sources
+
+1 comp.archives
+
+1 comp.bugs.sys5
+
+1 comp.dcom.telecom
+
+1 comp.databases
+
+1 comp.databases.informix
+
+4 comp.lang.c
+
+2 comp.lang.c++
+
+1 comp.lang.postscript
+
+1 comp.laserprinters
+
+1 comp.mail.maps
+
+1 comp.sources
+
+3 comp.sources.3b
+
+1 comp.sources.bugs
+
+1 comp.sources.d
+
+1 comp.sources.misc
+
+1 comp.sources.reviewed
+
+2 comp.sources.unix
+
+1 comp.sources.wanted
+
+2 comp.std.c
+
+2 comp.std.c++
+
+2 comp.std.unix
+
+1 comp.sys.3b
+
+2 comp.sys.att
+
+1 comp.unix.questions
+
+1 comp.unix.shell
+
+1 comp.unix.sysv386
+
+1 comp.unix.wizards
+
+1 u3b.sources</PRE>
+
+<P>The -u command tells uniq to output only the truly unique lines; that is, the lines that have a repetition count of 1:
+
+<BR></P>
+
+<PRE>$ uniq -u ngs
+
+alt.dcom.telecom
+
+alt.sources
+
+comp.archives
+
+comp.bugs.sys5
+
+comp.databases
+
+comp.databases.informix
+
+comp.dcom.telecom
+
+comp.lang.postscript
+
+comp.laserprinters
+
+comp.mail.maps
+
+comp.sources
+
+comp.sources.bugs
+
+comp.sources.d
+
+comp.sources.misc
+
+comp.sources.reviewed
+
+comp.sources.wanted
+
+comp.sys.3b
+
+comp.unix.questions
+
+comp.unix.shell
+
+comp.unix.sysv386
+
+comp.unix.wizards
+
+u3b.sources</PRE>
+
+<P>The -d option tells uniq to output only those lines that have a repetition count of 2 or more:
+
+<BR></P>
+
+<PRE>$ uniq -d ngs
+
+comp.lang.c
+
+comp.lang.c++
+
+comp.sources.3b
+
+comp.sources.unix
+
+comp.std.c
+
+comp.std.c++
+
+comp.std.unix
+
+comp.sys.att</PRE>
+
+<P>The uniq command also can handle lines that are divided into fields by a separator that consists of one or more spaces or tabs. The <I>m</I> option tells uniq to skip the first <I>m</I> fields. The file mccc.ngs contains an abbreviated and modified 
+newsgroup list in which every dot (.) is changed to a tab:
+
+<BR></P>
+
+<PRE>$ cat mccc.ngs
+
+alt     dcom   telecom
+
+alt     sources
+
+comp    dcom   telecom
+
+comp    sources
+
+u3b     sources</PRE>
+
+<P>Notice that some of the lines are identical except for the first field, so sort the file on the second field:
+
+<BR></P>
+
+<PRE>$ sort +1 mccc.ngs &gt; mccc.ngs-1
+
+$ cat mccc.ngs-1
+
+alt     dcom    telecom
+
+comp    dcom    telecom
+
+alt     sources
+
+comp    sources
+
+u3b     sources</PRE>
+
+<P>Now display lines that are unique except for the first field:
+
+<BR></P>
+
+<PRE>$ uniq -1 mccc.ngs-1
+
+alt     dcom    telecom
+
+alt     sources</PRE>
+
+<P>The uniq command also can ignore the first <I>m</I> columns of a sorted file. The +<I>n</I> option tells uniq to skip the first <I>n</I> columns. The new file mccc.ngs-2 has four characters in each of its first fields on each line:
+
+<BR></P>
+
+<PRE>$ cat mccc.ngs-2
+
+alt .dcom.telecom
+
+comp.dcom.telecom
+
+alt .sources
+
+comp.sources
+
+u3b .sources
+
+$ uniq +4 mccc.ngs-2
+
+alt .dcom.telecom
+
+alt .sources</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Compressing Files&#151;</B><B><I>compress</I></B><B>, </B><B><I>uncompress</I></B><B>, and </B><B><I>zcat</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>While investigating storage techniques, some computer science researchers discovered that certain types of files are stored quite inefficiently in their natural form. Most common among these &quot;offenders&quot; is the text file, which is stored one 
+ASCII character per byte of memory. An ASCII character requires only seven bits, but almost all memory devices handle a minimum of eight bits at a time&#151;that is, a byte. (A bit is a binary digit&#151;the 1 or 0 found on electronic on/off switches.) 
+Consequently, the researchers found that 12.5 percent of the memory device is wasted. These researchers further studied the field of language patterns, and found that they could code characters into even smaller bit patterns according to how frequently 
+they are used.
+
+<BR></P>
+
+<P>The result of this research is a programming technique that compresses text files to about 50 percent of their original lengths. Although not as efficient with files that include characters that use all eight bits, this technique can indeed reduce file 
+
+sizes substantially. Because the files are smaller, storage and file transfer can be much more efficient.
+
+<BR></P>
+
+<P>There are three UNIX commands associated with compression: compress, uncompress, and zcat. Here is the syntax for each command:
+
+<BR></P>
+
+<PRE>compress [ -cfv ] [ -b bits ] file(s)
+
+uncompress [ -cv ] [ <I>file(s)</I> ]
+
+zcat [ <I>file(s)</I>]</PRE>
+
+<P>The options for these commands are listed in Table 6.7.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 6.7. Options for the Compression commands</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Options</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Writes to stdout instead of changing the file.</P>
+
+<TR>
+
+<TD>
+
+<P>-f</P>
+
+<TD>
+
+<P>Forces compression even if the compressed file is no smaller than the original.</P>
+
+<TR>
+
+<TD>
+
+<P>-v</P>
+
+<TD>
+
+<P>Displays the percentage of reduction for each compressed file.</P>
+
+<TR>
+
+<TD>
+
+<P>-b bits</P>
+
+<TD>
+
+<P>Tells compress how efficient to be. By default, bits is 16, but you can reduce it to as little as 9 for compatibility with computers that are not sufficiently powerful to handle full, 16-bit compression.</P></TABLE>
+
+<P>Normally, compress shrinks the file and replaces it with one that appends the extension .Z to the file name. However, things can go wrong; for example, the original file name might have 13 or 14 characters, or the compressed file could be the same size 
+
+as the original when you have not specified the -f option. You can use uncompress to expand the file and replace the .Z file with the expanded file that has an appropriate name (usually the name is that of the compressed file, except without the .Z 
+extension). The zcat command temporarily uncompresses a compressed file and prints it.
+
+<BR></P>
+
+<P>Incidentally, note that all three of these utilities can take their input from stdin through a pipe. For example, suppose that you retrieve a compressed tar archive (see Chapter 32, &quot;Backing Up&quot;) from some site that archives free programs. If 
+
+the compressed file were called archive.tar.Z, you could then uncompress it and separate it into its individual files with the following command:
+
+<BR></P>
+
+<PRE>$ zcat archive.tar * | tar -xf -</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Printing with </B><B><I>pr</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The pr command is the &quot;granddaddy&quot; of all of the programs that format files. It can separate a file into pages of a specified number of lines, number the pages, put a header on each page, and so on. This section looks at some of the command's 
+
+more useful options (see Table 6.8).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35>Incidentally, pr has nothing to do with actual printing on a printer. The name was used originally because the terminals of that time were printers&#151;there were no screens as we know them today. You'll learn 
+about true printing in the next section, &quot;Printing Hard Copy Output.&quot;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The syntax for the pr command is as follows:
+
+<BR></P>
+
+<PRE>pr -m [-N [-wM] [-a]] [-ecK] [-icK] [-drtfp] [+p] [ -ncK] [-oO] [-lL] 
+
+ [-sS] [-h header] [-F] [file(s)]</PRE>
+
+<UL>
+
+<LH><B>Table 6.8. Options for the pr Command</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>+p</P>
+
+<TD>
+
+<P>Begin the display with page number p. If this is omitted, display begins with page 1.</P>
+
+<TR>
+
+<TD>
+
+<P>-N</P>
+
+<TD>
+
+<P>Display in N columns.</P>
+
+<TR>
+
+<TD>
+
+<P>-d</P>
+
+<TD>
+
+<P>Double-space the display.</P>
+
+<TR>
+
+<TD>
+
+<P>-ecK</P>
+
+<TD>
+
+<P>Expand tabs to character positions K+1, 2K+1, 3K+1, etc. Normally, tabs expand to positions 8, 16, 24, etc. If a character is entered for &quot;c&quot;, use it as the tab character.</P>
+
+<TR>
+
+<TD>
+
+<P>-ncK</P>
+
+<TD>
+
+<P>Number each line with a K-digot number (default value is 5; e.g.,     1,     2,     3, etc.). If a character is entered for &quot;c&quot;, use it instead of a tab immediately following the K-digit number.</P>
+
+<TR>
+
+<TD>
+
+<P>-wM</P>
+
+<TD>
+
+<P>Set the width of each column to M characters when displaying two or more columns (default is 72).</P>
+
+<TR>
+
+<TD>
+
+<P>-oO</P>
+
+<TD>
+
+<P>Offset each line by O character positions to the right.</P>
+
+<TR>
+
+<TD>
+
+<P>-lL</P>
+
+<TD>
+
+<P>Set the length of a page to L lines (default is 66). </P>
+
+<TR>
+
+<TD>
+
+<P>-h header</P>
+
+<TD>
+
+<P>Use header as the text of the header of each page of the display in place of the name of the file. Note: there nust be a space between the h and the first character of the actual header string.</P>
+
+<TR>
+
+<TD>
+
+<P>-p</P>
+
+<TD>
+
+<P>Pause at the end of each page and ring the terminal bell. Proceed on receipt of a carriage return</P>
+
+<TR>
+
+<TD>
+
+<P>-f</P>
+
+<TD>
+
+<P>Use a form-feed character instead of a sequence of line feeds to begin a new page. Pause before displaying the first page on a terminal.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Do not print error messages about files that cannot be opened.</P>
+
+<TR>
+
+<TD>
+
+<P>-t</P>
+
+<TD>
+
+<P>Omit the 5-line header and the 5-line trailer that each page normally has. Do not space to the beginning of a new page after displaying the last page. Takes precedence over -h header.</P>
+
+<TR>
+
+<TD>
+
+<P>-sS</P>
+
+<TD>
+
+<P>Separate columns by the character entered for S instead of a tab.</P>
+
+<TR>
+
+<TD>
+
+<P>-F</P>
+
+<TD>
+
+<P>Fold lines to fit the width of the column in multi-column display mode, or to fit an 80-character line. </P>
+
+<TR>
+
+<TD>
+
+<P>-m</P>
+
+<TD>
+
+<P>Merge and display up to eight files, one per column. May not be used with <I>-N</I> or -a</P></TABLE>
+
+<P>Here is the sample file that you'll use to examine pr:
+
+<BR></P>
+
+<PRE>$ cat names
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+chang liang
+
+crawford patricia
+
+crowley charles
+
+cuddy michael
+
+czyzewski sharon
+
+delucia joseph</PRE>
+
+<P>The pr command normally prints a file with a five-line header and a five-line footer. The header, by default, consists of these five lines: two blank lines; a line that shows the date, time, filename, and page number; and two more blank lines. The 
+footer consists of five blank lines. The blank lines provide proper top and bottom margins so that you can pipe the output of the pr command to a command that sends a file to the printer. The pr command normally uses 66-line pages, but to save space the 
+demonstrations use a page length of 17: five lines of header, five lines of footer, and seven lines of text.
+
+<BR></P>
+
+<P>Use the -l option with a 17 argument to do this:
+
+<BR></P>
+
+<PRE>$ pr -l17 names
+
+Sep 19 15:05 1991  names Page 1
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+ (Seven blank lines follow.)
+
+Sep 19 15:05 1991  names Page 2
+
+chang liang
+
+crawford patricia
+
+crowley charles
+
+cuddy michael
+
+czyzewski sharon
+
+delucia joseph</PRE>
+
+<P>Notice that pr puts the name for the file in the header, just before the page number. You can specify your own header with -h:
+
+<BR></P>
+
+<PRE>$ pr -l17 -h &quot;This is the NAMES file&quot; names
+
+Sep 19 15:05 1991  This is the NAMES file Page 1
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+ (Seven blank lines follow.)
+
+Sep 19 15:05 1991  This is the NAMES file Page 2
+
+chang liang
+
+crawford patricia
+
+crowley charles
+
+cuddy michael
+
+czyzewski sharon
+
+delucia joseph</PRE>
+
+<P>The header that you specify replaces the file name.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> There must be a space between -h and the start of the header string. Also, if the header string contains spaces, you must quote the entire string.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Multicolumn output is a pr option. Note how you specify two-column output (-2):
+
+<BR></P>
+
+<PRE>$ pr -l17 -2 names
+
+Sep 19 15:05 1991  names Page 1
+
+allen christopher            chang liang
+
+babinchak david              crawford patricia
+
+best betty                   crowley charles
+
+bloom dennis                 cuddy michael
+
+boelhower joseph             czyzewski sharon
+
+bose anita                   delucia joseph
+
+cacossa ray</PRE>
+
+<P>You can number the lines of text; the numbering always begins with 1:
+
+<BR></P>
+
+<PRE>$ pr -l17 -n names
+
+Sep 19 15:05 1991  names Page 1
+
+1     allen christopher
+
+2     babinchak david
+
+3     best betty
+
+4     bloom dennis
+
+5     boelhower joseph
+
+6     bose anita
+
+7     cacossa ray
+
+ (Seven blank lines follow.)
+
+Sep 19 15:05 1991  names Page 2
+
+8     chang liang
+
+9     crawford patricia
+
+10     crowley charles
+
+11     cuddy michael
+
+12     czyzewski sharon
+
+13     delucia joseph</PRE>
+
+<P>Combining numbering and multicolumns results in the following:
+
+<BR></P>
+
+<PRE>$ pr -l17 -n -2 names
+
+Sep 19 15:05 1991  names Page 1
+
+1     allen christopher           8     chang liang
+
+2     babinchak david             9     crawford patricia
+
+3     best betty                 10     crowley charles
+
+4     bloom dennis               11     cuddy michael
+
+5     boelhower joseph           12     czyzewski sharon
+
+6     bose anita                 13     delucia joseph
+
+7     cacossa ray</PRE>
+
+<P>pr is, good for combining two or more files. Here are three files created from fields in /etc/passwd:
+
+<BR></P>
+
+<PRE>$ cat p-login
+
+allen
+
+babinch
+
+best
+
+bloom
+
+boelhow
+
+bose
+
+cacossa
+
+chang
+
+crawfor
+
+crowley
+
+cuddy
+
+czyzews
+
+delucia
+
+diesso
+
+dimemmo
+
+dintron
+
+$ cat p-home
+
+/u1/fall91/dp168/allen
+
+/u1/fall91/dp270/babinch
+
+/u1/fall91/dp163/best
+
+/u1/fall91/dp168/bloom
+
+/u1/fall91/dp163/boelhow
+
+/u1/fall91/dp168/bose
+
+/u1/fall91/dp270/cacossa
+
+/u1/fall91/dp168/chang
+
+/u1/fall91/dp163/crawfor
+
+/u1/fall91/dp163/crowley
+
+/u1/fall91/dp270/cuddy
+
+/u1/fall91/dp168/czyzews
+
+/u1/fall91/dp168/delucia
+
+/u1/fall91/dp270/diesso
+
+/u1/fall91/dp168/dimemmo
+
+/u1/fall91/dp168/dintron
+
+$ cat p-uid
+
+278
+
+271
+
+312
+
+279
+
+314
+
+298
+
+259
+
+280
+
+317
+
+318
+
+260
+
+299
+
+300
+
+261
+
+301
+
+281</PRE>
+
+<P>The -m option tells pr to merge the files:
+
+<BR></P>
+
+<PRE>$ pr -m -l20 p-home p-uid p-login
+
+Oct 12 14:15 1991   Page 1
+
+/u1/fall91/dp168/allen   278            allen
+
+/u1/fall91/dp270/babinc  271            babinch
+
+/u1/fall91/dp163/best    312            best
+
+/u1/fall91/dp168/bloom   279            bloom
+
+/u1/fall91/dp163/boelho  314            boelhow
+
+/u1/fall91/dp168/bose    298            bose
+
+/u1/fall91/dp270/cacoss  259            cacossa
+
+/u1/fall91/dp168/chang   280            chang
+
+/u1/fall91/dp163/crawfo  317            crawfor
+
+/u1/fall91/dp163/crowle  318            crowley
+
+ (Seven blank lines follow.)
+
+Oct 12 14:15 1991   Page 2
+
+/u1/fall91/dp270/cuddy   260            cuddy
+
+/u1/fall91/dp168/czyzew  299            czyzews
+
+/u1/fall91/dp168/deluci  300            delucia
+
+/u1/fall91/dp270/diesso  261            diesso
+
+/u1/fall91/dp168/dimemm  301            dimemmo
+
+/u1/fall91/dp168/dintro  281            dintron</PRE>
+
+<P>You can tell pr what to put between fields by using -s and a character. If you omit the character, pr uses a tab character.
+
+<BR></P>
+
+<PRE>$ pr -m -l20 -s p-home p-uid p-login
+
+Oct 12 14:16 1991   Page 1
+
+/u1/fall91/dp168/allen   278  allen
+
+/u1/fall91/dp270/babinch        271  babinch
+
+/u1/fall91/dp163/best    312  best
+
+/u1/fall91/dp168/bloom   279  bloom
+
+/u1/fall91/dp163/boelhow        314  boelhow
+
+/u1/fall91/dp168/bose    298  bose
+
+/u1/fall91/dp270/cacossa        259  cacossa
+
+/u1/fall91/dp168/chang   280  chang
+
+/u1/fall91/dp163/crawfor        317  crawfor
+
+/u1/fall91/dp163/crowley        318  crowley
+
+ (Seven blank lines follow.)
+
+Oct 12 14:16 1991   Page 2
+
+/u1/fall91/dp270/cuddy   260  cuddy
+
+/u1/fall91/dp168/czyzews        299  czyzews
+
+/u1/fall91/dp168/delucia        300  delucia
+
+/u1/fall91/dp270/diesso  261  diesso
+
+/u1/fall91/dp168/dimemmo        301  dimemmo
+
+/u1/fall91/dp168/dintron        281  dintron</PRE>
+
+<P>The -t option makes pr act somewhat like cat. By including the -t option, you can specify the order of merging, and even tell pr not to print (or leave room for) the header and footer:
+
+<BR></P>
+
+<PRE>$ pr -m -t -s p-uid p-login p-home
+
+278  allen     /u1/fall91/dp168/allen
+
+271  babinch   /u1/fall91/dp270/babinch
+
+312  best      /u1/fall91/dp163/best
+
+279  bloom     /u1/fall91/dp168/bloom
+
+314  boelhow   /u1/fall91/dp163/boelhow
+
+298  bose      /u1/fall91/dp168/bose
+
+259  cacossa   /u1/fall91/dp270/cacossa
+
+280  chang     /u1/fall91/dp168/chang
+
+317  crawfor   /u1/fall91/dp163/crawfor
+
+318  crowley   /u1/fall91/dp163/crowley
+
+260  cuddy     /u1/fall91/dp270/cuddy
+
+299  czyzews   /u1/fall91/dp168/czyzews
+
+300  delucia   /u1/fall91/dp168/delucia
+
+261  diesso    /u1/fall91/dp270/diesso
+
+301  dimemmo   /u1/fall91/dp168/dimemmo
+
+281  dintron   /u1/fall91/dp168/dintron</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Printing Hard Copy Output</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Displaying the results of your work on your terminal is fine, but when you need to present a report for management to read, nothing beats printed output.
+
+<BR></P>
+
+<P>Three general types of printers are available:
+
+<BR></P>
+
+<UL>
+
+<LI>Dot-matrix printers are usually very fast, but do not offer the print quality required for formal reports.
+
+<BR>
+
+<BR></LI>
+
+<LI>Inkjet printers are not quite as fast, but do offer better letter quality.
+
+<BR>
+
+<BR></LI>
+
+<LI>Laser printers provide the best print quality, and some are also quite fast. The two main types of laser printers, HP and PostScript, use different languages to convert your text file to something that the printer's engine can convert to hard copy.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Your system administrator can tell you which printers are available on your computer, or you can use the lpstat command to find out yourself. (This command is described later in this section.)
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Requesting To Print</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UNIX computers are multiuser computers, and there may be more users on a system than there are printers. For that reason, every print command that you issue is placed in a queue, to be acted on after all the ones previously issued are completed. To 
+cancel requests, you use the cancel command.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>The </B><B>lp</B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Normally, the System V lp command has the following syntax:
+
+<BR></P>
+
+<PRE>lp [options] [files]</PRE>
+
+<P>This command causes the named files and the designated options (if any) to become a print request. If no files are named in the command line, lp takes its input from the standard input so that it can be the last command in a pipeline. Table 6.9 contains 
+
+the most frequently used options for lp.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 6.9. Options for </B><B>lp</B><B> Command</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD COLSPAN=2>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-m</P>
+
+<TD COLSPAN=2>
+
+<P>Send mail after the files have been printed (see Chapter 9, &quot;Communicating with Others&quot;).</P>
+
+<TR>
+
+<TD>
+
+<P>-d dest</P>
+
+<TD COLSPAN=2>
+
+<P>Choose dest as the printer or class of printers that is to do the printing. If dest is a printer, then lp prints the request only on that specific printer. If dest is a class of printers, then lp prints the request on the first available printer that is 
+
+a member of the class. If dest is any, then lp prints the request on any printer that can handle it. For more information see the discussion below on lpstat.</P>
+
+<TR>
+
+<TD>
+
+<P>-n <I>N</I></P>
+
+<TD COLSPAN=2>
+
+<P>Print <I>N</I> copies of the output. The default is one copy.</P>
+
+<TR>
+
+<TD>
+
+<P>-o option</P>
+
+<TD COLSPAN=2>
+
+<P>Specify a printer-dependent option. You can use the -o option as many times consecutively as you want, as in -o option1 -o option2 . . . -o optionN, or by specifying a list of options with one -o followed by the list enclosed in double quotation marks, 
+
+as in -o &quot;option1 option2 . . . optionN&quot;. The options are as follows:</P>
+
+<TR>
+
+<TD><P><BR></P>
+
+<TD>
+
+<P>nobanner</P>
+
+<TD>
+
+<P>Do not print a banner page with this request. Normally, a banner page containing the user-ID, file name, date, and time is printed for each print request, to make it easy for several users to identify their own printed copy.</P>
+
+<TR>
+
+<TD><P><BR></P>
+
+<TD>
+
+<P>lpi=<I>N</I></P>
+
+<TD>
+
+<P>Print this request with the line pitch set to <I>N</I>.</P>
+
+<TR>
+
+<TD><P><BR></P>
+
+<TD>
+
+<P>cpi=pica|elite|compressed</P>
+
+<TD>
+
+<P>Print this request with the character pitch set to pica (representing 10 characters per inch), elite (representing 12 characters per inch), or compressed (representing as many characters per inch as a printer can handle).</P>
+
+<TR>
+
+<TD><P><BR></P>
+
+<TD>
+
+<P>stty=stty-option-list</P>
+
+<TD>
+
+<P>A list of options valid for the stty command. Enclose the list with single quotation marks if it contains blanks.</P>
+
+<TR>
+
+<TD><P><BR></P>
+
+<TD>
+
+<P>-t title</P>
+
+<TD>
+
+<P>Print title on the banner page of the output. The default is no title. Enclose title in quotation marks if it contains blanks.</P>
+
+<TR>
+
+<TD><P><BR></P>
+
+<TD>
+
+<P>-w</P>
+
+<TD>
+
+<P>Write a message on the user's terminal after the files are printed. If the user is not logged in, or if the printer resides on a remote system, send a mail message instead.</P></TABLE>
+
+<P>To print the file sample on the default printer, type:
+
+<BR></P>
+
+<PRE>$ lp sample
+
+request id is lj-19 (1 file)</PRE>
+
+<P>Note the response from the printing system. If you don't happen to remember the request id later, don't worry; lpstat will tell it to you, as long as it has not finished printing the file. Once the system has finished printing, your request has been 
+fulfilled and no longer exists.
+
+<BR></P>
+
+<P>Suppose your organization has a fancy, all-the-latest-bells-and-whistles-and-costing-more-than-an-arm-and-a-leg printer, code-named the_best in the Chairman's secretary's office in the next building. People are permitted to use it for the final copies 
+of important documents so it is kept fairly busy. And you don't want to have to walk over to that building and climb 6 flights of stairs to retrieve your print job until you know it's been printed. So you type
+
+<BR></P>
+
+<PRE>$ lp -m -d the_best final.report.94
+
+request id is the_best-19882 (1 file)</PRE>
+
+<P>You have asked that the printer called the_best be used and that mail be sent to you when the printing has completed. (This assumes that this printer and your computer are connected on some kind of network that will transfer the actual file from your 
+computer to the printer.)
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>The </B><B>cancel</B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You may want to cancel a print request for any number of reasons, but only one command enables you to do it&#151;the cancel command. Usually, you invoke it as follows:
+
+<BR></P>
+
+<PRE>cancel [request-ID(s)]</PRE>
+
+<P>where <I>request-ID(s)</I> is the print job number that lp displays when you make a print request. Again, if you forget the request-ID, lpstat (see the section on lpstat) will show it to you.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Getting Printer and Print Request Status</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The lpstat command gives the user information about the print services, including the status of all current print requests, the name of the default printer, and the status of each printer.
+
+<BR></P>
+
+<P>The syntax of lpstat is very simple:
+
+<BR></P>
+
+<PRE>$lpstat [options] [request-ID(s)]</PRE>
+
+<P>When you use the lp command, it puts your request in a queue and issues a request ID for that particular command. If you supply that ID to lpstat, it reports on the status of that request. If you omit all IDs and use the lpstat command with no 
+arguments, it displays the status of all your print requests.
+
+<BR></P>
+
+<P>Some options take a parameter list as arguments, indicated by [list] below. You can supply that list as either a list separated by commas, or a list enclosed in double quotation marks and separated by spaces, as in the following examples:
+
+<BR></P>
+
+<PRE>-p printer1,printer2
+
+-u &quot;user1 user2 user3&quot;</PRE>
+
+<P>If you specify all as the argument to an option that takes a list or if you omit the argument entirely, lpstat provides information about all requests, devices, statuses, and so on, appropriate to that option letter. For example, the following commands 
+
+both display the status of all output requests:
+
+<BR></P>
+
+<PRE>$ lpstat -o all
+
+$ lpstat -o</PRE>
+
+<P>Here are some of the more common arguments and options for lpstat:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-d</P>
+
+<TD>
+
+<P>Report what the system default destination is (if any).</P>
+
+<TR>
+
+<TD>
+
+<P>-o [<I>list</I>]</P>
+
+<TD>
+
+<P>Report the status of print requests. <I>list</I> is a list of printer names, class names, and request IDs. You can omit the -o.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Display a status summary, including the status of the print scheduler, the system default destination, a list of class names and their members, a list of printers and their associated devices, and other, less pertinent information.</P>
+
+<TR>
+
+<TD>
+
+<P>-p [<I>list</I>] [-D] [-l]</P>
+
+<TD>
+
+<P>If the -D option is given, print a brief description of each printer in <I>list</I>. If the -l option is given, print a full description of each printer's configuration.</P>
+
+<TR>
+
+<TD>
+
+<P>-t</P>
+
+<TD>
+
+<P>Display all status information: all the information obtained with the -s option, plus the acceptance and idle/busy status of all printers and the status of all requests.</P>
+
+<TR>
+
+<TD>
+
+<P>-a [list]</P>
+
+<TD>
+
+<P>Report whether print destinations are accepting requests. list is a list of intermixed printer names and class names.</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=4><B>Comparing Directories with </B><B><I>dircmp</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The dircmp command examines the contents of two directories&#151;including all subdirectories&#151;and displays information about the contents of each. It lists all the files that are unique to each directory and all the files that are common. The 
+command specifies whether each common file is different or the same by comparing the contents of each of those files.
+
+<BR></P>
+
+<P>The syntax for dircmp is
+
+<BR></P>
+
+<PRE>dircmp [-d] [-s] [-wn] <I>dir1</I> <I>dir2</I></PRE>
+
+<P>The options are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-d</P>
+
+<TD>
+
+<P>Perform a diff operation on pairs of files with the same names (see the section &quot;The diff Command&quot; later in this chapter).</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Suppress messages about identical files.</P>
+
+<TR>
+
+<TD>
+
+<P>-w<I>N</I></P>
+
+<TD>
+
+<P>Change the width of the output line to <I>N</I> columns. The default width is 72.</P></TABLE>
+
+<P>As an example, suppose that the two directories have the following contents:
+
+<BR></P>
+
+<PRE>./phlumph:
+
+total 24
+
+-rw-r&#151;r&#151;   1 pjh      sys         8432 Mar  6 13:02 TTYMON
+
+-rw-r&#151;r&#151;   1 pjh      sys           51 Mar  6 12:57 x
+
+-rw-r&#151;r&#151;   1 pjh      sys          340 Mar  6 12:55 y
+
+-rw-r&#151;r&#151;   1 pjh      sys          222 Mar  6 12:57 z
+
+./xyzzy:
+
+total 8
+
+-rw-r&#151;r&#151;   1 pjh      sys          385 Mar  6 13:00 CLEANUP
+
+-rw-r&#151;r&#151;   1 pjh      sys           52 Mar  6 12:55 x
+
+-rw-r&#151;r&#151;   1 pjh      sys          340 Mar  6 12:55 y
+
+-rw-r&#151;r&#151;   1 pjh      sys          241 Mar  6 12:55 z</PRE>
+
+<P>Each directory includes a unique file and three pairs of files that have the same name. Of the three files, two of them differ in size and presumably in content. Now use dircmp to determine whether the files in the two directories are the same or 
+different, as follows:
+
+<BR></P>
+
+<PRE>$ dircmp xyzzy phlumph
+
+Mar  6 13:02 1994  xyzzy only and phlumph only Page 1
+
+./CLEANUP                               ./TTYMON
+
+ (Many blank lines removed to save space.)
+
+Mar  6 13:02 1994  Comparison of xyzzy phlumph Page 1
+
+directory       .
+
+different       ./x
+
+same            ./y
+
+different       ./z
+
+ (Many blank lines removed to save space.)
+
+$</PRE>
+
+<P>Note that dircmp first reports on the files unique to each directory and then comments about the common files.
+
+<BR></P>
+
+<PRE>$ dircmp -d xyzzy phlumph
+
+Mar  6 13:02 1994  xyzzy only and phlumph only Page 1
+
+./CLEANUP                               ./TTYMON
+
+ (Many blank lines removed to save space.)
+
+Mar  6 13:02 1994  Comparison of xyzzy phlumph Page 1
+
+directory       .
+
+different       ./x
+
+same            ./y
+
+different       ./z
+
+ (Many blank lines removed to save space.)
+
+Mar  6 13:02 1994  diff of ./x in xyzzy and phlumph Page 1
+
+3c3
+
+&lt; echo &quot;root has logged out...&quot;
+
+&#151;
+
+&gt; echo &quot;pjh has logged out...&quot;
+
+ (Many blank lines removed to save space.)
+
+Mar  6 13:02 1994  diff of ./z in xyzzy and phlumph Page 1
+
+6d5
+
+&lt;       j) site=jonlab ;;
+
+ (Many blank lines removed to save space.)
+
+$</PRE>
+
+<P>At this point, you may want to refer back to the section &quot;The diff Command&quot; later in this chapter.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=4><B>Encrypting a File with the </B><B><I>crypt</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you have sensitive information stored in text files that you wish to give to other users you may want to encrypt them to make them unreadable by casual users. UNIX system owners of the Encryption Utilities, which are available only to purchasers in 
+the United States, can encrypt a text file&#151;in any way they see fit&#151;before they transmit it to another user or site. The person who receives the encrypted file needs a copy of the crypt command and the password used by the person who encrypted the 
+
+message in the first place.
+
+<BR></P>
+
+<P>The usual syntax for the crypt command is
+
+<BR></P>
+
+<PRE>$crypt [ key ] &lt; clearfile &gt; encryptedfile</PRE>
+
+<P>where <I>key</I> is any phrase. For example 
+
+<BR></P>
+
+<PRE>crpyt &quot;secret agent 007&quot; &lt;mydat&gt; xyzzy</PRE>
+
+<P>will encrypt the contents of my dat and write the result to xyzzy. 
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> This approach requires that you type key, the encryption key, at your keyboard, in which case someone nearby might notice it. You can define your encryption key in an environment variable (see Chapters 
+
+11, 12, and 13) called CRYPTKEY. 
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Then use the following syntax:
+
+<BR></P>
+
+<PRE>$crypt -k &lt; clearfile &gt; encryptedfile</PRE>
+
+<P>The encryption key need not be complex. In fact, the longer it is, the more time it takes to do the decryption. A key of three lowercase letters causes decryption to take as much as five minutes of machine time&#151;and possibly much more on a multiuser 
+
+machine.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Do not concatenate encrypted files, even if they were encrypted with the same key. If you try to do so, you will successfully decrypt only the first file.
+
+<BR>
+
+<BR>Also, do not pipe the output of crypt through any program that changes the settings of your terminal. Otherwise, when crypt finishes, the output will be in a strange state.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>Printing the Beginning or End of a File with </B><B><I>head</I></B><B> and </B><B><I>tail</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>By default, the head command prints the first 10 lines of a file to stdout (by default, the screen):
+
+<BR></P>
+
+<PRE>$ head names
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+chang liang
+
+crawford patricia
+
+crowley charles</PRE>
+
+<P>You can specify the number of lines that head displays, as follows:
+
+<BR></P>
+
+<PRE>$ head -4 names
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis</PRE>
+
+<P>To view the last few lines of a file, use the tail command. This command is helpful when you have a large file and want to look at at the end only. For example, suppose that you want to see the last few entries in the log file that records the 
+transactions that occur when files are transferred between your machine and a neighboring machine. That log file may be large, and you surely don't want to have to read all the beginning and middle of it just to get to the end.
+
+<BR></P>
+
+<P>By default, tail prints the last 10 lines of a file to stdout (by default, the screen). Suppose that your names file consist of the following:
+
+<BR></P>
+
+<PRE>$ cat names
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+chang liang
+
+crawford patricia
+
+crowley charles
+
+cuddy michael
+
+czyzewski sharon
+
+delucia joseph</PRE>
+
+<P>The tail command limits your view to the last 10 lines:
+
+<BR></P>
+
+<PRE>$ tail names
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+chang liang
+
+crawford patricia
+
+crowley charles
+
+cuddy michael
+
+czyzewski sharon
+
+delucia joseph</PRE>
+
+<P>You can change this display by specifying the number of lines to print. For example, the following command prints the last five lines of names:
+
+<BR></P>
+
+<PRE>$ tail -5 names
+
+crawford patricia
+
+crowley charles
+
+cuddy michael
+
+czyzewski sharon
+
+delucia joseph</PRE>
+
+<P>The tail also can follow a file; that is, it can continue looking at a file as a program continues to add text to the end of that file. The syntax is
+
+<BR></P>
+
+<PRE>tail -f <I>logfile</I></PRE>
+
+<P>where <I>logfile</I> is the name of the file being written to. If you're logged into a busy system, try one of the following forms:
+
+<BR></P>
+
+<PRE>$ tail -f /var/uucp/.Log/uucico/neighbor
+
+$ tail -f /var/uucp/.Log/uuxqt/neighbor</PRE>
+
+<P>where neighbor is the name of a file that contains log information about a computer that can exchange information with yours. The first is the log file that logs file-transfer activity between your computer and <I>neighbor</I>, and the second is the log 
+
+of commands that your computer has executed as requested by <I>neighbor</I>.
+
+<BR></P>
+
+<P>The tail command has several other useful options:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P><I>+n</I></P>
+
+<TD>
+
+<P>Begin printing at line n of the file.</P>
+
+<TR>
+
+<TD>
+
+<P>b</P>
+
+<TD>
+
+<P>Count by blocks rather than lines (blocks are either 512 or 1,024 characters long).</P>
+
+<TR>
+
+<TD>
+
+<P>c</P>
+
+<TD>
+
+<P>Count by characters rather than lines.</P>
+
+<TR>
+
+<TD>
+
+<P>r</P>
+
+<TD>
+
+<P>Print from the designated starting point in the reverse direction. For example, tail -5r <I>file</I> prints the next-to-last five lines of the file. You cannot use option r cannot be used with option f.</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>Pipe Fitting with </B><B><I>tee</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In UNIX pipelines, you use the tee command just as a plumber uses a tee-fitting in a water line: to send output in two directions simultaneously. Fortunately, electrons behave different than water molecules, because tee can send all its input to both 
+destinations. Probably the most common use of tee is to siphon off the output of a command and save it in a file while simultaneously passing it down the pipeline to another command.
+
+<BR></P>
+
+<P>The syntax for the tee command is
+
+<BR></P>
+
+<PRE>$tee [-i] [-a] [file(s)]</PRE>
+
+<P>The tee command can send its output to multiple files simultaneously. With the -a option specified, tee appends the output to those files instead of overwriting them. The -i option prevents the pipline from being broken. To show the use of tee, type the 
+
+comman that follows:
+
+<BR></P>
+
+<PRE>$ lp /etc/passwd | tee status</PRE>
+
+<P>This command causes the file /etc/passwd to be sent to the default printer, prints a message about the print request on the screen and simultaneously captures that message in a file called status. The tee sends the output of the lp command to two 
+places: the screen and the named file.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=4><B>Updating a File's Time and Date with </B><B><I>touch</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The touch command updates the access and modification time and date stamps of the files mentioned as its arguments. (See Chapters 4 and 35 for more information on the time and date of a file.) If the file mentioned does not exist, it is immediately 
+created as a 0-byte file with no contents. You can use touch to protect files that might otherwise be removed by cleanup programs that delete files that have not been accessed or modified within a specified number of days.
+
+<BR></P>
+
+<P>Using touch, you can change the time and date stamp in any way you choose, if you include that information in the command line. Here's the syntax:
+
+<BR></P>
+
+<PRE>$touch [ -amc ] [ mmddhhmm[yy] ] file(s)</PRE>
+
+<P>This command returns to the terminal an integer number that represents the number of files whose time and/or date could not be changed.
+
+<BR></P>
+
+<P>With no options, touch updates both the time and date stamps. The options are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-a</P>
+
+<TD>
+
+<P>Update the access time and date only.</P>
+
+<TR>
+
+<TD>
+
+<P>-m</P>
+
+<TD>
+
+<P>Update the modification time and date only.</P>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Do not create a file that does not exist.</P></TABLE>
+
+<P>The pattern for the time-date stamp&#151;<I>mmddhhmm</I>[<I>yy</I>]&#151;consists of the month (01&#151;12), day (01&#151;31 as appropriate), hour (00&#151;23), minute (00&#151;59) and, optionally, year (00&#151;99). Therefore, the command
+
+<BR></P>
+
+<PRE>$ touch 0704202090 fireworks</PRE>
+
+<P>changes both access and modification time and dates of the file fireworks to July 4, 1990, 8:20 P.M.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Splitting Files with </B><B><I>split</I></B><B> and </B><B><I>csplit</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are occasions when you have a text file that's too big for some application.  For example, suppose you habe a 2MB file that you want to copy to a 1.4MB floppy disk. You will have to use split (or csplit) to divide it into two (or more) smaller 
+files.
+
+<BR></P>
+
+<P>The syntax for split is
+
+<BR></P>
+
+<PRE>$ split [ -n ] [ in-file [ out-file ] ]</PRE>
+
+<P>This command reads the text file <I>in-file</I> and splits it into several files, each consisting of <I>n</I> lines (except possibly the last file). If you omit -<I>n</I>, split creates 1,000-line files. The names of the small files depend on whether or 
+
+not you specify <I>out-file</I>. If you do, these files are named <I>out</I><I>file</I>aa, <I>out-file</I>ab, <I>out-file</I>ac, and so on. If you have more than 26 output files, the 27th is named as <I>out-file</I>ba, the 28th as <I>out-file</I>bb, and so 
+
+forth. If you omit <I>out-file</I>, split uses x in its place, so that the files are named xaa, xab, xac, and so on.
+
+<BR></P>
+
+<P>To recreate the original file from a group of files named xaa and xab, etc., type
+
+<BR></P>
+
+<PRE>$ cat xa* &gt; new-name</PRE>
+
+<P>It may be more sensible to divide a file according to the context of its contents, rather than on a chosen number of lines. UNIX offers a context splitter, called csplit. This command's syntax is
+
+<BR></P>
+
+<PRE>$ csplit [ -s ] [ -k ] [ -f out-file ] in-file arg(s)</PRE>
+
+<P>where in-file is the name of the file to be split, and out-file is the base name of teh ouput files. 
+
+<BR></P>
+
+<P>The <I>arg(s)</I> determine where each file is split. If you have <I>N</I> <I>arg</I>s, you get <I>N</I>+1 output files, named <I>out-file</I>00, <I>out-file</I>01, and so on, through <I>out-fileN</I> (with a 0 in front of <I>N</I> if <I>N</I> is less 
+than 10). <I>N</I> cannot be greater than 99. If you do not specify an <I>out-file</I> argument, csplit names the files xx00, xx01, and so forth. See below for an example where a file is divided by context into five files.
+
+<BR></P>
+
+<P>The -s option suppresses csplit's reporting of the number of characters in each output file. The -k option prevents csplit from deleting all output files if an error occurs.
+
+<BR></P>
+
+<P>Suppose that you have a password file such as the following. It is divided into sections: an unlabeled one at the beginning, followed by UUCP Logins, Special Users, DP Fall 1991, and NCR.
+
+<BR></P>
+
+<PRE>$ cat passwd
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+reboot:x:7:1:&#151;:/:/etc/shutdown -y -g0 -i6
+
+listen:x:37:4:x:/usr/net/nls:
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:
+
+lp:x:71:2:x:/usr/spool/lp:
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ==  UUCP Logins                    :6:
+
+_:-             :6:6:    ==============================     :6:
+
+uucp:x:5:5:0000-uucp(0000):x:
+
+nuucp:x:10:10:0000-uucp(0000):/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+zzuucp:x:37:100:Bob Sorenson:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+asyuucp:x:38:100:Robert L. Wald:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+knuucp:x:39:100:Kris Knigge:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ==  Special Users                  :6:
+
+_:-             :6:6:    ==============================     :6:
+
+msnet:x:100:99:Server Program:/usr/net/servers/msnet:/bin/false
+
+install:x:101:1:x:/usr/install:
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+hohen:x:346:1:Michael Hohenshilt:/usr/home/hohen:/bin/ksh
+
+reilly:x:347:1:Joan Reilly:/usr/home/reilly:/bin/ksh
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ==  DP Fall 1991                   :6:
+
+_:-             :6:6:    ==============================     :6:
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+lewis:x:288:20:lewis prince e:/u1/fall91/dp168/lewis:/bin/ksh
+
+metelit:x:265:20:metelitsa natalya:/u1/fall91/dp270/metelit:/bin/ksh
+
+nadaraj:x:307:20:nadarajah kalyani:/u1/fall91/dp168/nadaraj:/bin/ksh
+
+nado:x:266:20:nado conan j:/u1/fall91/dp270/nado:/bin/ksh
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ===  NCR   ===================     :6:
+
+_:-             :6:6:    ==============================     :6:
+
+antello:x:334:20:antello ronald f:/u1/fall91/ff437/antello:/bin/ksh
+
+cilino:x:335:20:cilino michael a:/u1/fall91/ff437/cilino:/bin/ksh
+
+emmons:x:336:20:emmons william r:/u1/fall91/ff437/emmons:/bin/ksh
+
+foreste:x:337:20:forester james r:/u1/fall91/ff437/foreste:/bin/ksh
+
+hayden:x:338:20:hayden richard:/u1/fall91/ff437/hayden:/bin/ksh</PRE>
+
+<P>You might want to split this file so that each section has its own file. To split this file into multiple files, you must specify the appropriate arguments to csplit. Each takes the form of a text string surrounded by slash (/) marks. The csplit command 
+
+then copies from the current line up to, but not including, the argument. The following is the first attempt at splitting the file with csplit:
+
+<BR></P>
+
+<PRE>$ csplit -f PA passwd /UUCP/ /Special/ /Fall/ /NCR/
+
+270
+
+505
+
+426
+
+490
+
+446</PRE>
+
+<P>Note that there are four args: uucp, special, fall, and ncr. There will be five files created: PA01 will contan everything from the beginning of passwd, to (but not including) the first line that contains uucp. PA02 will contain everything from the 
+first line containing uucp up to (but not including) the line that contains special, and so on. Five files are created: the first has 270 characters, the second has 505 characters, and so on. Now let's see what they look like:
+
+<BR></P>
+
+<PRE>$ cat PA00
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+reboot:x:7:1:&#151;:/:/etc/shutdown -y -g0 -i6
+
+listen:x:37:4:x:/usr/net/nls:
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:
+
+lp:x:71:2:x:/usr/spool/lp:
+
+_:-             :6:6:    ==============================     :6:
+
+$ cat PA01
+
+_:-             :6:6:    ==  UUCP Logins                    :6:
+
+_:-             :6:6:    ==============================     :6:
+
+uucp:x:5:5:0000-uucp(0000):x:
+
+nuucp:x:10:10:0000-uucp(0000):/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+zzuucp:x:37:100:Bob Sorenson:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+asyuucp:x:38:100:Robert L. Wald:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+knuucp:x:39:100:Kris Knigge:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+_:-             :6:6:    ==============================     :6:
+
+$ cat PA02
+
+_:-             :6:6:    ==  Special Users                  :6:
+
+_:-             :6:6:    ==============================     :6:
+
+msnet:x:100:99:Server Program:/usr/net/servers/msnet:/bin/false
+
+install:x:101:1:x:/usr/install:
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+hohen:x:346:1:Michael Hohenshilt:/usr/home/hohen:/bin/ksh
+
+reilly:x:347:1:Joan Reilly:/usr/home/reilly:/bin/ksh
+
+_:-             :6:6:    ==============================     :6:
+
+$ cat PA03
+
+_:-             :6:6:    ==  DP Fall 1991                   :6:
+
+_:-             :6:6:    ==============================     :6:
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+lewis:x:288:20:lewis prince e:/u1/fall91/dp168/lewis:/bin/ksh
+
+metelit:x:265:20:metelitsa natalya:/u1/fall91/dp270/metelit:/bin/ksh
+
+nadaraj:x:307:20:nadarajah kalyani:/u1/fall91/dp168/nadaraj:/bin/ksh
+
+nado:x:266:20:nado conan j:/u1/fall91/dp270/nado:/bin/ksh
+
+_:-             :6:6:    ==============================     :6:
+
+$ cat PA04
+
+_:-             :6:6:    ===  NCR   ===================     :6:
+
+_:-             :6:6:    ==============================     :6:
+
+antello:x:334:20:antello ronald f:/u1/fall91/ff437/antello:/bin/ksh
+
+cilino:x:335:20:cilino michael a:/u1/fall91/ff437/cilino:/bin/ksh
+
+emmons:x:336:20:emmons william r:/u1/fall91/ff437/emmons:/bin/ksh
+
+foreste:x:337:20:forester james r:/u1/fall91/ff437/foreste:/bin/ksh
+
+hayden:x:338:20:hayden richard:/u1/fall91/ff437/hayden:/bin/ksh</PRE>
+
+<P>This is not bad, but each file ends or begins with one or more lines that you don't want. The csplit command enables you to adjust the split point by appending an offset to the argument. For example, /UUCP/-1 means that the split point is the line 
+before the one on which UUCP appears for the first time. Add -1 to each argument, and you should get rid of the unwanted line that ends each of the first four files:
+
+<BR></P>
+
+<PRE>$ csplit -f PB passwd /UUCP/-1 /Special/-1 /Fall/-1 /NCR/-1
+
+213
+
+505
+
+426
+
+490
+
+503</PRE>
+
+<P>You can see that the first file is smaller than the previous first file. Perhaps this is working. Let's see:
+
+<BR></P>
+
+<PRE>$ cat PB00
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+reboot:x:7:1:&#151;:/:/etc/shutdown -y -g0 -i6
+
+listen:x:37:4:x:/usr/net/nls:
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:
+
+lp:x:71:2:x:/usr/spool/lp:
+
+$ cat PB01
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ==  UUCP Logins                    :6:
+
+_:-             :6:6:    ==============================     :6:
+
+uucp:x:5:5:0000-uucp(0000):x:
+
+nuucp:x:10:10:0000-uucp(0000):/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+zzuucp:x:37:100:Bob Sorenson:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+asyuucp:x:38:100:Robert L. Wald:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+knuucp:x:39:100:Kris Knigge:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+$ cat PB02
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ==  Special Users                  :6:
+
+_:-             :6:6:    ==============================     :6:
+
+msnet:x:100:99:Server Program:/usr/net/servers/msnet:/bin/false
+
+install:x:101:1:x:/usr/install:
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+hohen:x:346:1:Michael Hohenshilt:/usr/home/hohen:/bin/ksh
+
+reilly:x:347:1:Joan Reilly:/usr/home/reilly:/bin/ksh
+
+$ cat PB03
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ==  DP Fall 1991                   :6:
+
+_:-             :6:6:    ==============================     :6:
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+lewis:x:288:20:lewis prince e:/u1/fall91/dp168/lewis:/bin/ksh
+
+metelit:x:265:20:metelitsa natalya:/u1/fall91/dp270/metelit:/bin/ksh
+
+nadaraj:x:307:20:nadarajah kalyani:/u1/fall91/dp168/nadaraj:/bin/ksh
+
+nado:x:266:20:nado conan j:/u1/fall91/dp270/nado:/bin/ksh
+
+$ cat PB04
+
+_:-             :6:6:    ==============================     :6:
+
+_:-             :6:6:    ===  NCR   ===================     :6:
+
+_:-             :6:6:    ==============================     :6:
+
+antello:x:334:20:antello ronald f:/u1/fall91/ff437/antello:/bin/ksh
+
+cilino:x:335:20:cilino michael a:/u1/fall91/ff437/cilino:/bin/ksh
+
+emmons:x:336:20:emmons william r:/u1/fall91/ff437/emmons:/bin/ksh
+
+foreste:x:337:20:forester james r:/u1/fall91/ff437/foreste:/bin/ksh
+
+hayden:x:338:20:hayden richard:/u1/fall91/ff437/hayden:/bin/ksh</PRE>
+
+<P>This is very good indeed. Now, to get rid of the unwanted lines at the beginning, you have csplit advance its current line without copying anything. A pair of arguments, /UUCP/-1 and %uucp%, tells csplit to skip all the lines beginning with the one that 
+
+precedes the line containing UUCP, to the one that precedes the line containing uucp. This causes csplit to skip the lines that begin with _:-. The following displays the full command:
+
+<BR></P>
+
+<PRE>$ csplit -f PC passwd /UUCP/-1 %uucp% /Special/-1 %msnet% \
+
+/Fall/-1 %dp[12][67][80]% /NCR/1%ff437%
+
+213
+
+334
+
+255
+
+321
+
+332</PRE>
+
+<P>Note the backslash (/) at the end of the first line fo the command. This is simply a continuation character&#151;it tells the shell that the carriage return (or Enter) that you're about to press is not the end of the command, but that you'd like to 
+continue typing on the next line on the scree. Also note that any argument can be a regular expression. Here are the resulting files:
+
+<BR></P>
+
+<PRE>$ cat PC00
+
+root:x:0:0:System Administrator:/usr/root:/bin/ksh
+
+reboot:x:7:1:&#151;:/:/etc/shutdown -y -g0 -i6
+
+listen:x:37:4:x:/usr/net/nls:
+
+slan:x:57:57:StarGROUP Software NPP Administration:/usr/slan:
+
+lp:x:71:2:x:/usr/spool/lp:
+
+$ cat PC01
+
+uucp:x:5:5:0000-uucp(0000):x:
+
+nuucp:x:10:10:0000-uucp(0000):/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+zzuucp:x:37:100:Bob Sorenson:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+asyuucp:x:38:100:Robert L. Wald:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+knuucp:x:39:100:Kris Knigge:/usr/spool/uucppublic:/usr/lib/uucp/uucico
+
+$ cat PC02
+
+msnet:x:100:99:Server Program:/usr/net/servers/msnet:/bin/false
+
+install:x:101:1:x:/usr/install:
+
+pjh:x:102:0:Peter J. Holsberg:/usr/pjh:/bin/ksh
+
+hohen:x:346:1:Michael Hohenshilt:/usr/home/hohen:/bin/ksh
+
+reilly:x:347:1:Joan Reilly:/usr/home/reilly:/bin/ksh
+
+$ cat PC03
+
+gordon:x:304:20:gordon gary g:/u1/fall91/dp168/gordon:/bin/csh
+
+lewis:x:288:20:lewis prince e:/u1/fall91/dp168/lewis:/bin/ksh
+
+metelit:x:265:20:metelitsa natalya:/u1/fall91/dp270/metelit:/bin/ksh
+
+nadaraj:x:307:20:nadarajah kalyani:/u1/fall91/dp168/nadaraj:/bin/ksh
+
+nado:x:266:20:nado conan j:/u1/fall91/dp270/nado:/bin/ksh
+
+$ cat PC04
+
+antello:x:334:20:antello ronald f:/u1/fall91/ff437/antello:/bin/ksh
+
+cilino:x:335:20:cilino michael a:/u1/fall91/ff437/cilino:/bin/ksh
+
+emmons:x:336:20:emmons william r:/u1/fall91/ff437/emmons:/bin/ksh
+
+foreste:x:337:20:forester james r:/u1/fall91/ff437/foreste:/bin/ksh
+
+hayden:x:338:20:hayden richard:/u1/fall91/ff437/hayden:/bin/ksh</PRE>
+
+<P>The program, therefore, has been a success.
+
+<BR></P>
+
+<P>In addition, an argument can be a line number (typed as an argument but without slashes) to indicate that the desired split should take place at the line before the specified number. You also can specify a repeat factor by appending {<I>number</I>} to a 
+
+pattern. For example, /login/{8} means use the first eight lines that contain login as split points.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=4><B>Comparing Files with </B><B><I>cmp</I></B><B> and </B><B><I>diff</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, you have seen UNIX commands that work with a single file at a time. However, often a user must compare two files and determine whether they are different, and if so, just what the differences are. UNIX provides commands that can help:
+
+<BR></P>
+
+<UL>
+
+<LI>The cmp command compares two files, and then simple reports the character number and line number where they differ.
+
+<BR>
+
+<BR></LI>
+
+<LI>The diff command compares two files and tells you exactly where the files differ and what you must do to make them agree.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The cmp command is especially useful in shell scripts (see Chapters 11, 12 and 13). The diff command is more specialized in what it does and where you can use it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>The </B><B><I>cmp </I></B><B>Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The simplest command for comparing two files, cmp, simply tells you whether the files are different or not. If they are different, it tells you where in the file it spotted the first difference, if you use cmp with no options. The command's syntax is
+
+<BR></P>
+
+<PRE>$ cmp [ -l ] [ -s ] file1 file2</PRE>
+
+<P>The -l option gives you more information. It displays the number of each character that is different (the first character in the file is number 1), and then prints the octal value of the ASCII code of that character. (You will probably not have any use 
+
+for the octal value of a character until you become a shell programming expert!) The -s option prints nothing, but returns an appropriate result code (0 if there are no differences, 1 if there are one or more differences). This option is useful when you 
+write shell scripts (see Chapters 11, 12, and 13).
+
+<BR></P>
+
+<P>Here are two files that you can compare with cmp:
+
+<BR></P>
+
+<PRE>$ cat na.1
+
+allen christopher
+
+babinchak david
+
+best betty
+
+bloom dennis
+
+boelhower joseph
+
+bose anita
+
+cacossa ray
+
+delucia joseph
+
+$ cat na.2
+
+allen christopher
+
+babinchak David
+
+best betty
+
+boelhower joseph
+
+bose
+
+cacossa ray
+
+delucia joseph</PRE>
+
+<P>Note that the first difference between the two files is on the second line. The D in David in the second file is the 29th character, counting all newline characters at the ends of lines.
+
+<BR></P>
+
+<PRE>$ cmp na.1 na.2
+
+na.1 na.2 differ: char 29, line 2
+
+$ cmp -l na.1 na.2
+
+cmp:
+
+29 144 104
+
+68 141  12
+
+69 156 143
+
+70 151 141
+
+71 164 143
+
+72 141 157
+
+73  12 163
+
+74 143 163
+
+76 143  40
+
+77 157 162
+
+78 163 141
+
+79 163 171
+
+80 141  12
+
+81  40 144
+
+82 162 145
+
+83 141 154
+
+84 171 165
+
+85  12 143
+
+86 144 151
+
+87 145 141
+
+88 154  40
+
+89 165 152
+
+90 143 157
+
+91 151 163
+
+92 141 145
+
+93  40 160
+
+94 152 150
+
+95 157  12</PRE>
+
+<P>This is quite a list! The 29th character is octal 144 in the first file and octal 104 in the second. If you look them up in an ASCII table, you'll see that the former is a d, and the latter is a D. Character 68 is the first a in anita in na.1 and the 
+newline after the space after bose in na.2.
+
+<BR></P>
+
+<P>Now let's try the -s option on the two files:
+
+<BR></P>
+
+<PRE>$ cmp -s na.1 na.2
+
+$ echo $?
+
+1</PRE>
+
+<P>The variable ? is the shell variable that contains the result code of the last command, and $? is its value. The value 1 on the last line indicates that cmp found at least one difference between the two files. (See Chapters 11, 12, and 13.)
+
+<BR></P>
+
+<P>Next, for contrast, compare a file with itself to see how cmp reports no differences:
+
+<BR></P>
+
+<PRE>$ cmp -s na.1 na.2
+
+$ echo $?
+
+0</PRE>
+
+<P>The value 0 means that cmp found no differences.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>The </B><B><I>dif</I></B><B> command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The diff command is much more powerful than the cmp command. It shows you the differences between two files by outputting the editing changes (see Chapter 7, &quot;Editing Text Files&quot;) that you would need to make to convert one file to the other. 
+The syntax of diff is one of the following lines:
+
+<BR></P>
+
+<PRE>$ diff [-bitw] [-c | -e | -f | -h | -n] file1 file2
+
+$ diff [-bitw] [-C number] file1 file2
+
+$ diff [-bitw] [-D string] file1 file2
+
+$ diff [-bitw] [-c | -e | -f | -h | -n] [-l] [-r] [-s] [-S name] dir1 dir2</PRE>
+
+<P>The three sets of options&#151;cefhn, -C <I>number</I>, and D<I> </I><I>string</I>&#151;are mutually exclusive. The common options are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-b</P>
+
+<TD>
+
+<P>Ignores trailing blanks, and treats all other strings of blanks as equivalent to one another.</P>
+
+<TR>
+
+<TD>
+
+<P>-i</P>
+
+<TD>
+
+<P>Ignores uppercase and lowercase distinctions.</P>
+
+<TR>
+
+<TD>
+
+<P>-t</P>
+
+<TD>
+
+<P>Preserves indentation level of the original file by expanding tabs in the output.</P>
+
+<TR>
+
+<TD>
+
+<P>-w</P>
+
+<TD>
+
+<P>Ignores all blanks (spaces and tabs).</P></TABLE>
+
+<P>Later in this section you'll see examples that demonstrate each of these options.
+
+<BR></P>
+
+<P>First, let's look at the two files that show what diff does:
+
+<BR></P>
+
+<P>Let's apply diff to the files na.1 and na.2 (the files with which cmp was demonstrated):
+
+<BR></P>
+
+<PRE>$ diff na.1 na.2
+
+2c2
+
+&lt; babinchak david
+
+&#151;
+
+&gt; babinchak David
+
+4d3
+
+&lt; bloom dennis
+
+6c5
+
+&lt; bose anita
+
+&#151;
+
+&gt; bose</PRE>
+
+<P>These editor commands are quite different from those that diff printed before. The first four lines show
+
+<BR></P>
+
+<PRE>2c2
+
+&lt; babinchak david
+
+&#151;
+
+&gt; babinchak David</PRE>
+
+<P>which means that you can change the second line of <I>file1</I> (na.1) to match the second line of <I>file2</I> (na.2) by executing the command, which means change line 2 of <I>file1</I> to line 2 of <I>file2</I>. Note that both the line from 
+<I>file1</I>&#151;prefaced with &lt;&#151;and the line from <I>file2</I>&#151;prefaced with &gt;&#151;are displayed, separated by a line consisting of three dashes.
+
+<BR></P>
+
+<P>The next command says to delete line 4 from <I>file1</I> to bring it into agreement with <I>file2</I> up to&#151;but not including&#151;line 3 of <I>file2</I>. Finally, notice that there is another change command, 6c5, which says change line 6 of 
+<I>file1</I> by replacing it with line 5 of <I>file2</I>.
+
+<BR></P>
+
+<P>Note that in line 2, the difference that diff found was the d versus D letter in the second word.
+
+<BR></P>
+
+<P>You can use the -i option to tell diff to ignore the case of the characters, as follows:
+
+<BR></P>
+
+<PRE>$ diff -i na.1 na.2
+
+4d3
+
+&lt; bloom dennis
+
+6c5
+
+&lt; bose anita
+
+&#151;
+
+&gt; bose</PRE>
+
+<P>The -c option causes the differences to be printed in context; that is, the output displays several of the lines above and below a line in which diff finds a difference. Each difference is marked with one of the following:
+
+<BR></P>
+
+<UL>
+
+<LI>An exclamation point (!) indicates that corresponding lines in the two files are similar but not the same.
+
+<BR>
+
+<BR></LI>
+
+<LI>A minus sign (-) means that the line is not in <I>file2</I>.
+
+<BR>
+
+<BR></LI>
+
+<LI>A plus sign (+) means that the line is in <I>file2</I> but not in <I>file1</I>.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Note in the following example that the output includes a header that displays the names of the two files, and the times and dates of their last changes. The header also shows either stars (***) to designate lines from the first file, or dashes (&#151;-) 
+
+to designate lines from the second file.
+
+<BR></P>
+
+<PRE>$ diff -c na.1 na.2
+
+*** na.1     Sat Nov  9 12:57:55 1991
+
+&#151; na.2     Sat Nov  9 12:58:27 1991
+
+***************
+
+*** 1,8 ****
+
+allen christopher
+
+! babinchak david
+
+best betty
+
+- bloom dennis
+
+boelhower joseph
+
+! bose anita
+
+cacossa ray
+
+delucia joseph
+
+&#151; 1,7 &#151;&#151;
+
+allen christopher
+
+! babinchak David
+
+best betty
+
+boelhower joseph
+
+! bose
+
+cacossa ray
+
+delucia joseph</PRE>
+
+<P>After the header comes another asterisk-filled header that shows which lines of <I>file1</I> (na.1) will be printed next (1,8), followed by the lines themselves. You see that the babinchak line differs in the two files, as does the bose line. Also, 
+bloom dennis does not appear in <I>file2</I> (na.2). Next, you see a header of dashes that indicates which lines of <I>file2</I> will follow (1,7). Note that for the <I>file2</I> list, the babinchak line and the bose line are marked with exclamation 
+points. The number of lines displayed depends on how close together the differences are (the default is three lines of context). Later in this section, when you once again use diff with p1 and p2, you'll see an example that show how to change the number of 
+
+context lines.
+
+<BR></P>
+
+<P>diff can create an ed script (see Chapter 7) that you can use to change <I>file1</I> into <I>file2</I>. First you a execute a command such as the following:
+
+<BR></P>
+
+<PRE>$ diff -e na.1 na.2
+
+6c
+
+bose
+
+.
+
+4d
+
+2c
+
+babinchak David
+
+.</PRE>
+
+<P>Then you redirect this output to another file using a command such as the following:
+
+<BR></P>
+
+<PRE>$ diff -e na.1 na.2 &gt; ed.scr</PRE>
+
+<P>Edit the file by adding two lines, w and q (see Chapter 7), which results in the following file:
+
+<BR></P>
+
+<PRE>$ cat ed.scr
+
+6c
+
+bose
+
+.
+
+4d
+
+2c
+
+babinchak David
+
+.
+
+w
+
+q</PRE>
+
+<P>Then you execute the command:
+
+<BR></P>
+
+<PRE>$ ed na.1 &lt; ed.scr</PRE>
+
+<P>This command changes the contents na.1 to agree with na.2.
+
+<BR></P>
+
+<P>Perhaps this small example isn't very striking, but here's another, more impressive one. Suppose that you have a large program written in C that does something special for you; perhaps it manages your investments or keeps track of sales leads. Further, 
+
+suppose that the people who provided the program discover that it has bugs (and what program doesn't?). They could either ship new disks that contain the rewritten program, or they could run diff on both the original and the corrected copy and then send 
+you an ed script so that you can make the changes yourself. If the script were small enough (less than 50,000 characters or so), they could even distribute it through electronic mail.
+
+<BR></P>
+
+<P>The -f option creates what appears to be an ed script that changes <I>file2</I> to <I>file1</I>. However, it is not an ed script at all, but a rather puzzling feature that is almost never used:
+
+<BR></P>
+
+<PRE>$ diff -f na.1 na.2
+
+c2
+
+babinchak David
+
+.
+
+d4
+
+c6
+
+bose
+
+.</PRE>
+
+<P>Also of limited value is the -h option, which causes diff to work in a &quot;half-hearted&quot; manner (according to the official AT&amp;T UNIX System V Release 4 Users Reference Manual). With the -h option, diff is supposed to work best&#151;and 
+fast&#151;on very large files having sections of change that encompass only a few lines at a time and that are widely separated in the files. Without -h, diff slows dramatically as the sizes increase for the files on which you are apply diff.
+
+<BR></P>
+
+<PRE>$ diff -h na.1 na.2
+
+2c2
+
+&lt; babinchak david
+
+&#151;
+
+&gt; babinchak David
+
+4d3
+
+&lt; bloom dennis
+
+6c5
+
+&lt; bose anita
+
+&#151;
+
+&gt; bose</PRE>
+
+<P>As you can see, diff with the -h option also works pretty well with original files that are too small to show a measurable difference in diff's speed.
+
+<BR></P>
+
+<P>The -n option, like -f, also produces something that lokks like an ed script, but isn't and is also rarely used. The -D option permits C programmers (see Chapter 17) to produce a source code file based on the differences between two source code files. 
+This is useful when uniting a program that is to be compiled on two different computers.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This chapter introduced some tools that enable you to determine the nature of the contents of a file and to examine those contents. Other tools extract selected lines from a file and sort the structured information in a file. Some tools disguise the 
+contents of a file, and others compress the contents so that the resultant file is half its original size. Other tools compare two files and then report the differences. These commands are the foundation that UNIX provides to enable users to create even 
+more powerful tools from relatively simple ones.
+
+<BR></P>
+
+<P>However, none of these tools enables you to create a file that is exactly&#151;to the tiniest detail&#151;what you want. The next chapter discusses just such tools&#151;UNIX's text editors.
+
+<BR></P>
+
+<P><A HREF="unx05.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx05.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx07.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx07.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,810 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx18.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx19.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx19.htm">
+
+<LINK REL="Previous" HREF="unxpt4au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt4au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt4au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt4au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx19.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx19.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">18 &#150; What Is a Process?</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I2">By Rachel and Robert Sartin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I3">What Happens When You Execute a Command?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Forking a Process</A></LI>
+
+<LI>
+
+<A HREF="#I6">Running a Command</A></LI></UL>
+
+<LI>
+
+<A HREF="#I7">Looking at Process</A></LI>
+
+<LI>
+
+<A HREF="#I8">Visiting the Shell Again</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Processing a Command</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">Checking the Aliases and Built-Ins</A></LI>
+
+<LI>
+
+<A HREF="#I11">Make a New Process with fork</A></LI>
+
+<LI>
+
+<A HREF="#I12">Start a New Command with exec</A></LI>
+
+<LI>
+
+<A HREF="#I13">An Example</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">Executing in the Background</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">An Example</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I16">Kinks in Your Pipeline</A></LI>
+
+<LI>
+
+<A HREF="#I17">A Special Process Called Daemon</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">init</A></LI>
+
+<LI>
+
+<A HREF="#I19">inetd</A></LI>
+
+<LI>
+
+<A HREF="#I20">cron</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><B>18 &#150; What Is a Process?</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I2" NAME="I2">
+
+<FONT SIZE=3><B>By Rachel and Robert Sartin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This chapter introduces the concept of processes and how you use UNIX to interact with them.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=4><B>What Happens When You Execute a Command?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P><A ID="I4" NAME="I4"></A>When you execute a program on your UNIX system, the system creates a special environment for that program. This environment contains everything needed for the system to run the program as if no other program were running on the 
+
+system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Forking a Process</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Each process has process context, which is everything that is unique about the state of the program you are currently running. The process context includes then following:
+
+<BR></P>
+
+<UL>
+
+<LI>The text (program instructions) being run
+
+<BR>
+
+<BR></LI>
+
+<LI>The memory used by the program being run
+
+<BR>
+
+<BR></LI>
+
+<LI>The current working directory
+
+<BR>
+
+<BR></LI>
+
+<LI>The files that are open and positions in the files
+
+<BR>
+
+<BR></LI>
+
+<LI>Resource limits
+
+<BR>
+
+<BR></LI>
+
+<LI>Access control information
+
+<BR>
+
+<BR></LI>
+
+<LI>Others&#151;various low-level information
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Every time you execute a program the UNIX system does a fork, which performs a series of operations to create a process context and then execute your program in that context. The steps include the following:
+
+<BR></P>
+
+<OL>
+
+<LI>Allocate a slot in the process table, a list of currently running programs kept by UNIX. UNIX creates the illusion of multiple programs running simultaneously by switching quickly between active processes in the process table. This allocation can fail 
+
+for a number of reasons, including these:
+
+<BR>
+
+<BR></LI>
+
+<UL>
+
+<LI>You have exceeded your per user process limit, the maximum number of processes your UNIX system will allow you to run.
+
+<BR>
+
+<BR></LI>
+
+<LI>The system runs out of open process slots. The UNIX kernel stores information about currently running processes in a table of processes. When this table runs out of room for new entries, you are unable to fork a new process.
+
+<BR>
+
+<BR></LI>
+
+<LI>UNIX has run out of memory and does not have room for the text and data of the new process.
+
+<BR>
+
+<BR></LI></UL>
+
+<LI>Assign a unique process identifier (PID) to the process. This identifier can be used to examine and control the process later.
+
+<BR>
+
+<BR></LI>
+
+<LI>Copy the context of the parent, the process that requested the spawning of the new process.
+
+<BR>
+
+<BR></LI>
+
+<LI>Return the new PID to the parent process. This enables the parent process to examine or control the process directly.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>After the fork is complete, UNIX runs your program. One of the differences between UNIX and many other operating systems is that UNIX performs this two-step procedure to run a program. The first step is to create a new process that's just like the 
+parent. The second is to execute a different program. This procedure allows interesting variations. (See the section &quot;A Special Process Called Daemon.&quot;)
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Running a Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you enter ls to look at the contents of your current working directory, UNIX does a series of things to create an environment for ls and the run it:
+
+<BR></P>
+
+<OL>
+
+<LI>The shell has UNIX perform a fork. This creates a new process that the shell will use to run the ls program.
+
+<BR>
+
+<BR></LI>
+
+<LI>The shell has UNIX perform an exec of the ls program. This replaces the shell program and data with the program and data for ls and then starts running that new program.
+
+<BR>
+
+<BR></LI>
+
+<LI>The ls program is loaded into the new process context, replacing the text and data of the shell.
+
+<BR>
+
+<BR></LI>
+
+<LI>The ls program performs its task, listing the contents of the current directory.
+
+<BR>
+
+<BR></LI></OL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Looking at Process</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Because processes are so important to getting things done, UNIX has several commands that enable you to examine processes and modify their state. The most frequently used command is ps, which prints out the process status for processes running on your 
+system. Each system has a slightly different version of the ps command, but there are two main variants, the System V version and the Berkeley version, covered in this section. Different versions of ps do similar things, but have somewhat different output 
+
+and are controlled using different options. The X/Open Portability Guide makes an attempt to standardize somewhat on output of the ps command. The ps command is covered in more detail in chapter 19, &quot;Administrative Processes.&quot;
+
+<BR></P>
+
+<P>On a System V or XPG-compliant system, you can examine all the processes you are running by entering ps -f and you will get output such as the following:
+
+<BR></P>
+
+<PRE>$ ps -f
+
+     UID   PID  PPID  C    STIME TTY      TIME COMMAND
+
+    root 14931   136  0 08:37:48 ttys0    0:00 rlogind
+
+  sartin 14932 14931  0 08:37:50 ttys0    0:00 -sh
+
+  sartin 15339 14932  7 16:32:29 ttys0    0:00 ps -f
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> After the first line, which is the header, each line of output tells about the status of a single process. The UID column tells the owner of the process. The PID column tells the process ID. The PPID 
+
+tells the process ID of the parent process (the process that executed the fork). The STIME is the time the process began executing. The TIME is the amount of computer time the process has used. The COMMAND field tells what command line was executed.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Look at this example and you can see that root (the system administration user) is running rlogind as process 14931. This process is a special kind of administrative program, called a daemon (daemons are described in the section &quot;A Special Process 
+
+Called Daemon&quot;). This particular daemon is responsible for managing a connection from rlogin, which is described in Chapter 8, &quot;Getting Around the Network.&quot; As you can see from the next line, there is a process called -sh, which is a Bourne 
+
+shell. The shell has rlogind as its parent because the daemon did a fork to run the login shell. Similarly, there is a ps -f command that has the shell as its parent.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> The leading hyphen on the -sh in the output of ps means that the shell is executing as a login shell, which does certain special processing that other instances of the shell do not. See the chapter on 
+your shell for more information on login shells.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Visiting the Shell Again</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Earlier in this chapter you learned that the shell creates a new process for each command you execute. This section covers in a bit more detail how the shell creates and manages processes.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Processing a Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you type a command to your shell user interface, the shell performs a series of tasks to process the command. Although the steps may seem a bit cumbersome at first, they create an environment that is highly flexible.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Checking the Aliases and Built-Ins</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The first thing the shell does is alias and built-in processing to see if your command is one of the shell's internally implemented functions. Each shell implements a number of functions internally either because external implementation would be 
+difficult (for example, while loops) or because internal implementation is a big performance win (for example, echo in some shells). One reason the built-in commands are easier is that they can operate directly in the shell process rather than forcing the 
+
+shell to create a new process to run a different command. That new command would not have access to the shell's memory.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Make a New Process with </B><B><I>fork</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If the command you typed is not a built-in command (for example, if you entered ps), the shell performs a fork to create a new process. Your UNIX system allocates the necessary resources. The shell modifies the process environment to configure correctly 
+
+for the command to be executed. This includes any input or output redirect you may have requested (including command pipelines) and creating a new background process group if you executed the command in the background.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Start a New Command with </B><B><I>exec</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Finally, the shell performs an exec to execute the program that you requested. The program will replace the shell with a forked shell, but your shell will still be running.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>An Example</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The following happens when you enter ps -f &gt; t1 followed by cat t1:
+
+<BR></P>
+
+<PRE>$ ps -f &gt; t1
+
+$ cat t1
+
+     UID   PID  PPID  C    STIME TTY      TIME COMMAND
+
+    root 14931   136  0 08:37:48 ttys0    0:00 rlogind
+
+  sartin 14932 14931  0 08:37:50 ttys0    0:00 -sh
+
+  sartin 15339 14932  7 16:32:29 ttys0    0:00 ps -f
+
+$</PRE>
+
+<P>UNIX performs the following steps to execute ps -f&gt; t1:
+
+<BR></P>
+
+<OL>
+
+<LI><B>Shell command processing.</B> The login shell (PID 14932 in this example) performs variable substitution and examines the command line to determine that ps is not a built-in or an alias.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>fork/wait.</B> The login shell (PID 14932) forks a new process (PID 15339). This new process is an exact copy of the login shell. It has the same open files, the same user ID, and a copy of the memory, and it is executing the same code. Because the 
+
+command was not executed in the background, the login shell (14932) will execute a wait to wait for the new child (15339) to complete.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>setup.</B> The new shell (PID 15339) performs the operations it needs to do in order to prepare for the new program. In this case, it redirects the standard output to a file (if it existed) in the current directory named t1, overwriting the file.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>exec.</B> The new shell (PID 15339) asks the UNIX system to exec the ps command with -f as its argument. UNIX throws away the memory from the shell and loads the ps command code and data into the process memory. The ps command will run and write its 
+
+output to the standard output, which has been redirected to the file t1.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>wait ends.</B> When the ps command is done executing, the login shell (PID 14932) receives notification and will prompt the user for more input.
+
+<BR>
+
+<BR></LI></OL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Executing in the Background</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can tell your shell to execute commands in the background, which tells the shell not to wait for the command to complete. This enables you to run programs without having to wait for them to complete.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> For long-running commands that are not interactive, you can run the command in the background and continue to do work while it executes. Use the nohup command to make sure the process will not get 
+interrupted; nohup will redirect the command output to a file called nohup.out. For example, to run a make in the background enter nohup make all. When the make terminates, you can read nohup.out to check the output.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>An Example</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This example is almost the same as the previous example. The only difference is that the ps command is executed in the background. The following happens when you are using the Bourne shell and enter ps -f &gt; t1 &amp; followed by cat t1:
+
+<BR></P>
+
+<PRE>$ ps -f &gt; t1 &amp;
+
+15445
+
+$ cat t1
+
+     UID   PID  PPID  C    STIME TTY      TIME COMMAND
+
+    root 14931   136  1 08:37:48 ttys0    0:00 rlogind
+
+  sartin 14932 14931  0 08:37:50 ttys0    0:00 -sh
+
+  sartin 15445 14932  8 17:31:14 ttys0    0:00 ps -f
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING:</B> Do not depend on the output of a background process until you know the process has completed. If the command is still running when you examine the output, you may see incomplete output.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>UNIX performs the following steps to execute ps -f &gt; t1 &amp;:
+
+<BR></P>
+
+<OL>
+
+<LI><B>Shell command processing.</B> The login shell (PID 14932 in this example) performs variable substitution and examines the command line to determine that ps is not a built-in or an alias.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>fork.</B> The login shell (PID 14932) forks a new process (PID 15445). This new process is an exact copy of the login shell. It has the same open files, the same user ID, and a copy of the memory, and it is executing the same code. Because the 
+command was executed in the background, the login shell (14932) will immediately prompt you for input. Because your background command may still be running, you should not depend on its output until you know the process completed. You will be able to run a 
+
+new command immediately.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>setup.</B> The new shell (PID 15445) performs the operations it needs to do in order to prepare for the new program. In this case, it redirects the standard output to a file in the current directory named t1, overwriting the file (if it existed).
+
+<BR>
+
+<BR></LI>
+
+<LI><B>exec.</B> The new shell (PID 15445) asks the UNIX system to exec the ps command with -f as its argument. UNIX throws away the memory from the shell and loads the ps command code and data into the process memory. The ps command will run and write its 
+
+output to the standard output, which has been redirected to the file t1.
+
+<BR>
+
+<BR></LI></OL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Kinks in Your Pipeline</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One of the things the fork/exec model enables is creating command pipelines, a series of commands with the output of one command as the input for the next. This powerful notion is one of the major advantages of UNIX over some other systems. See Chapter 
+
+1, &quot;Operating Systems.&quot;
+
+<BR></P>
+
+<P>Creating a pipeline is similar to creating an ordinary command. The difference is in how output is redirected. In the ordinary case, the shell performs some simple I/O redirection before executing the program. In the pipeline case, the shell will 
+instead connect the standard output of one command as the standard input of another.
+
+<BR></P>
+
+<P>If you enter ps -f | grep sartin you might get output such as the following:
+
+<BR></P>
+
+<PRE>$ ps -f | grep sartin
+
+  sartin 14932 14931  1 08:37:50 ttys0    0:00 -sh
+
+  sartin 15424 14932  1 17:15:02 ttys0    0:00 grep sartin
+
+  sartin 15425 15424  7 17:15:02 ttys0    0:00 ps -f
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Some shells perform these tasks in slightly different orders. This example illustrates what one version of the Bourne shell does. Variations are relatively minor and involve the details of which 
+process does the extra fork calls.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>In order to get this output, the shell went through the following series of steps:
+
+<BR></P>
+
+<OL>
+
+<LI><B>fork (1).</B> The login shell (PID 14932) forks a new process (15424) to execute the pipeline. This subprocess (15424) redirects input, or creates a pipe, so that standard input is  from a pipe. The login shell (14932) then waits for the pipeline 
+execution to complete.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>fork (2).</B> The shell subprocess (15424) forks another new process (15425) to help execute the pipeline. This new subprocess (15425) connects its standard output to the pipe that its parent (15424) is using for input.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>exec (1).</B> The first subprocess (15424) executes the grep program.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>exec (2).</B> The second subprocess (15425) executes the ps program.
+
+<BR>
+
+<BR></LI></OL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>Avoiding the Background with GUI</B>
+
+<BR>
+
+<BR>With the advent of graphical user interfaces (GUIs) on UNIX, you do not need to use background processes to be able to run multiple programs at once. Instead, you can run each command either from a graphical interface or from its own terminal window. 
+This can be very resource intensive, so don't try to do too many things at once.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>A Special Process Called Daemon</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As you learned in Chapter 1, many of the features that are sometimes implemented as part of the kernel, the core of the operating system, are not in the UNIX kernel. Instead, many of these features are implemented using special processes called daemons. 
+
+A daemon is a process that detaches itself from the terminal and runs, disconnected, in the background, waiting for requests and responding to them. Many system functions are commonly performed by daemons, including the sendmail daemon, which handles mail, 
+
+and the NNTP daemon, which handles USENET news. Many other daemons may exist on your system; check the documentation for more information.
+
+<BR></P>
+
+<P>Generally only system administrators need to know about most daemons, but there are three daemons that are important and widespread enough that you should probably have a minimal understanding of what they do; they are init, inetd, and cron.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B><I>init</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In a way the init program is the &quot;super daemon.&quot; It takes over the basic running of the system when the kernel has finished the boot process. It is responsible for the following:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Running scripts that change state.</B> Every time the system administrator switches the system to a new state, init runs any programs needed to update the system to the new state.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Managing terminals.</B> Each physical terminal is monitored by a program called getty; it is the job of init to keep getty properly running and shut it down when the system administrator disables logins. On systems with GUI consoles, init may be 
+responsible for keeping the graphical login program running.
+
+<BR>
+
+<BR></LI>
+
+<LI>Reaping<B> processes.</B> When a process terminates, UNIX keeps some status information around until the parent process reads that information. Sometimes the parent process terminates before the child. Sometimes the parent process terminates without 
+reading the status of the child. Any time either of these happens, UNIX makes init the parent process of the resulting zombie process, and init must read the process status so that UNIX can reuse the process slot. Sometimes, init isn't able to do the job 
+of releasing zombies, too. However, this is unusual in most of the recent UNIX-based systems.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>For further information on init, see Chapter 34, &quot;Starting Up and Shutting Down.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B><I>inetd</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A second powerful daemon is the inetd program common to many UNIX machines (including those based on BSD and many that are based on System V). The inetd process is the network &quot;super server&quot; daemon. It is responsible for starting network 
+services that do not have their own stand-alone daemons. For example, inetd usually takes care of incoming rlogin, telnet, and ftp connections. (See Chapter 9, &quot;Getting Around the Network.&quot;)
+
+<BR></P>
+
+<P>For further information on inetd, see Chapter 37, &quot;Networking.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B><I>cron</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Another common daemon is the cron program, which is responsible for running repetitive tasks on a regular schedule. It is a perfect tool for running system administration tasks such as backup and system logfile maintenance. It can also be useful for 
+ordinary users to schedule regular tasks including calendar reminders and report generation. For more information, see Chapter 20, &quot;Scheduling Processes.&quot;
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter you have learned what a UNIX process is, how your interaction with UNIX starts and stops processes, and a little bit about a few special processes called daemons. A process is an entire execution environment for your computer program; it 
+
+is almost like having a separate computer that executes your program. UNIX switches quickly between processes to give the illusion that they are all running simultaneously. You start a process any time you run a command or pipeline in the shell. You can 
+even start a process in the background and perform other tasks while it is executing. Several processes called daemons run on your system to perform special tasks and supply services that some operating systems supply in the kernel.</P>
+
+<P><A HREF="unxpt4au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt4au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx19.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx19.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+
+
+
+
+
+
+
+
+

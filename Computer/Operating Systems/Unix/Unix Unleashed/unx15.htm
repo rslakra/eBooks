@@ -1,0 +1,4404 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx15.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx16.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx16.htm">
+
+<LINK REL="Previous" HREF="unxpt3au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt3au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt3au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt3au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx16.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx16.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">15</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Awk, Awk</A></LI>
+
+<LI>
+
+<A HREF="#I4">By Ann Marshall</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Overview</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Uses</A></LI>
+
+<LI>
+
+<A HREF="#I7">Features</A></LI>
+
+<LI>
+
+<A HREF="#I8">Brief History</A></LI></UL>
+
+<LI>
+
+<A HREF="#I9">Fundamentals</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">Entering Awk from the Command Line</A></LI>
+
+<LI>
+
+<A HREF="#I11">Files for Input</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I12">The Program File</A></LI>
+
+<LI>
+
+<A HREF="#I13">Specifying Output on the Command Line</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">Patterns and Actions</A></LI>
+
+<LI>
+
+<A HREF="#I15">Input</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Fields</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Program Format</A></LI>
+
+<LI>
+
+<A HREF="#I18">A Note on awk Error Messages</A></LI></UL>
+
+<LI>
+
+<A HREF="#I19">Print Selected Fields</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I20">Program Components</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I21">The Input File and Program</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I22">Patterns</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I23">BEGIN and END</A></LI>
+
+<LI>
+
+<A HREF="#I24">Expressions</A></LI>
+
+<LI>
+
+<A HREF="#I25">String Matching</A></LI>
+
+<LI>
+
+<A HREF="#I26">Range Patterns</A></LI>
+
+<LI>
+
+<A HREF="#I27">Compound Patterns</A></LI></UL>
+
+<LI>
+
+<A HREF="#I28">Actions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I29">Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I30">Naming</A></LI>
+
+<LI>
+
+<A HREF="#I31">Awk in a Shell Script</A></LI>
+
+<LI>
+
+<A HREF="#I32">Built-in Variables</A></LI></UL>
+
+<LI>
+
+<A HREF="#I33">Conditions (No IFs, &amp;&amp;s or buts)</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I34">The if Statement</A></LI>
+
+<LI>
+
+<A HREF="#I35">The Conditional Statement</A></LI>
+
+<LI>
+
+<A HREF="#I36">Patterns as Conditions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I37">Loops</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I38">Increment and Decrement</A></LI>
+
+<LI>
+
+<A HREF="#I39">The While Statement</A></LI>
+
+<LI>
+
+<A HREF="#I40">The Do Statement</A></LI>
+
+<LI>
+
+<A HREF="#I41">The For Statement</A></LI>
+
+<LI>
+
+<A HREF="#I42">Loop Control</A></LI></UL>
+
+<LI>
+
+<A HREF="#I43">Strings</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I44">Built-In String Functions</A></LI>
+
+<LI>
+
+<A HREF="#I45">String Constants</A></LI></UL>
+
+<LI>
+
+<A HREF="#I46">Arrays</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I47">Array Specialties</A></LI></UL>
+
+<LI>
+
+<A HREF="#I48">Arithmetic</A></LI>
+
+<LI>
+
+<A HREF="#I49">Operators</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I50">Numeric Functions</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I51">Input and Output</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I52">Input</A></LI>
+
+<LI>
+
+<A HREF="#I53">The Getline Statement</A></LI>
+
+<LI>
+
+<A HREF="#I54">Output</A></LI>
+
+<LI>
+
+<A HREF="#I55">The printf Statement</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I56">Closing Files and Pipes</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I57">Command Line Arguments</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I58">Passing Command Line Arguments</A></LI>
+
+<LI>
+
+<A HREF="#I59">Setting Variables on the Command Line</A></LI></UL>
+
+<LI>
+
+<A HREF="#I60">Functions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I61">Function Definition</A></LI>
+
+<LI>
+
+<A HREF="#I62">Parameters</A></LI>
+
+<LI>
+
+<A HREF="#I63">Variables</A></LI>
+
+<LI>
+
+<A HREF="#I64">Function Calls</A></LI>
+
+<LI>
+
+<A HREF="#I65">The Return Statement</A></LI></UL>
+
+<LI>
+
+<A HREF="#I66">Writing Reports</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I67">BEGIN and END Revisited</A></LI>
+
+<LI>
+
+<A HREF="#I68">The Built-in System Function</A></LI></UL>
+
+<LI>
+
+<A HREF="#I69">Advanced Concepts</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I70">Multi-Line Records</A></LI>
+
+<LI>
+
+<A HREF="#I71">Multidimensional Arrays</A></LI></UL>
+
+<LI>
+
+<A HREF="#I72">Summary</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I73">Further Reading</A></LI>
+
+<LI>
+
+<A HREF="#I74">Obtaining Source Code</A></LI></UL></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>15</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Awk, Awk</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=5><B>By Ann Marshall</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Overview</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The UNIX utility awk is a pattern matching and processing language with considerably more power than you may realize. It searches one or more specified files, checking for records that match a specified pattern. If awk finds a match, the corresponding 
+action is performed. A simple concept, but it results in a powerful tool. Often an awk program is only a few lines long, and because of this, an awk program is often written, used, and discarded. A traditional programming language, such as Pascal or C, 
+would take more thought, more lines of code, and hence, more time. Short awk programs arise from two of its built-in features: the amount of predefined flexibility and the number of details that are handled by the language automatically. Together, these 
+features allow the manipulation of large data files in short (often single-line) programs, and make awk stand apart from other programming languages. Certainly any time you spend learning awk will pay dividends in improved productivity and efficiency.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Uses</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The uses for awk vary from the simple to the complex. Originally awk was intended for various kinds of data manipulation. Intentionally omitting parts of a file, counting occurrences in a file, and writing reports are naturals for awk.
+
+<BR></P>
+
+<P>Awk uses the syntax of the C programming language, so if you know C, you have an idea of awk syntax. If you are new to programming or don't know C, learning awk will familiarize you with many of the C constructs.
+
+<BR></P>
+
+<P>Examples of where awk can be helpful abound. Computer-aided manufacturing, for example, is plagued with nonstandardization, so the output of a computer that's running a particular tool is quite likely to be incompatible with the input required for a 
+different tool. Rather than write any complex C program, this type of simple data transformation is a perfect awk task.
+
+<BR></P>
+
+<P>One real problem of computer-aided manufacturing today is that no standard format yet exists for the program running the machine. Therefore, the output from Computer A running Machine A probably is not the input needed for Computer B running Machine B. 
+
+Although Machine A is finished with the material, Machine B is not ready to accept it. Production halts while someone edits the file so it meets Computer B's needed format. This is a perfect and simple awk task.
+
+<BR></P>
+
+<P>Due to the amount of built-in automation within awk, it is also useful for rapid prototyping or trying out an idea that could later be implemented in another language.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Features</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Reflecting the UNIX environment, awk features resemble the structures of both C and shell scripts. Highlights include its being flexible, its predefined variables, automation, its standard program constructs, conventional variable types, its powerful 
+output formatting borrowed from C, and its ease of use.
+
+<BR></P>
+
+<P>The flexibility means that most tasks may be done more than one way in awk. With the application in mind, the programmer chooses which method to use . The built-in variables already provide many of the tools to do what is needed. Awk is highly 
+automated. For instance, awk automatically retrieves each record, separates it into fields, and does type conversion when needed without programmer request. Furthermore, there are no variable declarations. Awk includes the &quot;usual&quot; programming 
+constructs for the control of program flow: an if statement for two way decisions and do, for and while statements for looping. Awk also includes its own notational shorthand to ease typing. (This is UNIX after all!) Awk borrows the printf() statement from 
+
+C to allow &quot;pretty&quot; and versatile formats for output. These features combine to make awk user friendly.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Brief History</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Alfred V. Aho, Peter J. Weinberger, and Brian W. Kernighan created awk in 1977. (The name is from the creators' last initials.) In 1985, more features were added, creating nawk (new awk). For quite a while, nawk remained exclusively the property of 
+AT&amp;T, Bell Labs. Although it became part of System V for Release 3.1, some versions of UNIX, like SunOS, keep both awk and nawk due to a syntax incompatibility. Others, like System V run nawk under the name awk (although System V. has nawk too). In The 
+
+Free Software Foundation, GNU introduced their version of awk, gawk, based on the IEEE POSIX (Institute of Electrical and Electronics Engineers, Inc., IEEE Standard for Information Technology, Portable Operating System Interface, Part 2: Shell and 
+Utilities Volume 2, ANSI approved 4/5/93), awk standard which is different from awk or nawk. Linux, PC shareware UNIX, uses gawk rather than awk or nawk. Throughout this chapter I have used the word awk when any of the three will do the concept. The 
+versions are mostly upwardly compatible. Awk is the oldest, then nawk, then POSIX awk, then gawk as shown below. I have used the notation version++ to denote a concept that began in that version and continues through any later versions.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Due to different syntax, awk code can never be upgraded to nawk. However, except as noted, all the concepts of awk are implemented in nawk (and gawk). Where it matters, I have specified the version.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>
+
+<BR><B><A HREF="15unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/15unx01.gif">Figure 15.1. The evolution of awk.</A></B>
+
+<BR></P>
+
+<P>Refer to the end of the chapter for more information and further resources on awk and its derivatives.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Fundamentals</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section introduces the basics of the awk programming language. Although my discussion first skims the surface of each topic to familiarize you with how awk functions, later sections of the chapter go into greater detail. One feature of awk that 
+almost continually holds true is this: you can do most tasks more than one way. The command line exemplifies this. First, I explain the variety of ways awk may be called from the command line&#151;using files for input, the program file, and possibly an 
+output file. Next, I introduce the main construct of awk, which is the pattern action statement. Then, I explain the fundamental ways awk can read and transform input. I conclude the section with a look at the format of an awk program.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Entering Awk from the Command Line</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In its simplest form, awk takes the material you want to process from standard input and displays the results to standard output (the monitor). You write the awk program on the command line. The following table shows the various ways you can enter awk 
+and input material for processing.
+
+<BR></P>
+
+<P>You can either specify explicit awk statements on the command line, or, with the -f flag, specify an awk program file that contains a series of awk commands. In addition to the standard UNIX design allowing for standard input and output, you can, of 
+course, use file redirection in your shell, too, so awk &lt; inputfile is functionally identical to awk inputfile. To save the output in a file, again use file redirection: awk &gt; outputfile does the trick. Helpfully, awk can work with multiple input 
+files at once if they are specified on the command line.
+
+<BR></P>
+
+<P>The most common way to see people use awk is as part of a command pipe, where it's filtering the output of a command. An example is ls -l | awk {print $3} which would print just the third column of each line of the ls command. Awk scripts can become 
+quite complex, so if you have a standard set of filter rules that you'd like to apply to a file, with the output sent directly to the printer, you could use something like awk -f myawkscript inputfile | lp.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If you opt to specify your awk script on the command line, you'll find it best to use single quotes to let you use spaces and to ensure that the command shell doesn't falsely interpret any portion of 
+the command.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Files for Input</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>These input and output places can be changed if desired. You can specify an input file by typing the name of the file after the program with a blank space between the two. The input file enters the awk environment from your workstation keyboard 
+(standard input). To signal the end of the input file, type Ctl + d. The program on the command line executes on the input file you just entered and the results are displayed on the monitor (the standard output.)
+
+<BR></P>
+
+<P>Here's a simple little awk command that echoes all lines I type, prefacing each with the number of words (or fields, in awk parlance, hence the NF variable for number of fields) in the line. (Note that Ctrl+d means that while holding down the Control 
+key you should press the d key).
+
+<BR></P>
+
+<PRE>$ awk '{print $NF : $0}'
+
+I am testing my typing.
+
+A quick brown fox jumps when vexed by lazy ducks.
+
+Ctrl+d
+
+5: I am testing my typing.
+
+10: A quick brown fox jumps when vexed by lazy ducks.
+
+$ _</PRE>
+
+<P>You can also name more than one input file on the command line, causing the combined files to act as one input. This is one way of having multiple runs through one input file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Keep in mind that the correct ordering on the command line is crucial for your program to work correctly: files are read from left to right, so if you want to have file1 and file2 read in that order, 
+you'll need to specify them as such on the command line.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>The Program File</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>With awk's automatic type conversion, a file of names and a file of numbers entered in the reverse order at the command line generate strange-looking output rather than an error message. That is why for longer programs, it is simpler to put the program 
+
+in a file and specify the name of the file on the command line. The -f option does this. Notice that this is an exception to the usual way UNIX handles options. Usually the options occur at the end of a command; however, here an input file is the last 
+parameter.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Versions of awk that meet the POSIX awk specifications are allowed to have multiple -f options. You can use this for running multiple programs using the same input.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Specifying Output on the Command Line</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Output from awk may be redirected to a file or piped to another program (see Chapter 4). The command awk /^5/ {print $0} | grep 3, for example, will result in just those lines that start with the digit five (that's what the awk part does) and also 
+contain the digit three (the grep command). If you wanted to save that output to a file, by contrast, you could use awk /^5/ {print $0} &gt; results and the file results would contain all lines prefaced by the digit 5. If you opt for neither of these 
+courses, the output of awk will be displayed on your screen directly, which can be quite useful in many instances, particularly when you're developing&#151;or fine tuning&#151;your awk script.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Patterns and Actions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk programs are divided into three main blocks; the BEGIN block, the per-statement processing block, and the END block. Unless explicitly stated, all statements to awk appear in the per-statement block (you'll see later where the other blocks can come 
+
+in particularly handy for programming, though).
+
+<BR></P>
+
+<P>Statements within awk are divided into two parts: a pattern, telling awk what to match, and a corresponding action, telling awk what to do when a line matching the pattern is found. The action part of a pattern action statement is enclosed in curly 
+braces ({}) and may be multiple statements. Either part of a pattern action statement may be omitted. An action with no specified pattern matches every record of the input file you want to search (that's how the earlier example of {print $0} worked). A 
+pattern without an action indicates that you want input records to be copied to the output file as they are (i.e., printed).
+
+<BR></P>
+
+<P>The example of /^5/ {print $0} is an example of a two-part statement: the pattern here is all lines that begin with the digit five (the ^ indicates that it should appear at the beginning of the line: without it the pattern would say any line that 
+includes the digit five) and the action is print the entire line verbatim. ($0 is shorthand for the entire line.)
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Input</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk automatically scans, in order, each record of the input file looking for each pattern action statement in the awk program. Unless otherwise set, awk assumes each record is a single line. (See the sections &quot;Advanced 
+Concepts&quot;,&quot;Multi-line Records&quot; for how to change this.) If the input file has blank lines in it, the blank lines count as a record too. Awk automatically retrieves each record for analysis; there is no <I>read</I> statement in awk.
+
+<BR></P>
+
+<P>A programmer may also disrupt the automatic input order in of two ways: the next and exit statements. The next statement tells awk to retrieve the next record from the input file and continue without running the current input record through the 
+remaining portion of pattern action statements in the program. For example, if you are doing a crossword puzzle and all the letters of a word are formed by previous words, most likely you wouldn't even bother to read that clue but simply skip to the clue 
+below; this is how the <I>next</I> statement would work, if your list of clues were the input. The other method of disrupting the usual flow of input is through the exit statement. The exit statement transfers control to the END block&#151;if one is 
+specified&#151;or quits the program, as if all the input has been read; suppose the arrival of a friend ends your interest in the crossword puzzle, but you still put the paper away. Within the END block, an exit statement causes the program to quit.
+
+<BR></P>
+
+<P>An input record refers to the entire line of a file including any characters, spaces, or Tabs. The spaces and tabs are called whitespace.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If you think that your input file may include both spaces and tabs, you can save yourself a lot of confusion by ensuring that all tabs become spaces with the expand program. It works like this: expand 
+filename | awk { stuff }.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The whitespace in the input file and the whitespace in the output file are not related and any whitespace you want in the output file, you must explicitly put there.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Fields</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A group of characters in the input record or output file is called a field. Fields are predefined in awk: $1 is the first field, $2 is the second, $3 is the third, and so on. $0 indicates the entire line. Fields are separated by a field separator (any 
+single character including Tab), held in the variable FS. Unless you change it, FS has a space as its value. FS may be changed by either starting the programfile with the following statement:
+
+<BR></P>
+
+<PRE>BEGIN {FS = &quot;char&quot; }</PRE>
+
+<P>or by setting the -Fchar command line option where char is the selected field separator character you want to use.
+
+<BR></P>
+
+<P>One file that you might have viewed which demonstrates where changing the field separator could be helpful is the /etc/passwd file that defines all user accounts. Rather than having the different fields separated by spaces or tabs, the password file is 
+
+structured with lines:
+
+<BR></P>
+
+<PRE>news:?:6:11:USENET News:/usr/spool/news:/bin/ksh</PRE>
+
+<P>Each field is separated by a colon! You could change each colon to a space (with sed, for example), but that wouldn't work too well: notice that the fifth field, USENET News, contains a space already. Better to change the field separator. If you wanted 
+
+to just have a list of the fifth fields in each line, therefore, you could use the simple awk command awk -F: {print $5} /etc/passwd.
+
+<BR></P>
+
+<P>Likewise, the built-in variable OFS holds the value of the output field separator. OFS also has a default value of a space. It, too, may be changed by placing the following line at the start of a program.
+
+<BR></P>
+
+<PRE>BEGIN {OFS = &quot;char&quot; }</PRE>
+
+<P>If you want to automatically translate the passwd file so that it listed only the first and fifth fields, separated by a tab, you can therefore use the awk script:
+
+<BR></P>
+
+<PRE>BEGIN { FS=&quot;:&quot; ; OFS=&quot;       &quot; }
+
+{ print $1, $5 }</PRE>
+
+<P>Notice here that the script contains two blocks: the BEGIN block and the main per-input line block. Also notice that most of the work is done automatically.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Program Format</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>With a few noted exceptions, awk programs are free format. The interpreter ignores any blank lines in a programfile. Add them to improve the readability of your program whenever you wish. The same is true for Tabs and spaces between operators and the 
+parts of a program. Therefore, these two lines are treated identically by the awk interpreter.
+
+<BR></P>
+
+<PRE>$4 == 2               {print &quot;Two&quot;}
+
+$4     ==     2     {     print     &quot;Two&quot;     }</PRE>
+
+<P>If more than one pattern action line appears on a line, you'll need to separate them with a semicolon, as shown above in the BEGIN block for the passwd file translator. If you stick with one-command-per-line then you won't need to worry too much about 
+the semicolons. There are a couple of spots, however, where the semicolon must always be used: before an else statement or when included in the syntax of a statement. (See the &quot;Loops&quot; or &quot;The Conditional Statement&quot; sections.) However, 
+you may always put a semicolon at the end of a statement.
+
+<BR></P>
+
+<P>The other format restriction for awk programs is that at least the opening curly bracket of the action half of a pattern action statement must be on the same line as the accompanying pattern, if both pattern and action exist. Thus, following examples 
+all do the same thing.
+
+<BR></P>
+
+<P>The first shows all statements on one line:
+
+<BR></P>
+
+<PRE>$2==0     {print &quot;&quot;; print &quot;&quot;; print &quot;&quot;;}</PRE>
+
+<P>The second with the first statement on the same line as the pattern to match:
+
+<BR></P>
+
+<PRE>$2==0     {     print &quot;&quot;
+
+          print &quot;&quot;
+
+          print &quot;&quot;}</PRE>
+
+<P>and finally as spread out as possible:
+
+<BR></P>
+
+<PRE>$2==0     {
+
+          print &quot;&quot;
+
+          print &quot;&quot;
+
+          print &quot;&quot;
+
+     }</PRE>
+
+<P>When the second field of the input file is equal to 0, awk prints three blank lines to the output file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Notice that print &quot;&quot; prints a blank line to the output file, whereas the statement print alone prints the current input line.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>When you look at an awk program file, you may also find commentary within. Anything typed from a # to the end of the line is considered a comment and is ignored by awk. They are notes to anyone reading the program to explain what is going on in words, 
+not computerese.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>A Note on </B><B><I>awk</I></B><B> Error Messages</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk error messages (when they appear) tend to be cryptic. Often, due to the brevity of the program, a typo is easily found. Not all errors are as obvious; I have scattered some examples of errors throughout this chapter.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Print Selected Fields</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Awk<B> </B>includes three ways to specify printing. The first is implied. A pattern without an action assumes that the action is to print. The two ways of actively commanding awk to print are print and printf(). For now, I am going to stick to using 
+only implied printing and the print statement. printf is discussed in a later section (&quot;Input/Output&quot;) and is used mainly for precise output. This section demonstrates the first two types of printing through some step-by-step examples.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Program Components</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If I want to be sure the System Administrator spelled my name correctly in the /etc/password file, I enter an awk command to find a match but omit an action. The following command line puts a list on-screen.
+
+<BR></P>
+
+<PRE>$ awk '/Ann/' /etc/passwd
+
+amarshal:oPWwC9qVWI/ps:2005:12:Ann Marshall:/usr/grad/amarshal:/bin/csh
+
+andhs26:0TFnZSVwcua3Y:2488:23:DeAnn O'Neal:/usr/lstudent/andhs26:/bin/csh
+
+alewis:VYfz4EatT4OoA:2623:22:Annie Lewis:/usr/lteach/alewis:/bin/csh
+
+cmcintyr:0FciKEDDMkauU:2630:22:Carol Ann McIntyre:/usr/lteach/cmcintyr:/bin/csh
+
+jflanaga:ShrMnyDwLI/mM:2654:22:JoAnn Flanagan:/usr/lteach/jflanaga:/bin/csh
+
+lschultz:mic35ZiFj9zWk:3060:22:Lee Ann Schultz, :/usr/lteach/lschultz:/bin/csh
+
+akestle:job57Lb5/ofoE:3063:22:Ann Kestle.:/usr/lteach/akestle:/bin/csh
+
+bakehs59:yRYV6BtcW7wFg:3075:23:DeAnna Adlington, Baker :/usr/bakehs59:/bin/csh
+
+ahernan:AZZPQNCkw6ffs:3144:23:Ann Hernandez:/usr/lstudent/ahernan:/bin/csh
+
+$ _</PRE>
+
+<P>I look on the monitor and see the correct spelling.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>ERROR NOTE:</B> For the sake of making a point, suppose I had chosen the pattern /Anne/. A quick glance above shows that there would be no matches. Entering awk '/Anne/' /etc/passwd will therefore produce 
+nothing but another system prompt to the monitor. This can be confusing if you expect output. The same goes the other way; above, I wanted the name Ann, but the names LeAnn, Annie and DeAnna matched, too. Sometimes choosing a pattern too long or too short 
+
+can cause an unneeded headache.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If a pattern match is not found, look for a typo in the pattern you are trying to match.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Printing specified fields of an ASCII (plain text) file is a straightforward awk task. Because this program example is so short, only the input is in a file. The first input file, &quot;sales&quot;, is a file of car sales by month. The file consists of 
+
+each salesperson's name, followed by a monthly sales figure. The end field is a running total of that person's total sales.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>The Input File and Program</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<PRE>$cat sales
+
+John Anderson,12,23,7,42
+
+Joe Turner,10,25,15,50
+
+Susan Greco,15,13,18,46
+
+Bob Burmeister,8,21,17,46</PRE>
+
+<P>The following command line prints the salesperson's name and the total sales for the first quarter.
+
+<BR></P>
+
+<PRE>awk -F, '{print $1,$5}' sales
+
+John Anderson 42
+
+Joe Turner 50
+
+Susan Greco 46
+
+Bob Burmeister 46</PRE>
+
+<P>A comma (,) between field variables indicates that I want OFS applied between output fields as shown in a previous example. Remember without the comma, no field separator will be used, and the displayed output fields (or output file) will all run 
+together.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Putting two field separators in a row inside a print statement creates a syntax error with the print statement; however, using the same field twice in a single print statement is valid syntax. For 
+example:
+
+<BR>
+
+<BR>awk '{print($1,$1)'
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=4><B>Patterns</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A pattern is the first half of an awk program statement. In awk there are six accepted pattern types. This section discusses each of the six in detail. You have already seen a couple of them, including BEGIN, and a specified, slash-delimited pattern, in 
+
+use. Awk has many string matching capabilities arising from patterns, and the use of regular expressions in patterns. A range pattern locates a sequence. All patterns except range patterns may be combined in a compound pattern.
+
+<BR></P>
+
+<P>I began the chapter by saying awk was a pattern-match and process language. This section explores exactly what is meant by a pattern match. As you'll see, what kind pattern you can match depends on exactly how you're using the awk pattern specification 
+
+notation.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>BEGIN and END</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The two special patterns BEGIN and END may be used to indicate a match, either before the first input record is read, or after the last input record is read, respectively. Some versions of awk require that, if used, BEGIN must be the first pattern of 
+the program and, if used, END must be the last pattern of the program. While not necessarily a requirement, it is nonetheless an excellent habit to get into, so I encourage you to do so, as I do throughout this chapter. Using the BEGIN pattern for 
+initializing variables is common (although variables can be passed from the command line to the program too; see &quot;Command Line Arguments&quot;) The END pattern is used for things which are input-dependent such as totals.
+
+<BR></P>
+
+<P>If I want to know how many lines are in a given program, I type the following line:
+
+<BR></P>
+
+<PRE><B>$awk 'END {print _Total lines: _$NR}' myprogram</B></PRE>
+
+<P>I see Total lines: 256 on the monitor and therefore know that the file myprogram has 256 lines. At any point while awk is processing the file, the variable NR counts the number of records read so far. NR at the end of a file has a value equal to the 
+number of lines in the file.
+
+<BR></P>
+
+<P>How might you see a BEGIN block in use? Your first thought might be to initialize variables, but if it's a numeric value, it's automatically initialized to zero before its first use. Instead, perhaps you're building a table of data and want to have some 
+
+columnar headings. With this in mind, here's a simple awk script that shows you all the accounts that people named Dave have on your computer:
+
+<BR></P>
+
+<PRE>BEGIN { 
+
+     FS=_:_     # remember that the passwd file uses colons
+
+     OFS=_     _     # we_re setting the output to a TAB
+
+     print _Account_,_Username_
+
+     }
+
+/Dav/     {print $1, $5}</PRE>
+
+<P>Here's what it looks like in action (we've called this file _daves.awk_, though the program matches Dave and David, of course):
+
+<BR></P>
+
+<PRE>$ awk -f daves.awk /etc/passwd
+
+Account     Username
+
+andrews     Dave Andrews
+
+d3          David Douglas Dunlap
+
+daves       Dave Smith
+
+taylor      Dave Taylor</PRE>
+
+<P>Note that you could also easily have a summary of the total number of matched accounts by adding a variable that's incremented for each match, then in the END block output in some manner. Here's one way to do it:
+
+<BR></P>
+
+<PRE>BEGIN {  FS=_:_ ; OFS=_     _ # input colon separated, output tab separated
+
+     print _Account_,_Username_
+
+     }
+
+/Dav/     {print $1, $5 ; matches++ }
+
+END     { print _A total of _matches_ matches._}</PRE>
+
+<P>Here you can see how awk allows you to shorten the length of programs by having multiple items on a single line, particularly useful for initialization. Also notice the C increment notation: _matches++_ is functionally identical to _matches = matches + 
+
+1_. Finally, also notice that we didn't have to initialize the variable _matches_ to zero since it was done for us automatically by the awk system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Expressions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Any expression may be used with any operator in awk. An expression consists of any operator in awk, and its corresponding operand in the form of a pattern-match statement. Type conversion&#151;variables being interpreted as numbers at one point, but 
+strings at another&#151;is automatic, but never explicit. The type of operand needed is decided by the operator type. If a numeric operator is given a string operand, it is converted and vice versa.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> To force a conversion, if the desired change is string to number, add (+) 0. If you wish to explicitly convert a number to a string concatenate &quot;&quot; (the null string) to the variable. Two quick 
+
+examples: num=3; num=num __ creates a new numeric variable and sets it to the number three, then by appending a null string to it, translates it to a string (e.g., the string with the character 3 within). Adding zero to that string &#151; num=num + 0 
+&#151; forces it back to a numeric value.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Any expression can be a pattern. If the pattern, in this case the expression, evaluates to a nonzero or nonnull value, then the pattern matches that input record. Patterns often involve comparison. The following are the valid awk comparison operators:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 15.1. Comparison Operators in </B><B>awk</B><B>.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>==</P>
+
+<TD>
+
+<P>is equal to</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;</P>
+
+<TD>
+
+<P>less than</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;</P>
+
+<TD>
+
+<P>greater than</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;=</P>
+
+<TD>
+
+<P>less than or equal to</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;=</P>
+
+<TD>
+
+<P>greater than or equal to</P>
+
+<TR>
+
+<TD>
+
+<P>!=</P>
+
+<TD>
+
+<P>not equal to</P>
+
+<TR>
+
+<TD>
+
+<P>~</P>
+
+<TD>
+
+<P>matched by</P>
+
+<TR>
+
+<TD>
+
+<P>!~</P>
+
+<TD>
+
+<P>not matched by</P></TABLE>
+
+<P>In awk, as in C, the logical equality operator is == rather than =. The single = compares memory location, whereas == compares values. When the pattern is a comparison, the pattern matches if the comparison is true (non-null or non-zero). Here's an 
+example: what if you wanted to only print lines where the first field had a numeric value of less than twenty? No problem in awk:
+
+<BR></P>
+
+<PRE>$1 &lt; 20 {print $0}</PRE>
+
+<P>If the expression is arithmetic, it is matched when it evaluates to a nonzero number. For example, here's a small program that will print the first ten lines that have exactly seven words:
+
+<BR></P>
+
+<PRE>BEGIN  {i=0}
+
+NF==7 { print $0 ; i++ }
+
+/i==10/ {exit}</PRE>
+
+<P>There's another way that you could use these comparisons too, since awk understands collation orders (that is, whether words are greater or lesser than other words in a standard dictionary ordering). Consider the situation where you have a phone 
+directory&#151;a sorted list of names&#151;in a file and want to print all the names that would appear in the corporate phonebook before a certain person, say D. Hughes. You could do this quite succinctly:
+
+<BR></P>
+
+<PRE>$1 &gt;= &quot;Hughes,D&quot; { exit }</PRE>
+
+<P>When the pattern is a string, a match occurs if the expression is non-null. In the earlier example with the pattern /Ann/, it was assumed to be a string since it was enclosed in slashes. In a comparison expression, if both operands have a numeric value, 
+
+the comparison is based on the numeric value. Otherwise, the comparison is made using string ordering, which is why this simple example works.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> You can write more than two comparisons to a line in awk. 
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The pattern $2 &lt;= $1 could involve either a numeric comparison or a string comparison. Whichever it is, it will vary from file to file or even from record to record within the same file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Know your input file well when using such patterns, particularly since awk will often silently assume a type for the variable and work with it, without error messages or other warnings.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>String Matching</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are three forms of string matching. The simplest is to surround a string by slashes (/). No quotation marks are used. Hence /&quot;Ann&quot;/ is actually the string ' &quot;Ann&quot;  ' not the string Ann, and /&quot;Ann&quot;/ returns no input. 
+The entire input record is returned if the expression within the slashes is anywhere in the record. The other two matching operators have a more specific scope. The operator ~ means &quot;is matched by,&quot; and the pattern matches when the input field 
+being tested for a match contains the substring on the right hand side.
+
+<BR></P>
+
+<PRE>$2 ~ /mm/</PRE>
+
+<P>This example matches every input record containing mm somewhere in the second field. It could also be written as $2 ~ &quot;mm&quot;.
+
+<BR></P>
+
+<P>The other operator !~ means &quot;is not matched by.&quot;
+
+<BR></P>
+
+<PRE>$2 !~ /mm/</PRE>
+
+<P>This example matches every input record not containing mm anywhere in the second field.
+
+<BR></P>
+
+<P>Armed with that explanation, you can now see that /Ann/ is really just shorthand for the more complex statement $0 ~ /Ann/.
+
+<BR></P>
+
+<P>Regular expressions are common to UNIX, and they come in two main flavors. You have probably used them unconsciously on the command line as wildcards, where * matches zero or more characters and ? matches any single character. For instance entering the 
+
+first line below results in the command interpreter matching all files with the suffix abc and the rm command deleting them.
+
+<BR></P>
+
+<PRE>rm *abc</PRE>
+
+<P>Awk works with regular expressions that are similar to those used with grep, sed, and other editors but subtly different than the wildcards used with the command shell. In particular, . matches a character and * matches zero or more of the previous 
+character in the pattern (so a pattern of x*y will match anything that has any number of the letter x followed by a y. To force a single x to appear too, you'd need to use the regular expression xx*y instead). By default, patterns can appear anywhere on 
+the line, so to have them tied to an edge, you need to use ^ to indicate the beginning of the word or line, and $ for the end. If you wanted to match all lines where the first word ends in abc, for example, you could use $1 ~ /abc$/. The following line 
+matches all records where the fourth field begins with the letter a:
+
+<BR></P>
+
+<PRE>$4 ~ /^a.*/</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Range Patterns</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The pattern portion of a pattern/action pair may also consist of two patterns separated by a comma (,); the action is performed for all lines between the first occurrence of the first pattern and the next occurrence of the second.
+
+<BR></P>
+
+<P>At most companies, employees receive different benefits according to their respective hire dates. It so happens that I have a file listing all employees in my company, including hire date. If I wanted to write an awk program that just lists the 
+employees hired between 1980 and 1987 I could use the following script, if the first field is the employee's name and the third field is the year hired. Here's how that data file might look (notice that I use : to separate fields so that we don't have to 
+worry about the spaces in the employee names)
+
+<BR></P>
+
+<PRE>$ cat emp.data.
+
+John Anderson:sales:1980
+
+Joe Turner:marketing:1982
+
+Susan Greco:sales:1985
+
+Ike Turner:pr:1988
+
+Bob Burmeister:accounting:1991</PRE>
+
+<P>The program could then be invoked:
+
+<BR></P>
+
+<PRE>$ awk -F: '$3 &gt; 1980,$3 &lt; 1987 {print $1, $3}' emp.data</PRE>
+
+<P>With the output:
+
+<BR></P>
+
+<PRE>John Anderson 1980
+
+Joe Turner 1982
+
+Susan Greco 1985</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> The above example works because the input is already in order according to hire year. Range patterns often work best with pre-sorted input. This particular data file would be a bit tricky to sort within 
+
+UNIX, but you could use the rather complex command sort -c: +3 -4 -rn emp.data &gt; new.emp.data to sort things correctly. (See Chapter 6 for more details on using the powerful sort command.)
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Notice range patterns are inclusive&#151;they include both the first item matched and the end data indicated in the pattern. The range pattern matches all records from the first occurrence of the first pattern to the first occurrence of the second. This 
+
+is a subtle point, but it has a major affect on how range patterns work. First, if the second pattern is never found, all remaining records match. So given the input file below:
+
+<BR></P>
+
+<PRE>$ cat sample.data
+
+1
+
+3
+
+5
+
+7
+
+9
+
+11</PRE>
+
+<P>The following output appears on the monitor, totally disregarding that 9 and 11 are out of range.
+
+<BR></P>
+
+<PRE>$ awk '$1==3, $1==8' file1 sample.data
+
+3
+
+5
+
+7
+
+9
+
+11</PRE>
+
+<P>The end pattern of a range is not equivalent to a &lt;= operand, though liberal use of these patterns can alleviate the problem, as shown in the employee hire date example above.
+
+<BR></P>
+
+<P>Secondly, as stated, the pattern matches the first range; others that might occur later in the data file are ignored. That's why you have to make sure that the data is sorted as you expect.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Range patterns cannot be parts of a larger pattern.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>A more useful example of the range pattern comes from awk's ability to handle multiple input files. I have a function finder program that finds code segments I know exist and tells me where they are. The code segments for a particular function X, for 
+example, are bracketed by the phrase &quot;function X&quot; at the beginning and } /* end of X at the end. It can be expressed as the awk pattern range:
+
+<BR></P>
+
+<PRE>'/function <I>functionname</I>/,/} \/* end of <I>functionname</I>/'</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Compound Patterns</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Patterns can be combined using the following logical operators and parentheses as needed.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 15.2. The Logical Operators in </B><B>awk</B><B>.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Operator</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>!</P>
+
+<TD>
+
+<P>not</P>
+
+<TR>
+
+<TD>
+
+<P>||</P>
+
+<TD>
+
+<P>or (you can also use | in regular expressions)</P>
+
+<TR>
+
+<TD>
+
+<P>&amp;&amp;</P>
+
+<TD>
+
+<P>and</P></TABLE>
+
+<P>The pattern may be simple or quite complicated: (NF&lt;3) || (NF &gt;4). This matches all input records not having exactly four fields. As is usual in awk, there are a wide variety of ways to do the same thing (specify a pattern). Regular expressions 
+are allowed in string matching, but their use is not forced. To form a pattern that matches strings beginning with a or b or c or d, there are several pattern options:
+
+<BR></P>
+
+<PRE>/^[a-d].*/ 
+
+/^a.*/ !! /^b.*/ || /^c.*/ || /^d.*/ </PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When using range patterns: $1==2, $1==4 and $1&gt;= 2 &amp;&amp; $1 &lt;=4 are not the same ranges at all. First, the range pattern depends on the occurrence of the second pattern as a stop marker, 
+not on the value indicated in the range. Secondly, as I mentioned earlier, the first pattern only matches the first range, others are ignored.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For instance, consider the following simple input file:
+
+<BR></P>
+
+<PRE>$ cat mydata
+
+1     0
+
+3     1
+
+4     1
+
+5     1
+
+7     0
+
+4     2
+
+5     2
+
+1     0
+
+4     3</PRE>
+
+<P>The first range I try, '$1==3,$1==5, produces:
+
+<BR></P>
+
+<PRE>$ awk '$1==3,$1==5' mydata
+
+3     1
+
+4     1
+
+5     1</PRE>
+
+<P>Compare this to the following pattern and output.
+
+<BR></P>
+
+<PRE>$ awk '$1&gt;=3 &amp;&amp; $1&lt;=5' mydata
+
+3     1
+
+4     1
+
+5     1
+
+4     2
+
+5     2
+
+4     3</PRE>
+
+<P>Range patterns cannot be parts of a combined pattern.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=4><B>Actions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The remainder of this chapter explores the action part of a pattern action statement. As the name suggests, the action part tells awk what to do when a pattern is found. Patterns are optional. An awk program built solely of actions looks like other 
+iterative programming languages. But looks are deceptive&#151;even without a pattern, awk matches every input record to the first pattern action statement before moving to the second.
+
+<BR></P>
+
+<P>Actions must be enclosed in curly braces ({}) whether accompanied by a pattern or alone. An action part may consist of multiple statements. When the statements have no pattern and are single statements (no compound loops or conditions), brackets for 
+each individual action are optional provided the actions begin with a left curly brace and end with a right curly brace. Consider the following two action pieces:
+
+<BR></P>
+
+<PRE>{name = $1
+
+print name}</PRE>
+
+<P>and
+
+<BR></P>
+
+<PRE>{name = $1}
+
+{print name},</PRE>
+
+<P>These two produce identical output.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>An integral part of any programming language are variables, the virtual boxes within which you can store values, count things, and more. In this section, I talk about variables in awk. Awk has three types of variables: user-defined variables, field 
+variables, and predefined variables that are provided by the language automatically. The next section is devoted to a discussion of built-in variables. Awk doesn't have variable declarations. A variable comes to life the first time it is mentioned; in a 
+twist on Ren&#233; Descarte's philosophical conundrum, you use it, therefore it is. The section concludes with an example of turning an awk program into a shell script.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Since there are no declarations, be doubly careful to initialize all the variables you use, though you can always be sure that they automatically start with the value zero.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Naming</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The rule for naming user-defined variables is that they can be any combination of letters, digits, and underscores, as long as the name starts with a letter. It is helpful to give a variable a name indicative of its purpose in the program. Variables 
+already defined by awk are written in all uppercase. Since awk is case-sensitive, ofs is not the same variable as OFS and capitalization (or lack thereof) is a common error. You have already seen field variables&#151;variables beginning with $, followed by 
+
+a number, and indicating a specific input field.
+
+<BR></P>
+
+<P>A variable is a number or a string or both. There is no type declaration, and type conversion is automatic if needed. Recall the car sales file used earlier. For illustration suppose I enter the program <B>awk</B><B> </B><B>-F: { print $1 * 10} 
+emp.data</B>, and awk obligingly provides the rest:
+
+<BR></P>
+
+<PRE>0
+
+0
+
+0
+
+0
+
+0</PRE>
+
+<P>Of course, this makes no sense! The point is that awk did exactly what it was asked without complaint: it multiplied the name of the employee times ten, and when it tried to translate the name into a number for the mathematical operation it failed, 
+resulting in a zero. Ten times zero, needless to say, is zero...
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Awk in a Shell Script</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Before examining the next example, review what you know about shell programming (Chapters 10-14). Remember, every file containing shell commands needs to be changed to an executable file before you can run it as a shell script. To do this you should 
+enter chmod +x <I>filename</I> from the command line.
+
+<BR></P>
+
+<P>Sometimes awk's automatic type conversion benefits you. Imagine that I'm still trying to build an office system with awk scripts and this time I want to be able to maintain a running monthly sales total based on a data file that contains individual 
+monthly sales. It looks like this:
+
+<BR></P>
+
+<PRE>cat monthly.sales
+
+John Anderson,12,23,7
+
+Joe Turner,10,25,15
+
+Susan Greco,15,13,18
+
+Bob Burmeister,8,21,17</PRE>
+
+<P>These need to be added together to calculate the running totals for each person's sales. Let a program do it!
+
+<BR></P>
+
+<PRE>$cat total.awk
+
+BEGIN      {OFS=,}     #change OFS to keep the file format the same.
+
+{print $1, &quot; monthly sales summary: &quot; $2+$3+$4 }</PRE>
+
+<P>That's the awk script, so let's see how it works:
+
+<BR></P>
+
+<PRE>$ awk -f total.awk monthly.sales
+
+cat sales
+
+John Anderson, monthly sales summary: 42
+
+Joe Turner, monthly sales summary: 50
+
+Susan Greco, monthly sales summary: 46
+
+Bob Burmeister, monthly sales summary: 46</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Always run your program once to be sure it works before you make it part of a complicated shell script!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Your task has been reduced to entering the monthly sales figures in the sales file and editing the program file total to include the correct number of fields (if you put a for loop for(i=2;i&lt;+NF;i++) the number of fields is correctly calculated, but 
+
+printing is a hassle and needs an if statement with 12 else if clauses).
+
+<BR></P>
+
+<P>In this case, not having to wonder if a digit is part of a string or a number is helpful. Just keep an eye on the input data, since awk performs whatever actions you specify, regardless of the actual data type with which you're working.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Built-in Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This section discusses the built-in variables found in awk. Because there are many versions of awk, I included notes for those variables found in nawk, POSIX awk, and gawk since they all differ. As before, unless otherwise noted, the variables of 
+earlier releases may be found in the later implementations. Awk was released first and contains the core set of built-in variables used by all updates. Nawk expands the set. The POSIX awk specification encompasses all variables defined in nawk plus one 
+additional variable. Gawk applies the POSIX awk standards and then adds some built-in variables which are found in gawk alone; the built-in variables noted when discussing gawk are unique to gawk. This list is a guideline not a hard and fast rule. For 
+instance, the built-in variable ENVIRON is formally introduced in the POSIX awk specifications; it exists in gawk; it is in also in the System V implementation of nawk, but SunOS nawk doesn't have the variable ENVIRON. (See the section &quot;'Oh man! I 
+need help.'&quot;in Chapter 5 for more information on how to use man pages).
+
+<BR></P>
+
+<P>As I stated earlier, awk is case sensitive. In all implementations of awk, built-in variables are written entirely in upper case.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Built-in Variables for Awk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>When awk first became a part of UNIX, the built-in variables were the bare essentials. As the name indicates, the variable FILENAME holds the name of the current input file. Recall the function finder code; type the new line below:
+
+<BR></P>
+
+<PRE>/function <I>functionname</I>/,/} \/* end of <I>functionname</I>/' {print $0}
+
+END     {print &quot;&quot;; print &quot;Found in the file &quot; FILENAME}</PRE>
+
+<P>This adds the finishing touch.
+
+<BR></P>
+
+<P>The value of the variable FS determines the input field separator. FS has a space as its default value. The built-in variable NF contains the number of fields in the current record (remember, fields are akin to words, and records are input lines). This 
+
+value may change for each input record.
+
+<BR></P>
+
+<P>What happens if within an awk script I have the following statement?
+
+<BR></P>
+
+<PRE>$3 = &quot;Third field&quot;</PRE>
+
+<P>It reassigns $3 and all other field variables, also reassigning NF to the new value. The total number of records read may be found in the variable NR. The variable OFS holds the value for the output field separator. The default value of OFS is a space. 
+
+The value for the output format for numbers resides in the variable OFMT which has a default value of %.6g. This is the format specifier for the print statement, though its syntax comes from the C printf format string. ORS is the output record separator. 
+Unless changed, the value of ORS is newline(\n).
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Built-in Variables for Nawk</B>
+
+<BR></FONT></CENTER></H6>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When awk was expanded in 1985, part of the expansion included adding more built-in variables.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Some implementations of UNIX simply put the new code in the spot for the old code and didn't bother keeping both awk and nawk. System V and SunOS have both available. Linux has neither awk nor 
+nawk but uses gawk. System V has both, but the awk uses nawk expansions. The book &quot;awk the programming language&quot; by the awk authors speaks of awk throughout the book, but the programming language it describes is called nawk on most systems.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The built-in variable ARGC holds the value for the number of command line arguments. The variable ARGV is an array containing the command line arguments. Subscripts for ARGV begin with 0 and continue through ARGC-1. ARGV[0] is always awk. The available 
+
+UNIX options do not occupy ARGV. The variable FNR represents the number of the current record within that input file. Like NR, this value changes with each new record. FNR is always &lt;= NR. The built-in variable RLENGTH holds the value of the length of 
+string matched by the match function. The variable RS holds the value of the input record separator. The default value of RS is a newline. The start of the string matched by the match function resides in RSTART. Between RSTART and RLENGTH, it is possible 
+to determine what was matched. The variable SUBSEP contains the value of the subscript separator. It has a default value of &quot;\034&quot;.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Built-in Variables for POSIX Awk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The POSIX awk specification introduces one new built-in variable beyond those in nawk. The built-in variable ENVIRON is an array that holds the values of the current environment variables. (Environment variables are discussed more thoroughly later in 
+this chapter.) The subscript values for ENVIRON are the names of the environment variables themselves, and each ENVIRON element is the value of that variable. For instance, ENVIRON[&quot;HOME&quot;] on my PC under Linux is &quot;/home&quot;. Notice that 
+using ENVIRON can save much system dependence within awk source code in some cases but not others. ENVIRON[&quot;HOME&quot;] at work is &quot;/usr/anne&quot; while my SunOS account doesn't have an ENVIRON variable because it's not POSIX compliant.
+
+<BR></P>
+
+<P>Here's an example of how you could work with the environment variables:
+
+<BR></P>
+
+<PRE>ENVIRON[EDITOR] == &quot;vi&quot;  {print NR,$0}</PRE>
+
+<P>This program prints my program listings with line numbers if I am using vi as my default editor. More on this example later in the chapter.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Built-in Variables in Gawk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The GNU group further enhanced awk by adding four new variables to gawk, its public re-implementation of awk. Gawk does not differ between UNIX versions as much as awk and nawk do, fortunately. These built-in variables are in addition to those mentioned 
+
+in the POSIX specification as described above. The variable CONVFMT contains the conversion format for numbers. The default value of CONVFMT is &quot;%.6g&quot; and is for internal use only. The variable FIELDWIDTHS allows a programmer the option of having 
+
+fixed field widths rather than a single character field separator. The values of FIELDWIDTHS are numbers separated by a space or Tab (\t), so fields need not all be the same width. When the FIELDWIDTHS variable is set, each field is expected to have a 
+fixed width. Gawk separates the input record using the FIELDWIDTHS values for field widths. If FIELDWIDTHS is set, the value of FS is disregarded. Assigning a new value to FS overrides the use of FIELDWIDTHS; it restores the default behavior.
+
+<BR></P>
+
+<P>To see where this could be useful, let's imagine that you've just received a datafile from accounting that indicates the different employees in your group and their ages. It might look like:
+
+<BR></P>
+
+<PRE>$ cat gawk.datasample
+
+1Swensen, Tim  24
+
+1Trinkle, Dan  22
+
+0Mitchel, Carl 27</PRE>
+
+<P>The very first character, you find out, indicates if they're hourly or salaried: a value of 1 means that they're salaried, and a value of 0 is hourly. How to split that character out from the rest of the data field? With the FIELDWIDTHS statement. 
+Here's a simple gawk script that could attractively list the data:
+
+<BR></P>
+
+<PRE>BEGIN {FIELDWIDTHS = 1 8 1 4 1 2}
+
+{ if ($1 == 1) print &quot;Salaried employee &quot;$2,$4&quot; is &quot;$6&quot; years old.&quot;;
+
+  else         print &quot;Hourly   employee &quot;$2,$4&quot; is &quot;$6&quot; years old.&quot;
+
+}</PRE>
+
+<P>The output would look like:
+
+<BR></P>
+
+<PRE>Salaried employee Swensen, Tim  is 24 years old.
+
+Salaried employee Trinkle, Dan  is 22 years old.
+
+Hourly   employee Mitchel, Carl is 27 years old.</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> When calculating the different FIELDWIDTH values, don't forget any field separators: the spaces between words do count in this case.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The variable IGNORECASE controls the case sensitivity of gawk regular expressions. If IGNORECASE has a nonzero value, pattern matching ignores case for regular expression operations. The default value of IGNORECASE is zero; all regular expression 
+operations are normally case sensitive.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Conditions (No </B><B><I>IF</I></B><B>s, </B><B><I>&amp;&amp;</I></B><B>s or </B><B><I>but</I></B><B>s)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk program statements are, by their very nature, conditional; if a pattern matches, then a specified action or actions occurs. Actions, too, have a conditional form. This section discusses conditional flow. It focuses on the syntax of the if statement, 
+
+but, as usual in awk, there are multiple ways to do something.
+
+<BR></P>
+
+<P>A conditional statement does a test before it performs the action. One test, the pattern match, has already happened; this test is an action. The last two sections introduced variables; now you can begin putting them to practical uses.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>The </B><B><I>if</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>An if statement takes the form of a typical iterative programming language control structure where E1 is an expression, as mentioned in the &quot;Patterns&quot; section earlier in this chapter:
+
+<BR></P>
+
+<PRE>if E1 S2; else S3.</PRE>
+
+<P>While E1 is always a single expression, S2 and S3 may be either single- or multiple-action statements (that means conditions in conditions are legal syntax, but I am getting ahead of myself). Returns and indention are, as usual in awk, entirely up to 
+you. However, if S2 and the else statement are on the same line, and S2 is a single statement, a semicolon must separate S2 from the else statement. When awk encounters an if statement, evaluation occurs as follows: first E1 is evaluated, and if E1 is 
+nonzero or nonnull(true), S2 is executed; if E1 is zero or null(false) and there's an else clause, S3 is executed. For instance, if you want to print a blank line when the third field has the value 25 and the entire line in all other cases, you could use a 
+
+program snippet like this:
+
+<BR></P>
+
+<PRE>{ if $3 == 25
+
+     print &quot;&quot;
+
+else
+
+     print $0 }</PRE>
+
+<P>The portion of the if statement involving S is completely optional since sometimes your choice is limited to whether or not to have awk execute S2:
+
+<BR></P>
+
+<PRE>{ if $3 == 25
+
+     print &quot;&quot; }</PRE>
+
+<P>Although the if statement is an action, E1 can test for a pattern match using the pattern-match operator ~. As you have already seen, you can use it to look for my name in the password file another way. The first way is shorter, but they do the same 
+thing.
+
+<BR></P>
+
+<PRE>$awk '/Ann/'/etc/passwd
+
+$awk '{if ($0 ~ /Ann/) print $0}' /etc/passwd</PRE>
+
+<P>One use of the if statement combined with a pattern match is to further filter the screen input. For example here I'm going to only print the lines in the password file that contain both Ann and a capital m character:
+
+<BR></P>
+
+<PRE>$ awk '/Ann/ { if ($0 ~ /M/) print}' /etc/passwd
+
+amarshal:oPWwC9qVWI/ps:2005:12:Ann Marshall:/usr/grad/amarshal:/bin/csh
+
+cmcintyr:0FciKEDDMkauU:2630:22:Carol Ann McIntyre:/usr/lteach/cmcintyr:/bin/csh
+
+jflanaga:ShrMnyDwLI/mM:2654:22:JoAnn Flanagan:/usr/lteach/jflanaga:/bin/csh</PRE>
+
+<P>Either S2 or S3 or both may consist of multiple-action statements. If any of them do, the group of statements is enclosed in curly braces. Curly braces may be put wherever you wish as long as they enclose the action. The rule of thumb: if it's one 
+statement, the braces are optional. More than one and it's required.
+
+<BR></P>
+
+<P>You can also use multiple else clauses. The car sales example gets one field longer each month. The first two fields are always the salesperson's name and the last field is the accumulated annual total, so it is possible to calculate the month by the 
+value of NF:
+
+<BR></P>
+
+<PRE>if(NF=4) month=&quot;Jan.&quot;
+
+else if(NF=5) month=&quot;Feb&quot;
+
+else if(NF=6) month=&quot;March&quot;
+
+else if(NF=7) month=&quot;April&quot;
+
+else if(NF=8) month=&quot;May&quot; # and so on</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Whatever the value of NF, the overall block of code will execute only once. It falls through the remaining else clauses.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>The Conditional Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Nawk++ also has a conditional statement, really just shorthand for an if statement. It takes the format shown and uses the same conditional operator found in C:
+
+<BR></P>
+
+<PRE>E1 ? S2 : S3</PRE>
+
+<P>Here, E1 is an expression, and S2 and S3 are single-action statements. When it encounters a conditional statement, awk evaluates it in the same order as an if statement: first E1 is evaluated; if E1 is nonzero or nonnull (true), S2 is executed; if E1 is 
+
+zero or null (false), S3 is executed. Only one statement, S2 or S3, is chosen, never both.
+
+<BR></P>
+
+<P>The conditional statement is a good place for the programmer to provide error messages. Return to the monthly sales example. When we wanted to differentiate between hourly and salaried employees, we had a big if-else statement:
+
+<BR></P>
+
+<PRE>{ if ($1 == 1) print &quot;Salaried employee &quot;$2,$4&quot; is &quot;$6&quot; years old.&quot;;
+
+  else         print &quot;Hourly   employee &quot;$2,$4&quot; is &quot;$6&quot; years old.&quot;
+
+}</PRE>
+
+<P>In fact, there's an easier way to do this with conditional statements:
+
+<BR></P>
+
+<PRE>{ print ($1==1? &quot;Salaried&quot;:&quot;Hourly&quot;) &quot;employee &quot;$2,$4&quot; is &quot;$6&quot; years old.&quot; }</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Remember the conditional statement is not part of original awk!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>At first glance, and for short statements, the if statement appears identical to the conditional statement. On closer inspection, the statement you should use in a specific case differs. Either is fine for use when choosing between either of two single 
+
+statements, but the if statement is required for more complicated situations, such as when E2 and E3 are multiple statements. Use if for multiple else statements (the first example), or for a condition inside a condition like the second example below:
+
+<BR></P>
+
+<PRE>{ if (NR == 100)
+
+     { print \$(NF-1)\{&quot;&quot;
+
+     print &quot;This is the 100th record&quot;
+
+     print $0
+
+       print
+
+     }
+
+}
+
+{ if($1==0)
+
+     if(name~/Fred/
+
+          print &quot;Fred is broke&quot; }</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Patterns as Conditions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As if that does not provide ample choice, notice that the program relying on pattern-matching (had I chosen that method) produces the same output. Look at the program and its output.
+
+<BR></P>
+
+<PRE>$ cat lowsales.awk}
+
+BEGIN      {OFS=\\t\{&quot;\t&quot;}}
+
+$(NF-1) &lt;= 7    {print $1, $(NF-1),\,\&quot;Check \Attendance&quot;\ {Sales&quot;}     }
+
+$(NF-1) &gt; 7     {print $1, $(NF-1)     }     # Next to last field
+
+{$ awk -f lowsales.awk emp.data}
+
+John Anderson     7     \check attendance\ {Check Sales}
+
+Joe Turner        15
+
+Susan Greco       18
+
+Bob Burmeister    17</PRE>
+
+<P>Since the two patterns above are nonoverlapping and one immediately follows the other, the two programs accomplish the same thing. Which to use is a matter of programming style. I find the conditional statement or the if statement more readable than two 
+
+patterns in a row. When you are choosing whether to use the nawk conditional statement or the if statement because you're concerned about printing two long messages, using the if statement is cleaner. Above all, if you chose to use the conditional 
+statement, keep in mind you can't use awk; you must use nawk or gawk.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Loops</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>People often write programs to perform a repetitive task or several repeated tasks. These repetitions are called loops. Loops are the subject of this section. The loop structures of awk very much resemble those found in C. First, let's look at a 
+shortcut in counting with 1 notation. Then I'll show you the ways to program loops in awk. The looping constructs of awk are the do(nawk), for, and while statements. As with multiple-action groups in an if statement, curly braces({}) surround a group of 
+action statements associated in a loop. Without curly braces, only the statement immediately following the keyword is considered part of the loop.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Forgetting curly braces is a common looping error.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The section concludes with a discussion of how (and some examples of why) to interrupt a loop.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Increment and Decrement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As stated earlier, assignment statements take the form x = y, where the value y is being assigned to x. Awk has some shorthand methods of writing this. For example, to add a monthly sales total to the car sales file, you'll need to add a variable to 
+keep a running total of the sales figures. Call it total . You need to start total at zero and add each $(NF-1) as read. In standard programming practice, that would be written total = total + $(NF -1). This is okay in awk, too. However, a shortened format 
+
+of total += $(NF-1) is also acceptable.
+
+<BR></P>
+
+<P>There are two ways to indicate line+= 1 and line -=1 (line =line+1 and line=line-1 in awk shorthand). They are called increment and decrement, respectively, and can be further shortened to the simpler line++ and line&#151;. At any reference to a 
+variable, you can not only use this notation but even vary whether the action is performed immediately before or after the value is used in that statement. This is called prefix and postfix notation, and is represented by ++line and line++.
+
+<BR></P>
+
+<P>For clarity's sake, focus on increment for a moment. Decrement functions the same way using subtraction. Using the ++line notation tells awk to do the addition before doing the operation indicated in the line. Using the postfix form says to do the 
+operation in the line, then do the addition. Sometimes the choice does not matter; keeping a counter of the number of sales people (to later calculate a sales average at the end of the month) requires a counter of names. The statements totalpeople++ and 
+++totalpeople do the same thing and are interchangeable when they occupy a line by themselves. But suppose I decide to print the person's number along with his or her name and sales. Adding either of the second two lines below to the previous example 
+produces different results based on starting both at totalpeople=1.
+
+<BR></P>
+
+<PRE>$ cat awkscript.v1
+
+BEGIN { totalpeople = 1 }
+
+{print ++totalpeople, $1, $(NF-1)     }
+
+$ cat awkscript.v2
+
+BEGIN { totalpeople = 1 }
+
+{print totalpeople++, $1, $(NF-1)     }</PRE>
+
+<P>The first example will actually have the first employee listed as #2, since the totalpeople variable is incremented before it's used in the print statement. By contrast, the second version will do what we want because it'll use the variable value, then 
+
+afterwards increment it to the next value.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Be consistent. Either is fine, but stick with one numbering system or the other, and there is less likelihood that you will accidently enter a loop an unexpected number of times.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>The </B><B><I>While</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Awk provides the while statement for general looping. It has the following form:
+
+<BR></P>
+
+<PRE>while(E1)
+
+     S1</PRE>
+
+<P>Here, E1 is an expression (a condition), and S1 is either one action statement or a group of action statements enclosed in curly braces. When awk meets a while statement, E1 is evaluated. If E1 is true, S1 executes from start to finish, then E1 is again 
+
+evaluated. If E1 is true, S1 again executes. The process continues until E1 is evaluated to false. When it does, execution continues with the next action statement after the loop. Consider the program below:
+
+<BR></P>
+
+<PRE>{ while ($0~/M/)
+
+     print
+
+}</PRE>
+
+<P>Typically the condition (E1) tests a variable, and the variable is changed in the while loop.
+
+<BR></P>
+
+<PRE>{ i=1
+
+  while (i&lt;20)
+
+     {  print i
+
+      i++
+
+     }
+
+}</PRE>
+
+<P>This second code snippet will print the numbers from 1 to 19, then once the while loop tests with i=20, the condition of i&lt;20 will become false and the loop will be done.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>The </B><B><I>Do</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Nawk++ provides the do statement for looping in addition to the while statement. The do statement takes the following form:
+
+<BR></P>
+
+<PRE> do
+
+     S
+
+while .</PRE>
+
+<P>Here, S is either a single statement or a group of action statements enclosed in curly braces, and E is the test condition. When awk comes to a do statement, S is executed once, and then condition E is tested. If E evaluates to nonzero or nonnull, S 
+executes again, and so on until the condition E becomes false. The difference between the do and the while statement rests in their order of evaluation. The while statement checks the condition first and executes the body of the loop if the condition is 
+true. Use the while statement to check conditions that may be initially false. For instance, while (not end-of-file(input)) is a common example. The do statement executes the loop first and then checks the condition. Use the do statement when testing a 
+condition which depends on the first execution to meet the condition.
+
+<BR></P>
+
+<P>The do statement can be initiated using the while statement. Put the code that is in the loop before the condition as well as in the body of the loop.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>The </B><B><I>For</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The for statement is a compacted while loop designed for counting. Use it when you know ahead of time that S is a repetitive task and the number of times it executes can be expressed as a single variable. The for loop has the following form:
+
+<BR></P>
+
+<PRE>for(pre-loop-statements;TEST:post-loop-statements)</PRE>
+
+<P>Here, pre-loop-statements usually initialize the counting variable; TEST is the test condition; and post-loop-statements indicate any loop variable increments.
+
+<BR></P>
+
+<P>For example,
+
+<BR></P>
+
+<PRE>{ for(i=1; i&lt;=30; i++) print i.}</PRE>
+
+<P>This is a succinct way of saying initialize i to 1, then continue looping while i&lt;=30, and incrementing i by one each time through. The statement executed each time simply prints the value of i. The result of this statement is a list of the numbers 1 
+
+through 30.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> The condition test should either be &lt; 21 or &lt;= 20 to execute the loop 20 times. The equality operator == is not a good test condition. Changing the loop to the line below illustrates why.
+
+<BR>
+
+<BR>{ for (i=1;i==20;i+2) print i }
+
+<BR>
+
+<BR>Each iteration of the loop adds 2 to the value of i. i goes to 3 to 5 to 7_ to 19 to 21&#151;never having a value of 20. Consequently, you have an infinite loop; it never stops.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The for loop can also be used involving loops of unknown size:
+
+<BR></P>
+
+<PRE>for (i=1; i&lt;=NF; i++)
+
+     print $i</PRE>
+
+<P>This prints each field on a unique line. True, you don't know what the number of fields will be, but you do know NF will contain that number.
+
+<BR></P>
+
+<P>The for loop does not have to be incremented; it could be decremented instead:
+
+<BR></P>
+
+<PRE>$awk -F: '{ for (i = NF; i &gt; 0; &#151;i) print $i }' sales.data</PRE>
+
+<P>This prints the fields in reverse order, one per line.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Loop Control</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The only restriction of the loop control value is that it must be an integer. Because of the desire to create easily readable code, most programmers try to avoid branching out of loops midway. Awk offers two ways to do this; however, if you need it: 
+break and continue. Sometimes unexpected or invalid input leaves little choice but to exit the loop or have the program crash&#151;something a programmer strives to avoid. Input errors are one accepted time to use the break statement. For instance, when 
+reading the car sales data into the array name, I wrote the program expecting five fields on every line. If something happens and a line has the wrong number of fields, the program is in trouble. A way to protect your program from this is to have code 
+like:
+
+<BR></P>
+
+<PRE>{ for(i=1; i&lt;=NF; i++)
+
+     if (NF != 5) {
+
+          print &quot;Error on line &quot; NR invalid input...leaving loop.&quot;
+
+          break  }
+
+     else
+
+          continue with program code...</PRE>
+
+<P>The break statement terminates only the loop. It is not equivalent to the exit statement which transfers control to the END statement of the program. I handle the problem as shown on the CD-ROM in file LIST15_1.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> The ideal error message depends, of course, on your application, the knowledge of the end users, and the likelihood they will be able to correct the error.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>As another use for the break statement consider do S while (1). It is an infinite loop depending on another way out. Suppose your program begins by displaying a menu on screen. (See the LIST 15_2  file on the CD-ROM.)
+
+<BR></P>
+
+<P>The above example shows an infinite loop controlled with the break statement giving the end user a way out.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The built-in nawk function getline does what it seems. For the point of the example take it on faith that it returns a character.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The continue statement causes execution to skip the current iteration remaining in both the do and the while statements. Control transfers to the evaluation of the test condition. In the for loop control goes to post-loop-instructions. When is this of 
+use? Consider computing a true sales ratio by calculating the amount sold and dividing that number by hours worked.
+
+<BR></P>
+
+<P>Since this is all kept in separate files, the simplest way to handle the task is to read the first list into an array, calculate the figure for the report, and do whatever else is needed.
+
+<BR></P>
+
+<PRE>FILENAME==&quot;total&quot;          read each $(NF-1) into monthlytotal[i]
+
+FILENAME==&quot;per&quot;            with each i
+
+                              monthlytotal[i]/$2
+
+whatever else</PRE>
+
+<P>But what if $2 is 0? The program will crash because dividing by 0 is an illegal statement. While it is unlikely that an employee will miss an entire month of work, it is possible. So, it is good idea to allow for the possibility. This is one use for the 
+
+continue statement. The above program segment expands to Listing 15.1.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 15.1. Using the </B><B>continue</B><B> statement.</B></LH></UL>
+
+<PRE>BEGIN         { star = 0
+
+          other stuff...
+
+}
+
+FILENAME==&quot;total&quot;         { for(i=1;NF;i++)
+
+                               monthlyttl[i]=$(NF-1) 
+
+                   }
+
+FILENAME==&quot;per&quot;           { for(i=1;NF;i++)
+
+                              if($2 == 0)   {
+
+                                  print &quot;*&quot;
+
+                                  star++
+
+                                 continue }
+
+                            else
+
+                              print monthlyttl[i]/$2
+
+                     whatever else
+
+                         }
+
+END   { if(star&gt;=1)
+
+         print &quot;* indicates employee did not work all month.&quot;
+
+      else
+
+whatever
+
+}</PRE>
+
+<P>The above program makes some assumptions about the data in addition to assuming valid input data. What are these assumptions and more importantly, how do you fix them? The data in both files is assumed to be the same length, and the names are assumed to 
+
+be in the same order.
+
+<BR></P>
+
+<P>Recall that in awk, array subscripts are stored as strings. Since each list contains a name and its associated figure, you can match names. Before running this program, run the UNIX sort utility to insure the files have the names in alphabetical order 
+(see &quot;Sorting Text Files&quot; in Chapter 6). After making changes, use file LIST15_4 on the CD-ROM.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Strings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are two primary types of data that awk can work with&#151;numeric values or sequences of characters and digits that comprise words, phrases or sentences. The latter are called strings within awk and most other programming languages. For instance, 
+
+&quot;now is the time for all good men&quot; is a string. A string is always enclosed in double quotes(&quot;&quot;). It can be almost any length (the exact number varies from UNIX version to version).
+
+<BR></P>
+
+<P>One of the important string operations is called concatenation. The word means putting together. When you concatenate two strings you are creating a third string that is the combination of string1, followed immediately by string2. To perform 
+concatenation in awk simply leave a space between two strings.
+
+<BR></P>
+
+<PRE>print &quot;My name is&quot; &quot;Ann.&quot;</PRE>
+
+<P>This prints the line:
+
+<BR></P>
+
+<PRE>My name isAnn.</PRE>
+
+<P>(To ensure that a space is included you can either use a comma in the print statement or simply add a space to one of the strings: print &quot;My name is &quot; &quot;Ann&quot;).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Built-In String Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As a rule, awk returns the leftmost, longest string in all its functions. This means that it will return the string occurring first (farthest to the left). Then, it collects the longest string possible. For instance, if the string you are looking for is 
+
+&quot;y*&quot; in the string &quot;any of the guyys knew it&quot; then the match returns &quot;yy&quot; over &quot;y&quot; even though the single y appears earlier in the string.
+
+<BR></P>
+
+<P>Let's consider the different string functions available, organized by awk version.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Awk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The original awk contained few built-in functions for handling strings. The length function returns the length of the string. It has an optional argument. If you use the argument, it must follow the keyword and be enclosed in parentheses: 
+length(string). If there is no argument, the length of $0 is the value. For example, it is difficult to determine from some screen editors if a line of text stops at 80 characters or wraps around. The following invocation of awk aids by listing just those 
+
+lines that are longer than 80 characters in the specified file.
+
+<BR></P>
+
+<PRE>$ awk '{ if (length &gt; 80)  { print NR &quot;: &quot; $0}' file-with-long-lines</PRE>
+
+<P>The other string function available in the original awk is substring, which takes the form substr(string,position,len) and returns the len length substring of the string starting at position.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A disagreement exists over which functions originated in awk and which originated in nawk. Consult your system for the final word on awk string functions. The functions in nawk are fairly standard.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Nawk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>When awk was expanded to nawk, many built-in functions were added for string manipulation while keeping the two from awk. The function gsub(r, s, t) substitutes string s into target string t every time the regular expression r occurs and returns the 
+number of substitutions. If t is not given gsub() uses $0. For instance, gsub(/l/, &quot;y&quot;,&quot;Randall&quot;) turns Randall into Randayy. The g in gsub means global because all occurrences in the target string change.
+
+<BR></P>
+
+<P>The function sub(r, s, t) works like gsub(), except the substitution occurs only once. Thus sub(/l/, &quot;y&quot;,&quot;Randall&quot;) returns &quot;Randayl&quot;. The place the substring t occurs in string s is returned with the function index(s, t): 
+
+index(&quot;i&quot;, &quot;Chris&quot;)) returns 4. As you'd expect the return value is zero if substring t is not found. The function match(s, r) returns the position in s where the regular expression r occurs. It returns the index where the substring 
+begins or 0 if there is no substring. It sets the values of RSTART and RLENGTH.
+
+<BR></P>
+
+<P>The split function separates a string into parts. For example, if your program reads in a date as 5-10-94, and later you want it written May 10, 1994 the first step is to divide the date appropriately. The built-in function split does this: 
+split(&quot;5-10-94&quot;, store, &quot;-&quot;) divides the date, and sets store[&quot;1&quot;] = &quot;5&quot;, store[&quot;2&quot;] = &quot;10&quot; and store[&quot;3&quot;] = 94. Notice that here the subscripts start with &quot;1&quot; not 
+&quot;0&quot;.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>POSIX Awk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>The POSIX awk specification added two built-in functions for use with strings. They are tolower(str) and toupper(str). Both functions return a copy of the string str with the alphabetic characters converted to the appropriate case. Non-alphabetic 
+characters are left alone.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Gawk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Gawk provides two functions returning time-related information. The systime() function returns the current time of day in seconds since Midnight UTC (Universal Time Coordinated, the new name for Greenwich Mean Time), January 1970 on POSIX systems. The 
+function strftime(f, t), where f is a format and t is a timestamp of the same form as returned by system(), returns a formatted timestamp similar to the ANSI C function strftime().
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>String Constants</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>String constants are the way awk identifies a non-keyboard, but essential, character. Since they are strings, when you use one, you must enclose it in double quotes (&quot;&quot;). These constants may appear in printing or in patterns involving regular 
+
+expressions. For instance, the following command prints all lines less than 80 characters long that don't begin with a tab. See Table 15.3.
+
+<BR></P>
+
+<PRE>awk 'length &lt; 80 &amp;&amp; /\t/' another-file-with-long-lines</PRE>
+
+<UL>
+
+<LH><B>Table 15.3. Awk string constants.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Expression</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>\\</P>
+
+<TD>
+
+<P>The way of indicating to print a backslash.</P>
+
+<TR>
+
+<TD>
+
+<P>\a</P>
+
+<TD>
+
+<P>The &quot;alert&quot; character; usually the ASCII BEL.</P>
+
+<TR>
+
+<TD>
+
+<P>\b</P>
+
+<TD>
+
+<P>A backspace character.</P>
+
+<TR>
+
+<TD>
+
+<P>\f</P>
+
+<TD>
+
+<P>A formfeed character.</P>
+
+<TR>
+
+<TD>
+
+<P>\n</P>
+
+<TD>
+
+<P>A newline character.</P>
+
+<TR>
+
+<TD>
+
+<P>\r</P>
+
+<TD>
+
+<P>Carriage return character.</P>
+
+<TR>
+
+<TD>
+
+<P>\t</P>
+
+<TD>
+
+<P>Horizontal tab character.</P>
+
+<TR>
+
+<TD>
+
+<P>\v</P>
+
+<TD>
+
+<P>Vertical tab character.</P>
+
+<TR>
+
+<TD>
+
+<P>\x</P>
+
+<TD>
+
+<P>Indicates the following value is a hexidecimal number.</P>
+
+<TR>
+
+<TD>
+
+<P>\0</P>
+
+<TD>
+
+<P>Indicates the following value is an octal number.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>Arrays</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>An array is a method of storing pieces of similar data in the computer for later use. Suppose your boss asks for a program that reads in the name, social security number, and a bunch of personnel data to print check stubs and the detachable check. For 
+three or four employees keeping name1, name2, etc. might be feasible, but at 20, it is tedious and at 200, impossible. This is a use for arrays! See file LIST15_5 on the CD-ROM.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Since the first input record is the checkdate, the total lines (NR) is not the number of checks to issue. I could have used NR-1, but I chose clarity over brevity.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Much easier, cleaner, and quicker! It also works for any number of employees without code changes. Awk only supports single-dimension arrays. (See the section &quot;Advanced Concepts&quot; for how to simulate multiple-dimensional arrays.) That and a few 
+
+other things set awk arrays apart from the arrays of other programming languages. This section focuses on arrays; I will explain their use, then discuss their special property. I conclude by listing three features of awk (a built-in function, a built-in 
+variable, and an operator) designed to help you work with arrays.
+
+<BR></P>
+
+<P>Arrays in awk, like variables, don't need to be declared. Further, no indication of size must be given ahead of time; in programming terms, you'd say arrays in awk are dynamic. To create an array, give it a name and put its subscript after the name in 
+square brackets ([]), name[2] from above, for instance. Array subscripts are also called the indices of the array ; in name[2], 2 is the index to the array name, and it accesses the one name stored at location 2.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> One peculiarity in awk is that elements are not stored in the order they are entered. This bug is fixed in nawk++.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Awk arrays are different from those of other programming languages because in awk, array subscripts are stored as strings, not numbers. Technically, the term is associative arrays and it's unusual in programming languages. Be aware that the use of 
+strings as subscripts can confuse you if you think purely in numeric terms. Since &quot;3&quot; &gt; &quot;15&quot;, an array element with a subscript 15 is stored before one with subscript of &quot;3&quot;, even though numerically 3 &gt; 15.
+
+<BR></P>
+
+<P>Since subscripts are strings, a subscript can be a field value. grade[$1]=$2 is a valid statement, as is salary[&quot;John&quot;].
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Array Specialties</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Nawk++ has additions specifically intended for use with arrays. The first is a test for membership. Suppose Mark Turner enrolled late in a class I teach, and I don't remember if I added his name to the list I keep on my computer. The following program 
+checks the list for me.
+
+<BR></P>
+
+<PRE>BEGIN {i=1}
+
+{ name [i++] = $1 }
+
+END { if (&quot;Mark Turner&quot; in name)
+
+      print &quot;He's enrolled in the course!&quot;
+
+    }</PRE>
+
+<P>The delete function is a built-in function to remove array elements from computer memory. To remove an element, for example, you could use the command delete name[1].
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Once you remove an element from memory, it's gone, and it ain't coming back! When in doubt, keep it.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Although technology is advancing and memory is not the precious commodity it once was considered to be, it is still a good idea to clean up after yourself when you write a program. Think of the check printing program above. Two hundred names won't fill 
+
+the memory. But if your program controls personnel activity, it writes checks and checkstubs; adds and deletes employees; and charts sales. It's better to update each file to disk and remove the arrays not in use. For one thing, there is less chance of 
+reading obsolete data. It also consumes less memory and minimizes the chance of using an array of old data for a new task. The clean-up can be most easily done:
+
+<BR></P>
+
+<PRE>END  {i= totalemps
+
+     while(i&gt;0) {
+
+          delete name[i]
+
+          delete data[i&#151;] }
+
+     }</PRE>
+
+<P>Nawk++ creates another built-in variable for use when simulating multidimensional arrays. More on its use appears later, in the section &quot;Advanced Concepts.&quot; It is called SUBSEP and has a default value of &quot;\034&quot;. To add this variable 
+
+to awk, just create it in your program:
+
+<BR></P>
+
+<PRE>BEGIN { SUBSEP = &quot;\034&quot; }</PRE>
+
+<P>Recall that in awk, array subscripts are stored as strings. Since each list contains a name and its associated figure, you can match names and hence match files. Here are the answers to the question about using two files and assuring they have the same 
+
+order (from the car sales example earlier). Before running this program, run the UNIX sort utility to insure the files have the names in alphabetical order. (See &quot;Sorting Text Files&quot; in Chapter 6.) After making changes, use the program in file 
+LIST15_6 on the CD-ROM.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Arithmetic</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Although awk is primarily a language for pattern matching, and hence, text and strings pop into mind more readily than math and numbers, awk also has a good set of math tools. In this section, first I show the basics, then we look at the math functions 
+
+built into awk.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Operators</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk supports the usual math operations. The expression x^y is x superscript y, that is, x to the y power. The % operator calculates remainders in awk: x%y is the remainder of x divided by y, and the result is machine-dependent. All math uses, floating 
+point, and numbers are equivalent no matter which format they are expressed in so 100 = 1.00e+02.
+
+<BR></P>
+
+<P>The math operators in awk consist of the four basic functions: + (addition), - (subtraction), / (division), and * (multiplication), plus ^ and % for exponential and remainder.
+
+<BR></P>
+
+<P>As you saw earlier in the most recent sales example, fields can be used in arithmetic too. If, in the middle of the month, my boss asks for a list of the names and latest monthly sales totals, I don't need to panic over the discarded figures; I can just 
+
+print a new list. My first shot seems simple enough (Listing 15.2).
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 15.2. Print sales totals for May.</B></LH></UL>
+
+<PRE>BEGIN      {OFS=&quot;\t&quot;}
+
+{          print $1, $2, $6 }          # field #6 = May</PRE>
+
+<P>Then a thought hits. What if my boss asks for the same thing next month? Sure, changing a field number each month is not a big deal but is it really necessary??
+
+<BR></P>
+
+<P>I look at the data. No matter what month it is, the current month's totals are always the next to last field. I start over with the program in Listing 15.3.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 15.3. Printing the previous month's sales totals.</B></LH></UL>
+
+<PRE>BEGIN      {OFS= _\t_}
+
+{          print $1,$2, $(NF-1) }  </PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Again, watch yourself because awk lets you get away with murder. If I forgot the parentheses on the last statement above, rather than get a monthly total, I would print a list of the running 
+total&#129;97&#196;1! Also, rather than generate an error, if I mistype $(NF-1) and get $(NF+1) (not hard to do using the number pad), awk assigns nonexistent variables (here the number of fields + 1) to the null string. In this case, it prints blank 
+lines.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Another use for arithmetic concerns assignment. Field variables may be changed by assignment. Given the following file, the statement $3 = 7 is a valid statement and produces the results below:
+
+<BR></P>
+
+<PRE>$ cat inputfile
+
+1 2
+
+3 4
+
+5 6
+
+7 8
+
+9 10
+
+$ awk '{$3 = 7}' inputfile
+
+1 2 7
+
+3 4 7
+
+5 6 7
+
+7 8 7
+
+9 10 7</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The above statement forces $0 and NF values to change. Awk recalculates them as it runs.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If I run the following program, four lines appear on the monitor, showing the new values.
+
+<BR></P>
+
+<PRE>     {   if(NR==1)
+
+          print $0, NF  }
+
+     { if (NR &gt;= 2 &amp;&amp; NR &lt;= 4) { $3=7; print $0, NF } }
+
+END {print $0, NF }</PRE>
+
+<P>Now when we run the data file through awk here's what we see:
+
+<BR></P>
+
+<PRE>$awk -f newsample.awk inputfile
+
+1 2 2
+
+3 4 7 3
+
+5 6 7 3
+
+7 8 7 3</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Numeric Functions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Awk has a well-rounded selection of built-in numeric functions. As before in the sections on &quot;Built-in Variables&quot; and &quot;Strings,&quot; the functions build on each other beginning with those found in awk.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Awk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>To start, awk has built-in functions exp(exp), log(exp), sqrt(exp), and int(exp) where int() truncates its argument to an integer.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Nawk</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Nawk added further arithmetic functions to awk. It added atan2(y,x) which returns the arctangent of y/x. It also added two random number generator functions: rand() and srand(x). There is also some disagreement over which functions originated in awk and 
+
+which in nawk. Most versions have all the trigonometric functions in nawk, regardless of where they first appeared.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=4><B>Input and Output</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section takes a closer look at the way input and output function in awk. I examine input first and look briefly at the getline function of nawk++ . Next, I show how awk output works, and the two different print statements in awk: print and printf.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=3><B>Input</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk handles the majority of input automatically&#151;there is no explicit read statement, unlike most programming languages. Each line of the program is applied to each input record in the order the records appear in the input file. If the input file 
+has 20 records then the first pattern action statement in the program looks for a match 20 times. The next statement causes the input to skip to the next program statement without trying the rest of the input against that pattern action statement. The exit 
+
+statement acts as if all input has been processed. When awk encounters an exit statement, if there is one, the control goes to the END pattern action statement.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>The Getline Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One addition, when awk was expanded to nawk, was the built-in function getline. It is also supported by the POSIX awk specification. The function may take several forms. At its simplest, it's written getline. When written alone, getline retrieves the 
+next input record and splits it into fields as usual, setting FNR, NF and NR. The function returns 1 if the operation is successful, 0 if it is at the end of the file (EOF), and -1 if the function encounters an error. Thus,
+
+<BR></P>
+
+<PRE>while (getline == 1)</PRE>
+
+<P>simulates awk's automatic input.
+
+<BR></P>
+
+<P>Writing getline <I>variable</I> reads the next record into <I>variable</I> (getline char from the earlier menu example, for instance). Field splitting does not take place, and NF remains 0; but FNR and NR are incremented. Either of the above two may be 
+
+written using input from a file besides the one containing the input records by appending &lt; &quot;filename&quot; on the end of the command. Furthermore, getline char &lt; &quot;stdin&quot; takes the input from the keyboard. As you'd expect neither FNR 
+nor NR are affected when the input is read from another file. You can also write either of the two above forms, taking the input from a command.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are two forms of printing in awk: the print statement and the printf statement. Until now, I have used the print statement. It is the fallback. There are two forms of the print statement. One has parentheses; one doesn't. So, print $0 is the same 
+
+as print($0). In awk shorthand, the statement print by itself is equivalent to print $0. As shown in an earlier example, a blank line is printed with the statement print &quot;&quot;. Use the format you prefer.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> print() is not accepted shorthand; it generates a syntax error.
+
+<BR>
+
+<BR>Nawk requires parentheses, if the print statement involves a relational operator.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For a simple example consider file1:
+
+<BR></P>
+
+<PRE>$cat file1
+
+1     10
+
+3     8
+
+5     6
+
+7     4
+
+9     2
+
+10    0</PRE>
+
+<P>The command line
+
+<BR></P>
+
+<PRE>$ nawk 'BEGIN {FS=&quot;\t&quot;}; {print($1&gt;$2)}' file1</PRE>
+
+<P>shows
+
+<BR></P>
+
+<PRE>0
+
+0
+
+0
+
+1
+
+1
+
+1</PRE>
+
+<P>on the monitor.
+
+<BR></P>
+
+<P>Knowing that 0 indicates false and 1 indicates true, the above is what you'd expect, but most programming languages won't print the result of a relation directly. Nawk will.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> This requires nawk or later. Trying the above in awk results in a syntax error.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Nawk prints the results of relations with both print and printf. Both print and printf require the use of parentheses when a relation is involved, however, to distinguish between &gt; meaning greater than and &gt; meaning the redirection operator.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>The </B><B><I>printf</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>printf is used when the use of formatted output is required. It closely resembles C's printf. Like the print statement, it comes in two forms: with and without parentheses. Either may be used, except the parentheses are required when using a relational 
+
+operator. (See below.)
+
+<BR></P>
+
+<PRE>printf format-specifier, variable1,variable2, variable3,..variablen
+
+printf(format-specifier, variable1,variable2, variable3,..variablen)</PRE>
+
+<P>The format specifier is always required with printf. It contains both any literal text, and the specific format for displaying any variables you want to print. The format specifier always begins with a %. Any combination of three modifiers may occur: a 
+
+- indicates the variable should be left justified within its field; a number indicates the total width of the field should be that number, if the number begins with a 0: %-05 means to make the variable 5 wide and pad with 0s as needed; the last modifier is 
+
+.<I>number</I> the meaning depends on the type of variable, the number indicates either the maximum number string width, or the number of digits to follow to the right of the decimal point. After zero or more modifiers, the display format ends with a 
+single character indicating the type of variable to display.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> And yes, numbers can be displayed as characters and nondigit strings can be displayed as a number. With printf anything goes!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Remember the format specifier has a string value and since it does, it must always be enclosed in double quotes(&quot;), whether it is a literal string such as
+
+<BR></P>
+
+<PRE>printf(&quot;This is an example of a string in the display format.&quot;)</PRE>
+
+<P>or a combination,
+
+<BR></P>
+
+<PRE>printf(&quot;This is the %d example&quot;, occurrence)</PRE>
+
+<P>or just a variable
+
+<BR></P>
+
+<PRE>printf(&quot;%d&quot;, occurrence).</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The POSIX awk specification (and hence gawk) supports the dynamic field width and precision modifiers like ANSI C printf() routines do. To use this feature, place an * in place of either of the actual 
+
+display modifiers and the value will be substituted from the argument list following the format string. Neither awk or nawk have this feature.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Before I go into detail about display format modifiers, I will show the characters used for display types. The following list shows the format specifier types without any modifiers.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table l5.8. The format specifiers in awk.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Format</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>%c</P>
+
+<TD>
+
+<P>An ASCII character</P>
+
+<TR>
+
+<TD>
+
+<P>%d</P>
+
+<TD>
+
+<P>A decimal number (an integer, no decimal point involved)</P>
+
+<TR>
+
+<TD>
+
+<P>%i</P>
+
+<TD>
+
+<P>Just like %d (Remember i for integer)</P>
+
+<TR>
+
+<TD>
+
+<P>%e</P>
+
+<TD>
+
+<P>A floating point number in scientific notation (1.00000E+01)</P>
+
+<TR>
+
+<TD>
+
+<P>%f</P>
+
+<TD>
+
+<P>A floating point number (10001010.434)</P>
+
+<TR>
+
+<TD>
+
+<P>%g</P>
+
+<TD>
+
+<P>awk chooses between %e or %f display format, the one producing a shorter string is selected. Nonsignificant zeros are not printed.</P>
+
+<TR>
+
+<TD>
+
+<P>%o</P>
+
+<TD>
+
+<P>An unsigned octal (base 8) number</P>
+
+<TR>
+
+<TD>
+
+<P>%s</P>
+
+<TD>
+
+<P>A string</P>
+
+<TR>
+
+<TD>
+
+<P>%x</P>
+
+<TD>
+
+<P>An unsigned hexadecimal (base 16) number</P>
+
+<TR>
+
+<TD>
+
+<P>%X</P>
+
+<TD>
+
+<P>Same as %x but letters are uppercase rather than lowercase.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If the argument used for %c is numeric, it is treated as a character and printed. Otherwise, the argument is assumed to be a string and only the first character of that string is printed.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Look at some examples without display modifiers. When the file file1 looks like this:
+
+<BR></P>
+
+<PRE>$ cat file1
+
+34
+
+99
+
+-17
+
+2.5
+
+-.3</PRE>
+
+<P>the command line
+
+<BR></P>
+
+<PRE>awk '{printf(&quot;%c %d %e %f\n&quot;, $1, $1, $1, $1)}' file1</PRE>
+
+<P>produces the following output:
+
+<BR></P>
+
+<PRE>&quot; 34 3.400000e+01 34.000000
+
+c 99 9.900000e+01 99.000000
+
+_ -17 -1.700000e+01 -17.000000
+
+_ 2 2.500000e+00 2.500000
+
+ 0 -3.000000e-01 -0.300000</PRE>
+
+<P>By contrast, a slightly different format string produces dramatically different results with the same input:
+
+<BR></P>
+
+<PRE>$ awk '{printf(&quot;%g %o %x&quot;, $1)}' file1
+
+34 42 22
+
+99 143 63
+
+-17 37777777757 ffffffef
+
+2.5 2 2
+
+-0.3 0 0</PRE>
+
+<P>Now let's change file1 to contain just a single word:
+
+<BR></P>
+
+<PRE>$cat file1
+
+Example</PRE>
+
+<P>The string above has seven characters. For clarity, I have used * instead of a blank space so the total field width is visible on paper.
+
+<BR></P>
+
+<PRE>printf(&quot;%s\n&quot;, $1)
+
+     Example
+
+printf(&quot;%9s\n&quot;, $1)
+
+     **Example
+
+printf(&quot;%-9s\n&quot;, $1)
+
+     Example**
+
+printf(&quot;%.4s\n&quot;, $1)
+
+     Exam
+
+printf(&quot;%9.4s\n&quot;, $1)
+
+     *****Exam
+
+printf(&quot;%-9.4s\n&quot;, $1)
+
+     Exam*****</PRE>
+
+<P>One topic pertaining to printf remains. The function printf was written so that it writes exactly what you tell it to write&#151;and how you want it written, no more and no less. That is acceptable until you realize that you can't enter every character 
+
+you may want to use from the keyboard. Awk uses the same escape sequences found in C for nonprinting characters. The two most important to remember are \n for a carriage return and \t for a tab character.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> There are two ways to print a double quote; neither of which is that obvious. One way around this problem is to use the printf variable by its ASCII value:
+
+<BR>
+
+<BR>doublequote = 34
+
+<BR>printf(&quot;%c&quot;, doublequote)
+
+<BR>
+
+<BR>The other strategy is to use a backslash to escape the default interpretation of the double quote as the end of the string:
+
+<BR>
+
+<BR>printf(&quot;Joe said \&quot;undoubtedly\&quot; and hurried along.\n&quot;)
+
+<BR>
+
+<BR>This second approach doesn't always work, unfortunately.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>Closing Files and Pipes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Unlike most programming languages there is no way to open a file in awk; opening files is implicit. However, you must close a file if you intend to read from it after writing to it. Suppose you enter the command cat file1 &lt; file2 in your awk program. 
+
+Before you can read file2 you must close the pipe. To do this, use the statement close(cat file1 &lt; file2). You may also do the same for a file: close(file2).
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=4><B>Command Line Arguments</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As you have probably noticed, awk presents a programmer with a variety of ways to accomplish the same thing. This section focuses on the command line. You will see how to pass command line arguments to your program from the command line and how to set 
+the value of built-in variables on the command line. A summary of command line options concludes the section.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>Passing Command Line Arguments</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Command line arguments are available in awk through a built-in array called, as in C, ARGV. Again echoing C semantics, the value of the built-in ARGC is one less than the number of command line arguments. Given the command line awk -f <I>programfile 
+infile1</I>, ARGC has a value of 2. ARGV[0] = awk and ARGV[1] = <I>infile1</I>.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The subscripts for ARGV start with 0 not 1.
+
+<BR>
+
+<BR>programfile is not considered an argument&#151;no option argument is. Had -F been in the command line, ARGV would not contain a comma either. Note that this behavior is very different to how argv and argc are interpreted in C programs too.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>Setting Variables on the Command Line</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>It is possible to pass variable values from the command line to your awk program just by stating the variable and its value. For example, for the command line, awk -f <I>programfile infile</I> x=1 FS=,. Normally, command line arguments are filenames, 
+but the equal sign indicates an assignment. This lets variables change value before and after a file is read. For instance, when the input is from multiple files, the order they are listed on the command line becomes very important since the first named 
+input file is the first input read. Consider the command line awk -f program file2 file1 and this program segment.
+
+<BR></P>
+
+<PRE>BEGIN { if ( FILENAME = &quot;foo&quot;) {
+
+               print 'Unexpected input...Abandon ship!&quot;
+
+               exit
+
+      }
+
+      }</PRE>
+
+<P>The programmer has written this program to accept one file as first input and anything else causes the program to do nothing except print the error message.
+
+<BR></P>
+
+<PRE>awk -f program x=1 file1 x=2 file2</PRE>
+
+<P>The change in variable values above can also be used to check the order of files. Since you (the programmer) know their correct order, you can check for the appropriate value of x.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Awk only allows two command line options. The -f option indicates the file containing the awk program. When no -f option is used, the program is expected to be a part of the command line. The POSIX awk 
+
+specification adds the option of using more than one -f option. This is useful when running more than one awk program on the same input. The other option is the -Fchar option where char is the single character chosen as the input field separate. Without a 
+
+specified -F option, the input field separator is a space, until the variable FS is otherwise set.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=4><B>Functions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section discusses user-defined functions, also known in some programming languages as subroutines. For a discussion of functions built into awk see either &quot;Strings&quot; or &quot;Arithmetic&quot; as appropriate.
+
+<BR></P>
+
+<P>The ability to add, define, and use functions was not originally part of awk. It was added in 1985 when awk was expanded. Technically, this means you must use either nawk or gawk, if you intend to write awk functions; but again, since some systems use 
+the nawk implementation and call it awk, check your man pages before writing any code.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Function Definition</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>An awk function definition statement appears like the following:
+
+<BR></P>
+
+<PRE>function <I>functionname</I>(list of parameters) {
+
+     the function body
+
+}</PRE>
+
+<P>A function can exist anywhere a pattern action statement can be. As most of awk is, functions are free format but must be separated with either a semicolon or a newline. Like the action part of a pattern action statement, newlines are optional anywhere 
+
+after the opening curly brace. The list of parameters is a list of variables separated by commas that are used within the function. The function body consists of one or more pattern action statements.
+
+<BR></P>
+
+<P>A function is invoked with a function call from inside the action part of a regular pattern action statement. The left parenthesis of the function call must immediately follow the function name, without any space between them to avoid a syntactic 
+ambiguity with the concatenation operator. This restriction does not apply to the built-in functions.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Parameters</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most function variables in awk are given to the function call by value. Actual parameters listed in the function call of the program are copied and passed to the formal parameters declared in the function. For instance, let's define a new function 
+called isdigit, as shown:
+
+<BR></P>
+
+<PRE>function isdigit(x) {
+
+     x=8
+
+}
+
+{  x=5
+
+   print x
+
+   isdigit(x)
+
+   print x
+
+}</PRE>
+
+<P>Now let's use this simple program:
+
+<BR></P>
+
+<PRE>$ awk -f isdigit.awk
+
+5
+
+5</PRE>
+
+<P>The call isdigit(x) copies the value of x into the local variable x within the function itself. The initial value of x here is five, as is shown in the first print statement, and is not reset to a higher value after the isdigit function is finished. 
+Note that if there was a print statement at the end of the isdigit function itself, however, the value would be eight, as expected. Call by value ensures you don't accidently clobber an important value.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Local variables in a function are possible. However, as functions were not a part of awk until awk was expanded, handling local variables in functions was not a concern. It shows: local variables must be listed in the parameter list and can't just be 
+created as used within a routine. A space separates local variables from program parameters. For example, function isdigit(x a,b) indicates that x is a program parameter, while a and b are local variables; they have life and meaning only as long as isdigit 
+
+is active.
+
+<BR></P>
+
+<P>Global variables are any variables used throughout the program, including inside functions. Any changes to global variables at any point in the program affect the variable for the entire program. In awk, to make a variable global, just exclude it from 
+the parameter list entirely.
+
+<BR></P>
+
+<P>Let's see how this works with an example script:
+
+<BR></P>
+
+<PRE>function isdigit(x) {
+
+     x=8
+
+     a=3
+
+ }
+
+  { x=5 ; a = 2
+
+  print &quot;x = &quot; x &quot; and a = &quot; a
+
+  isdigit(x)
+
+  print &quot;now x = &quot; x &quot; and a = &quot; a
+
+ }</PRE>
+
+<P>The output is:
+
+<BR></P>
+
+<PRE>x = 5 and a = 2
+
+x = 5 and a = 3</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=3><B>Function Calls</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Functions may call each other. A function may also be recursive (that is, a function may call itself multiple times). The best example of recursion is factorial numbers: factorial(n) is computed as n * factorial(n-1) down to n=1, which has a value of 
+one. The value factorial(5) is 5 * 4 * 3 * 2 * 1 = 120 and could be written as an awk program:
+
+<BR></P>
+
+<PRE>function factorial(n) {
+
+  if (n == 1) return 1;
+
+  else return ( n * factorial(n-1) )
+
+}</PRE>
+
+<P>For a more in-depth look at the fascinating world of recursion I recommend you see either a programming or data structures book.
+
+<BR></P>
+
+<P>Gawk follows the POSIX awk specification in almost every aspect. There is a difference, though, in function declarations. In gawk, the word func may be used instead of the word function. The POSIX2 spec mentions that the original awk authors asked that 
+
+this shorthand be omitted, and it is.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>The Return Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A function body may (but doesn't have to) end with a return statement. A return statement has two forms. The statement may consist of the direction alone: return. The other form is return E, where E is some expression. In either case, the return 
+statement gives control back to the calling function. The return E statement gives control back, and also gives a value to the function.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Be careful: if the function is supposed to return a value and doesn't explicitly use the return statement, the results returned to the calling program are undefined.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Let's revisit the isdigit() function to see how to make it finally ascertain whether the given character is a digit or not:
+
+<BR></P>
+
+<PRE>function isdigit(x) {
+
+     if (x &gt;= &quot;0&quot; &amp;&amp; x &lt;= &quot;9&quot;)
+
+          return 1;
+
+     else
+
+          return 0 
+
+}</PRE>
+
+<P>As with C programming, I use a value of zero to indicate false, and a value of 1 indicates true. A return statement often is used when a function cannot continue due to some error. Note also that with inline conditionals&#151;as explained 
+earlier&#151;this routine can be shrunk down to a single line: function isdigit(x) { return (x &gt;= &quot;0&quot; &amp;&amp; x &lt;= &quot;9&quot;) }
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=4><B>Writing Reports</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section discusses writing reports. Before continuing with this section, it would be a good idea to be sure you are familiar with both the UNIX sort command (see section &quot;Sorting Text Files&quot; in Chapter 6) and the use of pipes in UNIX (see 
+
+section &quot;Pipes&quot; in Chapter 4). Generating a report in awk is a sequence of steps, with each step producing the input for the next step. Report writing is usually a three step process: pick the data, sort the data, make the output pretty.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=3><B>BEGIN and END Revisited</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The section on &quot;Patterns&quot; discussed the BEGIN and END patterns as pre- and post-input processing sections of a program. Along with initializing variables, the BEGIN pattern serves another purpose: BEGIN is awk's provided place to print headers 
+
+for reports. Indeed, it is the only chance. Remember the way awk input works automatically. The lines:
+
+<BR></P>
+
+<PRE>{ print &quot;                     Total Sales&quot;
+
+  print &quot;  Salesperson       for the Month&quot;
+
+  print &quot;  &#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&quot; }</PRE>
+
+<P>would print a header for each input record rather than a single header at the top of the report! The same is true for the END pattern, only it follows the last input record. So,
+
+<BR></P>
+
+<PRE>{print &quot;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&quot;
+
+ print &quot;                Total sales&quot;,ttl&quot; }</PRE>
+
+<P>should only be in the END pattern.
+
+<BR></P>
+
+<P>Much better would be:
+
+<BR></P>
+
+<PRE>BEGIN { print &quot;                     Total Sales&quot;
+
+       print &quot;  Salesperson       for the Month&quot;
+
+        print &quot;  &#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&quot; }
+
+{ per person processing statements }
+
+{print &quot;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&quot;
+
+ print &quot;               Total sales&quot;,ttl&quot; }</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=3><B>The Built-in System Function</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>While awk allows you to accomplish quite a few tasks with a few lines of code, it's still helpful sometimes to be able to tie in the many other features of UNIX. Fortunately almost all versions of nawk++ have the built-in function system(value) where 
+value is a string that you would enter from the UNIX command line.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The original awk does NOT have the system function.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The text is enclosed in double quotes and the variables are written using a space for concatenating. For example, if I am making a packet of files to e-mail to someone, and I create a list of the files I wish to send, I put a file list in a file called 
+
+sendrick:
+
+<BR></P>
+
+<PRE>$cat sendrick
+
+/usr/anne/ch1.doc
+
+/usr/informix/program.4gl
+
+/usr/anne/pics.txt</PRE>
+
+<P>then awk can build the concatenated file with:
+
+<BR></P>
+
+<PRE>$ nawk '{system(&quot;cat&quot; $1)}' sendrick &gt; forrick</PRE>
+
+<P>creates a file called forrick containing a full copy of each file. Yes, a shell script could be written to do the same thing, but shell scripts don't do the pattern matching that awk does, and they are not great at writing reports either.
+
+<BR></P>
+
+<P>UNIX users are split roughly in half over which text editor they use&#151;vi or emacs. I began using UNIX and the vi editor, so I prefer vi. The vi editor has no way to set off a block of text and do some operation, such as move or delete, to the block, 
+
+and so falls back on the common measure, the line; a specified number of lines are deleted or copied.
+
+<BR></P>
+
+<P>When dealing with long programs, I don't like to guess about the line numbers in a block_or take the time to count them either! So I have a short script which adds line numbers to my printouts for me. It is centered around the following awk program. See 
+
+file LST15_10 on the CD-ROM.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=4><B>Advanced Concepts</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As you spend more time with awk, you might yearn to explore some of the more complex facets of the programming language. I highlight some of the key ones below.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B>Multi-Line Records</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>By default, the input record separator RS recognizes a newline as the marker between records. As is the norm in awk, this can be changed to allow for multi-line records. When RS is set to the null string, then the newline character always acts as a 
+field separator, in addition to whatever value FS may have.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=3><B>Multidimensional Arrays</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>While awk does not directly support multidimensional arrays, it can simulate them using the single dimension array type awk does support. Why do this? An array may be compared to a bunch of books. Different people access them different ways. Someone who 
+
+doesn't have many may keep them on a shelf in the room&#151;consider this a single dimension array with each book at location[i]. Time passes and you buy a bookcase. Now each book is in location[shelf,i]. The comparison goes as far as you 
+wish&#151;consider the intercounty library with each book at location[branchnum, floor, room, bookcasenum, shelf, i]. The appropriate dimensions for the array depend very much on the type of problem you are solving. If the intercounty library keeps track 
+of all their books by a catalog number rather than location; a single dimension of book[catalog_num] = title makes more sense than location[branchnum, floor, room, bookcasenum, shelf, i] = title. Awk allows either choice.
+
+<BR></P>
+
+<P>Awk stores array subscripts as strings rather than as numbers, so adding another dimension is actually only a matter of concatenating another subscript value to the existing subscript. Suppose you design a program to inventory jeans at Levi's. You could 
+
+set up the inventory so that item[inventorynum]=itemnum or item[style, size, color] = itemnum. The built-in variable SUBSEP is put between subscripts when a comma appears between subscripts. SUBSEP defaults to the value \034, a value with little chance of 
+
+being in a subscript. Since SUBSEP marks the end of each subscript, subscript names do not have to be the same length. For example,
+
+<BR></P>
+
+<PRE>item[&quot;501&quot;,&quot;12w&quot;,&quot;stone washed blue&quot;], 
+
+item[&quot;dockers&quot;,&quot;32m&quot;,&quot;black&quot;]
+
+item[&quot;relaxed fit&quot;, &quot;9j&quot;, &quot;indigo&quot;]</PRE>
+
+<P>are all valid examples of the inventory. Determining the existence of an element is done just as it is for a single dimension array with the addition of parentheses around the subscript. Your program should reorder when a certain size gets low.
+
+<BR></P>
+
+<PRE>if ((&quot;501&quot;,,) in item) print a tag.</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The in keyword is nawk++ syntax.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The price increases on 501s, and your program is responsible for printing new price tags for the items which need a new tag:
+
+<BR></P>
+
+<PRE>for (&quot;501&quot; in item)
+
+     print a new tag.</PRE>
+
+<P>Recall the string function split; split(&quot;501&quot;, ,SUBSEP) will retrieve every element in the array with &quot;501&quot; as its first subscript.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter I have covered the fundamentals of awk as a programming language and as a tool. In the beginning of the chapter I gave an introduction to the key concepts, an overview of what you would need to know to get started writing and using awk. 
+
+I spoke about patterns, a feature that sets awk apart from other programming languages. Two sections were devoted to variables, one on user defined variables and one on built-in variables.
+
+<BR></P>
+
+<P>The later part of the chapter talks about awk as a programming language. I discussed conditional statements, looping, arrays, input output, and user defined functions. I close with a brief section on writing reports.
+
+<BR></P>
+
+<P>The next chapter is about Perl, a language very related to awk.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 15.4. Built-in Variables in Awk</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD COLSPAN=3>
+
+<P><I>V is the first implementation using the variable. A = awk  G = gawk  </I><I>P = POSIX awk  N = nawk</I></P>
+
+<TR>
+
+<TD>
+
+<PRE><I>V Variable</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Meaning</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Default(if any)</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>N ARGC</P>
+
+<TD>
+
+<P>The number of command line arguments</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>N ARGV</P>
+
+<TD>
+
+<P>An array of command line arguments</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>A FS</P>
+
+<TD>
+
+<P>The input field separator</P>
+
+<TD>
+
+<P>space</P>
+
+<TR>
+
+<TD>
+
+<P>A NF</P>
+
+<TD>
+
+<P>The number of fields in the current record</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>G CONVFMT</P>
+
+<TD>
+
+<P>The conversion format for numbers</P>
+
+<TD>
+
+<P>%.6g</P>
+
+<TR>
+
+<TD>
+
+<P>G FIELDWIDTHS</P>
+
+<TD>
+
+<P>A white-space separated</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>G IGNORECASE</P>
+
+<TD>
+
+<P>Controls the case sensitivity</P>
+
+<TD>
+
+<P>zero (case sensitive)</P>
+
+<TR>
+
+<TD>
+
+<P>P FNR</P>
+
+<TD>
+
+<P>The current record number</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>A FILENAME</P>
+
+<TD>
+
+<P>The name of the current input file</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>A NR</P>
+
+<TD>
+
+<P>The number of records already read</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>A OFS</P>
+
+<TD>
+
+<P>The output field separator</P>
+
+<TD>
+
+<P>space</P>
+
+<TR>
+
+<TD>
+
+<P>A ORS</P>
+
+<TD>
+
+<P>The output record separator</P>
+
+<TD>
+
+<P>newline</P>
+
+<TR>
+
+<TD>
+
+<P>A OFMT</P>
+
+<TD>
+
+<P>The output format for numbers</P>
+
+<TD>
+
+<P>%.6g</P>
+
+<TR>
+
+<TD>
+
+<P>N RLENGTH</P>
+
+<TD>
+
+<P>Length of string matched by match function</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>A RS</P>
+
+<TD>
+
+<P>Input record separator</P>
+
+<TD>
+
+<P>newline</P>
+
+<TR>
+
+<TD>
+
+<P>N RSTART</P>
+
+<TD>
+
+<P>Start of string matched by match function</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>N SUBSEP</P>
+
+<TD>
+
+<P>Subscript separator</P>
+
+<TD>
+
+<P>&quot;\034&quot;</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=3><B>Further Reading</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>For further reading:
+
+<BR></P>
+
+<PRE>
+
+<BR>Aho, Alfred V., Brian W. Kernighan and Peter J. Weinberger, The awk Programming Language. Reading, Mass.: Addison-Wesley,1988 (copyright AT&amp;T Bell Lab.)
+
+
+
+<BR>IEEE Standard for Information Technology, Portable Operating System Inferface (POSIX), Part 2: Shell and Utilities, Volume 2. Std. 1003.2-1992. New York: IEEE, 1993.</PRE>
+
+<P>See also the man pages for awk, nawk, or gawk on your system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I74" NAME="I74">
+
+<FONT SIZE=3><B>Obtaining Source Code</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Awk comes in many varieties. I recommend either gawk or nawk. Nawk is the more standard whereas gawk has some non-POSIX extensions not found in nawk. Either version is a good choice.
+
+<BR></P>
+
+<P>To obtain nawk from AT&amp;T: nawk is in the UNIX Toolkit. The dialup number in the United States is 908-522-6900, login as guest.
+
+<BR></P>
+
+<P>To obtain gawk: contact the Free Software Foundation, Inc. The phone number is 617-876-3296.
+
+<BR></P>
+
+<P><A HREF="unxpt3au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt3au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx16.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx16.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

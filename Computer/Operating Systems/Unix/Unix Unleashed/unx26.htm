@@ -1,0 +1,793 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx26.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx27.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx27.htm">
+
+<LINK REL="Previous" HREF="unx25.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx25.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx25.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx25.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx27.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx27.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">26 &#151; Creating Graphs with grap</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">What is grap?</A></LI>
+
+<LI>
+
+<A HREF="#I5">The Basics</A></LI>
+
+<LI>
+
+<A HREF="#I6">Adding Bells, Whistles, and Ticks</A></LI>
+
+<LI>
+
+<A HREF="#I7">Adding Shapes and Other Features</A></LI>
+
+<LI>
+
+<A HREF="#I8">Summary of grap Commands</A></LI>
+
+<LI>
+
+<A HREF="#I9">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>26 &#151; Creating Graphs with </B><B><I>grap</I></B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What is </B><B><I>grap</I></B><B>?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>grap is a troff preprocessor that uses pic to construct different types of graphs. Its use in data analysis is limited. For example, you can use grap to determine whether a population is growing exponentially. grap, then, is used primarily to include 
+graphs in troff documents. Like the other troff preprocessors, it is fussy about syntax. You can't simply sit down and toss off three or four complicated graphs. You have to read the documentation. grap, like pic, faces stiff competition from the PC-based 
+
+packages.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> grap does not provide color or shading.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>The Basics</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One of the more endearing qualities of UNIX is its inconsistency. You would expect the grap macros to be .GS and .GE, and you would be wrong. The grap macros are .G1 and .G2. In addition to these macros, all that grap requires for a primitive graph is 
+some data. Take, for example, the grades on a test:
+
+<BR></P>
+
+<PRE>.G1
+
+75
+
+78
+
+81
+
+52
+
+63
+
+61
+
+70
+
+71
+
+84
+
+58
+
+.G2</PRE>
+
+<P>These dismal grades, after sorting, produce a scatter point graph.
+
+<BR></P>
+
+<P>Because grap has a copy facility similar to that of pic, you can simplify your code even more by putting the data in a separate file. (See Chapter 25.) For example,
+
+<BR></P>
+
+<PRE>.G1
+
+copy &quot;test.scores&quot;
+
+.G2</PRE>
+
+<P>If you want the graph to have a solid line instead of scatter points, simply add a line of code that says draw solid immediately after the .G1 macro.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Adding Bells, Whistles, and Ticks</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can make your graph much more attractive by drawing a frame, adding labels, and specifying ticks. The following code, for example, produces a more sophisticated graph.
+
+<BR></P>
+
+<PRE>frame invis ht 2 wid 3 left solid bot solid
+
+label left &quot;1990&quot; &quot;Dollars&quot; left .5
+
+label bot &quot;Grand Total:  $210,000&quot;
+
+ticks left out at 6000 &quot;6,000&quot;, 9000 &quot;9,000&quot;, 12000 &quot;12,000&quot;, 15000 &quot;15,000&quot;,\
+
+18000 &quot;18,000&quot;, 21000 &quot;21,000&quot;
+
+ticks bot at 1990 &quot;1990&quot;, 1995 &quot;1995&quot;, 2000 &quot;2000&quot;, 2005 &quot;2005&quot;, \
+
+2010 &quot;2010&quot;
+
+draw solid
+
+copy &quot;cost.child&quot;
+
+.G2</PRE>
+
+<P>Here, the frame is shown only on the bottom and left side. The x and y coordinates have labels. Also, the ticks have been specified explicitly; they are not determined by grap.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You can save yourself hours of debugging if you remember that grap doesn't understand commas in large numbers. The ticks left line above specifies 9000 &quot;9,000&quot;. The commas are safely isolated 
+
+in labels specified in quotation marks. The grap specifications themselves contain no commas.
+
+<BR>
+
+<BR>The data file&#151;in this case, cost.child&#151;also must contain no commas.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Earlier versions of grap may not recognize the abbreviation bot for bottom.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can specify ticks as out. This means that the ticks themselves, but not their labels, appear outside the grap frame. You can also specify ticks as in, in which case they appear inside the frame.
+
+<BR></P>
+
+<P>If there are too many dates to fit across the bottom of a graph, you might want to use apostrophes in the labels, as in '10, '20, and '30. To do this, you must tell grap that your label is a literal. (This is what C programmers have to do all the time.) 
+
+If you want to specify the first and last dates in full, you need to use two tick lines. The following code, for example, produces bottom labels of 1900, '05, '10, '15, and so on, up to 1950:
+
+<BR></P>
+
+<PRE>ticks bottom out at 0 &quot;1900&quot;, 50 &quot;1950&quot;
+
+ticks bottom out from 05 to 45 by 5 &quot;'%g&quot;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To suppress tick labels, use a null argument (&quot;&quot;).
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Notice the words at 0 in the previous example. grap recognizes x,y coordinates, and unlike pic, it understands that 0,0 is the intersection of the x and y axes. To use coordinates, you use the coord command, as in
+
+<BR></P>
+
+<PRE>coord x first-value, y last-value</PRE>
+
+<P>Without the coord command, grap automatically pads your first and last values, giving you blank space at the beginning and at the end of your graph. coord suppresses padding.
+
+<BR></P>
+
+<P>Likewise, use coord if you want an exponential graph rather than a linear graph.
+
+<BR></P>
+
+<P>You can plot the figures for low-income and high-income families on the graph shown in Figure 26.1.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="26unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/26unx01.gif">Figure 26.1. The cost of raising a child, by income </B><B>level.</A></B>
+
+<BR></P>
+
+<P>The following code produced Figure 26.1.
+
+<BR></P>
+
+<PRE>.G1
+
+frame invis ht 2 wid 3 left solid bottom solid
+
+label left &quot;1990&quot; &quot; Dollars&quot; left .4
+
+&quot;High&quot; ljust at 2008,27000
+
+&quot;Middle&quot; ljust at 2008,20000
+
+&quot;Low&quot; ljust at 2008,14000
+
+ticks left out at 3000 &quot;3,000&quot;, 6000 &quot;6,000&quot;,\
+
+9000 &quot;9,000&quot;, 12000 &quot;12,000&quot;, 15000 &quot;15,000&quot;,\
+
+18000 &quot;18,000&quot;, 21000 &quot;21,000&quot;, 24000 &quot;24,000&quot;,\27000 &quot;27,000&quot;, 30000 &quot;30,000&quot;
+
+ticks bottom at 1990 &quot;1990&quot;, 1995 &quot;1995&quot;, 2000 &quot;2000&quot;, 2005 &quot;2005&quot;, 2010 &quot;2010&quot;
+
+copy &quot;cost2.child&quot;
+
+draw dotted
+
+copy &quot;cost.child&quot;
+
+new solid
+
+copy &quot;cost3.child&quot;
+
+new dashed
+
+.G2</PRE>
+
+<P>The data file is formatted like this:
+
+<BR></P>
+
+<PRE>1990     4330
+
+1991     4590
+
+1992     4870
+
+1993     5510
+
+1994     5850
+
+1995     6200
+
+1996     6550
+
+1997     6859
+
+1998     7360
+
+1999     7570
+
+2000     8020
+
+2001     8500
+
+2002     10360
+
+2003     10980
+
+2004     11640
+
+2005     13160
+
+2006     13950
+
+2007     14780</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> grap doesn't care whether you separate data columns with a space or a tab so long as you're consistent.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Adding Shapes and Other Features</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>grap does more than just draw lines. It can print a grid. It can draw a circle, ellipse, or arrow. In fact, grap can draw just about anything that pic can.
+
+<BR></P>
+
+<P>grap has a macro facility just like that of pic:
+
+<BR></P>
+
+<PRE>define name X commands X</PRE>
+
+<P>For the delimiter, you can use any character that isn't in the command text. You can also use braces. grap permits up to nine arguments, just as pic does.
+
+<BR></P>
+
+<P>In addition to data explicitly specified in a file, grap works with functions that more or less describe the data. The following code, for example, produces a sine curve:
+
+<BR></P>
+
+<PRE>frame ht 1 wid 3
+
+draw solid
+
+pi=atan2(0,-1)
+
+for i from 0 to 2*pi by .1 do { next at i, sin(i) }</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Summary of </B><B><I>grap </I></B><B>Commands</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Table 26.1 summarizes the grap commands. Square brackets indicate that an argument is optional. A pipe between arguments means that you must use only one of the arguments.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 26.1. Summary of </B><B>grap</B><B> commands.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Syntax</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>frame</P>
+
+<TD>
+
+<P>frame [ht <I>expr</I>] [wid <I>expr</I>] [[<I>side</I>] [<I>descr</I>]]</P>
+
+<TD>
+
+<P>Specifies the dimensions for the frame drawn around the graph</P>
+
+<TR>
+
+<TD>
+
+<P>side</P>
+
+<TD>
+
+<P>top|bot|right|left</P>
+
+<TD>
+
+<P>Refers to the frame</P>
+
+<TR>
+
+<TD>
+
+<P>descr</P>
+
+<TD>
+
+<P>solid|invis|dotted|dashed</P>
+
+<TD>
+
+<P>Describes the lines used to draw the frame. You can control dotting and dashing by specifying the distance between dots or the length of and distance between dashes.</P>
+
+<TR>
+
+<TD>
+
+<P>label</P>
+
+<TD>
+
+<P>side list</P>
+
+<TD>
+
+<P>Specifies the placement of and the text for labels</P>
+
+<TR>
+
+<TD>
+
+<P>shift</P>
+
+<TD>
+
+<P>left|right|up|down <I>expr</I></P>
+
+<TD>
+
+<P>Specifies the shift</P>
+
+<TR>
+
+<TD>
+
+<P>list</P>
+
+<TD>
+
+<P>rjust|ljust, above|below, size <I>expr</I></P>
+
+<TD>
+
+<P>Encloses items in quotation marks. You can modify the placement. size <I>expr</I> reduces the point size. This is useful for labels or for putting words or symbols in the graph itself.</P>
+
+<TR>
+
+<TD>
+
+<P>coord</P>
+
+<TD>
+
+<P>coord [<I>name</I>]<I> </I>[x<I> expr,expr</I>] [y<I> expr,expr</I>] [log x|log y|log log]</P>
+
+<TD>
+
+<P>Specifies points on a graph and suppresses padding</P>
+
+<TR>
+
+<TD>
+
+<P>ticks</P>
+
+<TD>
+
+<P>ticks [<I>side</I>] in|out</P>
+
+<TD>
+
+<P>Specifies ticks on the side(s) of graph. The ticks can be inside or outside the frame.</P>
+
+<TR>
+
+<TD>
+
+<P>grid</P>
+
+<TD>
+
+<P>grid side [descr]</P>
+
+<TD>
+
+<P>Draws a grid with solid, dotted, dashed lines</P>
+
+<TR>
+
+<TD>
+
+<P>point</P>
+
+<TD>
+
+<P>[<I>name</I>] <I>expr</I>, <I>expr</I></P>
+
+<TD>
+
+<P>Identify a point in a graph</P>
+
+<TR>
+
+<TD>
+
+<P>line</P>
+
+<TD>
+
+<P>line|arrow from <I>point</I> to <I>point</I> [descr]</P>
+
+<TD>
+
+<P>Draws a line (solid, dashed, dotted, and so on)</P>
+
+<TR>
+
+<TD>
+
+<P>circle</P>
+
+<TD>
+
+<P>circle at <I>point</I> [radius <I>expr</I>]</P>
+
+<TD>
+
+<P>Draws a circle</P>
+
+<TR>
+
+<TD>
+
+<P>draw</P>
+
+<TD>
+
+<P>draw [<I>name</I>] descr</P>
+
+<TD>
+
+<P>Draws a graph (solid, dotted, dashed, and so on)</P>
+
+<TR>
+
+<TD>
+
+<P>new</P>
+
+<TD>
+
+<P>new [<I>name</I>]</P>
+
+<TD>
+
+<P>Draws a new graph in the same frame</P>
+
+<TR>
+
+<TD>
+
+<P>next</P>
+
+<TD>
+
+<P>next <I>name</I> at <I>point</I></P>
+
+<TD>
+
+<P>Continues plot of data in <I>name</I> at <I>point</I>. Default is current position.</P>
+
+<TR>
+
+<TD>
+
+<P>for</P>
+
+<TD>
+
+<P>for <I>var</I> from <I>expr</I> to <I>expr</I> [by <I>expr</I>]</P>
+
+<TD>
+
+<P>Looping function for grap</P>
+
+<TR>
+
+<TD>
+
+<P>if</P>
+
+<TD>
+
+<P>if <I>expr</I> then X <I>anything</I> X else X <I>anything</I> X</P>
+
+<TD>
+
+<P>Conditional statement for grap</P>
+
+<TR>
+
+<TD>
+
+<P>graph</P>
+
+<TD>
+
+<P>graph <I>Picname</I></P>
+
+<TD>
+
+<P>Labels a graph. The label must start with an uppercase letter.</P>
+
+<TR>
+
+<TD>
+
+<P>define</P>
+
+<TD>
+
+<P>define <I>name</I> X <I>commands</I> X</P>
+
+<TD>
+
+<P>Defines a macro</P>
+
+<TR>
+
+<TD>
+
+<P>copy</P>
+
+<TD>
+
+<P>copy &quot;<I>filename</I>&quot;</P>
+
+<TD>
+
+<P>Copies the specified file into the graph file. copy is used for data files.</P>
+
+<TR>
+
+<TD>
+
+<P>sh</P>
+
+<TD>
+
+<P>sh X <I>anything</I> X</P>
+
+<TD>
+
+<P>Executes a shell command from within grap</P>
+
+<TR>
+
+<TD>
+
+<P>pic</P>
+
+<TD>
+
+<P>pic <I>anything</I></P>
+
+<TD>
+
+<P>Draws a pic construct from within grap</P>
+
+<TR>
+
+<TD>
+
+<P>assignment</P>
+
+<TD>
+
+<P><I>var</I> = <I>expr</I></P>
+
+<TD>
+
+<P>Assigns a value to a variable</P></TABLE>
+
+<P>In addition to the commands listed in Table 26.1, grap provides for predefined strings and built-in functions.
+
+<BR></P>
+
+<P>Predefined strings include bullet, plus, box, star, dot, times, htick, vtick, square, and delta.
+
+<BR></P>
+
+<P>Built-in functions include log (base 10), exp (base 10), int, sin, cos, atan2, sqrt, min, max, and rand.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>grap gives you a quick and relatively easy way of inserting graphs into memos or other text files. It can produce line and bar graphs, but no pie charts, no color, and no shading. Nevertheless, grap can be a useful tool. Like pic, grap is 
+system-sensitive, so allow time for debugging.
+
+<BR></P>
+
+<P><A HREF="unx25.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx25.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx27.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx27.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

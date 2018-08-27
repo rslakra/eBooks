@@ -1,0 +1,1486 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx14.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt3au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt3au.htm">
+
+<LINK REL="Previous" HREF="unx13.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx13.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx13.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx13.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt3au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt3au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">14</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Which Shell Is Right for You? Shell Comparison</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">Interactive</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Bourne Shell</A></LI>
+
+<LI>
+
+<A HREF="#I6">C Shell</A></LI>
+
+<LI>
+
+<A HREF="#I7">Korn Shell</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">Shell Scripts for Personal Use</A></LI>
+
+<LI>
+
+<A HREF="#I9">Shell Scripts for Public Consumption</A></LI>
+
+<LI>
+
+<A HREF="#I10">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>14</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Which Shell Is Right for You? Shell Comparison</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<P>Most contemporary versions of UNIX provide all three shells&#151;the Bourne shell, C shell, and Korn shell&#151;as standard equipment. Choosing the right shell to use is an important decision because you will spend considerable time and effort learning 
+
+to use a shell, and more time actually using it. The right choice will allow you to benefit from the many powerful features of UNIX with a minimum of effort. This chapter is intended to assist you in making that choice by drawing your attention to specific 
+
+features of each shell.
+
+<BR></P>
+
+<P>Of course, no one shell is best for all purposes. If you have a choice of shells, then you need to learn how to choose the right shell for the job.
+
+<BR></P>
+
+<P>The shell has three main uses:
+
+<BR></P>
+
+<OL>
+
+<LI>As a keyboard interface to the operating system
+
+<BR>
+
+<BR></LI>
+
+<LI>As a vehicle for writing scripts for your own personal use
+
+<BR>
+
+<BR></LI>
+
+<LI>As a programming language to develop new commands for others
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Each of these three uses places different demands on you and on the shell you choose. Furthermore, each of the shells provides a different level of support for each use. This chapter describes the advantages and disadvantages each shell brings to the 
+three kinds of tasks you can perform with it.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Interactive</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The first point to keep in mind when choosing a shell for interactive use is that your decision affects no one but yourself. This gives you a great deal of freedom: you can choose any of the three shells without consideration for the needs and wishes of 
+
+others. Only your own needs and preferences will matter.
+
+<BR></P>
+
+<P>The principal factors that will affect your choice of an interactive shell are as follows:
+
+<BR></P>
+
+<UL>
+
+<LI>Learning. It is a lamentable fact of life that as the power and flexibility of a tool increases, it becomes progressively more difficult to learn how to use it. The much-maligned VCR, with its proliferation of convenience features, often sits with its 
+
+clock unset as silent testimony. So too it is with UNIX shells. There is a progression of complexity from the Bourne shell, to the C shell, to the Korn shell, with each adding features, shortcuts, bells and whistles to the previous. The cost of becoming a 
+
+master is extra time spent learning and practicing. You'll have to judge whether you'll really use those extra features enough to justify the learning time. Keep in mind though that all three shells are relatively easy to learn at a basic level.
+
+<BR>
+
+<BR></LI>
+
+<LI>Command editing. The C shell and the Korn shell offer features to assist with redisplaying and reusing previous commands; the Bourne shell does not. The extra time savings you can realize from the C shell or the Korn shell command editing features 
+depends greatly on how much you use the shell. Generations of UNIX users lived and worked before the C and Korn shells were invented, demonstrating that the Bourne shell is eminently usable, just not as convenient for the experienced, well-practiced C 
+shell or Korn shell user.
+
+<BR>
+
+<BR></LI>
+
+<LI>Wildcards and shortcuts. Once again, your personal productivity (and general peace of mind) will be enhanced by a shell that provides you with fast ways to do common things. Wildcards and command aliases can save you a great deal of typing if you enter 
+
+many UNIX commands in the course of a day.
+
+<BR>
+
+<BR></LI>
+
+<LI>Portability. If you will sit in front of the same terminal every day, use the same UNIX software and applications for all your work, and rarely if ever have to deal with an unfamiliar system, then, by all means choose the best tools that your system 
+has available. If you need to work with many different computers running different versions of UNIX, as system and network administrators often must, you may need to build a repertoire of tools (shell, editor, and so on) that are available on most or all 
+of the systems you'll use. Don't forget that being expert with a powerful shell won't buy you much if that shell isn't available. For some UNIX professionals, knowing a shell language that's supported on all UNIX systems is more important than any other 
+consideration.
+
+<BR>
+
+<BR></LI>
+
+<LI>Prior experience. Prior experience can be either a plus or a minus when choosing a shell. For example, familiarity with the Bourne shell is an advantage when working with the Korn shell, which is very similar to the Bourne shell, but somewhat of a 
+disadvantage when working with the C shell, which is very different. Don't let prior experience dissuade you from exploring the benefits of an unfamiliar shell.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Table 14.1 rates the three shells using the preceding criteria, assigning a rating of 1 for best choice, 2 for acceptable alternative, and 3 for poor choice.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 14.1. Ranking of shells for interactive use.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Shell</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Learning</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Editing</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Shortcuts</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Portability</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Experience</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Bourne</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>3</P>
+
+<TD>
+
+<P>3</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>3</P>
+
+<TR>
+
+<TD>
+
+<P>C</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>3</P>
+
+<TD>
+
+<P>2</P>
+
+<TR>
+
+<TD>
+
+<P>Korn</P>
+
+<TD>
+
+<P>3</P>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>2</P>
+
+<TD>
+
+<P>1</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Bourne Shell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>I rated the Bourne shell as your best choice for learning because it is the simplest of the three to use, with the fewest features to distract you and the fewest syntax nuances to confuse you. If you won't be spending a lot of time using a command shell 
+
+with UNIX, then by all means develop some proficiency with the Bourne shell. You'll be able to do all you need to, and the productivity benefits of the other shells aren't important for a casual user. Even if you expect to use a UNIX command shell 
+frequently, you might need to limit your study to the Bourne shell if you need to become effective quickly.
+
+<BR></P>
+
+<P>I rated the Bourne shell as lowest in the productivity categories because it has no command editor and only minimal shortcut facilities. If you have the time and expertise to invest in developing your own shell scripts, you can compensate for many of 
+the Bourne shell deficiencies, as many shell power users did in the years before the C shell and the Korn shell were invented. Even so, the lack of command editing and command history facilities means you'll spend a lot of time retyping and repairing 
+commands. For intensive keyboard use, the Bourne shell is the worst of the three. If you have any other shell, you'll prefer it over the Bourne shell.
+
+<BR></P>
+
+<P>The C shell and the Korn shell were invented precisely because of the Bourne shell's low productivity rating. They were both targeted specifically to creating a keyboard environment that would be friendlier and easier to use than the Bourne shell, and 
+they are here today only because most people agree that they're better.
+
+<BR></P>
+
+<P>However, portability concerns might steer you toward the Bourne shell despite its poor productivity rating. Being the oldest of the three shells (it was written for the very earliest versions of UNIX), the Bourne shell is available virtually everywhere. 
+
+If you can get your job done using the Bourne shell, you can do it at the terminal of virtually any machine anywhere. This is not the case for the C and Korn shells, which are available only with particular vendors' systems or with current UNIX releases.
+
+<BR></P>
+
+<P>I gave the Bourne shell a rating of 3 for prior experience because prior experience using the Bourne shell is no reason to continue using it. You can use the Korn shell immediately with no additional study and no surprises, and you can gradually enhance 
+
+your keyboard skills as you pick up the Korn shell extensions. If you have access to the Korn shell, you have no reason not to use it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>C Shell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The C shell rates a 2 for learning difficulty, based simply on the total amount of material available to learn. The C shell falls between the Bourne shell and the Korn shell in the number and complexity of its facilities. Make no mistake&#151;the C 
+shell can be tricky to use, and some of its features are rather poorly documented. Becoming comfortable and proficient with the C shell takes time, practice, and a certain amount of inventive experimentation. Of course, when compared to the Bourne shell 
+only on the basis of common features, the C shell is no more complex, just different.
+
+<BR></P>
+
+<P>The C shell rates a passing nod for command editing because it doesn't really have a command editing feature. Its history substitution mechanism is complicated to learn and clumsy to use, but it is better than nothing at all. Just having a command 
+history and history substitution mechanism is an improvement over the Bourne shell, but the C Shell is a poor second in comparison to the simple and easy command editing of the Korn shell.
+
+<BR></P>
+
+<P>With the Korn shell, you can reuse a previously entered command, even modify it, just by recalling it (Esc-k if you're using the vi option) and overtyping the part you want to modify. With the C shell, you can also reuse a previous command, but you have 
+
+five different forms for specifying the command name (!!, !11, !-5, !vi, or !?vi?), additional forms for selecting the command's arguments (:0, :^, :3-5, :-4, :*, to name a few), and additional modifiers for changing the selected argument (:h, :s/old/new/, 
+
+and so forth). Even remembering the syntax of command substitution is difficult, not to speak of using it.
+
+<BR></P>
+
+<P>On the other hand, if you like to use wildcards, you'll find that the C shell wildcard extensions for filenames are easier to use&#151;they require less typing and have a simpler syntax&#151;than the Korn shell wildcard extensions. Also, its cd command 
+
+is a little more flexible. The pushd, popd, and dirs commands are not directly supported by the Korn shell (although they can be implemented in the Korn shell by the use of aliases and command functions). Altogether, the C shell rates at the top of the 
+heap in terms of keyboard shortcuts available, perhaps in compensation for its only moderately successful command editing. Depending on your personal mental bent, you might find the C shell the most productive of all three shells to use. We have seen that 
+
+those already familiar with the C shell have not been drawn away in droves by the Korn shell in the past.
+
+<BR></P>
+
+<P>For portability considerations, the C shell ranks at the bottom, simply because it's a unique shell language. If you know only the C shell, and the particular system you're using doesn't have it, you're out of luck. A C shell user will almost always 
+feel all thumbs when forced to work with the Bourne shell, unless she is bilingual and knows the vagaries and peculiarities of both.
+
+<BR></P>
+
+<P>The C shell gets a 2 for prior experience. If you already know it and want to continue using it, I see no compelling reason why you shouldn't. On the other hand, you may be missing a good bet if you decide to ignore the Korn shell. Unless you feel quite 
+
+comfortable with the C shell's history substitution feature and use it extensively to repair and reuse commands, you might find the Korn shell's command editing capability well worth the time and effort to make the switch. Anyone accustomed to using the 
+Korn shell's command editing capability feels unfairly treated when deprived of it&#151;it's that good. If you haven't already experimented with the Korn shell and you have the chance, I would strongly recommend spending a modest amount of time gaining 
+enough familiarity with it to make an informed choice. You might be surprised.
+
+<BR></P>
+
+<P>Altogether, the C shell is a creditable interactive environment with many advantages over its predecessor, the Bourne shell, and it is not clear that the Korn shell is a compelling improvement. Personal preference has to play a role in your choice here. 
+
+However, if you're new to UNIX, the C shell is probably not the best place for you to start.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Korn Shell</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In terms of time and effort required to master it, the Korn shell is probably the least attractive. That's not because it's poorly designed or poorly documented, but merely because it has more complex features than either of the other two shells. Of 
+course, you don't have to learn everything before you can begin using it. The Korn shell can be much like good music and good art, always providing something new for you to learn and appreciate.
+
+<BR></P>
+
+<P>For productivity features, the Korn shell is arguably the best of the three shells. Its command editor interface enables the quick, effortless correction of typing errors, plus easy recall and reuse of command history. It's hard to imagine how the 
+command line interface of the Korn shell could be improved without abandoning the command line altogether.
+
+<BR></P>
+
+<P>On the down side, the Korn shell provides equivalents for the C shell's wildcard extensions, but with a complicated syntax that makes the extensions hard to remember and hard to use. You can have the pushd, popd directory interface, but only if you or 
+someone you know supplies the command aliases and functions to implement them. The ability to use a variable name as an argument to cd would have been nice, but you don't get it. The Korn shell's command aliasing and job control facilities are nearly 
+identical to those of the C shell. From the point of view of keyboard use, the Korn shell stands out over the C shell only because of its command editing feature. In other respects, its main advantage is that it provides the C shell extensions in a shell 
+environment compatible with the Bourne shell; if Bourne shell compatibility doesn't matter to you, then the Korn shell might not either.
+
+<BR></P>
+
+<P>Speaking of Bourne shell compatibility, the Korn shell rates a close second to the Bourne shell for portability. If you know the Korn shell language, you already know the Bourne shell, because ksh is really a superset of sh syntax. If you're familiar 
+with the Korn shell, you can work reasonably effectively with any system having either the Bourne or Korn shells, which amounts to virtually one hundred percent of the existing UNIX computing environments.
+
+<BR></P>
+
+<P>Finally, in terms of the impact of prior experience, the Korn shell gets an ambiguous rating of 2. If you know the Bourne shell, you'll probably want to beef up your knowledge by adding the extensions of the Korn shell and switching your login shell to 
+
+ksh. If you already know ksh, you'll probably stick with it. If you know csh, the advantages of ksh may not be enough to compel you to switch.
+
+<BR></P>
+
+<P>If you're a first-time UNIX user, the Korn shell is the best shell for you to start with. The complexities of the command editing feature will probably not slow you down much; you'll use the feature so heavily its syntax will become second nature to you 
+
+before very long.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Shell Scripts for Personal Use</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you develop any shell scripts for your personal use, you'll probably want to write them in the same shell language you use for interactive commands. As for interactive use, the language you use for personal scripts is largely a matter of personal 
+choice.
+
+<BR></P>
+
+<P>If you use either the C shell or the Korn shell at the keyboard, you might want to consider using the Bourne shell language for shell scripts, for a couple of reasons. First, personal shell scripts don't always stay personal; they have a way of evolving 
+
+over time and gradually floating from one user to another until the good ones become de facto installation standards. As you'll learn in the section titled &quot;Shell Scripts for Public Consumption,&quot; writing shell scripts in any language but the 
+Bourne shell is somewhat risky because you limit the machine environments and users who can use your script. Of course, for the truly trivial scripts, containing just a few commands that you use principally as an extended command abbreviation, portability 
+
+concerns are not an issue.
+
+<BR></P>
+
+<P>If you're not an experienced UNIX user and shell programmer, you probably know only one of the three shell languages. Writing short, simple shell scripts to automate common tasks is a good habit and a good UNIX skill. To get the full benefit of the UNIX 
+
+shells, you almost have to develop some script writing capability. This will happen most naturally if you write personal scripts in the same language that you use at the keyboard.
+
+<BR></P>
+
+<P>For purposes of comparison, Table 14.2 describes the shell features that are available in only one or two of the three shells.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 14.2. Nonportable shell features.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Feature</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>sh</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>csh</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>ksh</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Arithmetic expressions</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>Array variables</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>Assignment id=string</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>case statement</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>cdpath searches</P>
+
+<TD>
+
+<P>SysV</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>clobber option</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>Command aliases</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>echo -n option</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>export command</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>foreach statement</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>getopts built-in command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>glob command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Hash table problems, rehash and unhash commands</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Job control (bg, fg, ...)</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>let command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>limit, unlimit commands</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>nice shell built-in</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>nohup shell built-in</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>notify shell built-in</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>onintr command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>print command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>pushd, popd commands</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>RANDOM shell variable</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>repeat shell built-in</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>select statement</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>setenv, unsetenv commands</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>SHELL variable specifies command to execute scripts</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>switch statement</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>until statement</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>set -<I>x</I></P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>set optionname</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>Set-uid scripts</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>Shell functions</P>
+
+<TD>
+
+<P>SysV</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>Substring selectors :<I>x</I></P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>trap command</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>typeset command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>ulimit command</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>Undefined variable is an error</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>! special character</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>@ command</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>*(...) wildcards</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>$(...) command expression</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>{...} wildcards</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P>
+
+<TR>
+
+<TD>
+
+<P>|&amp; coprocessing</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TR>
+
+<TD>
+
+<P>&gt;&amp; redirection</P>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>-</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  In the preceding table, SysV indicates the feature is available in the Bourne shell only for System V variants; it is not a feature of the Version 7 shell or the BSD implementation of sh. The Version 
+
+7 implementation of sh may entail restrictions not reflected in this table.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Shell Scripts for Public Consumption</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Shell scripts developed for public consumption, whether as some or all the commands of a system, or as installation standard commands for using system facilities, should be designed for enduring portability.
+
+<BR></P>
+
+<P>Shell scripts developed for public use are almost always written in the Bourne shell language. Although there is a tendency today to write such scripts in the Korn shell language, people who do so realize they're taking a risk, albeit a modest one.
+
+<BR></P>
+
+<P>Some versions of UNIX allow you to specify the shell interpreter to use for a given script file by embedding a special command as the first line of the script: #! /bin/sh as the first line of a script would, on most modern UNIX systems, force the use of 
+
+the Bourne shell to execute the script file. This is a handy device to allow you to develop scripts in the shell language of your choice, while also allowing users to avail themselves of the script regardless of their choice of an interactive shell. 
+However, the #! device is not available on all versions of UNIX.
+
+<BR></P>
+
+<P>Shell scripts written in the C shell or the Korn shell language require that the operating system include the corresponding shell, either csh or ksh. Not all systems meet this requirement, and if portability among several platforms or between current 
+and future platforms is a consideration (that is, if you're writing a script to be used by anyone anywhere, both now and years from now), common sense and reasonable prudence dictate that you avoid C shell and Korn shell syntax constructs in your script.
+
+<BR></P>
+
+<P>True portability also limits your use of UNIX commands and command options inside your shell script. Some versions of UNIX, especially the implementation by IBM, offer many new command options on many commands, leading the unwary into developing shell 
+scripts that can run only under the IBM implementation of UNIX. Other versions of UNIX, such as ULTRIX and XENIX, support only the old-fashioned command library, along with some local peculiarities. If you're truly interested in developing portable 
+programs and shell scripts, you should make use of the POSIX and X/Open compatibility guidelines, which describe only commands and command options that are generally available on most UNIX operating system implementations.
+
+<BR></P>
+
+<P>Even the dialect of the Bourne shell you use can be a portability consideration. For example, on ULTRIX systems, the command sh supplies only UNIX Version 7 functionality; you have to invoke the command sh5 to run a System V compatible Bourne shell.
+
+<BR></P>
+
+<P>Because perfect portability is, like Scotty's transporter, simply not obtainable in the twentieth century, a further application of common sense dictates that the level of effort you invest in portable programming be suitable to the job at hand. You 
+might want to adopt guidelines somewhat like the following:
+
+<BR></P>
+
+<UL>
+
+<LI>For really important projects, choose any shell language (or other tool) you want&#151;your choice simply becomes another requirement for installation and use of the system. (Don't forget to tell your user community of such requirements.)
+
+<BR>
+
+<BR></LI>
+
+<LI>If your shell script might enter the public domain, restrict yourself to the Bourne shell language, and assume a System V Release 1 environment. This provides you with a great many tools but also suits your application to the vast majority of 
+contemporary UNIX installations.
+
+<BR>
+
+<BR></LI>
+
+<LI>If your shell script is targeted for use at your local installation, choose either the Bourne or the Korn shell language. Use the Korn shell if you feel you need its features, but do not use it gratuitously or casually. The odds are heavily in your 
+favor that any future operating system releases or vendor changes will still support your shell script.
+
+<BR>
+
+<BR></LI>
+
+<LI>If your project must meet certain stated compatibility goals (for example, you must support the XENIX machines running at three offices out in Podunk, Nebraska), then by all means adjust your project to meet those goals. There will still be aspects of 
+
+your project where no stated goals apply. In those cases, choose the level of generality and portability that you (or your project timetable) can afford.
+
+<BR>
+
+<BR></LI>
+
+<LI>In all other cases, choose the tools and languages that you feel permit the most effective, trouble-free, user friendly implementation you can devise, and don't forget to maximize your own productivity and effectiveness.
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Selecting a shell for use at the keyboard, as an interactive command line processor, is a relatively straightforward task, once you realize that your choice does not affect others. If you are new to UNIX, you should consider using the Korn shell because 
+
+its built-in command editing feature can significantly increase productivity. Users accustomed to the C shell are also advised to investigate the Korn shell, for the same reason.
+
+<BR></P>
+
+<P>Familiarity with the Bourne shell and its capabilities and restrictions is essential for individuals who must work with a variety of UNIX systems or with the general UNIX public. It is the only shell that is universally available under all 
+implementations of the UNIX operating system.
+
+<BR></P>
+
+<P>For daily keyboard use, both the C shell and the Korn shell appear to be viable alternatives. The Bourne shell is not a good choice when either of the other two shells is available because its lack of features, especially command history and command 
+editing, degrade personal productivity.
+
+<BR></P>
+
+<P>Choosing a shell for writing scripts is, however, a different matter entirely.
+
+<BR></P>
+
+<P>Writing shell scripts is a difficult job because it is programming, and as everyone has learned by now, computer programming is not well suited to the human psyche or talents. The need for tools to make the job easier, to catch your mistakes, and to 
+make the best use of your time draws you in the direction of using the most powerful, flexible tools available. If UNIX users had given in to this temptation in the past, seventy percent or more of all existing shell scripts would be written in the C shell 
+
+language, and all new scripts being written today would be written in the Korn shell language. The temptation, however, is a siren song, and you should allow yourself the weakness of giving in to it only when the cost is small.
+
+<BR></P>
+
+<P>Both the C shell and Korn shell offer tools to the script writer that are hard to do without, such as simplified syntax for command substitutions, array variables, variable arithmetic and expressions, and better structured commands such as select. 
+Because these tools are so helpful, they should be used for any work intended only for personal consumption. They should also be preferred for location-specific projects, where the environment can be predicted reasonably accurately. However, for shell 
+scripts claiming a wider audience, the Bourne shell still serves as the lingua franca of the UNIX world and will for some time to come.
+
+<BR></P>
+
+<P>The script writer who cannot anticipate the hardware and software environment must consider the choice of commands and command options used in the script as well as the shell language. A few environments offer a wider variety of commands and command 
+options than most, and some UNIX versions omit some of the conventional UNIX runtime features. For most purposes, an implementation compatible with UNIX System V Release 1 can be considered as a minimum portability base. In situations where portability is 
+
+especially important, the POSIX and X/Open standards should be consulted as guides to available operating system features and capabilities, rather than the vendor's manuals.
+
+<BR></P>
+
+<P>Shell programming can be as simple or as complex as you wish it to be. The C shell and the Korn shell are sufficiently sophisticated to permit the implementation of many programs as shell scripts that in the past would have been implemented in the C 
+programming language. The use of shell scripts has also become popular as a prototyping and rapid development method. Indeed, a meaningful and significant amount of programming can be performed even on UNIX not having  a compiled programming language.
+
+<BR></P>
+
+<P>It would seem that, while one shell can be chosen for customary use at the keyboard, the choice of a shell environment for writing shell scripts needs to be reconsidered for each project.
+
+<BR></P>
+
+<P><A HREF="unx13.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx13.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt3au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt3au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,1717 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx04.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx05.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx05.htm">
+
+<LINK REL="Previous" HREF="unx03.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx03.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx03.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx03.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx05.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx05.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">4 &#151; Listing Files</A></LI>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Listing Files and Directories: ls Revisited</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">ls The Short and Long of It</A></LI></UL>
+
+<LI>
+
+<A HREF="#I5">Other ls Options</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Showing Hidden Files with -a</A></LI>
+
+<LI>
+
+<A HREF="#I7">Showing File Types with -F</A></LI>
+
+<LI>
+
+<A HREF="#I8">Listing Files Whose Names Contain Nonprintable Characters with -q</A></LI>
+
+<LI>
+
+<A HREF="#I9">Other Useful ls Options</A></LI></UL>
+
+<LI>
+
+<A HREF="#I10">Using Metacharacters When Referring to Filenames</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">Pattern Matching on a Single Character</A></LI>
+
+<LI>
+
+<A HREF="#I12">Pattern Matching on a Group of Characters</A></LI>
+
+<LI>
+
+<A HREF="#I13">Pattern Matching on Character Sets</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">How File Substitution Works</A></LI>
+
+<LI>
+
+<A HREF="#I15">The find Command</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Search Criteria</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">Finding Files with a Specific Name: -name fname</A></LI>
+
+<LI>
+
+<A HREF="#I18">Locating Files of a Specific Size: -size n</A></LI>
+
+<LI>
+
+<A HREF="#I19">Locating Files of a Specific Size: -size n</A></LI>
+
+<LI>
+
+<A HREF="#I20">Displaying the Path Names of Found Files: -print</A></LI>
+
+<LI>
+
+<A HREF="#I21">Executing a UNIX Command on the Found Files: -exec cmd \;</A></LI>
+
+<LI>
+
+<A HREF="#I22">Executing a UNIX Command on Found Files, But Querying First: -ok cmd \;</A></LI>
+
+<LI>
+
+<A HREF="#I23">Writing Found Files to a Device: -cpio device</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">Search Qualifiers</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I25">Searching for Files on Only the Current File System: -mount</A></LI>
+
+<LI>
+
+<A HREF="#I26">Altering the Search Path with -depth</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">Combining Search Criteria</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">Negating Expressions to Find Files That Don't Meet Criteria</A></LI>
+
+<LI>
+
+<A HREF="#I29">Specifying More Than One Path to Search</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I30">Controlling Input and Output</A></LI>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I31">Output Redirection</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">Input File Redirection</A></LI>
+
+<LI>
+
+<A HREF="#I33">Redirecting Error Messages</A></LI></UL>
+
+<LI>
+
+<A HREF="#I34">Using Pipes to Pass Files Between Programs</A></LI>
+
+<LI>
+
+<A HREF="#I35">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>4 &#151; Listing Files</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<P>This chapter covers some useful commands and constructs that help you better manage your data files. As a system matures, the file system becomes an eclectic collection of data files&#151;some old, some new, some borrowed, some blue. The file system 
+maintains information about data files such as file ownership, the size of the file, and the access dates. All of this information is useful in helping to manage your data. You'll learn more about ls, the directory list command. In addition, you'll learn 
+about the find command, which you can use to locate files even when you don't know the complete path name.
+
+<BR></P>
+
+<P>Sometimes you want to limit the scope of a command so that the output from the command is more focused. You accomplish this by using partial filenames and some special wildcard characters. This chapter discusses three ways of causing the system to make 
+
+filename substitutions.
+
+<BR></P>
+
+<P>You'll also look at two of the most powerful features of UNIX&#151;redirection and piping&#151;which are methods for rerouting the input and output of most commands.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=4><B>Listing Files and Directories: </B><B><I>ls</I></B><B> Revisited</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As you learned in Chapter 3, &quot;The UNIX File System: Go Climb a Tree,&quot; the ls command lists the names of files and directories. This section reviews the basics of ls and provides examples of its options.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B><I>ls</I></B><B> The Short and Long of It</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In its simplest form, the ls command without arguments displays the names of the files and directories in the current working directory in alphabetical order by name. For example,
+
+<BR></P>
+
+<PRE>$ <B>ls</B>
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   marsha.pds   p11         t11         users</PRE>
+
+<P>On some systems, the default output from ls is a single column of output. Most of the examples in this chapter use the columnar format to conserve space.
+
+<BR></P>
+
+<P>The ls command can also accept a filename as a command line parameter. For example,
+
+<BR></P>
+
+<PRE>$ ls marsha.pds
+
+marsha.pds</PRE>
+
+<P>If the command line parameter is a directory name, all the files in that directory are listed. For example,
+
+<BR></P>
+
+<PRE>$ ls users
+
+dave     marsha     mike</PRE>
+
+<P>Notice that the files are listed in order by collating sequence. That is, files beginning with numbers come first; files beginning with uppercase characters come next; and files beginning with lowercase characters come last. Also notice that although 
+this format displays your filenames in a compact fashion, it doesn't give you much information about the files. You can get more detail about the files by requesting a long listing with the -l option. For example,
+
+<BR></P>
+
+<PRE>$ ls -l
+
+-rwxr-xr&#151;   1 asm      adept       512 Dec 14 16:16 21x
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Jan 20 14:14 LINES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 LINES.idx
+
+-rw-rw-r&#151;   1 marsha   adept       256 Jan 20 14:14 PAGES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 PAGES.idx
+
+-rw-rw-r&#151;   1 marsha   acct        240 May  5  1992 acct.pds
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Nov 22 15:42 marsha.pds
+
+-rwxrwxr&#151;   4 root     sys      243072 Aug 22  1991 p11
+
+-rwxrwxr&#151;   4 root     sys      256041 Aug 22  1991 t11
+
+drw-rw-r&#151;   1 marsha   adept      3072 Oct 12 11:42 users</PRE>
+
+<P>A long listing displays seven columns of information about each file. In the first line of the listing,
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-rwxr-xr&#151; </P>
+
+<TD>
+
+<P>indicates the file's type and permissions</P>
+
+<TR>
+
+<TD>
+
+<P>1</P>
+
+<TD>
+
+<P>indicates the number of links to the file</P>
+
+<TR>
+
+<TD>
+
+<P>asm </P>
+
+<TD>
+
+<P>is the user ID of the file's owner</P>
+
+<TR>
+
+<TD>
+
+<P>adept </P>
+
+<TD>
+
+<P>is the group ID of the group that the owner belongs to</P>
+
+<TR>
+
+<TD>
+
+<P>512 </P>
+
+<TD>
+
+<P>is the size of the file in bytes</P>
+
+<TR>
+
+<TD>
+
+<P>Dec 14 16:16 </P>
+
+<TD>
+
+<P>is the time stamp&#151;the date and time when the file was last modified</P>
+
+<TR>
+
+<TD>
+
+<P>21x </P>
+
+<TD>
+
+<P>is the name of the file (refer to Figure 3.4 in Chapter 3)</P></TABLE>
+
+<P>The first and second columns require a bit more explanation. The first column is a ten-character field that indicates the file's mode&#151;its type and its permissions. In the first line of the list, the file's mode is -rwxr-xr&#151;. The first 
+character tells the file type, which is a hyphen (-) for regular files, and d for directories. In this example, the first nine items in the list are all ordinary files, and the last item is a directory.
+
+<BR></P>
+
+<P>The next nine characters of the entry are the file's permissions&#151;three sets of three characters that control which users may access a file and what they can do with it. The first set of three characters controls what the file's owner can do; the 
+second set of three characters controls what others in the group can do; and the third set of three characters controls what all other users can do. Each set of three characters shows read (r), write (w), and execute (x) permission, in that order. A hyphen 
+
+(-) means that the permission is denied.
+
+<BR></P>
+
+<P>The second column of the long listing is the number of links to this file. All the files except two&#151;p11 and t11&#151;are pointed to only from this directory. p11 and t11 have entries in three other directories, for a total of four links.
+
+<BR></P>
+
+<P>You should refer to the &quot;Keeping Secrets&#151;File and Directory Permissions&quot; section in Chapter 3 for a complete description of file types and for further details on file permissions. File links are covered in the &quot;Hard and Symbolic 
+Links&quot; section of Chapter 3.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Other </B><B><I>ls </I></B><B>Options</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The ls command has several options. This section covers many of the ones more frequently used.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Showing Hidden Files with </B><B><I>-a</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The ls option doesn't normally list files that begin with a period. Suppose that the directory displayed in the previous section also contained a file named .profile. In that case, you would see
+
+<BR></P>
+
+<PRE>$ ls -a
+
+.           ..          .profile    21x          LINES.dat
+
+LINES.idx   PAGES.dat   PAGES.idx   acct.pds    marsha.pds
+
+p11         t11         users</PRE>
+
+<P>Note that the files . and .. represent the current and parent directories, respectively.
+
+<BR></P>
+
+<P>You can combine options, as in this example:
+
+<BR></P>
+
+<PRE>$ ls -al
+
+-rw-r&#151;r&#151;   1 marsha   adept      2156 Jul 19 1991  .
+
+-rw-r&#151;r&#151;   1 marsha   adept      2246 Jul 19 1991  ..
+
+-rw-r&#151;r&#151;   1 marsha   adept       117 Jul 19 1991  .profile
+
+-rwxr-xr&#151;   1 asm      adept       512 Dec 14 16:16 21x
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Jan 20 14:14 LINES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 LINES.idx
+
+-rw-rw-r&#151;   1 marsha   adept       256 Jan 20 14:14 PAGES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 PAGES.idx
+
+-rw-rw-r&#151;   1 marsha   acct        240 May  5  1992 acct.pds
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Nov 22 15:42 marsha.pds
+
+-rwxrwxr&#151;   4 root     sys      243072 Aug 22  1991 p11
+
+-rwxrwxr&#151;   4 root     sys      256041 Aug 22  1991 t11
+
+drw-rw-r&#151;   1 marsha   adept      3072 Oct 12 11:42 users</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Showing File Types with </B><B><I>-F</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Another useful option is -F, which distinguishes directory and executable files from ordinary files. The -F option causes a slash (/) to be appended to the filename for directories and an asterisk (*) to be appended to files which are executable. For 
+example,
+
+<BR></P>
+
+<PRE>$ ls -F
+
+21x*       LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   marsha.pds   p11*        t11*        users/</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Listing Files Whose Names Contain Nonprintable Characters with </B><B><I>-q</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When a file is created, the filename can inadvertently acquire nonprintable characters. Suppose that a filename contained a backspace character (represented here as ^H). The file named abcd^Hefg would display in a normal ls command as abcefg. Because 
+you cannot see the backspace character, you might be confused about the actual filename. With the ls -q option, this filename would display as abcd?efg.
+
+<BR></P>
+
+<P>Even if you don't know what the mystery character is, you can still work with the file by using filename substitution (discussed in the next section). If you need to know the exact nature of the mystery character, you can use the -b option, which causes 
+
+the nonprintable character to print in octal mode. With the b option, the filename would display as abcd\010efg, in which \010 is the octal representation of a backspace.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Other Useful </B><B><I>ls</I></B><B> Options</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Additional ls options include the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-u</P>
+
+<TD>
+
+<P>Used with -l, causes the last access time stamp to be displayed instead of the last modification time.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Used with -l, gives the file size in blocks instead of bytes.</P>
+
+<TR>
+
+<TD>
+
+<P>-t</P>
+
+<TD>
+
+<P>Sorts the output by time stamp instead of name. Used with -u sorts the output by access time.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Reverses the order of the output. By itself, displays the output in reverse alphabetic order, used with -t, displays the output by the most recent time stamp.</P>
+
+<TR>
+
+<TD>
+
+<P>-x</P>
+
+<TD>
+
+<P>Forces the output into multicolumn</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Using Metacharacters When Referring to Filenames</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far you've learned how to work with files by referring to their complete names. Sometimes, however, it is useful to refer to several files without having to name each one of them. Likewise, if you can remember only part of a filename, it is useful to 
+
+list all the files whose names contain that part. UNIX provides metacharacters, also known as wildcards, which enable you to refer to files in these ways.
+
+<BR></P>
+
+<P>There are two metacharacters: the question mark (?) and the asterisk (*). In addition to metacharacters, filename substitution can be done on character sets. For more information about metacharacters, see Chapter 11, &quot;Bourne Shell,&quot; Chapter 
+12, &quot;Korn Shell,&quot; and Chapter 13, &quot;C Shell.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Pattern Matching on a Single Character</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In filename substitution, the question mark (?) stands for any single character. Consider the following directory:
+
+<BR></P>
+
+<PRE>$<B>ls</B>
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   marsha.pds   p10         p101        p11
+
+t11        z11</PRE>
+
+<P>You can use the question mark (?) in any position. For example,
+
+<BR></P>
+
+<PRE>$ ls ?11
+
+p11    t11    z11</PRE>
+
+<P>You can also use more than one question mark in a single substitution. For example,
+
+<BR></P>
+
+<PRE>$ ls p??
+
+p10    p11</PRE>
+
+<P>The following command gives you all three-character filenames:
+
+<BR></P>
+
+<PRE>$ ls ???
+
+21x    p10    p11    t11    z11</PRE>
+
+<P>Suppose that you wanted to list all of the files that begin with LINES. We could do this successfully with
+
+<BR></P>
+
+<PRE>$ ls LINES.???
+
+LINES.dat    LINES.idx</PRE>
+
+<P>Now suppose that you wanted to find the files that end in .pds. The following two commands illustrate how to do this:
+
+<BR></P>
+
+<PRE>$ ls ????.pds
+
+acct.pds
+
+$
+
+$ ls ?????.pds
+
+marsha.pds</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Pattern Matching on a Group of Characters</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the previous example, to list all of the files ending in .pds using single character substitution, you would have to know exactly how many characters precede the period. To overcome this problem, you use the asterisk (*), which matches a character 
+string of any length, including a length of zero. Consider the following two examples:
+
+<BR></P>
+
+<PRE>$ ls *.pds
+
+acct.pds    marsha.pds
+
+$ ls p10*
+
+p10    p101</PRE>
+
+<P>As with single character substitution, more than one asterisk (*) can be used in a single substitution. For example,
+
+<BR></P>
+
+<PRE>$ ls *.*
+
+LINES.dat   LINES.idx   PAGES.dat   PAGES.idx   acct.pds
+
+marsha.pds</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Pattern Matching on Character Sets</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You have seen how you can access a group of files whose names are similar. What do you do, though, if you need to be more specific? Another way to do filename substitution is by matching on character sets. A character set is any number of single 
+alphanumeric characters enclosed in square brackets&#151;[ and ].
+
+<BR></P>
+
+<P>Suppose that you wanted a list of all the filenames that start with p or t followed by 11. You could use the following command:
+
+<BR></P>
+
+<PRE>$ ls [pt]11
+
+p11   t11</PRE>
+
+<P>You can combine character sets with the metacharacters. To list the names of all the files that begin with p or t, you could use
+
+<BR></P>
+
+<PRE>$ ls [pt]*
+
+p10         p101        p11      t11</PRE>
+
+<P>Now suppose that you wanted a list of all the filenames that begin with an uppercase alphabetic character. You could use
+
+<BR></P>
+
+<PRE>$ ls [ABCDEFGHIJKLMNOPQRSTUVWXYZ]*
+
+LINES.dat    LINES.idx   PAGES.dat   PAGES.idx</PRE>
+
+<P>If you're guessing that there might be a better way to do this, you're right. When the characters in a character set substitution are in sequence, you can use a hyphen (-) to denote all of the characters in the sequence. Therefore, you can abbreviate 
+the previous command in this way:
+
+<BR></P>
+
+<PRE>$ ls [A-Z]*</PRE>
+
+<P>If a character sequence is broken, you can still use the hyphen for the portion of the character set that is in sequence. For example, the following command lists all the three-character filenames that begin with p, q, r, s, t, and z:
+
+<BR></P>
+
+<PRE>$ ls [p-tz]??
+
+p10    p11    t11    z11</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>How File Substitution Works</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>It is important to understand how file substitution actually works. In the previous examples, the ls command doesn't do the work of file substitution&#151;the shell does. (Refer to Chapter 10, &quot;What Is a Shell,&quot; for more information.) Even 
+though all the previous examples employ the ls command, any command that accepts filenames on the command line can use file substitution. In fact, using the simple echo command is a good way to experiment with file substitution without having to worry 
+about unexpected results. For example,
+
+<BR></P>
+
+<PRE>$ echo p*
+
+p10 p101 p11</PRE>
+
+<P>When a metacharacter is encountered in a UNIX command, the shell looks for patterns in filenames that match the metacharacter. When a match is found, the shell substitutes the actual filename in place of the string containing the metacharacter so that 
+the command sees only a list of valid filenames. If the shell finds no filenames that match the pattern, it passes an empty string to the command.
+
+<BR></P>
+
+<P>The shell can expand more than one pattern on a single line. Therefore, the shell interprets the command
+
+<BR></P>
+
+<PRE>$ ls LINES.* PAGES.*</PRE>
+
+<P>as
+
+<BR></P>
+
+<PRE>$ ls LINES.dat LINES.idx PAGES.dat PAGES.idx</PRE>
+
+<P>There are file substitution situations that you should be wary of. You should be careful about the use of whitespace (extra blanks) in a command line. If you enter the following command, for example, the results might surprise you:
+
+<BR></P>
+
+<PRE>$ ls LINES. *
+
+LINES.: not found
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   marsha.pds   p10         p101        p11
+
+t11        z11</PRE>
+
+<P>What has happened is that the shell interpreted the first parameter as the filename LINES. with no metacharacters and passed it directly on to ls. Next, the shell saw the single asterisk (*), and matched it to any character string, which matches every 
+file in the directory. This is not a big problem if you are simply listing the files, but it could mean disaster if you were using the command to delete data files!
+
+<BR></P>
+
+<P>Unusual results can also occur if you use the period (.) in a shell command. Suppose that you are using the
+
+<BR></P>
+
+<PRE>$ ls .*</PRE>
+
+<P>command to view the hidden files. What the shell would see after it finishes interpreting the metacharacter is
+
+<BR></P>
+
+<PRE>$ ls . .. .profile</PRE>
+
+<P>which gives you a complete directory listing of both the current and parent directories.
+
+<BR></P>
+
+<P>When you think about how filename substitution works, you might assume that the default form of the ls command is actually
+
+<BR></P>
+
+<PRE>$ ls *</PRE>
+
+<P>However, in this case the shell passes to ls the names of directories, which causes ls to list all the files in the subdirectories. The actual form of the default ls command is
+
+<BR></P>
+
+<PRE>$ ls .</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>The </B><B><I>find</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One of the wonderful things about UNIX is its unlimited path names. A directory can have a subdirectory that itself has a subdirectory, and so on. This provides great flexibility in organizing your data.
+
+<BR></P>
+
+<P>Unlimited path names have a drawback, though. To perform any operation on a file that is not in your current working directory, you must have its complete path name. Disk files are a lot like flashlights: You store them in what seem to be perfectly 
+logical places, but when you need them again, you can't remember where you put them. Fortunately, UNIX has the find command.
+
+<BR></P>
+
+<P>The find command begins at a specified point on a directory tree and searches all lower branches for files that meet some criteria. Since find searches by path name, the search crosses file systems, including those residing on a network, unless you 
+specifically instruct it otherwise. Once it finds a file, find can perform operations on it.
+
+<BR></P>
+
+<P>Suppose you have a file named urgent.todo, but you cannot remember the directory where you stored it. You can use the find command to locate the file.
+
+<BR></P>
+
+<PRE>$ find / -name urgent.todo -print
+
+/usr/home/stuff/urgent.todo</PRE>
+
+<P>The syntax of the find command is a little different, but the remainder of this section should clear up any questions.
+
+<BR></P>
+
+<P>The find command is different from most UNIX commands in that each of the argument expressions following the beginning path name is considered a Boolean expression. At any given stop along a branch, the entire expression is true&#151;file found&#151;if 
+
+all of the expressions are true; or false&#151;file not found&#151;if any one of the expressions is false. In other words, a file is found only if all the search criteria are met. For example,
+
+<BR></P>
+
+<PRE>$ find /usr/home -user marsha -size +50</PRE>
+
+<P>is true for every file beginning at /usr/home that is owned by Marsha and is larger than 50 blocks. It is not true for Marsha's files that are 50 or fewer blocks long, nor is it true for large files owned by someone else.
+
+<BR></P>
+
+<P>An important point to remember is that expressions are evaluated from left to right. Since the entire expression is false if any one expression is false, the program stops evaluating a file as soon as it fails to pass a test. In the previous example, a 
+
+file that is not owned by Marsha is not evaluated for its size. If the order of the expressions is reversed, each file is evaluated first for size, and then for ownership.
+
+<BR></P>
+
+<P>Another unusual thing about the find command is that it has no natural output. In the previous example, find dutifully searches all the paths and finds all of Marsha's large files, but it takes no action. For the find command to be useful, you must 
+specify an expression that causes an action to be taken. For example,
+
+<BR></P>
+
+<PRE>$ find /usr/home -user me -size +50 -print
+
+/usr/home/stuff/bigfile
+
+/usr/home/trash/bigfile.old</PRE>
+
+<P>first finds all the files beginning at /usr/home that are owned by me and are larger than 50 blocks. Then it prints the full path name. (Actually, the full path name of the found files is sent to the standard output file, which is discussed later in 
+this chapter.)
+
+<BR></P>
+
+<P>The argument expressions for the find command fall into three categories:
+
+<BR></P>
+
+<UL>
+
+<LI>Search criteria
+
+<BR>
+
+<BR></LI>
+
+<LI>Action expressions
+
+<BR>
+
+<BR></LI>
+
+<LI>Search qualifiers
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Although the three types of expressions have different functions, each is still considered a Boolean expression and must be found to be true before any further evaluation of the entire expression can take place. (The significance of this is discussed 
+later.) Typically, a find operation consists of one or more search criteria, a single action expression, and perhaps a search qualifier. In other words, it finds a file and takes some action, even if that action is simply to print the path name. The rest 
+of this section describes each of the categories of the find options.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Search Criteria</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first task of the find command is to locate files according to some user-specified criteria. You can search for files by name, file size, file ownership, and several other characteristics.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Finding Files with a Specific Name: </B><B><I>-name fname</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Often, the one thing that you know about a file for which you're searching is its name. Suppose that you wanted to locate&#151;and possibly take some action on&#151;all the files named core. You might use the following command:
+
+<BR></P>
+
+<PRE>$ find / -name core -print</PRE>
+
+<P>This locates all the files on the system that exactly match the name core, and it prints their complete path names.
+
+<BR></P>
+
+<P>The -name option makes filename substitutions. The command
+
+<BR></P>
+
+<PRE>$ find /usr/home -name &quot;*.tmp&quot; -print</PRE>
+
+<P>prints the names of all the files that end in .tmp. Notice that when filename substitutions are used, the substitution string is enclosed in quotation marks. This is because the UNIX shell attempts to make filename substitutions before it invokes the 
+command. If the quotation marks were omitted from &quot;*.tmp&quot; and if the working directory contained more than one *.tmp file, the actual argument passed to the find command might look like this:
+
+<BR></P>
+
+<PRE>$ find /usr/home -name a.tmp b.tmp c.tmp -print</PRE>
+
+<P>This would cause a syntax error to occur.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Locating Files of a Specific Size: </B><B><I>-size n</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Another useful feature of find is that it can locate files of a specific size. The -size n expression is a good example of a search criterion that is evaluated numerically. The numeric portion of the expression may be integers in the form n, -n, or +n. 
+
+An integer without a sign matches if the file is exactly n. An integer preceded by a minus sign matches if the requested file is smaller than n. An integer preceded by a plus sign matches if the file is larger than n. For example,
+
+<BR></P>
+
+<PRE>$ find / -size +100 -print</PRE>
+
+<P>prints the names of all the files that are more than 100 blocks long.
+
+<BR></P>
+
+<P>In the -size expression, the integer may be suffixed with the character c. With the suffix, the match is made on the file size in characters. Without the suffix, the match is made on the file size in blocks. Therefore, the command
+
+<BR></P>
+
+<PRE>$ find / -size -512c -print</PRE>
+
+<P>prints the names of all the files that are less than 512 bytes long.
+
+<BR></P>
+
+<P>Other search criteria include:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-user uname</P>
+
+<TD>
+
+<P>Looks for files that are owned by the user with the login name of uname. If uname is numeric it is compared to the user number.</P>
+
+<TR>
+
+<TD>
+
+<P>-group gname</P>
+
+<TD>
+
+<P>Looks for files that are owned by a member of the group gname. If gname is numeric, it is compared to the group number.</P>
+
+<TR>
+
+<TD>
+
+<P>-atime n</P>
+
+<TD>
+
+<P>Looks for files that were last accessed n days ago. n must be an integer. It can take the form n, -n, or +n.</P>
+
+<TR>
+
+<TD>
+
+<P>-mtime n</P>
+
+<TD>
+
+<P>Looks for files that were last modified n days ago.  n must be an integer.</P>
+
+<TR>
+
+<TD>
+
+<P>-perm onum</P>
+
+<TD>
+
+<P>Looks for files whose permission flags match the octal number onum. If onum is preceded by a minus sign, the match will be made if the permission flag has the bit(s) set that matches the bit(s) in onum. For example, the expression -perm -100 will be 
+true for any file that is executable by its owner.</P>
+
+<TR>
+
+<TD>
+
+<P>-links n</P>
+
+<TD>
+
+<P>A match if the file has n links. n must be an integer. It can take the form n, -n, or +n.</P>
+
+<TR>
+
+<TD>
+
+<P>-type <I>x</I></P>
+
+<TD>
+
+<P>Looks for files that are of type <I>x</I>. Valid values for <I>x</I> are: b for a block special file, c for a character special file, d for a directory, p for a fifo (named pipe), and f for an ordinary file.</P>
+
+<TR>
+
+<TD>
+
+<P>-newer fname</P>
+
+<TD>
+
+<P>Looks for files that have been modified more recently than the file fname.</P>
+
+<TR>
+
+<TD>
+
+<P>-local</P>
+
+<TD>
+
+<P>Looks for files that reside on the local system as opposed to a remote site.</P></TABLE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Locating Files of a Specific Size: </B><B><I>-size n</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Once the find command has located a file, it must be told what to do with it. These are called action expressions.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Displaying the Path Names of Found Files: </B><B><I>-print</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As you know, it does little good to locate a file, and then take no action. One commonly used action is the print expression, which causes the complete path name to be printed when a file is found. This is useful if you want to check for the existence 
+of a file before deciding to take some other action.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Executing a UNIX Command on the Found Files: </B><B><I>-exec cmd \;</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Sometimes you know what action you want to take once you find a file. In those cases, you can use the expression
+
+<BR></P>
+
+<PRE>exec <I>cmd</I> \;</PRE>
+
+<P>where <I>cmd</I> is any UNIX command. \; tells the find command to take the action specified between exec and \;. find then continues to evaluate argument expressions.
+
+<BR></P>
+
+<P>The most powerful aspect of the find command is the unique file substitution method found within the exec cmd expression. In any cmd statement, the argument {} is replaced with the name of the currently matched file. For example, suppose that the 
+command
+
+<BR></P>
+
+<PRE>$<B> </B>find /usr/home -name core -print</PRE>
+
+<P>gives the following results:
+
+<BR></P>
+
+<PRE>/usr/home/dave/core
+
+/usr/home/marsha/core
+
+/usr/home/mike/core</PRE>
+
+<P>The command
+
+<BR></P>
+
+<PRE>$<B> </B>find /usr/home -name core -exec rm {} \;</PRE>
+
+<P>has the same effect as issuing these commands:
+
+<BR></P>
+
+<PRE>$ rm /usr/home/dave/core
+
+$ rm /usr/home/mike/core
+
+$ rm /usr/home/marsha/core</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Executing a UNIX Command on Found Files, But Querying First: </B><B><I>-ok cmd \;</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The -ok expression works exactly like the -exec expression, except that the execution of the command is optional. When it encounters an ok expression, the find program displays the generated command, with all substitutions made, and prints a question 
+mark. If the user types y, the command is executed.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Writing Found Files to a Device: </B><B><I>-cpio device</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The -cpio device action expression causes a file to be written to a given device in cpio form. For example, the command
+
+<BR></P>
+
+<PRE>$ find /usr/home -cpio -o &gt;/dev/rmt0</PRE>
+
+<P>writes all the files in /usr/home and all its subdirectories to the magnetic tape device /dev/rmt0. This is a good way to back up data files. It is a shorthand equivalent of
+
+<BR></P>
+
+<PRE>$<B> </B>find /usr/home -print | cpio &gt;/dev/rmt0</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Search Qualifiers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are times when you may want the find command to alter its normal search path. This is accomplished by adding search qualifiers to the find command.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Searching for Files on Only the Current File System: </B><B><I>-mount</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The -mount search qualifier restricts the search to the file system named in the starting point. For example, the command
+
+<BR></P>
+
+<PRE>$ find / -mount -type d -print</PRE>
+
+<P>prints the names of all the directories in only the root file system.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Altering the Search Path with </B><B><I>-depth</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The -depth search qualifier alters the seek order to a depth-first search. The find command processes the files in a directory before it processes the directory itself. This helps in finding files to which the user has access, even if his access to the 
+
+directory is restricted. To see the difference, try the following two commands. Remember that -print is always true.
+
+<BR></P>
+
+<PRE>$ find /usr -print
+
+$ find /usr -depth -print</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Combining Search Criteria</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can combine search criteria in a single command. Because the expressions in a find command are evaluated from left to right and the search fails when any one expression fails, the effect is a logical AND. For example, the command
+
+<BR></P>
+
+<PRE>$<B> </B>find /usr/home -name &quot;*.tmp&quot; -atime +7 -exec rm {} \;</PRE>
+
+<P>removes all the files that end in .tmp and that have not been accessed in the last 7 days.
+
+<BR></P>
+
+<P>Suppose, though, that you wanted to locate files ending in either .tmp or .temp. You could use the expression -name &quot;*mp&quot;, but you might find files that you didn't expect. The solution is to combine search criteria in a logical OR expression. 
+
+The syntax is
+
+<BR></P>
+
+<PRE>\( expression -o expression \)</PRE>
+
+<P>The \ in front of the parentheses is an escape character; it prevents the shell from misinterpreting the parentheses. The following command line, for example, finds files ending in either .tmp or .temp:
+
+<BR></P>
+
+<PRE>$ find /usr/home \( -name &quot;*.tmp&quot; -o -name &quot;*.temp&quot; \)</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Negating Expressions to Find Files That Don't Meet Criteria</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Suppose that Marsha wanted to see whether anyone was putting files into her personal directory. She could use the negation operator (!), as in
+
+<BR></P>
+
+<PRE>$ find /usr/home/marsha ! -user marsha -print
+
+$ /usr/home/marsha/daves.todo</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Specifying More Than One Path to Search</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>By specifying a directory in which the find command should begin searching, you can control the scope of the search. The find command actually takes a list of directories to be searched, but you must specify all paths before you supply any expression 
+arguments. For example, the command
+
+<BR></P>
+
+<PRE>$<B> </B>find /usr/home/mike /usr/home/dave</PRE>
+
+<P>produces a list of all the files in Mike's and Dave's directories and in your current working directory.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You must specify at least one directory for a search. To specify the current directory for a search, use .pathname.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=4><B>Controlling Input and Output</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>One thing common to almost all computer programs is that they accept some kind of input and produce some kind of output. UNIX commands are no different. In this section, you'll discover how you can control the source of input and the destination of  
+output.
+
+<BR></P>
+
+<P>One reason why UNIX is so flexible is that each program is automatically assigned three standard files: the standard input file, the standard output file, and the standard error file. Programmers are not restricted to using only these files. However, 
+programs and commands that use only the standard files permit maximum flexibility. The three standard files also can be redirected. When it is not redirected, the standard input file is the user's keyboard, and both standard output and standard error go to 
+
+the user's screen.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Output Redirection</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Two operators enable you to redirect output to a file: &gt; and &gt;&gt;. The &gt; operator either creates a new file that contains the redirected output, or overwrites an existing file with the redirected output. The &gt;&gt; operator appends the new 
+output to the end of the specified file. That is, if the file already contains data, the new output is added to the end of it.
+
+<BR></P>
+
+<P>To divert the standard output from your screen, use the &gt; operator. Consider the directory used in an example at the beginning of this chapter. To redirect the output to a file named dirfile, you would use the command
+
+<BR></P>
+
+<PRE>$ ls &gt;dirfile</PRE>
+
+<P>Now you could use dirfile in another command. For example,
+
+<BR></P>
+
+<PRE>$ cat dirfile
+
+21x
+
+LINES.dat
+
+LINES.idx
+
+PAGES.dat
+
+PAGES.idx
+
+acct.pds
+
+dirfile
+
+marsha.pds
+
+p11
+
+t11
+
+users</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Notice that the specified output file, dirfile, already appears in the listing. This is because the first thing that ls does is to open its output file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When the output of ls is redirected, the default output is in a single column. This is useful if the result is to be processed by another command that looks for one filename per line.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The &gt; operator causes a new file to be created. If you had already created a file named dirfile, it would be deleted and replaced with the new data. If you wanted to add the new data to the old dirfile, you could use the &gt;&gt; operator. For 
+example:
+
+<BR></P>
+
+<PRE>$ ls -x &gt;dirfile
+
+$ ls -x &gt;&gt;dirfile
+
+$ cat dirfile
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   dirfile      marsha.pds  p11         t11
+
+users
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   dirfile      marsha.pds  p11         t11
+
+users</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Input File Redirection</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are two possible sources of input for UNIX commands. Programs such as ls and find get their input from the command line in the form of options and filenames. Other programs, such as cat, can get their data from the standard input as well as from 
+the command line. Try the cat command with no options on the command line:
+
+<BR></P>
+
+<PRE>$ <B>cat</B></PRE>
+
+<P>There is no response. Because no files are specified with the command, cat waits to get its input from your keyboard, the standard input file. The program will accept input lines from the keyboard until it sees a line which begins with Ctrl+D, which is 
+
+the end-of-file signal for standard input.
+
+<BR></P>
+
+<P>To redirect the standard input, you use the &lt; operator. For example, if you wanted cat to get its input from dirfile, you could use the command
+
+<BR></P>
+
+<PRE>$ cat &lt;dirfile</PRE>
+
+<P>The difference between this command and
+
+<BR></P>
+
+<PRE>$ cat dirfile</PRE>
+
+<P>is a subtle one. In filenames provided as options to a command, you can use filename substitution. When redirecting input, you must use the name of an existing file or device. Therefore, the following command is a valid UNIX command: 
+
+<BR></P>
+
+<PRE>$ cat dir*</PRE>
+
+<P>You cannot, however, use the following command, for it is an invalid UNIX command:
+
+<BR></P>
+
+<PRE>$ cat &lt;dir*</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Redirecting Error Messages</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most commands have two possible types of output: normal or standard output, and error messages. Normally, error messages display to the screen, but error messages can also be redirected.
+
+<BR></P>
+
+<P>Earlier in this chapter, you saw the following example with a space between the partial filename and the metacharacter:
+
+<BR></P>
+
+<PRE>$ ls LINES. *
+
+LINES.: not found
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   marsha.pds   p10         p101        p11
+
+t11        z11</PRE>
+
+<P>It appears that all of the output in this example is on the standard output. However, if you change the command slightly, you get different results:
+
+<BR></P>
+
+<PRE>$ ls LINES. * &gt;dirfile
+
+LINES.: not found</PRE>
+
+<P>What has happened is that the legitimate output from the ls command has been redirected to dirfile, and the error message has been sent to the standard error file.
+
+<BR></P>
+
+<P>To redirect error messages, use the &gt; operator prefixed with a 2. For example,
+
+<BR></P>
+
+<PRE>$ ls LINES. * 2&gt;errmsg
+
+21x        LINES.dat    LINES.idx   PAGES.dat   PAGES.idx
+
+acct.pds   marsha.pds   p10         p101        p11
+
+t11        z11</PRE>
+
+<P>Now the error message has been directed to the file errmsg, and the legitimate output has gone to the standard output file.
+
+<BR></P>
+
+<P>You can redirect both standard output and standard error for the same command. For example,
+
+<BR></P>
+
+<PRE>$ ls LINES. * &gt;dirfile 2&gt;errmsg</PRE>
+
+<P>You cannot redirect the same standard file twice. For example, the following command is invalid:
+
+<BR></P>
+
+<PRE>$<B> </B>ls &gt;dirfile &gt;anotherdir</PRE>
+
+<P>If you wanted to discard all error messages, you could use the following form:
+
+<BR></P>
+
+<PRE>$<B> </B>ls LINES. * &gt;dirfile  2&gt;/dev/null</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The standard error redirection operator (2&gt;) is actually the same operator as standard output redirection (&gt;). When a UNIX program opens files, they are given integer numbers. The three standard 
+
+files are numbered 0, 1, and 2.
+
+<BR>
+
+<BR>0 is assumed for input redirection. 1 is assumed for output redirection; therefore, redirection of standard output can also be written as 1&gt;. Redirection is not restricted to only the first three files. However, to redirect higher-numbered files, 
+the user would need to know how they are used within the program.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Note for C shell users. In the C shell, error messages cannot be redirected separately from standard output. In the C-shell you can include error output with standard output by adding an ampersand 
+(&amp;) to the redirection symbol.
+
+<BR>
+
+<BR>$ ls LINES. * &gt;&amp; dirfile
+
+<BR>
+
+<BR>This command would redirect both standard output and error messages to dirfile.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=4><B>Using Pipes to Pass Files Between Programs</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Suppose that you wanted a directory listing that was sorted by the mode&#151;file type plus permissions. To accomplish this, you might redirect the output from ls to a data file and then sort that data file. For example,
+
+<BR></P>
+
+<PRE>$ ls -l &gt;tempfile
+
+$ sort &lt;tempfile
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Jan 20 14:14 LINES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 LINES.idx
+
+-rw-rw-r&#151;   1 marsha   adept       256 Jan 20 14:14 PAGES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 PAGES.idx
+
+-rw-rw-r&#151;   1 marsha   acct        240 May  5  1992 acct.pds
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Nov 22 15:42 marsha.pds
+
+-rw-rw-r&#151;   1 marsha   adept         0 Jan 21 10:22 tempfile
+
+-rwxr-xr&#151;   1 asm      adept       512 Dec 14 16:16 21x
+
+-rwxrwxr&#151;   4 root     sys      243072 Aug 22  1991 p11
+
+-rwxrwxr&#151;   4 root     sys      256041 Aug 22  1991 t11
+
+drw-rw-r&#151;   1 marsha   adept      3072 Oct 12 11:42 users</PRE>
+
+<P>Although you get the result that you wanted, there are three drawbacks to this method:
+
+<BR></P>
+
+<UL>
+
+<LI>You might end up with a lot of temporary files in your directory. You would have to go back and remove them.
+
+<BR>
+
+<BR></LI>
+
+<LI>The sort program doesn't begin its work until the first command is complete. This isn't too significant with the small amount of data used in this example, but it can make a considerable difference with larger files.
+
+<BR>
+
+<BR></LI>
+
+<LI>The final output contains the name of your tempfile, which might not be what you had in mind.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Fortunately, there is a better way.
+
+<BR></P>
+
+<P>The pipe symbol (|) causes the standard output of the program on the left side of the pipe to be passed directly to the standard input of the program on the right side of the pipe symbol. Therefore, to get the same results as before, you can use the 
+pipe symbol. For example,
+
+<BR></P>
+
+<PRE>$ ls -l <B>|</B> sort
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Jan 20 14:14 LINES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 LINES.idx
+
+-rw-rw-r&#151;   1 marsha   adept       256 Jan 20 14:14 PAGES.dat
+
+-rw-rw-r&#151;   1 marsha   adept      3072 Jan 20 14:14 PAGES.idx
+
+-rw-rw-r&#151;   1 marsha   acct        240 May  5  1992 acct.pds
+
+-rw-rw-r&#151;   1 marsha   adept      1024 Nov 22 15:42 marsha.pds
+
+-rwxr-xr&#151;   1 asm      adept       512 Dec 14 16:16 21x
+
+-rwxrwxr&#151;   4 root     sys      243072 Aug 22  1991 p11
+
+-rwxrwxr&#151;   4 root     sys      256041 Aug 22  1991 t11
+
+drw-rw-r&#151;   1 marsha   adept      3072 Oct 12 11:42 users</PRE>
+
+<P>You have accomplished your purpose elegantly, without cluttering your disk. It is not readily apparent, but you have also worked more efficiently. Consider the following example:
+
+<BR></P>
+
+<PRE>$ ls -l <B>|</B> sort &gt;dirsort &amp; ; ps
+
+PID TTY  STAT  TIME COMMAND
+
+13678 003  R     2:13 sh
+
+15476 003  R     0:01 ls
+
+15477 003  R     0:00 sort
+
+15479 003  R     0:00 ps</PRE>
+
+<P>Both ls and sort are executing simultaneously, which means that sort can begin processing its input, even before ls has finished its output. A program, such as sort, that takes standard input and creates standard output is sometimes called a filter.
+
+<BR></P>
+
+<P>The capability to string commands together in a pipeline, combined with the capability to redirect input and output, is part of what gives UNIX its great power. Instead of having large, comprehensive programs perform a task, several simpler programs can 
+
+be strung together, giving the end user more control over the results. It is not uncommon in the UNIX environment to see something like this:
+
+<BR></P>
+
+<PRE>$<B> </B>cmd1 &lt;infile | cmd2 -options | cmd3 | cmd4 -options &gt;outfile</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter, you learned how to use UNIX commands to list filenames with ls and to locate files based on search criteria with find. You also learned how to supply partial filenames to a command by using filename substitution. Finally, you learned 
+how to reroute input and output by using standard file redirection and piping.
+
+<BR></P>
+
+<P><A HREF="unx03.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx03.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx05.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx05.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

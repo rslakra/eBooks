@@ -1,0 +1,1966 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx42.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx43.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx43.htm">
+
+<LINK REL="Previous" HREF="unx41.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx41.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx41.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx41.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx43.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx43.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">42 &#151; News Administration</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Jeff Smith</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Introduction</A></LI>
+
+<LI>
+
+<A HREF="#I5">Additional Sources of Information</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Frequently Asked Questions (FAQ) Documents</A></LI>
+
+<LI>
+
+<A HREF="#I7">News Transport Software Documentation</A></LI>
+
+<LI>
+
+<A HREF="#I8">Request for Comments (RFC) Documents</A></LI>
+
+<LI>
+
+<A HREF="#I9">USENET Newsgroups</A></LI></UL>
+
+<LI>
+
+<A HREF="#I10">A Functional Overview of News Systems and Their Software</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">Format of News Articles</A></LI>
+
+<LI>
+
+<A HREF="#I12">Newsgroup Hierarchies</A></LI>
+
+<LI>
+
+<A HREF="#I13">Newsgroup Distributions</A></LI>
+
+<LI>
+
+<A HREF="#I14">Where News Articles Live</A></LI>
+
+<LI>
+
+<A HREF="#I15">The User Interface&#151;Newsreaders and Posting Programs</A></LI>
+
+<LI>
+
+<A HREF="#I16">The News Overview Database (NOV)</A></LI>
+
+<LI>
+
+<A HREF="#I17">Sharing News Over the Network</A></LI>
+
+<LI>
+
+<A HREF="#I18">Transferring News to Other Hosts</A></LI>
+
+<LI>
+
+<A HREF="#I19">Host-to-host News-Transport Protocols</A></LI>
+
+<LI>
+
+<A HREF="#I20">News-Transport System Configuration Files</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Planning a News System</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">Do You Really Want to Be a USENET Site?</A></LI>
+
+<LI>
+
+<A HREF="#I23">Shared News versus One News Spool Per Host</A></LI>
+
+<LI>
+
+<A HREF="#I24">Isolating the News Spool</A></LI>
+
+<LI>
+
+<A HREF="#I25">Configuring Your News Spool's File System</A></LI>
+
+<LI>
+
+<A HREF="#I26">Where Will You Get Your News?</A></LI>
+
+<LI>
+
+<A HREF="#I27">Site Policies</A></LI>
+
+<LI>
+
+<A HREF="#I28">Expiration Policies</A></LI>
+
+<LI>
+
+<A HREF="#I29">Automatic Response to newgroup/rmgroup Control Messages</A></LI></UL>
+
+<LI>
+
+<A HREF="#I30">The ABCs of News-Transport Software</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I31">Getting Your Hands on the Sources</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">An INN Distribution Roadmap</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I33">Learning About INN</A></LI>
+
+<LI>
+
+<A HREF="#I34">Configuring INN&#151;The config.data File</A></LI>
+
+<LI>
+
+<A HREF="#I35">Building INN</A></LI>
+
+<LI>
+
+<A HREF="#I36">Installing INN</A></LI>
+
+<LI>
+
+<A HREF="#I37">Site Configuration</A></LI></UL>
+
+<LI>
+
+<A HREF="#I38">System Startup Scripts and news cron Jobs</A></LI>
+
+<LI>
+
+<A HREF="#I39">Miscellaneous Final Tasks</A></LI>
+
+<LI>
+
+<A HREF="#I40">Checking Your Installation and Problem Solving</A></LI>
+
+<LI>
+
+<A HREF="#I41">Getting Help</A></LI>
+
+<LI>
+
+<A HREF="#I42">Summary</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>42 &#151; News Administration</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Jeff Smith</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Introduction</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>USENET is the name of what is almost certainly the world's largest electronic bulletin board system (BBS). It's a loose conglomeration of computers that run operating systems ranging from MS-DOS to UNIX and VM/CMS, and that exchange articles through 
+UUCP, the Internet, and other networks. USENET is also probably the largest experiment to date with creative anarchy&#151;there is no central authority or control, and anyone can join who runs the appropriate software and who can find a host already on the 
+
+network with which to exchange news.
+
+<BR></P>
+
+<P>The lenient requirements for membership, the wide variety of computers able to run USENET software, and the tremendous growth of the Internet have combined to make USENET big. How big? No one really knows how many hosts and users participate, but the 
+volume of news will give you some idea. A recent estimate (March 1994) in the &quot;How to become a USENET site&quot; Frequently Asked Questions (FAQ) document suggests 3,500 MB of news per month, which works out to an average of more than 100 MB per day. 
+
+(See Table 42.1.) The same FAQ goes on to point out that a full newsfeed over a 14.4KB modem takes about 15 hours a day, and that's when data compression is used. To make matters worse, some people estimate that news volume is doubling every 12 months.
+
+<BR></P>
+
+<P>This huge volume can cause problems if you're the system administrator, because the amount of disk space used for news may vary a lot, and quickly. You might think you've got plenty of space in your news system when you leave on Friday night, but then 
+you get a call in the wee hours of Sunday morning telling you that the news file system is full. If you've planned poorly, it might take more important things with it&#151;such as e-mail, system logging, or accounting (see &quot;Isolating the News 
+Spool&quot; later in this chapter to avoid that problem). This chapter (and good planning) will help you avoid some (but not all) of the late-night calls.
+
+<BR></P>
+
+<P>The chapter begins with some pointers on finding additional sources of information. Some information is included on the UNIX Unleashed CD-ROM, some is available on the Internet, and some (from the technical newsgroups) you'll be able to apply only after 
+
+you get your news system running.
+
+<BR></P>
+
+<P>The examples in this chapter assume you have an Internet site running the Network News Transfer Protocol (NNTP). If your networking capabilities are limited to the UNIX-to-UNIX Copy Program (UUCP), you're mostly on your own. Although some of the general 
+
+information given here will still apply, UUCP is a pain and the economics of a full news feed make Internet access more and more attractive every day. If your site isn't on the Internet but you want to receive news, it might be time to talk to your local 
+Internet service provider. You may find it cheaper to pay Internet access fees than 15-hour-per-day phone bills. If your site's news needs aren't too great, it may even be more economical to buy USENET access from an Internet service provider. (See the 
+section &quot;Do You Really Want to Be a USENET Site?&quot; later in this chapter.)
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Additional Sources of Information</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>News software is inherently complex. This chapter can only begin to give you the information you need to successfully maintain a USENET site. The following sources of additional information will help you fill in the gaps.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Frequently Asked Questions (FAQ) Documents</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In many USENET newsgroups, especially the technical ones, similar questions are repeated as new participants join the group. To avoid answering the same questions over and over, volunteers collect these prototypical questions (and the answers) into 
+FAQs. The FAQs are posted periodically to that newsgroup and to the newsgroup news.answers. Many FAQs are also available through the Internet file transfer protocol (ftp), through e-mail servers, or through other information services such as Gopher, Wide 
+Area Information Service (WAIS) and World Wide Web (WWW).
+
+<BR></P>
+
+<P>You should read the FAQs in the following list after you've read this chapter and before you install your news system. All of them are available on the host rtfm.mit.edu in subdirectories of the directory pub/usenet/news.answers.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>usenet-software/part1
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>History of USENET; a gloss on software for transporting, reading, and posting news, including packages for non-UNIX operating systems (such as, VMS, MS-DOS).
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>site-setup
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Guidance on how to join USENET.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news/software/b/intro
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>A short introduction to the newsgroup news.software.b.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news/software/b/faq
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>The news.software.b FAQ. Read this before you post to that newsgroup. Read it even if you don't plan to post.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>INN FAQs
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>There is a four-part FAQ for INN. You can get it from any host that has the INN software, including ftp.uu.net in the directory ~ftp/networking/news/nntp/inn.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>News Transport Software Documentation</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The only currently recommended news-transport software systems are C-news and InterNetworkNews (INN). Both come with extensive documentation to help you install and maintain them and a good set of UNIX manual pages. Whichever you choose, read the 
+documentation and then read it again. This chapter is no substitute for the software author's documentation, which is updated to match each release of the software and which contains details that a chapter of this size can't cover.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Request for Comments (RFC) Documents</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>RFCs are issued by working groups of the Internet Engineering Task Force (IETF). They were known initially as requests for comments, but as they become adopted as Internet standards you should think of them as requirements for compliance&#151;if you 
+want to exchange news with another Internet NNTP site, you must both comply with the provisions of RFCs 977 and 1036. RFCs are available for anonymous ftp on the host ftp.internic.net and others. The RFCs mentioned here are also included on the UNIX 
+Unleashed CD-ROM.
+
+<BR></P>
+
+<UL>
+
+<LI>RFC 977 (Network News Transfer Protocol) defines the commands by which Internet news servers exchange news articles with other news servers, newsreaders, and news-posting programs. The protocol is fairly simple, and this RFC will give you a better idea 
+
+of what your newsreaders, news-posting programs, and news-transport software are doing behind your back.
+
+<BR>
+
+<BR></LI>
+
+<LI>RFC 1036 (Standard for Interchange of USENET Messages) explains the format of USENET news articles, which is based on the format of Internet e-mail messages. You don't need to memorize it, but a quick read will help you understand the functions and 
+formats of the various news articles.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>USENET Newsgroups</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once you get your news system running, there are several technical and policy newsgroups you'll want to read. These newsgroups will keep you abreast of new releases of your news-transport software, bug fixes, and security problems. You'll also see 
+postings of common problems experienced at other sites, so if you encounter the same problems you'll have the solutions. Many knowledgeable people contribute to these newsgroups, including the authors of C-news and INN.
+
+<BR></P>
+
+<P>However, remember that the people answering your questions are volunteers doing so in their spare time, so be polite. The first step toward politeness is to read the newsgroup's FAQ (if there is one) and so avoid being the 1,001st lucky person to ask 
+how to make a round wheel. You should also read the &quot;Emily Postnews&quot; guide to USENET etiquette and other introductory articles in the newsgroup news.announce.newusers. Listed below are a few of the newsgroups you may want to read. You may want to 
+
+subscribe to all of the news.* groups for a few weeks and then cancel the subscriptions for the ones you don't need.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news.announce.newusers
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Information for new users. You should subscribe all of your users to this group.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news.announce.newgroups
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Announcements of newsgroup vote results and which newsgroups are about to be created.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news.software.readers
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Information and discussion of news-reading software (also known as &quot;newsreaders&quot;).
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news.admin.policy
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Discussions pertaining to site's news policies.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news.software.b
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Discussions of software systems compatible with B-news (for example, C-news and INN).
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>news.software.nntp
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Discussions of implementations of NNTP (for example, the so-called &quot;reference implementation&quot; and INN).</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>A Functional Overview of News Systems and Their Software</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The following sections give a general idea of what a news system must do. Different news systems accomplish these tasks in different ways, but they all do basically the same thing.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Format of News Articles</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Netnews articles are very similar to e-mail messages. An article consists of a header, which contains information such as the person who posted the article and the date, followed by a blank line and the body of the article. The body is mostly irrelevant 
+
+as far as news-transport software is concerned&#151;the content of the article's header tells it all it must know.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Newsgroup Hierarchies</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Articles are posted to one or more newsgroups, whose names are separated by periods to categorize them into hierarchies. For instance, the newsgroups comp.unix.solaris and comp.risks are both in the comp hierarchy, which contains articles having to do 
+with computers. The comp.unix.solaris newsgroup is further categorized by inclusion in the unix subhierarchy, which has to do with various vendors' versions of UNIX.
+
+<BR></P>
+
+<P>Some of the current USENET newsgroup hierarchies are shown below. There are others&#151;this is by no means a definitive list. Some Internet mailing lists are fed into newsgroups in their own hierarchies. For instance, the GNU (GNU is a self-referential 
+
+acronym for &quot;GNU is not UNIX&quot;) project's mailing lists are fed to the gnu newsgroup hierarchy.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>alt
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>The alternative newsgroup hierarchy. There is even less control here than in most of USENET, with new newsgroups created at the whim of anyone who knows how to send a newgroup control message. It is mostly a swamp, but you can often find something 
+useful. Examples: alt.activism, alt.spam.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>comp
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Computer-related newsgroups. Example: comp.risks.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>misc
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Things that don't seem to fit anywhere else. Examples: misc.invest.stocks, misc.kids.vacation.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>rec
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Recreational newsgroups. Example: rec.woodworking.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>soc
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Social newsgroups. Examples: soc.college.grad, soc.culture.africa.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>talk
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Talk newsgroups. Intended for people who like to argue in public about mostly unresolvable and controversial issues. The talk hierarchy is a great waste of time and users love it. Examples: talk.politics.mideast, talk.abortion.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Newsgroup Distributions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Certain newsgroups and news postings are only relevant to certain geographical regions. For instance, it makes little sense to post an Indiana car-for-sale advertisement to the entire world, and Hungarian USENET sites won't appreciate the resources you 
+
+waste in doing so&#151;it costs thousands of dollars to send an article to all of USENET. Distributions allow you to control how far your article travels. For instance, typically you can post an article to your local site, your state, your continent, or to 
+
+the entire world. News-posting programs usually offer users a choice of distributions as they construct their news postings. The news system administrator controls which distributions are presented to users, which distributions are accepted by the news 
+system when articles are brought in by its newsfeeds, and which distributions are offered to outside hosts. The latter is important for sites that want to keep their local distributions private.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Where News Articles Live</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>News articles are stored in subdirectories of the news spool, which is usually named /var/spool/news or /usr/spool/news. The files that contain articles are given serial numbers as they are received, with the periods in the newsgroup names replaced by 
+the slash character (/). For instance, article number 1047 of the newsgroup comp.unix.solaris would be stored in the file /var/spool/news/comp/unix/solaris/1047. Articles in the news spool directory can be read with newsreaders and shared with other hosts 
+
+in your domain by using a network file system or the Network News Transfer Protocol (NNTP).
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>The User Interface&#151;Newsreaders and Posting Programs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Newsreaders are the user interface to reading news. Since news articles are stored as ordinary files, you could use a program such as cat or more for your newsreading, but most users want something more sophisticated. Many newsgroups receive more than a 
+
+hundred articles a day, and most users don't have time to read them all. They want a program that helps them quickly reject the junk so they can read only articles of interest to them. A good newsreader enables users to select and reject articles based on 
+
+their Subject header; several provide even more sophisticated filtering capabilities. Some of the more popular newsreaders are rn (and its variant trn), nn, and tin. The GNU Emacs editor also has several packages (GNUS and Gnews) available for newsreading 
+
+from within Emacs. These newsreaders are available for anonymous ftp from the host ftp.uu.net and others.
+
+<BR></P>
+
+<P>Newsreaders usually have built-in news-posting programs or the capability to call a posting program from within the newsreader. Most of them also let you respond to articles by e-mail.
+
+<BR></P>
+
+<P>Newsreaders are like religions and text editors&#151;there are lots of them and no one agrees on which is best. Your users will probably want you to install them all, as well as whatever wonderful new one was posted to comp.sources.unix last week. If 
+you don't have much time for news administration, you may want to resist or suggest the users get their own sources and install private copies. Otherwise you can spend a lot of time maintaining newsreaders.
+
+<BR></P>
+
+<P>News-posting programs enable you to post your own articles. A news-posting program prepares an article template with properly formatted headers, and then calls the text editor of your choice (usually whatever is named in the EDITOR environment variable) 
+
+so you can type in your article. When you exit the editor, you're usually given the choice to post the article, edit it again, or quit without posting anything. If you choose to post the article, the news-posting program hands it to another news system 
+program, which injects it into the news-transport system and puts a copy in the news spool directory.
+
+<BR></P>
+
+<P>Newsreaders and news-posting programs are usually both included in the same package of software. For instance, if you install the rn package you will also install Pnews, its news-posting program.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>The News Overview Database (NOV)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Newsreaders (and users) have a difficult job. Remember that more than 100 MB of news is posted to USENET per day. That's about the same as a fairly thick novel every day of the year, without any holidays. Most people want to have their favorite 
+newsreader sift the wheat from the chaff and present them with only the articles they want to see, in some rational order.
+
+<BR></P>
+
+<P>To do this, newsreaders must keep a database of information about the articles in the news spool; for instance, an index of Subject headers and article cross-references. These are commonly known as threads databases. The authors of newsreaders have 
+independently developed different threads databases for their newsreaders, and naturally they're all incompatible with each other. For instance, if you install trn, nn, and tin, you must install each of their threads database maintenance programs and 
+databases, which can take a lot of CPU cycles to generate and may become quite large.
+
+<BR></P>
+
+<P>Geoff Collyer, one of the authors of C-news, saw that this was not good and created the News Overview Database (NOV), a standard database of information for fancy newsreaders. The main advantage of NOV is that just one database must be created and 
+maintained for all newsreaders. The main disadvantage is that it hasn't yet caught on with all the authors of news software.
+
+<BR></P>
+
+<P>If you're interested in NOV support, you must install news-transport software that has the NOV NNTP extensions (INN does) and newsreaders that can take advantage of it. According to the NOV FAQ, trn3.3 and tin-1.21 have built-in NOV support, and there 
+is an unofficial version (not supported by the author) of nn for anonymous ftp on the host agate.berkeley.edu in the directory ~ftp/pub/usenet/NN-6.4P18+xover.tar.Z.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Sharing News Over the Network</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you have several hosts on a local area network (LAN), you'll want to share news among them to conserve disk space. As mentioned previously, if you carry all possible newsgroups your news spool will need about a gigabyte of disk space, more or less 
+depending on how long you keep articles online. A year from now, who knows how much you'll need? It makes more sense to add disk capacity to a single host than to add it to all your hosts.
+
+<BR></P>
+
+<P>There are two ways to share news over a LAN. If all of your hosts run a network file system such as Sun Microsystem's NFS or Transarc's AFS (Andrew File System), you can export the news host's spool directory to them and your newsreaders will probably 
+never know the difference. (News-posting programs may need special support.) However, this approach assumes that all of your hosts can run a network file system, which may not be true.
+
+<BR></P>
+
+<P>A second way is to use NNTP to transfer news from a single server host to client newsreaders and news-posting programs. The only requirements for the client hosts are that they be able to open up a TCP/IP connection over the network and have client 
+software that understands NNTP. Most common UNIX-based newsreaders and news-posting programs have built-in NNTP support, and there are many NNTP clients for non-UNIX operating systems such as DOS, VMS, VM/CMS, and others.
+
+<BR></P>
+
+<P>An NNTP daemon runs continuously on the news server host listening on a well-known port, just as the Simple Mail Transfer Protocol (SMTP) server listens on a well-known port for incoming e-mail connections. NNTP client programs connect to the NNTP 
+server and issue commands for reading and posting news articles. For instance, there are commands to ask for all the articles that have arrived since a certain date and time. A client newsreader can ask for those articles and display them to the user as 
+the NNTP server ships them over the network. Hosts with which you exchange news connect to the NNTP server's port and transfer articles to your host.
+
+<BR></P>
+
+<P>NNTP servers usually have some form of built-in access control so that only authorized hosts can connect to them&#151;after all, you don't want all the hosts on the Internet to be able to connect to your news server.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Transferring News to Other Hosts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When a posting program hands an article to the news system, it expects a copy of the article to be deposited in the local news spool (or the news spool of the local NNTP server), sent to other hosts, and eventually sent to the rest of USENET. Similarly, 
+
+articles posted on other USENET hosts should eventually find their way into the local (or NNTP server's) spool directory.
+
+<BR></P>
+
+<P>Figure 42.1 illustrates a simple set of connections between hosts transferring news. The incoming and outgoing lines emphasize that news is both sent and received between each set of hosts.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="42unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/42unx01.gif">FIGURE 42.1 The USENET Flooding Algorithm. </A></B>
+
+<BR></P>
+
+<P>USENET news is transferred by a flooding algorithm, which means that when a host receives an article it sends it to all other hosts with which it exchanges news, and those hosts do the same. Now suppose that someone on host-b in Figure 42.1 posts a news 
+
+article.
+
+<BR></P>
+
+<P>Because of the flooding algorithm, host-b sends the article to host-a, host-c, and any other hosts with which it exchanges news. Host-c gets the article and does the same, which means it gives the same article to host-a, which may try to give it back to 
+
+host-b, which already has a copy of the article in its news spool. Further, since host-b gave host-a the article, it will try to give it to host-c, which already got it from host-b. It's also possible that host-a got a copy of the article from host-b 
+before host-c offered it and will want to give it to host-c. Just to keep the news administrator's life interesting, no one can say whether any other hosts will ship the same article back to host-b or host-c. (Well-behaved hosts should avoid transferring 
+articles back to the hosts from which they originally received them, but on USENET it's best to plan for worst-case behavior from another site's software.) How do these hosts know when articles are duplicates and should be rejected? Obviously they can't 
+compare a new article with every article currently in the spool directory.
+
+<BR></P>
+
+<P>The news system software uses two different methods to avoid duplicate articles. The first is the Path header, which is a record of all the hosts through which a news article has passed. The Path header is just a list of hosts separated by punctuation 
+marks other than periods, which are considered part of a hostname. A Path such as hst.gonzo.com,host-c.big.org!host-b.shark.com means that an article has been processed by each of the sites hst.gonzo.com, host-c.big.org and host-b.shark.com. Any of those 
+hosts can reject the article because their names are already in the path.
+
+<BR></P>
+
+<P>RFC 1036 says that the Path header should not be used to generate e-mail reply addresses. However, some obsolete software might try to use it for that. INN discourages this use by inserting the pseudo-host not-for-mail into the Path.
+
+<BR></P>
+
+<P>The second way in which news systems avoid duplicate articles is the message-identifier header, Message-ID. Here is a sample Message-ID header:
+
+<BR></P>
+
+<PRE>Message-ID: &lt;CsuM4v.3u9@hst.gonzo.com&gt;</PRE>
+
+<P>When a news article is created, the posting program or some other part of the news system generates this unique header. Since no two articles have the same Message-ID header, the news system can keep track of the message identifiers of all recent 
+articles and reject those that it has already seen. The news history file keeps this record, and news-transport programs consult the history file when they're offered news articles. Because the volume of news is so large, history files get big pretty fast 
+
+and are usually kept in some database format that allows quick access.
+
+<BR></P>
+
+<P>The history mechanism is not perfect. If you configure your news system to remember the message identifiers of all articles received in the past month, your history files may become inconveniently large. On the other hand, if a news system somewhere 
+malfunctions and injects two-month-old articles into USENET, you won't have enough of a history to reject those articles. Inevitably, no matter how long a history you keep, it won't be long enough and you'll get a batch of old, bogus articles. Your users 
+will complain. Such is life.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Host-to-host News-Transport Protocols</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As with electronic mail, in order to transfer news from host to host, both hosts much speak the same language. Most USENET news is transferred either with the UUCP (UNIX to UNIX Copy Protocol) or NNTP. UUCP is used by hosts that connect with modems over 
+
+ordinary phone lines, and NNTP is the method of choice for hosts on the Internet. As mentioned above, you should avoid UUCP if you can.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>News-Transport System Configuration Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The news-transport system needs a lot of information about your site. Minimally, it must know with which hosts you exchange news, at what times you do so, and what transport protocol you use for each site. It has to know which newsgroups and 
+distributions your site should accept and which it should reject. NNTP sites must know which hosts are authorized to connect with them to read, post, and transfer news.
+
+<BR></P>
+
+<P>The news-transport system's configuration files provide this information. The news administrator must set up these files when installing the news system and must modify them in response to changes, such as a new newsfeed. The format of news-transport 
+system control files varies, but all current systems provide detailed configuration documentation. Read it.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Planning a News System</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can see from the preceding discussion that there are many different strategies you can use to set up a news system. Because sites' needs vary, there is no single right way to do it. You must evaluate your site's needs and choose a strategy that 
+fits. The questions in this section are intended to make you think about some of the issues you should consider.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Do You </B><B><I>Really</I></B><B> Want to Be a USENET Site?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As pointed out in the &quot;how to join USENET&quot; FAQ, you may not want to join at all. A news feed consumes significant CPU cycles, disk space, network (or modem) bandwidth, and staff time. Many Internet service providers will give your site access 
+
+to USENET news over the network through NNTP client newsreaders, and if your site is small this may be more economical than a news feed. Do yourself a favor and do the math before you jump in. You can always join USENET at a later date if you find that 
+your site's needs require a real feed.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Shared News versus One News Spool Per Host</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A basic decision is whether you will maintain separate news spools and news systems on all of your hosts, or designate a single host to act as a news server and let other hosts access news through the network. If you have more than one host to 
+administer, there are definite advantages to the latter approach.
+
+<BR></P>
+
+<P>If you have a single news host, your job as news administrator is much easier. Most news problems are confined to that host and you only have to maintain the (fairly complex) news transport software on that host. Software on client hosts is limited to 
+newsreaders and news-posting software&#151;no news-transport software is necessary. If there are problems, you know where to go to solve them, and once you solve them on the news host they will be solved for all the hosts in your domain.
+
+<BR></P>
+
+<P>USENET volume helps make a single-host strategy attractive. As mentioned previously, a full news feed can easily require a gigabyte of disk space, and the volume of USENET news continues to grow seemingly without bound. It's a lot easier to convince 
+your boss to buy a bigger disk drive for a single host than for twenty. Since many users don't read news every day, the longer you can retain articles the happier they will be, and you can retain them longer on a single, dedicated news host than you can on 
+
+multiple hosts.
+
+<BR></P>
+
+<P>Economics point to using a single news host both to minimize expensive staff time and to conserve disk space. The only reason you might want to store news on multiple hosts is if your network isn't up to par&#151;if your only network connections are 
+through UUCP, you can't use NNTP or a network file system to share news.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Isolating the News Spool</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most UNIX systems use the file system /var to contain files that grow unpredictably. For instance, /var/mail contains user mailboxes and /var/log contains system log files. Since the news spool is usually located in /var/spool/news, news articles may 
+compete for space with potentially more important data such as e-mail. Having your e-mail system grind to a halt because someone posts his 10 MB collection of Madonna erotica will not endear you to your users or your boss.
+
+<BR></P>
+
+<P>The best way around this problem is to isolate the news spool in its own disk partition. If /var/spool/news is mounted on its own disk partition and it fills up, only the news system is affected.
+
+<BR></P>
+
+<P>The disadvantage of this approach is that it forces you to pre-allocate disk space. If you allocate too little to the news spool, you'll have to either expire articles sooner than you'd like or spend a lot of time fixing things by hand when the spool 
+directory fills. If you allocate too much, it can't be used by other file systems, so you waste space. (However, it's better to guess too big than too little. Remember that the volume of USENET news constantly increases.)
+
+<BR></P>
+
+<P>Depending on how flexible your UNIX is, if you guess wrong and have to resize your partitions, it may be painful. You will have to resize at least two adjoining disk partitions to shrink or enlarge the news spool, which means dumping all the data in the 
+
+partitions, creating new ones, and restoring the data. (A safer approach is to dump all the data on the disk and verify that you can read the backup tapes before you resize the partitions.) During this operation, the news system (and probably the computer) 
+
+will be unavailable.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Configuring Your News Spool's File System</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before you can use a disk partition you must create a UNIX file system on it, using newfs, a front-end to the harder-to-user mkfs program. (Some versions of UNIX use mkdev fs to create file systems. Consult your system's administration manual.) Unless 
+you tell it otherwise, newfs uses its built-in default for the ratio of i-nodes (index-nodes) to disk blocks. I-nodes are pre-allocated, and when you run out of them no new files can be created, even if you have disk space available in the file system. The 
+
+newfs default for i-nodes is usually about right for most file systems but may not be for the news spool. News articles tend to be small, so you may run out of i-nodes in your news spool before you run out of disk space. On the other hand, since each 
+pre-allocated i-node takes some disk space, if you allocate too many you'll waste disk space.
+
+<BR></P>
+
+<P>Most likely you'll want to tell newfs to create additional i-nodes when you create your news spool. The hard question is how many additional i-nodes to allocate. If your news system is already running, you can use the df command to find out. Simply 
+compare the percentage of i-nodes in use to the percentage of disk blocks in use. If they are about the same, you're doing OK. If the disk block usage is a lot greater than the i-nodes in use, you've allocated too many i-nodes. What is more likely is that 
+
+you'll find the i-nodes in use greatly outnumber the available disk blocks. The solution is to shut down your news system, dump the news spool to tape, run newfs to make a file system with more i-nodes, and restore the news spool from tape.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Where Will You Get Your News?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Some organizations use USENET for internal communications&#151;for instance, a corporate BBS&#151;and don't need or want to connect to USENET. However, if you want a USENET connection, you'll have to find one or more hosts willing to exchange news with 
+
+you. Note that they are doing you a big favor&#151;a full news feed consumes a lot of CPU cycles, network bandwidth, and staff time. However, the spirit of USENET is altruistic, and you may find a host willing to supply you with a news feed for free. In 
+turn, you may someday be asked to supply a feed to someone else.
+
+<BR></P>
+
+<P>Finding a host willing to give you a news feed is easier if you're already on USENET, but if you were, you wouldn't need one. Your Internet service provider may be able to give you contact information, and as mentioned above, many service providers 
+supply newsfeeds either as part of their basic service or at additional cost. Personal contacts with other system administrators who are already connected to USENET may help, even if they can't supply you a feed themselves. The &quot;how to join 
+USENET&quot; FAQ mentioned previously contains other good ideas for finding a news feed.
+
+<BR></P>
+
+<P>It's a good idea to try to find a news feed that is topographically close on your network. If your site is in Indiana you don't want a transatlantic feed from Finland, even if you manage to find a host there willing to do it.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Site Policies</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Your users' USENET articles reflect on your site, and new users often make mistakes. Unfortunately, the kinds of mistakes you can make on a world-wide network are the really bad ones. You should develop organizational USENET access policies and educate 
+
+your users on proper USENET etiquette.
+
+<BR></P>
+
+<P>Policy questions tend toward the ethical and legal. For instance, if you carry the alt hierarchy, what will be your site's response when someone creates the newsgroup alt.child-molesting.advocacy? This is not beyond the pale of what you may expect in 
+the alt hierarchy, and even within the traditional hierarchies where newsgroups are voted into existence you may find newsgroups your site may not wish to carry. What will you do when you receive a letter from joe@remote.site.edu, whining that one of your 
+
+users is polluting his favorite newsgroup with &quot;inappropriate&quot; (in his opinion) postings. Do you want to get involved in USENET squabbles like that?
+
+<BR></P>
+
+<P>What will you do when you get 2,843 letters complaining that one of your users posted a pyramid-scheme come-on to 300 different newsgroups? Shoot him? Or maybe wish you'd done a more careful job of setting policy in the first place?
+
+<BR></P>
+
+<P>And what will you do when someone complains that the postings in alt.binaries.pictures.erotica.blondes are a form of sexual harassment and demands that the newsgroup be removed? Will you put yourself in the position of censor and drop that newsgroup, or 
+
+drop the entire alt hierarchy to avoid having to judge the worth of a single newsgroup?
+
+<BR></P>
+
+<P>If you put yourself in the position of picking and choosing newsgroups, you will find that while it may be completely obvious to you that comp.risks has merit and alt.spam doesn't, your users may disagree, vehemently. If you propose to locally delete 
+alt.spam to conserve computing resources, some users will refer to their right to free speech and accuse you of censorship and fascism. (Are you sure you wanted this job?)
+
+<BR></P>
+
+<P>Most news administrators don't want to be censors or arbiters of taste. Therefore, answers to policy questions should be worked out in advance, codified as site policy, and signed off on by management. You need to hammer away at your boss until you get 
+
+a written policy telling you what you should and should not do with respect to news administration, and you need to do this before you join USENET. As implied above, such a policy should provide for user education and set bounds for proper user behavior.
+
+<BR></P>
+
+<P>Without taking a position on the merits of alt.spam, USENET access is not one of the fundamental rights enumerated in the United States Constitution. It's more like a driver's license&#151;if you're willing to follow your site's rules, you can drive, 
+and if you're not, you can't. It's management's job to provide those rules, with guidance from you.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Expiration Policies</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>News system software is flexible enough to selectively purge old articles. In other words, if your site doesn't care much about the alt hierarchy but considers the comp hierarchy to be important, it can retain comp articles longer than alt articles. 
+From the proceeding discussion, you can see that this might be contentious. If Joe thinks that alt.spam is the greatest thing since indoor plumbing, he will cry foul if you expire spam articles in one day but retain comp articles for seven. You can see 
+that article expiration is not just a technical issue but a policy issue and should be covered in the same written policies mentioned previously.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Automatic Response to newgroup/rmgroup Control Messages</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Newsgroups are created and removed by special news articles called control messages. Anyone bright enough to understand RFCs 1036 and 977 can easily forge control messages to create and remove newsgroups. (That is, just about anyone.) This is a 
+particular problem in the alt hierarchy, which for some reason attracts people with too much time on their hands, who enjoy creating newsgroups such as alt.swedish-chef.bork.bork.bork. The alt hierarchy also is used by people who don't want to go to the 
+trouble of creating a new newsgroup through a USENET-wide vote, or who (usually correctly) guess that their hare-brained proposal wouldn't pass even the fairly easy USENET newsgroup creation process.
+
+<BR></P>
+
+<P>Another problem, somewhat less frequent, occurs when a novice news administrator posts newgroup messages with incorrect distributions and floods the net with requests to create his local groups.
+
+<BR></P>
+
+<P>You can configure your news system software to create and delete groups automatically upon receiving control messages, or to send e-mail to the news administrator saying that the group should be created or removed. If you like living dangerously, you 
+can enable automatic creation and deletion, but most people don't. You don't want someone to delete all your newsgroups just to see if he can, and you don't want two or three hundred created because a news system administrator made a distribution mistake. 
+
+Many sites allow automatic creation but do deletions manually. More cautious sites create and delete all groups by hand, and only if they have reason to believe the control message is valid. I recommend the latter approach. The only disadvantage is that 
+you may miss the first few articles posted to a new newsgroup if you don't stay on top of things.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=4><B>The ABCs of News-Transport Software</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>USENET began with A-news, a prototype news-transport system that was killed by its own success and was supplanted by B-news. B-news sufficed for quite a while but became another victim of USENET growth and was supplanted by C-news, a much more efficient 
+
+system written by Henry Spencer and Geoff Collyer of the University of Toronto. C-news was followed by INN (InterNetworkNews), written by Rich Salz of the Open Software Foundation, who apparently hadn't heard of the letter &quot;D.&quot;
+
+<BR></P>
+
+<P>Depending on your site's requirements, either C-news or INN make good news-transport systems, but this chapter has space for only one, INN. You may also want to consider C-news, which is fairly easy to install and will work well for most sites, but if 
+you do you're on your own. Note too that if you install C-news and your site plans to use NNTP, you'll also have to obtain and install the NNTP &quot;reference implementation,&quot; available by anonymous ftp from the host ftp.uu.net in the directory 
+~ftp/networking/news/nntp. This isn't necessary for INN, which has a slightly modified version of NNTP built in.
+
+<BR></P>
+
+<P>INN is the news-transport system of choice for Internet sites that use NNTP to exchange news and provide newsreaders and news-posting services. It was designed specifically for efficiency in an Internet/NNTP environment, for hosts with many news feeds 
+and lots of NNTP client newsreaders. Although its installation isn't as automated as C-news, it's not all that difficult, and it's well-documented. The following sections give an overview of how to build and install INN.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Getting Your Hands on the Sources</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The latest version of INN available as this book goes to press is included on the UNIX Unleashed CD-ROM. This version is called INN 1.4sec. It was released on December 22, 1993, so it's had some time to mature. The sec stands for security&#151;the 
+1.4sec release corrects a security problem in INN 1.4. If you like to live on the bleeding edge (as opposed to the cutting edge), you can look for a later release of INN on the host ftp.uu.net in the directory ~ftp/networking/news/nntp/inn. See Chapter 41, 
+
+&quot;Mail Administration,&quot; for more detailed instructions on obtaining software through ftp.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=4><B>An INN Distribution Roadmap</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Most of the important directories and programs in the INN distribution are summarized in the list below. Some are covered in more detail in the sections &quot;Configuring INN&#151;The config.data File,&quot; &quot;Building INN,&quot; and &quot;Site 
+Configuration.&quot;
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>BUILD
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>A shell script for building and installing INN.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>Install.ms.*
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>The nroff sources to INN's installation documentation.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>README
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>What you might think. Read it.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>backends
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Programs for transferring news to your USENET neighbors.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>config
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Contains the file config.dist, with which you create config.data. Config.data controls the compilation of the rest of INN.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>dbz
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Sources for the database routines used by INN. dbz is a faster version of the dbm database programs included with many versions of UNIX.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>doc
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>INN's manual pages.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>expire
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Contains programs that handle news expiration, or the purging of articles from your news spool. They also selectively purge old Message-IDs from the history file so it doesn't grow boundlessly.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>frontends
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Contains programs that control innd's operation or offer it news articles
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>include
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>C language header files for the INN programs.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>innd
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>The heart of INN, innd is the daemon that listens on the NNTP port for incoming news transfers and newsreader connections. When newsreaders connect to this port, innd creates nnrpd processes and connects them to the newsreader.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>lib
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>The sources for the C language function library used by other INN programs.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>nnrpd
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Communicates with NNTP newsreader clients, which frees innd to do its main job, transferring news.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>samples
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Sample configuration files that are copied into the site directory.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>site
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>This directory contains shell scripts and site configuration files. The site configuration files must be edited to tell INN with which sites you exchange news, which hosts are allowed to connect to read and post news, and so on.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>syslog
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>A replacement for older versions of the standard system logging program. You may not need this.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Learning About INN</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first step in setting up INN is to format and read its documentation. cd into the top of the INN source tree and type the following to create a formatted copy of the INN documentation named Install.txt:
+
+<BR></P>
+
+<PRE>$ make Install.ms
+
+cat Install.ms.1 Install.ms.2 &gt;Install.ms
+
+chmod 444 Install.ms
+
+$ nroff -ms Install.ms &gt; Install.txt</PRE>
+
+<P>If the make command doesn't work for you (and if it doesn't, your make is defective and will cause you problems later), type cat Install.ms.? &gt; Install.ms and then the preceding nroff command. These two commands create a file named Install.txt, which 
+
+you can view with your preferred editor or pager. Read it. Print it. Highlight it with your favorite color of fluorescent marker. Sleep with it under your pillow. Take it into the shower. Share it with your friends. Read it again. You won't be sorry.
+
+<BR></P>
+
+<P>The Install.ms document tells you just about everything you need to know to set up a news system based on INN. The only problem with it is that many people fail to read it carefully and think that there's something missing. There isn't. If you think 
+there is, read it again. Buy a new fluorescent marker, print off a copy of the file, and sit down with a nice glass of your favorite tea. Put it back under your pillow. Discuss it at dinner parties until your hosts ask you to leave, and ask your spouse 
+what she or he thinks about it. You may destroy your social life, but in the process you'll discover that you missed a few crucial bits of information the first time around. (Don't feel bad, nearly everyone does.)
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Configuring INN&#151;The </B><B><I>config.data</I></B><B> File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once you've absorbed the INN documentation, you're ready to configure INN's compilation environment. Like C-news, INN can run on many different versions of UNIX. The programs that build INN need information about your version of UNIX so they can build 
+INN correctly. This configuration is one of the most difficult parts of installing INN, and you must make sure that you get it right. The Install.ms documentation is essential because it contains sample configurations for many different versions of UNIX.
+
+<BR></P>
+
+<P>The directory config holds the INN master configuration file, config.data. INN uses the C-news subst program to modify its sources before compilation, and config.data provides the information subst needs to do its job. Subst uses the definitions in 
+config.data to modify the INN source files before they are compiled.
+
+<BR></P>
+
+<P>INN supplies a prototype version of config.data named config.dist. Config.dist is almost undoubtedly wrong for your UNIX. You must create your own version of config.data:
+
+<BR></P>
+
+<PRE>$ cd config
+
+$ cp config.dist config.data</PRE>
+
+<P>Now edit config.data to match your site's version of UNIX. As mentioned above, this is one of the hardest parts of installing INN. Config.data is about 700 lines long, and there's nothing for it but to go through it line by line and make the appropriate 
+
+changes. Depending on how experienced you are, you may have to set aside several hours for this task. Install.ms devotes about 18 pages to config.data, and you should refer to it as you edit.
+
+<BR></P>
+
+<P>Unless you know off the top of your head the answers to questions such as, &quot;How does your UNIX set non-blocking I/O?&quot;, you'll need to keep your programmer's manuals handy. If you have a workstation, you can edit config.data in one window and 
+use another to inspect your system's on-line documentation. As mentioned above, Install.ms gives sample configurations for many popular versions of UNIX. If your version is listed, use its values. (However, that doesn't relieve you of the chore of 
+inspecting the entire file.)
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> The subst program, originally supplied with C-news and used in INN by the kind permission of Geoff Collyer and Henry Spencer, is a clever shell script that relies on the sed program to do much of its 
+work. The INN config.dist file is large enough to break some vendor's versions of sed. To see whether your vendor's sed will work with INN, cd into the config directory and type the following:
+
+<BR>
+
+<BR>$ cp config.dist config.data
+
+<BR>$ make sedtest
+
+<BR>
+
+<BR>If this test fails, the simplest workaround is to type <B>make c quiet</B> to create a C language version of the subst program. You should also gripe at your UNIX vendor for foisting a substandard sed onto you, an unsuspecting customer.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Once you've edited config.data, you're ready to let subst configure the INN sources. From within the config directory, type the following:
+
+<BR></P>
+
+<PRE>$ make quiet</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Building INN</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Now that INN is configured, you're ready to build the system. Install.ms gives several ways to do this, depending on how trusting you are and your general philosophy of life. If you're the kind of person who likes cars with automatic transmission, you 
+can <B>cd</B> to the top of the INN source tree, type <B>./BUILD</B>, and answer its questions. The BUILD shell script compiles and installs INN without much input from you.
+
+<BR></P>
+
+<P>If you prefer to shift gears yourself, from the same directory you can type the following:
+
+<BR></P>
+
+<PRE>$ make world
+
+$ cat */lint | more</PRE>
+
+<P>Carefully inspect the lint output for errors. (See the following Tip.)
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The lint program detects errors in C language programs. Because C is a fairly permissive language, it lets you do things you probably shouldn't, and lint helps you find these bits of fluff in your 
+programs and correct them. For instance, lint can tell you if you're passing the wrong number (or type) of arguments to a C language function. Remember, just because a program compiles doesn't mean it will work correctly when you run it. If lint finds 
+errors in your INN configuration after you've run subst, there may be a problem you need to correct by editing 
+
+<BR>
+
+<BR>config.data and rebuilding your system. Unfortunately, lint sometimes reports spurious errors. You'll have to consult the programmers's section of your system's manual pages to be sure which errors are real and which are not.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>However, you'll learn the most about INN if you compile it bit by bit with Install.ms by your side. You may think that if INN is so simple to install you should take the easy road and use BUILD. But news systems are complex, and no matter how good they 
+
+are you will inevitably have some problems to solve. When you do you'll need all the clues you can muster, and building INN step by step helps you learn more about it. Someday, when the weasels are at the door, you'll be glad you did.
+
+<BR></P>
+
+<P>The step-by-step compilation procedure is fairly simple. First build the INN library:
+
+<BR></P>
+
+<PRE>$ cd lib
+
+$ make libinn.a lint 2&gt;&amp;1 | tee errs
+
+$ cd ..</PRE>
+
+<P>The tee command prints the output of the make command to your terminal and also saves it to the file errs. If you use an ugly shell such as csh or one of its variants, type sh or ksh before executing the command above, or read your shell's manual page 
+for the correct syntax to save the standard output and standard error of a command into a file.
+
+<BR></P>
+
+<P>The make command creates a library of C language functions used by the other INN programs and a lint library to help detect possible problems with it. Since the other INN programs depend on the INN library, it's crucial that you compile it correctly. 
+Check the output in the file errs and assure yourself that any errors detected by your C compiler or lint are innocuous. If you find errors (especially compiler warnings), it's probably due to a mistake you've made in config.data. The only solution is to 
+correct config.data, run subst again, and recompile libinn.a.
+
+<BR></P>
+
+<P>Once you've successfully built the INN library, you can build the rest of INN. Cd into each of the following directories in turn: frontends, innd, nnrpd, backends, and expire. In each directory, type the following:
+
+<BR></P>
+
+<PRE>$ make all 2&gt;&amp;1 | tee errs</PRE>
+
+<P>Check the output in the file errs. If there are compiler warnings or lint errors, do not pass go and do not collect $200. Consult your system's on-line documentation, edit config.data to correct the problems, rerun subst, and recompile the system 
+beginning with libinn.a.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING: </B>The disadvantage of using subst to configure INN is that most of the system depends on the config.data file. If at any stage in building the system you discover errors that require you to change 
+
+config.data, you must rerun subst and recompile all of INN, beginning with libinn.a.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Installing INN</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Now you're ready to install INN. Assuming that everything has gone well so far, cd to the root of the INN source tree, type <B>su</B> to become the superuser, and type this:
+
+<BR></P>
+
+<PRE>$ sh makedirs.sh 2&gt;&amp;1 | tee errs
+
+$ make update 2&gt;&amp;1 | tee -a errs</PRE>
+
+<P>This runs the commands to install INN and saves the output in the file errs, which you should carefully inspect for errors. Note the -a argument to tee in the second command line, which makes tee append to the file errs.
+
+<BR></P>
+
+<P>The makedirs.sh shell script creates the directories for the INN system and must be run before you type <B>make update</B>. The latter command installs INN in the directories created by makedirs.sh. Now you've installed the INN programs and are ready to 
+
+configure your news system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Site Configuration</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Cd into the site directory and type <B>make all 2&gt;&amp;1 | tee errs</B>. This command copies files from the samples and backends directories and runs subst over them. Some of these files must be edited before you install INN. They give INN 
+information it can't figure out on its own; for instance, with which hosts you exchange news.
+
+<BR></P>
+
+<P>The site directory also contains some utility shell scripts. You probably won't have to change these, but you should look at them to see what they do and ensure that paths to programs in them are correct.
+
+<BR></P>
+
+<P>Modifying the files in the site directory is the second most difficult part of configuring INN, especially if you haven't configured a news system before. However, INN won't work if these files aren't configured correctly, so you'll want to spend some 
+time here. The files you must edit are shown below, each with a brief explanation of its function. There are manual pages for each of these files in the doc directory, and you'll need to read them carefully in order to understand their function and syntax.
+
+
+
+<BR></P>
+
+<P>expire.ctl controls article expiration policy. In it you list a series of patterns to match newsgroup names and what actions expire should take for groups that match. This means that you can expire newsgroups selectively. The expire.ctl file is also 
+where you tell expire how long you want it to remember Message-IDs. You can't keep a record of Message-IDs forever because your history file would grow without bound. Expire not only removes articles from the news spool but controls how long their 
+Message-IDs are kept in the history file.
+
+<BR></P>
+
+<P>hosts.nntp lists the hosts that feed you news through NNTP. The main news daemon innd reads this file when it starts. If a host not listed in this file connects to innd, it assumes it's a newsreader and creates an nnrpd process to service it. If the 
+host is in the file, innd accepts incoming news articles from it.
+
+<BR></P>
+
+<P>inn.conf contains some site configuration defaults, such as the names put in an article's Organization and From headers. For instance, your organization might want all From headers to appear as From: someone@mailhub.corp.com, regardless of which host 
+posted the article. Some of these defaults may be overridden by environment variables. For instance, if the user sets the ORGANIZATION environment variable, it overrides the default in inn.conf.
+
+<BR></P>
+
+<P>Articles posted to a moderated newsgroup are first mailed to the newsgroup's moderator, who approves (or disapproves) the article. If it's approved, the moderator posts it with an Approved header containing his e-mail address. The moderators file tells 
+
+INN where to mail these articles.
+
+<BR></P>
+
+<P>The newsfeeds file describes the sites to which you feed news, and how you feed them. This is something you will already have arranged with the administrator of the sites which you feed. The important thing is for both sites to agree. For instance, if 
+you feed the alt.binaries groups to a site that doesn't want them, it discards the articles, and you both waste a lot of CPU time and network bandwidth in the process. The newsfeeds file allows you to construct specific lists of newsgroups for each site 
+you feed. For instance, one site might not want to receive any of the alt groups, and another might want all of the alt newsgroups except for the alt.binaries newsgroups. The newsfeeds file is also where you specify INN's behavior with respect to an 
+article's Distribution headers. There are other parameters you can set here to determine whether articles are transmitted, such as maximum message size.
+
+<BR></P>
+
+<P>nnrp.access controls which hosts (and optionally, users) can access your NNTP server. When a newsreader connects to the NNTP port, innd hooks it up with an nnrpd process so it can read and post news. The nnrpd program reads the nnrpd.access file to see 
+
+whether that host is allowed to read or post. The hosts may be specified as patterns, so it's easy to allow access to all the hosts in your organization. Reading and posting may also be controlled on a per-user basis if your newsreader knows how to use the 
+
+authinfo command, a common extension to NNTP.
+
+<BR></P>
+
+<P>passwd.nntp contains hostname:user:password triplets for an NNTP client (for example, a newsreader) to use in authenticating itself to an NNTP server.
+
+<BR></P>
+
+<P>Once you've edited the files in site, install them:
+
+<BR></P>
+
+<PRE>$ make install 2&gt;&amp;1 | tee errs</PRE>
+
+<P>As usual, carefully inspect the make command's output for any problems.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=4><B>System Startup Scripts and </B><B><I>news cron</I></B><B> Jobs</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A news system doesn't run on its own. You must modify your system's boot sequence to start parts of it and create cron jobs for the news user to perform other tasks.
+
+<BR></P>
+
+<P>INN supplies the file rc.news to start the news system when your computer boots. For most SVR4 hosts, you should install it as /etc/init.d/news and make a hard link to it named /etc/rc2.d/S99news. (See the section &quot;Modifying sendmail's Boot-time 
+Startup&quot; in Chapter 41 for more information on how SVR4 systems boot.)
+
+<BR></P>
+
+<P>The shell script news.daily should be run as a cron job from the news user's crontab. News.daily handles article expiration and calls the scanlogs shell script to process news log files. You should probably schedule this for a time when most people 
+aren't using the news system, such as after midnight.
+
+<BR></P>
+
+<P>You'll also need to add a news user cron entry to transmit news to your USENET neighbors. INN supplies sample shell scripts that show several different ways to do this for both NNTP and UUCP neighbors. The scripts are copied into the site directory. The 
+
+shell scripts nntpsend (and its control file nntpsend.ctl), send-ihave, and send-nntp are various ways to transfer news through NNTP. The scripts send-uucp and sendbatch are for sites using UUCP. Pick the one that most closely suits your site's needs and 
+add its invocation to the news user's crontab.
+
+<BR></P>
+
+<P>If you use sendbatch, edit it to ensure that the output of the df command on your system matches what the script expects. Unfortunately, the output of df varies a lot between vendors, and if sendbatch misinterprets it you may have problems with your 
+news spool filling up.
+
+<BR></P>
+
+<P>How often you should run the shell script depends on the needs of the site you're feeding. If it's an NNTP site and it wants to receive your articles as soon as they are posted, you could run one of the NNTP submission scripts every five minutes. If 
+it's an UUCP site or an NNTP site on the end of a slow link, it might want news much less often. You have to work this out with the remote site and make sure that your setup matches what it wants.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=4><B>Miscellaneous Final Tasks</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The active file shows what newsgroups are valid on your system. If you're converting to INN from another news system, you can convert your existing active file. Otherwise, you may want to get a copy of your feed site's active file and edit it to remove 
+
+newsgroups you don't want and add local groups.
+
+<BR></P>
+
+<P>You must also create a history file or convert your existing one. Appendix II of Install.ms gives information for converting an existing news installation to INN.
+
+<BR></P>
+
+<P>Even if you didn't run the BUILD shell script to build and install INN, you can save the last 71 lines of it into a file and run that file to build a minimal active file and history database. You can then add whatever lines you want to the active file.
+
+<BR></P>
+
+<P>Some vendors' versions of sed, awk, and grep are deficient and may need to be replaced with better versions before INN can function correctly. The GNU project's versions of these commands work well with INN. They are available for anonymous ftp from the 
+
+host prep.ai.mit.edu in the directory ~ftp/pub/gnu.
+
+<BR></P>
+
+<P>You may also have to modify your syslog.conf file to match the logging levels used by INN. These logging levels are defined in config/config.data, and the file syslog/syslog.conf shows sample changes you may need to make to your syslog.conf.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=4><B>Checking Your Installation and Problem Solving</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you have perl installed on your system, you can run the inncheck program to check your installation. You should also try posting articles, first to the local group test and then to groups with wider distributions. Make sure that articles are being 
+transmitted to your USENET neighbors.
+
+<BR></P>
+
+<P>If you have problems, many of the INN programs are shell scripts and you can see what they're doing by typing <B>sh -x </B>scriptname. You might also temporarily modify a script to invoke its programs with their verbose options turned on. For instance, 
+
+the nntpsend article submission shell script calls the innxmit program to do the work. If nntpsend wasn't working for you, you could edit it to turn on innxmit's verbose option (-v), run it by hand as <B>sh -x nntpsend</B>, and save the results to a file.
+
+<BR></P>
+
+<P>Some simple NNTP server problems can be checked with the telnet command. If you know the NNTP protocol, you can simply telnet to a host's NNTP port and type commands to the NNTP server. For instance:
+
+<BR></P>
+
+<PRE>$ telnet some.host.edu nntp
+
+Trying 123.45.67.8 ...
+
+Connected to some.host.edu.
+
+Escape character is '^]'.
+
+200 somehost NNTP server version 1.5.11 (10 February 1991) ready at Sun Jul 17 19:32:15 1994 (posting ok).
+
+quit</PRE>
+
+<P>(If your telnet command doesn't support the mnemonic name for the port, substitute 119 for nntp in the command above.) In this example no NNTP commands were given other than quit, but at least you can see that the NNTP server on some.host.edu is willing 
+
+to let you read and post news.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=4><B>Getting Help</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If your news system develops problems you can't solve on your own, comp.news.software.b and comp.news.software.nntp are good resources. However, you'll get much better advice if you do two things. First, read the INN FAQ and other INN documentation and 
+
+see if the problem is listed there. Imagine your embarrassment when you ask your burning question and the collective answer is, &quot;It's in the FAQ. Read it.&quot; Second, make sure you include enough information for people to help you. A surprising 
+number of problem posts don't even tell what version of UNIX the person uses. Your article should include the following:
+
+<BR></P>
+
+<P>A specific description of your operating system version and hardware. (For example, &quot;A Sun4c running Solaris 2.3 with the following patches applied_&quot;)
+
+<BR></P>
+
+<P>The version of news software you're running and any patches you may have applied to it (&quot;I'm running the Dec 22 release of INN 1.4sec&quot;), as well an any configuration information that seems relevant, such as the contents of config/config.data 
+or the configuration files installed from the site directory.
+
+<BR></P>
+
+<P>A detailed description of the problem you're having, what you've done to try to solve it, and what the results were. (For example, &quot;I get a permission denied message when I try to post news. I've tried changing the nnrp.access file, but I still 
+can't post.&quot;)
+
+<BR></P>
+
+<P>If you do a good job of researching your posting, you may even figure out the problem on your own. If you don't, you'll get much better advice for having done the work to include the necessary details.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This chapter gives you a good start on becoming a news administrator, but installing the software is only the beginning of what you'll need to know to keep your news system running. Most of your additional learning will probably be in the form of 
+on-the-job training, solving the little (and big) crises your news system will create. Your best defense against this mid-crisis style of training is to read the INN manual pages, the INN and news.software.b FAQs, and the news.software.* newsgroups. The 
+more information you pick up before something goes wrong, the better prepared you will be to handle it.
+
+<BR></P>
+
+<P><A HREF="unx41.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx41.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx43.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx43.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

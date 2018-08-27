@@ -1,0 +1,4348 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx21.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx22.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx22.htm">
+
+<LINK REL="Previous" HREF="unxpt5.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt5.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt5.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt5.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx22.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx22.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">21 &#151; Basic Formatting with troff/nroff</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By James C. Armstrong</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Formatting with nroff/troff An Overview</A></LI>
+
+<LI>
+
+<A HREF="#I5">Printing nroff and troff Files</A></LI>
+
+<LI>
+
+<A HREF="#I6">Text Filling and Adjusting</A></LI>
+
+<LI>
+
+<A HREF="#I7">Vertical Spacing</A></LI>
+
+<LI>
+
+<A HREF="#I8">Line Controls</A></LI>
+
+<LI>
+
+<A HREF="#I9">Page Control</A></LI>
+
+<LI>
+
+<A HREF="#I10">Fonts and Style Controls</A></LI>
+
+<LI>
+
+<A HREF="#I11">In-Line Escape Sequences</A></LI>
+
+<LI>
+
+<A HREF="#I12">Special Characters</A></LI>
+
+<LI>
+
+<A HREF="#I13">Strings and Macros</A></LI>
+
+<LI>
+
+<A HREF="#I14">Number Registers</A></LI>
+
+<LI>
+
+<A HREF="#I15">Traps and Diversions</A></LI>
+
+<LI>
+
+<A HREF="#I16">Tabs, Character Conversions, and Controls</A></LI>
+
+<LI>
+
+<A HREF="#I17">Local Motions</A></LI>
+
+<LI>
+
+<A HREF="#I18">Overstrikes, Lines, and Arcs</A></LI>
+
+<LI>
+
+<A HREF="#I19">Conditional Text</A></LI>
+
+<LI>
+
+<A HREF="#I20">File Switching and Environments</A></LI>
+
+<LI>
+
+<A HREF="#I21">Flotsam and Jetsam</A></LI>
+
+<LI>
+
+<A HREF="#I22">Quick Reference of nroff/troff Requests</A></LI>
+
+<LI>
+
+<A HREF="#I23">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>21 &#151; Basic Formatting with </B><B><I>troff</I></B><B>/</B><B><I>nroff</I></B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By James C. Armstrong</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>One of the most common uses for any computer is text processing, and in this respect machines running UNIX are no different than any others.
+
+<BR></P>
+
+<P>Many products exist for UNIX machines, including WordPerfect, Microsoft Word, IslandWrite, and FrameMaker. Although very powerful, these text processors might not be available on every machine. The best solution for almost every platform is the troff 
+text processor and its cousin, nroff. troff is short for &quot;text run-off&quot; and was originally developed by Joseph Ossanna in the early 1970s, for use with the Graphics Systems CAT typesetter. This was the typesetter in use at the Murray Hill 
+Computer Center of Bell Labs, where UNIX was first developed. In 1979, in response to the need to support more typesetters, Brian Kernighan rewrote troff. Although alternatives were investigated, UNIX had already invested a large amount of effort in troff, 
+
+including macro packages and preprocessors for the utility. You have already learned about manual pages, which are written in troff using a specialized macro package.
+
+<BR></P>
+
+<P>Closely associated with troff is nroff. They both use the same set of commands to format text, the biggest exception being that nroff does not support commands for changing point sizes and supports only a limited number of character set changes. nroff 
+also provides ASCII output, so you can see the results of your nroff command on your screen. Although third-party products can show the results of your troff command on screen if they have graphics capabilities, on a standard UNIX system, the only way to 
+see the troff output is to send it to a printer.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Formatting with </B><B><I>nroff</I></B><B>/</B><B><I>troff</I></B><B> An Overview</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Many word processors such as Microsoft Word and WordPerfect are WYSIWYG processors (what you see is what you get). With those word processors, you choose menu items or press key combinations that cause the formatting to occur right on the screen, but 
+the formatting codes do not appear in your document. Text processors like nroff and troff are called descriptive markup languages, which means that you enter the formatting codes into your document like any other text, and you don't see the effects of 
+those instructions until you print the file.
+
+<BR></P>
+
+<P>Several building blocks are available for formatting files using nroff and troff, including the following:
+
+<BR></P>
+
+<PRE>
+
+<BR>Primitive requests The standard command in troff is called a primitive request and has the form of a period followed by two lowercase letters. The period must appear in the first column, and any text after the request is an argument. Primitives are 
+used to do all kinds of formatting, such as indenting paragraphs, adding space between paragraphs, changing fonts, and centering text. This chapter provides examples of using the more common primitives and a quick reference that briefly describes all 
+primitives. If you are new to nroff/troff, you might want to try using a macro package before you dive into primitives.
+
+
+
+<BR>Macros Most UNIX systems provide standard macro packages, which enable you to format documents more easily than with primitives. Macros perform operations more or less automatically, such as formatting bulleted lists, headings, and indented paragraphs. 
+
+Four macro packages, mm, ms, me, and man are described in detail in Chapter 22, &quot;Formatting with Macro Packages.&quot; Chapter 27, &quot;Writing Your Own Macros,&quot; shows you the ins and outs of creating macros. You can create a file using only 
+macro package commands, or you can mix macros and primitives in the same file.
+
+
+
+<BR>Preprocessors Most UNIX systems provide standard preprocessors. Each preprocessor is a set of commands devoted to a special task. You can format tables with the tbl preprocessor (Chapter 23), equations with eqn (Chapter 24), line drawings with pic 
+(Chapter 25), and graphs with grap (Chapter 26). You can create a file containing only preprocessor commands, and you can embed preprocessor commands in regular documents formatted with primitives, a macro package, or both.
+
+
+
+<BR>Strings Strings can be defined, just as macros can. For example, if you were writing about a new product whose name hadn't been decided yet, you could define a string for the temporary name &quot;Hot New Product.&quot; When the name was finally chosen, 
+
+you wouldn't have to do a global search and replace for &quot;Hot New Product.&quot; You could just redefine the string to produce &quot;XYZZY Thingo.&quot; Specific instructions for defining strings are in the section titled &quot;Strings and Macros&quot; 
+
+later in this chapter, and in Chapter 26, &quot;Writing Your Own Macros.&quot;
+
+
+
+<BR>Number registers Number registers are used to keep track of values like your current font and point size, your current indentation, and the current list item. They are really nothing more than storage locations. Some are read-only; others can be 
+manipulated. You can define your own number registers and use them in macros. Specific examples are given in the section titled &quot;Number Registers&quot; later in this chapter, and in Chapter 26, &quot;Writing Your Own Macros.&quot;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> troff insists on calling these registers &quot;number registers,&quot; but in fact they don't need to contain numbers; they can&#151;and often do&#151;contain alphabetic characters.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<PRE>
+
+<BR>Escape sequences Escape sequences (backslash-character or backslash-open-parenthesis-character-character) can be used to change fonts and point sizes and for many other tasks. Some escape sequences enable you to enter troff primitives in-line with the 
+
+text they affect rather than on lines by themselves. Specific examples are given in the section titled &quot;In-Line Escape Sequences&quot; later in this chapter and in other chapters where they apply.
+
+
+
+<BR>Special characters Although these are system-dependent, there are a number of special characters that are usually available on all systems, such as a long dash, a degree symbol, and a copyright symbol. Specific examples are given in the section titled 
+
+&quot;Special Characters&quot; later in this chapter and in other chapters where they apply.</PRE>
+
+<P>Processing troff and nroff files for printing is discussed in Chapter 29, &quot;Processing, Printing, and Troubleshooting Formatted Files.&quot;
+
+<BR></P>
+
+<P>Chapters 21 through 29 give you a good start on using the nroff/troff family of text processing tools, but there is much more that you can do with them. For additional information, you can consult the nroff and troff man pages online or your local 
+bookstore for books dedicated to this subject.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Printing </B><B><I>nroff</I></B><B> and </B><B><I>troff</I></B><B> Files</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX offers a selection of commands and utilities for printing. Printing nroff and troff output files is covered in detail in Chapter 29. It describes the role of the preprocessors, nroff and troff, the role of the postprocessors, and introduces you to 
+
+PostScript. It also reviews raw printing (just dumping the contents of your file with no formatting at all) because sometimes you'll want to print a file without formatting it. 
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Text Filling and Adjusting</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The cleanest look to any document is when the text looks symmetric, with one or two smooth margins, and spread across the page&#151;like this paragraph. The default settings for nroff and troff are to &quot;fill&quot; each line with text, and to 
+&quot;adjust&quot; the position of the text so that all lines begin at the left margin, and the right margin is justified. In the simplest case, the input file does not need any troff requests to format a basic document. Listing 21.1 illustrates a basic 
+input file, and Figure 21.1 illustrates the output produced by nroff.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx01.gif">Figure 21.1. </B><B><I>roff</I></B><B> output with no requests.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.1. Basic </B><B>nroff</B><B>/</B><B>troff</B><B> source with no requests.</B></LH></UL>
+
+<PRE>We, the people of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our posterity do
+
+ordain and establish this Constitution for the United States of
+
+America.</PRE>
+
+<P>The raw text file has a ragged right margin, with some lines very short, and one line longer than desired. By putting the text through nroff, the lines are set to an even length, and the margins are smooth. Two words were broken across lines. If you 
+look closely at the output, you'll see that nroff justifies the right margin by inserting extra spaces between words, at alternating ends of each line. The first line needed no extra spaces, but to even the margin on the second line, an extra space was 
+included between &quot;perfect&quot; and &quot;Union,&quot; and the third line needed four extra spaces.
+
+<BR></P>
+
+<P>troff output of the same text, shown in Figure 21.2, shows that the lines are expanded to justify the margins by changing the spacing of letters across the entire line.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx02.gif">Figure 21.2. </B><B><I>troff</I></B><B> output of Figure 21.1.</A></B>
+
+<BR></P>
+
+<P>The ability to fill the text can be set with two requests. The first, .fi, tells troff that you want the text to be filled with input. This is the default setting. The request .nf tells troff that you don't want text filled, that you want the right 
+margin to be ragged. This is useful for cases where a block of text is inappropriate, such as a return address or poetry. Listing 21.2 shows a sample input file for a letter, with no fill in places, and fill in places. Figure 21.3 shows the output.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx03.gif">Figure 21.3. </B><B><I>troff</I></B><B> output showing filled and </B><B>nonfilled text.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.2. </B><B>troff</B><B> source illustrating the fill requests.</B></LH></UL>
+
+<PRE>.nf
+
+101 Main Street
+
+Morristown, NJ  07960
+
+15 March, 1994
+
+Dear Sir,
+
+.fi
+
+I just wanted to drop you a note to thank you for spending the
+
+time to give me a tour of your facilities. I found the experience
+
+both educational and enjoyable. I hope that we can work together
+
+to produce a product we can sell.</PRE>
+
+<P>Note that a blank line is used to separate blocks of text. On a longer document, these blank lines can be used to separate paragraphs. Another way to separate blocks is to use .br. This interrupts the filling of the current line and starts a new block 
+of text. The same can be done by starting a line of text with a space. Figure 21.4 shows the output of Listing 21.1, but includes a break after &quot;the general welfare.&quot;
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx04.gif">Figure 21.4. </B><B><I>troff</I></B><B> output showing the effect of a </B><B>break in midsentence.</A></B>
+
+<BR></P>
+
+<P>Although smooth margins are the default, this is also something under the control of the writer. The .ad command controls adjustment. It can take the following as arguments: l means to adjust the left margin only; r is to adjust the right margin only; c 
+
+is to center each line; and b or n means to adjust both margins. Figure 21.5 shows the effects of .ad l, .ad r, and .ad c on the first text sample. .ad b is the default starting value and is effectively demonstrated in the first example.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx05.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx05.gif">Figure 21.5. </B><B><I>troff</I></B><B> output showing the effects of </B><B>different line adjustments.</A></B>
+
+<BR></P>
+
+<P>Obviously, adjustment makes no sense if the text is not filled. Right margin adjustment can also be turned off with .na. The adjustment mode is not changed.
+
+<BR></P>
+
+<P>The last type of text adjustment is centering. This is a bit different than .ad c, which continues to fill lines before centering the text, but only if .fi is specified. The centering request is .ce and can be followed by a number. This centers the next 
+
+line or lines, without filling text. If the text is being filled, each input line is treated as if it is followed by a break. Non-filled lines would be treated the same as .ce. Chapter titles are an example of text centering. Listing 21.3 is the source for 
+
+a centering command, and the output is illustrated in Figure 21.6.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx06.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx06.gif">Figure 21.6. The effects of the centering </B><B>request.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.3. </B><B>troff</B><B> source for the centering command.</B></LH></UL>
+
+<PRE>.ce 3
+
+Scientific Methods of Computing
+
+A Simulation
+
+by John Smith</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Vertical Spacing</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are three types of vertical space controls in troff. Baseline spacing controls the basic spacing between consecutive lines of text. The next type is extra line spacing; this is the ability to double-space text, or more, both on a regular basis, 
+and on a per case basis. The last is a block of vertical space.
+
+<BR></P>
+
+<P>Space measurements have different scales. When a request needs a distance, you can use the default type or modify the number with an indicator. The measurement types are inches, centimeters, Picas, Ems, Ens, points, units, and vertical line spaces. A 
+Pica is 1/6 of an inch. An em is the width of the letter m and is dependent on the font used in troff. An en is half an em. The modifiers are listed in Table 21.1.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 21.1. </B><B>troff</B><B> space measurement modifiers.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Measurement Option</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>i</P>
+
+<TD>
+
+<P>inch</P>
+
+<TR>
+
+<TD>
+
+<P>c</P>
+
+<TD>
+
+<P>centimeter</P>
+
+<TR>
+
+<TD>
+
+<P>p</P>
+
+<TD>
+
+<P>Pica</P>
+
+<TR>
+
+<TD>
+
+<P>m</P>
+
+<TD>
+
+<P>Em</P>
+
+<TR>
+
+<TD>
+
+<P>n</P>
+
+<TD>
+
+<P>En</P>
+
+<TR>
+
+<TD>
+
+<P>p</P>
+
+<TD>
+
+<P>point</P>
+
+<TR>
+
+<TD>
+
+<P>u</P>
+
+<TD>
+
+<P>unit</P>
+
+<TR>
+
+<TD>
+
+<P>v</P>
+
+<TD>
+
+<P>vertical space</P></TABLE>
+
+<P>The default vertical spacing between lines of text is dependent on the text processor used. For nroff, it is 1/6 of an inch. For troff, it is 12 points. This can be changed with .vs. For nroff, the command argument is rounded to Picas, so if extra space 
+
+is needed
+
+<BR>regularly, .ls is clearer. With troff, the default space measurement is points, although any measurement type can be used. An example of different spacings is given in Figure 21.7, using the initial text sample.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx07.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx07.gif">Figure 21.7. Different vertical spacing using </B><B><I>troff</I></B><B>.</A></B>
+
+<BR></P>
+
+<P>The .ls request, mentioned previously, is used to indicate the number of blank lines between each line of text. The default value is 1, for single spacing. Double-spacing text is accomplished with .ls 2. Figure 21.8 shows the first text sample, but with 
+
+.ls 2.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx08.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx08.gif">Figure 21.8. Different line spacing using </B><B><I>troff</I></B><B>.</A></B>
+
+<BR></P>
+
+<P>Block spacing can be achieved with the .sp request. With no arguments, this gives a single blank line. It can take arguments of any size, with the default unit being the vertical spacing. Negative numbers space back up the page; positive numbers head 
+down the page. Spacing changes requested here will not leave the page&#151;if the requested space is beyond the bottom of the page, the text will start at the top of the next page. Using the sample letter, you can leave an inch of space between the date 
+and the salutation. The source is changed in Listing 21.4, with the output in Figure 21.9.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx09.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx09.gif">Figure 21.9. </B><B><I>troff</I></B><B> output with a block of </B><B>space.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.4. </B><B>troff</B><B> source for block spacing.</B></LH></UL>
+
+<PRE>.nf
+
+101 Main Street
+
+Morristown, NJ  07960
+
+15 March, 1994
+
+.sp 1i
+
+Dear Sir,
+
+.fi
+
+I just wanted to drop you a note to thank you for spending the
+
+time to give me a tour of your facilities. I found the experience
+
+both educational and enjoyable. I hope that we can work together
+
+to produce a product we can sell.</PRE>
+
+<P>Another method to grab a block of vertical space is the .sv request. It takes the same arguments as .sp but has some different behaviors. You cannot request space at the top of a page with .sp, for example. Also, if a space request exceeds the size of 
+the page, it is truncated at the bottom of the page with .sp. With .sv, the space is not generated unless there is room on the page for the space. In this case, the space requested is remembered and can be released on a new page with .os. Normally, .os 
+appears only in complicated macro definitions, which are discussed later.
+
+<BR></P>
+
+<P>For the sample letter, save a half inch of space at the top of the page. The source is Listing 21.5, and the output is Figure 21.10.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx10.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx10.gif">Figure 21.10. </B><B><I>troff</I></B><B> output with requested space </B><B>using .sv.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.5. </B><B>troff</B><B> source using .sv.</B></LH></UL>
+
+<PRE>.sv 0.5i
+
+.nf
+
+101 Main Street
+
+Morristown, NJ  07960
+
+15 March, 1994
+
+.sp 1i
+
+Dear Sir,
+
+.fi
+
+I just wanted to drop you a note to thank you for spending the
+
+time to give me a tour of your facilities. I found the experience
+
+both educational and enjoyable. I hope that we can work together
+
+to produce a product we can sell.</PRE>
+
+<P>Two other spacing controls are also available. The request .ns turns off spacing mode, effectively disabling the .sp command. To restore spacing, .rs is used. These commands are more likely to be found in macros.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Line Controls</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, I have examined troff requests to fill and adjust lines of text and to move your location on a page. I will now examine how to alter the line itself.
+
+<BR></P>
+
+<P>By default, the length of a line of text is 6.5 inches in nroff, and 7.54 inches in troff. This can be changed with the .ll request. The default space measurement is in ems, but I find using inches a bit easier. Listing 21.6 shows the source, changing 
+the line length to 4 inches; its effect on the output is shown in Figure 21.11.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx11.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx11.gif">Figure 21.11. </B><B><I>troff</I></B><B> output with line indents and </B><B>lengths.</A></B>
+
+<BR></P>
+
+<P>Lines of text can also be indented, both for a single line and for all text. The .in request indents all lines of text a common distance. This is illustrated by indenting the return address in Listing 21.6. A temporary indent can be requested with .ti, 
+
+such as might lead a paragraph. This is also illustrated in Listing 21.6 and Figure 21.11.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.6. </B><B>troff</B><B> source illustrating line indents and lengths.</B></LH></UL>
+
+<PRE>.nf
+
+.ll 4.0i
+
+.in 2.0i
+
+101 Main Street
+
+Morristown, NJ  07960
+
+15 March, 1994
+
+.sp 1i
+
+.in 0
+
+Dear Sir,
+
+.fi
+
+.ti 0.25i
+
+I just wanted to drop you a note to thank you for spending the
+
+time to give me a tour of your facilities. I found the experience
+
+both educational and enjoyable. I hope that we can work together
+
+to produce a product we can sell.</PRE>
+
+<P>Using text indents can help organize a document.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Page Control</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, this chapter has examined how to format text independent of the page, but for most documents, page controls are necessary. Both nroff and troff default to an 11-inch page. troff has a one-inch left margin, and nroff has no left margin. Pages 
+start at page one and are sequentially numbered. Each of these details can be changed by the document writer.
+
+<BR></P>
+
+<P>The .pl request sets the length of a page; the default space measurement is in vertical spaces. Again, inches can be better used here. For the sample letter, assume a page length of 8 inches. (Some other normal page lengths are 12 inches for A4 paper 
+and 14 inches for legal-sized paper. troff can support pages up to 75 inches in length, and nroff up to 136 inches.)
+
+<BR></P>
+
+<P>You can force new pages with the .bp request. An argument can affect the number of pages output. The .ns request, mentioned earlier, disables the .bp request, unless a specific number of pages is requested.
+
+<BR></P>
+
+<P>The .pn request assigns a page number to the next page printed. This does not affect the present page, only subsequent pages. These three requests are illustrated in Listing 21.7 and Figure 21.12, an extended form of the letter.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx17.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx17.gif">Figure 21.12. </B><B><I>troff</I></B><B> output with page controls.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.7. </B><B>troff</B><B> source illustrating page controls.</B></LH></UL>
+
+<PRE>.nf
+
+.ll 5.0i
+
+.pl 8.0i
+
+.in 2.5i
+
+101 Main Street
+
+Morristown, NJ  07960
+
+15 March, 1994
+
+.in 0
+
+.sp 1i
+
+Dear Sir,
+
+.fi
+
+.ti 0.5i
+
+I just wanted to drop you a note to thank you for spending the
+
+time to give me a tour of your facilities. I found the experience
+
+both educational and enjoyable. I hope that we can work together
+
+to produce a product we can sell.
+
+.pn 4
+
+I am sending a copy of our proposal on the next page. I look forward
+
+to hearing from you.
+
+.sp 2
+
+.in 2.5i
+
+Yours,
+
+.sp 0.5i
+
+Joe Smith, President Any Corp.
+
+.bp
+
+.in 0
+
+We propose to build our widget tools with your widget makers.</PRE>
+
+<P>Note that the page number is not printed. Page numbers are printed only if explicitly requested by the programmer. These techniques are discussed later in this chapter in Section 21.19 &quot;Flotsam and Jetsam,&quot; where I discuss page titling.
+
+<BR></P>
+
+<P>The text can be offset on the page using the .po request. This is different from the .in request. .po sets the 0 value for indents and temporary indents. This is illustrated in Figure 21.13, which has a page offset of two inches to the preamble of the 
+Constitution.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx13.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx13.gif">Figure 21.13. </B><B><I>troff</I></B><B> output with a two-inch page </B><B>offset.</A></B>
+
+<BR></P>
+
+<P>Two very powerful page controls are the .mk and the .rt requests. The .mk request saves the current vertical location in an internal register (which can be specified in the argument). This sets a flag at the current location. The .rt request returns to 
+
+that previous location. One good use for these requests is to establish multiple column output. The programmer can set the mark at the top of the page, and at the bottom of the page return to the mark. This is illustrated in Listing 21.8 and Figure 21.14. 
+
+Note that the simple multiple column approach also requires the use of the .ll and .po requests.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx14.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx14.gif">Figure 21.14. </B><B><I>troff</I></B><B> output showing the work of .mk </B><B>and .rt.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.8. </B><B>troff</B><B> source using </B><B>.mk</B><B> and </B><B>.rt</B><B> requests.</B></LH></UL>
+
+<PRE>.ll 3i
+
+.mk a
+
+.ce
+
+Preamble
+
+.sp
+
+We, the people of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our posterity do
+
+ordain and establish this Constitution for the United States of
+
+America.
+
+.sp
+
+.ce
+
+Article I
+
+.sp
+
+Section 1  Legislative powers; in whom vested:
+
+.sp
+
+All legislative powers herein granted shall be vested in a
+
+Congress of the United States, which shall consist of a Senate
+
+and a House of Representatives.
+
+.sp
+
+Section 2  House of Representatives, how and by whom chosen,
+
+Qualifications of a Representative. Representatives and direct
+
+taxes, how apportioned. Enumeration. Vacancies to be filled.
+
+Power of choosing officers and of impeachment.
+
+.sp
+
+1. The House of Representatives shall be composed of members
+
+chosen every second year by the people of the several states,
+
+and the electors in each State shall have the qualifications
+
+requisite for electors of the most numerous branch of the
+
+State Legislature.
+
+.sp
+
+2. No person shall be a Representative who shall not have
+
+attained to the age of twenty-five years, and been seven years
+
+a citizen of the United States, and who shall not, when elected,
+
+be an inhabitant of that State in which he shall be chosen.
+
+.sp
+
+.rt
+
+.po 4.5i
+
+3. Representatives and direct taxes shall be apportioned among
+
+the several States which maybe included within this Union,
+
+according to their respective numbers, which shall be determined
+
+by adding to the whole number of free persons, including those
+
+bound for service for a term of years, and excluding Indians not
+
+taxed, three-fifths of all other persons. The actual enumeration
+
+shall be made within three years after the first meeting of the
+
+Congress of the United States, and within every subsequent term
+
+of ten years, in such manner as they shall by law direct. The
+
+number of Representatives shall not exceed one for every thirty
+
+thousand, but each State shall have at least one Representative;
+
+and until such enumeration shall be made, the State of New
+
+Hampshire shall be entitled to choose three, Massachusetts eight,
+
+Rhode Island and Providence Plantations one, Connecticut five,
+
+New York six, New Jersey four, Pennsylvania eight, Delaware one,
+
+Maryland six, Virginia ten, North Carolina five, South Carolina
+
+five, and Georgia three.
+
+.sp
+
+4. When vacancies happen in the representation from any State,
+
+the Executive Authority thereof shall issue writs of election
+
+to fill such vacancies.
+
+.sp
+
+5. The House of Representatives shall choose their Speaker and
+
+other officers; and shall have the sole power of impeachment.</PRE>
+
+<P>The last page control is .ne. This is used to indicate that a certain amount of space is needed before the end of a page. Using this request, you can avoid starting paragraphs at the bottom of a page. Normally, .ne would be included in a macro. If the 
+space requested is available, nothing happens. If the space is not available, the end of page processing is triggered.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Fonts and Style Controls</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The previous sections have dealt with the positioning of text on the page and have ignored the actual modification of the text itself. This section handles different fonts and point sizes.
+
+<BR></P>
+
+<P>The standard font is a Times Roman font. Italic, Bold, and Special fonts are also available on all systems. Some sites may also include Helvetica, Bold-Helvetica, Italic-Helvetica, and Constant-Width fonts. Check your local system for which fonts are 
+available.
+
+<BR></P>
+
+<P>The request .ft sets the appropriate font. Mounting and unmounting fonts is performed automatically with this request. The requested font must be specified in the argument; if no argument is present, the previous font is restored. The arguments are 
+shown in Table 21.2.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 21.2. Standard </B><B>troff</B><B> and </B><B>nroff</B><B> fonts.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Identifier</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Font</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>B</P>
+
+<TD>
+
+<P>Bold</P>
+
+<TR>
+
+<TD>
+
+<P>I</P>
+
+<TD>
+
+<P>Italic</P>
+
+<TR>
+
+<TD>
+
+<P>R</P>
+
+<TD>
+
+<P>Roman</P>
+
+<TR>
+
+<TD>
+
+<P>P</P>
+
+<TD>
+
+<P>Previous</P>
+
+<TR>
+
+<TD>
+
+<P>H</P>
+
+<TD>
+
+<P>Helvetica</P>
+
+<TR>
+
+<TD>
+
+<P>CW</P>
+
+<TD>
+
+<P>Constant Width</P>
+
+<TR>
+
+<TD>
+
+<P>HB</P>
+
+<TD>
+
+<P>Helvetica Bold</P>
+
+<TR>
+
+<TD>
+
+<P>HI</P>
+
+<TD>
+
+<P>Helvetica Italic</P></TABLE>
+
+<P>Fonts have limited meaning in nroff. The font used is a constant-width font. By specifying bold, characters are overstruck in printing. Italic is interpreted as an underline. Other fonts have no meaning.
+
+<BR></P>
+
+<P>By setting fonts, you can italicize the preamble to the Constitution and print each section header in bold. The source is in Listing 21.9, and the output is in Figure 21.15.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx15.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx15.gif">Figure 21.15. </B><B><I>troff</I></B><B> output using multiple </B><B>fonts.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.9. Font selection in </B><B>troff</B><B>.</B></LH></UL>
+
+<PRE>.ce
+
+.ft B
+
+Preamble
+
+.sp
+
+.ft I
+
+We, the people of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our
+
+posterity do ordain and establish this Constitution for the
+
+United States of America.
+
+.sp
+
+.ce
+
+.ft B
+
+Article I
+
+.sp
+
+.ft R
+
+Section 1  Legislative powers; in whom vested:
+
+.sp
+
+All legislative powers herein granted shall be vested in a
+
+Congress of the United States, which shall consist of a Senate
+
+and a House of Representatives.</PRE>
+
+<P>The .bd request sets an artificial bold capability by offsetting a second printing of the character by a number of points. This can be used to make the italic font appear to be bold, with .bd I 3. There is no effect in nroff.
+
+<BR></P>
+
+<P>Different sizes of text can be created using the .ps request. You can specify either a relative change or an absolute point size. Closely related is the .ss request, which sets the width of the space character. Similarly, when the point size is changed, 
+
+the vertical spacing may also need to be changed, or parts of consecutive lines may overlap. Using these requests, you can increase the size of the section headers in the Constitution and increase the size of the words &quot;We the people.&quot; This is 
+illustrated in Listing 21.10 and Figure 21.16.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx16.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx16.gif">Figure 21.16. Multiple point sizes in </B><B><I>troff</I></B><B> </B><B>output.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.10. </B><B>troff</B><B> source showing multiple point sizes.</B></LH></UL>
+
+<PRE>.ce
+
+.ft B
+
+.ps 24
+
+.ss 28
+
+.vs 28
+
+Preamble
+
+.sp
+
+.ft I
+
+We, the people
+
+.ps 12
+
+.ss 14
+
+.vs 14
+
+of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our
+
+posterity do ordain and establish this Constitution for the
+
+United States of America.
+
+.sp
+
+.ce
+
+.ft B
+
+Article I
+
+.sp
+
+.ft R
+
+Section 1  Legislative powers; in whom vested:
+
+.sp
+
+All legislative powers herein granted shall be vested in a
+
+Congress of the United States, which shall consist of a Senate
+
+and a House of Representatives.</PRE>
+
+<P>The last text request is .cs, which sets a constant character width for a given font in troff. This takes three arguments. The first is a font, the second is the width of the space, and the last is the character point size. If the third argument is 
+absent, the default is the current character width. If the second argument is also absent, that turns off the constant width.
+
+<BR></P>
+
+<P>Listing 21.11 shows this for the default Times Roman font in the preamble, and turns it off for the remainder of the Constitution. Figure 21.17 shows the output.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx17.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx17.gif">Figure 21.17. </B><B><I>troff</I></B><B> output using .</B><B><I>cs</I></B><B>.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.11. </B><B>troff</B><B> source illustrating the .cs request.</B></LH></UL>
+
+<PRE>.ce
+
+.ft B
+
+.ps 24
+
+.ss 28
+
+.vs 28
+
+Preamble
+
+.sp
+
+.ft I
+
+We, the people
+
+.ps 12
+
+.ss 14
+
+.vs 14
+
+.ft R
+
+.cs R 15
+
+of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our
+
+posterity do ordain and establish this Constitution for the
+
+United States of America.
+
+.sp
+
+.cs R
+
+.ce
+
+.ft B
+
+Article I
+
+.sp
+
+.ft R
+
+Section 1  Legislative powers; in whom vested:
+
+.sp
+
+All legislative powers herein granted shall be vested in a
+
+Congress of the United States, which shall consist of a Senate
+
+and a House of Representatives.</PRE>
+
+<P>Fonts can also be specified by position&#151;font 1, font 2, font 3, and so on. In the olden days of troff, before device-independent troff (ditroff), only four positions were available. Quite naturally, 1 was the body type (Times Roman), 2 was the 
+italic version of 1, and 3 was the bold version of 1. You got one elective&#151;position 4&#151;but it was almost always used for the Special font (the one with Greek letters and mathematical symbols). As a consequence, specifying fonts by position is not 
+
+done frequently.
+
+<BR></P>
+
+<P>The following examples all change the word &quot;very&quot; to italics (in nroff, the words are underlined):
+
+<BR></P>
+
+<PRE>This is \f2very\fP easy.
+
+This is
+
+.fp 2
+
+very
+
+.fp 1
+
+easy.</PRE>
+
+<P>Notice that in the first line, \fP is used to turn off italics. The P stands for Previous and resets the font to what it was before the italic font was requested (in this case, Times Roman). The second example resets the font to Times Roman by 
+specifying its font
+
+<BR>position.
+
+<BR></P>
+
+<P>You can count on finding your default body type in position 1, italics in 2, and bold in 3. Beyond that, you have no idea. It depends on your system installation, and they're all different.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> Don't specify font changes by position for any position other than 1, 2, or 3. If someone at another branch of your company prints your file, you don't know what font 4 might be, and you can't control 
+
+the results.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>What Does </B><B>\f4</B><B> Look Like?</B>
+
+<BR>
+
+<BR>If you want to know what font is loaded in what position on your printers, create a test file that looks something like this:
+
+<BR>
+
+<BR>When I ask for \ef4, I get \f4This Font\fP.
+
+<BR>When I ask for \ef5, I get \f5This Font\fP.
+
+<BR>When I ask for \ef6, I get \f6This Font\fP.
+
+<BR>.
+
+<BR>.
+
+<BR>.
+
+<BR>
+
+<BR>Print the file, and you'll have a wall decoration that's attractive and useful.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>In-Line Escape Sequences</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The basics of document building are now passed. All the requests I have examined have been of the form .xx and stand alone on each line. Although any document can be produced using these requests, an in-line request may be easier to use in many cases. 
+These can generate special characters, change fonts, change point sizes, and produce local motions.
+
+<BR></P>
+
+<P>Escape sequences (backslash-character or backslash-open-parenthesis-character-character) can be used to change fonts and point size and for many other tasks. Table 21.3 lists troff escape sequences.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 21.3. </B><B>troff</B><B> escape sequences.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Sequence</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>\</P>
+
+<TD>
+
+<P>Prevents the next character from being processed by troff</P>
+
+<TR>
+
+<TD>
+
+<P>\e</P>
+
+<TD>
+
+<P>Prints the escape character; default is the backslash (\)</P>
+
+<TR>
+
+<TD>
+
+<P>\'</P>
+
+<TD>
+
+<P>Prints acute accent</P>
+
+<TR>
+
+<TD>
+
+<P>\'</P>
+
+<TD>
+
+<P>Prints grave accent</P>
+
+<TR>
+
+<TD>
+
+<P>\-</P>
+
+<TD>
+
+<P>Prints a minus sign in the current font</P>
+
+<TR>
+
+<TD>
+
+<P>\[space]</P>
+
+<TD>
+
+<P>Creates an unpaddable 1-en space</P>
+
+<TR>
+
+<TD>
+
+<P>\0</P>
+
+<TD>
+
+<P>Prints a space the width of a digit</P>
+
+<TR>
+
+<TD>
+
+<P>\|</P>
+
+<TD>
+
+<P>Prints a 1/6-em width space</P>
+
+<TR>
+
+<TD>
+
+<P>\^</P>
+
+<TD>
+
+<P>Prints a 1/12-em width space</P>
+
+<TR>
+
+<TD>
+
+<P>\&amp;</P>
+
+<TD>
+
+<P>Nonprinting zero-width character</P>
+
+<TR>
+
+<TD>
+
+<P>\!</P>
+
+<TD>
+
+<P>Transparent line indicator</P>
+
+<TR>
+
+<TD>
+
+<P>\&quot;</P>
+
+<TD>
+
+<P>Begins a comment</P>
+
+<TR>
+
+<TD>
+
+<P>\\$n</P>
+
+<TD>
+
+<P>Interpolates argument</P>
+
+<TR>
+
+<TD>
+
+<P>\%</P>
+
+<TD>
+
+<P>Before word, prevents hyphenation; in middle of word, indicates where word can be hyphenated</P>
+
+<TR>
+
+<TD>
+
+<P>\(xx</P>
+
+<TD>
+
+<P>Specifies character named xx</P>
+
+<TR>
+
+<TD>
+
+<P>\\*x , \*(xx</P>
+
+<TD>
+
+<P>Specifies string named x or xx</P>
+
+<TR>
+
+<TD>
+
+<P>\a</P>
+
+<TD>
+
+<P>Specifies leader character used in macros</P>
+
+<TR>
+
+<TD>
+
+<P>\b'abc...'</P>
+
+<TD>
+
+<P>Bracket-building function</P>
+
+<TR>
+
+<TD>
+
+<P>\c</P>
+
+<TD>
+
+<P>Interrupts text processing</P>
+
+<TR>
+
+<TD>
+
+<P>\d</P>
+
+<TD>
+
+<P>Moves down half a line space</P>
+
+<TR>
+
+<TD>
+
+<P>\D</P>
+
+<TD>
+
+<P>Draws line, circle, ellipse, arc, or spline</P>
+
+<TR>
+
+<TD>
+
+<P>\fx, \f(xx, \fn</P>
+
+<TD>
+
+<P>Requests a font change; font with 1-character name is specified as \fH; font with 2-character name is specified as \f(HB.</P>
+
+<TR>
+
+<TD>
+
+<P>\h'n'</P>
+
+<TD>
+
+<P>Moves horizontally to the right; to move left, specify negative number</P>
+
+<TR>
+
+<TD>
+
+<P>\H'n'</P>
+
+<TD>
+
+<P>Sets character height to n points</P>
+
+<TR>
+
+<TD>
+
+<P>\jx</P>
+
+<TD>
+
+<P>Marks horizontal place on output line in register x</P>
+
+<TR>
+
+<TD>
+
+<P>\kx</P>
+
+<TD>
+
+<P>Marks horizontal place on input line in register x</P>
+
+<TR>
+
+<TD>
+
+<P>\l</P>
+
+<TD>
+
+<P>Draws horizontal line</P>
+
+<TR>
+
+<TD>
+
+<P>\L</P>
+
+<TD>
+
+<P>Draws vertical line</P>
+
+<TR>
+
+<TD>
+
+<P>\nx, \n(xx</P>
+
+<TD>
+
+<P>Interpolates number register x or xx</P>
+
+<TR>
+
+<TD>
+
+<P>\o</P>
+
+<TD>
+
+<P>Overstrikes specified characters</P>
+
+<TR>
+
+<TD>
+
+<P>\p</P>
+
+<TD>
+
+<P>Breaks output line</P>
+
+<TR>
+
+<TD>
+
+<P>\r</P>
+
+<TD>
+
+<P>Reverse 1-em vertical motion</P>
+
+<TR>
+
+<TD>
+
+<P>\s</P>
+
+<TD>
+
+<P>Requests a change in point size; can be specified as an absolute value or with &#177;</P>
+
+<TR>
+
+<TD>
+
+<P>\S'n'</P>
+
+<TD>
+
+<P>Slants output n degrees to the right</P>
+
+<TR>
+
+<TD>
+
+<P>\t</P>
+
+<TD>
+
+<P>Horizontal tab</P>
+
+<TR>
+
+<TD>
+
+<P>\u</P>
+
+<TD>
+
+<P>Moves up half a line space</P>
+
+<TR>
+
+<TD>
+
+<P>\v'n'</P>
+
+<TD>
+
+<P>Moves vertically down; to move up the page, specify negative number</P>
+
+<TR>
+
+<TD>
+
+<P>\w</P>
+
+<TD>
+
+<P>Interpolates width of specified string</P>
+
+<TR>
+
+<TD>
+
+<P>\x</P>
+
+<TD>
+
+<P>Extra line-space function</P>
+
+<TR>
+
+<TD>
+
+<P>\zc</P>
+
+<TD>
+
+<P>Prints c with zero width (without spacing)</P>
+
+<TR>
+
+<TD>
+
+<P>\{</P>
+
+<TD>
+
+<P>Begins conditional input</P>
+
+<TR>
+
+<TD>
+
+<P>\}</P>
+
+<TD>
+
+<P>Ends conditional input</P>
+
+<TR>
+
+<TD>
+
+<P>\[newline]</P>
+
+<TD>
+
+<P>Concealed (ignored) newline</P>
+
+<TR>
+
+<TD>
+
+<P>\X</P>
+
+<TD>
+
+<P>X, any character not listed above</P></TABLE>
+
+<P>Listing 21.12 shows troff input with in-line font and size changes, and Figure 21.18 shows the output.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx18.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx18.gif">Figure 21.18. </B><B><I>troff</I></B><B> output with in-line font </B><B>changes.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.12. </B><B>troff</B><B> source with in-line font changes.</B></LH></UL>
+
+<PRE>\fB\s+4We, the people\s-4\fP of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our
+
+posterity do ordain and establish this Constitution for the
+
+United States of America.</PRE>
+
+<P>Two other in-line escapes are \&amp; and \p. The \&amp; escape is a zero-length control character and can be used to enable the printing of a control character (.) at the start of a line. The \p escape generates a break, but also requests that the line 
+
+be spread to the current input line length.
+
+<BR></P>
+
+<P>Similarly, if a word requires extra vertical space, the in-line escape \x is used to request the additional vertical space. The amount of space needed must be enclosed in single quotes.
+
+<BR></P>
+
+<P>The next in-line escape deals with unfilled text only. If a line of unfilled text is terminated with a \c, the next text present will be treated as a continuation of that line. This allows the document writer to include a sequence of requests in the 
+middle of a line, even if those requests do not have associated in-line escapes. The .cs request is an example of a case where \c may be used.
+
+<BR></P>
+
+<P>Fonts may be changed in-line by using the \f escape. Single character font identifiers can be designated with \fB, but two-character identifiers need a ( to group the letters. An example would be \f(HI for a change to Helvetica-Italic. Point sizes can 
+similarly be changed with \s. Here, two-digit fonts are acceptable. Relative changes can be made, too. Figure 21.18 shows a case where the words &quot;We the people&quot; are bold and four points larger than surrounding text.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Special Characters</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Although special characters are system-dependent, there are several special characters that you can expect to have in your system. Table 21.4 lists these.
+
+<BR></P>
+
+<P>ASCII is limited to a small number of printable characters; fortunately, troff provides access to many more characters and symbols needed for mathematics and other applications. A few are escape sequences, but most are two-character escapes. Several 
+two-character printing symbols are available, some on the default font, and some on a special font. These include Greek characters, mathematical characters, and editing symbols. An example of this is the mathematical expressions in Listing 21.13 and Figure 
+
+21.19.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx19.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx19.gif">Figure 21.19. </B><B><I>troff</I></B><B> output of special </B><B>characters.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.13. In-line character requests for </B><B>troff</B><B>.</B></LH></UL>
+
+<PRE>2\(*pr
+
+\(issin\(*td\(*t\(eqcos\(*t
+
+\(*S(\(*a\(mu\(*b)\(-&gt;\(if</PRE>
+
+<P>Other characters that can come in handy are bullets, \(bu, the copyright symbol, \(co, and daggers, \(dg. Four characters have their own commands. To print a backslash, use \\. A minus sign is \-, an open quote is \', and a close quote is \'.
+
+<BR></P>
+
+<P>Table 21.4 list the special characters typically available for the standard fonts.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 21.4. Special characters.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>In-line Request</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Character Produced</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>\\</P>
+
+<TD>
+
+<P>backslash</P>
+
+<TR>
+
+<TD>
+
+<P>\'</P>
+
+<TD>
+
+<P>close quote</P>
+
+<TR>
+
+<TD>
+
+<P>\'</P>
+
+<TD>
+
+<P>open quote</P>
+
+<TR>
+
+<TD>
+
+<P>-</P>
+
+<TD>
+
+<P>hyphen</P>
+
+<TR>
+
+<TD>
+
+<P>\-</P>
+
+<TD>
+
+<P>current font minus sign</P>
+
+<TR>
+
+<TD>
+
+<P>\(bu</P>
+
+<TD>
+
+<P>bullet</P>
+
+<TR>
+
+<TD>
+
+<P>\(co</P>
+
+<TD>
+
+<P>copyright</P>
+
+<TR>
+
+<TD>
+
+<P>\(ct</P>
+
+<TD>
+
+<P>cent sign</P>
+
+<TR>
+
+<TD>
+
+<P>\(de</P>
+
+<TD>
+
+<P>degree</P>
+
+<TR>
+
+<TD>
+
+<P>\(dg</P>
+
+<TD>
+
+<P>dagger</P>
+
+<TR>
+
+<TD>
+
+<P>\(em</P>
+
+<TD>
+
+<P>3/4 em dash</P>
+
+<TR>
+
+<TD>
+
+<P>\(ff</P>
+
+<TD>
+
+<P>ff ligature</P>
+
+<TR>
+
+<TD>
+
+<P>\(fi</P>
+
+<TD>
+
+<P>fi ligature</P>
+
+<TR>
+
+<TD>
+
+<P>\(Fi</P>
+
+<TD>
+
+<P>ffi ligature</P>
+
+<TR>
+
+<TD>
+
+<P>\(fl</P>
+
+<TD>
+
+<P>fl ligature</P>
+
+<TR>
+
+<TD>
+
+<P>\(Fl</P>
+
+<TD>
+
+<P>ffl ligature</P>
+
+<TR>
+
+<TD>
+
+<P>\(fm</P>
+
+<TD>
+
+<P>foot mark</P>
+
+<TR>
+
+<TD>
+
+<P>\(hy</P>
+
+<TD>
+
+<P>hyphen</P>
+
+<TR>
+
+<TD>
+
+<P>\(rg</P>
+
+<TD>
+
+<P>registered trademark</P>
+
+<TR>
+
+<TD>
+
+<P>\(ru</P>
+
+<TD>
+
+<P>rule</P>
+
+<TR>
+
+<TD>
+
+<P>\(sq</P>
+
+<TD>
+
+<P>square</P>
+
+<TR>
+
+<TD>
+
+<P>\(14</P>
+
+<TD>
+
+<P>1/4</P>
+
+<TR>
+
+<TD>
+
+<P>\(12</P>
+
+<TD>
+
+<P>1/2</P>
+
+<TR>
+
+<TD>
+
+<P>\(34</P>
+
+<TD>
+
+<P>3/4</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Strings and Macros</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>troff and nroff provide the ability to specify strings that can be used repeatedly. The strings can be given one- or two-character identifiers, and those identifiers can be referenced later. Strings can be defined with the .ds request. The next argument 
+
+must be the identifier, and the string that follows is assigned to the identifier. The .as request appends additional text to the string. Accessing the string is accomplished with the in-line escape \*. Our Constitution provides an example in Listing 21.14 
+
+and Figure 21.20.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx20.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx20.gif">Figure 21.20. </B><B><I>troff</I></B><B> output with a defined </B><B>string.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.14. </B><B>troff</B><B> source defining a string.</B></LH></UL>
+
+<PRE>.ce
+
+.ds us United States
+
+Preamble
+
+.sp
+
+We, the people
+
+of the \*(us, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our
+
+posterity do ordain and establish this Constitution for the
+
+\*(us of America.
+
+.sp
+
+.ce
+
+Article I
+
+.sp
+
+Section 1  Legislative powers; in whom vested:
+
+.sp
+
+All legislative powers herein granted shall be vested in a
+
+Congress of the \*(us, which shall consist of a Senate and a
+
+House of Representatives.</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Using a defined string for repeated text ensures a consistent look to the document.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Macros provide a technique for the document writer to group repeated requests into a single troff request. If the document writer notices that groups of requests are being repeated, those are ideal candidates for making a macro. Examples include 
+quotations, paragraphs, and section headers. Chapter 26 goes into greater detail on macro writing; however, I will show you the basics here.
+
+<BR></P>
+
+<P>Macros are defined with the .de request. A one- or two-character label should follow the request. By convention, macro names are often uppercase, although this is not a requirement. The troff requests then follow the .de until the .. request is present. 
+
+These requests are then executed whenever the macro is called. You call the macro by starting the line with a . followed by the macro name, without a space.
+
+<BR></P>
+
+<P>Macros can be designed to take arguments. Up to nine arguments can be passed to a macro and are accessed as \$N, where N is the argument position from 1 to 9. These can be treated as ordinary variables and can be used anywhere in the macro. When a macro 
+
+is defined, the contents of the commands are interpreted. This means that the presence of strings, variables, and comments are translated when the macro is read. To insure that the argument is not interpreted until the macro is used, the argument should be 
+
+listed in the definition as \\$N. The \\ will be interpreted as \. This \\ can be used whenever the writer wants the escape to be interpreted when the macro is invoked.
+
+<BR></P>
+
+<P>Two examples are illustrated in Listing 21.15 and Figure 21.21. The first macro defined, PP, is used to signal a new paragraph. You first request a space, then you temporarily indent the first line by a quarter-inch. You also insure that the font is 
+Times Roman. The second macro defined is for a header, HD. Give it two arguments: the first is the point size desired for the header and the second is the text of the header. First request a space, then change the point size to the requested size. Next, 
+request that the text be centered and made bold. Then issue the text, reset the point size and font, and request an additional space.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx21.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx21.gif">Figure 21.21. </B><B><I>troff</I></B><B> output with a defined </B><B>macro.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.15. </B><B>troff</B><B> source defining macros.</B></LH></UL>
+
+<PRE>.de PP
+
+.sp
+
+.ti +0.25i
+
+.ft R
+
+..
+
+.de HD
+
+.sp
+
+.ps \\$1
+
+.ce
+
+.ft B
+
+\\$2
+
+.ps
+
+.ft P
+
+.sp
+
+..
+
+.HD 14 &quot;A sample header&quot;
+
+.PP
+
+We begin the text of the first paragraph here. This is indented
+
+and formatted. We continue with the text of the first paragraph
+
+until we want the second paragraph.
+
+.PP
+
+We re-issue the macro, and get the space and indent.</PRE>
+
+<P>Macros can be changed after creation using the .am request. This appends troff requests to the already existing macro, given in the first argument. In the preceding example, assume you wanted the second and subsequent paragraphs to have a point size of 
+
+ten for the text. You could do this by including the following commands after the first call to PP:
+
+<BR></P>
+
+<PRE>.am PP
+
+.ss 10
+
+..</PRE>
+
+<P>You could have redefined the macro with .de, but the .am request is quicker. You can also rename macros with .rn. This can be used even with standard troff requests and strings. The original name is the first argument, and the new name is the second 
+argument. The old name is not retained.
+
+<BR></P>
+
+<P>Lastly, macros, strings, and other requests can be removed with .rm. Any subsequent commands to the macro will be ignored.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Number Registers</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>troff provides number registers for the tracking of parameters for troff. These can be accessed with the escape sequence \n. For single character names, like x, use \nx. For multiple character names, like xx, use \n(xx. Number registers are used for 
+items such as page numbers and line length. The predefined registers include % for page number, dw for the day of the week, dy for the day, mo for the month, and yr for the year. nl also shows the position of the last printed line. Listing 21.16 shows how 
+
+some of these registers can be used. Figure 21.22 is the output.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx22.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx22.gif">Figure 21.22. </B><B><I>troff</I></B><B> number registers in output.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.16. Using number registers.</B></LH></UL>
+
+<PRE>.nf
+
+.ll 5.0i
+
+.in 2.5i
+
+101 Main Street
+
+Morristown, NJ  07960
+
+\n(mo/\n(dy/\n(yr
+
+.in 0
+
+.sp
+
+Dear Sir,</PRE>
+
+<P>Many read-only registers contain configuration parameters. Some of these are listed in Table 21.5.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 21.5. Common number registers in </B><B>troff</B><B>.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Register</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>.$</P>
+
+<TD>
+
+<P>Number of arguments to a macro</P>
+
+<TR>
+
+<TD>
+
+<P>.A</P>
+
+<TD>
+
+<P>Set to 1 if -a is used on troff command line; always 1 for nroff</P>
+
+<TR>
+
+<TD>
+
+<P>.T</P>
+
+<TD>
+
+<P>Set to 1 if -T is used on nroff command line; always 1 for troff</P>
+
+<TR>
+
+<TD>
+
+<P>.a</P>
+
+<TD>
+
+<P>Value of extra space most recently used</P>
+
+<TR>
+
+<TD>
+
+<P>.c</P>
+
+<TD>
+
+<P>Number of lines read from current input file</P>
+
+<TR>
+
+<TD>
+
+<P>.f</P>
+
+<TD>
+
+<P>Current font</P>
+
+<TR>
+
+<TD>
+
+<P>.h</P>
+
+<TD>
+
+<P>Text high water mark for current page</P>
+
+<TR>
+
+<TD>
+
+<P>.i</P>
+
+<TD>
+
+<P>Current indent</P>
+
+<TR>
+
+<TD>
+
+<P>.l</P>
+
+<TD>
+
+<P>Current line length</P>
+
+<TR>
+
+<TD>
+
+<P>.n</P>
+
+<TD>
+
+<P>Length of text on previous output line</P>
+
+<TR>
+
+<TD>
+
+<P>.o</P>
+
+<TD>
+
+<P>Current page offset</P>
+
+<TR>
+
+<TD>
+
+<P>.p</P>
+
+<TD>
+
+<P>Current page length</P>
+
+<TR>
+
+<TD>
+
+<P>.s</P>
+
+<TD>
+
+<P>Current point size</P>
+
+<TR>
+
+<TD>
+
+<P>.u</P>
+
+<TD>
+
+<P>Fill more flag (1 for on, 0 for off)</P>
+
+<TR>
+
+<TD>
+
+<P>.v</P>
+
+<TD>
+
+<P>Current vertical line spacing</P></TABLE>
+
+<P>A short script to list default values is shown in Listing 21.17, with Figure 21.23 showing the output.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx23.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx23.gif">Figure 21.23. </B><B><I>troff</I></B><B> output with register </B><B>values.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.17. </B><B>troff</B><B> source to identify register values.</B></LH></UL>
+
+<PRE>.nf
+
+The current font is \n(.f
+
+The current point size is \n(.s
+
+The line length is \n(.l
+
+The page length is \n(.p
+
+The page offset is \n(.o</PRE>
+
+<P>Of course, these registers are useful; however, the real benefit of registers comes from the user's ability to define their own registers. These can be used to track headers, paragraph numbers, and section numbers. The .nr request initializes and 
+modifies user-specified registers. It takes two or three arguments: the first is the register name, and the second is the register modification. When first created, a register is assigned the value of zero. A positive number is added to the value; a 
+negative number is subtracted. An optional third argument sets a default increment and decrement value. The automatic increment can be used in escape sequences: \n+(xx adds the increment to register xx, and \n-(xx subtracts the decrement.
+
+<BR></P>
+
+<P>The appearance of the number is set with the .af request. The first argument is the register, the second is one of six formats. 1 is for an Arabic number sequence, 001 is for a zero-filled Arabic number sequence. i and I are for Times Roman numbers, 
+upper- and lowercase, and a and A are for alphabetic sequences.
+
+<BR></P>
+
+<P>Lastly, the .rr request removes a number register. There are a limited number of registers available, identified by the read-only register .R. The document writer may need to remove registers if space becomes a problem.
+
+<BR></P>
+
+<P>Listing 21.18 illustrates the source of a macro that numbers sections of the Constitution. The output is in Figure 21.24. The section header macros are for Articles, sections, and paragraphs of the constitution. First define the aR number register to 
+count the articles, and set its display format to Times Roman numerals. You first define the AR macro. It centers a 16-point bold text, with the word &quot;Article&quot; and the number register. Note that you increment the number register every time you 
+print the value. You also set the sE number register to zero, as an Arabic number. You then reset the point size and font. The SE macro is similar, printing the section and number, and setting pP to zero. The PP macro increments pP.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx24.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx24.gif">Figure 21.24. </B><B><I>troff</I></B><B> output with number </B><B>registers.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.18. </B><B>troff</B><B> source using number registers.</B></LH></UL>
+
+<PRE>.ce
+
+Preamble
+
+.sp
+
+We, the people of the United States, in order
+
+to form a more perfect Union, establish justice, insure
+
+domestic tranquility, provide for the common defense, promote
+
+the general welfare,
+
+and secure the blessing of liberty to ourselves and our
+
+posterity do ordain and establish this Constitution for the
+
+United States of America.
+
+.sp
+
+.nr aR 0 1
+
+.af aR I
+
+.de AR
+
+.ce
+
+.ps 16
+
+.ft B
+
+Article \\n+(aR
+
+.nr sE 0 1
+
+.af sE 1
+
+.ps 12
+
+.ft P
+
+..
+
+.de SE
+
+.sp
+
+.ft B
+
+\\s-2SECTION \\n+(sE:\\s+2
+
+.ft P
+
+.nr pP 0 1
+
+.af pP 1
+
+..
+
+.de PP
+
+.sp
+
+.ft I
+
+\\s-3Paragraph \\n+(pP:\\s+3
+
+.ft P
+
+..
+
+.AR
+
+.SE
+
+Legislative powers; in whom vested:
+
+.PP
+
+All legislative powers herein granted shall be vested in a
+
+Congress of the United States, which shall consist of a Senate
+
+and a House of Representatives.
+
+.SE
+
+House of Representatives, how and by whom chosen, Qualifications
+
+of a Representative. Representatives and direct taxes, how
+
+apportioned. Enumeration. Vacancies to be filled. Power of
+
+choosing officers and of impeachment.
+
+.PP
+
+The House of Representatives shall be composed of members chosen
+
+every second year by the people of the several states, and the
+
+electors in each State shall have the qualifications requisite
+
+for electors of the most numerous branch of the State Legislature.
+
+.PP
+
+No person shall be a Representative who shall not have attained
+
+to the age of twenty-five years, and been seven years a citizen
+
+of the United States, and who shall not, when elected, be an
+
+inhabitant of that State in which he shall be chosen.
+
+.PP
+
+Representatives and direct taxes shall be apportioned among the
+
+several States which maybe included within this Union, according
+
+to their respective numbers, which shall be determined by adding
+
+to the whole number of free persons, including those bound for
+
+service for a term of years, and excluding Indians not taxed,
+
+three-fifths of all other persons. The actual enumeration shall
+
+be made within three years after the first meeting of the
+
+Congress of the United States, and within every subsequent term
+
+of ten years, in such manner as they shall by law direct. The
+
+number of Representatives shall not exceed one for every thirty
+
+thousand, but each State shall have at least one Representative;
+
+and until such enumeration shall be made, the State of New
+
+Hampshire shall be entitled to choose three, Massachusetts eight,
+
+Rhode Island and Providence Plantations one, Connecticut
+
+five, New York six, New Jersey four, Pennsylvania eight,
+
+Delaware one, Maryland six, Virginia ten, North Carolina five,
+
+South Carolina five, and Georgia three.
+
+.PP
+
+When vacancies happen in the representation from any State, the
+
+Executive Authority thereof shall issue writs of election to fill
+
+such vacancies.
+
+.PP
+
+The House of Representatives shall choose their Speaker and other
+
+officers; and shall have the sole power of impeachment.</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Traps and Diversions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, I have examined the results of invoking troff requests where you place them in your document. These are not the only examples of executing troff requests. You can specify macros to be executed at any given physical position on a document. These 
+
+are called traps, and they can be triggered by page position, diversions, and input line count. A common use for page traps is to place headers or footers on pages. Diversion traps can be used to create footnotes in text, or to create a reference list for 
+
+the end of a chapter. Input line traps count the number of lines since the request. These are useful for when macros are meant to be a single line.
+
+<BR></P>
+
+<P>Diversions are used to direct output to a macro, instead of to the page. The diversion requests are usually in macros, and traps must be set to produce the diversion output. Diversions are created with the .di request, the call followed by the name of 
+the diversion macro. If no argument is present, the diversion ends, and output resumes on the page. Text can be added to the diversion with the .da request. Diversions can also be requested by page position with .dt, followed by the position and diversion 
+
+macro name.
+
+<BR></P>
+
+<P>Traps are set with the .wh request. This is followed by a position and a macro name. If a macro had previously been set at that position, then that trap is removed. If no macro is passed as an argument, then any traps at that position are removed. The 
+position of a macro trap can be changed with the .ch request, followed by the macro name and position. If a position is missing, the macro is removed. Input traps are set with the .it request, followed by a text position and macro name. Finally, a trailing 
+
+macro can be set with .em. This sets a macro to be run at the end of input.
+
+<BR></P>
+
+<P>The use of diversions and traps is illustrated in Chapter 26, &quot;Writing Your Own Macros.&quot;
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Tabs, Character Conversions, and Controls</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Tabs and tab spacing can be set by the document writer in troff. This gives the writer the ability to create simple tables by lining up columns and using tabs. The .ta request sets the tab stops, and if a stop value is preceded by a +, then the stop is 
+
+relative to the previous tab stop. The tab repetition character (the character that fills the space between text and tab stops) can be specified with the .tc request. The nature of the tab stop can also be specified right after the tab stop distance. The 
+text left-adjusts within the tab space by default. To center the text, use a C after the distance (no space), and use an R to right-adjust.
+
+<BR></P>
+
+<P>A simple table is illustrated in Listing 21.19, with the output in Figure 21.25.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx25.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx25.gif">Figure 21.25. A formatted table with tabs.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.19. Formatting a table using tabs.</B></LH></UL>
+
+<PRE>.nf
+
+.ta 3i 4.5i
+
+Name           Birthday  Telephone
+
+John Smith     1/1/70    (410) 555-1111
+
+Dave Jones     2/2/63    (311) 800-0000
+
+.tc -
+
+Bob Williams   3/3/56    (999) 555-2222</PRE>
+
+<P>Some characters are considered control characters. These are the . used to signal a troff request, \ to indicate an in-line escape, and ' to indicate a breakless command. The escape character can be reset with the .ec request and can be turned off with 
+
+the .eo request. .ec takes an argument, which is the new escape character. If no argument is present, it returns to the default. The .cc request changes the basic control character, ., to whatever is specified. This is particularly useful if a writer 
+wishes to show a sample of troff input in a document, as shown in Listing 21.20 and Figure 21.26. Finally, .c2 changes the no-break control character from ' to the specified argument.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx26.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx26.gif">Figure 21.26. </B><B><I>troff</I></B><B> output with character </B><B>translations.</A></B>
+
+<BR></P>
+
+<P>Underlining in nroff and italics in troff can also be invoked with the .ul and .cu requests. This turns on underline mode. In troff, the two requests have an identical effect; in nroff, .cu is for continuous underlining, and .ul underlines characters. 
+The underlining font can be changed with the .uf request.
+
+<BR></P>
+
+<P>Character translations are also possible with troff. The .tr request is analogous to the tr UNIX command. Instead of two groups of characters, though, the from-to pairs of characters are side by side in a single character string argument. This is also 
+illustrated in Listing 21.20 and Figure 21.26.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.20. </B><B>troff</B><B> source illustrating character translations.</B></LH></UL>
+
+<PRE>.nf
+
+A sample of troff input:
+
+.sp
+
+.cc ,
+
+.de PP
+
+.br
+
+.sp
+
+.it +0.5i
+
+..
+
+,sp
+
+,cc
+
+And another sample:
+
+.tr ,.
+
+.sp
+
+,de PP
+
+,br
+
+,sp
+
+,it +0.5i
+
+,,</PRE>
+
+<P>Input can be made transparent to troff by prepending the input line with \!. This can be used to pass information to a post processor. Comments can also be embedded in the troff source document with \. This must come after the requests. It can appear at 
+
+the start of a line if prepended with the control character.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Local Motions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Besides the .sp and related requests, there are in-line techniques to move the current output location in troff. These are called local motions and can be vertical or horizontal.
+
+<BR></P>
+
+<P>There are four types of vertical motions. All are in-line escapes. The first, \r, moves up single line. \d is used to move down half a line, for subscripts, and \u is used to move up half a line, for superscripts. Finally, \v'N' is used to make a local 
+
+motion of vertical distance N. A negative number moves up the page, and a positive number moves down the page. You cannot leave the page with a local motion. An example is in Listing 21.21, with output in Figure 21.27.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx27.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx27.gif">Figure 21.27. </B><B><I>troff</I></B><B> output with local motions.</A></B>
+
+<BR></P>
+
+<P>There are five types of horizontal motions. Two simple space functions are \ , which is an unpadded space-sized space (as defined by .ss). The \0 request is a digit-sized space. \| produces one-sixth of a character width, and \^ produces one-twelfth. 
+Finally, generic local motion is produced by \h'N'. The rules for vertical motions also apply to horizontal motions.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.21. </B><B>troff</B><B> source with local motions.</B></LH></UL>
+
+<PRE>Jan 26\u\s-2th\s+2\d is a sample.
+
+.sp 2
+
+We can move up \r easily.
+
+.sp 2
+
+Here is some space \0\0\0for us.</PRE>
+
+<P>The width of a string can be determined with the \w escape. The string follows in single quotes. This width can be used in local motions and for other times when space measures are needed. Listing 21.22 illustrates how you can use this to place 
+paragraph numbers outside the left margin of some text.
+
+<BR></P>
+
+<P>You can also mark the horizontal space with the \k request. Listing 21.22 also shows a primitive use of this to embolden a word, and Figure 21.28 shows its output.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx28.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx28.gif">Figure 21.28. </B><B><I>troff</I></B><B> output with local motions and </B><B>width calculations.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.22. </B><B>troff</B><B> source with width.</B></LH></UL>
+
+<PRE>.sp 0.5i
+
+.in 1i
+
+.ti -\w'1.\0'u
+
+1.\0This is a paragraph with a number indented out the
+
+\kxleft\h'|\nxu+2u'left margin. We continue with the text to prove
+
+the indent.</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Overstrikes, Lines, and Arcs</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Characters can be overstruck with the \o escape. Up to nine characters can be overstruck, each appearing in the string following the escape.
+
+<BR></P>
+
+<P>Both vertical and horizontal lines can be drawn in troff. These are done by escape sequences \l, \L, and \D. The first draws a line of length specified in quotes after the escape. An optional character after the length can be used, and that will be used 
+
+instead of the line. The second escape draws a horizontal line. The \D escape is the drawing escape, and it draws lines, circles, ellipses, and arcs. The specific format is the first character, followed by one to four arguments. These escapes are generated 
+
+by calls to preprocessors like pic, described in Chapter 25, &quot;Drawing Pictures with pic.&quot;
+
+<BR></P>
+
+<P>A line is drawn with two arguments, and the line is drawn from the present location to the specified location. The first character argument is l.
+
+<BR></P>
+
+<P>A circle of a fixed diameter is drawn with c. The single argument is the diameter.
+
+<BR></P>
+
+<P>An ellipse is drawn with e, and the two arguments are the two diameters of the ellipse.
+
+<BR></P>
+
+<P>An arc is drawn with a. There are four arguments, in two pairs. The arc is drawn from the present position to the first argument, assuming that the second argument is the center of the circle.
+
+<BR></P>
+
+<P>A spline can be drawn with the character ~. This can take an unlimited group of pairings, drawing the spline from the current position through the pairs of points.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Conditional Text</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Like a programming language, troff and nroff provide for a conditional execution of requests. There are two forms of the if request: .if followed by a condition and then requests, and an if-else construct, .ie and .el. There are six conditional formats, 
+
+and there is a format for grouping requests after an if: \{-requests-\}.
+
+<BR></P>
+
+<P>The six conditional forms are shown in the following.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>.if c</P>
+
+<TD>
+
+<P>.if !N</P>
+
+<TR>
+
+<TD>
+
+<P>.if !c</P>
+
+<TD>
+
+<P>.if 'string1'string2'</P>
+
+<TR>
+
+<TD>
+
+<P>.if N</P>
+
+<TD>
+
+<P>.if !'string1'string2'</P></TABLE>
+
+<P>In each of the six conditional forms, the ! represents the negation of the basic form. In the first two cases, c represents one of four special condition flags: o for an odd-numbered page, e for an even-numbered page, t for troff, and n for nroff. The 
+middle two cases are for a numerical value N. The third case is for N&gt;0, and the fourth case is for N&lt;=0. In the last two cases, the strings are compared: if they are identical, the fifth is true; if not, the sixth is true.
+
+<BR></P>
+
+<P>if requests are rarely included in a normal document but are essential tools of macro writers. Macro writing is explored in greater depth in Chapter 26. Despite this, there are occasional circumstances where you might use the conditional. Listing 21.23 
+
+and Figure 21.30 show a simple case.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="21unx29.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/21unx29.gif">Figure 21.29.  </B><B><I>troff</I></B><B> conditional output.</A></B>
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.23. </B><B>troff</B><B> source with conditional input.</B></LH></UL>
+
+<PRE>This text is formatted with the
+
+.if n nroff
+
+.if t troff
+
+text processor.</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=4><B>File Switching and Environments</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>These text processors also provide the ability to change input files, and to modify output files. There are three ways to modify input.
+
+<BR></P>
+
+<P>Input can be requested with the .rd request. A prompt can be provided as an argument, and the input is read from the terminal until two consecutive newlines are input. This is often used for insertion into form letter type documents.
+
+<BR></P>
+
+<P>An entire file can be interpreted with the .so command. If a document writer has created his own macro set, he may wish to keep this in a separate file and include that file in subsequent documentation using this request. Once the file has been read and 
+
+interpreted, the text processor continues to read from the current file.
+
+<BR></P>
+
+<P>The .nx request is similar to the .so request, except that when the file is completed, the text processor is considered to have finished its input.
+
+<BR></P>
+
+<P>An example of these three requests is shown in Listing 21.24. Listing 21.25 shows the contents of the header file, which defines a few macros. Listing 21.26 shows the terminal session.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 21.24. </B><B>troff</B><B> source with file requests.</B></LH></UL>
+
+<PRE>.so headers
+
+.in 3i
+
+.nf
+
+1 Main Street
+
+Myhometown, ST  98765
+
+\n(mo/\n(dy/\n(yr
+
+.sp 2
+
+.in 0
+
+.rd Please_enter_the_company_address
+
+.sp
+
+Dear Sir,
+
+.PP
+
+I read your add in the \fISan Jose Mercury News\fP advertising
+
+positions with
+
+.rd Please_enter_the_company_name
+
+for software engineers. I'd like to express my interest in
+
+a position. My resume is enclosed.
+
+.sp
+
+.in 3i
+
+Yours sincerely,
+
+.sp 3
+
+Joe Smith
+
+.in 0
+
+.bp
+
+.nx resume</PRE>
+
+<UL>
+
+<LH><B>Listing 21.25. Contents of the header file.</B></LH></UL>
+
+<PRE>.de PP
+
+.sp
+
+.ti +0.5i
+
+.fi
+
+.ad b
+
+..</PRE>
+
+<UL>
+
+<LH><B>Listing 21.26. Terminal session with terminal input.</B></LH></UL>
+
+<PRE>$ troff -t fig21.58src
+
+Please_enter_the_company_address:The Fixture Company
+
+1001 Main Street
+
+Anytown, USA  77777
+
+Please_enter_the_company_name:The Fixture Company
+
+$</PRE>
+
+<P>Note that the .rd request needed the underbars between words. The space would normally end the argument, even with surrounding double quotes. Also, note that the text read in is processed based on the fill and adjustment settings.
+
+<BR></P>
+
+<P>A fourth type of file input is .cf. This copies a file directly onto the output, without interpolation.
+
+<BR></P>
+
+<P>Output from nroff and troff can be piped automatically through a program. The .pi request must be placed before any output is generated, and it can receive no arguments.
+
+<BR></P>
+
+<P>The current settings for troff are considered the troff environment. These settings include indentation, page length, line length, fonts, and other values that describe the page. There are occasions when this environment may need to be saved. Three 
+environments are allowed, and the specific environment can be set with the .ev request. The environments are numbered 0, 1, and 2. Environments are usually included in macro calls that include diversions, such as for footnotes.
+
+<BR></P>
+
+<P>Two other controls are for aborts and exits. The .ex request terminates input processing as if the file were complete. This is often used for debugging macros. The .ab request aborts all processing. Any arguments are printed on the diagnostic output, 
+usually the terminal, and the program exits without terminal processing.
+
+<BR></P>
+
+<P>A last control is for system calls. The .sy request executes a UNIX command. The output is not captured anywhere, and there is no input.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Flotsam and Jetsam</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are a few requests I have not covered, which do not conveniently fit into any of the previous categories. These include hyphenation requests, three-part titles, and line numbering.
+
+<BR></P>
+
+<P>Four requests affect word hyphenation. The .nh request turns off all hyphenation, except for input with hyphens, such as &quot;sister-in-law.&quot; The .hy request provides a greater control over hyphenation. It accepts a numeric argument. If 0, 
+hyphenation is turned off. If 2, lines that will trigger a trap are not hyphenated. If 4, the first two characters of a word are not split off, and if 8, the last two are not split off. The values can be added to create a single hyphenation request. The 
+.hw request enables the writer to specify hyphenation points within words, by using an embedded minus sign. An example might be .hw fish-head. The buffer for these words is only 128 characters in length.
+
+<BR></P>
+
+<P>Lastly, word hyphenation can be specified with an embedded character with a word. By default, this is \%, although the character can be changed with the .hc request.
+
+<BR></P>
+
+<P>A three-part title can be specified with the .tl request. This takes three strings as arguments, separated by a single quote and surrounded by single quotes: .tl 'left'center'right'. Any string can be empty. The title length is set with .lt and is 
+separate from the .ll request. The page character, initially %, can be changed with .pc.
+
+<BR></P>
+
+<P>Output lines can be numbered with the .nm request. It takes up to four arguments: a start number, a multiplier, a spacing value, and an indent value. If a multiplier is present, only those lines that are even multiples will have numbers attached. The 
+.nn request is used to ignore a number of lines for line numbering.
+
+<BR></P>
+
+<P>A margin character can be specified for the right margin using the .mc request. It takes two arguments: the margin character and a distance to the right for the character. This is often used to highlight changed sections of text between document 
+revisions.
+
+<BR></P>
+
+<P>The .tm request is used to print a line to the invoking terminal.
+
+<BR></P>
+
+<P>The .ig request ignores all subsequent lines until the terminating request is issued, usually ...
+
+<BR></P>
+
+<P>The .pm request prints all the macros defined, and their associated sizes. The sizes are in 128-character blocks.
+
+<BR></P>
+
+<P>The .fl request flushes the output buffer.
+
+<BR></P>
+
+<P>The .lf request sets the current line number and file name.
+
+<BR></P>
+
+<P>Character heights can be changed in troff using the \H'<I>n</I>' in-line request. This can result in a disproportionate font. The value n is the point size height of the text.
+
+<BR></P>
+
+<P>Also illustrated is the ability to put the text at a slant, using the \S'<I>n</I>' request. The value n is the degree of slant.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=4><B>Quick Reference of </B><B><I>nroff</I></B><B>/</B><B><I>troff</I></B><B> Requests</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Table 21.6 presents all the nroff/troff requests along with their syntax. Arguments not in brackets are arguments that you must specify for the request. Arguments in brackets are optional arguments that you can specify for the request. Italicized 
+arguments indicate that you need to substitute something specific; for example, .so <I>file</I> means that you need to provide a real filename as an argument to the .so request.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 21.6. </B><B>nroff</B><B>/</B><B>troff</B><B> requests.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Request</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>.ab [text]</P>
+
+<TD>
+
+<P>Abort and print message</P>
+
+<TR>
+
+<TD>
+
+<P>.ad [c]</P>
+
+<TD>
+
+<P>Adjust text margins</P>
+
+<TR>
+
+<TD>
+
+<P>.af r c</P>
+
+<TD>
+
+<P>Assign format <I>c</I> to register <I>r</I></P>
+
+<TR>
+
+<TD>
+
+<P>.am xx yy</P>
+
+<TD>
+
+<P>Append following commands to macro xx, terminated with yy</P>
+
+<TR>
+
+<TD>
+
+<P>.as xx string</P>
+
+<TD>
+
+<P>Append string to defined string xx</P>
+
+<TR>
+
+<TD>
+
+<P>.bd <I>f n</I></P>
+
+<TD>
+
+<P>Embolden font <I>f</I>with ^ overstrikes</P>
+
+<TR>
+
+<TD>
+
+<P>.bd f s n</P>
+
+<TD>
+
+<P>Embolden special font when current font is s, with ^ overstrikes</P>
+
+<TR>
+
+<TD>
+
+<P>.bp [<I>n</I>]</P>
+
+<TD>
+
+<P>Begin a page and set page number to <I>n</I></P>
+
+<TR>
+
+<TD>
+
+<P>.br</P>
+
+<TD>
+
+<P>Break&#151;stop filling text</P>
+
+<TR>
+
+<TD>
+
+<P>.c2 <I>c</I></P>
+
+<TD>
+
+<P>Set no break control character</P>
+
+<TR>
+
+<TD>
+
+<P>.cc <I>c</I></P>
+
+<TD>
+
+<P>Set control character</P>
+
+<TR>
+
+<TD>
+
+<P>.cf filename</P>
+
+<TD>
+
+<P>Copy file</P>
+
+<TR>
+
+<TD>
+
+<P>.ce [<I>n</I>]</P>
+
+<TD>
+
+<P>Center text</P>
+
+<TR>
+
+<TD>
+
+<P>.ch xx [n]</P>
+
+<TD>
+
+<P>Change trap position for macro xx to n</P>
+
+<TR>
+
+<TD>
+
+<P>.cs <I>f n m</I></P>
+
+<TD>
+
+<P>Use constant character spacing for font <I>f</I></P>
+
+<TR>
+
+<TD>
+
+<P>.cu [<I>n</I>]</P>
+
+<TD>
+
+<P>Constant underlining</P>
+
+<TR>
+
+<TD>
+
+<P>.da [<I>xx</I>]</P>
+
+<TD>
+
+<P>Direct and append text to macro <I>xx</I></P>
+
+<TR>
+
+<TD>
+
+<P>.de xx [<I>yy</I>]</P>
+
+<TD>
+
+<P>Define macro</P>
+
+<TR>
+
+<TD>
+
+<P>.di [<I>xx</I>]</P>
+
+<TD>
+
+<P>Direct text to macro <I>xx</I></P>
+
+<TR>
+
+<TD>
+
+<P>.ds <I>xx string</I></P>
+
+<TD>
+
+<P>Define string</P>
+
+<TR>
+
+<TD>
+
+<P>.dt <I>n xx</I></P>
+
+<TD>
+
+<P>Install division trap</P>
+
+<TR>
+
+<TD>
+
+<P><I>.ec </I>[c]</P>
+
+<TD>
+
+<P>Set escape character</P>
+
+<TR>
+
+<TD>
+
+<P>.el <I>action</I></P>
+
+<TD>
+
+<P>Else portion of <I>if-else</I></P>
+
+<TR>
+
+<TD>
+
+<P>.em <I>xx</I></P>
+
+<TD>
+
+<P>Set macro to run at the end of the document</P>
+
+<TR>
+
+<TD>
+
+<P>.eo</P>
+
+<TD>
+
+<P>Turn off in-line escapes</P>
+
+<TR>
+
+<TD>
+
+<P>.ev [<I>n</I>]</P>
+
+<TD>
+
+<P>Change environment to <I>n</I> or restore environment</P>
+
+<TR>
+
+<TD>
+
+<P>.ex</P>
+
+<TD>
+
+<P>Exit formatter</P>
+
+<TR>
+
+<TD>
+
+<P>.fc <I>a b</I></P>
+
+<TD>
+
+<P>Set field character and padding character</P>
+
+<TR>
+
+<TD>
+
+<P>.fi</P>
+
+<TD>
+
+<P>Fill text</P>
+
+<TR>
+
+<TD>
+
+<P>.fl</P>
+
+<TD>
+
+<P>Flush output buffer</P>
+
+<TR>
+
+<TD>
+
+<P>.fp <I>n f</I></P>
+
+<TD>
+
+<P>Change font positions</P>
+
+<TR>
+
+<TD>
+
+<P>.ft <I>f</I></P>
+
+<TD>
+
+<P>Change font in output</P>
+
+<TR>
+
+<TD>
+
+<P>.hc [<I>c</I>]</P>
+
+<TD>
+
+<P>Set hyphenation character</P>
+
+<TR>
+
+<TD>
+
+<P>.hw <I>words</I></P>
+
+<TD>
+
+<P>Set hyphenation exception list</P>
+
+<TR>
+
+<TD>
+
+<P>.hy <I>n</I></P>
+
+<TD>
+
+<P>Set hyphenation mode</P>
+
+<TR>
+
+<TD>
+
+<P>.ie <I>c</I> <I>action</I></P>
+
+<TD>
+
+<P>If else</P>
+
+<TR>
+
+<TD>
+
+<P>.if <I>c</I> <I>action</I></P>
+
+<TD>
+
+<P>If <I>c</I> is true, perform <I>action</I></P>
+
+<TR>
+
+<TD>
+
+<P>.if !<I>c</I> <I>action</I></P>
+
+<TD>
+
+<P>If condition is false, perform <I>action</I></P>
+
+<TR>
+
+<TD>
+
+<P>.if <I>n action</I></P>
+
+<TD>
+
+<P>If n&gt;0, perform <I>action</I></P>
+
+<TR>
+
+<TD>
+
+<P>.if !<I>n action</I></P>
+
+<TD>
+
+<P>If n&gt;=0, perform <I>action</I></P>
+
+<TR>
+
+<TD>
+
+<P>.if <I>!'string1'string2' action</I></P>
+
+<TD>
+
+<P>If strings are equal, perform <I>action</I></P>
+
+<TR>
+
+<TD>
+
+<P>.if <I>!'string1'string2' action</I></P>
+
+<TD>
+
+<P>If strings are different, perform <I>action</I></P>
+
+<TR>
+
+<TD>
+
+<P>.ig <I>yy</I></P>
+
+<TD>
+
+<P>Ignore subsequent text to <I>yy</I></P>
+
+<TR>
+
+<TD>
+
+<P>.in &#177;[<I>n</I>]</P>
+
+<TD>
+
+<P>Set indent</P>
+
+<TR>
+
+<TD>
+
+<P>.it <I>n xx</I></P>
+
+<TD>
+
+<P>Set input trap</P>
+
+<TR>
+
+<TD>
+
+<P>.lc <I>c</I></P>
+
+<TD>
+
+<P>Set leader repetition character</P>
+
+<TR>
+
+<TD>
+
+<P>.lg <I>n</I></P>
+
+<TD>
+
+<P>Set ligature mode</P>
+
+<TR>
+
+<TD>
+
+<P>.ll &#177;[<I>n</I>]</P>
+
+<TD>
+
+<P>Set line length</P>
+
+<TR>
+
+<TD>
+
+<P>.ls <I>n</I></P>
+
+<TD>
+
+<P>Set line spacing</P>
+
+<TR>
+
+<TD>
+
+<P>.lt <I>n</I></P>
+
+<TD>
+
+<P>Set title length</P>
+
+<TR>
+
+<TD>
+
+<P>.mc [<I>c</I>] [<I>m</I>]</P>
+
+<TD>
+
+<P>Set margin character</P>
+
+<TR>
+
+<TD>
+
+<P>.mk [<I>r</I>]</P>
+
+<TD>
+
+<P>Mark vertical place in register</P>
+
+<TR>
+
+<TD>
+
+<P>.na</P>
+
+<TD>
+
+<P>Do not adjust text</P>
+
+<TR>
+
+<TD>
+
+<P>.ne <I>n</I></P>
+
+<TD>
+
+<P>If <I>n</I> lines do not remain on the page, get a new </P>
+
+<TR>
+
+<TD>
+
+<P>page</P>
+
+<TD><BR>
+
+<TR>
+
+<TD>
+
+<P>.nf</P>
+
+<TD>
+
+<P>Turn off filling</P>
+
+<TR>
+
+<TD>
+
+<P>.nh</P>
+
+<TD>
+
+<P>Turn off hyphenation</P>
+
+<TR>
+
+<TD>
+
+<P>.nm [<I>n m </I>s i]</P>
+
+<TD>
+
+<P>Number output lines</P>
+
+<TR>
+
+<TD>
+
+<P>.nn <I>n</I></P>
+
+<TD>
+
+<P>Disable numbering output but track line numbers</P>
+
+<TR>
+
+<TD>
+
+<P>.nr <I>r</I> <I>n</I> [<I>m</I>]</P>
+
+<TD>
+
+<P>Assign number register</P>
+
+<TR>
+
+<TD>
+
+<P>.ns</P>
+
+<TD>
+
+<P>Turn on no-space mode</P>
+
+<TR>
+
+<TD>
+
+<P>.nx <I>file</I></P>
+
+<TD>
+
+<P>Go to the next file</P>
+
+<TR>
+
+<TD>
+
+<P>.os</P>
+
+<TD>
+
+<P>Output saved space</P>
+
+<TR>
+
+<TD>
+
+<P>.pc c</P>
+
+<TD>
+
+<P>Set page number character</P>
+
+<TR>
+
+<TD>
+
+<P>.pi <I>command</I></P>
+
+<TD>
+
+<P>Pipe output of troff to <I>command</I></P>
+
+<TR>
+
+<TD>
+
+<P>.pl &#177;[<I>n</I>]</P>
+
+<TD>
+
+<P>Set page length</P>
+
+<TR>
+
+<TD>
+
+<P>.pm</P>
+
+<TD>
+
+<P>Print names and sizes of macros</P>
+
+<TR>
+
+<TD>
+
+<P>.pn &#177;[<I>n</I>]</P>
+
+<TD>
+
+<P>Set next page number</P>
+
+<TR>
+
+<TD>
+
+<P>.po &#177;[<I>n</I>]</P>
+
+<TD>
+
+<P>Set page offset</P>
+
+<TR>
+
+<TD>
+
+<P>.ps <I>n</I></P>
+
+<TD>
+
+<P>Set font point size</P>
+
+<TR>
+
+<TD>
+
+<P>.rd [<I>prompt</I>]</P>
+
+<TD>
+
+<P>Read input from #y</P>
+
+<TR>
+
+<TD>
+
+<P>.rm <I>xx</I></P>
+
+<TD>
+
+<P>Remove macro or string</P>
+
+<TR>
+
+<TD>
+
+<P>.rn <I>xx yy</I></P>
+
+<TD>
+
+<P>Rename macro, request, or string</P>
+
+<TR>
+
+<TD>
+
+<P>.rr <I>r</I></P>
+
+<TD>
+
+<P>Remove register</P>
+
+<TR>
+
+<TD>
+
+<P>.rs <I>xx yy</I></P>
+
+<TD>
+
+<P>Restore spacing</P>
+
+<TR>
+
+<TD>
+
+<P>.rt <I>&#177;</I>[<I>n</I>]</P>
+
+<TD>
+
+<P>Return back to marked place</P>
+
+<TR>
+
+<TD>
+
+<P>.so <I>file</I></P>
+
+<TD>
+
+<P>Include file</P>
+
+<TR>
+
+<TD>
+
+<P>.sp <I>n</I></P>
+
+<TD>
+
+<P>Leave <I>n</I> blank lines</P>
+
+<TR>
+
+<TD>
+
+<P>.ss <I>n</I></P>
+
+<TD>
+
+<P>Set character size</P>
+
+<TR>
+
+<TD>
+
+<P>.sv <I>n</I></P>
+
+<TD>
+
+<P>Save <I>n</I> lines of space</P>
+
+<TR>
+
+<TD>
+
+<P>.sy <I>command</I> [<I>arguments</I>]</P>
+
+<TD>
+
+<P>Execute <I>command</I></P>
+
+<TR>
+
+<TD>
+
+<P>.ta <I>n</I>[<I>t</I>] <I>m</I>[<I>t</I>]</P>
+
+<TD>
+
+<P>Set tab stops</P>
+
+<TR>
+
+<TD>
+
+<P>.tc <I>c</I></P>
+
+<TD>
+
+<P>Set tab character</P>
+
+<TR>
+
+<TD>
+
+<P>.ti <I>&#177;[n]</I></P>
+
+<TD>
+
+<P>Set temporary indent</P>
+
+<TR>
+
+<TD>
+
+<P>.tl <I>'l'c'r'</I></P>
+
+<TD>
+
+<P>Three part title</P>
+
+<TR>
+
+<TD>
+
+<P>.tm <I>message</I></P>
+
+<TD>
+
+<P>Display <I>message</I> on terminal</P>
+
+<TR>
+
+<TD>
+
+<P>.tr <I>ab</I></P>
+
+<TD>
+
+<P>Translate characters</P>
+
+<TR>
+
+<TD>
+
+<P>.uf f</P>
+
+<TD>
+
+<P>Set underline font</P>
+
+<TR>
+
+<TD>
+
+<P>.ul <I>[n]</I></P>
+
+<TD>
+
+<P>Underline lines</P>
+
+<TR>
+
+<TD>
+
+<P>.vs <I>[n]</I></P>
+
+<TD>
+
+<P>Set vertical space</P>
+
+<TR>
+
+<TD>
+
+<P>.wh <I>n xx</I></P>
+
+<TD>
+
+<P>Set trap locations</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The essentials of troff allow a user to format a document. The real value of troff, though, comes when incorporated with a standard macro package, such as ms or me, which are described in the next chapter.
+
+<BR></P>
+
+<P><A HREF="unxpt5.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt5.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx22.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx22.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

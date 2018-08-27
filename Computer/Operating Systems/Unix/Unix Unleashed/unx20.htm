@@ -1,0 +1,860 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx20.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt5.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt5.htm">
+
+<LINK REL="Previous" HREF="unx19.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx19.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx19.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx19.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt5.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt5.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">20 &#151; Scheduling Processes</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Rachel and Robert Sartin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Using at to Schedule Delayed Commands</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Introduction to at</A></LI>
+
+<LI>
+
+<A HREF="#I6">Scheduling Personal Reminders</A></LI>
+
+<LI>
+
+<A HREF="#I7">Scheduling Big Jobs for Later</A></LI>
+
+<LI>
+
+<A HREF="#I8">Using Batch to Manage Big Jobs</A></LI>
+
+<LI>
+
+<A HREF="#I9">Queue Levels in at</A></LI>
+
+<LI>
+
+<A HREF="#I10">Listing Your at Jobs</A></LI>
+
+<LI>
+
+<A HREF="#I11">Removing Your at Jobs</A></LI></UL>
+
+<LI>
+
+<A HREF="#I12">Chronolgically Speaking&#151;cron</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I13">Manipulating Your crontab</A></LI>
+
+<LI>
+
+<A HREF="#I14">Decoding a crontab</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">cron for the System Administrator</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Using cron to Schedule Administrative Tasks</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>20 &#151; Scheduling Processes</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Rachel and Robert Sartin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Typically, UNIX machines are left running all day and all night. UNIX offers several commands that let you take extra advantage of your existing computer resources. This chapter covers key concepts needed to schedule processes to run when you are not 
+present to start them manually. This chapter introduces the at command, which is used to schedule a command to run once later, and the cron command, which is used to schedule commands that need to be run regularly. Using these two commands can help you 
+manage your computer more effectively.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Using </B><B><I>at</I></B><B> to Schedule Delayed Commands</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The at command is used to schedule a single command for execution at a later time. It is a tool that reads a series of commands from the standard input and schedules them for execution at a later time. Using at allows you to schedule system-intensive 
+jobs for off hours.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Introduction to </B><B><I>at</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In its most basic form, you run at <I>time</I> and then type in a series of commands (followed by EOF) to be executed at the time you specify. The time can be one, two, or four digits (different versions of at support somewhat different time 
+specifications; check your online manual by typing man at or check your hardcopy manuals to learn more about your version of at). If you use one or two digits, the time is in hours. If you use four digits, the time is in minutes. The time is in twenty-four 
+
+hour clock time. The output of a job submitted to at is sent to you by electronic mail.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  Some systems allow specifying an AM (or even just A) or PM  (or just P) suffix to use twelve-hour time. Some systems allow more detailed specification of time and date. Check your system manuals to 
+be sure what your system allows. This introduction covers the lowest common denominator of at features from BSD, POSIX, and System V.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For example, to schedule a job to read the message of the day file and mail it to yourself at 5:30 p.m. today:
+
+<BR></P>
+
+<PRE>% # This example is from Solaris 2.3, which is SVR4
+
+% at 1730
+
+cat /etc/motd | mail myself
+
+&lt;ctrl&gt;&lt;d&gt;
+
+warning: commands will be executed using /usr/bin/sh
+
+job 763169400.a at Tue Mar  8 17:30:00 1994
+
+%</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  In this example, at printed out a warning. The warning was because the shell used by at on that system was different from the shell being used by the user. On most systems, at defaults to using 
+/bin/sh, which is usually the Bourne Shell.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> Some versions of at allow you to specify that commands should be run with the csh. This is implemented in the -c option introduced in BSD. Check your system manual to see whether your version of at 
+supports this.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Scheduling Personal Reminders</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One important use of the at command is to schedule personal reminders. For example, if you have a meeting at 10:00 a.m. (and you run X11 and have the xmessage command), you might try the following command:
+
+<BR></P>
+
+<PRE>$ # This example is from HP-UX
+
+$ at 10
+
+xmessage -display \fIhostname\fB:0.0 &quot;You have a meeting!!!&quot;
+
+&lt;ctrl&gt;&lt;d&gt;
+
+job 763056000.a at Mon Mar 07 10:00:00 1994
+
+$</PRE>
+
+<P>This command schedules an at job that will run the xmessage program at 10 a.m. to display the message &quot;You have a meeting!!!&quot; on your X display.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Scheduling Big Jobs for Later</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Often, when you are using a computer, you will have large jobs that take up lots of computer time, memory, or do lots of input and output. You may want to run these jobs when you are away from your machine so that the machine won't be heavily loaded 
+when you need it for other tasks.
+
+<BR></P>
+
+<P>For example, if you want to run a large make that compiles many C files to build a tool you are working on, you might try:
+
+<BR></P>
+
+<PRE>$ #This example is from a BSD system
+
+$ cd make_directory
+
+$ at 1930
+
+at&gt; make -k all &gt; /dev/null
+
+at&gt; &lt;ctrl&gt;&lt;d&gt;
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> This example introduces an interesting technique for using at. It redirects the standard output, which will contain all the messages from make and the tools run by make, to /dev/null, which is the bit 
+
+bucket. This means that you will get only mail notification about errors encountered during the job. This is a particularly useful technique for jobs that might have lots of &quot;normal&quot; output that you don't care about. Look at the examples in the 
+sections on cron for more information.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Using Batch to Manage Big Jobs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> The batch command is part of System V but is not available on all versions of UNIX. Check your system to make sure that you can use this.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The batch command is very similar to the at command, with some useful differences. Rather than specify a time for your job to execute, the batch command schedules it to run as soon as possible with the restriction that only one or two batch jobs run at 
+
+a time. Jobs submitted with batch also run with a higher nice value so that they won't interfere with CPU usage. These two differences make batch a useful tool for scheduling large jobs that need to finish as soon as possible. The example of the make job 
+shown previously is easily modified to work with batch:
+
+<BR></P>
+
+<PRE>$ #This example is from a Solaris system
+
+$ cd make_directory;
+
+$ batch
+
+make -k all &gt; /dev/null
+
+&lt;ctrl&gt;&lt;d&gt;
+
+warning: commands will be executed using /usr/bin/sh
+
+job 763072415.b at Mon Mar  7 14:33:35 1994
+
+at: this job may not be executed at the proper time.
+
+$</PRE>
+
+<P>This job will run immediately and all error output will be mailed to you when it completes. Normal output is discarded.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Queue Levels in </B><B><I>at</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> The implementation of queue levels is in the System V version of at, but is not available in all versions of UNIX. Check your system to make sure that you can do this.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The at and batch commands as they have been introduced are two different interfaces to a single job-queuing system on SYSV-based UNIX (and other versions of UNIX that have added these features). The queuing system is implemented in the SYSV cron program 
+
+(see &quot;Chronologically Speaking&#151;cron&quot; later in this chapter). There are 25 queues available: a, b, and d-z (&quot;c&quot; is used internally to implement crontab). By default, there are two queues that are implemented. Queue &quot;a&quot; is 
+
+used for jobs submitted by at; it allows a larger number of jobs (typically 4) to run with a small nice value (typically 1). Queue &quot;b&quot; is used for jobs submitted by batch; it allows a smaller number of jobs (typically 2) to run with a larger nice 
+
+value (typically 2).
+
+<BR></P>
+
+<P>On systems that use this version of cron, you may be able to add new queue levels by editing the queuedefs file (typically in /usr/lib/cron/queuedefs).
+
+<BR></P>
+
+<P>The template for a queuedefs entry is:
+
+<BR></P>
+
+<PRE>q.[<I>job</I>j][<I>nice</I>n][<I>nwait</I>w]</PRE>
+
+<P>in which:
+
+<BR></P>
+
+<PRE>
+
+<BR>q is the queue designation: &quot;a&quot;, &quot;b&quot; or c-z
+
+
+
+<BR>job is the maximum number of simultaneous jobs
+
+
+
+<BR>nice is the nice value for each job
+
+
+
+<BR>nwait is the number of seconds to wait between attempts to reschedule a job delayed because of njob limits</PRE>
+
+<P>A typical queuedefs file looks like the following:
+
+<BR></P>
+
+<PRE>a.4j1n
+
+b.2j2n90w
+
+m.1j10n600w</PRE>
+
+<P>Queue &quot;a&quot; can have a maximum of four jobs running with nice value of one and a (default) reschedule delay of sixty seconds. Queue &quot;b&quot; can have a maximum of two jobs running with nice value of two and a reschedule delay of ninety 
+seconds. Queue &quot;m&quot; can have a maximum of one job running with nice value of ten and a reschedule delay of ten minutes.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Listing Your </B><B><I>at</I></B><B> Jobs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Both the SYSV and BSD versions of at allow you to examine the list of jobs you have in the queues. The method of getting the list and the appearance of the output are slightly different.
+
+<BR></P>
+
+<P>On SYSV, you can list at jobs using at -l, which lists all jobs that you have in any of the at queues. For example, with several batch jobs submitted and a couple of jobs waiting to run in queue &quot;m&quot; (as specified in the example in the 
+preceding section, &quot;Queue levels in at&quot;) and a single regular at job scheduled for 5:30 p.m., your output might look like the following:
+
+<BR></P>
+
+<PRE>$ date
+
+Wed Mar  9 15:13:56 CST 1994
+
+$ at -l
+
+763247633.m     Wed Mar 09 15:13:53 1994
+
+763255800.a     Wed Mar 09 17:30:00 1994
+
+763247641.m     Wed Mar 09 15:14:01 1994
+
+763247595.b     Wed Mar 09 15:13:15 1994
+
+763247599.b     Wed Mar 09 15:13:19 1994
+
+763247602.b     Wed Mar 09 15:13:22 1994
+
+$</PRE>
+
+<P>On BSD, you can list at jobs using atq, which lists all jobs that you have in the single queue. With a single job scheduled, your output might look like the following:
+
+<BR></P>
+
+<PRE>$ at
+
+ LAST EXECUTION TIME: Mar 9, 1994 at 15:00
+
+ Rank     Execution Date     Owner     Job #   Job Name
+
+  1st   Mar 10, 1994 12:00   sartin    66588   stdin
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Removing Your </B><B><I>at</I></B><B> Jobs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you make a mistake or change your mind about running a job, you can remove it from the queue. If you didn't save the job ID that is printed by some versions of at when they add your job to the queue, you can get the job ID by listing at jobs and 
+removing the job. On SYSV, you remove the job using at -r <I>jobid</I>:
+
+<BR></P>
+
+<PRE>$ at -l
+
+763250700.a     Wed Mar  9 16:05:00 1994
+
+$ at -r 763250700.a
+
+$ at -l
+
+$ </PRE>
+
+<P>On a BSD system, you remove the job using atrm <I>jobid</I>:
+
+<BR></P>
+
+<PRE>$ atq
+
+ LAST EXECUTION TIME: Mar 9, 1994 at 15:00
+
+ Rank     Execution Date     Owner     Job #   Job Name
+
+  1st   Mar 10, 1994 12:00   sartin    66588   stdin
+
+$ atrm 66588
+
+ 66588: removed
+
+$ atq
+
+no files in queue.
+
+$ </PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> If you submit many jobs using at, you should save the job ID somewhere. The output of atq or at -l isn't very helpful if you have lots of jobs scheduled for approximately the same time. On some 
+systems, you will be able to edit the job file in /usr/spool/cron/atjobs/<I>jobid</I> or /var/spool/cron/atjobs/<I>jobid</I>, but it's best not to depend on this behavior.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Chronolgically Speaking&#151;</B><B><I>cron</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Although the at command is very useful for one-time jobs, it is somewhat difficult to use for scheduling repetitive tasks (see the note on using at to replace cron). UNIX also includes a program called cron that is responsible for running repetitively 
+scheduled jobs in a flexible fashion.
+
+<BR></P>
+
+<P>Historically, cron was introduced as a tool for system administrators and originally only allowed scheduling of tasks by &quot;root&quot; using a file /etc/crontab that the cron program would read for information on what jobs to run at what times. Since 
+
+that time, newer versions of cron have been introduced that allow individual users to have their own crontab, which specifies what jobs to run for that particular user.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  The use of cron by non &quot;root&quot; users is not available on all versions of UNIX (for example, BSD 4.2 and 4.3).  The CD-ROM contains a version of cron that includes support for user-level 
+crontabs.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="more.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/more.gif" WIDTH = 35 HEIGHT = 35><B>Using </B><B>at</B><B> to Replace </B><B>cron</B>
+
+<BR>
+
+<BR>On systems that don't have cron access for normal users, you can duplicate some of the features of cron by writing at jobs that reschedule themselves. For example, to write a script that runs weekly, you could add to the end of the script:
+
+<BR>
+
+<BR>echo &quot;sh <I>this_script</I>&quot; | at 1900 thursday week
+
+<BR>
+
+<BR>to reschedule <I>this_script</I> to run at 7 p.m. next Thursday. When <I>this_script</I> runs next Thursday, it will reschedule itself for the Thursday after that. Take great care when using scripts to reschedule themselves so that you don't lose 
+control of your creations.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>When cron runs a job for you, it executes using your user ID and privileges, but with a more sparse environment. A job executed by cron will run with sh (usually the Bourne shell) in your home directory, but will not execute .profile. The environment 
+variables HOME, LOGNAME, PATH, and SHELL will be set. Your job should make minimal assumptions about its environment. For example, your PATH may only include /bin, /usr/bin and possibly your current working directory (which should be your home directory at 
+
+the start of the job).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> To run scripts from cron using a different shell, use the #! construct at the start of your script. For example:
+
+<BR>
+
+<BR>#!/bin/ksh
+
+<BR># This script uses Korn shell extensions
+
+<BR>typeset -i count=0
+
+<BR>while [ $count -lt 5 ]
+
+<BR>do
+
+<BR>     echo $count
+
+<BR>     (( count = count + 1 ))
+
+<BR>done
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The output of each job you run is saved and sent to you by electronic mail.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Write your cron jobs so that they produce output only if there is an error. Scripts that are going to produce statistics or summary information should probably be written to explicitly send mail with an 
+
+informative subject line. That way, you know something has gone wrong when you receive a message from the cron daemon.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Manipulating Your crontab</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>There are several different operations available from the crontab command that are used to view, modify, or remove your crontab. To see your current crontab, use crontab -l. This will list your current crontab on the standard output. For an example, see 
+
+Listing 20.1.
+
+<BR></P>
+
+<P>To replace your crontab with a new crontab, use the command  crontab <I>new_crontab_file</I>. This will replace your crontab completely, so make sure that <I>new_crontab_file</I> has any old crontab entries you want to keep. A good way to do this is to 
+
+use crontab -l first:
+
+<BR></P>
+
+<PRE>$ crontab -l &gt; new_crontab_file
+
+$ vi new_crontab_file
+
+[edit the file to update your crontab]
+
+$ crontab new_crontab_file
+
+$</PRE>
+
+<P>Some versions of crontab support a special option for editing and replacing your crontab. If your system supports this, you can edit your crontab by executing crontab -e.
+
+<BR></P>
+
+<P>To make it so that cron will not execute any jobs for you, you could execute crontab /dev/null, which would give you an empty crontab. A better way to do this is to execute crontab -r, which will remove your crontab completely.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Decoding a crontab</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A crontab has six fields:
+
+<BR></P>
+
+<PRE>
+
+<BR>minute (0-59)
+
+
+
+<BR>hour (0-23)
+
+
+
+<BR>day of month (1-31)
+
+
+
+<BR>month of year (1-12)
+
+
+
+<BR>day of week (0-6, 0 is Sunday)
+
+
+
+<BR>Command (rest of line)</PRE>
+
+<P>The first five fields are numeric patterns, which can be an asterisk (which means to use all legal values) or a list of elements.  An element is either a single number or two numbers separated by a hyphen (which specifies an allowed range). Note that 
+both a day of month and day of week are specified. If both fields are used, they are both honored. For example:
+
+<BR></P>
+
+<PRE> 0 17  1  *  0  date | mail user</PRE>
+
+<P>will execute at 5 p.m. on the first of each month as well as at 5 p.m. on every Sunday.
+
+<BR></P>
+
+<P>Now look at Listing 20.1 in detail. Each line in the sample crontab illustrates a technique for using cron. 
+
+<BR></P>
+
+<P>See LIST20_1 on the CD-ROM for a not-so-typical crontab.
+
+<BR></P>
+
+<P>Look at the line in Listing 20.1 that runs a program called hourly. Notice that both day fields, the month field, and the hour field are wild cards, whereas the minute field is &quot;0.&quot; This means that the job will run on all days of all months at 
+
+all hours at 0 minutes into the hour. This job runs every hour on the hour.
+
+<BR></P>
+
+<P>Look at line 2 in Listing 20.1 that runs a program called quarter_hourly. Note the change. Note the use of a list in the minute field. The minute field is now a list of &quot;0,15,30,45.&quot; This means that the job will run on all days of all months 
+at all hours at 0, 15, 30, and 45 minutes into the hour. This job runs every quarter hour.
+
+<BR></P>
+
+<P>The business_hourly script runs every hour during business hours. Note the use of ranges in the hour field (to limit the job to run between 8 a.m. and 6 p.m.) and the day of week field (to limit the job to run Monday through Friday).
+
+<BR></P>
+
+<P>Look at the line in Listing 20.1 that runs a program called daily. Notice that both day fields and the month field are wild cards, whereas the hour field is &quot;8&quot; and the minute field is &quot;0.&quot; This means that the job will run every day 
+
+at 8 a.m. The weekly script will run every Monday at 8 a.m. The monthly script will run just after midnight on the morning of the first of each month.
+
+<BR></P>
+
+<P>The two executions of the birthday script will each run once per year, one on April 20, with the argument rachel, and one on October 7, with the argument rob.
+
+<BR></P>
+
+<P>See Listing 20.2 for an example of a Korn shell script intended to be run as a cron job. This script sends a status summary based on the contents of two files in ~/status: a file named todo, which is a &quot;to do&quot; list, and a file named done, 
+which is a list of tasks completed. During the week, you can move items from the todo file to the done. At the end of the week, this script can be run from cron and it will mail a weekly summary, add your done items to the file log, and mail a summary to 
+you. Note that the script redirects all expected output either to a file or to the <I>mail_command</I>. Note that it tries to configure using only the environment variables LOGNAME and HOME. It uses only standard commands that are available in the default 
+
+PATH.
+
+<BR></P>
+
+<P>Here is a cron entry to run this script every Monday morning at 8:00:
+
+<BR></P>
+
+<PRE>0     8     *     *     /u/sartin/bin/status_report</PRE>
+
+<P>See LIST 20_2 on the CD-ROM for a sample cron script.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING: </B>Twice a year, users of cron get to experience the potential of having some jobs run twice or not at all when they were expected to run exactly once. The problem is that once a year (when you set 
+
+your clocks back) some local clock times occur twice, and once a year (when you set your clocks ahead) some local clock times don't occur at all. Most versions of cron attempt to deal with this by making jobs that are scheduled for ambiguous times (those 
+that occur twice in one day) run exactly once, and those that are scheduled for nonexistent times (the ones that were skipped when the clock was set ahead) run once, but at a different time than requested in the crontab. Historically, different versions of 
+
+cron have run some jobs twice or not at all near the time change.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Schedule daily, weekly, and monthly jobs to avoid ambiguous and nonexistent times due to daylight savings time changes. For example, instead of scheduling a weekly backup to run at 2 a.m., schedule it 
+for 0055 (55 0 ...) or 0303 (3 3 ...). This will ensure that your job runs once even if your cron doesn't do what you expect.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>cron for the System Administrator</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As a system administrator, you will either control cron and at access using cron.allow or cron.deny and at.allow and at.deny (Check your system's documentation to determine the locations of these files. They are typically in /usr/spool/cron or 
+/var/spool/cron.) You will need to make a basic policy decision on whether users should be granted access to these tools. One possible policy is that all users are granted access and are denied access only if they abuse the facility; in this case, use the 
+
+cron.deny file to list those users who should not use cron, and at.deny to list those who should not use at. Another possible policy is that users must request permission to use these tools; in this case, use cron.allow and at.allow to list users who have 
+
+been granted permission.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> Choose your policy right away so that you can get your configuration set up correctly. Don't try to mix cron.allow and cron.deny. Similarly, don't attempt to mix at.allow and at.deny.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  If your system runs a cron that supports a crontab only for &quot;root,&quot; you may want to consider installing the vixie-cron package from the CD-ROM. This will give your users access to the 
+crontab command. You will need a separate atrun command if you wish to continue using at, because this package doesn't implement at queues.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Using cron to Schedule Administrative Tasks</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You should use one or more crontabs to schedule all of your repetitive administrative tasks, such as backups, log file administration, news expiration, and file archival. See Listing 20.3 for a sample script that does simple log file pruning. Run this 
+from your crontab as prunelog <I>path_to_log_file</I> <I>...</I>. It will keep the 10 most recent days (or weeks or hours) of log files available for review, and throw out older data to prevent running out of disk space.
+
+<BR></P>
+
+<P>If your system uses a cron like the SYSV one, you should take advantage of the user-specific crontabs to split administrative tasks. For example, all Usenet cron jobs should be in the crontab for user netnews (or whatever user ID you use for the news 
+software). Only those jobs that need &quot;root&quot; privileges should be in the crontab for &quot;root.&quot;
+
+<BR></P>
+
+<P>Here is a crontab entry that will execute this job to prune /usr/spool/mqueue/syslog:
+
+<BR></P>
+
+<PRE>0     1     *     *     *     /usr/adm/prunelog     /usr/spool/mqueue/syslog</PRE>
+
+<P>See LIST20_3 on the CD-ROM for a program that prunes log delete files with cron.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter, you have learned how to use at to schedule one-time jobs; how to use batch (and at -q) to run large jobs without loading your system badly; and how to use cron to schedule recurring jobs. These techniques should help you to get maximum 
+
+benefit out of your computer even when you are not around to use it.
+
+<BR></P>
+
+<P><A HREF="unx19.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx19.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt5.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt5.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

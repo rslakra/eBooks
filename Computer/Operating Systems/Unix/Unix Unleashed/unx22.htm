@@ -1,0 +1,1139 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx22.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx23.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx23.htm">
+
+<LINK REL="Previous" HREF="unx21.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx21.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx21.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx21.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx23.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx23.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">22</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I2">Formatting with Macro Packages</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">What Is a Macro?</A></LI>
+
+<LI>
+
+<A HREF="#I4">The man Macro Package</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Page Layout</A></LI>
+
+<LI>
+
+<A HREF="#I6">You can achieve consecutive page numbering by using the register (-r) option when you print your file</A></LI>
+
+<LI>
+
+<A HREF="#I7">Headings</A></LI>
+
+<LI>
+
+<A HREF="#I8">Paragraph Styles</A></LI>
+
+<LI>
+
+<A HREF="#I9">Fonts and Point Size</A></LI>
+
+<LI>
+
+<A HREF="#I10">Preprocessor Macros</A></LI>
+
+<LI>
+
+<A HREF="#I11">Predefined Strings</A></LI>
+
+<LI>
+
+<A HREF="#I12">Miscellaneous Macros</A></LI>
+
+<LI>
+
+<A HREF="#I13">Using man Macros with troff and nroff</A></LI>
+
+<LI>
+
+<A HREF="#I14">man Macro Summary</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><B>22</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I2" NAME="I2">
+
+<FONT SIZE=5><B>Formatting with Macro Packages</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<P>This chapter is about macros and macro packages. Starting with a sample macro, you'll see how and why it works, and you'll see it evolve from simple to complex.
+
+<BR></P>
+
+<P>Macro packages are made of macros. By way of analogy, a macro package is to a macro as a macro is to a troff primitive. In the chapter, we will examine how to use the man macro package.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=4><B>What Is a Macro?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>With embedded troff primitives, you can format a page just about any way you want. The trouble is that you have to reinvent the wheel every time you write a new document. For example, every time you format a first-level heading, you have to remember the 
+
+sequence of primitives you used to produce a centered 14-point Helvetica bold heading. Then you have to type three or four troff requests, the heading itself, and another three or four requests to return to the normal body style. (This is practical only if 
+
+you're being paid by the line.) It's a laborious process and one that makes it difficult&#151;perhaps impossible&#151;to maintain consistency over a set of files.
+
+<BR></P>
+
+<P>Good news: You can use macros to simplify formatting and ensure consistency. Macros take advantage of one of the UNIX system's distinguishing characteristics: the ability to build complex processes from basic&#151;primitive&#151;units. A macro is 
+nothing more than a series of troff requests, specified and named, that perform a special formatting task.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>The </B><B><I>man</I></B><B> Macro Package</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The man macro package produces a specialized format: the format used for UNIX system documentation manual pages&#151;manpages, for short. In addition, information entered with the man macros is used to create the formidable permuted indexes so dear to 
+the hearts of UNIX users.
+
+<BR></P>
+
+<P>There are only a few macros in this package. If you're familiar with ms, you already know most of them.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If you use mm, man's paragraph style macros and the way they're used to produce lists will dismay you.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The man macros produce an 8.5- by -11 inches page with a text area of 6.5- by-10 inches. There is a troff&#151;but not an nroff&#151;option for producing a smaller page&#151;6-by-9 inches with a text area of 4.75- by-8.375 inches. If you choose this 
+option, point size and leading are reduced from 10/12 to 9/10.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Page Layout</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The .IN macro sets the indent relative to subheads. The default setting is 7.2 ens in troff and 5 ens in nroff.
+
+<BR></P>
+
+<P>The .LL macro sets the line length, which includes the value of IN.
+
+<BR></P>
+
+<P>The footer produced by the man macros is an example of making the best of a bad deal. The date is hard coded into the macro package. (This is usually a sign that you're not supposed to change it.) It's not the current date. It's whatever date your local 
+
+macromancer deems appropriate. The reason for this eccentricity has been lost over time. Perhaps people used to be smarter and used to like playing with number registers. Perhaps this was a way of controlling updates to reference manuals. I don't know. I 
+do know how to change the date, though.
+
+<BR></P>
+
+<P>In the definition of the .TH macro (table heading), there is a string definition for a string called [5. That's the date. All you have to do is redefine [5 at the top of your file. For example,
+
+<BR></P>
+
+<PRE>.ds [5 &quot;January 1, 2001</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> When you define strings, use an opening quotation mark, but no closing mark. If you forget and put that closing quotation mark, the closing quotation mark will be printed.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Now, what about that &quot;Page 1&quot;? Manpages are not numbered like ordinary document pages. The reason is that reference manuals are lengthy and are updated frequently. Furthermore, Bell Laboratories decided many years ago never to number 
+replacement pages with letters, such as 101a, 101b, and so on. Because it was impractical to reprint a 2000-page manual just because you had inserted two pages at the beginning, Bell Labs came up with another solution: Number the pages consecutively only 
+for each entry; then start again with &quot;Page 1.&quot;
+
+<BR></P>
+
+<P>You can change this, but you'll face the same dilemma that Bell Labs faced: What do you do about updates? Assuming this isn't a problem, how do you number reference manual pages consecutively?
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>You can achieve consecutive page numbering by using the register (</B><B>-r</B><B>) </B><B>option when you print your file</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<PRE>troff -rc1 filename</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Headings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The man macros fall into two basic categories: headings and paragraph styles. Using these macros correctly is an art, whereas once it was a science. Fonts are no longer as rigidly defined. For example, earlier UNIX reference manuals did not use a 
+monospace&#151;or constant width&#151;font. Today, monospace is routinely used for file and directory names and for &quot;computer voice&quot;&#151;that is, anything you see on the screen. Sometimes a distinction is made between monospace (\f(CW) and bold 
+
+monospace (\f(CB). Bold monospace is used to indicate what the user types; it appears in the syntax section of a manpage.
+
+<BR></P>
+
+<P>The example in Figure 22.1 represents one way of using the man macros. Type styles are a matter of individual or company preference.
+
+<BR></P>
+
+<P>man recognizes three types of headings:
+
+<BR></P>
+
+<UL>
+
+<LI>Title headings are produced with the .TH macro
+
+<BR>
+
+<BR></LI>
+
+<LI>Subheadings are produced with .SH
+
+<BR>
+
+<BR></LI>
+
+<LI>Sub-subheadings are produced with .SS
+
+<BR>
+
+<BR></LI></UL>
+
+<P>.TH and .SH are mandatory. A manpage must have a .TH and at least one .SH.
+
+<BR></P>
+
+<P>.TH takes up to four arguments. These are positional arguments. Therefore, if you don't use the third (and least common) argument but you want the fourth, you must insert a null argument (&quot;&quot;) before the fourth argument. The syntax for .TH is
+
+<BR></P>
+
+<PRE>.TH &lt;title&gt; &lt;section number&gt; &lt;commentary&gt; &lt;manual name&gt;</PRE>
+
+<P>title specifies the title of the manpage. This appears in the page header on the left and the right. It can be more than one word, so enclose it in quotation marks. The title of the manpage shown in Figure 22.1 is namehim.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Failure to enclose arguments to the .TH macro in quotation marks produces random unsightly dots on the printed page.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>section number is a number from 1 through 5 that indicates the section of the reference manual to which the entry belongs. (Refer to Chapter 5, &quot;Popular Tools,&quot; for information about UNIX reference manuals.) This number appears in the header 
+in parentheses after the title. Don't include parentheses; they are supplied automatically. The manpage shown in Figure 22.1 has 0 as the section number. (Note: 0 is not really a permissible section number.)
+
+<BR></P>
+
+<P>commentary is an extra comment, such as Local. The argument appears in the header. It must be enclosed in quotation marks if there are embedded blanks. The manpage shown in Figure 22.1 doesn't have any commentary.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>N</B><B>OTE</B><B>:</B> Local means that the command described by the manual page is not a standard SVR4 command. It might be a brand new command created for your particular UNIX system, or it might be a 
+standard SVR4 command that has been modified for your system.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>manual name is the name of the manual&#151;for example, UNIX System V or Documenter's Workbench.  The name of the manual shown in Figure 22.1 is Novelist's Workbench.
+
+<BR></P>
+
+<P>.TH is a shared macro name. The tbl preprocessor, identified by its starting and ending macros&#151;.TS and .TE&#151;relies on a .TH macro to specify column headings on a multipage table. This presents a potential problem. (tbl is discussed fully in 
+Chapter 23, &quot;Formatting Tables with tbl.&quot;)
+
+<BR></P>
+
+<P>The .TH table heading macro can appear only within a .TS and .TE pair. Supposedly, this insulates the macro and alerts the macromancer to rename the .TH man title macro whenever a .TS is encountered. Don't bet on it.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>N</B><B>OTE</B><B>:</B> The troff primitive .rn renames macros.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>C</B><B>AUTION</B><B>:</B> Don't use the .TH table heading macro on a manpage. The results are unpredictable and depend on your individual system. If you have a multipage table, you can always create the 
+column headings manually. It isn't an elegant solution, but it doesn't break anything.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The .SH macro is a crucial one. With .TH it is mandatory for manpages. It is customarily followed by a keyword, although you can specify any word or words you want. The most common .SH keywords are
+
+<BR></P>
+
+<PRE>
+
+<BR>NAME
+
+
+
+<BR>SYNTAX or SYNOPSIS
+
+
+
+<BR>DESCRIPTION
+
+
+
+<BR>EXAMPLE or EXAMPLES
+
+
+
+<BR>FILES
+
+
+
+<BR>DIAGNOSTICS
+
+
+
+<BR>BUGS
+
+
+
+<BR>SEE ALSO</PRE>
+
+<P>The .SH macros are used like this:
+
+<BR></P>
+
+<PRE>.SH NAME
+
+namehim - brief description of entry</PRE>
+
+<P>Text following .SH is indented, as shown in Figure 22.1.
+
+<BR></P>
+
+<P>.SH keywords are always printed in all caps, and you don't need to put quotation marks around a two-word keyword. If you do use quotation marks, they won't be printed.
+
+<BR></P>
+
+<P>The most crucial .SH is .SH NAME. .SH NAME is mandatory. It is used to produce the permuted index, and its arguments must be entered on a single line&#151;no matter how long that line is. No period is used at the end of the line. Naturally, it's a good 
+
+idea to be as terse as possible.
+
+<BR></P>
+
+<P>The manpage shown in Figure 22.1 uses .SH OPTIONS after .SH SYNTAX. An alternate style sometimes seen in the reference manuals is the where form, which puts the word where on a line by itself and lists the options and arguments shown in the syntax 
+section.
+
+<BR></P>
+
+<P>If a manpage needs headings under the .SHs, use .SS. Text following .SS is indented further.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Paragraph Styles</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Almost all the man paragraph styles will be familiar to ms users. There are four ordinary paragraph macros:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>.PP</P>
+
+<TD>
+
+<P>Begins a paragraph with an indented first line</P>
+
+<TR>
+
+<TD>
+
+<P>.P</P>
+
+<TD>
+
+<P>Synonym for .PP. The only thing it does is call .PP</P>
+
+<TR>
+
+<TD>
+
+<P>.LP</P>
+
+<TD>
+
+<P>Begins left-blocked paragraphs (no indent)</P>
+
+<TR>
+
+<TD>
+
+<P>.PD</P>
+
+<TD>
+
+<P>Specifies interparagraph spacing</P></TABLE>
+
+<P>To set the indentation for .PP (and .P), use number register PI. The default unit is ens, but you can use any unit you want as long as you specify it. Unlike ms, man provides a macro to change the spacing between paragraphs: .PD.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>N</B><B>OTE</B><B>:</B> This section (&quot;The man Macro Package&quot;) shows you how to use number registers that are useful with man macros. If you want to find out what other registers are available in 
+troff, refer to the &quot;Number Registers&quot; section in Chapter 21, &quot;Basic Formatting with troff and nroff.&quot;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The .PD macro is nothing more than ms's PD number register turned into a macro. Because the format of manpages is so exacting, writers need more control over spacing. The argument to .PD specifies interparagraph spacing. (Note that for nroff this 
+argument is interpreted as whole lines; for troff you can specify .3v or something similar.) .PD is most often used to suppress spacing between list items, which are paragraphs in man. This is done very simply: .PD 0. The default spacing for .PD is .4r in 
+
+troff, one line in nroff.
+
+<BR></P>
+
+<P>man has two hanging paragraph styles that will be new to ms users. They are .HP and .TP. .HP is a simple hanging paragraph. The first line is flush with the margin. All subsequent lines in the paragraph are indented by the amount specified in the 
+argument to .HP. .TP is more complex. It is described below, following the discussion of .IP.
+
+<BR></P>
+
+<P>In addition to these more or less straightforward paragraph styles, man has the same indented paragraph as ms, also initiated by the .IP macro. The .IP macro is useful for formatting lists.
+
+<BR></P>
+
+<P>.IP can take two arguments. The first argument is a label, or tag. It can be a word, a number, or even the troff code for a bullet. The second argument specifies how far in from the left margin to indent the rest of the first line and all the rest of 
+the paragraph. For a detailed description of this technique, refer to &quot;Paragraph Styles&quot; in the &quot;Using the ms Macro Package&quot; section earlier in this chapter.
+
+<BR></P>
+
+<P>The .RS and .RE pair is used to create relative indents. .RS (relative start) starts a 5-en indent from whatever the current indent is. .RE returns to the indent whatever it was before .RS was called. For every .RS in your file, you need a .RE to undo 
+it. You can use this pair of macros to build nested lists. This technique is described under &quot;Paragraph Styles&quot; in the &quot;Using the ms Macro Package&quot; section earlier in this chapter.
+
+<BR></P>
+
+<P>.TP is similar to .IP. In fact, .TP produces virtually the same output. However, you specify it a little differently. Whereas .IP takes two arguments, .TP takes only one&#151;the indentation. The line following the .TP macro call is called the tag. If 
+the tag is wider than the specified indentation, the text following the tag starts on the next line. Therefore, although you can use .IP without a tag&#151;or, more accurately, with a null tag&#151;.TP requires a tag.
+
+<BR></P>
+
+<P>These codes that produces uses .IP, .RS., and .RE. Here are some lines of that code:
+
+<BR></P>
+
+<PRE>.TH namehim 0 &quot;Novelist's Work Bench&quot;
+
+.SH NAME
+
+\f3namehim \fP - supplies one or more names (first, last, or both) for fictional character
+
+.SH SYNTAX
+
+\f5namehim\f1[ \f5F | L\f1 ]  [ \f5-a\f2age\f1 ]  [ \f5-y\f2year\f1 ] ...
+
+.SH OPTIONS
+
+.IP &quot;\f5-F | -L\fP&quot; 3m
+
+specifies first or last nam; if neither \fF\fP nor \f5L\fP
+
+is specified, both are produced.
+
+.IP \f5-t\fP 3m
+
+Specifies type of name:
+
+select from the following (may be combined):
+
+.RS
+
+.IP \f5a\fP 3m
+
+all
+
+.IP \f5f\fP 3m
+
+fancy
+
+.IP \f5h\fP 3m
+
+hero
+
+.IP \f5l\fP 3m
+
+.RE</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Fonts and Point Size</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>man recognizes the .R (roman), .I (italics), and .B (bold) macros, all of which operate exactly as they do in ms and mm. Because man was originally designed to produce output using only those fonts&#151;no monospace&#151;it also has some macros that 
+specify alternating fonts. At first glance, these seem superfluous. Take another look, though, at the code. Formatted without monospace, the first part of the syntax line would have alternated bold and oman:
+
+<BR></P>
+
+<PRE>.BR
+
+namehim [ F | L ]  [ -a ...</PRE>
+
+<P>man permits all six permutations of alternating roman, italic, and bold fonts:
+
+<BR></P>
+
+<PRE>
+
+<BR>.RI
+
+
+
+<BR>.RB
+
+
+
+<BR>.IR
+
+
+
+<BR>.IB
+
+
+
+<BR>.BR
+
+
+
+<BR>.BI</PRE>
+
+<P>You may never have occasion to use these macros, but it's nice to know that they're available.
+
+<BR></P>
+
+<P>In addition to the font change macros, there is one macro for changing point size: .SM. (Users of ms might wonder what became of .LG and .NL.) man needs .SM more than the other macro packages because manual pages contain terms with long names that must 
+
+be written in capital letters. To make these terms more readable and to conserve space, man includes a macro that produces a smaller point size&#151;two points smaller.
+
+<BR></P>
+
+<P>.SM has another special use: printing the word UNIX in capital or small cap letters. Because UNIX is a registered trademark, it should be printed in a way that distinguishes it from ordinary text. Sometimes it appears in all capital letters. Another 
+acceptable way is with a capital U and small capital N, I, and X, as in Unix.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Preprocessor Macros</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The only preprocessor macros recognized by man are the .TS and .TE table macros. Remember not to use the table macro .TH.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Predefined Strings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The man package has three predefined strings. They are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>\*R</P>
+
+<TD>
+
+<P>Produces the registered trademark symbol</P>
+
+<TR>
+
+<TD>
+
+<P>\*(Tm</P>
+
+<TD>
+
+<P>Produces the trademark symbol</P>
+
+<TR>
+
+<TD>
+
+<P>\*S</P>
+
+<TD>
+
+<P>Returns to the default point size and vertical spacing</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Miscellaneous Macros</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>.TH resets tab stops whenever it is called. The default settings are every 7.2 ens in troff and every 5 ens in nroff. However, experimenting with various customized indents might affect tab settings. If you want to restore the tab settings and you can't 
+
+wait for the next .TH, use the .DT macro.
+
+<BR></P>
+
+<P>The .PM (proprietary marking) macro is interesting for its history, but unless you change its text, it isn't really useful. It takes two arguments. The first argument identifies the type of marking, such as Proprietary or Restricted. The second argument 
+
+is the year. If you omit the year, the default is the current year.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Using </B><B><I>man</I></B><B> Macros with </B><B><I>troff</I></B><B> and </B><B><I>nroff</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can invoke the man macros with the troff or nroff command. Printing man files is covered in detail in the &quot;Printing Files Formatted with man Macros&quot; section in Chapter 29, &quot;Processing and Printing Formatted Files.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B><I>man</I></B><B> Macro Summary</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Table 22.1 lists the man macros and describes their functions.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 22.1. Summary of the </B><B>man</B><B> macros.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Macro</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Comments</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>.B</P>
+
+<TD>
+
+<P>Bold</P>
+
+<TD>
+
+<P>With text, sets text in bold. On a line by itself, changes to bold font.</P>
+
+<TR>
+
+<TD>
+
+<P>.BI</P>
+
+<TD>
+
+<P>Bold italic</P>
+
+<TD>
+
+<P>Alternates bold and italic fonts.</P>
+
+<TR>
+
+<TD>
+
+<P>.BR</P>
+
+<TD>
+
+<P>Bold roman</P>
+
+<TD>
+
+<P>Alternates bold and roman fonts.</P>
+
+<TR>
+
+<TD>
+
+<P>.DT</P>
+
+<TD>
+
+<P>Defines tabs and sets and tab stops </P>
+
+<TD>
+
+<P>The default is 7.2 ens in troff 5 ens in nroff.</P>
+
+<TR>
+
+<TD>
+
+<P>.HP</P>
+
+<TD>
+
+<P>Hanging paragraph</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.I</P>
+
+<TD>
+
+<P>Italics</P>
+
+<TD>
+
+<P>With text, sets text in italics. On a line by itself, changes to italic font.</P>
+
+<TR>
+
+<TD>
+
+<P>.IB</P>
+
+<TD>
+
+<P>Italic bold</P>
+
+<TD>
+
+<P>Alternates italic and bold fonts.</P>
+
+<TR>
+
+<TD>
+
+<P>.IP</P>
+
+<TD>
+
+<P>Indented paragraph</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.IR</P>
+
+<TD>
+
+<P>Italic roman</P>
+
+<TD>
+
+<P>Alternates italic and roman fonts.</P>
+
+<TR>
+
+<TD>
+
+<P>.LP</P>
+
+<TD>
+
+<P>Block-style paragraph</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.P</P>
+
+<TD>
+
+<P>Paragraph</P>
+
+<TD>
+
+<P>Synonym for .PP. .P actually calls .PP.</P>
+
+<TR>
+
+<TD>
+
+<P>.PD</P>
+
+<TD>
+
+<P>Sets the distance between paragraphs 1v</P>
+
+<TD>
+
+<P>The default is .4v in troff and in nroff.</P>
+
+<TR>
+
+<TD>
+
+<P>.PM</P>
+
+<TD>
+
+<P>Proprietary marking</P>
+
+<TD>
+
+<P>This is an AT&amp;T macro for placing different types of Proprietary notices at the bottom of each page.</P>
+
+<TR>
+
+<TD>
+
+<P>.PP</P>
+
+<TD>
+
+<P>Paragraph</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.R</P>
+
+<TD>
+
+<P>Roman</P>
+
+<TD>
+
+<P>With text, sets text in roman type. On a line by itself, changes to roman type.</P>
+
+<TR>
+
+<TD>
+
+<P>.RB</P>
+
+<TD>
+
+<P>Roman bold</P>
+
+<TD>
+
+<P>Alternates roman and bold fonts.</P>
+
+<TR>
+
+<TD>
+
+<P>.RE</P>
+
+<TD>
+
+<P>Ends a relative indent begun by .RS</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.RI</P>
+
+<TD>
+
+<P>Roman italic</P>
+
+<TD>
+
+<P>Alternates roman and italic fonts.</P>
+
+<TR>
+
+<TD>
+
+<P>.RS</P>
+
+<TD>
+
+<P>Begins a relative indent</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.SH</P>
+
+<TD>
+
+<P>Subhead</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.SM</P>
+
+<TD>
+
+<P>Reduces point size by 2 points</P>
+
+<TD>
+
+<P>Stands for small.0</P>
+
+<TR>
+
+<TD>
+
+<P>.SS</P>
+
+<TD>
+
+<P>Sub-subhead</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.TE</P>
+
+<TD>
+
+<P>Table end</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.TH</P>
+
+<TD>
+
+<P>Title head</P>
+
+<TD>
+
+<P>.SN NAME is the crucial macro for producing the permuted index</P>
+
+<TR>
+
+<TD>
+
+<P>.TP</P>
+
+<TD>
+
+<P>Indented paragraph with hanging tag.</P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>.TS</P>
+
+<TD>
+
+<P>Table start</P>
+
+<TD>
+
+<P>Supposedly, the H argument with the .TH macro for continuing table column heads works with the man macros. It's safer, though, to avoid the issue.</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Macro packages take the guesswork out of formatting. Your document has a defined &quot;look and feel&quot;&#151;no surprises. And it's easier than you think to use a macro package. As you work with a package, you learn more about it, but you can start 
+with only the basics and produce good-looking documents.<A ID="I16" NAME="I16"></A>
+
+<BR></P>
+
+<P><A HREF="unx21.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx21.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx23.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx23.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

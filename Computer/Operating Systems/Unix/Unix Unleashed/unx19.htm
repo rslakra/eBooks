@@ -1,0 +1,2569 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx19.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx20.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx20.htm">
+
+<LINK REL="Previous" HREF="unx18.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx18.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx18.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx18.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx20.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx20.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">19 &#151; Administering Processes</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Rachel and Robert Sartin</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Monitoring Processes&#151;ps and time</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">What Is ps?</A></LI>
+
+<LI>
+
+<A HREF="#I6">Introduction to SYSV ps Output</A></LI>
+
+<LI>
+
+<A HREF="#I7">Introduction to BSD ps Output</A></LI>
+
+<LI>
+
+<A HREF="#I8">Checking on Your Processes with ps</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Everything You Own</A></LI>
+
+<LI>
+
+<A HREF="#I10">Specific Processes</A></LI>
+
+<LI>
+
+<A HREF="#I11">Specific Process Groups</A></LI>
+
+<LI>
+
+<A HREF="#I12">Specific Terminal</A></LI>
+
+<LI>
+
+<A HREF="#I13">Specific User</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">Checking on a Process with time</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">Background and Foreground Processes</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Foreground Processing</A></LI>
+
+<LI>
+
+<A HREF="#I17">Where Is the Background and Why Should You Go There?</A></LI>
+
+<LI>
+
+<A HREF="#I18">Job Control</A></LI></UL>
+
+<LI>
+
+<A HREF="#I19">Signaling Processes</A></LI>
+
+<LI>
+
+<A HREF="#I20">Killing Processes</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I21">The kill Command</A></LI>
+
+<LI>
+
+<A HREF="#I22">Finding What to Kill Using ps</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I23">Determining Which Signal to Send</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">The dokill Script An Example</A></LI></UL>
+
+<LI>
+
+<A HREF="#I25">Logging Out with Background Processes</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I26">Using nohup</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">Prioritizing Processes</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">What Is a Priority?</A></LI>
+
+<LI>
+
+<A HREF="#I29">Being Nice</A></LI>
+
+<LI>
+
+<A HREF="#I30">Using renice on a Running Process</A></LI></UL>
+
+<LI>
+
+<A HREF="#I31">Job Control and Process Groups</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I32">Using the jobs Command</A></LI>
+
+<LI>
+
+<A HREF="#I33">Putting Jobs in the Foreground</A></LI>
+
+<LI>
+
+<A HREF="#I34">Suspending Process Groups</A></LI>
+
+<LI>
+
+<A HREF="#I35">Putting Jobs in the Background</A></LI>
+
+<LI>
+
+<A HREF="#I36">Using wait to Wait for Background Jobs</A></LI>
+
+<LI>
+
+<A HREF="#I37">Using csh notify to Learn About Changes Sooner</A></LI></UL>
+
+<LI>
+
+<A HREF="#I38">My System Is Slow&#151;Performance Tuning</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I39">Monitoring the System with ps</A></LI>
+
+<LI>
+
+<A HREF="#I40">Monitoring the System with sar</A></LI></UL>
+
+<LI>
+
+<A HREF="#I41">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>19 &#151; Administering Processes</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Rachel and Robert Sartin</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You use processes on UNIX every time you want to get something done. Each command (that isn't built into your shell) you run will start one or more new processes to perform your desired task. To get the most benefit out of your UNIX machine you need to 
+
+learn how to monitor and control the processes that are running on it. You will need to know how to make large, but not time-critical, tasks take less of your CPU time. You will need to learn how to shut down programs that have gone astray. You will need 
+to learn how to improve the performance of your machine.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Monitoring Processes&#151;</B><B><I>ps</I></B><B> and </B><B><I>time</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The first step in controlling processes in UNIX is to learn how to monitor them. By using the process-monitoring commands in UNIX, you will be able to find what programs are using your CPU time, find jobs that are not completing, and generally explore 
+what is happening to your machine.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>What Is </B><B><I>ps</I></B><B>?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first command you should learn about is the ps command, which prints out the process status for some or all of the processes running on your UNIX machine.
+
+<BR></P>
+
+<P>There are two distinctly different versions of ps: the SYSV version and the BSD version. Your machine might have either one or both of the ps commands. If you are running on a machine that is mostly based on Berkeley UNIX, try looking in /usr/5bin for 
+the SYSV version of ps. If you are running on a machine that is mostly based on System V UNIX, try looking in /usr/ucb for the BSD version of ps. Check your manuals and the output of your ps program to figure out which one you have. You may want to read 
+the introductions to both SYSV and BSD ps output since some systems either combine features of both (for example, AIX) or have both versions (for example, Solaris 2.3, which has SYSV /usr/bin/ps and BSD /usr/ucb/ps).
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Introduction to SYSV </B><B><I>ps</I></B><B> Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are using SYSV, you should read this section to learn about the meaning of the various fields output by ps. 
+
+<BR></P>
+
+<P>Look at what happens when you enter ps:
+
+<BR></P>
+
+<PRE>$ ps
+
+   PID TTY      TIME COMD
+
+  1400 pts/5    0:01 sh
+
+  1405 pts/5    0:00 ps
+
+$ </PRE>
+
+<P>The PID field gives you the process identifier, which uniquely identifies a particular process. The TTY fields tell what terminal the process is using. It will have ? if the process has no controlling terminal. It may say console if the process is on 
+the system console. The terminal listed may be a pseudo terminal, which is how UNIX handles terminal-like connections from a GUI or over the network. Pseudo terminal names often begin with pt (or just p, if your system uses very short names). The TIME 
+field tells how much CPU time the process has used. The COMD field (sometimes labelled CMD or COMMAND) tells what command the process is running.
+
+<BR></P>
+
+<P>Now look at what happens when you enter ps -f:
+
+<BR></P>
+
+<PRE>$ ps -f
+
+     UID   PID  PPID  C    STIME TTY      TIME COMD
+
+  sartin  1400  1398 80 18:31:32 pts/5    0:01 -sh
+
+  sartin  1406  1400 25 18:34:33 pts/5    0:00 ps -f
+
+$</PRE>
+
+<P>The UID field tells which user ID owns the process. Your login name should appear here. The PPID field tells the process identifier of the parent of the process; notice that the PPID of ps -f is the same as the PID of -sh. The C field is 
+process-utilization information used by the scheduler. The STIME is the time the process started.
+
+<BR></P>
+
+<P>Next, look at what happens when you enter ps -l:
+
+<BR></P>
+
+<PRE>$ ps -l
+
+ F S   UID   PID  PPID  C PRI NI     ADDR     SZ    WCHAN TTY      TIME COMD
+
+ 8 S   343  1400  1398 80   1 20 fc315000    125 fc491870 pts/5    0:01 sh
+
+ 8 O   343  1407  1400 11   1 20 fc491800    114          pts/5    0:00 ps
+
+$</PRE>
+
+<P>Note that the UID is printed out numerically this time. The PRI field is the priority of the process; a lower number means more priority to the scheduler. The NI field is the nice value. See the section &quot;Prioritizing Processes&quot; for more 
+information on the scheduler and nice values. The SZ field shows the process size. The WCHAN field tells what event, if any, the process is waiting for. Interpretation of the WCHAN field is specific to your system.
+
+<BR></P>
+
+<P>On some SYSV systems with real-time scheduling additions, you may see output such as the following if you enter ps -c:
+
+<BR></P>
+
+<PRE>$ ps -c
+
+   PID  CLS PRI TTY      TIME COMD
+
+  1400   TS  62 pts/5    0:01 sh
+
+  1409   TS  62 pts/5    0:00 ps
+
+$ </PRE>
+
+<P>The CLS field tells the scheduling class of the process; TS means time sharing and is what you will usually see. You may also see SYS for system processes and RT for real-time processes.
+
+<BR></P>
+
+<P>On some SYSV systems running the Fair Share Scheduler, you may see output such as the following if you enter ps -f:
+
+<BR></P>
+
+<PRE>$ ps -f
+
+     UID    FSID   PID  PPID  C    STIME TTY      TIME COMMAND
+
+  sartin rddiver 18735 18734  1  Mar 12  ttys0    0:01 -ksh
+
+  sartin rddiver 19021 18735  1 18:47:37 ttys0    0:01 xdivesim
+
+  sartin rddiver 19037 18735  4 18:52:58 ttys0    0:00 ps -f
+
+    root default 18734   136  0  Mar 12  ttys0    0:01 rlogind
+
+$ </PRE>
+
+<P>The extra FSID field tells the fair share group for the process.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Introduction to BSD </B><B><I>ps</I></B><B> Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you are using BSD, you should read this section to learn about the meaning of the various fields output by ps. 
+
+<BR></P>
+
+<P>Look at what happens when you enter ps:
+
+<BR></P>
+
+<PRE>$ ps
+
+  PID TT STAT  TIME COMMAND
+
+22711 c0 T     0:00 rlogin brat
+
+22712 c0 T     0:00 rlogin brat
+
+23121 c0 R     0:00 ps
+
+$ </PRE>
+
+<P>The PID field gives you the process identifier, which uniquely identifies a particular process. The TT fields tell what terminal the process is using. It will have ? if the process has no controlling terminal. It may say co if the process is on the 
+system console. The terminal listed may be a pseudo terminal. The STAT field shows the process state. Check your manual entry for ps to learn more about state. The TIME field tells how much CPU time the process has used. The COMMAND field tells what 
+command the process is running. Normally, the COMMAND field lists the command arguments stored in the process itself. On some systems, these arguments can be overwritten by the process. If you use the c option, the real command name will be given, but not 
+
+the arguments.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  The BSD ps command predates standard UNIX option processing. It does not take hyphens to introduce options. On systems where one ps acts like either SYSV or BSD (e.g., AIX ps), the absence of the 
+hyphen is what makes it run in BSD mode.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Look at what happens when you enter ps l:
+
+<BR></P>
+
+<PRE>$ ps l
+
+       F UID   PID  PPID CP PRI NI  SZ  RSS WCHAN    STAT TT  TIME COMMAND
+
+20408020 343 22711 22631  0  25  0  48    0          TW   c0  0:00 rlogin brat
+
+    8000 343 22712 22711  0   1  0  48    0 socket   TW   c0  0:00 rlogin brat
+
+20000001 343 23122 22631 19  29  0 200  400          R    c0  0:00 ps l
+
+$ </PRE>
+
+<P>The F field gives a series of flags that tell you about the current state of the process. Check your system manuals for information on interpreting this field. The UID field tells the user ID that owns the process. Your login name should appear here. 
+The PPID field tells the process identifier of the parent of the process; notice that the PPID of the second rlogin is the same as the PID of the other, its parent process. The CP is process utilization information used by the scheduler. The PRI field is 
+the priority of the process; a lower number means more priority to the scheduler. See the section &quot;Prioritizing Processes&quot; for more information on the scheduler. The SZ field shows the process size. The RSS field shows the resident set size, 
+which is the actual amount of computer memory occupied by the process. The WCHAN field tells what event, if any, the process is waiting for. Interpretation of the WCHAN field is specific to your system.
+
+<BR></P>
+
+<P>Look at what happens when you enter ps u:
+
+<BR></P>
+
+<PRE>$ ps u
+
+USER       PID %CPU %MEM   SZ  RSS TT STAT START  TIME COMMAND
+
+sartin   23127  0.0  1.6  200  416 c0 R    19:25   0:00 ps u
+
+sartin   22712  0.0  0.0   48    0 c0 TW   18:40   0:00 rlogin brat
+
+sartin   22711  0.0  0.0   48    0 c0 TW   18:40   0:00 rlogin brat
+
+$</PRE>
+
+<P>The %CPU and %MEM fields tell the percentage of CPU time and system memory the process is using. The START field tells when the process started.
+
+<BR></P>
+
+<PRE>$ ps v
+
+  PID TT STAT  TIME SL RE PAGEIN SIZE  RSS   LIM %CPU %MEM COMMAND
+
+23126 c0 R     0:00  0  0      0  200  420    xx  0.0  1.6 ps
+
+$</PRE>
+
+<P>The SL field tells how long the process has been sleeping, waiting for an event to occur. The RE field tells how long the process has been resident in memory. The PAGEIN field tells the number of disk input operations caused by the process, to read in 
+pages that were not already resident in memory. The LIM field tells the soft limit on memory used.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Checking on Your Processes with </B><B><I>ps</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>This section gives a few handy ways to examine the states of certain processes you might care about. Short examples are given using the SYSV and BSD versions of ps. 
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Everything You Own</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Viewing all processes that you own can be useful in looking for jobs that you accidentally left running or to see everything you are doing so you can control it. On SYSV, you type ps -u <I>userid</I> to see everything owned by a particular user. Try ps 
+
+-u $LOGNAME to see everything you own:
+
+<BR></P>
+
+<PRE>$ ps -u $LOGNAME
+
+   PID TTY      TIME COMMAND
+
+  18743 ttys0    0:01 ksh
+
+  19250 ttys0    0:00 ps
+
+$ </PRE>
+
+<P>On BSD, the default is for ps to show everything you own:
+
+<BR></P>
+
+<PRE>$ ps l
+
+       F UID   PID  PPID CP PRI NI  SZ  RSS WCHAN    STAT TT  TIME COMMAND
+
+20088201 343   835   834  1  15  0  32  176 kernelma S    p0  0:00 -ksh TERM=vt
+
+20000001 343   861   835 25  31  0 204  440          R    p0  0:00 ps l
+
+20088001 343   857   856  0   3  0  32  344 Heapbase S    p1  0:00 -ksh HOME=/t
+
+$ </PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Specific Processes</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Looking at the current status of a particular process can be useful to track the progress (or lack thereof) of a single command you have running. On SYSV you type ps -p<I>PID</I> ...  to see a specific process:
+
+<BR></P>
+
+<PRE>$ ps -p19057
+
+   PID TTY      TIME COMMAND
+
+  19057 ttys3    0:00 ksh
+
+$ </PRE>
+
+<P>On BSD, if the last argument to ps is a number, it is used as a PID:
+
+<BR></P>
+
+<PRE>$ ps l22712
+
+       F UID   PID  PPID CP PRI NI  SZ  RSS WCHAN    STAT TT  TIME COMMAND
+
+    8000 343 22712 22711  0   1  0  48    0 socket   TW   c0  0:00 rlogin brat
+
+$</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Specific Process Groups</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Looking at the status of a process group (See the section &quot;Job Control and Process Groups.&quot;) can be useful in tracking a particular job you run. On SYSV you can use ps -g<I>PGID</I> to see a particular process group:
+
+<BR></P>
+
+<PRE>$ ps -lg19080
+
+  F S   UID   PID  PPID  C PRI NI     ADDR   SZ    WCHAN TTY      TIME COMD
+
+  1 S   343 19080 19057  0 158 24   710340   51   39f040 ttys3    0:58 fin_analysis
+
+  1 S   343 19100 19080  0 168 24   71f2c0   87 7ffe6000 ttys3    2:16 fin_marketval
+
+$ </PRE>
+
+<P>On BSD, there is no standard way to see a particular process group, but the output of ps j gives much useful information:
+
+<BR></P>
+
+<PRE>$ ps j
+
+ PPID   PID  PGID   SID TT TPGID  STAT   UID  TIME COMMAND
+
+  834   835   835   835 p0   904   SOE   198  0:00 -ksh TERM=vt100 HOME=/u/sart
+
+  835   880   880   835 p0   904   TWE   198  0:00 vi
+
+  835   881   881   835 p0   904   TWE   198  0:00 vi t1.sh
+
+  835   896   896   835 p0   904   IWE   198  0:00 ksh t2.sh _ /usr/local/bin/k
+
+  896   897   896   835 p0   904   IWE   198  0:00 task_a
+
+  896   898   896   835 p0   904   IWE   198  0:00 task_b
+
+  835   904   904   835 p0   904    RE   198  0:00 ps j
+
+$</PRE>
+
+<P>Note the PGID field for PIDs 896&#151;898, which are all part of one shell script. Note the TPGID field, which is the same for all processes and identifies the current owner of the terminal.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Specific Terminal</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Looking at the status of a particular terminal can be a useful way to filter processes started from a particular login, either from a terminal or over the network. On SYSV use ps -t <I>termid</I> to see processes running from a particular terminal or 
+pseudo terminal. (See your system documentation to determine the correct values for <I>termid</I>.)
+
+<BR></P>
+
+<PRE>$ ps -fts3
+
+     UID   PID  PPID  C    STIME TTY      TIME COMMAND
+
+    root 19056   136  0 19:21:00 ttys3    0:00 rlogind
+
+  sartin 19080 19057  0 19:23:53 ttys3    1:01 fin_analysis
+
+  sartin 19057 19056  0 19:21:01 ttys3    0:00 -ksh
+
+  sartin 19100 19080  0 19:33:53 ttys3    3:43 fin_marketval
+
+  sartin 19082 19057  0 19:23:58 ttys3    0:00 vi 19unxor.adj
+
+$ </PRE>
+
+<P>On BSD use ps t <I>termid</I> to see processes running from a particular terminal or pseudo terminal (See your system documentation to determine the correct values for <I>termid</I>.):
+
+<BR></P>
+
+<PRE>$ ps utp5
+
+USER       PID  %CPU %MEM   SZ  RSS TT STAT  TIME COMMAND
+
+sartin    2058   0.0  0.9  286      p5 R     0:00 -sh (sh)
+
+sartin    2060   0.0  2.7   53      p5 R     0:00 vi 19unxor.adj
+
+$ </PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Specific User</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Looking at processes run by a particular user can be useful for the system administrator to track what is being run by others and to deal with &quot;runaway&quot; processes. On SYSV enter ps -u <I>userid</I> to see everything owned by a particular user:
+
+
+
+<BR></P>
+
+<PRE>$ ps -fusartin
+
+     UID   PID  PPID  C    STIME TTY      TIME COMMAND
+
+  sartin 18743 18735  0  Mar 12  ttys0    0:31 collect_stats
+
+  sartin 19065 19057  1 19:21:04 ttys3    0:00 vi 19unxor.adj
+
+  sartin 19057 19056  0 19:21:01 ttys3    0:00 -ksh
+
+  sartin 18735 18734  0  Mar 12  ttys0    0:00 -ksh
+
+  sartin 19066 18743  8 19:21:12 ttys0    0:00 ps -fusartin
+
+$ </PRE>
+
+<P>On BSD, there is no simple, standard way to see processes owned by a particular user other than yourself.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Checking on a Process with </B><B><I>time</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The time command prints out the real, system, and user time spent by a command (in ksh, the built-in time command will time a pipeline as well). The real time is the amount of clock time it took from starting the command until it completed. This will 
+include time spent waiting for input, output, or other events. The user time is the amount of CPU time used by the code of the process. The system time is the amount of time the UNIX kernel spent doing things for the process. The time command prints real, 
+
+user, and sys times on separate lines (BSD time may print them all on one line). Both csh and ksh have built-in versions of time that have slightly different output formats. The csh built-in time command prints user time, system time, clock time, percent 
+usage, and some I/O statistics all on one line. The ksh time built-in time command prints real, user, and sys time on separate lines, but uses a slightly different format for the times than does time:
+
+<BR></P>
+
+<PRE>% time ./doio
+
+9.470u 0.160s 0:09.56 100.7% 0+99k 0+0io 0pf+0w
+
+% ksh
+
+$ time ./doio
+
+real    0m9.73s
+
+user    0m9.63s
+
+sys     0m0.10s
+
+$ sh
+
+$ time ./doio
+
+real        9.8
+
+user        9.5
+
+sys         0.1
+
+$ </PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Background and Foreground Processes</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, you have seen examples and descriptions of a user typing a command, watching as it executes, possibly interacting during its execution, and eventually completing. This is the default way your interactive shell executes processes. Using only this 
+
+order of events means your shell executes a single process at a time. This single process is running in the foreground. Shells are able to keep track of more than one process at a time. In this type of environment, one process at most can be in the 
+foreground; all the other processes are running in the backgound. This allows you to do multiple things at once from a single screen or window. You can think of the foreground and the background as two separate places where your interactive shell keeps 
+processes. The foreground holds a single process, and you may interact with this process. The background holds many processes, but you cannot interact with these processes.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Foreground Processing</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Running a process in the foreground is very common&#151;it is the default way your shell executes a process. If you want to write a letter using the vi editor, you enter the command vi <I>letter</I> and type away. After you enter the vi command, your 
+shell starts the vi process in the foreground so you can write your letter. In order for you to enter information interactively, your process must be in the foreground. When you exit the editor, you are terminating the process. After your foreground 
+process terminates, but not before, the shell prompts you for the next command.
+
+<BR></P>
+
+<P>This mode of execution is necessary for all processes that need your interactions. It would be impossible for the computer to write the letter you want without your input. Mind reading is not currently a means of input, so you commonly type, use your 
+mouse, and even sometimes speak the words. But not all processes need your input&#151;they are designed to be able to get all the necessary input via other ways. They may be designed to get input from the computer system, from other processes, or from the 
+
+file system.
+
+<BR></P>
+
+<P>Still, such processes may be designed to give you information. Status information could be reported periodically, and usually the process results are displayed at a certain point. If you wish to see this information as it is reported, the process must 
+be running in the foreground.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Where Is the Background and Why Should You Go There?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Sometimes a program you run doesn't need you to enter any information or view any results. If this is the case, there is no reason you need to wait for it to complete before doing something else. UNIX shells provide a way for you to execute more than 
+one process at a time from a single terminal. The way you do this is to run one or more processes in the background. The background is where your shell keeps all processes other than the one you are interacting with (your foreground process). You cannot 
+give input to a process via standard input while it is in the background&#151;you can give input via standard input only to a process in the foreground.
+
+<BR></P>
+
+<P>The most common reason to put a process in the background is to allow you to do something else interactively without waiting for the process to complete. For example, you may need to run a calculation program that goes through a very large database, 
+computing a complicated financial analysis of your data and then printing a report; this may take several minutes (or hours). You don't need to input any data because your database has all the necessary information. You don't need to see the report on your 
+
+screen since it is so big you would rather have it saved in a file and/or printed on your laser printer. So when you execute this program, you specify that the input should come from your database (redirection of standard input) and the report should be 
+sent to a file (redirection of standard output). At the end of the command you add the special background symbol, &amp;. This symbol tells your shell to execute the given command in the background. Refer to the following example scenario.
+
+<BR></P>
+
+<PRE>$ fin_analysis &lt; fin_database &gt; fin_report &amp;
+
+[1]   123
+
+$ date
+
+Sat Mar 12 13:25:17 CST 1994
+
+$ tetris
+
+$ date
+
+Sat Mar 12 15:44:21 CST 1994
+
+[1] +  Done             fin_analysis &lt; fin_database &gt; fin_report &amp;
+
+$ </PRE>
+
+<P>After starting your program on its way (in the background), the shell prints a prompt and awaits your next command. You may continue doing work (executing commands) while the calculation program runs in the background. When the background process 
+terminates (all your calculations are complete), your shell may print a termination message on your screen, followed by a prompt.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Job Control</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Some shells (C shell, csh, and Korn shell, ksh, are two) have increased ability to manipulate multiple processes from a single interactive shell. Although graphical interfaces have since added the ability to use multiple windows (each with it's own 
+interactive shell) from one display, job control still provides a useful function.
+
+<BR></P>
+
+<P>First you need to understand the shell's concept of a job. A job is an executed command line. Recall the discussion of processes created during execution of a command. For many command lines (for example, pipelines of several commands), several 
+processes are created in order to carry out the execution. The whole collection of processes that are created to carry out this command line belong to the same process group. By grouping the processes together into an identifiable unit, the shell allows 
+you to perform operations on the entire job, giving you job control.
+
+<BR></P>
+
+<P>Job control allows you to do the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Move processes back and forth between the foreground and background
+
+<BR>
+
+<BR></LI>
+
+<LI>Suspend and resume process execution
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Each job or process group has a controlling terminal. This is the terminal (or window) from which you executed the command. Your terminal can only have one foreground process (group) at a time. A shell that implements job control will move processes 
+between the foreground and the background.
+
+<BR></P>
+
+<P>The details of job control use are covered in the section &quot;Job Control and Process Groups.&quot;
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Signaling Processes</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When a process is executing, UNIX provides a way to send a limited set of messages to this process: It sends a signal. UNIX defines a set of signals, each of which has a special meaning. Then the user, or other processes that are also executing, can 
+send a specific signal to a process. This process may ignore some signals, and it may pay attention to others. As a nonprogramming user, you should know about the following subset of signals. The first group is important for processes, no matter what shell 
+
+you are using. The second group applies if your shell supports job control.
+
+<BR></P>
+
+<P>General Process Control Signals
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>HUP</P>
+
+<TD>
+
+<P>Detection of terminal hangup or controlling process death</P>
+
+<TR>
+
+<TD>
+
+<P>INT</P>
+
+<TD>
+
+<P>Interactive attention signal&#151;INTR control character generates this</P>
+
+<TR>
+
+<TD>
+
+<P>KILL</P>
+
+<TD>
+
+<P>Termination&#151;process cannot ignore or block this</P>
+
+<TR>
+
+<TD>
+
+<P>QUIT</P>
+
+<TD>
+
+<P>Interactive termination&#151;QUIT control character generates this</P>
+
+<TR>
+
+<TD>
+
+<P>TERM</P>
+
+<TD>
+
+<P>Termination&#151;process may ignore or block this</P></TABLE>
+
+<P>Job Control Process Control Signals
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>CONT</P>
+
+<TD>
+
+<P>Continue a stopped process&#151;process cannot ignore or block this</P>
+
+<TR>
+
+<TD>
+
+<P>STOP</P>
+
+<TD>
+
+<P>Stop a process&#151;process cannot ignore or block this</P>
+
+<TR>
+
+<TD>
+
+<P>TSTP</P>
+
+<TD>
+
+<P>Interactive stop&#151;SUSP control character generates this</P>
+
+<TR>
+
+<TD>
+
+<P>TTIN</P>
+
+<TD>
+
+<P>Background job attempted a read&#151;process group is suspended</P>
+
+<TR>
+
+<TD>
+
+<P>TTOU</P>
+
+<TD>
+
+<P>Background job attempted a write&#151;process group is suspended</P></TABLE>
+
+<P>The default action for all the general process control signals is abnormal process termination. A process can choose to ignore all signals except the KILL signal. There is no way for you to tell what processes are ignoring what signals. But if you need 
+
+to terminate a process, the KILL signal cannot be ignored and can be used as a last resort when attempting to terminate a process.
+
+<BR></P>
+
+<P>The default action for the job control process control signals is suspending process execution, except for the CONT signal which defaults to resuming process execution. Once again, a process may choose to ignore most of these signals. The CONT signal 
+cannot be ignored, so you can always continue a suspended process. The STOP signal will always suspend a process because it cannot be ignored.
+
+<BR></P>
+
+<P>Except for KILL and STOP, a process may catch a signal. This means that it can accept the signal and do something other than the default action. For example, a process may choose to catch a TERM signal, do some special processing, and finally either 
+terminate or continue as it wishes. Catching a signal allows the process to decide which action to take. If the process does not catch a signal and is not ignoring the signal, the default action results.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=4><B>Killing Processes</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>At some time or other, you will run a command and subsequently find out that you need to terminate it. You may have entered the wrong command, you may have entered the right command but at the wrong time, or you may be stuck in a program and can't 
+figure out how to exit.
+
+<BR></P>
+
+<P>If you want to terminate your foreground process, the quickest thing to try is your interrupt control character. This is usually set to Ctrl+C, but make sure by looking at your stty -a output. The interrupt control character sends an INT signal to the 
+process. It is possible for a program to ignore the INT signal, so this does not always terminate the process. A second alternative is to use your quit character (often Ctrl +\, set using stty quit <I>char</I>), which will send a QUIT signal. A process can 
+
+ignore the QUIT signal. If your shell supports job control (C or Korn shells), you can suspend the process and then use the kill command. Once again, your process can ignore the suspend request. If you don't have job control or if none of these attempts 
+work, you need to find another window, terminal, or screen where you can access your computer. From this other shell you can use the ps command along with the kill command to terminate the process. To terminate a process that is executing in the 
+background, you can use the shell that is in the foreground on your terminal.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>The </B><B><I>kill</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The kill command is not as nasty as it sounds. It is the way that you can send a signal to an executing process (see the section &quot;Signaling a Process&quot;). A common use of the kill command is to terminate a process, but it can also be used to 
+suspend or continue a process.
+
+<BR></P>
+
+<P>To send a signal to a process, you must either be the owner of the process (that is, it was started via one of your shells) or you must be logged in as root.
+
+<BR></P>
+
+<P>See the section &quot;Job Control and Process Groups&quot; for information on how to use special features of the kill command for managing jobs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Finding What to Kill Using </B><B><I>ps</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To send a signal to a process via the kill command, you need to somehow identify the particular process. Two commands can help you with this: the ps command and the jobs command. All UNIX systems support some version of the ps command, but the jobs 
+command is found in job control shells only. (See the section &quot;Job Control and Process Groups&quot; for details on job control and the jobs command.)
+
+<BR></P>
+
+<P>The ps command shows system process information for your computer. The processes listed can be owned by you or other users, depending on the options you specify on the ps command. Normally, if you want to terminate a process, you are the owner. It is 
+possible for the superuser (root) to terminate any processes, but non-root users may only terminate their own processes. This helps secure a system from mistakes as well as from abuse.
+
+<BR></P>
+
+<P>Terminating a process can be a three-step process: first you should check the list of processes with ps. See the section &quot;Monitoring Processes&quot; if you're not sure how to do this. The output of ps should contain the process identifier of each 
+process. Make sure you look for the PID column and not the PPID column. The PPID is the process ID for the parent process. Terminating the parent process could cause many other processes to terminate as well.
+
+<BR></P>
+
+<P>Second, you can send a signal to the process via the kill command. The kill command takes the PID as one argument; this identifies which process you want to terminate. The kill command also takes an optional argument, which is the signal you wish to 
+send. The default signal (if you do not specify one) is the TERM signal. There are several signals that all attempt to terminate a process. Whichever one you choose, you may specify it by its name (for example, TERM) or by a number. The name is preferable 
+
+because the signal names are standardized. The numbers may vary from system to system. To terminate a process with PID 2345, you might try kill -HUP 2345. This sends the HUP signal to process 2345.
+
+<BR></P>
+
+<P>Third, you should check the process list to see if the process terminated. Remember that processes can ignore most signals. If you specified a signal that the process ignored, the process will continue to execute. If this happens, try again with a 
+different signal.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B> If you have a CPU-intensive job running in the background and you want to get some work done without killing the job, try using kill -STOP <I>PID</I>. This will force the job to be suspended, freeing 
+up CPU time for your more immediate tasks. When you are ready for the job to run again, try kill -CONT <I>PID</I>.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Determining Which Signal to Send</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The sure way to make a process terminate is to send it the KILL signal. So why not just send this signal and be done with it? Well, the KILL signal is important as a last resort, but it is not a very clean way to cause process termination. A process 
+cannot ignore or catch the KILL signal, so it has no chance to terminate gracefully. If a process is allowed to catch the incoming signal, it has an opportunity to do some cleaning up or other processing prior to termination. 
+
+<BR></P>
+
+<P>Try starting with the TERM signal. If your interrupt control character did not work, the INT signal probably won't either, but it is probably a reasonable thing to try next anyway. A common signal that many processes catch and then cleanly terminate is 
+
+the HUP signal, so trying HUP next is a good idea. If you would like a core image of the process (for use with a debugging tool), the QUIT signal causes this to happen. If your process isn't exiting at this point, it might be nice to have the core image 
+for the application developer to do debugging. If none of these signals caused the process to terminate, you can fall back on the KILL signal; the process cannot catch or ignore this signal.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  If your process is hung up waiting for certain events (such as a network file server that is not responding), not even kill will have any visible effect immediately. As long as your process isn't 
+using CPU time, you can probably stop worrying about it. The hung process will abort if the event ever occurs (for example, the file server responds or the request times out), but it might not go away until the next time you reboot.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If you need a list of the available signals, the -l option to the kill command will display this list. You can also check the kill and signalf man pages for descriptions of each signal. The signals described in this section are the standard signals, but 
+
+some systems may have additional supported signals. Always check the manual for your system to be sure.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>The </B><B><I>dokill</I></B><B> Script An Example</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Look at the dokill script as an example of how to kill a process reasonably and reliably:
+
+<BR></P>
+
+<PRE>#!/bin/sh
+
+# TERM, HUP and INT could possibly come in a different order
+
+# TERM is first because it is what kill does by default
+
+# INT is next since it is a typical way to let users quit a program
+
+# HUP is next since many programs will make a recovery file
+
+# QUIT is next since it can be caught and often generates a core dump
+
+# KILL is the last resort since it can't be caught, blocked or ignored
+
+for sig in TERM INT HUP QUIT KILL
+
+do
+
+        dosleep=0
+
+        for pid in $*
+
+        do
+
+                # kill -0 checks if the process still exists
+
+                if kill -0 $pid
+
+                then
+
+                        # Attempt to kill the process using the current signal
+
+                        kill -$sig $pid
+
+                        dosleep=1
+
+                fi
+
+        done
+
+        # Here we sleep if we tried to kill anything.
+
+        # This gives the process(es) a chance to gracefully exit
+
+        # before dokill escalates to the next signal
+
+        if [ $dosleep -eq 1 ]
+
+        then
+
+                sleep 1
+
+        fi
+
+done</PRE>
+
+<P>This script uses the list of signals suggested in the section &quot;Determining Which Signal to Send.&quot; For each signal in the suggested list, dokill sends the signal to any processes remaining in its list of processes to kill. After sending a 
+signal, dokill sleeps for one second to give the other processes a chance to catch the signal and shut down cleanly. The last signal in the list is KILL and will shut down any process that is not blocked, waiting for a high-priority kernel event. If kill 
+-KILL does not shut down your process, you may have a kernel problem. Check your system documentation and the WCHAN field of ps to find out which event blocked the process.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>Logging Out with Background Processes</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>After you start using executing processes in the background, you may forget or lose track of what processes you have running. You can always check on your processes by using the ps command (see the section &quot;Monitoring Processes&quot;). 
+Occasionally, you will try to exit from your shell when you have processes running in the background. By default, UNIX tries to terminate any background or stopped jobs you have when you log out. UNIX does this by sending a HUP signal to all of your child 
+
+processes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  As a safeguard, job control shells (such as csh and ksh) issue a warning instead of allowing you to log out. The message will be similar to &quot;You have stopped (running) jobs.&quot; If you 
+immediately enter exit again, the shell will allow you to log out without warning. But, beware! The background processes are terminated immediately. If you don't want these background processes to be terminated, you must wait until they have completed 
+before exiting. There is no way to log out while keeping the processes alive unless you plan ahead.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Using </B><B><I>nohup</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Some of the commands you use may take so long to complete that you may not be able to (or want to) stay logged in until they complete. To change this behavior, you can use the nohup command. The word nohup simply precedes your normal command on the 
+command line. Using nohup runs the command, ignoring certain signals. This allows you to log out, leaving the process running. As you log out, all your existing processes (those processes with your terminal as the controlling terminal) are sent the HUP 
+signal. Since the process on which nohup is used ignores this signal, you can log out and the process will not terminate. If you have a nohup process in the background as you attempt to log out, your shell may warn you on your first exit command and 
+require an immediate second exit in order to actually log out. (If yours is a shell that does job control, such as ksh or csh, see the section &quot;Job Control and Process Groups.&quot;)
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  There are several varieties of the nohup command. The SYSV nohup executable arranges for the command to ignore NOHUP and QUIT signals but does nothing regarding the TERM signal. If the output is 
+going to standard out, it is redirected to the file nohup.out (or alternately to $HOME/nohup.out if you can't write to the first).
+
+<BR>
+
+<BR>The C shell has a built-in nohup command. It arranges for the command to ignore TERM signals. (In C shell, background commands automatically ignore the HUP signal.) It does not redirect output to the file nohup.out.
+
+<BR>
+
+<BR>Your system or shell may have a slight variation on the exact signals ignored and whether the nice value is changed when you use nohup.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Prioritizing Processes</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Part of administering your processes is controlling how much CPU time they use and how important each process is relative to the others. UNIX supplies some fairly simple ways to monitor and control CPU usage of your process. This section describes how 
+to use UNIX nice values to control your process CPU usage. By setting nice values for large jobs that aren't time critical, you can make your system more usable for other jobs that need to be done now.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>What Is a Priority?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The UNIX kernel manages the scheduling of all processes on the system in an attempt to share the limited CPU resource fairly. Because UNIX has grown as a general purpose time-sharing system, the mechanism the scheduler uses tries to favor interactive 
+processes over long-running, CPU-intensive processes so that users perceive good system response. UNIX always schedules the process that is ready to run (not waiting for I/O or an event) with the lowest numerical priority (that is, lower numbers are more 
+important). If two processes with the same priority are ready, the scheduler will schedule the process that has been waiting the longest. If your process is CPU intensive, the kernel will automatically change your process priority based on how much CPU 
+time your process is using. This gives preference to interactive applications that don't use lots of CPU time.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  Low PRI means high priority. You may find it a bit confusing that lower numbers for priority mean &quot;higher&quot; priority. Try thinking of the scheduler starting out at priority zero and seeing 
+if any processes at that priority are ready. If not, the scheduler tries priority 1, and so on.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To see how the UNIX scheduler works, look at the example in Table 19.1. In this example, three processes are each running long computations, and no other processes are trying to run. Each of the three processes will execute for a time slice and then let 
+
+one of the other processes execute. Note that each process gets an equal share of the CPU. If you run an interactive process, such as a ps, while these three processes are running, you will get priority to run.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 19.1. Scheduling three CPU-intensive processes.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Process 1</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Process 2</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Process 3</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TR>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Being Nice</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the factors the kernel uses in determining a process priority is the nice value, a user-controlled value that indicates how &quot;nice&quot; you want a process to be to other processes. Traditionally, nice values range from 0 to 39 and default to 
+
+20. Only root can lower a nice value. All other users can only make processes more nice than they were.
+
+<BR></P>
+
+<P>To see how the UNIX scheduler works with nice, look at the example in Table 19.2. In this example, three processes are each running long computations and no other processes are trying to run. This time, Process 1 was run with a nice value of 30. Each of 
+
+the three processes will execute for a time slice and then let one of the other processes execute. However, in this case, Process 1 gets a smaller share of the CPU because the kernel uses the nice value in calculating the priority. Once again, if you run 
+an interactive process, like a ps, while these three processes are running, you will get priority to run.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 19.2. Scheduling three CPU-intensive processes, one nicely.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Process 1</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Process 2</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Process 3, Nice Process</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TR>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Waiting</P>
+
+<TR>
+
+<TD>
+
+<P>Waiting</P>
+
+<TD>
+
+<P>Running</P>
+
+<TD>
+
+<P>Waiting</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Using </B><B><I>renice</I></B><B> on a Running Process</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>BSD introduced the ability to change the nice value of other processes that are owned by you. The renice command gives you access to this capability. If you run a job and then decide it should be running with lower priority, you can use renice to do 
+that.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> Not all systems have the renice command. Most systems based on BSD have it. Some systems, which are not based on BSD have added renice. The renice command on your system may take slightly 
+different arguments than in the examples here. Check your system documentation to see if you have renice and what arguments it takes.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>On BSD-based systems, the renice command takes arguments in this manner:
+
+<BR></P>
+
+<PRE>renice priority [ [-p] pid ... ] [ -g pgrp ... ] [ -u userid ... ]</PRE>
+
+<P>The priority is the new nice value desired for the processes to be changed. The -p option (the default) allows a list of process identifiers; you should get these from ps or by saving the PID of each background task you start. The -g option allows a 
+list of process groups; if you are using a shell that does job control you should get this from the PID of each background task you start or by using ps and using the PID of the process that has a PPID that is your shell's PID. The -u option outputs a list 
+
+of user IDs; unless you have appropriate privileges (usually only if you are root), you will be able to change only your own processes. If you want to make all of your current processes nicer, you can use renice -u <I>yourusername</I>. Remember that this 
+will affect your login shell! This means that any command you start after renice will have lower priority.
+
+<BR></P>
+
+<P>Here is an example of using renice on a single process. You start a long job (called longjob) and then realize you have an important job (called impjob) to run. After you start impjob, you can do a ps to see that longjob is PID 27662. Then you run 
+renice 20 27662 to make longjob have a lower priority. If you immediately run ps l (try ps -l on a SYSV system that has renice), you will see that longjob has a higher nice value (see the NI column). If you wait a bit and do another ps l, you should notice 
+
+that impjob is getting more CPU time (see the TIME column).
+
+<BR></P>
+
+<PRE>$ longjob &amp;
+
+27662
+
+$ impjob &amp;
+
+28687
+
+$ ps l
+
+     F S UID   PID  PPID   C PRI NI ADDR  SZ  RSS   WCHAN    TTY  TIME CMD
+
+240801 S 343 24076 29195   0  60 20 4231  88  268          pts/4  0:00 -sh 
+
+240001 R 343 26398 24076   4  62 20 4e52 108  204          pts/4  0:00 ps l 
+
+241001 R 343 27662 24076  52  86 20 49d0  32   40          pts/4  0:03 longjob 
+
+241001 R 343 28687 24076  52  86 20 256b  32   40          pts/4  0:00 impjob 
+
+$ renice 20 27662
+
+27662: old priority 0, new priority 20
+
+$ ps l
+
+     F S UID   PID  PPID   C PRI NI ADDR  SZ  RSS   WCHAN    TTY  TIME CMD
+
+240001 R 343 18017 24076   3  61 20 60b8 108  204          pts/4  0:00 ps l 
+
+240801 S 343 24076 29195   0  60 20 4231  88  268          pts/4  0:00 -sh 
+
+241001 R 343 27662 24076  32  96 40 49d0  32   40          pts/4  0:09 longjob 
+
+241001 R 343 28687 24076  52  86 20 256b  32   40          pts/4  0:07 impjob 
+
+$ # Wait a bit
+
+$ ps l
+
+     F S UID   PID  PPID   C PRI NI ADDR  SZ  RSS   WCHAN    TTY  TIME CMD
+
+240801 S 343 24076 29195   0  60 20 4231  88  268          pts/4  0:00 -sh 
+
+241001 R 343 27662 24076  74 117 40 49d0  32   40          pts/4  0:31 longjob 
+
+241001 R 343 28687 24076 115 117 20 256b  32   40          pts/4  0:41 impjob 
+
+240001 R 343 29821 24076   4  62 20 4ff2 108  204          pts/4  0:00 ps l 
+
+$ </PRE>
+
+<P>Some jobs you run may start multiple processes, but renice -p will affect only one of them. One way to get around this is to use ps to find all of the processes and list each one to renice -p. If you are using a job control shell (for example, Korn 
+shell or C shell), you may be able to use renice -g. In the following example, longjob spawns several sub-processes to help do more work (see the output of the first ps l). Notice that if you use renice -p you affect only the parent process's nice value 
+(see the output of the second ps l). If you are using a shell that does job control, your background process should have been put in its own process group with a process group ID the same as its process ID. Try renice 20 -g <I>PID</I> and see if it works. 
+
+Notice in the output of the third ps l that all of the children of longjob have had their nice values changed.
+
+<BR></P>
+
+<PRE>$ longjob &amp;
+
+[1]     27823
+
+$ ps l
+
+     F S UID   PID  PPID   C PRI NI ADDR  SZ  RSS   WCHAN    TTY  TIME CMD
+
+  1001 R 343 21938 27823  27  77 24 328e  56   20          pts/5  0:01 longjob 
+
+  1001 R 343 26545 27823  26  77 24 601a  48   20          pts/5  0:01 longjob 
+
+201001 R 343 27823 27973  26  77 24 1647  56   20          pts/5  0:01 longjob 
+
+200801 S 343 27973 24078   0  60 20 6838 104  384          pts/5  0:00 -ksh 
+
+  1001 R 343 28336 27823  26  77 24 7f1e  40   20          pts/5  0:01 longjob 
+
+200001 R 343 29877 27973   4  62 20 4ff2 108  204          pts/5  0:00 ps l 
+
+$ renice 20 -p 27823
+
+27823: old priority 4, new priority 20
+
+$ ps l
+
+     F S UID   PID  PPID   C PRI NI ADDR  SZ  RSS   WCHAN    TTY  TIME CMD
+
+  1001 R 343 21938 27823  24  76 24 328e  56   20          pts/5  0:04 longjob 
+
+  1001 R 343 26545 27823  24  76 24 601a  48   20          pts/5  0:04 longjob 
+
+201001 R 343 27823 27973  11  85 40 1647  56   20          pts/5  0:04 longjob 
+
+200801 S 343 27973 24078   0  60 20 6838 104  384          pts/5  0:00 -ksh 
+
+  1001 R 343 28336 27823  24  76 24 7f1e  40   20          pts/5  0:04 longjob 
+
+200001 R 343 29699 27973   4  62 20 4ff2 108  204          pts/5  0:00 ps l 
+
+$ renice 20 -g 27823
+
+27823: old priority 4, new priority 20
+
+$ ps l
+
+     F S UID   PID  PPID   C PRI NI ADDR  SZ  RSS   WCHAN    TTY  TIME CMD
+
+  1001 R 343 21938 27823  39  99 40 328e  56   20          pts/5  0:06 longjob 
+
+  1001 R 343 26545 27823  38  99 40 601a  48   20          pts/5  0:06 longjob 
+
+201001 R 343 27823 27973  38  99 40 1647  56   20          pts/5  0:05 longjob 
+
+200801 S 343 27973 24078   0  60 20 6838 104  384          pts/5  0:00 -ksh 
+
+  1001 R 343 28336 27823  38  99 40 7f1e  40   20          pts/5  0:06 longjob 
+
+200001 R 343 29719 27973   4  62 20 705d 108  204          pts/5  0:00 ps l 
+
+$ </PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=4><B>Job Control and Process Groups</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Job control is a BSD UNIX addition that is used by some shells. Both C shell and Korn shell support job control. In order to support job control, these shells use the concept of process groups. Each time you enter a command or pipeline from the command 
+
+line, your shell creates a process group. The process group is simply the collection of all the processes that are executed as a result of that command. For simple commands, this could be a single process. For pipelines, the process group could contain 
+many processes. Either way, the shell keeps track of the processes as one unit by identifying a process group ID. This ID will be the PID of one of the processes in the group.
+
+<BR></P>
+
+<P>If you run a process group in the background or suspend its execution, it is referred to as a job. A small integer value, the job number, is associated with this process group. The shell prints out a message with these two identifiers at the time when 
+you perform the background operation. A process group and a job are almost the same thing. The one distinction you might care about is that every command line results in a process group (and therefore a process group identifier); a job identifier is 
+assigned only when a process group is suspended or put into the background.
+
+<BR></P>
+
+<P>Given process groups and job IDs, the shells have added new commands that operate on the job (or process group) as a whole. Further, existing commands (such as kill) are modified to take advantage of this concept. The two shells (C shell and Korn shell) 
+
+have very minor differences from one another, but for the most part the job control commands in each are the same.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Using the </B><B><I>jobs</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The jobs command will show you the list of all of your shell's jobs that are either suspended or executing in the background. The list of jobs will look similar to this:
+
+<BR></P>
+
+<PRE>[1]   Stopped              vi mydoc.txt
+
+[2] - Running              fin_analysis &lt; fin_database &gt; fin_report &amp;
+
+[3] + Stopped (tty output) summararize_log &amp;</PRE>
+
+<P>Each line corresponds to a single process group, and the integer at the start is its job number. You can use the job number as an argument to the kill command by prefixing the job number with a percent (%) sign. To send a signal to the process vi 
+mydoc.txt, you could enter kill %1. Since you did not specify the signal you wanted to send to the process, the default signal, TERM, is sent. This notation is just a convenience for you since you can do the same thing via kill and the PID. The real power 
+
+of job control comes with the ability to manipulate jobs between the foreground and the background.
+
+<BR></P>
+
+<P>The shell also keeps the concept of current and previous jobs. On the output of the jobs command you will notice a + next to the current job and a - next to the previous job. If you have more than two jobs, the remaining jobs have no particular 
+distinction. Again, this notation is mainly a convenience for you. In some job control commands, if you do not specify a job (or PID) number, the current job is taken by default. Keep in mind that your current job is different from your foreground process 
+
+group. A job is either suspended or in the background.
+
+<BR></P>
+
+<P>The following are various ways to reference a job:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>%n</P>
+
+<TD>
+
+<P>Where n is the job number reported by jobs</P>
+
+<TR>
+
+<TD>
+
+<P>%+</P>
+
+<TD>
+
+<P>Your current job</P>
+
+<TR>
+
+<TD>
+
+<P>%%</P>
+
+<TD>
+
+<P>Your current job</P>
+
+<TR>
+
+<TD>
+
+<P>%-</P>
+
+<TD>
+
+<P>Your previous job</P>
+
+<TR>
+
+<TD>
+
+<P>%string</P>
+
+<TD>
+
+<P>Job whose command line begins with string</P>
+
+<TR>
+
+<TD>
+
+<P>%?string</P>
+
+<TD>
+
+<P>Job whose command line contains string</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Putting Jobs in the Foreground</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>After executing a process group in the background, you may decide for some reason that you would like it to execute in the foreground. With non-job control shells, after executing a command line in the background (via the &amp; symbol), it stays in the 
+
+background until it completes or is terminated (for example, if you send a terminate signal to it via kill). With a job control shell, the fg command will move the specified job into the foreground. The fg command will take either a job number preceded by 
+
+a percent (%) sign or a PID as an argument. If neither is given, the current job is taken as the default.
+
+<BR></P>
+
+<P>The result of the fg command is that the specified job executes as your foreground process. Remember that you can have only one foreground process at a time. To move the vi mydoc.txt job into the foreground, you could enter fg %1.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Suspending Process Groups</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To suspend an executing process group, you need to send a suspend signal to the process. There are two ways to do this: (1) use the suspend control character on your foreground process, or (2) send a suspend signal via the kill command.
+
+<BR></P>
+
+<P>The suspend control character, commonly Ctrl+Z, is used to send a suspend signal to the foreground process. Your shell may be configured with a different suspend control character, so be sure to find out your own configuration by running the stty -a 
+command. (Refer to the section &quot;Working on the System&quot; for information on control characters.) After you have executed a command in the foreground, you simply press Ctrl+Z (or whatever your suspend control character is) to suspend the running 
+process. The result is that the process is suspended from execution. When this happens, your shell prints a message giving the job number and process group ID for that job. You can subsequently use the fg or bg commands to manipulate this process.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Putting Jobs in the Background</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The bg command puts the specified jobs into the background and resumes their execution. The common way to use this command is following a suspend control character. After a job is put in the background, it will continue executing until it completes (or 
+
+attempts input or output from the terminal). You manipulate it via fg or kill.
+
+<BR></P>
+
+<P>An example may help you see the power of these commands when used together:
+
+<BR></P>
+
+<PRE>$ long_job\
+
+^Z[1] + Stopped                  long_job
+
+$ important_job 1
+
+$ jobs
+
+[1] + Stopped                  sleep 400
+
+$ bg
+
+[1]     long_job&amp;
+
+$ important_job 2
+
+$ kill -STOP %1
+
+[1] + Stopped (signal)         long_job
+
+$ important_job 3
+
+$ fg %1
+
+long_job</PRE>
+
+<P>If you don't have a long_job, try using sleep 100. If you don't have an important_job, try using echo. This example shows how you can use job control to move jobs between the foreground and background and suspend, then later resume, jobs that might be 
+taking computer resources that you need.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Using </B><B><I>wait</I></B><B> to Wait for Background Jobs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The wait command built into most shells (including all the shells discussed in this book) will wait for completion of all background processes or a specific background process. Usually, wait is used in scripts, but occasionally you may want to use it 
+interactively to wait for a particularly important background job or to pause until all of your current background jobs complete so you will not load the system with your next job. The command wait will wait for all background jobs. The command wait 
+<I>pid</I> will wait for a particular PID. If you are using a job control shell, you can use a job identifier instead of a PID:
+
+<BR></P>
+
+<PRE>$ job1 &amp;
+
+[1]     20233
+
+$ job2 &amp;
+
+[2]     20234
+
+$ job3 &amp;
+
+[3]     20235
+
+$ job4 %
+
+[4]     20237
+
+$ wait %1
+
+$ wait 20234
+
+$ wait
+
+[4] +  Done                    job4 &amp;
+
+[3] +  Done                    job3 &amp;
+
+$ jobs
+
+$</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Using </B><B><I>csh notify</I></B><B> to Learn About Changes Sooner</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most interactive use of wait in csh can be replaced by notify. The notify command tells csh not to wait until issuing a new prompt before telling you about the completion of all or some background jobs. The command notify will tell csh to give 
+asynchronous notification of job completion. The command notify <I>jobid</I> will tell csh to give asynchronous notification for a particular job. For example:
+
+<BR></P>
+
+<PRE>% sleep 30 &amp;
+
+[1] 20237
+
+% sleep 10 &amp;
+
+[2] 20238
+
+% notify %2
+
+% 
+
+[2]   Done                 sleep 10
+
+jobs
+
+[1]  +Running              sleep 30
+
+%</PRE>
+
+<P>When you do this example, don't type anything after hitting return to enter notify %2. The notification appears as soon as job 2 finishes.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=4><B>My System Is Slow&#151;Performance Tuning</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>UNIX offers several tools that can be useful in finding performance problem areas. This section covers using ps and sar to look for processes which are causing problems and system bottlenecks which need to be resolved. Your system may have more 
+performance analysis tools; check your system documentation.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Monitoring the System with </B><B><I>ps</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If your system is having performance problems, you may want to terminate or suspend some of the large or CPU-intensive processes to let your system run more effectively. You can use ps to locate some of these processes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  Many UNIX systems have or can run a program called top, which displays the current heavy users of system CPU resources.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>On a SYSV system, you can use ps -fe or ps -le to look at all processes and examine the list to look for those processes which are using lots of CPU or memory. Try running ps twice in a row to look for processes with rapidly increasing TIME:
+
+<BR></P>
+
+<PRE>$ ps -le
+
+ F S   UID   PID  PPID  C PRI NI     ADDR     SZ    WCHAN TTY      TIME COMD
+
+19 T     0     0     0 80   0 SY f808c4bc      0          ?        0:20 sched
+
+ 8 S     0     1     0241   1 20 fc1c2000     43 fc1c21c4 ?        0:02 init
+
+19 S     0     2     0  1   0 SY fc13c800      0 f80897a0 ?        0:00 pageout
+
+19 S     0     3     0 80   0 SY fc13c000      0 f8089e4e ?        0:06 fsflush
+
+ 8 S     0   204   120 35   1 20 fc311000    265 f808fb60 ?        0:00 in.rlogi
+
+ 8 S     0   179     1 29   1 20 fc3b2800    196 fc16554e ?        0:00 sac
+
+ 8 S     0   136     1 29   1 20 fc36d000    353 f808fb60 ?        0:00 automoun
+
+ 8 S     0   103     1 80   1 20 fc32e800    326 f808fb60 ?        0:01 rpcbind
+
+ 8 S     0   109     1 52   1 20 fc333800    294 f808fb60 ?        0:01 ypbind
+
+ 8 S     0   120     1154   1 20 fc349800    289 f808fb60 ?        0:01 inetd
+
+ 8 S     0   111     1 20   1 20 fc34b800    294 f808fb60 ?        0:00 kerbd
+
+ 8 S     0   105     1  3   1 20 fc335800    223 f808fb60 ?        0:00 keyserv
+
+ 8 S     0   123     1 80   1 20 fc348000    332 f808fb60 ?        0:19 statd
+
+ 8 S     0   125     1 65   1 20 fc353800    395 f808fb60 ?        0:01 lockd
+
+ 8 S     0   159   151 15   1 20 fc39d000    239 f808fb60 ?        0:00 lpNet
+
+ 8 S   343   151     1 61   1 20 fc399000    891 f808fb60 ?        0:00 bigproc
+
+ 8 S     0   143     1 18   1 20 fc30c000    259 fc308b4e ?        0:00 cron
+
+ 8 S     0   160     1 17   1 20 fc3a0800    329 fc22de4e ?        0:00 sendmail
+
+ 8 O   343   210   206  9   1 20 fc314000    114          pts/0    0:00 ps
+
+ 8 S     0   167     1 80   1 20 fc3b4800    310 f808fb60 ?        0:12 syslogd
+
+ 8 S     0   181     1 29   1 20 fc3b8800    213 f808fb60 console  0:00 ttymon
+
+ 8 S   343   206   204 80   1 20 fc30e800    125 fc314070 pts/0    0:00 sh
+
+ 8 S   343   208   204 80   1 20 fc30e800    212          pts/0    0:46 busyproc
+
+ 8 S     0   184   179 44   1 20 fc3b6800    208 f808fb60 ?        0:00 listen
+
+ 8 S     0   185   179 38   1 20 fc3b3000    221 fc3b31c4 ?        0:00 ttymon
+
+$ </PRE>
+
+<P>Note that bigproc has a rather large value for SZ and that busyproc has a lot of TIME.
+
+<BR></P>
+
+<P>On a BSD system, you can use ps xau to look at all processes and examine the %CPU and %MEM field for processes with high CPU and memory usage:
+
+<BR></P>
+
+<PRE>% ps xau
+
+USER       PID %CPU %MEM   SZ  RSS TT STAT START  TIME COMMAND
+
+sartin    1014 88.7  0.9   32  192 p0 R    15:46   0:19 busyproc
+
+root         1  0.0  0.0   52    0 ?  IW   Mar 12  0:00 /sbin/init -
+
+root         2  0.0  0.0    0    0 ?  D    Mar 12  0:00 pagedaemon
+
+root        93  0.0  0.0  100    0 ?  IW   Mar 12  0:00 /usr/lib/sendmail -bd -q
+
+root        54  0.0  0.0   68    0 ?  IW   Mar 12  0:02 portmap
+
+root       300  0.0  0.0   48    0 ?  IW   Mar 12  0:00 rpc.rquotad
+
+root        59  0.0  0.0   40    0 ?  IW   Mar 12  0:00 keyserv
+
+sartin     980  0.0  1.5  268  336 p0 S    15:33   0:00 -sh (tcsh)
+
+root        74  0.0  0.0   16    0 ?  I    Mar 12  0:00  (biod)
+
+root        85  0.0  0.0   60    0 ?  IW   Mar 12  0:00 syslogd
+
+root       111  0.0  0.0   28    0 ?  I    Mar 12  0:00  (nfsd)
+
+root       117  0.0  0.1   16   28 ?  S    Mar 12 17:03 /usr/bin/screenblank
+
+root       127  0.0  0.0   12    8 ?  S    Mar 12 11:07 update
+
+root       130  0.0  0.0   56    0 ?  IW   Mar 12  0:00 cron
+
+root       122  0.0  3.3  740  748 ?  S    Mar 12  0:05 bigproc
+
+root       136  0.0  0.0   56    0 ?  IW   Mar 12  0:00 inetd
+
+sartin    1016  0.0  2.0  204  444 p0 R    15:46   0:00 ps xau
+
+root       140  0.0  0.0   52    0 ?  IW   Mar 12  0:00 /usr/lib/lpd
+
+root       834  0.0  0.2   44   44 ?  S    15:03   0:03 in.telnetd
+
+root       146  0.0  0.0   40    0 co IW   Mar 12  0:00 - std.9600 console (gett
+
+sartin     835  0.0  0.0   32    0 p0 IW   15:03   0:01 -ksh TERM=vt100 HOME=/ti
+
+root      1011  0.0  0.9   24  204 ?  S    15:45   0:00 in.comsat
+
+root         0  0.0  0.0    0    0 ?  D    Mar 12  0:01 swapper
+
+%</PRE>
+
+<P>Note that busyproc has 88.7 percent CPU usage and that bigproc has higher than average memory usage, but still only 3.3 percent.
+
+<BR></P>
+
+<P>By using ps to examine the running processes, you can keep track of what is happening on your system and catch runaway processes or memory hogs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Monitoring the System with </B><B><I>sar</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The sar command can be used to generate a System Activity Report covering things such as CPU usage, buffer activity, disk usage, TTY activity, system calls, swapping activity, file access calls, queue length, and system table and message/semaphore 
+activity. If you run sar [-ubdycwaqvmA] [-o <I>file</I>] <I>interval</I> [<I>num_samples</I>], sar will print summaries a total of <I>num_samples</I> times every interval seconds and then stop. If <I>num_samples</I> is not supplied, sar will run until 
+interrupted. With sar -o <I>file</I> the output will go in binary format to file and can be read using sar -f <I>file</I>. If you run sar [-ubdycwaqvmA] [-s <I>time</I>] [-s <I>time</I>] [-i <I>sec</I>] [-f <I>file</I>], the input will be read from a 
+binary file (default is where the system command sa1 puts its output).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B>  The sar command is the user interface to the System Activity Report. Your system administrator can configure your system to do continual activity reporting (using sa1 and other commands). See your 
+system documentation on sar for more information.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> If you are on a BSD system, you may not have sar. Try checking out the vmstat and iostat commands for some similar information.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The command sar -u 5 5 will print CPU usage statistics:
+
+<BR></P>
+
+<PRE>$ sar -u 5 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:18:53    %usr    %sys    %wio   %idle
+
+16:18:58       0       0       0     100
+
+16:19:03      58      28       1      13
+
+16:19:08      84      16       0       0
+
+16:19:13      57      11      31       0
+
+16:19:18       0       6      94       0
+
+Average       40      12      25      23
+
+$</PRE>
+
+<P>The column headings %usr, %sys, %wio, and %idle report the percentage of time spent respectively on user processes, system mode, waiting for I/O, and idling (doing nothing). The command sar -b will print buffer activity:
+
+<BR></P>
+
+<PRE>$ sar -b 5 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:19:34 bread/s lread/s %rcache bwrit/s lwrit/s %wcache pread/s pwrit/s
+
+16:19:39       0       5      96       0       0       0       0       0
+
+16:19:44       2    2809     100     174    2081      92       0       0
+
+16:19:49       1    1456     100      83     950      91       0       0
+
+16:19:54       4    1598     100      71    1267      94       0       0
+
+16:19:59       3    1374     100      92    1055      91       0       0
+
+Average        2    1449     100      84    1071      92       0       0
+
+$</PRE>
+
+<P>The bread/s and bwrit/s columns report transfers between the system buffers and disk (or other block) devices. The lread/s and lwrit/s columns report accesses of system buffers. The %rcache and %wcache columns report cache hit ratios. The UNIX kernel 
+attempts to keep copies of buffers around in memory so that it can satisfy a disk read request without having to read the disk. For example, if one process writes block 5 of your disk and shortly after that another process writes different data to block 5, 
+
+your system will save one write if it kept the data cached rather than writing to disk. High cache:hit ratios are good because they mean your system is able to avoid reading from or writing to the disk when it isn't necessary. The pread/s and pwrit/s 
+columns report raw transfers. Raw transfers are transfers that don't use the file system at all. You will usually see raw transfers when using tar to read or write a tape or when using fsck to repair a file system. The command sar -d will print buffer 
+activity for each block device (disk or tape drive):
+
+<BR></P>
+
+<PRE>$ sar -d 5 2
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:41:16  device   %busy   avque   r+w/s  blks/s  avwait  avserv
+
+16:41:21 disc3-0        3     1.4       2      14     8.8    21.2
+
+16:41:26 disc3-0       70   105.8      55     867  1328.6    12.7
+
+Average  disc3-0       37   101.0      28     441  1291.5    12.9
+
+$</PRE>
+
+<P>The device column will report your system-specific disk name. The %busy and avque columns report the percentage of time the device was busy servicing requests and the average number of requests outstanding. The r+w/s and blks/s columns report the number 
+
+of transfers per second and number of 512 byte blocks transferred per second. The avwait and avserv columns report the average time in milliseconds that transfer requests wait in the queue and the average time for a request to be serviced. The command sar 
+
+-y will report TTY activity
+
+<BR></P>
+
+<PRE>$ sar -y 10 4
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:43:12 rawch/s canch/s outch/s rcvin/s xmtin/s mdmin/s
+
+16:43:22     424     420     458       0       0       0
+
+16:43:32     595     596    1469       0       0       0
+
+16:43:42     678     674    1542       0       0       0
+
+16:43:52     736     743     755       0       0       0
+
+Average      608     608    1056       0       0       0
+
+$ </PRE>
+
+<P>The rawch/s, canch/s, and outch/s columns report the input rate, input rate for characters with canonical processing, and output rate. The rcvin/s, xmtin/s, and mdmin/s columns report the modem receive rate, transmit rate, and interrupt rate. The 
+command sar -c will report system call activity:
+
+<BR></P>
+
+<PRE>$ sar -c 5 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:50:33 scall/s  sread/s  swrit/s   fork/s   exec/s  rchar/s  wchar/s
+
+16:50:38    1094       15     1016     0.60     0.60  16938189  1047142
+
+16:50:43     592        8      540     0.20     0.20  9033318   590234
+
+16:50:48     641        9      602     0.00     0.00  10007142   613376
+
+16:50:53     735       14      766     0.20     0.20  11245978   507494
+
+16:50:58     547       16      359     0.00     0.00  7215923   605594
+
+Average      722       12      657     0.20     0.20  10887960   672768
+
+$ </PRE>
+
+<P>The scall/s column reports the total number of system calls per second. The sread/s, swrit/s, fork/s, and exec/s columns report the number of read, write, fork, and exec system calls. The rchar/s, and wchar/s columns report the number of characters read 
+
+and written by system calls. The command sar -w reports system-swapping activity:
+
+<BR></P>
+
+<PRE>$ sar -w 5 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:51:40 swpin/s bswin/s swpot/s bswot/s pswch/s
+
+16:51:45    0.00     0.0    0.00     0.0      24
+
+16:51:50    0.00     0.0    0.00     0.0      49
+
+16:51:55    0.00     0.0    0.00     0.0       5
+
+16:52:00    0.00     0.0    0.00     0.0      67
+
+16:52:05    0.00     0.0    0.00     0.0      42
+
+Average     0.00     0.0    0.00     0.0      37
+
+$ </PRE>
+
+<P>The swpin/s, bswin/s, swpot/s, and bswot/s columns report the number of transfers and 512 byte blocks for swapins and swapouts. The pswch/s column reports the number of process context switches per second. The command sar -a reports system file access 
+activity:
+
+<BR></P>
+
+<PRE>$ sar -a 5 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:52:31  iget/s namei/s dirbk/s
+
+16:52:36       0       1       0
+
+16:52:41      65      79       4
+
+16:52:46     495     561      23
+
+16:52:51     487     572      30
+
+16:52:56     726     828      36
+
+Average      354     408      18
+
+$ </PRE>
+
+<P>The columns report the number of calls to the system function named. The command sar -q reports run queue activity:
+
+<BR></P>
+
+<PRE>$ sar -q 5 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+16:53:15 runq-sz %runocc swpq-sz %swpocc
+
+16:53:20     1.0      80                
+
+16:53:25     1.5      80                
+
+16:53:30     2.0     100                
+
+16:53:35     1.4     100                
+
+16:53:40     1.6     100                
+
+Average      1.5      92                
+
+$ </PRE>
+
+<P>The runq-sz and %runocc columns report the average length of the run queue when occupied and the percentage of time it was occupied. The run queue is the list of processes that are ready to use the CPU (not waiting for I/O or other events). The swpq-sz 
+
+and %swpocc columns report the average length of the swap queue when occupied and the percentage of time it was occupied. The swap queue is the list of processes that are ready to use the CPU, but are completely swapped out of memory and can't use the CPU 
+
+until they are swapped into memory. This column may not appear (or may be empty or appear with 0 values) for systems without swapping. The command sar -v reports status of various system tables:
+
+<BR></P>
+
+<PRE>$ sar -v
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+13:12:54 text-sz  ov  proc-sz  ov  inod-sz  ov  file-sz  ov 
+
+13:13:02   N/A   N/A  48/276   0  114/356   0  121/600   0
+
+13:20:00   N/A   N/A  51/276   0  111/356   0  128/600   0
+
+13:40:00   N/A   N/A  51/276   0   95/356   0  128/600   0
+
+14:00:01   N/A   N/A  51/276   0  108/356   0  128/600   0
+
+14:20:01   N/A   N/A  51/276   0   94/356   0  128/600   0
+
+14:40:01   N/A   N/A  51/276   0   94/356   0  128/600   0
+
+15:00:01   N/A   N/A  48/276   0  106/356   0  124/600   0
+
+15:20:01   N/A   N/A  48/276   0   91/356   0  124/600   0
+
+15:40:01   N/A   N/A  48/276   0   91/356   0  124/600   0
+
+16:00:00   N/A   N/A  54/276   0  213/356   0  135/600   0
+
+16:20:00   N/A   N/A  49/276   0  113/356   0  119/600   0
+
+16:40:00   N/A   N/A  47/276   0   84/356   0  118/600   0
+
+17:00:01   N/A   N/A  47/276   0   99/356   0  118/600   0
+
+$ </PRE>
+
+<P>The column table-sz reports the entries/size of a particular system table. The tables for SYSV (from SVID3) are proc, inod, file, and lock. UNIX SVR4 (SVID3) includes a program synchronization mechanism using semaphores, which are critical resource 
+controls. A process generally acquires a semaphore, performs a critical action, and releases the semaphore. No other process can acquire a semaphore already in use. The command sar -m reports message and semaphore activity:
+
+<BR></P>
+
+<PRE>$ sar -m 6 5
+
+HP-UX cnidaria A.09.00 C 9000/837    03/14/94
+
+17:00:22   msg/s  sema/s
+
+17:00:28    4.50    0.00
+
+17:00:34    4.50    0.00
+
+17:00:40    4.50    0.00
+
+17:00:46    4.50    0.00
+
+17:00:52    4.50    0.00
+
+Average     4.50    0.00
+
+$ </PRE>
+
+<P>The columns msg/s and sema/s report message and semaphore primitives per second.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In this chapter, you have learned how to use the UNIX commands ps, time, and sar to examine the state of your processes and your system. You have learned about foreground and background jobs and how to use the job control features of UNIX and your shell 
+
+(csh or ksh) to control foreground and background jobs. You have learned to use the nice and renice commands to limit the CPU impact of your jobs. You have learned to use the kill command to suspend or terminate jobs that are using too much of the 
+available system resources. Applying this knowledge to your daily use of UNIX will help you and your system be efficient at getting tasks completed.
+
+<BR></P>
+
+<P><A HREF="unx18.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx18.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx20.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx20.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,1217 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx29.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt6au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt6au.htm">
+
+<LINK REL="Previous" HREF="unx28.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx28.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx28.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx28.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt6au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt6au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">29</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I2">Processing and Printing Formatted Files</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Basic Printing with nroff and troff</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Displaying and Printying nroff Files</A></LI>
+
+<LI>
+
+<A HREF="#I6">Differences between nroff Output and troff Output</A></LI></UL>
+
+<LI>
+
+<A HREF="#I7">Options for the nroff and troff Commands</A></LI>
+
+<LI>
+
+<A HREF="#I8">Printing Files Formatted with Macro Packages</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Printing Files Formatted with mm</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I10">Using the nroff or troff Command</A></LI>
+
+<LI>
+
+<A HREF="#I12">Using the mm or mmt Command</A></LI>
+
+<LI>
+
+<A HREF="#I13">Using with ms, me, and man</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">Printing Files Formatted with Your Own Macro Package</A></LI>
+
+<LI>
+
+<A HREF="#I15">Error Messages</A></LI>
+
+<LI>
+
+<A HREF="#I16">Deroffing, or Removing All Traces of nroff/troff</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><B>29</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I2" NAME="I2">
+
+<FONT SIZE=5><B>Processing and Printing Formatted Files</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>UNIX offers a selection of commands and utilities for printing. In addition, your system probably has a number of home-grown commands. Be guided by your colleagues and system administrator. If they always use a weird little shell script called prinnumup 
+
+to send their files to the printer, you'd better use prinnumup too.
+
+<BR></P>
+
+<P>This chapter attempts to find a safe ground somewhere between no information at all and a lot of information that won't work on your system. If you get tired of reading &quot;ask your system administrator,&quot; think how tired I got of typing it.
+
+<BR></P>
+
+<P>The truth is that systems differ. Printers differ. And new models as well as entirely new printers are popping up all over the place. This chapter should guide you through the basics and give you an understanding of what happens to your file from the 
+time you type troff until the neat, white pages emerge from your printer.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Basic Printing with </B><B><I>nroff</I></B><B> and </B><B><I>troff</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>This section covers the basics of printing with nroff and troff. As it explains the ins and outs of how nroff and troff work, it shows the command lines for printing files that contain only troff primitives.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Displaying and Printying </B><B><I>nroff</I></B><B> Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>nroff enables you to format your file on the screen instead of (or before) you format it on a printer. (You can do this with troff, too, if you have a graphics terminal with windowing or layering capabilities, and if your local system provides this 
+option.)
+
+<BR></P>
+
+<P>To nroff a file containing only troff primitives to the standard output device (screen), use one of these commands:
+
+<BR></P>
+
+<PRE>nroff filename|pg
+
+nroff filename|more</PRE>
+
+<P>The choice between piping to pg or to more really depends on your system. Sometimes more produces just a single line of additional text rather than a new screenful.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Differences between </B><B><I>nroff</I></B><B> Output and </B><B><I>troff</I></B><B> Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Printed files will look different, depending on whether they are formatted with nroff or troff. In general, nroffed files exhibit the following characteristics: All values are treated as a number of character positions (spaces) or line spaces. Vertical 
+
+space is in multiples of a full linespace. Tabs are set every 8 characters by default. Certain troff requests are not available (for example, .fp, .lg, .ss). Text in italic font is underlined; text in bold font is emboldened by overstriking. Point size and 
+
+vertical space requests (.ps and .vs) are ignored. Right-margin justification is turned off for the mm macros.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Options for the </B><B><I>nroff </I></B><B>and </B><B><I>troff</I></B><B> Commands</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The options shown in Table 29.1 are available with current versions of nroff and (device-independent) troff:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 29.1. </B><B>nroff</B><B>/</B><B>troff</B><B> Options</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Option</I>
+
+<BR></PRE>
+
+<TD COLSPAN=2>
+
+<PRE><I>Effect</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>-e</P>
+
+<TD COLSPAN=2>
+
+<P>(nroff only) produces equally spaced words in adjusted lines instead of using multiples of space character</P>
+
+<TR>
+
+<TD>
+
+<P>-h</P>
+
+<TD COLSPAN=2>
+
+<P>(nroff only) uses output tabs (instead of spaces) during horizontal spacing to spread output and reduce output character count; tab settings are assumed to be every 8 characters</P>
+
+<TR>
+
+<TD>
+
+<P>-i</P>
+
+<TD COLSPAN=2>
+
+<P>reads from standard input after files are exhausted</P>
+
+<TR>
+
+<TD>
+
+<P>-mname</P>
+
+<TD COLSPAN=2>
+
+<P>prepends the macro file /usr/lib/tmac.name to the input file&#151;in other words, uses the macros in filename</P>
+
+<TR>
+
+<TD>
+
+<P>-nN</P>
+
+<TD COLSPAN=2>
+
+<P>numbers the first output page N</P>
+
+<TR>
+
+<TD>
+
+<P>-olist</P>
+
+<TD COLSPAN=2>
+
+<P>prints only the pages specified in list; use commas to separate page numbers; use hyphens (-) to indicate page range; -12 prints all the pages up to and including page 12; 12- prints page 12 and all subsequent pages in the file (example: 
+-01,3,7,12-20,35,40-)</P>
+
+<TR>
+
+<TD>
+
+<P>-q</P>
+
+<TD COLSPAN=2>
+
+<P>invokes the simultaneous input/output of the .rd primitive; that is, the file to be processed contains at least one .rd primitive</P>
+
+<TR>
+
+<TD>
+
+<P>-ran</P>
+
+<TD COLSPAN=2>
+
+<P>sets register a to value N; DWB (version 3.1) documentation states that register name can be no more than 1 character</P>
+
+<TR>
+
+<TD>
+
+<P>-sN</P>
+
+<TD COLSPAN=2>
+
+<P>(nroff only) stops printing every N pages (default is N=1); this lets you add or change paper; to resume printing, use a linefeed (a newline also works if no pipeline is involved)</P>
+
+<TR>
+
+<TD>
+
+<P>-Tname</P>
+
+<TD COLSPAN=2>
+
+<P>(troff only) prepares output for typesetter/printer specified as name; default is post</P>
+
+<TR>
+
+<TD>
+
+<P>-Ttype</P>
+
+<TD COLSPAN=2>
+
+<P>(nroff only) prepares output for terminal (printer) specified as type; the following types should be known to any system:</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>2631</P>
+
+<TD>
+
+<P>Hewlett-Packard 2631 printer in regular mode</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>2631-c</P>
+
+<TD>
+
+<P>Hewlett-Packard 2631 printer in compressed mode</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>2631-e</P>
+
+<TD>
+
+<P>Hewlett-Packard 2631 printer in expanded mode</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>300</P>
+
+<TD>
+
+<P>DASI-300 printer</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>300-12</P>
+
+<TD>
+
+<P>DASI-300 terminal set to 12 pitch (12 cpi)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>300s</P>
+
+<TD>
+
+<P>DASI 300s printer</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>300s-12</P>
+
+<TD>
+
+<P>DASI-300s printer set to 12 pitch</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>37</P>
+
+<TD>
+
+<P>Teletype Model 37 terminal (default)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>382</P>
+
+<TD>
+
+<P>DTC-382</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>4000a</P>
+
+<TD>
+
+<P>Trendata 4000a terminal</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>450</P>
+
+<TD>
+
+<P>DASI-450 (Diablo Hyterm) printer</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>450-12</P>
+
+<TD>
+
+<P>DASI-450 terminal set to 12 pitch</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>832</P>
+
+<TD>
+
+<P>Anderson Jacobson 832 terminal</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>8510</P>
+
+<TD>
+
+<P>C.Itoh printer</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>lp</P>
+
+<TD>
+
+<P>generic name for printers that can underline and tab; all text using reverse line feeds (such as files having tables) that is sent to lp must be processed with col.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>tn300</P>
+
+<TD>
+
+<P>GE Terminet 300 terminal</P>
+
+<TR>
+
+<TD>
+
+<P>-uN</P>
+
+<TD COLSPAN=2>
+
+<P>(nroff only) sets the emboldening factor (number of character overstrikes) to N, or to 0 if N is not specified</P>
+
+<TR>
+
+<TD>
+
+<P>-z</P>
+
+<TD COLSPAN=2>
+
+<P>prints only messages generated by the .tm primitive; useful for debugging or, if you are using .tm, to generate a list of some kind</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Printing Files Formatted with Macro Packages</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can use either nroff or troff to process files formatted with the standard macro packages, mm, ms, me, and man.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> You cannot use two macro packages to format one file. The urge to do so usually arises when you want to put a manpage in a text file. It can't be done. Make separate files; better yet, put the 
+manpage in an appendix and refer to it in your text.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Both nroff and troff expect to find a pointer to the appropriate macro package in the /usr/lib/tmac directory and to find the macro file in the /usr/lib./macro directory.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Printing Files Formatted with </B><B><I>mm</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Files that use the mm macros can be printed by using nroff or troff, or by using either of two commands developed specifically for the mm macros. These are mm (which nroffs your file) and mmt (which troffs your file).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Using the </B><B><I>nroff</I></B><B> or </B><B><I>troff</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When you use nroff or troff to print files formatted with mm, your command line takes this form:
+
+<BR></P>
+
+<PRE>nroff -mm options filenames
+
+troff -mm options filenames</PRE>
+
+<P>The options must precede the filename(s).
+
+<BR></P>
+
+<P>A complete listing of nroff and troff options can be found in Table 29.1.
+
+<BR></P>
+
+<P>mm uses number registers to keep track of indents, list item numbers and letters, and a host of information related to page layout (page offset, line length, paragraph style, and so forth). 
+
+<BR></P>
+
+<P>The -r option to nroff/troff lets you set certain number registers on the command line. This initializes the registers because it is done before the macro package is called. Only registers with one-character names can be initialized this way.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To initialize a number register, you must set it before the macro package is called. You can initialize registers with two-character names by doing the following:
+
+<BR>
+
+<BR>1. Set the registers in the first lines of your text file:
+
+<BR>
+
+<BR>.nr XX 0
+
+<BR>.nr YY 1
+
+<BR>.nr ZZ 3
+
+<BR>
+
+<BR><B>2. </B>Source in the mm macros right after you initialize the number registers:
+
+<BR>
+
+<BR>.so /usr/lib/tmac/tmac.m
+
+<BR>
+
+<BR><B>3. </B>Invoke nroff or troff without the -m option:
+
+<BR>
+
+<BR><A ID="I11" NAME="I11"></A>troff file
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Table 29.2 lists the registers that can be initialized with the -r option to nroff/troff.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 29.2. Registers That Can Be Initialized on the </B><B>nroff</B><B>/</B><B>troff</B><B> Command </B><B>Line</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Register</I>
+
+<BR></PRE>
+
+<TD COLSPAN=3>
+
+<PRE><I>Effect</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>A</P>
+
+<TD COLSPAN=3>
+
+<P>Modifies the first page for memos and letters. If A is set to any nonzero number, the letterhead block is suppressed to accommodate personal stationery.</P>
+
+<TR>
+
+<TD>
+
+<P>C</P>
+
+<TD COLSPAN=3>
+
+<P>Sets the type of copy as follows:</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD COLSPAN=2>
+
+<P>0</P>
+
+<TD>
+
+<P>none (default)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD COLSPAN=2>
+
+<P>1</P>
+
+<TD>
+
+<P>OFFICIAL FILE COPY</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD COLSPAN=2>
+
+<P>2</P>
+
+<TD>
+
+<P>DATE FILE COPY</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD COLSPAN=2>
+
+<P>3</P>
+
+<TD>
+
+<P>DRAFT with single spacing, default paragraph style</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD COLSPAN=2>
+
+<P>4</P>
+
+<TD>
+
+<P>DRAFT with double spacing, 10 en paragraph indent</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD COLSPAN=2>
+
+<P>5</P>
+
+<TD>
+
+<P>double spacing with 10 en paragraph indent</P>
+
+<TR>
+
+<TD>
+
+<P>D</P>
+
+<TD COLSPAN=3>
+
+<P>Sets debug mode. (Formatter will continue processing even if mm detects errors that would otherwise cause processing to stop.)</P>
+
+<TR>
+
+<TD>
+
+<P>E</P>
+
+<TD COLSPAN=3>
+
+<P>Controls the font of the subject/date/from fields on memos and letters. If D is 1, these fields are emboldened; if D is 0, the fields are printed in normal font.</P>
+
+<TR>
+
+<TD>
+
+<P>L</P>
+
+<TD COLSPAN=3>
+
+<P>Sets the length of the physical page to N (default 11 inches). Specify units with this option since N is scaled.</P>
+
+<TR>
+
+<TD>
+
+<P>N</P>
+
+<TD COLSPAN=3>
+
+<P>Specifies page numbering style as follows:</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>0</P>
+
+<TD COLSPAN=2>
+
+<P>All pages include header</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>1</P>
+
+<TD COLSPAN=2>
+
+<P>Header replaces footer on page 1; all other pages have a header</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>2</P>
+
+<TD COLSPAN=2>
+
+<P>Page 1 has no header; all other pages have a header</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>3</P>
+
+<TD COLSPAN=2>
+
+<P>All pages use section-page as footer</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>4</P>
+
+<TD COLSPAN=2>
+
+<P>No header on page 1; header on other pages only if .PH is defined</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>5</P>
+
+<TD COLSPAN=2>
+
+<P>Same as 3, but section-figure</P>
+
+<TR>
+
+<TD>
+
+<P>O</P>
+
+<TD COLSPAN=3>
+
+<P>Sets page offset (left margin) to N where N is a scaled value.</P>
+
+<TR>
+
+<TD>
+
+<P>P</P>
+
+<TD COLSPAN=3>
+
+<P>Specifies that pages are to be numbered starting with N.</P>
+
+<TR>
+
+<TD>
+
+<P>S</P>
+
+<TD COLSPAN=3>
+
+<P>Sets point size and vertical spacing for document. By default point size is 10, vertical spacing is 12.</P>
+
+<TR>
+
+<TD>
+
+<P>W</P>
+
+<TD COLSPAN=3>
+
+<P>Sets page width to N where N is a scaled value (default 6i).</P></TABLE>
+
+<P>The -r option is useful if you have a file that will be printed somewhat differently over the course of its life. As an example, assume the first draft of your document has to be double spaced and have the word &quot;DRAFT&quot; at the bottom of every 
+page. Set the C register to 4 on your command line:
+
+<BR></P>
+
+<PRE>troff -mm -rC4 docname</PRE>
+
+<P>As the document nears completion, you have to print it single spaced, but you still want the word &quot;DRAFT&quot; at the bottom of every page:
+
+<BR></P>
+
+<PRE>troff -mm -rC3 docname</PRE>
+
+<P>When the document is complete, you can use -rC1 to print &quot;OFFICIAL FILE COPY&quot; at the bottom of each page, or you can use -rC0 to omit that line entirely.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Using the </B><B><I>mm</I></B><B> or </B><B><I>mmt</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The mm macros are the macros of choice throughout much of AT&amp;T. This may explain why mm has been singled out for special treatment. Only mm has its own set of processing commands: mm, to process files with nroff, and mmt, to process files with 
+troff.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If your system users always use troff and never use nroff, your system administrator may not have mounted the mm (for nroff) command and may have named the troff version mm (instead of mmt). I know 
+this sounds loony, but I've seen it happen.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To format a file with mm or mmt, use a command of this form:
+
+<BR></P>
+
+<PRE>mm options filenames
+
+mmt options filenames</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If you specify a hyphen (-) instead of a filename or filenames on the command line, mm and mmt read standard input instead of files.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>As is the case with the nroff and troff commands, the options must precede the filename(s).
+
+<BR></P>
+
+<P>The mm and mmt commands have their own set of options; however, they can pass arguments to nroff and troff, so you can use any nroff/troff option as an option to mm/mmt.
+
+<BR></P>
+
+<P>mm and mmt can initialize the number registers that can be initialized by the nroff and troff commands. (See Table 29.2.)
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Using with </B><B><I>ms</I></B><B>, </B><B><I>me</I></B><B>, and </B><B><I>man</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You can use either nroff or troff to process files that use the me, ms, or man macros. All of the options shown in Table 29.1 can be used; however, the -r option has limited use because all predefined number registers in me and ms have two-character 
+names.
+
+<BR></P>
+
+<P>Most of man's predefined number registers also have two-character names. You can set register s to 1 to reduce the page size from 8 1/2 by 11 to 5 1/2 by 8.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Printing Files Formatted with Your Own Macro Package</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To substitute your own macro package for mm, ms, me, or man, you have a choice of two methods:
+
+<BR></P>
+
+<UL>
+
+<LI>Use nroff or troff without the -m option and source in your own macro file at the top of your text file (right after you initialize registers).
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the -m option to nroff or troff and specify your macro file. Remember to specify the full pathname.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>All other options to nroff and troff can be used just as you use them for mm, ms, me, or man. Remember that the -r option can be used only to initialize registers with one-character names.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Error Messages</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Error messages are largely self explanatory. They can be generated by the system (if you type torff instead of troff), by nroff or troff, by the macro package, or by the preprocessors. (Chapter 23, Formatting Tables with tbl,&quot; Chapter 24, 
+&quot;Formatting Equations with eqn,&quot; Chapter 25, &quot;Drawing Pictures with pic,&quot; and Chapter 26, &quot;Creating Graphs with grap&quot; contain information about error messages generated by the proprocessors.
+
+<BR></P>
+
+<P>It doesn't really matter whether troff or mm generates a message; you have to correct the error. Errors usually fall into one of the following categories:
+
+<BR></P>
+
+<UL>
+
+<LI>Order: Memo type macros for mm or ms are in the wrong order.
+
+<BR>
+
+<BR></LI>
+
+<LI>Missing one of bracketed pair: You have a .TS but no .TE (or vice versa).
+
+<BR>
+
+<BR></LI>
+
+<LI>(mm only) No list active: You have a .LI, but no .BL.
+
+<BR>
+
+<BR></LI>
+
+<LI>Bad or no argument: You've omitted an argument after a .VL or you've specified an impossible number as an argument (5 for .SA, for example).
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The one thing to remember is that the line number, helpfully supplied by troff, is the troff output line number. So it's not uncommon to be told that you have an error in line 1500 when your text file is 600 lines long. mm attempts to give you the 
+source file line number. Don't wager a large amount on its accuracy.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Deroffing, or Removing All Traces of </B><B><I>nroff/troff</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Sometimes documentation customers want electronic files as well as hard copy. If they can't handle troff, they may request ASCII files from you. There's a simple way of complying with this request&#151;use deroff.
+
+<BR></P>
+
+<P>deroff removes all troff requests, macros, and backslash constructs. It also removes tbl commands (that is, everything between the .TS and the .TE), equation commands (everything between the .EQ and the .EN or between the defined eqn delimiters). It can 
+
+follow a chain of included files, so if you've sourced in a file with .so or .nx, deroff operates on those files, too. This feature can be suppressed with the -i option, which simply removes the .so and .nx lines from your file.
+
+<BR></P>
+
+<P>Other options are -mm and -ml. -mm completely deletes any line that starts with a macro. This means all your headings will be gone. The -ml option invokes -mm and removes all lists.
+
+<BR></P>
+
+<P>This may be just as well. deroff doesn't do well with nested lists.
+
+<BR></P>
+
+<P>deroff, like nroff and troff, can process multiple files.
+
+<BR></P>
+
+<P>To use deroff, enter the following:
+
+<BR></P>
+
+<PRE>$ deroff options inputfilename &gt; outputfilename</PRE>
+
+<P>Don't forget to redirect the output to a file. You don't really want to see your denuded, deroffed file streaking across your screen, do you?
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Printing is no easier than anything else within the UNIX system, but there are powerful tools to enable you to print just about anything you can imagine. From the simplest print command (lp) to the complexities of preprocessors, troff, and 
+postprocessors, you can control the process and achieve outstanding results.</P>
+
+<P><A HREF="unx28.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx28.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt6au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt6au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

@@ -1,0 +1,4685 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx39.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx40.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx40.htm">
+
+<LINK REL="Previous" HREF="unx38.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx38.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx38.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx38.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx40.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx40.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">39 &#151; Performance Monitoring</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Ronald Rose</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Performance and Its Impact on Users</A></LI>
+
+<LI>
+
+<A HREF="#I5">Introduction to UNIX Performance</A></LI>
+
+<LI>
+
+<A HREF="#I6">Monitoring the Overall System Status</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I7">Monitoring System Status Using uptime</A></LI>
+
+<LI>
+
+<A HREF="#I8">Monitoring System Status Using perfmeter</A></LI>
+
+<LI>
+
+<A HREF="#I9">Monitoring System Status Using sar -q</A></LI>
+
+<LI>
+
+<A HREF="#I10">Monitoring System Status Using sar -u</A></LI></UL>
+
+<LI>
+
+<A HREF="#I11">Monitoring Processes with ps</A></LI>
+
+<LI>
+
+<A HREF="#I12">Monitoring Memory Utilization</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I13">UNIX Memory Management</A></LI>
+
+<LI>
+
+<A HREF="#I14">Monitoring Memory Performance Using vmstat</A></LI>
+
+<LI>
+
+<A HREF="#I15">Monitoring Memory Performance with sar -wpgr</A></LI>
+
+<LI>
+
+<A HREF="#I16">Multiprocessor Implications of vmstat</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Monitoring Disk Subsystem Performance</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">Disk I/O Performance Optimization</A></LI>
+
+<LI>
+
+<A HREF="#I19">Relational Databases</A></LI>
+
+<LI>
+
+<A HREF="#I20">Checking Disk Performance with iostat and sar</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I21"> The iostat Command</A></LI>
+
+<LI>
+
+<A HREF="#I22">The sar -d Command</A></LI></UL>
+
+<LI>
+
+<A HREF="#I23">Monitoring File System Use with df</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I24">The df Command</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I25">Monitoring Network Performance</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I26">Monitoring Network Performance with netstat -i</A></LI>
+
+<LI>
+
+<A HREF="#I27">Monitoring Network Performance Using spray</A></LI>
+
+<LI>
+
+<A HREF="#I28">Monitoring Network Performance with nfsstat -c</A></LI>
+
+<LI>
+
+<A HREF="#I29">Monitoring Network Performance with netstat</A></LI>
+
+<LI>
+
+<A HREF="#I30">Looking for Network Data Corruption with netstat -s</A></LI>
+
+<LI>
+
+<A HREF="#I31">Corrective Network Actions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">Monitoring CPU Performance</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I33">Monitoring Multiprocessor Performance with mpstat</A></LI></UL>
+
+<LI>
+
+<A HREF="#I34">Kernel Tuning</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I35">Kernel Tables</A></LI>
+
+<LI>
+
+<A HREF="#I36">Checking System Tables with sar -v</A></LI>
+
+<LI>
+
+<A HREF="#I37">Displaying Tunable Kernel Parameters</A></LI>
+
+<LI>
+
+<A HREF="#I38">Displaying Current Values of Tunable Parameters</A></LI>
+
+<LI>
+
+<A HREF="#I39">Modifying the Configuration Information File</A></LI>
+
+<LI>
+
+<A HREF="#I40">The maxusers Parameter</A></LI>
+
+<LI>
+
+<A HREF="#I41">Parameters That Influence Paging and Swapping</A></LI>
+
+<LI>
+
+<A HREF="#I42">Conclusion of Kernel Tuning</A></LI></UL>
+
+<LI>
+
+<A HREF="#I43">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>39 &#151; Performance Monitoring</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Ronald Rose</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Chapter 38, &quot;Accounting System,&quot; teaches about the UNIX accounting system, and the tools that the accounting system provides. Some of these utilities and reports give you information about system utilization and performance. In Chapter 18, 
+&quot;What Is a Process,&quot; you learned that the sadc command, in combination with the shell scripts sa1 and sa2, enables you to automatically collect activity data. These automatic reports can create a documented history of how the system behaves, 
+which can be a valuable reference in times of performance problems. Requesting similar reports in an ad hoc manner is demonstrated in this chapter, as this method is usually most appropriate when investigating performance problems that are in progress.
+
+<BR></P>
+
+<P>In this portion of the book, you will learn all about performance monitoring. There are a series of commands that enable system administrators, programmers, and users to examine each of the resources that a UNIX system uses. By examining these resources 
+
+you can determine if the system is operating properly or poorly. More important than the commands themselves, you will also learn strategies and procedures that can be used to search for performance problems. Armed with both the commands and the overall 
+methodologies with which to use them, you will understand the factors that are affecting system performance, and what can be done to optimize them so that the system performs at its best.
+
+<BR></P>
+
+<P>Although this chapter is helpful for users, it is particularly directed at new system administrators that are actively involved in keeping the system they depend on healthy, or trying to diagnose what has caused its performance to deteriorate.
+
+<BR></P>
+
+<P>This chapter introduces several new tools to use in your system investigations and revisits several commands that were introduced in Chapter 19, &quot;Administrative Processes.&quot;
+
+<BR></P>
+
+<P>The sequence of the chapter is not based on particular commands. It is instead based on the steps and the strategies that you will use during your performance investigations. In other words, the chapter is organized to mirror the logical progression 
+that a system administrator uses to determine the state of the overall system and the status of each of its subsystems.
+
+<BR></P>
+
+<P>You will frequently start your investigations by quickly looking at the overall state of the system load, as described in the section &quot;Monitoring the Overall System Status.&quot; To do this you see how the commands uptime and sar can be used to 
+examine the system load and the general level of Central Processing Unit (CPU) loading. You also see how tools such as SunOS's perfmeter can be helpful in gaining a graphic, high-level view of several components at once.
+
+<BR></P>
+
+<P>Next, in the section &quot;Monitoring Processes with ps,&quot; you learn how ps can be used to determine the characteristics of the processes that are running on your system. This is a natural next step after you have determined that the overall system 
+
+status reflects a heavier-than-normal loading. You will learn how to use ps to look for processes that are consuming inordinate amounts of resources and the steps to take after you have located them.
+
+<BR></P>
+
+<P>After you have looked at the snapshot of system utilization that ps gives you, you may well have questions about how to use the memory or disk subsystems. So, in the next section, &quot;Monitoring Memory Utilization,&quot; you learn how to monitor 
+memory performance with tools such as vmstat and sar, and how to detect when paging and swapping have become excessive (thus indicating that memory must be added to the system).
+
+<BR></P>
+
+<P>In the section &quot;Monitoring Disk Subsystem Performance,&quot; you see how tools such as iostat, sar, and df can be used to monitor disk Input/Output (I/O) performance. You will see how to determine when your disk subsystem is unbalanced and what to 
+
+do to alleviate disk performance problems.
+
+<BR></P>
+
+<P>After the section on disk I/O performance is a related section on network performance. (It is related to the disk I/O discussion because of the prevalent use of networks to provide extensions of local disk service through such facilities as NFS.) Here 
+you learn to use netstat, nfsstat, and spray to determine the condition of your network.
+
+<BR></P>
+
+<P>This is followed by a brief discussion of CPU performance monitoring, and finally a section on kernel tuning. In this final section, you will learn about the underlying tables that reside within the UNIX operating system and how they can be tuned to 
+customize your system's UNIX kernel and optimize its use of resources.
+
+<BR></P>
+
+<P>You have seen before in this book that the diversity of UNIX systems make it important to check each vendor's documentation for specific details about their particular implementation. The same thing applies here as well. Furthermore, modern developments 
+
+such as symmetric multiprocessor support and relational databases add new characteristics and problems to the challenge of performance monitoring. These are touched on briefly in the discussions that follow.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Performance and Its Impact on Users</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Before you get into the technical side of UNIX performance monitoring, there are a few guidelines that can help system administrators avoid performance problems and maximize their overall effectiveness.
+
+<BR></P>
+
+<P>All too typically, the UNIX system administrator learns about performance when there is a critical problem with the system. Perhaps the system is taking too long to process jobs or is far behind on the number of jobs that it normally processes. Perhaps 
+
+the response times for users have deteriorated to the point where users are becoming distracted and unproductive (which is a polite way of saying frustrated and angry!). In any case, if the system isn't actually failing to help its users attain their 
+particular goals, it is at least failing to meet their expectations.
+
+<BR></P>
+
+<P>It may seem obvious that when user productivity is being affected, money and time, and sometimes a great deal of both, are being lost. Simple measurements of the amount of time lost can often provide the cost justification for upgrades to the system. In 
+
+this chapter you learn how to identify which components of the system are the best candidates for such an upgrade. (If you think people were unhappy to begin with, try talking to them after an expensive upgrade has produced no discernible improvement in 
+performance!)
+
+<BR></P>
+
+<P>Often, it is only when users begin complaining that people begin to examine the variables that are affecting performance. This in itself is somewhat of a problem. The system administrator should have a thorough understanding of the activities on the 
+system before users are affected by a crisis. He should know the characteristics of each group of users on the system. This includes the type of work that they submit while they are present during the day, as well as the jobs that are to be processed 
+during the evening. What is the size of the CPU requirement, the I/O requirement, and the memory requirement of the most frequently occurring and/or the most important jobs? What impact do these jobs have on the networks connected to the machine? Also 
+important is the time-sensitivity of the jobs, the classic example being payrolls that must be completed by a given time and date.
+
+<BR></P>
+
+<P>These profiles of system activity and user requirements can help the system administrator acquire a holistic understanding of the activity on the system. That knowledge will not only be of assistance if there is a sudden crisis in performance, but also 
+
+if there is a gradual erosion of it. Conversely, if the system administrator has not compiled a profile of his various user groups, and examined the underlying loads that they impose on the system, he will be at a serious disadvantage in an emergency when 
+
+it comes to figuring out where all the CPU cycles, or memory, have gone. This chapter examines the tools that can be used to gain this knowledge, and demonstrates their value.
+
+<BR></P>
+
+<P>Finally, although all users may have been created equal, the work of some users inevitably will have more impact on corporate profitability than the work of other users. Perhaps, given UNIX's academic heritage, running the system in a completely 
+democratic manner should be the goal of the system administrator. However, the system administrator will sooner or later find out, either politely or painfully, who the most important and the most influential groups are. This set of characteristics should 
+
+also somehow be factored into the user profiles the system administrator develops before the onset of crises, which by their nature obscure the reasoning process of all involved.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Introduction to UNIX Performance</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>While the system is running, UNIX maintains several counters to keep track of critical system resources. The relevant resources that are tracked are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>CPU utilization</P>
+
+<TD>
+
+<P>Buffer usage</P>
+
+<TR>
+
+<TD>
+
+<P>Disk I/O activity</P>
+
+<TD>
+
+<P>Tape I/O activity</P>
+
+<TR>
+
+<TD>
+
+<P>Terminal activity</P>
+
+<TD>
+
+<P>System call activity</P>
+
+<TR>
+
+<TD>
+
+<P>Context switching activity</P>
+
+<TD>
+
+<P>File access utilization</P>
+
+<TR>
+
+<TD>
+
+<P>Queue activity</P>
+
+<TD>
+
+<P>Interprocess communication (IPC)</P>
+
+<TR>
+
+<TD>
+
+<P>Paging activity</P>
+
+<TD>
+
+<P>Free memory and swap space</P>
+
+<TR>
+
+<TD>
+
+<P>Kernel memory allocation (KMA)</P>
+
+<TD>
+
+<P>Kernel tables</P>
+
+<TR>
+
+<TD>
+
+<P>Remote file sharing (RFS)</P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<P>By looking at reports based on these counters you can determine how the three major subsystems are performing. These subsystems are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>CPU
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>The CPU processes instructions and programs. Each time you submit a job to the system, it makes demands on the CPU. Usually, the CPU can service all demands in a timely manner. However, there is only so much available processing power, which must be 
+shared by all users and the internal programs of the operating system, too.
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Memory
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>Every program that runs on the system makes some demand on the physical memory on the machine. Like the CPU, it is a finite resource. When the active processes and programs that are running on the system request more memory than the machine actually 
+has, paging is used to move parts of the processes to disk and reclaim their memory pages for use by other processes. If further shortages occur, the system may also have to resort to swapping, which moves entire processes to disk to make room.
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>I/O
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>The I/O subsystem(s) transfers data into and out of the machine. I/O subsystems comprise devices such as disks, printers, terminals/keyboards, and other relatively slow devices, and are a common source of resource contention problems. In addition, 
+there is a rapidly increasing use of network I/O devices. When programs are doing a lot of I/O, they can get bogged down waiting for data from these devices. Each subsystem has its own limitations with respect to the bandwidth that it can effectively use 
+for I/O operations, as well as its own peculiar problems.</PRE></TABLE>
+
+<P>Performance monitoring and tuning is not always an exact science. In the displays that follow, there is a great deal of variety in the system/subsystem loadings, even for the small sample of systems used here. In addition, different user groups have 
+widely differing requirements. Some users will put a strain on the I/O resources, some on the CPU, and some will stress the network. Performance tuning is always a series of trade-offs. As you will see, increasing the kernel size to alleviate one problem 
+may aggravate memory utilization. Increasing NFS performance to satisfy one set of users may reduce performance in another area and thereby aggravate another set of users. The goal of the task is often to find an optimal compromise that will satisfy the 
+majority of user and system resource needs.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>Monitoring the Overall System Status</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The examination of specific UNIX performance monitoring techniques begins with a look at three basic tools that give you a snapshot of the overall performance of the system. After getting this high-level view, you will normally proceed to examine each 
+of the subsystems in detail.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Monitoring System Status Using </B><B><I>uptime</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the simplest reports that you use to monitor UNIX system performance measures the number of processes in the UNIX run queue during given intervals. It comes from the command uptime. It is both a high-level view of the system's workload and a 
+handy starting place when the system seems to be performing slowly. In general, processes in the run queue are active programs (that is, not sleeping or waiting) that require system resources. Here is an example:
+
+<BR></P>
+
+<PRE>% uptime
+
+  2:07pm  up 11 day(s),  4:54,  15 users,  load average: 1.90, 1.98, 2.01</PRE>
+
+<P>The useful parts of the display are the three load-average figures. The 1.90 load average was measured over the last minute. The 1.98 average was measured over the last 5 minutes. The 2.01 load average was measured over the last 15 minutes.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>What you are usually looking for is the trend of the averages. This particular example shows a system that is under a fairly consistent load. However, if a system is having problems, but the load 
+averages seem to be declining steadily, then you may want to wait a while before you take any action that might affect the system and possibly inconvenience users. While you are doing some ps commands to determine what caused the problem, the imbalance may 
+
+correct itself.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> uptime has certain limitations. For example, high-priority jobs are not distinguished from low-priority jobs although their impact on the system can be much greater.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Run uptime periodically and observe both the numbers and the trend. When there is a problem it will often show up here, and tip you off to begin serious investigations. As system loads increase, more demands will be made on your memory and I/O 
+subsystems, so keep an eye out for paging, swapping, and disk inefficiencies. System loads of 2 or 3 usually indicate light loads. System loads of 5 or 6 are usually medium-grade loads. Loads above 10 are often heavy loads on large UNIX machines. However, 
+
+there is wide variation among types of machines as to what constitutes a heavy load. Therefore, the mentioned technique of sampling your system regularly until you have your own reference for light, medium, and heavy loads is the best technique.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Monitoring System Status Using </B><B><I>perfmeter</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Because the goal of this first section is to give you the tools to view your overall system performance, a brief discussion of graphical performance meters is appropriate. SUN Solaris users are provided with an OpenWindows XView tool called perfmeter, 
+which summarizes overall system performance values in multiple dials or strip charts. Strip charts are the default. Not all UNIX systems come with such a handy tool. That's too bad because in this case a picture is worth, if not a thousand words, at least 
+
+30 or 40 man pages. In this concise format, you get information about the system resources shown in Table 39.1:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 39.1. System resources and their descriptions.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Resources</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>cpu</P>
+
+<TD>
+
+<P>Percent of CPU being utilized</P>
+
+<TR>
+
+<TD>
+
+<P>pkts</P>
+
+<TD>
+
+<P>EtherNet activity, in packets per second</P>
+
+<TR>
+
+<TD>
+
+<P>page</P>
+
+<TD>
+
+<P>Paging, in pages per second</P>
+
+<TR>
+
+<TD>
+
+<P>swap</P>
+
+<TD>
+
+<P>Jobs swapped per second</P>
+
+<TR>
+
+<TD>
+
+<P>intr</P>
+
+<TD>
+
+<P>Number of device interrupts per second</P>
+
+<TR>
+
+<TD>
+
+<P>disk</P>
+
+<TD>
+
+<P>Disk traffic, in transfers per second</P>
+
+<TR>
+
+<TD>
+
+<P>cntxt</P>
+
+<TD>
+
+<P>Number of context switches per second</P>
+
+<TR>
+
+<TD>
+
+<P>load</P>
+
+<TD>
+
+<P>Average number of runnable processes over the last minute</P>
+
+<TR>
+
+<TD>
+
+<P>colls</P>
+
+<TD>
+
+<P>Collisions per second detected on the EtherNet</P>
+
+<TR>
+
+<TD>
+
+<P>errs</P>
+
+<TD>
+
+<P>Errors per second on receiving packets</P></TABLE>
+
+<P>The charts of the perfmeter are not a source for precise measurements of subsystem performance, but they are graphic representations of them. However, the chart can be very useful for monitoring several aspects of the system at the same time. When you 
+start a particular job, the graphics can demonstrate the impact of that job on the CPU, on disk transfers, and on paging. Many developers like to use the tool to assess the efficiency of their work for this very reason. Likewise, system administrators use 
+
+the tool to get valuable clues about where to start their investigations. As an example, when faced with intermittent and transitory problems, glancing at a perfmeter and then going directly to the proper display may increase the odds that you can catch in 
+
+the act the process that is degrading the system.
+
+<BR></P>
+
+<P>The scale value for the strip chart changes automatically when the chart refreshes to accommodate increasing or decreasing values on the system. You add values to be monitored by clicking the right mouse button and selecting from the menu. From the same 
+
+menu you can select properties, which will let you modify what the perfmeter is monitoring, the format (dials/graphs, direction of the displays, and solid/lined display), remote/local machine choice, and the frequency of the display.
+
+<BR></P>
+
+<P>You can also set a ceiling value for a particular strip chart. If the value goes beyond the ceiling value, this portion of the chart will be displayed in red. Thus, a system administrator who knows that someone is periodically running a job that eats up 
+
+all the CPU memory can set a signal that the job may be run again. The system administrator can also use this to monitor the condition of critical values from several feet away from his monitor. If he or she sees red, other users may be seeing red, too.
+
+<BR></P>
+
+<P>The perfmeter is a utility provided with SunOS. You should check your own particular UNIX operating system to determine if similar performance tools are provided.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Monitoring System Status Using </B><B><I>sar -q</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If your machine does not support uptime, there is an option for sar that can provide the same type of quick, high-level snapshot of the system. The -q option reports the average queue length and the percentage of time that the queue is occupied.
+
+<BR></P>
+
+<PRE>% sar q 5 5
+
+07:28:37 runqsz %runocc swpqsz %swpocc
+
+07:28:42     5.0     100                _
+
+07:28:47     5.0     100                _
+
+07:28:52     4.8     100                _
+
+07:28:57     4.8     100                _
+
+07:29:02     4.6     100                _
+
+Average      4.8     100                _</PRE>
+
+<P>The fields in this report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>runq-sz</P>
+
+<TD>
+
+<P>This is the length of the run queue during the interval. The run queue list doesn't include jobs that are sleeping or waiting for I/O, but does include jobs that are in memory and ready to run.</P>
+
+<TR>
+
+<TD>
+
+<P>%runocc</P>
+
+<TD>
+
+<P>This is the percentage of time that the run queue is occupied.</P>
+
+<TR>
+
+<TD>
+
+<P>swpq-sz</P>
+
+<TD>
+
+<P>This is the average length of the swap queue during the interval. Jobs or threads that have been swapped out and are therefore unavailable to run are shown here.</P>
+
+<TR>
+
+<TD>
+
+<P>%swpocc</P>
+
+<TD>
+
+<P>This is the percentage of time that there are swapped jobs or threads.</P></TABLE>
+
+<P>The run queue length is used in a similar way to the load averages of uptime. Typically the number is less than 2 if the system is operating properly. Consistently higher values indicate that the system is under heavier loads, and is quite possibly CPU 
+
+bound. When the run queue length is high and the run queue percentage is occupied 100% of the time, as it is in this example, the system's idle time is minimized, and it is good to be on the lookout for performance-related problems in the memory and disk 
+subsystems. However, there is still no activity indicated in the swapping columns in the example. You will learn about swapping in the next section, and see that although this system is obviously busy, the lack of swapping is a partial vote of confidence 
+that it may still be functioning properly.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Monitoring System Status Using </B><B><I>sar -u</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Another quick and easy tool to use to determine overall system utilization is sar with the -u option. CPU utilization is shown by -u, and sar without any options defaults on most versions of UNIX to this option. The CPU is either busy or idle. When it 
+is busy, it is either working on user work or system work. When it is not busy, it is either waiting on I/O or it is idle.
+
+<BR></P>
+
+<PRE>% sar u 5 5
+
+13:16:58    %usr    %sys    %wio   %idle
+
+13:17:03      40      10      13      38
+
+13:17:08      31       6      48      14
+
+13:17:13      42      15       9      34
+
+13:17:18      41      15      10      35
+
+13:17:23      41      15      11      33
+
+Average       39      12      18      31</PRE>
+
+<P>The fields in the report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>%usr</P>
+
+<TD>
+
+<P>This is the percentage of time that the processor is in user mode (that is, executing code requested by a user).</P>
+
+<TR>
+
+<TD>
+
+<P>%sys</P>
+
+<TD>
+
+<P>This is the percentage of time that the processor is in system mode, servicing system calls. Users can cause this percentage to increase above normal levels by using system calls inefficiently.</P>
+
+<TR>
+
+<TD>
+
+<P>%wio</P>
+
+<TD>
+
+<P>This is the percentage of time that the processor is waiting on completion of I/O, from disk, NFS, or RFS. If the percentage is regularly high, check the I/O systems for inefficiencies.</P>
+
+<TR>
+
+<TD>
+
+<P>%idle</P>
+
+<TD>
+
+<P>This is the percentage of time the processor is idle. If the percentage is high and the system is heavily loaded, there is probably a memory or an I/O problem.</P></TABLE>
+
+<P>In this example, you see a system with ample CPU capacity left (that is, the average idle percentage is 31%). The system is spending most of its time on user tasks, so user programs are probably not too inefficient with their use of system calls. The 
+I/O wait percentage indicates an application that is making a fair amount of demands on the I/O subsystem.
+
+<BR></P>
+
+<P>Most administrators would argue that %idle should be in the low 'teens rather than 0, at least when the system is under load. If it is 0 it doesn't necessarily mean that the machine is operating poorly. However, it is usually a good bet that the machine 
+
+is out of spare computational capacity and should be upgraded to the next level of CPU speed. The reason to upgrade the CPU is in anticipation of future growth of user processing requirements. If the system work load is increasing, even if the users 
+haven't yet encountered the problem, why not anticipate the requirement? On the other hand, if the CPU idle time is high under heavy load, a CPU upgrade will probably not help improve performance much.
+
+<BR></P>
+
+<P>Idle time will generally be higher when the load average is low.
+
+<BR></P>
+
+<P>A high load average and idle time is a symptom of potential problems. Either the memory or the I/O subsystems, or both, are hindering the swift dispatch and completion of the jobs. You should review the following sections that show how to look for 
+paging, swapping, disk, or network-related problems.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Monitoring Processes with </B><B><I>ps</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You have probably noticed that, while throughout the rest of this chapter the commands are listed under the topic in which they are used (for example, nfsstat is listed in the section &quot;Monitoring Network Performance&quot;), this section is 
+dedicated to just one command. What's so special about ps? It is singled out in this manner because of the way that it is used in the performance monitoring process. It is a starting point for generating theories (for example, processes are using up so 
+much memory that you are paging and that is slowing down the system). Conversely, it is an ending point for confirming theories (for example, here is a burst of network activity&#151;I wonder if it is caused by that communications test job that the 
+programmers keep running?). Since it is so pivotal, and provides a unique snapshot of the processes on the system, ps is given its own section.
+
+<BR></P>
+
+<P>One of the most valuable commands for performance monitoring is the ps command. It enables you to monitor the status of the active processes on the system. Remember the words from the movie Casablanca, &quot;round up the usual suspects&quot;? Well, ps 
+helps to identify the usual suspects (that is, suspect processes that could be using inordinate resources). Then you can proceed to determine which of the suspects is actually guilty of causing the performance degradation. It is at once a powerful tool and 
+
+a source of overhead for the system itself. Using various options, the following information is shown:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>Current status of the process</P>
+
+<TD>
+
+<P>Process ID</P>
+
+<TR>
+
+<TD>
+
+<P>Parent process ID</P>
+
+<TD>
+
+<P>User ID</P>
+
+<TR>
+
+<TD>
+
+<P>Scheduling class</P>
+
+<TD>
+
+<P>Priority</P>
+
+<TR>
+
+<TD>
+
+<P>Address of process</P>
+
+<TD>
+
+<P>Memory used</P>
+
+<TR>
+
+<TD>
+
+<P>CPU time used</P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<P>Using ps provides you a snapshot of the system's active processes. It is used in conjunction with other commands throughout this section. Frequently, you will look at a report from a command, for example vmstat, and then look to ps either to confirm or 
+
+to deny a theory you have come up with about the nature of your system's problem. The particular performance problem that motivated you to look at ps in the first place may have been caused by a process that is already off the list. It provides a series of 
+
+clues to use in generating theories that can then be tested by detailed analysis of the particular subsystem.
+
+<BR></P>
+
+<P>The ps command is described in detail in Chapter 19, &quot;Administrating Processes.&quot; The following are the fields that are important in terms of performance tuning:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Field</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I><BR></I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>F</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Flags that indicate the process's current state and are calculated by adding each of the hexadecimal values:</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>00</P>
+
+<TD>
+
+<P>Process has terminated</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>01</P>
+
+<TD>
+
+<P>System process, always in memory</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>02</P>
+
+<TD>
+
+<P>Process is being traced by its parent</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>04</P>
+
+<TD>
+
+<P>Process is being traced by parent, and is stopped</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>08</P>
+
+<TD>
+
+<P>Process cannot be awakened by a signal</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>10</P>
+
+<TD>
+
+<P>Process is in memory and locked, pending an event</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>20</P>
+
+<TD>
+
+<P>Process cannot be swapped</P>
+
+<TR>
+
+<TD>
+
+<P>S</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>The current state of the process, as indicated by one of the following letters:</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>O</P>
+
+<TD>
+
+<P>Process is currently running on the processor</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>S</P>
+
+<TD>
+
+<P>Process is sleeping, waiting for an I/O event (including terminal I/O) to complete</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>R</P>
+
+<TD>
+
+<P>Process is ready to run</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>I</P>
+
+<TD>
+
+<P>Process is idle</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Z</P>
+
+<TD>
+
+<P>Process is a zombie process (it has terminated, and the parent is not waiting but is still in the process table)</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>T</P>
+
+<TD>
+
+<P>Process is stopped because of parent tracing it</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>X</P>
+
+<TD>
+
+<P>Process is waiting for more memory</P>
+
+<TR>
+
+<TD>
+
+<P>UID</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>User ID of the process's owner</P>
+
+<TR>
+
+<TD>
+
+<P>PID</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Process ID number</P>
+
+<TR>
+
+<TD>
+
+<P>PPID</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Parent process ID number</P>
+
+<TR>
+
+<TD>
+
+<P>C</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>CPU utilization for scheduling (not shown when -c is used)</P>
+
+<TR>
+
+<TD>
+
+<P>CLS</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Scheduling class, real-time, time sharing, or system (only shown when the -c option is used)</P>
+
+<TR>
+
+<TD>
+
+<P>PRI</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Process scheduling priority (higher numbers mean lower priorities).</P>
+
+<TR>
+
+<TD>
+
+<P>NI</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>Process nice number (used in scheduling priorities&#151;raising the number lowers the priority so the process gets less CPU time)</P>
+
+<TR>
+
+<TD>
+
+<P>SZ</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>The amount of virtual memory required by the process (This is a good indication of the memory load the process places on the systems memory.)</P>
+
+<TR>
+
+<TD>
+
+<P>TTY</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>The terminal that started the process, or its parent (A ? indicates that no terminal exists.)</P>
+
+<TR>
+
+<TD>
+
+<P>TIME</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>The total amount of CPU time used by the process since it began</P>
+
+<TR>
+
+<TD>
+
+<P>COMD</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>The command that generated the process</P></TABLE>
+
+<P>If your problem is immediate performance, you can disregard processes that are sleeping, stopped, or waiting on terminal I/O, as these will probably not be the source of the degradation. Look instead for the jobs that are ready to run, blocked for disk 
+
+I/O, or paging.
+
+<BR></P>
+
+<PRE>% ps -el
+
+ F S   UID   PID  PPID  C PRI NI     ADDR     SZ    WCHAN TTY        TIME COMD
+
+19 T     0     0     0 80   0 SY e00ec978      0          ?          0:01 sched
+
+19 S     0     2     0 80   0 SY f5735000      0 e00eacdc ?          0:05 pageout
+
+ 8 S  1001  1382     1 80  40 20 f5c6a000   1227 e00f887c console    0:02 mailtool
+
+ 8 S  1001  1386     1 80  40 20 f60ed000    819 e00f887c console    0:28 perfmete
+
+ 8 S  1001 28380 28377 80  40 20 f67c0000   5804 f5cfd146 ?         85:02 sqlturbo
+
+ 8 S  1001 28373     1 80  40 20 f63c6000   1035 f63c61c8 ?          0:07 cdrl_mai
+
+ 8 S  1001 28392     1 80  40 20 f67ce800   1035 f67ce9c8 ?          0:07 cdrl_mai
+
+ 8 S  1001 28391 28388 80  40 20 f690a800   5804 f60dce46 ?         166:39 sqlturbo
+
+ 8 S  1001 28361     1 80  60 20 f67e1000  30580 e00f887c ?         379:35 mhdms
+
+ 8 S  1001 28360     1 80  40 20 f68e1000  12565 e00f887c ?         182:22 mhharris
+
+ 8 O  1001 10566 10512 19  70 20 f6abb800    152          pts/14     0:00 ps
+
+ 8 S  1001 28388     1 80  40 20 f6384800    216 f60a0346 ?         67:51 db_write
+
+ 8 S  1000  7750  7749 80  40 20 f6344800   5393 f5dad02c pts/2     31:47 tbinit
+
+ 8 O  1001  9538  9537 80  81 22 f6978000   5816          ?         646:57 sqlturbo
+
+ 8 S  1033  3735  3734164  40 20 f63b8800    305 f60e0d46 pts/9      0:00 ksh
+
+ 8 S  1033  5228  5227 80  50 20 f68a8800    305 f60dca46 pts/7      0:00 ksh
+
+ 8 S  1001 28337     1 80  99 20 f6375000  47412 f63751c8 ?         1135:50 velox_ga</PRE>
+
+<P>The following are tips for using ps to determine why system performance is suffering.
+
+<BR></P>
+
+<P>Look at the UID (user ID) fields for a number of identical jobs that are being submitted by the same user. This is often caused by a user who runs a script that starts a lot of background jobs without waiting for any of the jobs to complete. Sometimes 
+you can safely use kill to terminate some of the jobs. Whenever you can, you should discuss this with the user before you take action. In any case, be sure the user is educated in the proper use of the system to avoid a replication of the problem. In the 
+example, User ID 1001 has multiple instances of the same process running. In this case, it is a normal situation, in which multiple processes are spawned at the same time for searching through database tables to increase interactive performance.
+
+<BR></P>
+
+<P>Look at the TIME fields for a process that has accumulated a large amount of CPU time. In the example, you can see the large amount of time acquired by the processes whose command is shown as velox_ga. This may indicate that the process is in an 
+infinite loop, or that something else is wrong with its logic. Check with the user to determine whether it is appropriate to terminate the job. If something is wrong, ask the user if a dump of the process would assist in debugging it (check your UNIX 
+system's reference material for commands, such as gcore, that can dump a process).
+
+<BR></P>
+
+<P>Request the -l option and look at the SZ fields for processes that are consuming too much memory. In the example you can see the large amount of memory acquired by the processes whose command is shown as velox_ga. You could check with the user of this 
+process to try to determine why it behaves this way. Attempting to renice the process may simply prolong the problem that it is causing, so you may have to kill the job instead. SZ fields may also give you a clue as to memory shortage problems caused by 
+this particular combination of jobs. You can use vmstat or sar -wpgr to check the paging and swapping statistics that are examined.
+
+<BR></P>
+
+<P>Look for processes that are consuming inordinate CPU resources. Request the -c option and look at the CLS fields for processes that are running at inappropriately high priorities. Use the nice command to adjust the nice value of the process. Beware in 
+particular of any real-time (RT) process, which can often dominate the system. If the priority is higher than you expected, you should check with the user to determine how it was set. If he is resetting the priority because he has figured out the superuser 
+
+password, dissuade him from doing this. (See Chapter 19 to find out more about using the nice command to modify the priorities of processes.)
+
+<BR></P>
+
+<P>If the processes that are running are simply long-running, CPU-intensive jobs, ask the users if you can nice them to a lower priority or if they can run them at night, when other users will not be affected by them.
+
+<BR></P>
+
+<P>Look for processes that are blocking on I/O. Many of the example processes are in this state. When that is the case, the disk subsystem probably requires tuning. The section &quot;Monitoring Disk Performance Using vmstat&quot; examines how to 
+investigate problems with your disk I/O. If the processes are trying to read/write over NFS, this may be a symptom that the NFS server to which they are attached is down, or that the network itself is hung.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Monitoring Memory Utilization</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You could say that one can never have too much money, be too thin, or have too much system memory. Memory sometimes becomes a problematic resource when programs that are running require more physical memory than is available. When this occurs UNIX 
+systems begin a process called paging. During paging the system copies pages of physical memory to disk, and then allows the now-vacated memory to be used by the process that required the extra space. Occasional paging can be tolerated by most systems, but 
+
+frequent and excessive paging is usually accompanied by poor system performance and unhappy users.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>UNIX Memory Management</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Paging uses an algorithm that selects portions, or pages, of memory that are not being used frequently and displaces them to disk. The more frequently used portions of memory, which may be the most active parts of a process, thus remain in memory, while 
+
+other portions of the process that are idle get paged out.
+
+<BR></P>
+
+<P>In addition to paging, there is a similar technique used by the memory management system called swapping. Swapping moves entire processes, rather than just pages, to disk in order to free up memory resources. Some swapping may occur under normal 
+conditions. That is, some processes may just be idle enough (for example, due to sleeping) to warrant their return to disk until they become active once more. Swapping can become excessive, however, when severe memory shortages develop. Interactive 
+performance can degrade quickly when swapping increases since it often depends on keyboard-dependent processes (for example, editors) that are likely to be considered idle as they wait for you to start typing again.
+
+<BR></P>
+
+<P>As the condition of your system deteriorates, paging and swapping make increasing demands on disk I/O. This, in turn, may further slow down the execution of jobs submitted to the system. Thus, memory resource inadequacies may result in I/O resource 
+problems.
+
+<BR></P>
+
+<P>By now, it should be apparent that it is important to be able to know if the system has enough memory for the applications that are being used on it.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>A rule of thumb is to allocate twice the swap space as you have physical memory. For example, if you have 32 MB of physical Random Access Memory (RAM) installed upon your system, you would set up 64 MB 
+
+of swap space when configuring the system. The system would then use this diskspace for its memory management when displacing pages or processes to disk.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Both vmstat and sar provide information about the paging and swapping characteristics of a system. Let's start with vmstat. On the vmstat reports you will see information about page-ins, or pages moved from disk to memory, and page-outs, or pages moved 
+
+from memory to disk. Further, you will see information about swap-ins, or processes moved from disk to memory, and swap-outs, or processes moved from memory to disk.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Monitoring Memory Performance Using </B><B><I>vmstat</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The vmstat command is used to examine virtual memory statistics, and present data on process status, free and swap memory, paging activity, disk reports, CPU load, swapping, cache flushing, and interrupts. The format of the command is:
+
+<BR></P>
+
+<PRE>vmstat  <I>t</I> [<I>n</I>]</PRE>
+
+<P>This command takes <I>n</I> samples, at <I>t</I> second intervals. For example, the following frequently used version of the command takes samples at 5-second intervals without stopping until canceled:
+
+<BR></P>
+
+<PRE>vmstat 5</PRE>
+
+<P>The following screen shows the output from the SunOS variant of the command
+
+<BR></P>
+
+<PRE>vmstat -S 5</PRE>
+
+<P>which provides extra information regarding swapping.
+
+<BR></P>
+
+<PRE> procs     memory            page            disk          faults           cpu
+
+ r b w   swap  free  si  so pi po fr de sr s0 s3 s5 s5   in    sy   cs us sy id
+
+ 0 2 0  16516  9144   0   0  0  0  0  0  0  1  4 34 12  366  1396  675 14  9 76
+
+ 0 3 0 869384 29660   0   0  0  0  0  0  0  0  4 63 15  514 10759 2070 19 17 64
+
+ 0 2 0 869432 29704   0   0  0  0  0  0  0  4  3 64 11  490  2458 2035 16 13 72
+
+ 0 3 0 869448 29696   0   0  0  0  0  0  0  0  3 65 13  464  2528 2034 17 12 71
+
+ 0 3 0 869384 29684   0   0  0  0  0  0  0  1  3 68 18  551  2555 2136 16 14 70
+
+ 0 2 0 869188 29644   0   0  0  2  2  0  0  2  3 65 10  432  2495 2013 18  9 73
+
+ 0 3 0 869176 29612   0   0  0  0  0  0  0  0  3 61 16  504  2527 2053 17 11 71
+
+ 0 2 0 869156 29600   0   0  0  0  0  0  0  0  3 69  8  438 15820 2027 20 18 62</PRE>
+
+<P>The fields in the vmstat report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>procs </P>
+
+<TD>
+
+<P>Reports the number of processes in each of the following states</P>
+
+<TR>
+
+<TD>
+
+<P>r</P>
+
+<TD>
+
+<P>In the Run queue</P>
+
+<TR>
+
+<TD>
+
+<P>b</P>
+
+<TD>
+
+<P>Blocked, waiting for resources</P>
+
+<TR>
+
+<TD>
+
+<P>w</P>
+
+<TD>
+
+<P>Swapped, waiting for processing resources</P>
+
+<TR>
+
+<TD>
+
+<P>memory </P>
+
+<TD>
+
+<P>Reports on real and virtual memory</P>
+
+<TR>
+
+<TD>
+
+<P>swap</P>
+
+<TD>
+
+<P>Available swap space</P>
+
+<TR>
+
+<TD>
+
+<P>free</P>
+
+<TD>
+
+<P>Size of free list</P>
+
+<TR>
+
+<TD>
+
+<P>page </P>
+
+<TD>
+
+<P>Reports on page faults and paging, averaged over an interval (typically 5 seconds) and provided in units per second</P>
+
+<TR>
+
+<TD>
+
+<P>re</P>
+
+<TD>
+
+<P>Pages reclaimed from the free list (not shown when the -S option is requested)</P>
+
+<TR>
+
+<TD>
+
+<P>mf</P>
+
+<TD>
+
+<P>Minor faults (not shown when -S option is requested)</P>
+
+<TR>
+
+<TD>
+
+<P>si</P>
+
+<TD>
+
+<P>Number of pages swapped in (only shown with the -S option)</P>
+
+<TR>
+
+<TD>
+
+<P>so</P>
+
+<TD>
+
+<P>Number of pages swapped out (only shown with the -S option)</P>
+
+<TR>
+
+<TD>
+
+<P>pi</P>
+
+<TD>
+
+<P>Kilobytes paged in</P>
+
+<TR>
+
+<TD>
+
+<P>po</P>
+
+<TD>
+
+<P>Kilobytes paged out</P>
+
+<TR>
+
+<TD>
+
+<P>fr</P>
+
+<TD>
+
+<P>Kilobytes freed</P>
+
+<TR>
+
+<TD>
+
+<P>de</P>
+
+<TD>
+
+<P>Anticipated short-term memory shortfall</P>
+
+<TR>
+
+<TD>
+
+<P>sr</P>
+
+<TD>
+
+<P>Pages scanned by clock algorithm, per second</P>
+
+<TR>
+
+<TD>
+
+<P>disk</P>
+
+<TD>
+
+<P>Shows the number of disk operations per second</P>
+
+<TR>
+
+<TD>
+
+<P>faults </P>
+
+<TD>
+
+<P>Shows the per-second trap/interrupt rates</P>
+
+<TR>
+
+<TD>
+
+<P>in</P>
+
+<TD>
+
+<P>Device interrupts</P>
+
+<TR>
+
+<TD>
+
+<P>sy</P>
+
+<TD>
+
+<P>System faults per second</P>
+
+<TR>
+
+<TD>
+
+<P>cs</P>
+
+<TD>
+
+<P>CPU context switches</P>
+
+<TR>
+
+<TD>
+
+<P>cpu </P>
+
+<TD>
+
+<P>Shows the use of CPU time</P>
+
+<TR>
+
+<TD>
+
+<P>us</P>
+
+<TD>
+
+<P>User time</P>
+
+<TR>
+
+<TD>
+
+<P>sy</P>
+
+<TD>
+
+<P>System time</P>
+
+<TR>
+
+<TD>
+
+<P>id</P>
+
+<TD>
+
+<P>Idle time</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The vmstat command's first line is rarely of any use. When reviewing the output from the command, always start at the second line and go forward for pertinent data.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Let's look at some of these fields for clues about system performance. As far as memory performance goes, po and w are very important. For people using the -S option so is similarly important. These fields all clearly show when a system is paging and 
+swapping. If w is non-zero and so continually indicates swapping, the system probably has a serious memory problem. If, likewise, po consistently has large numbers present, the system probably has a significant memory resource problem.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If your version of vmstat doesn't specifically provide swapping information, you can infer the swapping by watching the relationship between the w and the fre fields. An increase in w, the swapped-out 
+processes, followed by an increase in fre, the number of pages on the free list, can provide the same information in a different manner.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Other fields from the vmstat output are helpful, as well. The number of runnable and blocked processes can provide a good indication of the flow of processes, or lack thereof, through the system. Similarly, comparing each percentage CPU idle versus CPU 
+
+in system state, and versus CPU in user state, can provide information about the overall composition of the workload. As the load increases on the system, it is a good sign if the CPU is spending the majority of the time in the user state. Loads of 60 or 
+70 percent for CPU user state are ok. Idle CPU should drop as the user load picks up, and under heavy load may well fall to 0.
+
+<BR></P>
+
+<P>If paging and swapping are occurring at an unusually high rate, it may be due to the number and types of jobs that are running. Usually you can turn to ps to determine what those jobs are.
+
+<BR></P>
+
+<P>Imagine that ps shows a large number of jobs that require significant memory resources. (You saw how to determine this in the ps discussion in the previous section.) That would confirm the vmstat report. To resolve the problem, you would have to 
+restrict memory-intensive jobs, or the use of memory, or add more memory physically.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You can see that having a history of several vmstat and ps reports during normal system operation can be extremely helpful in determining what the usual conditions are, and, subsequently, what the 
+unusual ones are. Also, one or two vmstat reports may indicate a temporary condition, rather than a permanent problem. Sample the system multiple times before deciding that you have the answer to your system's performance problems.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Monitoring Memory Performance with </B><B><I>sar -wpgr</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>More information about the system's utilization of memory resources can be obtained by using sar -wpgr.
+
+<BR></P>
+
+<PRE>% sar -wpgr 5 5
+
+07:42:30 swpin/s pswin/s swpot/s bswot/s pswch/s
+
+          atch/s  pgin/s ppgin/s  pflt/s  vflt/s slock/s
+
+          pgout/s ppgout/s pgfree/s pgscan/s %s5ipf
+
+          freemem freeswp
+
+07:42:35    0.00    0.0    0.00    0.0    504
+
+            0.00    0.00   0.00    0.00   6.20   11.78
+
+            0.00    0.00   0.00    0.00   0.00
+
+           33139  183023
+
+   
+
+...
+
+Average     0.00     0.0    0.00     0.0     515
+
+Average     0.00    0.32    0.40    2.54    5.56   16.83
+
+Average     0.00     0.00     0.00     0.00   0.00
+
+Average    32926 183015</PRE>
+
+<P>The fields in the report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>swpin/s</P>
+
+<TD>
+
+<P>Number of transfers into memory per second.</P>
+
+<TR>
+
+<TD>
+
+<P>bswin/s</P>
+
+<TD>
+
+<P>Number of blocks transferred for swap-ins per second.</P>
+
+<TR>
+
+<TD>
+
+<P>swpot/s</P>
+
+<TD>
+
+<P>Number of transfers from memory to swap area per second. (More memory may be needed if the value is greater than 1.)</P>
+
+<TR>
+
+<TD>
+
+<P>bswot/s</P>
+
+<TD>
+
+<P>Number of blocks transferred for swap-outs per second.</P>
+
+<TR>
+
+<TD>
+
+<P>pswch/s</P>
+
+<TD>
+
+<P>Number of process switches per second.</P>
+
+<TR>
+
+<TD>
+
+<P>atch/s</P>
+
+<TD>
+
+<P>Number of attaches per second (that is, page faults where the page is reclaimed from memory).</P>
+
+<TR>
+
+<TD>
+
+<P>pgin/s</P>
+
+<TD>
+
+<P>Number of times per second that file systems get page-in requests.</P>
+
+<TR>
+
+<TD>
+
+<P>ppgin/s</P>
+
+<TD>
+
+<P>Number of pages paged in per second.</P>
+
+<TR>
+
+<TD>
+
+<P>pflt/s</P>
+
+<TD>
+
+<P>Number of page faults from protection errors per second.</P>
+
+<TR>
+
+<TD>
+
+<P>vflt/s</P>
+
+<TD>
+
+<P>Number of address translation page (validity) faults per second.</P>
+
+<TR>
+
+<TD>
+
+<P>slock/s</P>
+
+<TD>
+
+<P>Number of faults per second caused by software lock requests requiring I/O.</P>
+
+<TR>
+
+<TD>
+
+<P>pgout/s</P>
+
+<TD>
+
+<P>Number of times per second that file systems get page-out requests.</P>
+
+<TR>
+
+<TD>
+
+<P>ppgout/s</P>
+
+<TD>
+
+<P>Number of pages paged out per second.</P>
+
+<TR>
+
+<TD>
+
+<P>pgfree/s</P>
+
+<TD>
+
+<P>Number of pages that are put on the free list by the page-stealing daemon. (More memory may be needed if this is a large value.)</P>
+
+<TR>
+
+<TD>
+
+<P>pgscan/s</P>
+
+<TD>
+
+<P>Number of pages scanned by the page-stealing daemon. (More memory may be needed if this is a large value, because it shows that the daemon is checking for free memory more than it should need to.)</P>
+
+<TR>
+
+<TD>
+
+<P>%ufs_ipf</P>
+
+<TD>
+
+<P>Percentage of the ufs inodes that were taken off the free list that had reusable pages associated with them. (Large values indicate that ufs inodes should be increased, so that the free list of inodes will not be page bound.) This will be %s5ipf for 
+System V file systems, like in the example.</P>
+
+<TR>
+
+<TD>
+
+<P>freemem</P>
+
+<TD>
+
+<P>The average number of pages, over this interval, of memory available to user processes.</P>
+
+<TR>
+
+<TD>
+
+<P>freeswp</P>
+
+<TD>
+
+<P>The number of disk blocks available for page swapping.</P></TABLE>
+
+<P>You should use the report to examine each of the following conditions. Any one of them would imply that you may have a memory problem. Combinations of them increase the likelihood all the more.
+
+<BR></P>
+
+<P>Check for page-outs, and watch for their consistent occurrence. Look for a high incidence of address translation faults. Check for swap-outs. If they are occasional, it may not be a cause for concern as some number of them is normal (for example, 
+inactive jobs). However, consistent swap-outs are usually bad news, indicating that the system is very low on memory and is probably sacrificing active jobs. If you find memory shortage evidence in any of these, you can use ps to look for memory-intensive 
+
+jobs, as you saw in the section on ps.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Multiprocessor Implications of </B><B><I>vmstat</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the CPU columns of the report, the vmstat command summarizes the performance of multiprocessor systems. If you have a two-processor system and the CPU load is reflected as 50 percent, it doesn't necessarily mean that both processors are equally busy. 
+
+Rather, depending on the multiprocessor implementation it can indicate that one processor is almost completely busy and the next is almost idle.
+
+<BR></P>
+
+<P>The first column of vmstat output also has implications for multiprocessor systems. If the number of runnable processes is not consistently greater than the number of processors, it is less likely that you can get significant performance increases from 
+
+adding more CPUs to your system.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Monitoring Disk Subsystem Performance</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Disk operations are the slowest of all operations that must be completed to enable most programs to complete. Furthermore, as more and more UNIX systems are being used for commercial applications, and particularly those that utilize relational database 
+
+systems, the subject of disk performance has become increasingly significant with regard to overall system performance. Therefore, probably more than ever before, UNIX system tuning activities often turn out to be searches for unnecessary and inefficient 
+disk I/O. Before you learn about the commands that can help you monitor your disk I/O performance, some background is appropriate.
+
+<BR></P>
+
+<P>Some of the major disk performance variables are the hard disk activities themselves (that is, rotation and arm movement), the I/O controller card, the I/O firmware and software, and the I/O backplane of the system.
+
+<BR></P>
+
+<P>For example, for a given disk operation to be completed successfully, the disk controller must be directed to access the information from the proper part of the disk. This results in a delay known as a queuing delay. When it has located the proper part 
+
+of the disk, the disk arm must begin to position itself over the correct cylinder. This results in a delay called seek latency. The read/write head must then wait for the relevant data to happen as the disk rotates underneath it. This is known as 
+rotational latency. The data must then be transferred to the controller. Finally, the data must be transferred over the I/O backplane of the system to be used by the application that requested the information.
+
+<BR></P>
+
+<P>If you think about your use of a compact disk, many of the operations are similar in nature. The CD platter contains information, and is spinning all the time. When you push 5 to request the fifth track of the CD, a controller positions the head that 
+reads the information at the correct area of the disk (similar to the queuing delay and seek latency of disk drives). The rotational latency occurs as the CD spins around until the start of your music passes under the reading head. The data&#151;in this 
+case your favorite song&#151;is then transferred to a controller and then to some digital to analog converters that transform it into amplified musical information that is playable by your stereo.
+
+<BR></P>
+
+<P>Seek time is the time required to move the head of the disk from one location of data, or track, to another. Moving from one track to another track that is adjacent to it takes very little time and is called minimum seek time. Moving the head between 
+the two furthest tracks on a disk is measured as the maximum seek time. The average seek time approximates the average amount of time a seek takes.
+
+<BR></P>
+
+<P>As data access becomes more random in nature, seek time can become more important. In most commercial database applications that feature relational databases, for example, the data is often being accessed in a random manner, at a high rate, and in 
+relatively small packets (for example, 512 bytes). Therefore, the disk heads are moving back and forth all the time looking for the pertinent data. Therefore, choosing disks that have small seek times for those systems can increase I/O performance.
+
+<BR></P>
+
+<P>Many drives have roughly the same rotational speed, measured as revolutions per minute, or RPMs. However, some manufacturers are stepping up the RPM rates of their drives. This can have a positive influence on performance by reducing the rotational 
+delay, which is the time that the disk head has to wait for the information to get to it (that is, on average one-half of a rotation). It also reduces the amount of time required to transfer the read/write information.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Disk I/O Performance Optimization</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>While reviewing the use of the commands to monitor disk performance, you will see how these clearly show which disks and disk subsystems are being the most heavily used. However, before examining those commands, there are some basic hardware-oriented 
+approaches to this problem that can help increase performance significantly. The main idea is to put the hardware where the biggest disk problem is, and to evenly spread the disk work load over available I/O controllers and disk drives.
+
+<BR></P>
+
+<P>If your I/O work load is heavy (for example, with many users constantly accessing large volumes of data from the same set of files), you can probably get significant performance increases by reducing the number of disk drives that are daisy chained off 
+
+one I/O controller from five or six to two or three. Perhaps doing this will force another daisy chain to increase in size past a total of four or five, but if the disks on that I/O controller are only used intermittently, system performance will be 
+increased overall.
+
+<BR></P>
+
+<P>Another example of this type of technique is if you had one group of users that are pounding one set of files all day long, you could locate the most frequently used data on the fastest disks.
+
+<BR></P>
+
+<P>Notice that, once again, the more thorough your knowledge of the characteristics of the work being done on your system, the greater the chance that your disk architecture will answer those needs.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Remember, distributing a work load evenly across all disks and controllers is not the same thing as distributing the disks evenly across all controllers, or the files evenly across all disks. You must 
+
+know which applications make the heaviest I/O demands, and understand the work load itself, to distribute it effectively.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>As you build file systems for user groups, remember to factor in the I/O work load. Make sure your high-disk I/O groups are put on their own physical disks and preferably their own I/O controllers as 
+well. If possible, keep them, and /usr, off the root disk as well.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Disk-striping software frequently can help in cases where the majority of disk access goes to a handful of disks. Where a large amount of data is making heavy demands on one disk or one controller, striping distributes the data across multiple disks 
+and/or controllers. When the data is striped across multiple disks, the accesses to it are averaged over all the I/O controllers and disks, thus optimizing overall disk throughput. Some disk-striping software also provides Redundant Array of Inexpensive 
+Disks (RAID) support and the ability to keep one disk in reserve as a hot standby (that is, a disk that can be automatically rebuilt and used when one of the production disks fails). When thought of in this manner, this can be a very useful feature in 
+terms of performance because a system that has been crippled by the failure of a hard drive will be viewed by your user community as having pretty bad performance.
+
+<BR></P>
+
+<P>This information may seem obvious, but it is important to the overall performance of a system. Frequently, the answer to disk performance simply rests on matching the disk architecture to the use of the system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Relational Databases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>With the increasing use of relational database technologies on UNIX systems, I/O subsystem performance is more important than ever. While analyzing all the relational database systems and making recommendations is beyond the scope of this chapter, some 
+
+basic concepts are in order.
+
+<BR></P>
+
+<P>More and more often these days an application based on a relational database product is the fundamental reason for the procurement of the UNIX system itself. If that is the case in your installation, and if you have relatively little experience in terms 
+
+of database analysis, you should seek professional assistance. In particular, insist on a database analyst that has had experience tuning your database system on your operating system. Operating systems and relational databases are both complex systems, 
+and the performance interactions between them is difficult for the inexperienced to understand.
+
+<BR></P>
+
+<P>The database expert will spend a great deal of time looking at the effectiveness of your allocation of indexes. Large improvements in performance due to the addition or adjustment of a few indexes are quite common.
+
+<BR></P>
+
+<P>You should use raw disks versus the file systems for greatest performance. File systems incur more overhead (for example, inode and update block overhead on writes) than do raw devices. Most relational databases clearly reflect this performance 
+advantage in their documentation.
+
+<BR></P>
+
+<P>If the database system is extremely active, or if the activity is unbalanced, you should try to distribute the load more evenly across all the I/O controllers and disks that you can. You will see how to determine this in the following section.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Checking Disk Performance with </B><B><I>iostat</I></B><B> and </B><B><I>sar</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B> The </B><B><I>iostat</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The iostat command is used to examine disk input and output, and produces throughput, utilization, queue length, transaction rate, and service time data. It is similar both in format and in use to vmstat. The format of the command is:
+
+<BR></P>
+
+<PRE>iostat  <I>t</I> [<I>n</I>]</PRE>
+
+<P>This command takes <I>n</I> samples, at <I>t</I> second intervals. For example, the following frequently used version of the command takes samples at 5-second intervals without stopping, until canceled:
+
+<BR></P>
+
+<PRE>iostat 5</PRE>
+
+<P>For example, the following shows disk statistics sampled at 5-second intervals.
+
+<BR></P>
+
+<PRE>      tty          sd0          sd30          sd53          sd55          cpu
+
+ tin tout Kps tps serv  Kps tps serv  Kps tps serv  Kps tps serv  us sy wt id
+
+   0   26   8   1   57   36   4   20   77  34   24   31  12   30  14  9 47 30
+
+   0   51   0   0    0    0   0    0  108  54   36    0   0    0  14  7 78  0
+
+   0   47  72  10  258    0   0    0  102  51   38    0   0    0  15  9 76  0
+
+   0   58   5   1    9    1   1   23  112  54   33    0   0    0  14  8 77  1
+
+   0   38   0   0    0   25   0   90  139  70   17    9   4   25  14  8 73  6
+
+   0   43   0   0    0  227  10   23  127  62   32   45  21   20  20 15 65  0</PRE>
+
+<P>The first line of the report shows the statistics since the last reboot. The subsequent lines show the interval data that is gathered. The default format of the command shows statistics for terminals (tty), for disks (fd and sd), and CPU.
+
+<BR></P>
+
+<P>For each terminal, iostat shows the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>tin</P>
+
+<TD>
+
+<P>Characters in the terminal input queue</P>
+
+<TR>
+
+<TD>
+
+<P>tout</P>
+
+<TD>
+
+<P>Characters in the terminal output queue</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>For each disk, iostat shows the following:</P>
+
+<TR>
+
+<TD>
+
+<P>bps</P>
+
+<TD>
+
+<P>Blocks per second</P>
+
+<TR>
+
+<TD>
+
+<P>tps</P>
+
+<TD>
+
+<P>Transfers per second</P>
+
+<TR>
+
+<TD>
+
+<P>serv</P>
+
+<TD>
+
+<P>Average service time, in milliseconds</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>For the CPU, iostat displays the CPU time spent in the following modes:</P>
+
+<TR>
+
+<TD>
+
+<P>us</P>
+
+<TD>
+
+<P>User mode</P>
+
+<TR>
+
+<TD>
+
+<P>sy</P>
+
+<TD>
+
+<P>System mode</P>
+
+<TR>
+
+<TD>
+
+<P>wt</P>
+
+<TD>
+
+<P>Waiting for I/O</P>
+
+<TR>
+
+<TD>
+
+<P>id</P>
+
+<TD>
+
+<P>Idle mode</P></TABLE>
+
+<P>The first two fields, tin and tout, have no relevance to disk subsystem performance, as these fields describe the number of characters waiting in the input and output terminal buffers. The next fields are relevant to disk subsystem performance over the 
+
+preceding interval. The bps field indicates the size of the data transferred (read or written) to the drive. The tps field describes the transfers (that is, I/O requests) per second that were issued to the physical disk. Note that one transfer can combine 
+
+multiple logical requests. The serv field is for the length of time, in milliseconds, that the I/O subsystem required to service the transfer. In the last set of fields, note that I/O waiting is displayed under the wt heading.
+
+<BR></P>
+
+<P>You can look at the data within the report for information about system performance. As with vmstat, the first line of data is usually irrelevant to your immediate investigation. Looking at the first disk, sd0, you see that it is not being utilized as 
+the other three disks are. Disk 0 is the root disk, and often will show the greatest activity. This system is a commercial relational database implementation, however, and the activity that is shown here is often typical of online transaction processing, 
+or OLTP, requirements. Notice that the activity is mainly on disks sd53 and sd55. The database is being exercised by a high volume of transactions that are updating it (in this case over 100 updates per second).
+
+<BR></P>
+
+<P>Disks 30, 53, and 55 are three database disks that are being pounded with updates from the application through the relational database system. Notice that the transfers per second, the kilobytes per second, and the service times are all reflecting a 
+heavier load on disk 53 than on disks 30 and 55. Notice that disk 30's use is more intermittent but can be quite heavy at times, while 53's is more consistent. Ideally, over longer sample periods, the three disks should have roughly equivalent utilization 
+
+rates. If they continue to show disparities in use like these, you may be able to get a performance increase by determining why the load is unbalanced and taking corrective action.
+
+<BR></P>
+
+<P>You can use iostat -xtc to show the measurements across all of the drives in the system.
+
+<BR></P>
+
+<PRE>% iostat -xtc 10 5 _
+
+                                 extended disk statistics       tty         cpu
+
+disk      r/s  w/s   Kr/s   Kw/s wait actv  svc_t  %w  %b  tin tout us sy wt id
+
+sd0       0.0  0.9    0.1    6.3  0.0  0.0   64.4   0   1    0   26 12 11 21 56
+
+sd30      0.2  1.4    0.4   20.4  0.0  0.0   21.5   0   3 _
+
+sd53      2.6  2.3    5.5    4.6  0.0  0.1   23.6   0   9 _
+
+sd55      2.7  2.4    5.6    4.7  0.0  0.1   24.2   0  10 _
+
+...
+
+                                 extended disk statistics       tty         cpu
+
+disk      r/s  w/s   Kr/s   Kw/s wait actv  svc_t  %w  %b  tin tout us sy wt id
+
+sd0       0.0  0.3    0.0    3.1  0.0  0.0   20.4   0   1    0 3557  5  8 14 72
+
+sd30      0.0  0.2    0.1    0.9  0.0  0.0   32.2   0   0 _
+
+sd53      0.1  0.2    0.4    0.5  0.0  0.0   14.6   0   0 _
+
+sd55      0.1  0.2    0.3    0.4  0.0  0.0   14.7   0   0 _</PRE>
+
+<P>This example shows five samples of all disks at 10-second intervals.
+
+<BR></P>
+
+<P>Each line shows the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>r/s</P>
+
+<TD>
+
+<P>Reads per second</P>
+
+<TR>
+
+<TD>
+
+<P>w/s</P>
+
+<TD>
+
+<P>Writes per second</P>
+
+<TR>
+
+<TD>
+
+<P>Kr/s</P>
+
+<TD>
+
+<P>KB read per second</P>
+
+<TR>
+
+<TD>
+
+<P>Kw/s</P>
+
+<TD>
+
+<P>KB written per second</P>
+
+<TR>
+
+<TD>
+
+<P>wait</P>
+
+<TD>
+
+<P>Average transactions waiting for service (that is, queue length)</P>
+
+<TR>
+
+<TD>
+
+<P>actv</P>
+
+<TD>
+
+<P>Average active transactions being serviced</P>
+
+<TR>
+
+<TD>
+
+<P>svc_t</P>
+
+<TD>
+
+<P>Average time, in milliseconds, of service</P>
+
+<TR>
+
+<TD>
+
+<P>%w</P>
+
+<TD>
+
+<P>Percentage of time that the queue isn't empty</P>
+
+<TR>
+
+<TD>
+
+<P>%b</P>
+
+<TD>
+
+<P>Percentage of time that the disk is busy</P></TABLE>
+
+<P>Once again, you can check to make sure that all disks are sharing the load equally, or if this is not the case, that the most active disk is also the fastest.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>The </B><B><I>sar -d</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The sar -d option reports on the disk I/O activity of a system, as well.
+
+<BR></P>
+
+<PRE>% sar d 5 5
+
+20:44:26   device        %busy   avque   r+w/s  blks/s  avwait  avserv
+
+...
+
+20:44:46   sd0               1     0.0       1       5     0.0    20.1
+
+           sd1               0     0.0       0       0     0.0     0.0
+
+           sd15              0     0.0       0       0     0.0     0.0
+
+           sd16              1     0.0       0       1     0.0    27.1
+
+           sd17              1     0.0       0       1     0.0    26.8
+
+           sd3               0     0.0       0       0     0.0     0.0
+
+Average    sd0               1     0.0       0       3     0.0    20.0
+
+           sd1               0     0.0       0       2     0.0    32.6
+
+           sd15              0     0.0       0       1     0.0    13.6
+
+           sd16              0     0.0       0       0     0.0    27.6
+
+           sd17              0     0.0       0       0     0.0    26.1
+
+           sd3               2     0.1       1      14     0.0   102.6</PRE>
+
+<P>Information about each disk is shown as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>device</P>
+
+<TD>
+
+<P>Names the disk device that is measured</P>
+
+<TR>
+
+<TD>
+
+<P>%busy</P>
+
+<TD>
+
+<P>Percentage of time that the device is busy servicing transfers</P>
+
+<TR>
+
+<TD>
+
+<P>avque</P>
+
+<TD>
+
+<P>Average number of requests outstanding during the period</P>
+
+<TR>
+
+<TD>
+
+<P>r+w/s</P>
+
+<TD>
+
+<P>Read/write transfers to the device per second</P>
+
+<TR>
+
+<TD>
+
+<P>blks/s</P>
+
+<TD>
+
+<P>Number of blocks transferred to the device per second</P>
+
+<TR>
+
+<TD>
+
+<P>avwait</P>
+
+<TD>
+
+<P>Average number of milliseconds that a transfer request spends waiting in the queue for service</P>
+
+<TR>
+
+<TD>
+
+<P>avserv</P>
+
+<TD>
+
+<P>Average number of milliseconds for a transfer to be completed, including seek, rotational delay, and data transfer time.</P></TABLE>
+
+<P>You can see from the example that this system is lightly loaded, since %busy is a small number and the queue lengths and wait times are small as well. The average service times for most of the disks is consistent; however, notice that SCSI disk 3, sd3, 
+
+has a larger service time than the other disks. Perhaps the arrangement of data on the disk is not organized properly (a condition known as fragmentation) or perhaps the organization is fine but the disproportionate access of sd3 (see the blks/s column) is 
+
+bogging it down in comparison to the other drives.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You should double-check vmstat before you draw any conclusions based on these reports. If your system is paging or swapping with any consistency, you have a memory problem, and you need to address that 
+
+first because it is surely aggravating your I/O performance.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>As this chapter has shown, you should distribute the disk load over I/O controllers and drives, and you should use your fastest drive to support your most frequently accessed data. You should also try to increase the size of your buffer cache if your 
+system has sufficient memory. You can eliminate fragmentation by rebuilding your file systems. Also, make sure that the file system that you are using is the fastest type supported with your UNIX system (for example, UFS) and that the block size is the 
+appropriate size.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Monitoring File System Use with </B><B><I>df</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the biggest and most frequent problems that systems have is running out of disk space, particularly in /tmp or /usr. There is no magic answer to the question How much space should be allocated to these? but a good rule of thumb is between 1500KB 
+
+and 3000KB for /tmp and roughly twice that for /usr. Other file systems should have about 5 or 10 percent of the system's available capacity.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>The </B><B><I>df</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The df command shows the free disk space on each disk that is mounted. The -k option displays the information about each file system in columns, with the allocations in KB.
+
+<BR></P>
+
+<PRE>% df -k
+
+Filesystem            kbytes    used   avail capacity  Mounted on
+
+/dev/dsk/c0t0d0s0      38111   21173   13128    62%    /                  _
+
+/dev/dsk/c0t0d0s6     246167  171869   49688    78%    /usr               _
+
+/proc                      0       0       0     0%    /proc              _
+
+fd                         0       0       0     0%    /dev/fd            _
+
+swap                  860848     632  860216     0%    /tmp               _
+
+/dev/dsk/c0t0d0s7     188247   90189   79238    53%    /home              _
+
+/dev/dsk/c0t0d0s5     492351  179384  263737    40%    /opt               _
+
+gs:/home/prog/met      77863   47127   22956    67%    /home/met</PRE>
+
+<P>From this display you can see the following information (all entries are in KB):
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>kbytes</P>
+
+<TD>
+
+<P>Total size of usable space in file system (size is adjusted by allotted head room)</P>
+
+<TR>
+
+<TD>
+
+<P>used</P>
+
+<TD>
+
+<P>Space used</P>
+
+<TR>
+
+<TD>
+
+<P>avail</P>
+
+<TD>
+
+<P>Space available for use</P>
+
+<TR>
+
+<TD>
+
+<P>capacity</P>
+
+<TD>
+
+<P>Percentage of total capacity used</P>
+
+<TR>
+
+<TD>
+
+<P>mounted on</P>
+
+<TD>
+
+<P>mount point</P></TABLE>
+
+<P>The usable space has been adjusted to take into account a 10 percent reserve head room adjustment, and thus reflects only 90 percent of the actual capacity. The percentage shown under capacity is therefore used space divided by the adjusted usable 
+space.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>For best performance, file systems should be cleansed to protect the 10 percent head room allocation. Remove excess files with rm, or archive/move files that are older and no longer used to tapes with 
+tar or cpio, or to less-frequently-used disks.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>Monitoring Network Performance</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>&quot;The network is the computer&quot; is an appropriate saying these days. What used to be simple ASCII terminals connected over serial ports have been replaced by networks of workstations, Xterminals, and PCs, connected, for example, over 10 BASE-T 
+EtherNet networks. Networks are impressive information transmission media when they work properly. However, troubleshooting is not always as straightforward as it should be. In other words, he who lives by the network can die by the network without the 
+proper procedures.
+
+<BR></P>
+
+<P>The two most prevalent standards that you will have to contend with in the UNIX world are TCP/IP, (a communications protocol) and NFS, (a popular network file system). Each can be a source of problems. In addition, you need to keep an eye on the 
+implementation of the network, which can also can be a problem area. Each network topology has different capacities, and each implementation (for example, using thin-net instead of 10 BASE-T twisted pair, or using intelligent hubs, and so on) has 
+advantages and problems inherent in its design. The good news is that even a simple EtherNet network has a large amount of bandwidth for transporting data. The bad news is that with every day that passes users and programmers are coming up with new methods 
+
+of using up as much of that bandwidth as possible.
+
+<BR></P>
+
+<P>Most networks are still based on EtherNet technologies. Ethernet is referred to as a 10 Mps medium, but the throughput that can be used effectively by users and applications is usually significantly less than 10 MB. Often, for various reasons, the 
+effective capacity falls to 4 Mps. That may still seem like a lot of capacity, but as the network grows it can disappear fast. When the capacity is used up, EtherNet is very democratic. If it has a capacity problem, all users suffer equally. Furthermore, 
+one person can bring an EtherNet network to its knees with relative ease. Accessing and transferring large files across the network, running programs that test transfer rates between two machines, or running a program that has a loop in it that happens to 
+
+be dumping data to another machine, and so on, can affect all the users on the network. Like other resources (that is, CPU, disk capacity, and so on), the network is a finite resource.
+
+<BR></P>
+
+<P>If given the proper instruction, users can quite easily detect capacity problems on the network by which they are supported. A quick comparison of a simple command executed on the local machine versus the same command executed on a remote machine (for 
+example, login and rlogin) can indicate that the network has a problem.
+
+<BR></P>
+
+<P>A little education can help your users and your network at the same time. NFS is a powerful tool, in both the good and the bad sense. Users should be taught that it will be slower to access the file over the network using NFS, particularly if the file 
+is sizable, than it will be to read or write the data directly on the remote machine by using a remote login. However, if the files are of reasonable size, and the use is reasonable (editing, browsing, moving files back and forth), it is a fine tool to 
+use. Users should understand when they are using NFS appropriately or not.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Monitoring Network Performance with </B><B><I>netstat -i</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the most straightforward checks you can make of the network's operation is with netstat -i. This command can give you some insight into the integrity of the network. All the workstations and the computers on a given network share it. When more 
+than one of these entities try to use the network at the same time, the data from one machine &quot;collides&quot; with that of the other. (Despite the sound of the term, in moderation this is actually a normal occurrence, but too many collisions can be a 
+
+problem.) In addition, various technical problems can cause errors in the transmission and reception of the data. As the errors and the collisions increase in frequency, the performance of the network degrades because the sender of the data retransmits the 
+
+garbled data, thus further increasing the activity on the network.
+
+<BR></P>
+
+<P>Using netstat -i you can find out how many packets the computer has sent and received, and you can examine the levels of errors and collisions that it has detected on the network. Here is an example of the use of netstat:
+
+<BR></P>
+
+<PRE>% netstat i
+
+Name  Mtu  Net/Dest   Address     Ipkts   Ierrs  Opkts  Oerrs Collis Queue _
+
+lo0   8232 loopback   localhost    1031780 0     1031780  0     0      0    
+
+le0   1500 100.0.0.0  SCAT        13091430 6     12221526 4     174250 0    </PRE>
+
+<P>The fields in the report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>Name</P>
+
+<TD>
+
+<P>The name of the network interface. The names show what the type of interface is (for example, an en followed by a digit indicates an EtherNet card, the lo0 shown here is a loopback interface used for testing networks).</P>
+
+<TR>
+
+<TD>
+
+<P>Mtu</P>
+
+<TD>
+
+<P>The maximum transfer unit, also known as the packet size, of the interface.</P>
+
+<TR>
+
+<TD>
+
+<P>Net/Dest</P>
+
+<TD>
+
+<P>The network to which the interface is connected.</P>
+
+<TR>
+
+<TD>
+
+<P>Address</P>
+
+<TD>
+
+<P>The Internet address of the interface. (The Internet address for this name may be referenced in /etc/hosts.)</P>
+
+<TR>
+
+<TD>
+
+<P>Ipkts</P>
+
+<TD>
+
+<P>The number of packets the system has received since the last boot.</P>
+
+<TR>
+
+<TD>
+
+<P>Ierrs</P>
+
+<TD>
+
+<P>The number of input errors that have occurred since the last boot. This should be a very low number relative to the Ipkts field (that is, less than 0.25 percent, or there is probably a significant network problem).</P>
+
+<TR>
+
+<TD>
+
+<P>Opkts</P>
+
+<TD>
+
+<P>Same as Ipkts, but for sent packets.</P>
+
+<TR>
+
+<TD>
+
+<P>Oerrs</P>
+
+<TD>
+
+<P>Same as Ierrs, but for output errors.</P>
+
+<TR>
+
+<TD>
+
+<P>Collis</P>
+
+<TD>
+
+<P>The number of collisions that have been detected. This number should not be more than 5 or 10 percent of the output packets (Opkts) number or the network is having too many collisions and capacity is reduced.</P></TABLE>
+
+<P>In this example you see that the collision ratio shows a network without too many collisions (approximately 1 percent). If collisions are constantly averaging 10 percent or more, the network is probably being over utilized.
+
+<BR></P>
+
+<P>The example also shows that input and output error ratios are negligible. Input errors usually mean that the network is feeding the system bad input packets, and the internal calculations that verify the integrity of the data (called checksums) are 
+failing. In other words, this normally indicates that the problem is somewhere out on the network, not on your machine. Conversely, rapidly increasing output errors probably indicates a local problem with your computer's network adapters, connectors, 
+interface, and so on.
+
+<BR></P>
+
+<P>If you suspect network problems you should repeat this command several times. An active machine should show Ipkts and Opkts consistently incrementing. If Ipkts changes and Opkts doesn't, the host is not responding to the client requesting data. You 
+should check the addressing in the hosts database. If Ipkts doesn't change, the machine is not receiving the network data at all.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Monitoring Network Performance Using </B><B><I>spray</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>It is quite possible that you will not detect collisions and errors when you use netstat -i, and yet will still have slow access across the network. Perhaps the other machine that you are trying to use is bogged down and cannot respond quickly enough. 
+Use spray to send a burst of packets to the other machine and record how many of them actually made the trip successfully. The results will tell you if the other machine is failing to keep up. Here is an example of a frequently used test:
+
+<BR></P>
+
+<PRE>% spray SCAT
+
+sending 1162 packets of length 86 to SCAT ...
+
+        no packets dropped by SCAT
+
+        3321 packets/sec, 285623 bytes/sec</PRE>
+
+<P>This shows a test burst sent from the source machine to the destination machine called SCAT. No packets were dropped. If SCAT were badly overloaded some probably would have been dropped. The example defaulted to sending 1162 packets of 86 bytes each. 
+Another example of the same command uses the -c option to specify the number of packets to send, the -d option to specify the delay so that you don't overrun your buffers, and the -l option to specify the length of the packet. This example of the command 
+is a more realistic test of the network:
+
+<BR></P>
+
+<PRE>% spray c 100 d 20 0 l 2048 SCAT
+
+sending 100 packets of length 2048 to SCAT ...
+
+        no packets dropped by SCAT
+
+        572 packets/sec, 1172308 bytes/sec</PRE>
+
+<P>Had you seen significant numbers (for example, 5 to 10 percent or more) of packets dropped in these displays, you would next try looking at the remote system. For example, using commands such as uptime, vmstat, sar, and ps as described earlier in this 
+section, you would check on the status of the remote machine. Does it have memory or CPU problems, or is there some other problem that is degrading its performance so it can't keep up with its network traffic?
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Monitoring Network Performance with </B><B><I>nfsstat -c</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Systems running NFS can skip spray and instead use nfsstat -c. The -c option specifies the client statistics, and -s can be used for server statistics. As the name implies, client statistics summarize this system's use of another machine as a server. 
+The NFS service uses synchronous procedures called RPCs (remote procedure calls). This means that the client waits for the server to complete the file activity before it proceeds. If the server fails to respond, the client retransmits the request. Just as 
+
+with collisions, the worse the condition of the communication, the more traffic that is generated. The more traffic that is generated, the slower the network and the greater the possibility of collisions. So if the retransmission rate is large, you should 
+
+look for servers that are under heavy loads, high collision rates that are delaying the packets en route, or EtherNet interfaces that are dropping packets.
+
+<BR></P>
+
+<PRE>% nfsstat c
+
+Client rpc:
+
+calls    badcalls retrans  badxid   timeout  wait     newcred  timers
+
+74107    0        72       0        72       0        0        82       _
+
+Client nfs:
+
+calls      badcalls   nclget     nclcreate
+
+73690      0          73690      0          _
+
+null       getattr    setattr    root       lookup     readlink   read       _
+
+0  0%      4881  7%   1  0%      0  0%      130  0%    0  0%      465  1%    _
+
+wrcache    write      create     remove     rename     link       symlink    _
+
+0  0%      68161 92%  16  0%     1  0%      0  0%      0  0%      0  0%      _
+
+mkdir      rmdir      readdir    statfs     _
+
+0  0%      0  0%      32  0%     3  0%      _</PRE>
+
+<P>The report shows the following fields:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>calls</P>
+
+<TD>
+
+<P>The number of calls sent</P>
+
+<TR>
+
+<TD>
+
+<P>badcalls</P>
+
+<TD>
+
+<P>The number of calls rejected by the RPC</P>
+
+<TR>
+
+<TD>
+
+<P>retrans</P>
+
+<TD>
+
+<P>The number of retransmissions</P>
+
+<TR>
+
+<TD>
+
+<P>badxid</P>
+
+<TD>
+
+<P>The number of duplicated acknowledgments received</P>
+
+<TR>
+
+<TD>
+
+<P>timeout</P>
+
+<TD>
+
+<P>The number of time-outs</P>
+
+<TR>
+
+<TD>
+
+<P>wait</P>
+
+<TD>
+
+<P>The number of times no available client handles caused waiting</P>
+
+<TR>
+
+<TD>
+
+<P>newcred</P>
+
+<TD>
+
+<P>The number of refreshed authentications</P>
+
+<TR>
+
+<TD>
+
+<P>timers</P>
+
+<TD>
+
+<P>The number of times the time-out value is reached or exceeded</P>
+
+<TR>
+
+<TD>
+
+<P>readlink</P>
+
+<TD>
+
+<P>The number of reads made to a symbolic link</P></TABLE>
+
+<P>If the timeout ratio is high, the problem can be unresponsive NFS servers or slow networks that are impeding the timely delivery and response of the packets. In the example, there are relatively few time-outs compared to the number of calls (72/74107 or 
+
+about 1/10 of 1 percent) that do retransmissions. As the percentage grows toward 5 percent, system administrators begin to take a closer look at it. If badxid is roughly the same as retrans, the problem is probably an NFS server that is falling behind in 
+servicing NFS requests, since duplicate acknowledgments are being received for NFS requests in roughly the same amounts as the retransmissions that are required. (The same thing is true if badxid is roughly the same as timeout.) However, if badxid is a 
+much smaller number than retrans and timeout, then it follows that the network is more likely to be the problem.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>nfsstat enables you to reset the applicable counters to 0 by using the -z option (executed as root). This can be particularly handy when trying to determine if something has caused a problem in the 
+immediate time frame, rather than looking at the numbers collected since the last reboot.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Monitoring Network Performance with </B><B><I>netstat</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One way to check for network loading is to use netstat without any parameters:
+
+<BR></P>
+
+<PRE>% netstat
+
+TCP
+
+   Local Address        Remote Address    Swind SendQ Rwind RecvQ  State
+
+      _
+
+AAA1.1023            bbb2.login            8760      0  8760      0 ESTABLISHED
+
+AAA1.listen          Cccc.32980            8760      0  8760      0 ESTABLISHED
+
+AAA1.login           Dddd.1019             8760      0  8760      0 ESTABLISHED
+
+AAA1.32782           AAA1.32774           16384      0 16384      0 ESTABLISHED
+
+...</PRE>
+
+<P>In the report, the important field is the Send-Q field, which indicates the depth of the send queue for packets. If the numbers in Send-Q are large and increasing in size across several of the connections, the network is probably bogged down.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>Looking for Network Data Corruption with </B><B><I>netstat -s</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The netstat -s command displays statistics for each of several protocols supported on the system (that is, UDP, IP, TCP, and ICMP). The information can be used to locate problems for the protocol. Here is an example:
+
+<BR></P>
+
+<PRE>% netstat s
+
+UDP
+
+     udpInDatagrams      =2152316  udpInErrors         =     0
+
+     udpOutDatagrams     =2151810
+
+TCP  tcpRtoAlgorithm     =     4   tcpRtoMin           =   200
+
+     tcpRtoMax           = 60000   tcpMaxConn          =    1
+
+     tcpActiveOpens      =1924360  tcpPassiveOpens     =    81
+
+     tcpAttemptFails     =584963   tcpEstabResets      =1339431
+
+     tcpCurrEstab        =    25   tcpOutSegs          =7814776
+
+     tcpOutDataSegs      =1176484  tcpOutDataBytes     =501907781
+
+     tcpRetransSegs      =1925164  tcpRetransBytes     =444395
+
+     tcpOutAck           =6767853  tcpOutAckDelayed    =1121866
+
+     tcpOutUrg           =   363   tcpOutWinUpdate     =129604
+
+     tcpOutWinProbe      =    25   tcpOutControl       =3263985
+
+     tcpOutRsts          =    47   tcpOutFastRetrans   =    23
+
+     tcpInSegs           =11769363
+
+     tcpInAckSegs        =2419522  tcpInAckBytes       =503241539
+
+     tcpInDupAck         =3589621  tcpInAckUnsent      =     0
+
+     tcpInInorderSegs    =4871078  tcpInInorderBytes   =477578953
+
+     tcpInUnorderSegs    =910597   tcpInUnorderBytes   =826772340
+
+     tcpInDupSegs        = 60545   tcpInDupBytes       =46037645
+
+     tcpInPartDupSegs    = 44879   tcpInPartDupBytes   =10057185
+
+     tcpInPastWinSegs    =     0   tcpInPastWinBytes   =     0
+
+     tcpInWinProbe       =704105   tcpInWinUpdate      =4470040
+
+     tcpInClosed         =    11   tcpRttNoUpdate      =   907
+
+     tcpRttUpdate        =1079220  tcpTimRetrans       =  1974
+
+     tcpTimRetransDrop   =     2   tcpTimKeepalive     =   577
+
+     tcpTimKeepaliveProbe=   343   tcpTimKeepaliveDrop =     2
+
+IP   ipForwarding        =     2   ipDefaultTTL        =   255
+
+     ipInReceives        =12954953 ipInHdrErrors       =     0
+
+     ipInAddrErrors      =     0   ipInCksumErrs       =     0
+
+     ipForwDatagrams     =     0   ipForwProhibits     =     0
+
+     ipInUnknownProtos   =     0   ipInDiscards        =     0
+
+     ipInDelivers        =13921597 ipOutRequests       =12199190
+
+     ipOutDiscards       =     0   ipOutNoRoutes       =     0
+
+     ipReasmTimeout      =    60   ipReasmReqds        =     0
+
+     ipReasmOKs          =     0   ipReasmFails        =     0
+
+     ipReasmDuplicates   =     0   ipReasmPartDups     =     0
+
+     ipFragOKs           =  3267   ipFragFails         =     0
+
+     ipFragCreates       = 19052   ipRoutingDiscards   =     0
+
+     tcpInErrs           =     0   udpNoPorts          = 64760
+
+     udpInCksumErrs      =     0   udpInOverflows      =     0
+
+     rawipInOverflows    =     0
+
+ICMP icmpInMsgs          =   216   icmpInErrors        =     0
+
+     icmpInCksumErrs     =     0   icmpInUnknowns      =     0
+
+     icmpInDestUnreachs  =   216   icmpInTimeExcds     =     0
+
+     icmpInParmProbs     =     0   icmpInSrcQuenchs    =     0
+
+     icmpInRedirects     =     0   icmpInBadRedirects  =     0
+
+     icmpInEchos         =     0   icmpInEchoReps      =     0
+
+     icmpInTimestamps    =     0   icmpInTimestampReps =     0
+
+     icmpInAddrMasks     =     0   icmpInAddrMaskReps  =     0
+
+     icmpInFragNeeded    =     0   icmpOutMsgs         =   230
+
+     icmpOutDrops        =     0   icmpOutErrors       =     0
+
+     icmpOutDestUnreachs =   230   icmpOutTimeExcds    =     0
+
+     icmpOutParmProbs    =     0   icmpOutSrcQuenchs   =     0
+
+     icmpOutRedirects    =     0   icmpOutEchos        =     0
+
+     icmpOutEchoReps     =     0   icmpOutTimestamps   =     0
+
+     icmpOutTimestampReps=     0   icmpOutAddrMasks    =     0
+
+     icmpOutAddrMaskReps =     0   icmpOutFragNeeded   =     0
+
+     icmpInOverflows     =     0
+
+IGMP:
+
+          0 messages received
+
+          0 messages received with too few bytes
+
+          0 messages received with bad checksum
+
+          0 membership queries received
+
+          0 membership queries received with invalid field(s)
+
+          0 membership reports received
+
+          0 membership reports received with invalid field(s)
+
+          0 membership reports received for groups to which we belong
+
+          0 membership reports sent</PRE>
+
+<P>The checksum fields should always show extremely small values, as they are a percentage of total traffic sent along the interface.
+
+<BR></P>
+
+<P>By using netstat -s on the remote system in combination with spray on your own, you can determine whether data corruption (as opposed to network corruption) is impeding the movement of your network data. Alternate between the two displays, observing the 
+
+differences, if any, between the reports. If the two reports agree on the number of dropped packets, the file server is probably not keeping up. If they don't, suspect network integrity problems. Use netstat -i on the remote machine to confirm this.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Corrective Network Actions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you suspect that there are problems with the integrity of the network itself, you must try to determine where the faulty piece of equipment is. Hire network consultants, who will use network diagnostic scopes to locate and correct the problems.
+
+<BR></P>
+
+<P>If the problem is that the network is extremely busy, thus increasing collisions, time-outs, retransmissions, and so on, you may need to redistribute the work load more appropriately. This is a good example of the &quot;divide and conquer&quot; concept 
+
+as it applies to computers. By partitioning and segmenting the network nodes into subnetworks that more clearly reflect the underlying work loads, you can maximize the overall performance of the network. This can be accomplished by installing additional 
+network interfaces in your gateway and adjusting the addressing on the gateway to reflect the new subnetworks. Altering your cabling and implementing some of the more advanced intelligent hubs may be needed as well. By reorganizing your network, you will 
+maximize the amount of bandwidth that is available for access to the local subnetwork. Make sure that systems that regularly perform NFS mounts of each other are on the same subnetwork.
+
+<BR></P>
+
+<P>If you have an older network and are having to rework your network topology, consider replacing the older coax-based networks with the more modern twisted-pair types, which are generally more reliable and flexible.
+
+<BR></P>
+
+<P>Make sure that the work load is on the appropriate machine(s). Use the machine with the best network performance to do its proper share of network file service tasks.
+
+<BR></P>
+
+<P>Check your network for diskless workstations. These require large amounts of network resources to boot up, swap, page, etc. With the cost of local storage descending constantly, it is getting harder to believe that diskless workstations are still 
+cost-effective when compared to regular workstations. Consider upgrading the workstations so that they support their users locally, or at least to minimize their use of the network.
+
+<BR></P>
+
+<P>If your network server has been acquiring more clients, check its memory and its kernel buffer allocations for proper sizing.
+
+<BR></P>
+
+<P>If the problem is that I/O-intensive programs are being run over the network, work with the users to determine what can be done to make that requirement a local, rather than a network, one. Educate your users to make sure they understand when they are 
+using the network appropriately and when they are being wasteful with this valuable resource.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=4><B>Monitoring CPU Performance</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The biggest problem a system administrator faces when examining performance is sorting through all the relevant information to determine which subsystem is really in trouble. Frequently, users complain about the need to upgrade a processor that is 
+assumed to be causing slow execution, when in fact it is the I/O subsystem or memory that is the problem. To make matters even more difficult, all of the subsystems interact with one another, thus complicating the analysis.
+
+<BR></P>
+
+<P>You already looked at the three most handy tools for assessing CPU load in the section &quot;Monitoring the Overall System Status.&quot; As stated in that section, processor idle time can, under certain conditions, imply that I/O or memory subsystems 
+are degrading the system. It can also, under other conditions, imply that a processor upgrade is appropriate. Using the tools that have been reviewed in this chapter, you can by now piece together a competent picture of the overall activities of your 
+system and its subsystems. You should use the tools to make absolutely sure that the I/O and the memory subsystems are indeed optimized properly before you spend the money to upgrade your CPU.
+
+<BR></P>
+
+<P>If you have determined that your CPU has just run out of gas, and you cannot upgrade your system, all is not lost. CPUs are extremely powerful machines that are frequently underutilized for long spans of time in any 24 hour period. If you can rearrange 
+
+the schedule of the work that must be done to use the CPU as efficiently as possible, you can often overcome most problems. This can be done by getting users to run all appropriate jobs at off-hours (off work load hours, that is, not necessarily 9 to 5). 
+You can also get your users to run selected jobs at lower priorities. You can educate some of your less efficient users and programmers. Finally, you can carefully examine the work load and eliminate some jobs, daemons, and so on, that are not needed.
+
+<BR></P>
+
+<P>The following is a brief list of jobs and daemons that deserve review, and possibly elimination, based on the severity of the problem and their use, or lack thereof, on the system. Check each of the following and ask yourself whether you use it or need 
+
+them: accounting services, printer daemons, mountd remote mount daemon, sendmail daemon, talk daemon, remote who daemon, NIS server, and database daemons.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Monitoring Multiprocessor Performance with </B><B><I>mpstat</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of the most recent developments of significance in the UNIX server world is the rapid deployment of symmetric multiprocessor (SMP) servers. Of course, having multiple CPUs can mean that you may desire a more discrete picture of what is actually 
+happening on the system than sar -u can provide.
+
+<BR></P>
+
+<P>You learned about some multiprocessor issues in the examination of vmstat, but there are other tools for examining multiprocessor utilization. The mpstat command reports the per-processor statistics for the machine. Each row of the report shows the 
+activity of one processor.
+
+<BR></P>
+
+<PRE>% mpstat
+
+CPU minf mjf xcal  intr ithr  csw icsw migr smtx  srw syscl  usr sys  wt idl
+
+  0    1   0    0   201   71  164   22   34  147    0   942   10  10  23  57
+
+  1    1   0    0    57   37  171   23   34  144    1   975   10  11  23  56
+
+  2    1   0    0    77   56  158   22   33  146    0   996   11  11  21  56
+
+  3    1   0    0    54   33  169   23   34  156    0  1139   12  11  21  56
+
+  4    1   0    0    21    0  180   23   33  159    0  1336   14  10  20  56
+
+  5    1   0    0    21    0  195   23   31  163    0  1544   17  10  18  55</PRE>
+
+<P>All values are in terms of events per second, unless otherwise noted. You may specify a sample interval, and a number of samples, with the command, just as you would with sar. The fields of the report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>CPU</P>
+
+<TD>
+
+<P>CPU processor ID</P>
+
+<TR>
+
+<TD>
+
+<P>minf</P>
+
+<TD>
+
+<P>Minor faults</P>
+
+<TR>
+
+<TD>
+
+<P>mjf</P>
+
+<TD>
+
+<P>Major faults</P>
+
+<TR>
+
+<TD>
+
+<P>xcal</P>
+
+<TD>
+
+<P>Interprocessor crosscalls</P>
+
+<TR>
+
+<TD>
+
+<P>intr</P>
+
+<TD>
+
+<P>Interrupts</P>
+
+<TR>
+
+<TD>
+
+<P>ithr</P>
+
+<TD>
+
+<P>Interrupts as threads (not counting clock interrupt)</P>
+
+<TR>
+
+<TD>
+
+<P>csw</P>
+
+<TD>
+
+<P>Context switches</P>
+
+<TR>
+
+<TD>
+
+<P>icsw</P>
+
+<TD>
+
+<P>Involuntary context switches</P>
+
+<TR>
+
+<TD>
+
+<P>migr</P>
+
+<TD>
+
+<P>Thread migrations (to another processor)</P>
+
+<TR>
+
+<TD>
+
+<P>smtx</P>
+
+<TD>
+
+<P>Spins on mutexes (lock not acquired on first try)</P>
+
+<TR>
+
+<TD>
+
+<P>srw</P>
+
+<TD>
+
+<P>Spins on reader/writer locks (lock not acquired on first try)</P>
+
+<TR>
+
+<TD>
+
+<P>syscl</P>
+
+<TD>
+
+<P>System calls</P>
+
+<TR>
+
+<TD>
+
+<P>usr</P>
+
+<TD>
+
+<P>Percentage of user time</P>
+
+<TR>
+
+<TD>
+
+<P>sys</P>
+
+<TD>
+
+<P>Percentage of system time</P>
+
+<TR>
+
+<TD>
+
+<P>wt</P>
+
+<TD>
+
+<P>Percentage of wait time</P>
+
+<TR>
+
+<TD>
+
+<P>idl</P>
+
+<TD>
+
+<P>Percentage of idle time</P></TABLE>
+
+<P>Don't be intimidated by the technical nature of the display. It is included here just as an indication that multiprocessor systems can be more complex than uniprocessor systems to examine for their performance. Some multiprocessor systems actually can 
+bias work to be done to a particular CPU. That is not done here, as you can see. The user, system, wait, and idle times are all relatively evenly distributed across all the available CPUs.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=4><B>Kernel Tuning</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Kernel tuning is a complex topic, and the space that can be devoted to it in this section is limited. In order to fit this discussion into the space allowed, the focus is on kernel tuning for SunOS in general, and Solaris 2.x in particular. In addition, 
+
+the section focuses mostly on memory tuning. Your version of UNIX may differ in several respects from the version described here, and you may be involved in other subsystems, but you should get a good idea of the overall concepts and generally how the 
+parameters are tuned.
+
+<BR></P>
+
+<P>The most fundamental component of the UNIX operating system is the kernel. It manages all the major subsystems, including memory, disk I/O, utilization of the CPU, process scheduling, and so on. In short, it is the controlling agent that enables the 
+system to perform work for you.
+
+<BR></P>
+
+<P>As you can imagine from that introduction, the configuration of the kernel can dramatically affect system performance either positively or negatively. There are parameters that you can tune for various kernel modules that you can tune. A couple reasons 
+
+could motivate you to do this. First, by tuning the kernel you can reduce the amount of memory required for the kernel, thus increasing the efficiency of the use of memory, and increasing the throughput of the system. Second, you can increase the capacity 
+
+of the system to accommodate new requirements (users, processing, or both).
+
+<BR></P>
+
+<P>This is a classic case of software compromise. It would be nice to increase the capacity of the system to accommodate all users that would ever be put on the system, but that would have a deleterious effect on performance. Likewise, it would be nice to 
+
+tune the kernel down to its smallest possible size, but that would have negative side-effects as well. As in most software, the optimal solution is somewhere between the extremes.
+
+<BR></P>
+
+<P>Some people think that you only need to change the kernel when the number of people on the system increases. This is not true. You may need to alter the kernel when the nature of your processing changes. If your users are increasing their use of X 
+Windows, or increasing their utilization of file systems, running more memory-intensive jobs, and so on, you may need to adjust some of these parameters to optimize the throughput of the system.
+
+<BR></P>
+
+<P>Two trends are changing the nature of kernel tuning. First, in an effort to make UNIX a commercially viable product in terms of administration and deployment, most manufacturers are trying to minimize the complexity of the kernel configuration process. 
+
+As a result, many of the tables that were once allocated in a fixed manner are now allocated dynamically, or else are linked to the value of a handful of fields. Solaris 2.x takes this approach by calculating many kernel values based on the maxusers field. 
+
+Second, as memory is dropping in price and CPU power is increasing dramatically, the relative importance of precise kernel tuning for most systems is gradually diminishing. However, for high-performance systems, or systems with limited memory, it is still 
+
+a pertinent topic.
+
+<BR></P>
+
+<P>Your instruction in UNIX kernel tuning begins with an overview of the kernel tables that are changed by it, and how to display them. It continues with some examples of kernel parameters that are modified to adjust the kernel to current system demands, 
+and it concludes with a detailed example of paging and swapping parameters under SunOS.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Kernel tuning can actually adversely affect memory subsystem performance. As you adjust the parameters upward, the kernel often expands in size. This can affect memory performance, particularly 
+
+if your system is already beginning to experience a memory shortage problem under normal utilization. As the kernel tables grow, the internal processing related to them may take longer, too, so there may be some minor degradation related to the greater 
+time required for internal operating system activities. Once again, with a healthy system this may be transparent, but with a marginal system the problems may become apparent or more pronounced.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>In general you should be very careful with kernel tuning. People that don't understand what they are doing can cripple their systems. Many UNIX versions come with utility programs that help 
+simplify configuration. It's best to use them. It also helps to read the manual, and to procure the assistance of an experienced system administrator, before you begin.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Finally, always make sure that you have a copy of your working kernel before you begin altering it. Some experienced system administrators actually make backup copies even if the utility 
+automatically makes one. And it is always a good idea to do a complete backup before installing a new kernel. Don't assume that your disk drives are safe because you are &quot;just making a few minor adjustments,&quot; or that the upgrade that you are 
+installing &quot;doesn't seem to change much with respect to the I/O subsystem.&quot; Make sure you can get back to your original system state if things go wrong.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Kernel Tables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When should you consider modifying the kernel tables? You should review your kernel parameters in several cases, such as before you add new users, before you increase your X Window activity significantly, or before you increase your NFS utilization 
+markedly. Also review them before the makeup of the programs that are running is altered in a way that will significantly increase the number of processes that are run or the demands they will make on the system
+
+<BR></P>
+
+<P>Some people believe that you always increase kernel parameters when you add more memory, but this is not necessarily so. If you have a thorough knowledge of your system's parameters and know that they are already adjusted to take into account both 
+current loads and some future growth, then adding more memory, in itself, is not necessarily a reason to increase kernel parameters.
+
+<BR></P>
+
+<P>Some of the tables are described as follows:
+
+<BR></P>
+
+<UL>
+
+<LI><B>Process table</B> The process table sets the number of processes that the system can run at a time. These processes include daemon processes, processes that local users are running, and processes that remote users are running. It also includes 
+forked or spawned processes of users&#151;it may be a little more trouble for you to accurately estimate the number of these. If the system is trying to start system daemon processes and is prevented from doing so because the process table has reached its 
+
+limit, you may experience intermittent problems (possibly without any direct notification of the error).
+
+<BR>
+
+<BR></LI>
+
+<LI><B>User process table</B> The user process table controls the number of processes per user that the system can run.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Inode table</B> The inode table lists entries for such things as the following:
+
+<BR>
+
+<BR>Each open pipe
+
+<BR>
+
+<BR>Each current user directory
+
+<BR>
+
+<BR>Mount points on each file system
+
+<BR>
+
+<BR>Each active I/O device
+
+<BR>
+
+<BR>When the table is full, performance will degrade. The console will have error messages written to it regarding the error when it occurs. This table is also relevant to the open file table, since they are both concerned with the same subsystem.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Open file table</B> This table determines the number of files that can be open on the system at the same time. When the system call is made and the table is full, the program will get an error indication and the console will have an error logged to 
+
+it.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Quota table</B> If your system is configured to support disk quotas, this table contains the number of structures that have been set aside for that use. The quota table will have an entry for each user who has a file system that has quotas turned 
+on. As with the inode table, performance suffers when the table fills up, and errors are written to the console.
+
+<BR>
+
+<BR></LI>
+
+<LI><B>Callout table</B> This table controls the number of timers that can be active concurrently. Timers are critical to many kernel-related and I/O activities. If the callout table overflows, the system is likely to crash.
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Checking System Tables with </B><B><I>sar -v</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The -v option enables you to see the current process table, inode table, open file table, and shared memory record table.
+
+<BR></P>
+
+<P>The fields in the report are as follows:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>proc-sz</P>
+
+<TD>
+
+<P>The number of process table entries in use/the number allocated</P>
+
+<TR>
+
+<TD>
+
+<P>inod-sz</P>
+
+<TD>
+
+<P>The number of inode table entries in use/the number allocated</P>
+
+<TR>
+
+<TD>
+
+<P>file-sz</P>
+
+<TD>
+
+<P>The number of file table entries currently in use/the number 0 designating that space is allocated dynamically for this entry</P>
+
+<TR>
+
+<TD>
+
+<P>lock-sz</P>
+
+<TD>
+
+<P>The number of shared memory record table entries in use/the number 0 designating that space is allocated dynamically for this entry</P>
+
+<TR>
+
+<TD>
+
+<P>ov</P>
+
+<TD>
+
+<P>The overflow field, showing the number of times the field to the immediate left has had to overflow</P></TABLE>
+
+<P>Any non-zero entry in the ov field is an obvious indication that you need to adjust your kernel parameters relevant to that field. This is one performance report where you can request historical information, for the last day, the last week, or since 
+last reboot, and actually get meaningful data out of it.
+
+<BR></P>
+
+<P>This is also another good report to use intermittently during the day to sample how much reserve capacity you have.
+
+<BR></P>
+
+<P>Here is an example:
+
+<BR></P>
+
+<PRE>% sar v 5 5
+
+18:51:12  procsz    ov  inodsz    ov  filesz    ov   locksz
+
+18:51:17  122/4058    0 3205/4000    0  488/0       0   11/0   _
+
+18:51:22  122/4058    0 3205/4000    0  488/0       0   11/0   _
+
+18:51:27  122/4058    0 3205/4000    0  488/0       0   11/0   _
+
+18:51:32  122/4058    0 3205/4000    0  488/0       0   11/0   _
+
+18:51:37  122/4058    0 3205/4000    0  488/0       0   11/0   _</PRE>
+
+<P>Since all the ov fields are 0, you can see that the system tables are healthy for this interval. In this display, for example, there are 122 process table entries in use, and there are 4058 process table entries allocated.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Displaying Tunable Kernel Parameters</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To display a comprehensive list of tunable kernel parameters, you can use the nm command. For example, applying the command to the appropriate module, the name list of the file will be reported:
+
+<BR></P>
+
+<PRE>% nm /kernel/unix
+
+Symbols from /kernel/unix:
+
+[Index]   Value    Size  Type  Bind  Other Shndx   Name
+
+... _
+
+[15]|         0|       0|FILE |LOCL |0    |ABS    |unix.o
+
+[16]|3758124752|       0|NOTY |LOCL |0    |1      |vhwb_nextset
+
+[17]|3758121512|       0|NOTY |LOCL |0    |1      |_intr_flag_table
+
+[18]|3758124096|       0|NOTY |LOCL |0    |1      |trap_mon
+
+[19]|3758121436|       0|NOTY |LOCL |0    |1      |intr_set_spl
+
+[20]|3758121040|       0|NOTY |LOCL |0    |1      |intr_mutex_panic
+
+[21]|3758121340|       0|NOTY |LOCL |0    |1      |intr_thread_exit
+
+[22]|3758124768|       0|NOTY |LOCL |0    |1      |vhwb_nextline
+
+[23]|3758124144|       0|NOTY |LOCL |0    |1      |trap_kadb
+
+[24]|3758124796|       0|NOTY |LOCL |0    |1      |vhwb_nextdword
+
+[25]|3758116924|       0|NOTY |LOCL |0    |1      |firsthighinstr
+
+[26]|3758121100|     132|NOTY |LOCL |0    |1      |intr_thread
+
+[27]|3758118696|       0|NOTY |LOCL |0    |1      |fixfault
+
+[28]|         0|       0|FILE |LOCL |0    |ABS    |confunix.c
+
+...
+
+     (Portions of display deleted for brevity)</PRE>
+
+<P>The relevant fields in the report are the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>Index</P>
+
+<TD>
+
+<P>The index of the symbol (appears in brackets).</P>
+
+<TR>
+
+<TD>
+
+<P>Value</P>
+
+<TD>
+
+<P>The value of the symbol.</P>
+
+<TR>
+
+<TD>
+
+<P>Size</P>
+
+<TD>
+
+<P>The size, in bytes, of the associated object.</P>
+
+<TR>
+
+<TD>
+
+<P>Type</P>
+
+<TD>
+
+<P>A symbol is one of the following types: NOTYPE (no type was specified), OBJECT (a data object such as an array or variable), FUNC (a function or other executable code), SECTION (a section symbol), or FILE (name of the source file).</P>
+
+<TR>
+
+<TD>
+
+<P>Bind</P>
+
+<TD>
+
+<P>The symbol's binding attributes. LOCAL symbols have a scope limited to the object file containing their definition; GLOBAL symbols are visible to all object files being combined; and WEAK symbols are essentially global symbols with a lower precedence 
+than GLOBAL.</P>
+
+<TR>
+
+<TD>
+
+<P>Shndx</P>
+
+<TD>
+
+<P>Except for three special values, this is the section header table index in relation to which the symbol is defined. The following special values exist: ABS indicates that the symbol's value will not change through relocation; COMMON indicates an 
+allocated block and the value provides alignment constraints; and UNDEF indicates an undefined symbol.</P>
+
+<TR>
+
+<TD>
+
+<P>Name</P>
+
+<TD>
+
+<P>The name of the symbol.</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Displaying Current Values of Tunable Parameters</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To display a list of the current values assigned to the tunable kernel parameters, you can use the sysdef -i command:
+
+<BR></P>
+
+<PRE>% sysdef -i
+
+... (portions of display are deleted for brevity)
+
+*
+
+* System Configuration
+
+*
+
+swapfile             dev  swaplo blocks   free
+
+/dev/dsk/c0t3d0s1   32,25      8 547112  96936
+
+*
+
+* Tunable Parameters
+
+*
+
+ 5316608  maximum memory allowed in buffer cache (bufhwm)
+
+    4058  maximum number of processes (v.v_proc)
+
+      99  maximum global priority in sys class (MAXCLSYSPRI)
+
+    4053  maximum processes per user id (v.v_maxup)
+
+      30  auto update time limit in seconds (NAUTOUP)
+
+      25  page stealing low water mark (GPGSLO)
+
+       5  fsflush run rate (FSFLUSHR)
+
+      25  minimum resident memory for avoiding deadlock (MINARMEM)
+
+      25  minimum swapable memory for avoiding deadlock (MINASMEM)
+
+*
+
+* Utsname Tunables
+
+*
+
+     5.3  release (REL)
+
+    DDDD  node name (NODE)
+
+   SunOS  system name (SYS)
+
+Generic_10131831  version (VER)
+
+*
+
+* Process Resource Limit Tunables (Current:Maximum)
+
+*
+
+Infinity:Infinity   cpu time
+
+Infinity:Infinity   file size
+
+7ffff000:7ffff000   heap size
+
+  800000:7ffff000   stack size
+
+Infinity:Infinity   core file size
+
+      40:     400   file descriptors
+
+Infinity:Infinity   mapped memory
+
+*
+
+* Streams Tunables
+
+*
+
+     9    maximum number of pushes allowed (NSTRPUSH)
+
+ 65536    maximum stream message size (STRMSGSZ)
+
+  1024    max size of ctl part of message (STRCTLSZ)
+
+*
+
+* IPC Messages
+
+*
+
+   200    entries in msg map (MSGMAP)
+
+  2048    max message size (MSGMAX)
+
+ 65535    max bytes on queue (MSGMNB)
+
+    25    message queue identifiers (MSGMNI)
+
+   128    message segment size (MSGSSZ)
+
+   400    system message headers (MSGTQL)
+
+  1024    message segments (MSGSEG)
+
+   SYS    system class name (SYS_NAME)</PRE>
+
+<P>As stated earlier, over the years there have been many enhancements that have tried to minimize the complexity of the kernel configuration process. As a result, many of the tables that were once allocated in a fixed manner are now allocated dynamically, 
+
+or else linked to the value of the maxusers field. The next step in understanding the nature of kernel tables is to look at the maxusers parameter and its impact on UNIX system configuration.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Modifying the Configuration Information File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SunOS uses the /etc/system file for modification of kernel-tunable variables. The basic format is this:
+
+<BR></P>
+
+<PRE>set parameter = value</PRE>
+
+<P>It can also have this format:
+
+<BR></P>
+
+<PRE>set [module:]variablename = value</PRE>
+
+<P>The /etc/system file can also be used for other purposes (for example, to force modules to be loaded at boot time, to specify a root device, and so on). The /etc/system file is used for permanent changes to the operating system values. Temporary changes 
+
+can be made using adb kernel debugging tools. The system must be rebooted for the changes made for them to become active using /etc/system. With adb the changes take place when applied.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Be very careful with set commands in the /etc/system file! They basically cause patches to be performed on the kernel itself, and there is a great deal of potential for dire consequences from 
+misunderstood settings. Make sure you have handy the relevant system administrators' manuals for your system, as well as a reliable and experienced system administrator for guidance.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>The </B><B><I>maxusers</I></B><B> Parameter</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Many of the tables are dynamically updated either upward or downward by the operating system, based on the value assigned to the maxusers parameter, which is an approximation of the number of users the system will have to support. The quickest and, more 
+
+importantly, safest way to modify the table sizes is by modifying maxusers, and letting the system perform the adjustments to the tables for you.
+
+<BR></P>
+
+<P>The maxusers parameter can be adjusted by placing commands in the /etc/system file of your UNIX system:
+
+<BR></P>
+
+<PRE>set maxusers=24</PRE>
+
+<P>A number of kernel parameters adjust their values according to the setting of the maxusers parameter. For example, Table 39.2 lists the settings for various kernel parameters, where maxusers is utilized in their calculation.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 39.2. Kernel parameters affected by </B><B><I>maxusers</I></B><B>.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Table</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Parameter</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Setting</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>Process</P>
+
+<TD>
+
+<P>max_nprocs</P>
+
+<TD>
+
+<P>10 + 16 * maxusers (sets the size of the process table)</P>
+
+<TR>
+
+<TD>
+
+<P>User process</P>
+
+<TD>
+
+<P>maxuprc</P>
+
+<TD>
+
+<P>max_nprocs-5 (sets the number of user processes)</P>
+
+<TR>
+
+<TD>
+
+<P>Callout</P>
+
+<TD>
+
+<P>ncallout</P>
+
+<TD>
+
+<P>16 + max_nprocs (sets the size of the callout table)</P>
+
+<TR>
+
+<TD>
+
+<P>Name cache</P>
+
+<TD>
+
+<P>ncsize</P>
+
+<TD>
+
+<P>max_nprocs + 16 + maxusers + 64 (sets size of the directory lookup cache)</P>
+
+<TR>
+
+<TD>
+
+<P>Inode</P>
+
+<TD>
+
+<P>ufs_ninode</P>
+
+<TD>
+
+<P>max_nprocs + 16 + maxusers + 64 (sets the size of the inode table)</P>
+
+<TR>
+
+<TD>
+
+<P>Quota table</P>
+
+<TD>
+
+<P>ndquot</P>
+
+<TD>
+
+<P>(maxusers * NMOUNT) / 4 + max_nprocs (sets the number of disk quota structures)</P></TABLE>
+
+<P>The directory name lookup cache (dnlc) is also based on maxusers in SunOS systems. With the increasing usage of NFS, this can be an important performance tuning parameter. Networks that have many clients can be helped by an increased name cache 
+parameter ncsize (that is, a greater amount of cache). By using vmstat with the -s option, you can determine the directory name lookup cache hit rate. A cache miss indicates that disk I/O was probably needed to access the directory when traversing the path 
+
+components to get to a file. If the hit rate falls below 70 percent, this parameter should be checked.
+
+<BR></P>
+
+<PRE>% vmstat -s
+
+        0 swap ins
+
+        0 swap outs
+
+        0 pages swapped in
+
+        0 pages swapped out
+
+  1530750 total address trans. faults taken
+
+    39351 page ins
+
+    22369 page outs
+
+    45565 pages paged in
+
+   114923 pages paged out
+
+    73786 total reclaims
+
+    65945 reclaims from free list
+
+        0 micro (hat) faults
+
+  1530750 minor (as) faults
+
+    38916 major faults
+
+    88376 copyonwrite faults
+
+   120412 zero fill page faults
+
+   634336 pages examined by the clock daemon
+
+       10 revolutions of the clock hand
+
+   122233 pages freed by the clock daemon
+
+     4466 forks
+
+      471 vforks
+
+     6416 execs
+
+ 45913303 cpu context switches
+
+ 28556694 device interrupts
+
+  1885547 traps
+
+665339442 system calls
+
+   622350 total name lookups (cache hits 94%)
+
+        4 toolong
+
+  2281992 user   cpu
+
+  3172652 system cpu
+
+ 62275344 idle   cpu
+
+   967604 wait   cpu</PRE>
+
+<P>In this example, you can see that the cache hits are 94 percent, and therefore enough directory name lookup cache is allocated on the system.
+
+<BR></P>
+
+<P>By the way, if your NFS traffic is heavy and irregular in nature, you should increase the number of nfsd NFS daemons. Some system administrators recommend that this should be set between 40 and 60 on dedicated NFS servers. This will increase the speed 
+with which the nfsd daemons take the requests off the network and pass them on to the I/O subsystem. Conversely, decreasing this value can throttle the NFS load on a server when that is appropriate.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Parameters That Influence Paging and Swapping</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The section isn't large enough to review in detail how tuning can affect each of the kernel tables. However, for illustration purposes, this section describes how kernel parameters influence paging and swapping activities in a SunOS system. Other tables 
+
+affecting other subsystems can be tuned in much the same manner as these.
+
+<BR></P>
+
+<P>As processes make demands on memory, pages are allocated from the free list. When the UNIX system decides that there is no longer enough free memory&#151;less than the lotsfree parameter&#151;it searches for pages that haven't been used lately to add 
+them to the free list. The page daemon will be scheduled to run. It begins at a slow rate, based on the slowscan parameter, and increases to a faster rate, based on the fastscan parameter, as free memory continues toward depletion. If there is less memory 
+
+than desfree, and there are two or more processes in the run queue, and the system stays in that condition for more than 30 seconds, the system will begin to swap. If the system gets to a minimum level of required memory, specified by the minfree 
+parameter, swapping will begin without delay. When swapping begins, entire processes will be swapped out as described earlier.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If you have your swapping spread over several disks, increasing the maxpgio parameter may be beneficial. This parameter limits the number of pages scheduled to be paged out, and is based on 
+single-disk swapping. Increasing it may improve paging performance. You can use the po field from vmstat, as described earlier, which checks against maxpgio and pagesize to examine the volumes involved.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The kernel swaps out the oldest and the largest processes when it begins to swap. The maxslp parameter is used in determining which processes have exceeded the maximum sleeping period, and can thus be swapped out as well. The smallest higher-priority 
+processes that have been sleeping the longest will then be swapped back in.
+
+<BR></P>
+
+<P>The most pertinent kernel parameters for paging and swapping are the following:
+
+<BR></P>
+
+<UL>
+
+<LI>minfree This is the absolute minimum memory level that the system will tolerate. Once past minfree, the system immediately resorts to swapping.
+
+<BR>
+
+<BR></LI>
+
+<LI>desfree This is the desperation level. After 30 seconds at this level, paging is abandoned and swapping is begun.
+
+<BR>
+
+<BR></LI>
+
+<LI>lotsfree Once below this memory limit, the page daemon is activated to begin freeing memory.
+
+<BR>
+
+<BR></LI>
+
+<LI>fastscan This is the number of pages scanned per second.
+
+<BR>
+
+<BR></LI>
+
+<LI>slowscan This is the number of pages scanned per second when there is less memory than lotsfree available. As memory decreases from lotsfree the scanning speed increases from slowscan to fastscan.
+
+<BR>
+
+<BR></LI>
+
+<LI>maxpgio This is the maximum number of page out I/O operations per second that the system will schedule. This is normally set at approximately 40 under SunOS, which is appropriate for a single 3600 RPM disk. It can be increased with more or faster 
+disks.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Newer versions of UNIX, such as Solaris 2.x, do such a good job of setting paging parameters that tuning is usually not required.
+
+<BR></P>
+
+<P>Increasing lotsfree will help on systems on which there is a continuing need to allocate new processes. Heavily used interactive systems with many Windows users often force this condition as users open multiple windows and start processes. By increasing 
+
+lotsfree you create a large enough pool of free memory that you will not run out when most of the processes are initially starting up.
+
+<BR></P>
+
+<P>For servers that have a defined set of users and a more steady-state condition to their underlying processes, the normal default values are usually appropriate.
+
+<BR></P>
+
+<P>However, for servers such as this with large, stable work loads, but that are short of memory, increasing lotsfree is the wrong idea. This is because more pages will be taken from the application and put on the free list.
+
+<BR></P>
+
+<P>Some system administrators recommend that you disable the maxslp parameter on systems where the overhead of swapping normally sleeping processes (such as clock icons and update processes) isn't offset by any measurable gain due to forcing the processes 
+
+out. This parameter is no longer used in Solaris 2.x releases, but is used on older versions of UNIX.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Conclusion of Kernel Tuning</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You have now seen how to optimize memory subsystem performance by tuning a system's kernel parameters. Other subsystems can be tuned by similar modifications to the relevant kernel parameters. When such changes correct existing kernel configurations 
+that have become obsolete and inefficient due to new requirements, the result can sometimes dramatically increase performance even without a hardware upgrade. It's not quite the same as getting a hardware upgrade for free, but it's about as close as you're 
+
+likely to get in today's computer industry.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>With a little practice using the methodology described in this chapter, you should be able to determine what the performance characteristics, positive or negative, are for your system. You have seen how to use the commands that enable you to examine 
+each of the resources a UNIX system uses. In addition to the commands themselves, you have learned procedures that can be utilized to analyze and solve many performance problems.
+
+<BR></P>
+
+<P><A HREF="unx38.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx38.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx40.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx40.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

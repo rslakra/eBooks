@@ -1,0 +1,588 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx10.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm">
+
+<LINK REL="Previous" HREF="unxpt2au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt2au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt2au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt2au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">10</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">What Is a Shell?</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">By Rick Rummel</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">Introduction</A></LI>
+
+<LI>
+
+<A HREF="#I6">The Kernel and the Shell</A></LI>
+
+<LI>
+
+<A HREF="#I7">The Functions of a Shell</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I8">Command Line Interpretation</A></LI>
+
+<LI>
+
+<A HREF="#I9">Program Initiation</A></LI>
+
+<LI>
+
+<A HREF="#I10">Input-output Redirection</A></LI>
+
+<LI>
+
+<A HREF="#I11">Pipeline Connection</A></LI>
+
+<LI>
+
+<A HREF="#I12">Substitution of Filenames</A></LI>
+
+<LI>
+
+<A HREF="#I13">Maintenance of Variables</A></LI>
+
+<LI>
+
+<A HREF="#I14">Environment Control</A></LI>
+
+<LI>
+
+<A HREF="#I15">Shell Programming</A></LI></UL>
+
+<LI>
+
+<A HREF="#I16">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>10</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>What Is a Shell?</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B>By Rick Rummel</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Introduction</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can do many things without having an extensive knowledge of how they actually work. For example, you can drive a car without understanding the physics of the internal combustion engine. A lack of knowledge of electronics doesn't prevent you from 
+enjoying music from a CD player. You can use a UNIX computer without knowing what the shell is and how it works. However, you will get a lot more out of UNIX if you do.
+
+<BR></P>
+
+<P>Three shells are typically available on a UNIX system: Bourne, Korn, and C shells. They are discussed in Chapters 11, 12, and 13. In this chapter, you'll learn
+
+<BR></P>
+
+<UL>
+
+<LI>What a shell is
+
+<BR>
+
+<BR></LI>
+
+<LI>What a shell does for you
+
+<BR>
+
+<BR></LI>
+
+<LI>How a shell relates to the overall system
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B>The Kernel and the Shell</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As the shell of a nut provides a protective covering for the kernel inside, a UNIX shell provides a protective outer covering. When you turn on, or &quot;boot up,&quot; a UNIX-based computer, the program unix is loaded into the computer's main memory, 
+where it remains until you shut down the computer. This program, called the kernel, performs many low-level and system-level functions. The kernel is responsible for interpreting and sending basic instructions to the computer's processor. The kernel is 
+also responsible for running and scheduling processes and for carrying out all input and output. The kernel is the heart of a UNIX system. There is one and only one kernel.
+
+<BR></P>
+
+<P>As you might suspect from the critical nature of the kernel's responsibilities, the instructions to the kernel are complex and highly technical. To protect the user from the complexity of the kernel, and to protect the kernel from the shortcomings of 
+the user, a protective shell is built around the kernel. The user makes requests to a shell, which interprets them, and passes them on to the kernel. The remainder of this section explains how this outer layer is built.
+
+<BR></P>
+
+<P>Once the kernel is loaded to memory, it is ready to carry out user requests. First, though, a user must log in and make a request. For a user to log in, however, the kernel must know who the user is and how to communicate with him. To do this, the 
+kernel invokes two special programs, getty and login. For every user port&#151;usually referred to as a tty&#151;the kernel invokes the getty program. This process is called spawning. The getty program displays a login prompt and continuously monitors the 
+
+communication port for any type of input that it assumes is a user name. Figure 10.1 shows a freshly booted UNIX system with six user ports.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="10unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/10unx01.gif">Figure 10.1. An active system with no users.</A></B>
+
+<BR></P>
+
+<P>When getty receives any input, it calls the login program, as shown in Figure 10.2. The login program establishes the identity of the user and validates his right to log in. The login program checks the password file. If the user fails to enter a valid 
+
+password, the port is returned to the control of a getty. If the user enters a valid password, login passes control by invoking the program name found in the user's entry in the password file. This program might be a word processor or a spreadsheet, but it 
+
+usually is a more generic program called a shell.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="10unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/10unx02.gif">Figure 10.2. A user logs in.</A></B>
+
+<BR></P>
+
+<P>In the system shown in Figure 10.3, four users have logged in. Likewise, one user is in the process of logging in, and one port has no activity. Of the four active users, two are using the Bourne shell, one is using the Korn shell, and one has logged 
+into a spreadsheet. Each user has received a copy of the shell to service his requests, but there is only one kernel. Using a shell does not prevent a user from using a spreadsheet or another program, but those programs run under the active shell. A shell 
+
+is a program dedicated to a single user, and it provides an interface between the user and the UNIX kernel.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="10unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/10unx03.gif">Figure 10.3. An active system.</A></B>
+
+<BR></P>
+
+<P>You don't have to use a shell to access UNIX. In Figure 10.3, one of the users has been given a spreadsheet instead of a shell. When this user logs in, the spreadsheet program starts. When he exits the spreadsheet, he is logged out. This technique is 
+useful in situations where security is a major concern, or when it is desirable to shield the user from any interface with UNIX. The drawback is that the user cannot use mail or the other UNIX utilities.
+
+<BR></P>
+
+<P>Because any program can be executed from the login&#151;and a shell is simply a program&#151;it is possible for you to write your own shell. In fact, three shells, developed independently, have become a standard part of UNIX. They are
+
+<BR></P>
+
+<UL>
+
+<LI>The Bourne shell, developed by Stephen Bourne
+
+<BR>
+
+<BR></LI>
+
+<LI>The Korn shell, developed by David Korn
+
+<BR>
+
+<BR></LI>
+
+<LI>The C shell, developed by Bill Joy
+
+<BR>
+
+<BR></LI></UL>
+
+<P>This variety of shells enables you to select the interface that best suits your needs or the one with which you are most familiar.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>The Functions of a Shell</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>It doesn't matter which of the standard shells you choose, for all three have the same purpose: to provide a user interface to UNIX. To provide this interface, all three offer the same basic functions:
+
+<BR></P>
+
+<UL>
+
+<LI>Command line interpretation
+
+<BR>
+
+<BR></LI>
+
+<LI>Program initiation
+
+<BR>
+
+<BR></LI>
+
+<LI>Input-output redirection
+
+<BR>
+
+<BR></LI>
+
+<LI>Pipeline connection
+
+<BR>
+
+<BR></LI>
+
+<LI>Substitution of filenames
+
+<BR>
+
+<BR></LI>
+
+<LI>Maintenance of variables
+
+<BR>
+
+<BR></LI>
+
+<LI>Environment control
+
+<BR>
+
+<BR></LI>
+
+<LI>Shell programming
+
+<BR>
+
+<BR></LI></UL>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Command Line Interpretation</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you log in, starting a special version of a shell called an interactive shell, you see a shell prompt, usually in the form of a dollar sign ($), a percent sign (%), or a pound sign (#). When you type a line of input at a shell prompt, the shell 
+tries to interpret it. Input to a shell prompt is sometimes called a command line. The basic format of a command line is
+
+<BR></P>
+
+<PRE>command arguments</PRE>
+
+<P><I>command</I> is an executable UNIX command, program, utility, or shell program. The <I>arguments</I> are passed to the executable. Most UNIX utility programs expect <I>arguments</I> to take the following form:
+
+<BR></P>
+
+<PRE>options filenames</PRE>
+
+<P>For example, in the command line
+
+<BR></P>
+
+<PRE>$ ls -l file1 file2</PRE>
+
+<P>there are three arguments to ls, the first of which is an option, while the last two are file names.
+
+<BR></P>
+
+<P>One of the things the shell does for the kernel is to eliminate unnecessary information. For a computer, one type of unnecessary information is whitespace; therefore, it is important to know what the shell does when it sees whitespace. Whitespace 
+consists of the space character, the horizontal tab, and the new line character. Consider this example:
+
+<BR></P>
+
+<PRE>$ echo part A     part B     part C
+
+part A part B part C</PRE>
+
+<P>Here, the shell has interpreted the command line as the echo command with six arguments and has removed the whitespace between the arguments. For example, if you were printing headings for a report and you wanted to keep the whitespace, you would have 
+to enclose the data in quotation marks, as in
+
+<BR></P>
+
+<PRE>$ echo 'part A     part B     part C'
+
+part A     part B     part C</PRE>
+
+<P>The single quotation mark prevents the shell from looking inside the quotes. Now the shell interprets this line as the echo command with a single argument, which happens to be a string of characters including whitespace.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Program Initiation</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When the shell finishes interpreting a command line, it initiates the execution of the requested program. The kernel actually executes it. To initiate program execution, the shell searches for the executable file in the directories specified in the PATH 
+
+environment variable. When it finds the executable file, a subshell is started for the program to run. You should understand that the subshell can establish and manipulate its own environment without affecting the environment of its parent shell. For 
+example, a subshell can change its working directory, but the working directory of the parent shell remains unchanged when the subshell is finished.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Input-output Redirection</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Chapter 4, &quot;Listing Files,&quot; introduced input-output redirection. It is the responsibility of the shell to make this happen. The shell does the redirection before it executes the program. Consider these two examples, which use the wc word count 
+
+utility on a data file with 5 lines:
+
+<BR></P>
+
+<PRE>$ wc -l fivelines
+
+5 fivelines
+
+$ wc -l &lt;fivelines
+
+5</PRE>
+
+<P>This is a subtle difference. In the first example, wc understands that it is to go out and find a file named fivelines and operate on it. Since wc knows the name of the file it displays it for the user. In the second example, wc sees only data, and does 
+
+not know where it came from because the shell has done the work of locating and redirecting the data to wc, so wc cannot display the file name.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Pipeline Connection</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Since pipeline connections are actually a special case of input-output redirection in which the standard output of one command is piped directly to the standard input of the next command, it follows that pipelining also happens before the program call 
+is made. Consider this command line:
+
+<BR></P>
+
+<PRE>$ who | wc -l
+
+5</PRE>
+
+<P>In the second example, rather than displaying its output on your screen, the shell has directed the output of who directly to the input of wc. Pipes are discussed in Chapter 4.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Substitution of Filenames</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Chapter 4 explained how metacharacters can be used to reference more than one file in a command line. It is the responsibility of the shell to make this substitution. The shell makes this substitution before it executes the program. For example,
+
+<BR></P>
+
+<PRE>$ echo *
+
+file1 file2 file3 file3x file4</PRE>
+
+<P>Here, the asterisk is expanded to the five filenames, and it is passed to echo as five arguments. If you wanted to echo an asterisk, we would enclose it in quotation marks.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Maintenance of Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The shell is capable of maintaining variables. Variables are places where you can store data for later use. You assign a value to a variable with an equal (=) sign.
+
+<BR></P>
+
+<PRE>$ LOOKUP=/usr/mydir</PRE>
+
+<P>Here, the shell establishes LOOKUP as a variable, and assigns it the value /usr/mydir. Later, you can use the value stored in LOOKUP in a command line by prefacing the variable name with a dollar sign ($). Consider these examples:
+
+<BR></P>
+
+<PRE>$ echo $LOOKUP
+
+/usr/mydir
+
+$ echo LOOKUP
+
+LOOKUP</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>Note for C-shell users.</B>  Assigning values to variables in the C-shell differs from the Bourne and Korn shells.  To assign a variable in the C-shell use the set command.
+
+<BR>
+
+<BR>% set LOOKUP = /usr/mydir
+
+<BR>
+
+<BR>Notice that spaces precede and follow the equal sign.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Like filename substitution, variable name substitution happens before the program call is made. The second example omits the dollar sign ($). Therefore, the shell simply passes the string to echo as an argument. In variable name substitution, the value 
+
+of the variable replaces the variable name.
+
+<BR></P>
+
+<P>For example, in
+
+<BR></P>
+
+<PRE>$ ls $LOOKUP/filename</PRE>
+
+<P>the ls program is called with the single argument /usr/mydir/filename.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Environment Control</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When the login program invokes your shell, it sets up your environment, which includes your home directory, the type of terminal you are using, and the path that will be searched for executable files. The environment is stored in variables called 
+environmental variables. To change the environment, you simply change a value stored in an environmental variable. For example, to change the terminal type, you change the value in the TERM variable, as in
+
+<BR></P>
+
+<PRE>$ echo $TERM
+
+vt100
+
+$ TERM=ansi
+
+$ echo $TERM
+
+ansi</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>Note for C-shell users.</B>  C-shell assigns values to environment variables using the setenv command.
+
+<BR>
+
+<BR>% setenv TERM vt100
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Chapter 11, &quot;Bourne Shell,&quot; Chapter 12, &quot;Korn Shell,&quot; and Chapter 13, &quot;C Shell,&quot; contain more information on customizing your environment.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Shell Programming</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You've seen that the shell is used to interpret command lines, maintain variables, and execute programs. The shell also is a programming language. By combining commands and variable assignments with flow control and decision making, you have a powerful 
+
+programming tool. Using the shell as a programming language, you can automate recurring tasks, write reports and you can even build and manipulate your own data files. The next three chapters discuss shell programming in more detail.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The shell provides an interface between the user and the heart of UNIX&#151;the kernel. The shell takes command lines as input, makes filename and variable substitution, redirects input and output, locates the executable file, and initiates programs. 
+The shell maintains each user's environment variables. The shell also is a powerful programming language.
+
+<BR></P>
+
+<P><A HREF="unxpt2au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt2au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

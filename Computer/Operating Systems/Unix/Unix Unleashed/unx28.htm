@@ -1,0 +1,747 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx28.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx29.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx29.htm">
+
+<LINK REL="Previous" HREF="unx27.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx27.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx27.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx27.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx29.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx29.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">28</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Tools for Writers</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">Using spell</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Creating a Personal Dictionary</A></LI>
+
+<LI>
+
+<A HREF="#I7">Creating Specialized Dictionaries</A></LI>
+
+<LI>
+
+<A HREF="#I8">Using ispell</A></LI>
+
+<LI>
+
+<A HREF="#I9">/dev/null: The Path to UNIX Limbo</A></LI></UL>
+
+<LI>
+
+<A HREF="#I10">Countoing Words with wc</A></LI>
+
+<LI>
+
+<A HREF="#I11">Using grep</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I12">Checking the Organization of a Document</A></LI>
+
+<LI>
+
+<A HREF="#I13">Finding Character Strings</A></LI></UL>
+
+<LI>
+
+<A HREF="#I14">Using sed</A></LI>
+
+<LI>
+
+<A HREF="#I15">Using diffmk</A></LI>
+
+<LI>
+
+<A HREF="#I16">The man Command</A></LI>
+
+<LI>
+
+<A HREF="#I17">Using SCCS to Control Documentation</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>28</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Tools for Writers</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Using </B><B><I>spell</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You've gone to a lot of trouble to prepare a document that looks splendid and you don't want it to be marred by spelling mistakes. The spell program will catch most of your typos. An interactive version of spell, called ispell, also is available on some 
+
+systems.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> spell will not find errors such as is for in or affect for effect. You still have to proofread your document carefully.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>spell uses a standard dictionary. It checks the words in your file against this dictionary and outputs a list of words not found in the dictionary. You can create a personal dictionary to make spell more useful, as you'll learn in the next section.
+
+<BR></P>
+
+<P>If your file includes .sos or .nxs, spell searches the sourced in files.
+
+<BR></P>
+
+<P>To invoke spell, type spell and your filename. All the words that spell doesn't recognize are displayed on your screen, one word per line. This list of unrecognized words is arranged in ASCII order. That is, special characters and numbers come first, 
+uppercase letters come next, and then lowercase letters. In other words, the words are not in the order in which they occur in your file. Each unrecognized word appears only once. Therefore, if you typed teh for the 15 times, teh appears only once in the 
+spell output.
+
+<BR></P>
+
+<P>The list of unrecognized words can be very long, especially if your text is full of acronyms or proper names or if you don't type well. The first few screens will speed by at what seems like 1,000 miles per hour, and you won't be able to read them at 
+all. To read all the screens, redirect the output of spell to a file:
+
+<BR></P>
+
+<PRE>$ spell filename &gt; outputfilename</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Use a short name for this output file. w&#151;for wrong&#151;works well. You can open a file with a short name more quickly, and delete it more quickly, too. It's also less embarrassing to have a file 
+called w in all your directories instead of one called misspelled_words.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>After you create the file of unrecognized words, you can handle it in several ways:
+
+<BR></P>
+
+<UL>
+
+<LI>You can print the file.
+
+<BR>
+
+<BR></LI>
+
+<LI>You can vi the file and try to remember the misspellings&#151;or scribble them on a slip of paper.
+
+<BR>
+
+<BR></LI>
+
+<LI>You can vi the file in another window if you are using a window-like environment.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Now correct your mistakes. The list probably contains a number of words that are perfectly legitimate. For example, spell refuses to recognize the words diskette and detail. There is no good reason for this, but it may spur you to create a personal 
+dictionary.
+
+<BR></P>
+
+<P>To correct your mistakes, first vi your file. Next, do one of the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Search for the misspelling&#151;/teh&#151;and correct it&#151;cw the. Then search for the next occurrence of teh&#151;n&#151;and correct it with the . command. Continue doing this until the search produces pattern not found.
+
+<BR>
+
+<BR></LI>
+
+<LI>Globally change all occurrences of teh to the&#151;:1, $ s/teh/the/g.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>There's a risk associated with the global method. For example, if I ran spell on this chapter, teh would appear on the list of unrecognized words. Then if I globally changed all occurrences of teh to the, this chapter, or at least this section, would be 
+
+virtually incomprehensible. The moral is, use global substitutions wisely, and never use them on someone else's files.
+
+<BR></P>
+
+<P>After you correct your file, run it through spell once more just to be sure. The new output overwrites the old file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> If you're a less-than-perfect typist&#151;or if you have fat fingertips&#151;unwanted characters can sneak into words&#151;for example, p[rint. When this happens, rint appears on spell's list of 
+unrecognized words. Just search for rint. However, if you type p[lace, spell won't help you, because lace is a perfectly good word.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Occasionally, spell finds something like ne. Searching for all instances of ne isn't fun, especially in a file with 2,000 lines. You can embed spaces in your search&#151;s/[space]ne[space]. However, this is rarely helpful, because spell ignores 
+punctuation marks and special characters. If you typed This must be the o ne, s/[space]ne[space], it won't find it. You can try searching with one embedded space&#151;s/[space]ne and s/ne[space]&#151;, but you still may not find the offender. Try 
+/\&lt;ne\&gt;. This will find ne as a complete word, that is, surrounded by spaces; at the beginning or end of a line; or followed by punctuation.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Even if you added only half a line, run spell once more after you've edited a chapter. You always find a mistake.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Creating a Personal Dictionary</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If your name is Leee&#151;with three es&#151;and you get tired of seeing it in the list of unrecognized words, you can add Leee to a personal dictionary.
+
+<BR></P>
+
+<P>To create a personalized dictionary, follow these steps:
+
+<BR></P>
+
+<OL>
+
+<LI>Create a file called mydict. Of course, you may call it anything you like.
+
+<BR>
+
+<BR></LI>
+
+<LI>Invoke spell with $ spell+mydict inputfile &gt; w.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Your personal dictionary doesn't have to be in the same directory as your input files. If it isn't, however, you must specify a path on the command line, as in
+
+<BR></P>
+
+<PRE>$ spell+/dict/mydict inputfile &gt; w</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Creating Specialized Dictionaries</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Personalized dictionaries are a great help if you're working on several writing projects, each of which has a specialized vocabulary. For example, if you're working on the XYZZY project, and the same words keep turning up in your w file&#151;words that 
+
+are perfectly O.K. in the context of the XYZZY system but not O.K. in any other files&#151;you can create an xyzzy.dict.
+
+<BR></P>
+
+<P>An easy way to automate some of the steps necessary for creating a specialized dictionary is to run spell on your first file. For example,
+
+<BR></P>
+
+<PRE>$ spell ch01 &gt; w</PRE>
+
+<P>Then run it on all the rest of your files. Append the output to w, instead of replacing w. For example,
+
+<BR></P>
+
+<PRE>$ spell ch02 &gt;&gt; w</PRE>
+
+<P>At this point, you'll have a long file that contains all the words that spell doesn't recognize. First, you need to sort the file and get rid of the duplicates. (Refer to the sort command in Chapter 6, &quot;Popular File Tools.&quot;)
+
+<BR></P>
+
+<PRE>$ sort w -u&gt;sorted.w</PRE>
+
+<P>Here, the -u option stands for unique. sort drops all the duplicates from the list.
+
+<BR></P>
+
+<P>Now edit sorted.w, deleting all the misspelled words and all words not specific to your XYZZY project. The words that remain form the basis of xyzzy.dict. Change the name of sorted.w to xyzzy.dict by using mv sorted.w xyzzy.dict. You can add words to or 
+
+delete words from this file as necessary.
+
+<BR></P>
+
+<P>Repeat this process to create additional specialized dictionaries. And if you're a nice person, you'll share your specialized dictionaries with your colleagues.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Using </B><B><I>ispell</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>ispell is an interactive version of spell. It works like the spell checkers that come with word processing applications. That is, it locates the first word in your file that it doesn't recognize&#151;ispell uses the same dictionary as spell&#151;and 
+stops there. Then you can correct the word or press Enter to continue.
+
+<BR></P>
+
+<P>To invoke ispell, do one of the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Enter ispell ch01.
+
+<BR>
+
+<BR></LI>
+
+<LI>vi your first chapter. Then from within vi, escape to the shell and invoke ispell with :!ispell.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Although some people prefer ispell, unadorned, ordinary spell is more useful if you want to create personal or specialized dictionaries or if you want make global changes to your input file.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B><I>/dev/null</I></B><B>: The Path to UNIX Limbo</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you're surely tired of hearing, UNIX views everything as a file, including devices (such as your terminal or the printer you use). Device files are stored neatly in the /dev directory.
+
+<BR></P>
+
+<P>Occasionally, you specify devices by their filenames (for example, when you're reading a tape or mounting a disk drive), but most often you don't bother to think about device files.
+
+<BR></P>
+
+<P>There's one device file, however, that you may want to use: /dev/null.
+
+<BR></P>
+
+<P>The null file in the /dev directory is just what it sounds like: nothing. It's the equivalent of the fifth dimension or the incinerator chute. If you send something there, you can't get it back&#151;ever.
+
+<BR></P>
+
+<P>Why would you want to send output to /dev/null? If you've just created a complex table (or picture, graph, or equation), you can process your creation without wasting paper. Just direct the output to /dev/null:
+
+<BR></P>
+
+<PRE>tbl filename&gt; /dev/null
+
+eqn filename&gt; /dev/null
+
+pic filename &gt; /dev/null</PRE>
+
+<P>You'll see any error messages on your screen. This is usually more reliable than checkeq. And you can use it for text files.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Countoing Words with </B><B><I>wc</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Sometimes you need to count the words in a document. UNIX has the tool for you. The wc shell command counts lines, words, and characters. It can give you a total if you specify more than one file as input.
+
+<BR></P>
+
+<P>To count the words in ch01, enter wc -w ch01.
+
+<BR></P>
+
+<P>You can count lines by using the -l option, or characters by using the -c option. Bear in mind, however, that wc counts all your macros as words. (Refer to Chapter 6 for more details on wc.)
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Using </B><B><I>grep</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The grep command is an invaluable aid to writers. It is used primarily for checking the organization of a file or collection of files, and for finding occurrences of a character string.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Checking the Organization of a Document</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you're writing a long, complex document&#151;especially one that uses three or more levels of headings&#151;you can make sure that your heading levels are correct and also produce a rough outline of your document at the same time.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> This technique is useful only if you are using a macro package&#151;a reasonable assumption for a long, complex document. If you've formatted your document with embedded troff commands, this technique 
+
+won't work.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>For example, if your heading macros take the form
+
+<BR></P>
+
+<PRE>.H n &quot;heading&quot;</PRE>
+
+<P>a first-level heading might be
+
+<BR></P>
+
+<PRE>H 1 &quot;Introduction to the XYZZY System&quot;</PRE>
+
+<P>If your chapters are named ch01, ch02, and so on through chn, the following command will search all your chapter files for all instances of the .H macros. It will also print the filename and the line that contains the .H macro in a file called outline.
+
+<BR></P>
+
+<PRE>$ grep &quot;\.H &quot; ch* &gt; outline</PRE>
+
+<P>The backslash is needed to escape the special meaning of the period. The space after H is needed so that you don't inadvertently include another macro or macros with names such as .HK or .HA. The quotation marks are used to include that space.
+
+<BR></P>
+
+<P>You can view your outline file with vi, or you can print it. At a glance, you're able to see whether you've mislabeled a heading in Chapter 1, omitted a third-level heading in Chapter 4, and so forth. You also have an outline of your entire document. Of 
+
+course, you can edit the outline file to produce a more polished version.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Finding Character Strings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you've just finished a 1,000-page novel and suddenly decide&#151;or are told by your editor&#151;to change a minor character's name from Pansy to Scarlett, you might vi every one of your 63 files, search for Pansy, and change it to Scarlett. But 
+Scarlett isn't in every chapter&#151;unless you've written Scarlett II. So why aggravate yourself by viing 63 files when you need to vi only six? grep can help you.
+
+<BR></P>
+
+<P>To use grep to find out which files contain the string Pansy, enter the following:
+
+<BR></P>
+
+<PRE>$ grep &quot;Pansy&quot; ch* &gt; pansylist</PRE>
+
+<P>Here, the quotation marks aren't strictly necessary, but it's a good idea to get into the habit of using them. In other situations, such as the previous example, you need them.
+
+<BR></P>
+
+<P>This command creates a file called pansylist, which looks something like this:
+
+<BR></P>
+
+<PRE>ch01:no longer sure that Pansy was
+
+ch01:said Pansy.
+
+ch07:wouldn't dream of wearing the same color as Pansy O'Hara.
+
+ch43:Pansy's dead. Pansy O'Hara is dead.
+
+ch57:in memory of Pansy. The flowers were deep purple and yellow</PRE>
+
+<P>Now you know which chapters have to be edited: 1, 7, 43, and 57. To change Pansy to Scarlett globally, vi one of the files that contains the string Pansy and enter the following command. Make sure that you're in Command mode, not Insert mode.
+
+<BR></P>
+
+<PRE>:/,$ s/Pansy/Scarlett/g</PRE>
+
+<P>The g at the end of this code line is important. If the string Pansy occurs more than once in a line, as it does in Chapter 43, g ensures that all instances be changed to Scarlett.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The same cautions about making global changes apply here. You might be referring to the flower, not the character; therefore, you'll want to retain Pansy. grep usually gives you enough context to 
+alert you to potential problems.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Using </B><B><I>sed</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The UNIX stream editor, sed, provides another method of making global changes to one or more files. sed is described in Chapter 7, &quot;Editing Text Files.&quot;
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> Don't use sed unless you understand the perils of overwriting your original file with an empty file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>There are two ways to use sed: on the command line or with a sed script. (The example given here uses the command line form, not because it is preferable, but because it is easier to see what is going on.) The script, called substitute, changes all 
+occurrences of the first argument to the second argument. You wouldn't want to go to all this trouble just to change Pansy to Scarlett. However, because you can specify more than one command with sed&#151;in the command line form and in the sed script 
+form&#151;sed is a useful and powerful tool. 
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Using </B><B><I>diffmk</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>diffmk comes from the many diff commands offered by the UNIX system. Its purpose is to diffmark text&#151;that is, to mark text that has changed from one version of a file to another. The text is marked with a vertical bar in the right margin. 
+Sometimes, other characters creep in, especially with tables.
+
+<BR></P>
+
+<P>Use diffmk like this:
+
+<BR></P>
+
+<PRE>$ diffmk oldfile newfile difffile</PRE>
+
+<P>The order is important. If you get it wrong, diffmk blithely prints your old file with diffmarks on it. That's probably not what you want.
+
+<BR></P>
+
+<P>Often your files are in two different directories&#151;possibly because the files have the same names. Suppose that you have a ch01 in the draft2 directory and in the draft3 directory. You can specify a pathname for diffmk, and you can even write the 
+diffmarked files into a third directory. The third directory must already exist; diffmk won't create it for you. The following command diffmarks files in two directories and writes them into a third directory. It assumes that your current directory is 
+draft3.
+
+<BR></P>
+
+<PRE>$ diffmk ../draft2/file1 file1 ../diffdir/dfile1</PRE>
+
+<P>If you have many chapters, you might want to consider a shell script. To create a shell script that diffmarks all the files in the draft3 directory against the files in the draft2 directory, follow these steps:
+
+<BR></P>
+
+<OL>
+
+<LI>Make sure that you're in the draft3 directory&#151;that is, the directory for the new file.
+
+<BR>
+
+<BR></LI>
+
+<LI>List the files in draft3:
+
+<BR>
+
+<BR><B>$ ls &gt; difflist</B>
+
+<BR>
+
+<BR></LI>
+
+<LI> <B>3.</B> Create the following shell script:
+
+<BR>
+
+<BR>for i in 'cat difflist'
+
+<BR>do
+
+<BR>diffmk ../draft2/$i $i ../diffdir/d$i
+
+<BR>done
+
+<BR>
+
+<BR></LI>
+
+<LI> <B>4.</B> Make the script executable:
+
+<BR>
+
+<BR><B>$ chmod +x diffscript</B>
+
+<BR>
+
+<BR></LI>
+
+<LI> <B>5.</B> Put diffscript in your bin:
+
+<BR>
+
+<BR><B>$ mv diffscript $HOME/bin</B>
+
+<BR>
+
+<BR></LI>
+
+<LI> <B>6.</B> Execute diffscript:
+
+<BR>
+
+<BR><B>$ diffscript</B>
+
+<BR></LI></OL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>The </B><B><I>man</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The man command consults a database of stored UNIX system commands&#151;basically everything that is in the system reference manuals&#151;and nroffs it to your screen. If you don't have all that documentation on a shelf in your office, the man command 
+can save the day.
+
+<BR></P>
+
+<P>man is simple to use:
+
+<BR></P>
+
+<PRE>man commandname</PRE>
+
+<P>The output is far from beautiful, and it's slow. It's paged to your screen, so you press Enter when you're ready to go on to the next page. You can't backtrack, though. Once you leave the first screen&#151;that is, the one with the command syntax on 
+it&#151;the only way you can see it again is to run the man command a second time.
+
+<BR></P>
+
+<P>If your terminal has windowing or layering capabilities, man can is more useful, because you can look at it and type on your command line at the same time.
+
+<BR></P>
+
+<P>You can also print the output from man, but you may not know which printer the output is going to. If you work in a multi-printer environment, this can be a nuisance. Check with your system administrator.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Using SCCS to Control Documentation</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Although the Source Code Control System&#151;SCCS for short&#151;was written to keep track of program code, it also makes a good archiving tool for documentation. It saves each version of a text file&#151;code, troff input, and so on&#151;and 
+essentially enables only the owner to change the contents of the file. SCCS is described in detail in Chapter 30, &quot;SCCS Version Control.&quot; You can use SCCS to control versions of a document that you often revise. You can also use SCCS on drafts of 
+
+a document. If you work with a publications group and your group doesn't have a good archiving and document control system, look into SCCS.
+
+<BR></P>
+
+<P><A HREF="unx27.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx27.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx29.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx29.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

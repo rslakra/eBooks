@@ -1,0 +1,1738 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx44.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unxpt8au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt8au.htm">
+
+<LINK REL="Previous" HREF="unx43.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx43.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx43.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx43.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt8au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt8au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">44 &#151; UNIX System Security</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Jeff Smith</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Kinds of Attacks and Their Consequences</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Physical Security</A></LI>
+
+<LI>
+
+<A HREF="#I6">Social Engineering</A></LI>
+
+<LI>
+
+<A HREF="#I7">Dumpster-Diving Attacks</A></LI>
+
+<LI>
+
+<A HREF="#I8">Network- and Phone-Based Attacks</A></LI></UL>
+
+<LI>
+
+<A HREF="#I9">Security Policies</A></LI>
+
+<LI>
+
+<A HREF="#I10">User Authentication</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">Picking Good Passwords</A></LI>
+
+<LI>
+
+<A HREF="#I12">Password screening</A></LI>
+
+<LI>
+
+<A HREF="#I13">Password for System Accounts</A></LI>
+
+<LI>
+
+<A HREF="#I14">Password Aging</A></LI>
+
+<LI>
+
+<A HREF="#I15">Shadow Passwords</A></LI>
+
+<LI>
+
+<A HREF="#I16">One-time Passwords</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">Smart Cards</A></LI>
+
+<LI>
+
+<A HREF="#I18">S/Key</A></LI></UL>
+
+<LI>
+
+<A HREF="#I19">Equivalent Hosts and .rhosts Authentication</A></LI>
+
+<LI>
+
+<A HREF="#I20">.rhosts and the superuser account</A></LI>
+
+<LI>
+
+<A HREF="#I21">.netrc authentication</A></LI></UL>
+
+<LI>
+
+<A HREF="#I22">File System Security</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I23">Backup Policies</A></LI></UL>
+
+<LI>
+
+<A HREF="#I24">Network Security</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I25">FTP</A></LI>
+
+<LI>
+
+<A HREF="#I26">sendmail</A></LI>
+
+<LI>
+
+<A HREF="#I27">Network File System (NFS)</A></LI>
+
+<LI>
+
+<A HREF="#I28">Network Information System (NIS)</A></LI>
+
+<LI>
+
+<A HREF="#I29">finger</A></LI>
+
+<LI>
+
+<A HREF="#I30">The Trivial File Transfer Protocol (TFTP)</A></LI></UL>
+
+<LI>
+
+<A HREF="#I31">Intrusion Detection</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I32">Message Digests</A></LI>
+
+<LI>
+
+<A HREF="#I33">C2 Auditing</A></LI>
+
+<LI>
+
+<A HREF="#I34">Program Wrappers</A></LI></UL>
+
+<LI>
+
+<A HREF="#I35">Disaster Recovery</A></LI>
+
+<LI>
+
+<A HREF="#I36">Security Tools</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I37">COPS</A></LI>
+
+<LI>
+
+<A HREF="#I38">TAMU Tiger</A></LI>
+
+<LI>
+
+<A HREF="#I39">SATAN</A></LI></UL>
+
+<LI>
+
+<A HREF="#I40">Firewalls and Bastion Hosts</A></LI>
+
+<LI>
+
+<A HREF="#I41">Kerberos</A></LI>
+
+<LI>
+
+<A HREF="#I42">Hardware Solutions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I43">Dial-Back Modems</A></LI>
+
+<LI>
+
+<A HREF="#I44">Encrypting EtherNet Hubs</A></LI>
+
+<LI>
+
+<A HREF="#I45">Filtering Routers</A></LI></UL>
+
+<LI>
+
+<A HREF="#I46">Finding More Information</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I47">USENET News</A></LI>
+
+<LI>
+
+<A HREF="#I48">CERT/CC</A></LI>
+
+<LI>
+
+<A HREF="#I49">FIRST</A></LI>
+
+<LI>
+
+<A HREF="#I50">Vendor Contacts</A></LI>
+
+<LI>
+
+<A HREF="#I51">Mailing Lists</A></LI>
+
+<LI>
+
+<A HREF="#I52">Conferences and Networking</A></LI>
+
+<LI>
+
+<A HREF="#I53">Online Information and Program Source Archives</A></LI>
+
+<LI>
+
+<A HREF="#I54">FTP and Other Information Archives</A></LI>
+
+<LI>
+
+<A HREF="#I55">Other Books</A></LI></UL>
+
+<LI>
+
+<A HREF="#I56">Where to Go from Here?</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>44 &#151; UNIX System Security</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Jeff Smith</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>How secure is your UNIX system? Consider this: In the three years 1991 through 1993, the Computer Emergency Response Team Coordination Center (CERT/CC) issued more than 60 advisories describing UNIX insecurities and ongoing cracking incidents. That's 
+almost two per month for the last three years. Many of these advisories described serious security flaws that allowed unprivileged users to gain superuser access, or worse, allowed unauthorized users access to the computer. If you haven't done anything to 
+
+improve the security of your UNIX system, it's probably vulnerable.
+
+<BR></P>
+
+<P>The original developers of UNIX used it in a friendly, collegial environment that required only basic security features. Computer networks were a future dream. Since then UNIX has become one of the most popular operating systems in the world, installed 
+
+on hundreds of thousands of networked computers. As it has evolved, security features have been added, but so have new facilities that have brought new security threats.
+
+<BR></P>
+
+<P>Why would someone break in to your computer? It boils down to access to services and information. Computers provide a variety of attractive services, such as access to networks and other computers, computing time, and disk storage. Most people use 
+computers to store and organize valuable information. This information has potential value to those who don't have it, and unscrupulous people will do whatever it takes to get it.
+
+<BR></P>
+
+<P>Does your computer system contain information that someone else can use? Your company's trade secrets? A description of an academic research project or a grant proposal that you want to keep secret until it's in the mail? Most people can answer yes to 
+these or similar questions&#151;after all, you wouldn't be storing information on a computer if you didn't have something worth saving.
+
+<BR></P>
+
+<P>This chapter can't tell you everything you need to know about UNIX system security. That would take an entire book, and there are references to several &quot;nuts and bolts&quot; security books in the section &quot;Finding More Information&quot; later 
+in this chapter. This chapter does give you a broad overview of UNIX security concerns, help you evaluate your security needs, tell you about tools you can use to improve your system's security, and tell you how to get more information. It may also help 
+keep your hair from turning various shades of gray.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Kinds of Attacks and Their Consequences</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Although it may seem like a naive question, you should ask yourself why you care whether your system is attacked. What are the consequences if someone breaks in? If a cracker breaks in to your system, he may do the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Use system resources (disk space, CPU cycles, network bandwidth) you want for you or other users
+
+<BR>
+
+<BR></LI>
+
+<LI>Deny services to you or other users, either maliciously or because he's using the resources himself
+
+<BR>
+
+<BR></LI>
+
+<LI>Steal valuable information
+
+<BR>
+
+<BR></LI>
+
+<LI>Destroy files, either maliciously or to cover his tracks
+
+<BR>
+
+<BR></LI>
+
+<LI>Use your computers to break in to other sites
+
+<BR>
+
+<BR></LI>
+
+<LI>Cause you to lose staff time (read: money) in tracking him down and putting compromised systems back in order
+
+<BR>
+
+<BR></LI></UL>
+
+<P>You must analyze your own situation and decide how important these consequences are to you. You may have CPU cycles and disk space to spare, no information to protect. You may not really care if other system administrators spit on the ground when they 
+hear your name, and therefore decide to run a completely open system. On the other hand, you might lose your job if your company loses a contract because of industrial espionage. Most security needs fall somewhere between these two extremes, but you can 
+see that security is a continuum, and you're in the best position to decide your own security requirements.
+
+<BR></P>
+
+<P>All attacks depend on gaining initial access to the computer. You should put yourself in the cracker's shoes and think about how you could attack your own system. Is it used by you alone or by many people? Is it accessible via a phone line, or connected 
+
+to a private or public network? If it's connected to a network, is the network physically secure? Are your computers locked up or in a public site? Where are your backup tapes stored? Can a cracker get access to them, thereby gaining access to your files 
+without ever breaking into your computer? If you're responsible for administering a multiuser system, how wise are your users? What will they do if they receive a phone call from the &quot;system administrator&quot; asking for their passwords for 
+&quot;special maintenance?&quot;
+
+<BR></P>
+
+<P>These questions cover many&#151;but not all&#151;of the approaches a cracker might use to gain access to your computer or data. The attacks fall into four basic categories: physical security attacks; social engineering attacks; Dumpster-diving attacks; 
+
+and network- and phone-based attacks.
+
+<BR></P>
+
+<P>The point of any attack is to gain access to a legitimate user's account, or to exploit bugs in system programs to get a command shell without actually compromising an account.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Computer viruses are programs that attach themselves to other programs and replicate when the infected programs are executed. Some viruses are relatively benign, but some malware can erase or damage 
+disk files. Viruses are a big problem in the MS-DOS and Macintosh world because personal computers lack the sophisticated memory and file protection mechanisms of mature operating systems like UNIX.
+
+<BR>
+
+<BR>Although a few theoretical UNIX viruses have been presented in academic journals, to date there have been no widespread outbreaks of UNIX viruses. There are plenty of things to worry about regarding the security of your UNIX system, but viruses are not 
+
+one of them.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Physical Security</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If your computer is locked in a room with a guard who checks IDs at the door, and isn't connected to a network or a phone line, you can skip to the next chapter. Unfortunately, computers are pretty useless when they're sitting in locked rooms, and most 
+
+of them aren't. A cracker who gains physical access to your computer or the network to which it's attached may be able to tap the physical network and snoop legitimate users' passwords or data, reboot the computer with a different version of UNIX, or 
+modify values in RAM memory to gain privileged access.
+
+<BR></P>
+
+<P>The first type of attack is becoming difficult to prevent. Laptop computers now have pocket-size EtherNet cards that plug into PCMCIA slots, and there is free, public-domain software that captures all packets on an EtherNet and saves them on a 
+computer's hard disk. A cracker can unplug one of your computers from the EtherNet, attach his laptop, record packets for a while, and analyze them later to find valid login names and passwords. Even worse, if your users log in to remote systems with ftp, 
+
+telnet, or rlogin, the cracker doesn't need access to the physical network at your site&#151;anyplace between your site and the remote one will do. One-time passwords, Kerberos, and encrypting EtherNet hubs can help solve these problems.
+
+<BR></P>
+
+<P>Many workstations have a ROM-monitor mode that is entered by typing a special key combination. This mode suspends the normal operation of UNIX to allow you low-level access to the computer's hardware. It may allow you to reboot the computer or alter 
+memory locations and resume running UNIX. 
+
+<BR></P>
+
+<P>If a cracker can boot an operating system of her choice and masquerade as the legitimate computer, she can do any number of bad things. If your workstations have CD-ROMs, floppy disks, or tape drives and can be booted from those devices, the door may be 
+
+open. A cracker who can boot an operating system of his choice while retaining a computer's identity can trick that computer or others on your network into providing illicit access or services.
+
+<BR></P>
+
+<P>A workstation that allows the user to change system memory while in ROM-monitor mode gives a cracker who has gained access to an unprivileged account the chance to promote it to the superuser account by changing the numeric user ID in RAM to 0.
+
+<BR></P>
+
+<P>Most workstations provide a way to prevent users other than the system administrator from entering ROM-monitor mode such as a password. Check your system administration manual to ensure that you've enabled whatever ROM-monitor security features are 
+available, and avoid buying workstations that allow unrestricted access to this mode.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Social Engineering</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Social engineering is a euphemism for the phenomenon P.T. Barnum had in mind when he said &quot;There's a sucker born every minute.&quot; More kindly, most people are trusting, and that trust can be exploited by system crackers.
+
+<BR></P>
+
+<P>Social engineering might be a seemingly innocuous offer to &quot;help set up your account,&quot; or the gift of a free program that purports to do one thing but does something else (a Trojan horse). Either offer gives the cracker the chance to alter a 
+legitimate user's files so he can later gain access to the account. Another popular approach is to send e-mail to naive users, saying that system security has been compromised, and the victim must change her password to one specified by the cracker. 
+Calling a legitimate user on the phone, claiming to be the system administrator, and asking for the user's password on a pretext is another example of social engineering. Social engineering approaches shouldn't be taken lightly&#151;they are surprisingly 
+effective.
+
+<BR></P>
+
+<P>As you may guess, the best defense against social engineering is user and staff education. Your users should know, for instance, that since you have superuser privileges you never have any reason to ask for their passwords, and that any such request 
+should be reported to you immediately. Part of the goal of a security policy (see the section &quot;Security Policies&quot; later in this chapter) is to educate your users.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Dumpster-Diving Attacks</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Rummaging through your company's trash bins may produce good results for a cracker: unlisted modem numbers, lists of valid accounts, passwords, discarded diskettes or tapes, and other helpful information. You may want to review how your organization 
+disposes of waste paper, storage media and used computer equipment, and make changes if you feel that crackers can get a helping hand from your discards.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Network- and Phone-Based Attacks</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If your computer system is attached to a network it is both a more attractive target and easier to crack. Physical access to the computer is no longer necessary, since the cracker can connect with a modem or over the network. If you are connected to the 
+
+Internet (network of networks), your system can be attacked from anyplace in the world.
+
+<BR></P>
+
+<P>Physical network-based attacks like those described earlier in this chapter in the section &quot;Physical Security&quot; are a form of network-based attack. However, physical access to the network is not necessary for network or phone-based 
+attacks&#151;all you need is (legitimate or illegitimate) access to a computer on the Internet, or a terminal and a modem.
+
+<BR></P>
+
+<P>Attacks of this kind fall into two general categories: breaking into a user or system account by guessing its password, and tricking a network server program into giving you information about the system (for instance, the password file) or into 
+executing commands to give you access to the computer.
+
+<BR></P>
+
+<P>You can thwart the first attack by ensuring that all system accounts (for example, the ftp account) have strong passwords or are shut off; and by educating, cajoling, and coercing your users into choosing good passwords, or switching to one of the 
+one-time password schemes described in the section &quot;User Authentication&quot; later in this chapter.
+
+<BR></P>
+
+<P>The second attack is harder to stop because it depends on something over which you have little control&#151;the quality of vendor software. Your best defense is to keep abreast of current bugs by joining mailing lists, reading the appropriate USENET 
+newsgroups, tracking CERT/CC and other advisories, and taking advantage of any security alerts your vendor may offer. This gives you the information you need to patch problems quickly. The various ways of keeping up with the crackers are explained later in 
+
+this chapter in the section &quot;Finding More Information.&quot;
+
+<BR></P>
+
+<P>You may also want to run public-domain replacements for some vendor software, for instance the public-domain Version 8 sendmail program. (See Chapter 41, &quot;Mail Administration.&quot;) Most public-domain programs come with complete source code, which 
+
+allows you to fix bugs without waiting on the vendor. Further, the authors of public-domain programs are often quicker to fix bugs than vendors.
+
+<BR></P>
+
+<P>Phone-based attacks either attempt to guess passwords, or (if you run it) trick a program like UUCP (UNIX to UNIX File Copy). The first problem is solved by the methods mentioned in the previous paragraph. Dial-back modems help with either attack and 
+are covered in the section &quot;Hardware Solutions&quot; later in this chapter.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Security Policies</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If your computer or network of computers is used by someone other than you, then you need a security policy (also known as a proper use policy.) Your security policy is your chance to do a little social engineering of your own, and it educates your 
+users, garners support from management, and sets standards of proper behavior for users and system administrators.
+
+<BR></P>
+
+<P>User education is important because security is often inconvenient and users are devious&#151;they will thwart your best-laid plans unless they understand the reasons for the inconvenience. Many users may feel that their account security is a personal 
+matter, similar to the choice of whether to wear seat belts while driving. However, a multiuser computer system is a community of sorts, and one weak account is all a cracker needs to compromise an entire system.
+
+<BR></P>
+
+<P>Because security is inconvenient, you also need the support of management to enforce potentially unpopular security policies. Management will be more receptive to user inconvenience if you present evidence of the costs of a break-in, for instance an 
+estimate of how much staff time it would take to restore your systems to a clean state after a break-in, or the cost to your company of theft of information.
+
+<BR></P>
+
+<P>Finally, a security policy tells users how you expect them to use the system, the consequences of misuse, and what actions you may take to investigate alleged misuse.
+
+<BR></P>
+
+<P>Not so long ago, a system administrator who suspected a user of the slightest wrongdoing would put on his shiny jackboots and stomp through users' files and electronic mailboxes like a hog rooting for truffles, looking for &quot;evidence.&quot; If he 
+found any, the user got booted from the system. Then came the ECPA (Electronic Communications Privacy Act) of 1986, a federal law that provides criminal penalties for invading the privacy of users of computer systems and networks.
+
+<BR></P>
+
+<P>The ECPA legal waters are still murky because there hasn't yet been enough case law to clarify the intent of Congress. Since you probably don't want to be on the receiving end of such a clarification, you should act cautiously when gathering evidence. A 
+
+security policy that clearly states what actions the systems administrator may take in investigating security incidents helps protect you from the possibly untoward consequences of &quot;just doing your job.&quot; However, this is not legal advice&#151;if 
+
+you are concerned about how the ECPA may affect you, consult a lawyer, preferably one with expertise in computer law.
+
+<BR></P>
+
+<P>Before developing a security policy you should answer the following questions: What information and resources are you protecting? Who may want to break in? What are the likely consequences of a break-in?
+
+<BR></P>
+
+<P>If you don't know what you're protecting, you can't decide how strong your security profile should be. You have to have some idea of who the crackers may be because they come in all shapes and sizes. They vary from the kid in the basement with a 
+Commodore 64, who wants to take your system for the computer equivalent of a joyride, to sophisticated industrial spies who may set up housekeeping on your system, covering their tracks by altering programs and log files. The consequences of a break-in 
+depend on the value of the information and resources you're protecting, and the cost of recovery. Since a security policy usually imposes some inconveniences on your system's users and you want their cooperation in implementing it, you should tailor it to 
+
+minimize inconvenience while maintaining the level of security your site needs.
+
+<BR></P>
+
+<P>A large collection of security policies is available for anonymous ftp from the host ftp.eff.org in the directory pub/CAF/policies. The USENET newsgroup comp.admin.policy is another good resource for getting feedback on a security policy.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>User Authentication</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Authentication is a fancy name for identifying yourself as a valid user of a computer system, and it's your first defense against a break-in. Until recently, UNIX user authentication meant typing a valid login name and password. This is known as 
+reusable password authentication, meaning that you enter the same password each time you log in. Reusable password authentication is too weak for some systems and will eventually be replaced by one-time password systems in which you enter a different 
+password each login.
+
+<BR></P>
+
+<P>Reusable passwords are strong enough for some sites as long as users choose good passwords. Unfortunately, many don't&#151;research has shown that as many as 30%&#151;50% of passwords on typical UNIX systems can easily be guessed. Your security policy 
+should both require strong passwords and provide guidelines for choosing them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Picking Good Passwords</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Good passwords are 6&#151;8 characters long, use a rich character set (upper- and lowercase letters, digits, punctuation, and control characters), are not in English or foreign-language dictionaries, and don't contain any public information about you, 
+such as your name or license number. Detailed guidelines for choosing passwords are presented in the security books mentioned in the section &quot;Finding More Information&quot; later in this chapter, but one good method is to take a random phrase and 
+modify it in ingenious ways. For instance, the phrase &quot;If pigs had wings&quot; could yield the password &quot;1fpiGzhw.&quot; This password is a combination of a misspelled word (&quot;1f&quot; standing for &quot;if&quot;), a misspelled word with odd 
+
+capitalization (&quot;pigZ&quot;), and the first letters of two more words. It's as secure as a reusable password can be since it isn't found in any dictionary and uses a fairly rich vocabulary (the digit &quot;1&quot; and capitalization), and it's easy to 
+
+remember (but not to type).
+
+<BR></P>
+
+<P>Password choice is one of the areas in which users will deviously (and sometimes maliciously) thwart your security policies&#151;some people can't be convinced that they should pick a good password. You have two alternatives for these recalcitrant 
+users: proactive and retroactive password vetting.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Password screening</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Retroactive password vetting puts you in the role of the cracker. You make your best effort to break your users' passwords, and if you succeed you notify the user and require her to change her password to something safer. The public domain program 
+crack, written by Alec Muffett and available for anonymous ftp from ftp.cert.org and other sites, is one of the best. crack uses various tricks to permute login names and finger information into likely passwords and whatever word lists you specify. If 
+you've got the disk space and CPU cycles you can feed crack the huge English and foreign-language word lists available for ftp from the host black.ox.ac.uk.
+
+<BR></P>
+
+<P>The problem with crack and similar programs is that users hate being told that you've cracked their passwords&#151;it's kind of like having a neighbor say, &quot;By the way, I was  rattling doorknobs last night and noticed that yours wasn't 
+locked.&quot; However, crack is useful for gathering information you can use to make a case to management for stronger password security. For instance, if you can show that 30 percent of your users' passwords are easily guessed, you may be able to persuade 
+
+your boss that proactive password screening is a good idea. And if you do plan to crack passwords, your users may react more positively if you make that clear in your security policy.
+
+<BR></P>
+
+<P>Proactive password screening is more like a preemptive strike&#151;if you prevent your users from choosing poor passwords, there's no reason to run crack. With proper education via your security policy users will react more positively (or at least less 
+
+negatively) to being told they must choose a more secure password than to being told that you broke their current one. The passwd+ and npasswd programs screen passwords and can replace your standard passwd program. passwd+ is available for ftp from the 
+host ftp.wustl.edu and others, and npasswd from ftp.luth.se.
+
+<BR></P>
+
+<P>If you have source code for your system's passwd program you can modify it to call the cracklib library of C functions. cracklib is also authored by Alec Muffett and makes checks similar to crack. A password that gets by cracklib's screening is not 
+likely to be guessed, especially by crack. cracklib is available from ftp.cert.org and other hosts.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Password for System Accounts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The system administrator must take special care in choosing a good password for her account and the superuser account. The superuser account must be protected because of the power it gives a cracker, and the system administrator's account because it can 
+
+give access to the superuser account in many ways. For instance, if a system administrator's account is broken, the cracker can install a fake su program in his private bin directory that records the root password, removes itself, and then invokes the real 
+
+su program. The system administrator account may have other special privileges that a cracker can make use of; for instance, membership in groups that allow you to read&#151;or worse, write&#151;system memory or raw disk devices, and permission to su to 
+the superuser account. The systems administrator and root passwords should be changed often and should be as strong as you can make them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Password Aging</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SVR4 UNIX also provides password aging facilities. Password aging places a time limit on the life of a password. The longer you keep the same password, the better the chance that someone will crack it, either by guessing it, watching you type it, or by 
+
+cracking it offline on another computer. Changing passwords every 1&#151;6 months is sufficient for many sites, and password aging enforces that policy by requiring users to change their passwords when they expire. However, a poor implementation of 
+password aging is worse than none at all. Users should be warned a few days in advance that their passwords will expire, because they may choose poor passwords if forced to choose on the spur of the moment.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Shadow Passwords</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SVR4 UNIX also provides shadow passwords. UNIX passwords are encrypted in the password file, but access to the encrypted version is valuable because it allows a cracker to crack them on her own computer. A fast personal computer can try thousands of 
+guesses per second, which is a huge advantage for the cracker. Without access to the encrypted passwords, the cracker must try each of her guesses through the normal login procedure, which at best may take five to ten seconds per guess.
+
+<BR></P>
+
+<P>Shadow passwords hide the encrypted passwords in a file that is readable only by the superuser, thereby preventing crackers from cracking them offline. You should use them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>One-time Passwords</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Reusable passwords may be a serious problem if your users use your site to connect to remote sites on the Internet or if your local network is not physically secure. On February 3, 1994, the CERT/CC issued advisory CA-94:01. Crackers had broken into 
+several major Internet sites, gained superuser access, and installed software to snoop the network and record the first packets of telnet, ftp, and rlogin sessions, which contain login names and passwords. According to the CERT/CC advisory, &quot;_all 
+systems that offer remote access through rlogin, telnet, and FTP are at risk. Intruders have already captured access information for tens of thousands of systems across the Internet&quot; (emphasis added).
+
+<BR></P>
+
+<P>Internet programs such as telnet send unencrypted passwords over the network, making them vulnerable to snooping. The only way to truly solve this problem is to change the protocols so that user authentication doesn't require sending passwords over the 
+
+network, but that won't happen soon.
+
+<BR></P>
+
+<P>Reusable passwords are valuable precisely because they're reusable. One-time passwords get around this problem by requiring a new password for each use&#151;the bad guys can sniff all they want, but it does them no good since the password that logs you 
+
+in on Tuesday is different from the one you used Monday.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Smart Cards</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Smart cards are one way to implement one-time passwords. Users are issued credit card&#151;sized devices with numeric keypads and a PIN (personal identification number) that acts as the password for the card. When the user logs in to the computer it 
+issues a challenge, which the user types into the smart card, along with her PIN. The smart card encrypts the challenge with other information such as the time, and displays a response, which the user types to the computer to log in. The computer generates 
+
+a different challenge for each login. Each response is unique and can't be reused, so it doesn't matter if the challenge and response strings are sniffed. If the card is lost or stolen the login name and PIN are still required for the card to be used. 
+Smart cards are a good solution to the reusable password problem, but they are too expensive for many sites.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>S/Key</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>S/Key is a solution for sites that can't afford smart cards. S/Key generates a sequential list of unique passwords and uses a different one for each login, but without using a smart card. Suppose that you log in to your computer from home over a phone 
+line, or perhaps from a commercial Internet service provider. Your home computer runs an S/Key program that takes the place of a smart card by producing a response to the computer's challenge string, which is also generated by S/Key. If you're using a 
+terminal that can't run  S/Key, or a computer that doesn't have S/Key installed, you can generate a list of passwords to be entered sequentially in future logins.
+
+<BR></P>
+
+<P>S/Key also provides a duress password that you enter to let the computer know that the bad guys have a gun to your head, and that although you want access now, you also want to invalidate the current password sequence. This is also useful if you lose 
+your list of passwords and want to invalidate them until you can generate a new one.
+
+<BR></P>
+
+<P>The disadvantage of S/Key is that it may require you to carry around a list of valid passwords, which you could lose. However, as long as your login name doesn't appear on that list, a cracker still must guess that and the name of your computer. 
+Further, since a list the size of a credit card can hold hundreds of passwords, and you only have to remember which one is next, the cracker still has to guess which of the passwords is next in the sequence. An advantage of S/Key is that it doesn't require 
+
+a smart card. It's available for anonymous ftp from the hosts thumper.bellcore.com and crimelab.com.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Equivalent Hosts and </B><B><I>.rhosts</I></B><B> Authentication</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>UNIX provides two mechanisms for authenticating yourself to other hosts on a network after you've logged in to one. Suppose that your organization has 10 workstations, named ws1, ws2,_ws10. Since the workstations are all administered by you, one should 
+
+be as trustworthy as another. If you log in to ws3 you would like to get access to ws5 without providing a password, since you already gave one when you logged in to ws3. You can do this for your account alone with a .rhosts file, and for all the accounts 
+
+on the computer (except the superuser account) with the file /etc/hosts.equiv.
+
+<BR></P>
+
+<P>A .rhosts file lists host/login name pairs that you want to give access to your account. Suppose that your main account mylogin is on the host money.corp.com, but sometimes you first login to the host lucre.corp.com and then use rlogin to get to 
+money.corp.com. On money.corp.com you create a .rhosts in your home directory, readable and writable only by you and containing the line
+
+<BR></P>
+
+<PRE>lucre.corp.com mylogin</PRE>
+
+<P>The .rhosts tells the rlogin daemon on money.corp.com that the account mylogin on the host lucre.corp.com should be allowed access without a password. You can add additional lines for other host/login name pairs, and the login name does not have to be 
+the same on both hosts.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>While this is convenient, it carries a risk&#151;if a cracker breaks into your account on lucre.corp.com, she can then break into your account at money.corp.com without a password. The .rhosts file also 
+
+provides cracker clues. If your account on money.corp.com is broken, the cracker will see from your .rhosts the login name of your account on lucre.corp.com. On the other hand, .rhosts authentication avoids the problem of sending clear-text passwords over 
+
+the network, which is an advantage if you're not using one-time passwords. You must decide whether the convenience outweighs the security risks.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The file /etc/hosts.equiv does on a global level what .rhosts files do on the account level. The 10-workstation site example could create an /etc/hosts.equiv file like this on each workstation:
+
+<BR></P>
+
+<PRE>ws1.corp.com
+
+ws2.corp.com
+
+[_]
+
+ws10.corp.com</PRE>
+
+<P>Now the ten workstations are mutually equivalent with respect to user authentication. Once you log in to one of the workstations, you can log in to any other without a password and without a .rhosts file. Again, while this may be convenient, when a 
+single account on one of the 10 workstations is cracked, the other 9 are also compromised.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B><I>.rhosts</I></B><B> and the superuser account</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The superuser account (root) gets special treatment. Even if a host appears in /etc/hosts.equiv, root at that host is not considered equivalent unless the file /.rhosts also exists and contains a line for that site's root account. While this may be 
+convenient for software distribution using rdist, consider carefully the security implications before you create a /.rhosts; passwordless software distribution is also convenient for crackers. For instance, if a cracker gains superuser access on 
+ws1.corp.com, he can install a special version of the login program on that host, use rdist to send it to the other nine, and break into those, too. It may be better to forgo /.rhosts files and do your software distribution the hard way with ftp.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B><I>.netrc</I></B><B> authentication</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The .rhosts and /etc/hosts.equiv files only work with the so-called r-commands (rsh, rlogin, rdist, rcp). The telnet and ftp will still ask for a login name and password. However, you can use the .netrc file to automate ftp access. The .netrc should 
+reside in your home directory on the host from which you run ftp. It contains a list of host names, login names, and passwords, all unencrypted. Because it holds clear text passwords, the .netrc file must be readable only by its owner. Because the password 
+
+is unencrypted, a .netrc is a worse security risk than a .rhosts. It is useful for anonymous ftp access, though. For instance, if you often log in to the host ftp.cert.org to look at the CERT/CC advisories, you could create a .netrc containing the 
+following lines:
+
+<BR></P>
+
+<PRE>machine ftp.cert.org
+
+login anonymous
+
+password yourlogin@yourhost.domain</PRE>
+
+<P>This is safe since you're not divulging anything that isn't already public knowledge, that ftp.cert.org supports anonymous ftp.
+
+<BR></P>
+
+<P>If possible, don't use .rhosts, .netrc, and /etc/hosts.equiv. Your security policy should specify whether your users are allowed to use the .rhosts and .netrc files. The COPS and chkacct programs (covered in the section &quot;Security Tools&quot; later 
+
+in this chapter) check the security of your users' .rhosts and .netrc files.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=4><B>File System Security</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Despite your best efforts at establishing and implementing a good password security policy, your site may still be broken in to. Once a cracker has gained access to an account on your computer, his goal is to ensure continued access&#151;if he's broken 
+
+a user's password it may be changed to something more secure, or you might close whatever security hole he exploited to gain access. One way for crackers to ensure access is to install new accounts, or trapdoor versions of a system program such as login. 
+Good file system security helps you prevent or detect these modifications and recover from a break-in.
+
+<BR></P>
+
+<P>As distributed, most vendors' operating systems are not secure. System configuration files may be writable by users other than root, device files may have insecure file permissions, and programs and configuration files may be owned by users other than 
+root. Configuration files writable by non-root accounts may allow a cracker to trick the system into granting additional privileges, or allow him to trick other computers on the same network. Device files that are readable or writable by users other than 
+root may allow the cracker to alter system memory to gain additional privileges, snoop terminal or network traffic, or bypass the normal UNIX file protections to read files from or alter information on disk or tape storage. The cracker can alter files 
+owned by users other than root even without breaking the superuser account. These are just a few of the ways vendors help make your life more interesting.
+
+<BR></P>
+
+<P>Ideally you will both ensure that your newly installed UNIX system has proper file system security (intrusion prevention), and have a way to detect unauthorized file system changes (intrusion detection). There are several good tools for these jobs. You 
+
+can use the COPS and TAMU Tiger programs to detect insecurities in newly installed systems, and the Tripwire and TAMU tiger packages can both detect subsequent file system modifications. These programs are covered later in this chapter in the section 
+&quot;Security Tools.&quot;
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Backup Policies</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You may not think of your system backups as a security tool. However, if crackers modify programs or destroy files, how will you recover? If you don't run Tripwire you may detect a break-in but not be able to tell which files the crackers changed. Your 
+
+only recourse is to restore the system to its clean state from your backups. Even if you run Tripwire you must still be able to restore files that were removed or changed. Good backups are essential to both tasks. Backups may also be important as evidence 
+
+in court proceedings.
+
+<BR></P>
+
+<P>You should answer the following questions about your backup strategy:
+
+<BR></P>
+
+<UL>
+
+<LI>Are your backups physically safe? Can a cracker get your backup tapes and alter them or get information from them? Shadow passwords are useless if a cracker can retrieve the encrypted passwords from a backup tape and crack them offline. A cracker who 
+can alter a backup and trick you into reloading it can cause his own programs to be installed on your system.
+
+<BR>
+
+<BR></LI>
+
+<LI>Do you test your backups? Are you certain that you can restore your system? The worst time to find out there's a problem with your backup procedures is when you really need them. A good system administrator will periodically test-restore random files 
+or entire file systems from her backup tapes to ensure that they will work in an emergency. This is especially important with 8mm helical scan tape systems because the tapes wear out after a few dozen passes.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING: </B>8mm helical scan tape backups (e.g., Exabyte) are based on video recording technology. If you drop a few bits on your video of Johnny's fourth birthday party, it's no big deal, but a few missing 
+
+bits on your backup tape may render the remainder unreadable. Helical scan technology may result in data loss after only a few dozen passes over a tape. This includes reads, writes, and even retensioning passes&#151;in fact, anything that moves the tape 
+over the capstan.
+
+<BR>
+
+<BR>Further, tape formulations vary among manufacturers and even between production runs as vendors change their formulations. To make matters worse, buying &quot;data grade&quot; 8mm tapes may not guarantee better quality. Your best bet is to experiment 
+with different brands of tapes to see which work the most reliably with your drives. Once you've found a brand that works well for you, buy it in bulk. You should also experiment to see how many read and write passes you can achieve before a tape goes bad. 
+
+Cycle in new tapes as the old ones near their life expectancies.
+
+<BR>
+
+<BR>4mm digital auto tape (DAT) drives were designed from the ground up for date recording, and the prices of DAT drives are dropping. You can now buy a DAT drive that will hold up to 8 GB of compressed data for about $1,500. If you're thinking about 
+replacing your existing 8mm helical scan drives you should go with 4mm DAT.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI>Do you keep your tapes forever? Tapes and other media wear out and should be replaced on a set schedule and disposed of in a way that thwarts dumpster-diving attacks.
+
+<BR>
+
+<BR></LI>
+
+<LI>Are your backups kept onsite? What will you do if there's a fire or other natural disaster? Consider storing archival backups offsite in a safe-deposit vault.
+
+<BR>
+
+<BR></LI>
+
+<LI>Is your backup schedule sufficient for your security needs? How often do you run partial and full backups, and what is the chance that a file you create Monday and remove Tuesday will appear on a backup tape? Depending on the value of the information 
+you back up, you may want to revise your schedule to run backups more frequently.
+
+<BR>
+
+<BR></LI>
+
+<LI>Should you make periodic archival backups of the entire system on a read-only medium like a WORM (write-once, read-many) drive?
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>Network Security</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Attaching your computer to a network presents a host of new security threats&#151;networked computers may be attacked from any host on the network or by tapping into the physical network, and if you are connected to the Internet your computer can be 
+attacked from sites anywhere in the world. Networking software also introduces new threats. Most Internet software protocols were not designed with security in mind, and network server programs often run with superuser privileges that make them fruitful 
+grounds for system cracking.
+
+<BR></P>
+
+<P>If you don't need a software service, do away with it. For instance, if you don't plan to use the UUCP software, remove both it and the UUCP account. However, you will want some network services, and you must ensure that those are as secure as you can 
+make them. A few of the most important services are discussed in the following sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>FTP</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>FTP is the Internet File Transfer Protocol, implemented on UNIX systems by the client program ftp and the server program ftpd. The ftpd server runs with superuser privileges and has been a rich source of bugs.
+
+<BR></P>
+
+<P>The ftpd server allows ftp clients to connect to a computer and transfer files back to the client computer. While the ftp protocol requires user authentication, most implementations also allow anonymous logins. There are two problems. First, normal ftp 
+
+authentication sends passwords over the network in the clear, where they can be snooped. Second, if you run ftpd&#151;and especially if you allow anonymous logins&#151;crackers have a program to exploit that might give them superuser privileges.
+
+<BR></P>
+
+<P>If you run ftpd, make sure you're running a fairly recent version. If your vendor doesn't provide a sufficiently bug-free ftpd, you may want to get a public-domain replacement. The BSD and Washington University (WU) replacements are available on 
+ftp.uu.net and other hosts. The WU ftpd is based on the BSD version with many additional features, but new features sometimes mean new bugs&#151;if you don't need the features, the BSD version may be better.
+
+<BR></P>
+
+<P>Another possibility is to run ftpd in a chrooted environment. The chroot system call changes the root of the file tree from the directory / to one you specify. The process is trapped inside the directory tree below the new root, which allows you to 
+insulate the rest of your file system from buggy software. You can use wrappers such as tcpd and netacl (described in the section &quot;Program Wrappers&quot; later in this chapter) to run a short program that changes to a secure directory and runs chroot 
+
+before invoking ftpd.
+
+<BR></P>
+
+<P>chroot is not a panacea. A chrooted environment must be set up carefully, or a knowledgeable cracker may break out of it. Device files in the chroot directory are a particular risk since access to raw devices isn't affected by chroot. That is, if you 
+create a device file in the chroot directory that allows access to the raw disk, a cracker can still access files outside the chroot file tree.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING: </B>The chroot system call won't solve all your problems. While it limits the cracker's access to the part of the UNIX file tree you specify in the chroot call, a good cracker may still break in. 
+For instance, if a buggy setuid root program allows a cracker to get a shell with superuser permissions inside the chrooted directory, she can create device files with read and write permission on system memory or raw disks. A knowledgeable cracker could 
+then add new accounts to the password file or break your system in any number of other ways. The moral is that you shouldn't feel safe just because you're running a setuid root program inside a chrooted directory. setuid root programs should always be 
+carefully in-spected for bugs regardless of whether they're running in a restricted environment.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>sendmail</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The sendmail program is a mail router that implements the Simple Mail Transfer Protocol (SMTP). Because it is large, complex, and runs with superuser privileges, it has yielded a monotonous string of serious bugs. (The notorious Internet worm of 
+November 1988 exploited a sendmail bug.) Worse, vendors often lag several versions behind the state of the art and fail to fix known bugs, or they add new, bug-producing &quot;features.&quot;
+
+<BR></P>
+
+<P>Your most secure option is to toss your vendor's sendmail and run Version 8 sendmail, available from ftp.cs.berkeley.edu and other hosts. Eric Allman, the original author, has resumed work on sendmail and rewritten much of the code, and is actively 
+maintaining it. The serious bugs detailed in the CERT/CC advisory of November 4, 1993, were not present in Version 8 sendmail, and would probably have been fixed more promptly by Allman than by vendors, some of whom took up to two months to produce fixes. 
+
+See Chapter 41 for instructions on installing Version 8 sendmail.
+
+<BR></P>
+
+<P>For sites that need very high security, the TIS (Trusted Information Systems, Inc.) toolkit, available from the host ftp.tis.com, circumvents sendmail problems by providing an SMTP client, smap, that runs as an unprivileged user in a chrooted 
+environment. smap implements a minimal version of SMTP and writes mail to disk for later delivery by smapd. smap also allows you to refuse mail that's too large, to prevent attackers from filling your disks.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Network File System (NFS)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>NFS was invented by Sun Microsystems, which put the protocol specification in the public domain. This meant that anyone could write an NFS implementation that would interoperate with Sun's, and many vendors did. NFS is useful and popular, but does not 
+offer strong security. It opens you to many attacks, and if you don't need it, you shouldn't run it.
+
+<BR></P>
+
+<P>If you run NFS, carefully read your vendor's documentation and make sure you've enabled all security features. Keep exported file systems to a minimum, and export them with the minimal set of permissions. The books mentioned in the section &quot;Finding 
+
+More Information&quot; later in this chapter provide cookbook procedures for safely administering NFS.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Network Information System (NIS)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Sun Microsystems also created NIS (previously known as YP, or yellow pages). As with NFS, several vendors besides Sun have implemented NIS on their computers.
+
+<BR></P>
+
+<P>NIS allows you to share system administration data over the network, which is convenient if you have many hosts to administer. For instance, if you have a cluster of 50 workstations using the same password file, you can create a single copy and use NIS 
+
+to share it among the workstations.
+
+<BR></P>
+
+<P>Although NIS is convenient, it is not secure. A poorly administered NIS may allow crackers to gather information about your site remotely, for instance by requesting your password file for offline cracking. As before, if you don't need it, don't run it. 
+
+If you do need it, make sure that your NIS domain name isn't easily guessed, and refer to your vendor's documentation and one of the &quot;nuts and bolts&quot; books for detailed instructions on safe NIS administration.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>finger</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Although the finger program seems innocuous, it may be another you can do without. finger is the client, and fingerd the server. The client program is safe, but the server can give crackers information about your site. In particular, the time of last 
+login is often included in finger output, which helps crackers find unused accounts to break. finger's output format may also give clues to the kind of operating system you run. Since many crackers work from checklists of bugs particular to certain 
+versions of UNIX, this information is valuable. Also, if your password policy doesn't prevent your users from choosing bad passwords, finger information may provide clues to crackers.
+
+<BR></P>
+
+<P>You should run fingerd as an unprivileged user&#151;the login nobody is a good choice.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>The Trivial File Transfer Protocol (TFTP)</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>TFTP is used by diskless workstations to load UNIX from a file server. It's called &quot;trivial&quot; because the normal security checks of FTP have been removed&#151;accounts and passwords are not required. Some versions of the TFTP server allow 
+crackers to grab any file on the system&#151;for instance the shadow password file for offline cracking. Recent versions of the TFTP server offer better security by only allowing files to be retrieved from a specific directory. If you don't need TFTP 
+service, disable it, and if you do, make sure you're using all its security features. Secure versions of the TFTP daemon are available from ftp.uu.net and other hosts.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=4><B>Intrusion Detection</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Despite your best efforts, your site may be cracked. How will you know when it happens? Sophisticated system crackers go to great lengths to cover their tracks.
+
+<BR></P>
+
+<P>If you administer a single computer, it helps to get to know it and your users. Run ps periodically to get an idea of what jobs are usually running, and look for unusual ones. Use sa to see what typical job mix your users run. Is a user who normally 
+does only word processing suddenly compiling programs? Is an account being used while a user is on vacation? Either might indicate a break-in.
+
+<BR></P>
+
+<P>This kind of monitoring is very limited, though. You can't be logged in all the time, and if you have more than one computer to administer, this approach is impractical. How can you detect the telltale signs of crackers automatically?
+
+<BR></P>
+
+<P>Account auditing helps detect whether crackers have created new accounts. If you run a small system you may be able to print the entire password file and periodically compare it to the system password file. If you have too many users for this to be 
+practical, you can store the current password file on a read-only medium (for example, a floppy disk that you can write-protect) and use diff to look for new, unauthorized accounts. Account auditing should also ensure that inactive or idle accounts are 
+removed.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Message Digests</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Message digests, also known as file signatures, are the preferred way to alert you when crackers alter files. A message digest is a cryptographic signature specific to a file&#151;if the file changes, the signature changes, and if the signature is 
+strong enough, it's not possible for a cracker to create another file with the same signature. If you compute a message digest for all your important system files, and a cracker changes one, you'll find out.
+
+<BR></P>
+
+<P>The public-domain Tripwire software automates detection of file system alterations. You can ftp Tripwire from ftp.cs.purdue.edu. Tripwire computes up to five different signatures for each file you specify. It reports deleted files and new files. You can 
+
+configure it to ignore files you know will change, such as system log files.
+
+<BR></P>
+
+<P>If possible you should install Tripwire just after you've installed your vendor's operating system, before you install user accounts and connect it to a network. If you're installing Tripwire on an existing system, put it in single-user mode or detach 
+it from the network, and then install Tripwire and compute the file signatures. If you can, keep Tripwire, its configuration file, and its database of file signatures offline or on read-only media.
+
+<BR></P>
+
+<P>Files change all the time on UNIX systems, and if you don't configure it correctly Tripwire may become your UNIX equivalent of &quot;the boy who cried wolf.&quot; For instance, the /etc/password file signature changes whenever a user changes her 
+password. The danger is that warnings of illicit changes to files will be buried in the noise of valid changes. Spend some time configuring Tripwire until the signal-to-noise ratio is high enough that you won't miss valid reports.
+
+<BR></P>
+
+<P>Tripwire's message digests vary in their cryptographic strength. Read the documentation carefully and make sure you're using digests strong enough for your site's security needs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>C2 Auditing</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The National Computer Security Center (NCSC) publishes the Trusted Computer Systems Evaluation Criteria (TCSEC, or Orange Book) to specify the security standards computers must meet for certification at various levels for government use. The C2 level is 
+
+one that vendors commonly claim to meet. Among other things, C2 security requires that audit events be logged to help track intrusions. For example, if the user joe runs the su command and becomes root at 14:23 on February 10, 1994, this information is 
+recorded in an audit file.
+
+<BR></P>
+
+<P>Many other fairly routine events are audited, and audit logs become huge. The problem on large systems with many users is winnowing the chaff from the wheat, and few tools are available to automate the process. However, if you run a small system and you 
+
+have time to inspect the logs, C2 auditing may help you discover intrusions.
+
+<BR></P>
+
+<P>Note that there is a difference between offering &quot;C2 security features&quot; (as many vendors claim) and actually being certified at a TCSEC level by the NCSC. The former is marketing hype, and the latter a lengthy process that leads to official 
+certification. This doesn't mean that uncertified &quot;C2 features&quot; aren't valuable, but you should know the difference.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Program Wrappers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A wrapper is a program that offers additional security by surrounding a less secure program and running it in a more secure environment, making additional checks before running it, or logging information about who uses it.
+
+<BR></P>
+
+<P>For instance, suppose that you usually log in to your computer yourhost.zorch.com, but sometimes log in to zach.glop.org and then telnet to yourhost.zorch.com. Running a telnet server on yourhost.zorch.com makes it possible for anyone on the Internet to 
+
+attempt a break-in. Since you know that the only Internet host that should have access is zach.glop.org, you can put a wrapper around telnetd that checks incoming connections and refuses ones from other hosts.
+
+<BR></P>
+
+<P>The tcpd wrapper is available from ftp.cert.org and other sites. tcpd sits between the Internet daemon inetd and the programs that inetd runs. For instance, instead of having inetd run telnetd directly, you can configure it to run tcpd. Based on the 
+rules you give, tcpd can start telnetd or reject the connection request. For instance, in the previous example it could reject telnet connections from all hosts other than zach.glop.org. In either case it can log the attempt. tcpd can be used for any 
+program run by inetd. The TIS firewalls toolkit provides a similar program, netacl (Network Access Control), available from ftp.tis.com.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=4><B>Disaster Recovery</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you discover a break-in, what should you do? That depends on what the cracker is doing, whether you intend to catch and prosecute him, and how disruptive he is. You may want to monitor the cracker's activities to see how he got in, and gather 
+information about other sites he may be using (or cracking from your site) so you can notify those sites' system administrators. You should also notify CERT/CC. (See the section &quot;Finding More Information&quot; later in this chapter.) Depending on your 
+
+security needs and what you know about how the cracker got in, you may need to restore changed files, change the superuser and system administrator passwords, audit (your password file), install a secure version of a broken program or change system 
+configuration files to remove insecurities, or even restore your entire system from the vendor's original distribution media and your own backups.
+
+<BR></P>
+
+<P>This list is not exhaustive, but it shows a broad range of post-intrusion options. Some of these options&#151;such as requiring all your users to change their passwords&#151;severely affect your users and staff. Things will go more smoothly if you have 
+
+a written plan. Although you may not create a perfect plan the first time, having one helps keep you calm and provides some structure when things go wrong.
+
+<BR></P>
+
+<P>After your system is secure again, you should assess your security needs and strategies. Could the break-in have been prevented? How bad were the consequences? Should you revise your security policy or devote more staff time to security? Post-intrusion 
+
+may be a good time to approach management with previously rejected security proposals.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=4><B>Security Tools</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Programmers have developed automated security tools (ASTs) to assess your system security. ASTs are sharp on both sides&#151;if you don't use them to find insecurities, crackers may.
+
+<BR></P>
+
+<P>Many crackers work from checklists of known bugs, methodically trying each in turn until they find a way in or give up and move on to an easier target. ASTs automate this boring job and generate summary reports. If you close those holes, a checklist 
+cracker may move on to less secure hosts, preferably ones you don't administer.
+
+<BR></P>
+
+<P>There are two problems with ASTs. First, you may gain a false sense of security when they cheerfully report &quot;all's well.&quot; ASTs only report known insecurities, and new ones are discovered constantly. A second, related problem, is that if 
+crackers break in to your system they may alter your AST to always report good news.
+
+<BR></P>
+
+<P>Despite these problems, you should run ASTs. They are good tools if you understand their limitations, and especially if you can install them on and run them from read-only media. You can also use tools like Tripwire to verify the integrity of your ASTs.
+
+
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>COPS</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>COPS (Computer Oracle and Password System) was written by Dan Farmer of Sun Microsystems. COPS has been ported to many different versions of UNIX. Most of it is written in Bourne shell scripts and perl, so it's easy to understand and to modify if it 
+doesn't do exactly what you want. COPS performs comprehensive checks for user- and system-level insecurities, checks whether you've patched programs with known insecurities, and includes an expert system that tries to determine whether your computer can be 
+
+cracked. If you don't run any other AST, you should run COPS.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>TAMU Tiger</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Texas A&amp;M University (TAMU) developed a suite of tiger team programs to look for system insecurities in response to serious and persistent break-ins. A tiger team is a group of security experts hired to break in to your system and tell you how they 
+
+did it. TAMU didn't have the staff resources for tiger teams, so they automated the process&#151;if a host passed the TAMU tiger gauntlet, it was relatively immune to cracking.
+
+<BR></P>
+
+<P>In contrast to COPS, which makes many checks of user accounts, Tiger assumes that the cracker already has access to a legitimate account on your computer and looks for ways in which she can get superuser access. Tiger checks cron entries, mail aliases, 
+
+NFS exports, inetd entries, and PATH variables. It also checks .rhosts and .netrc files, file and directory permissions, and files that shouldn't be there.
+
+<BR></P>
+
+<P>Tiger also computes message digests for important system files, and reports unpatched programs for which vendors have provided fixes. Tiger includes file signature databases for several standard UNIX distributions, which you can use rather than 
+developing your own. You can ftp TAMUtiger from the host net.tamu.edu in the directory pub/security/TAMU. The TAMU tiger tar archive is named tiger-2.2.3.tar.gz (the extension &quot;.gz&quot; means the tar archive is compressed with the gzip program, 
+available from ftp.uu.net and other ftp sites). The signature files are in the subdirectory tiger-sigs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>SATAN</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>SATAN (Security Analysis Tool for Auditing Networks) was promised for release by Dan Farmer, author of COPS, and Wietse Venema, author of tcpd, for the first half of 1994. According to the prerelease notes, SATAN will probe a host or set of hosts over a 
+
+network, looking for information and potential insecurities in network services. It will either report the data or use an expert system to investigate further, based on the insecurities and information already discovered. SATAN will be a useful tool for 
+both crackers and system administrators. Watch for an announcement in the USENET newsgroup comp.security.announce.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=4><B>Firewalls and Bastion Hosts</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Just as your car's firewall is designed to protect you from engine fires, a network firewall protects an internal, hidden network from the rest of the Internet. Firewalls are popular with sites that need heightened security, but are unpopular with 
+users.
+
+<BR></P>
+
+<P>The basic idea of a firewall is to establish a single, heavily guarded point of entry to your local area network (LAN). The system administrator maintains a high level of security on the firewall (or bastion host), which may also be surrounded by 
+filtering routers that automatically limit access to the firewall.
+
+<BR></P>
+
+<P>Firewalls (and the interior LANs they protect) can be made very secure, but they limit access to Internet services. In many firewall implementations, users who want access to the Internet must first log in to the firewall host.
+
+<BR></P>
+
+<P>If you plan to implement a firewall you should subscribe to the Firewalls mailing list to get a feel for the design issues (see the section &quot;Finding More Information&quot; later in this chapter). The TIS firewalls software and other information is 
+
+available from ftp.tis.com. Firewall tutorials, theoretical papers, and information about commercial firewall vendors is available on ftp.greatcircle.com. You should also read the Cheswick and Bellovin book mentioned in the section &quot;Finding More 
+Information&quot; in this chapter.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=4><B>Kerberos</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The problem of maintaining security on hundreds of workstations installed in insecure, public sites led the Massachusetts Institute of Technology's (MIT's) Project Athena programmers to develop Kerberos.
+
+<BR></P>
+
+<P>Kerberos solves some (but not all) of the problems inherent in physically insecure networks and computers. Kerberos network servers verify both their own identity and that of their clients without sending unencrypted passwords over the LAN where they 
+may be snooped, and can provide privacy via data encryption. Persons using Kerberos services can be fairly sure that they're talking to the real service, and Kerberos services can be equally sure that when Joe asks the mail server for his electronic mail, 
+
+it's really Joe. Kerberos is free, and source code is available from the host athena-dist.mit.edu. The USENET newsgroup comp.protocols.kerberos is devoted to discussion of the Kerberos system.
+
+<BR></P>
+
+<P>A disadvantage of Kerberos is that each network client and server program must be Kerberized, that is, modified to call the Kerberos subroutines. Kerberized versions of standard applications such as telnet are supplied with Kerberos, and if you have 
+source code for your applications you can add calls to the Kerberos subroutines yourself. However, many third-party software vendors provide neither source code nor Kerberized versions of their software.
+
+<BR></P>
+
+<P>Kerberos has additional problems. Many Internet servers don't use it, and it does you no good to install a Kerberized telnet client if your users connect to remote hosts that run unKerberized telnet servers. Kerberos doesn't work with dumb (ASCII) 
+terminals or most X-terminals, and on multiuser computers is only as strong as the superuser account because the superuser can find the secret keys. Kerberos also requires an otherwise-unused, secure host to maintain its database of principals and their 
+secret keys.
+
+<BR></P>
+
+<P>Despite its limitations, Kerberos is useful in certain environments. For more information, ftp to the host rtfm.mit.edu and download the Kerberos FAQ (Frequently Asked Questions) document.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=4><B>Hardware Solutions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Dial-back modems, encrypting EtherNet hubs, and filtering routers all help solve some of your security problems.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Dial-Back Modems</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A dial-back modem stores a list of valid login names and phone numbers. You dial the modem, go through an authentication procedure, and hang up. The modem consults its list of phone numbers and users, and calls you back. A cracker who discovers your 
+modem through random dialing can't connect to your computer unless he's calling from one of the listed numbers. 
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Dial-back modems can be tricked by clever crackers who use special equipment to generate the proper tones to trick your modem into thinking the calling modem has hung up when it hasn't. If your 
+dial-back modem then looks up the &quot;secure&quot; number of the good guy's phone and calls back on the same line, the bad guy's modem picks up the call and gets in anyway. The best defense against this attack is to use one line for incoming connection 
+requests and a second line for the dial-back. Some telcos even provide a one-way line for its call-back, so it can't be tricked by the method described above.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Dial-back modems work well for organizations with relatively immobile users. They are also useful if you offer modem-based Internet access to users via the SLIP or PPP protocols. However, they don't work well for peripatetic users who need remote access 
+
+to your system&#151;S/Key is a better solution in that case.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Encrypting EtherNet Hubs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Encrypting hubs used with 10 BASE-T EtherNet can prevent snooping attacks. 10 BASE-T installations use a star topology, in which each station is on its own wire, connected to a central packet-routing hub. The EtherNet protocol requires that a packet 
+destined for a certain host be sent to all hosts on the EtherNet, which is why packets can be snooped. An encrypting hub scrambles the contents of the packet for all the stations except the one for which the packet is intended, making snooping a waste of 
+time.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Some encrypting hubs also keep track of the EtherNet MAC addresses of the hosts on each wire, and can shut down a wire if a foreign host is introduced. This may help if a cracker unhooks one of your 
+hosts and attaches his PC to your network, but it's not foolproof&#151;most EtherNet cards allow you to set the MAC address in software, and a sophisticated cracker would set his to match the computer he's impersonating. However, some hubs can shut down a 
+
+wire if the EtherNet heartbeat is interrupted, even momentarily. These hubs prevent the latter attack.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Filtering Routers</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Filtering routers are often used in firewalls, placed between the Internet and the bastion host, or on both sides of the bastion host. They can be configured to discard packets based on the type of service requested, such as mail or ftp, or to discard 
+some or all packets from specified hosts or networks. Routers are more difficult to break in to than are UNIX hosts because routers are single-purpose computers. Because they stop dangerous network connections before your bastion host ever sees them, the 
+cracker's job is harder.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=4><B>Finding More Information</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The problem with printed security books is that they're soon out of date. Vendors release new versions of UNIX with new bugs, and crackers continually look for new ways to break in. If you rely on old information, you'll soon fall behind. The following 
+
+list gives some good sources of up-to-date information and the &quot;nuts and bolts&quot; books that give detailed procedures for implementing security.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>USENET News</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If your site receives USENET news, you at least should read these: comp.security.announce, comp.security.unix, and comp.security.misc.
+
+<BR></P>
+
+<P>comp.security.announce postings warn you of newly discovered security problems. CERT/CC advisories are posted there. comp.security.unix is for general discussion of UNIX security. comp.security.misc is for general discussions of computer security. You 
+may also want to read comp.risks for discussions of the risks of computers, and comp.admin.policy for system administration policy discussions.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>CERT/CC</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Computer Emergency Response Team Coordination Center (CERT/CC) was formed by the Defense Advanced Research Projects Agency (DARPA) and is run by Carnegie-Mellon University (CMU). (Alphabet soup, anyone?) CERT/CC acts as a coordination center for 
+computer security information and incidents. When a security problem is found, CERT/CC works with UNIX vendors to correct the problem, and then issues an advisory through electronic mail and comp.security.announce, describing the problem, its impact, and 
+how to correct it. CERT/CC advisories do not include specific how-to details of security problems, but they are specific about the fixes.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>FIRST</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Forum of Incident Response and Security Teams (FIRST) is a cooperative group of government and private organizations in North America and Europe. By sharing information among FIRST members, they hope to prevent or at least respond quickly to 
+intrusions. CERT/CC is one FIRST member, and its advisories are usually circulated for comment among FIRST members before they are released to the general public. For current information about FIRST, ftp to csrc.ncsl.nist.gov and look in the directory 
+pub/first/gen-info. This host also has a large archive of security information.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Vendor Contacts</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Some vendors have become more responsive to security concerns over the years. Some have mailing lists for notifying their customers of new bugs and patches. Contact your vendor's salesperson to see what security information your vendor provides.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>Mailing Lists</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Special-interest groups maintain mailing lists to discuss specific security topics. One of the most useful is the Firewalls list, which is targeted at discussion of firewall implementations, but often contains good advice on other aspects of security. 
+To join firewalls, send mail to majordomo@greatcircle.com and include the words subscribe firewalls-digest in the body of the message.
+
+<BR></P>
+
+<P>You can subscribe to the TAMU Tiger mailing list by sending mail to majordomo@net.tamu.edu and including the words subscribe tiger in the body of the message.
+
+<BR></P>
+
+<P>The bugtraq mailing list is a currently popular &quot;full-disclosure&quot; list. The signal-to-noise ratio is fairly low, but depending on your paranoia level, you may want to subscribe to it. Subscribe by sending a letter to bugtraq-request@fc.net, 
+with a single line in the body of the message that says: subscribe bugtraq yourlogin@your.host.domain.
+
+<BR></P>
+
+<P>Periodically, someone dissatisfied with CERT/CC's vague advisories starts a security mailing list for public disclosure of security problems, including enough detail to exploit the problem. Some lists try to screen new members so only the &quot;good 
+guys&quot; will get the hot tips, but some believe that the crackers already know the bugs, and the best defense for system administrators is full disclosure as soon as possible. This approach puts a burden on system administrators who don't have source 
+code and must rely on their vendors to fix security bugs. You may want to monitor these lists so you'll be aware of new insecurities, even if you must rely on your vendor to fix them. Most of these lists are announced in comp.security.unix.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=3><B>Conferences and Networking</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Security conferences give you the opportunity to find out what other sites are doing to improve their security, to learn of new security software, and to see what theoretical work is being done. You can also meet other system administrators and share 
+information with them. Systems administrators may tell you things in person that they wouldn't publish in the security newsgroups or mailing lists. Advance warning via a phone call from a friend at another site can give you the jump on the latest security 
+
+problem. Most conferences are announced in the USENET newsgroups previously mentioned.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Online Information and Program Source Archives</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Much security information resides on the Internet, accessible via ftp or one of the newer information protocols such as gopher or the World-Wide-Web. Many of these sources have been mentioned previously in this chapter. Good places to start are the 
+archives on ftp.cert.org, csrc.ncsl.nist.gov, and ftp.cs.purdue.edu. Look for security software at the sites mentioned previously, or use an archie server such as archie.ans.net to find them. Mailing lists and USENET newsgroups frequently mention specific 
+
+source or information archives. New security software is often posted to the USENET newsgroup comp.sources.unix.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>FTP and Other Information Archives</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A lot of security information is available on the net at ftp.cert.org, csrc.ncsl.nist.gov, and others. Recently the COAST (Computer Operations, Audit, and Security Tools) project of the Purdue University Computer Sciences department has set up an FTP 
+archive that contains a large collection of security information and tools. You can access this archive via the ftp command by connecting to the host coast.cs.purdue.edu. Gopher and WWW (World-Wide-Web) access is planned soon.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Other Books</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The following books give the detailed procedures you need in order to avoid common mistakes. The first two are basic UNIX security texts that anyone concerned with security should read. The third book covers basic system administration in detail, and 
+includes a good section on security.
+
+<BR></P>
+
+<PRE>
+
+<BR>Firewalls and Internet Security: Repelling and Wily Hacker, William R. Cheswick and Steven M. Bellovin, Addison-Wesley, 1994. 
+
+
+
+<BR>Practical UNIX Security, Simson Garfinkel and Eugene Spafford, O'Reilly &amp; Associates, 1991, Sebastopal, CA, ISBN 0-937175-72-2.
+
+
+
+<BR>UNIX System Security: A Guide for Users and System Administrators, David Curry, Addison-Wesley, 1992, ISBN 0-201-56327-4.
+
+
+
+<BR>UNIX System Administration Handbook, Evi Nemeth, Garth Snyder, and Scott Seebass, Prentice Hall, 1989, ISBN 0-13-933441-6.</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=4><B>Where to Go from Here?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Computer security is a full-time job for many people. As a system administrator you must decide how secure your system should be, what measures you should take to prevent, detect, and recover from intrusions, and then convince yourself (or your manager) 
+
+to devote the necessary resources to the job. This chapter gives you a broad outline of security concerns, but doesn't tell you all you need to know. Running a secure system means evaluating your security needs, researching software and hardware security 
+systems, and staying abreast of a rapidly changing field by taking advantage of all the resources available.
+
+<BR></P>
+
+<P><A HREF="unx43.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx43.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unxpt8au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt8au.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

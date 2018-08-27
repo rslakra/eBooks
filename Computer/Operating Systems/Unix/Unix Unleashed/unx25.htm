@@ -1,0 +1,1608 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx25.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx26.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx26.htm">
+
+<LINK REL="Previous" HREF="unx24.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx24.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx24.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx24.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx26.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx26.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I1">25 &#151; Drawing Pictures with pic</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">The Basics</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Required Macros and Primitives</A></LI>
+
+<LI>
+
+<A HREF="#I6">Forbidden Macros and Primitives</A></LI></UL>
+
+<LI>
+
+<A HREF="#I7">Adding Text</A></LI>
+
+<LI>
+
+<A HREF="#I8">Default Placement of Objects</A></LI>
+
+<LI>
+
+<A HREF="#I9">Connecting Objects</A></LI>
+
+<LI>
+
+<A HREF="#I10">More about Placement</A></LI>
+
+<LI>
+
+<A HREF="#I11">Additional Shapes and Functions</A></LI>
+
+<LI>
+
+<A HREF="#I12">Controlling Size</A></LI>
+
+<LI>
+
+<A HREF="#I13">Object Blocks</A></LI>
+
+<LI>
+
+<A HREF="#I14">Macros and Variables</A></LI>
+
+<LI>
+
+<A HREF="#I15">Debugging</A></LI>
+
+<LI>
+
+<A HREF="#I16">pic Tips and Tricks</A></LI>
+
+<LI>
+
+<A HREF="#I17">Summary</A></LI></UL></UL></UL>
+
+
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>25 &#151; Drawing Pictures with </B><B><I>pic</I></B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>pic is rarely your first choice as a drawing tool. With pic you can draw lines and a limited variety of shapes&#151;no color, no shading&#151;but you can create a complex and detailed picture, if you're willing to work at it. pic was developed before 
+everyone had personal computers with sophisticated, mouse-based drawing packages. Today, troff users with graphics terminals can use mouse-based programs such as xcip. These programs provide many of the capabilities&#151;except for color&#151;of the 
+sophisticated packages, and they don't require a knowledge of pic. xcip produces pic code, which&#151;and here's the point&#151;you can edit if you know pic.
+
+<BR></P>
+
+<P>pic is no substitute for a sophisticated drawing tool. It doesn't have color. It provides shading only inside boxes, circles, and ellipses. It doesn't even let you draw a randomly wiggly line.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>The Basics</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>To draw a box, type
+
+<BR></P>
+
+<PRE>.PS
+
+box ht 1 wid 1.25
+
+.PE</PRE>
+
+<P>The result is
+
+<BR></P>
+
+<P><B><IMG SRC="25unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx01.gif"></B></P>
+
+<P>This example specifies a height and a width. If you don't specify them&#151;you're not required to&#151;the box will be three-quarters inch high and one-half inch wide.
+
+<BR></P>
+
+<P>You can draw circles. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+circle rad .5
+
+.PE</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx02.gif"></B></P>
+
+<P>You can draw ellipses, too. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+ellipse ht .5 wid 1.25
+
+.PE</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx03.gif"></B></P>
+
+<P>The default pic unit is inches. pic has default sizes for boxes, circles, and ellipses. The pic default sizes are listed in the &quot;Controlling Size&quot; section later in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Required Macros and Primitives</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>troff recognizes pic code by its opening and closing macros: .PS and .PE. ms includes a .PF macro for picture flyback. This macro restores you to your last position on the page (vertically and horizontally) before the picture&#151;where you were before 
+
+you invoked pic. This feature is rarely used; some pic users surround their pic code with display macros and specify no-fill mode. For example,
+
+<BR></P>
+
+<PRE>.DS
+
+.nf
+
+.PS
+
+.box ht 1 wid 1.25
+
+.
+
+.
+
+.PE
+
+.DE</PRE>
+
+<P>This might look like overkill, but mm likes it.
+
+<BR></P>
+
+<P>The .PS macro also can be used to do the following:
+
+<BR></P>
+
+<TABLE>
+
+<TR>
+
+<TD>
+
+<P>.PS &lt; filename</P>
+
+<TD>
+
+<P>Sources in a pic file; imports an external file called filename and allows it to be processed as if filename were part of your text file.</P>
+
+<TR>
+
+<TD>
+
+<P>.PS wid ht</P>
+
+<TD>
+
+<P>Enables you to specify the width or the height&#151;or both&#151;of the final picture</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>If you have a space after the .PS and no measurements, your figure will be enlarged proportionally so that its width is the current width (line length) of your pages.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To insert comments in pic code, begin a line with #.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Forbidden Macros and Primitives</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Whatever you do, don't include any spacing requests&#151;.sp, .ls, .vs, .SP, and .P&#151;inside your pic code. pic does its own spacing, and it gets really annoyed if you interfere. Use the move command instead.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B>Adding Text</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can put labels in these basic pic shapes. Consider the following code:
+
+<BR></P>
+
+<PRE>.PS
+
+box ht .75 wid .75 &quot;A Square&quot;
+
+move
+
+box ht .75 wid .75 &quot;Another&quot; &quot;Square&quot;
+
+.PE</PRE>
+
+<P>It produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx04.gif"></B></P>
+
+<P>Each line of text is enclosed in its own set of quotation marks.
+
+<BR></P>
+
+<P>pic attempts to center your text, both vertically and horizontally, which isn't helpful if you want to label a line. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+line right 1i &quot;line&quot;
+
+.PE</PRE>
+
+<P>comes out looking like
+
+<BR></P>
+
+<P><B><IMG SRC="25unx05.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx05.gif"></B></P>
+
+<P>Fortunately, pic recognizes the words above and below, so you can position your text so that it is more readable. If you have two lines of text, pic puts one above the line and one below it. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+line right 1i &quot;over&quot; &quot;under&quot;
+
+.PE</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx06.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx06.gif"></B></P>
+
+<P>pic doesn't object if you want to specify the font and point size for your text, so long as you keep the specifications inside the quotation marks. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+line right 1i &quot;\f(HB\s12over&quot; &quot;under\fP\s0&quot;
+
+.PE</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx07.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx07.gif"></B></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> To right or left justify text, use rjust or ljust.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The preceding examples are troff escape sequences and are discussed further in Chapter 21, &quot;Basic Formatting with troff/nroff.&quot;
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Default Placement of Objects</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>pic assumes that all objects it draws should touch one another. Therefore, if you specify
+
+<BR></P>
+
+<PRE>.PS
+
+box ht .5 wid 1 &quot;Box 1&quot;
+
+box ht .5 wid 1 &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>you will get
+
+<BR></P>
+
+<P><B><IMG SRC="25unx08.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx08.gif"></B></P>
+
+<P>Fortunately, pic has a move command, which you can use to separate the boxes. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+box ht .5 wid 1 &quot;Box 1&quot;
+
+move
+
+box ht .5 wid 1 &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx09.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx09.gif"></B></P>
+
+<P>The move command's default direction is to the right. Its default distance is one-half inch. You can change these defaults by specifying a direction and a distance, as in
+
+<BR></P>
+
+<PRE>.PS
+
+box ht .5 wid 1 &quot;Box 1&quot;
+
+move left 2i
+
+box ht .5 wid 1 &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>Now the boxes look like
+
+<BR></P>
+
+<P><B><IMG SRC="25unx10.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx10.gif"></B></P>
+
+<P>Note that the distance between the two boxes is actually one inch, not the two inches you specified in the move command. The reason is that pic measures from center to center, not from edge to edge.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=4><B>Connecting Objects</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>pic is especially suited for charts and flow diagrams. Consider the following code:
+
+<BR></P>
+
+<PRE>.PS
+
+box; line; box
+
+move right li
+
+box; arrow; box
+
+.PE</PRE>
+
+<P>It produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx11.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx11.gif"></B></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> When you write pic code, you specify one command per line, or you can separate commands with semicolons. Long lines require the continuation symbol (\).
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>As you can see from the code and the figure, arrow is a synonym for line.
+
+<BR></P>
+
+<P>The following commands are useful as well:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>line -&gt;</P>
+
+<TD>
+
+<P>Draws an arrowhead at the end of the arrow. It doesn't necess-arily point to the right.</P>
+
+<TR>
+
+<TD>
+
+<P>line &lt;-</P>
+
+<TD>
+
+<P>Draws an arrowhead at the beginning of the arrow. It doesn't necessarily point to the left.</P>
+
+<TR>
+
+<TD>
+
+<P>line &lt;-&gt;</P>
+
+<TD>
+
+<P>Draws arrowheads on both ends of the arrow.</P></TABLE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>To draw a line with an arrow at both ends, use line &lt;-&gt; or arrow &lt;-&gt;. This might seem obvious, but for seven years I drew two-headed arrows using the arrow command twice&#151;drawing a 
+right-pointing arrow over a left-pointing arrow&#151;because nobody told me about &lt;-&gt;.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Suppose that you want Box 2 directly under Box 1. Consider the following code:
+
+<BR></P>
+
+<PRE>.PS
+
+box &quot;Box 1&quot;
+
+move down
+
+box &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>It produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx12.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx12.gif"></B></P>
+
+<P>The problem with this code is that pic moves half an inch from wherever it left off drawing the first box, which in this case is the middle of the box top. To place Box 2 correctly, you have to move down another one-half inch and to the left:
+
+<BR></P>
+
+<PRE>.PS
+
+box &quot;Box 1&quot;
+
+move left .375i
+
+move down .75i
+
+box &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>Figure 25.1 shows you the result.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="25unx13.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx13.gif">Figure 25.1. Two boxes positioned correctly.</A></B>
+
+<BR></P>
+
+<P>This is a nuisance, to say the least, because in a complicated drawing you quickly lose track of where pic begins and ends each element of the drawing. You can use reference points with pic so that you know where each element of your drawing will be 
+placed. They are discussed in the next section.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>More about Placement</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>To avoid having to think like pic&#151;an exercise that can be dangerous to your mental health&#151;you can refer to parts of objects that you've drawn. pic recognizes all of the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>.l left</P>
+
+<TD>
+
+<P>.ne northeast</P>
+
+<TR>
+
+<TD>
+
+<P>.r right</P>
+
+<TD>
+
+<P>.nw northwest</P>
+
+<TR>
+
+<TD>
+
+<P>upper</P>
+
+<TD>
+
+<P>bottom</P>
+
+<TR>
+
+<TD>
+
+<P>lower</P>
+
+<TD>
+
+<P>start</P>
+
+<TR>
+
+<TD>
+
+<P>.t top</P>
+
+<TD>
+
+<P>end</P>
+
+<TR>
+
+<TD>
+
+<P>.n north</P>
+
+<TD>
+
+<P>1st</P>
+
+<TR>
+
+<TD>
+
+<P>.e east</P>
+
+<TD>
+
+<P>2nd</P>
+
+<TR>
+
+<TD>
+
+<P>.w west</P>
+
+<TD>
+
+<P>3rd (and so on)</P>
+
+<TR>
+
+<TD>
+
+<P>.s south</P>
+
+<TD>
+
+<P>last</P>
+
+<TR>
+
+<TD>
+
+<P>.nw northwest</P>
+
+<TD>
+
+<P>2nd last </P>
+
+<TR>
+
+<TD>
+
+<P>.sw southwest</P>
+
+<TD>
+
+<P>3rd last (and so on)</P></TABLE>
+
+<P>pic also understands compass points. Figure 25.2 shows the parts of a pic element to which you can refer.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="25unx14.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx14.gif">Figure 25.2. </B><B>pic</B><B> reference points.</A></B>
+
+<BR></P>
+
+<P>The position notation words and the compass points enable you to specify positions like these:
+
+<BR></P>
+
+<PRE>line from upper right of 2nd last box to upper left of last box
+
+arrow from 1st circle.e to 2nd circle.w
+
+box at end of last line
+
+move left 1i from start of last box
+
+line from Box.c to Box.s
+
+move down 1i from bottom of 2nd last ellipse</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You can use terms like upper left and lower right, but not top left and lower bottom.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Now you have several ways of specifying the two boxes shown in Figure 25.1. You could write
+
+<BR></P>
+
+<PRE>.PS
+
+box &quot;Box 1&quot;
+
+move to last box.s down .5
+
+box &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>or you could write
+
+<BR></P>
+
+<PRE>.PS
+
+box &quot;Box 1&quot;
+
+move to bottom of last box down .5
+
+box &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>If you want to avoid the wordiness of bottom of last box, you can label your construct
+
+<BR></P>
+
+<PRE>B1: box &quot;Box 1&quot;</PRE>
+
+<P>Labels must begin with a capital letter.
+
+<BR></P>
+
+<P>Using labels enables you to specify the two boxes as follows:
+
+<BR></P>
+
+<PRE>.PS
+
+B1:box &quot;Box 1&quot;
+
+B2:box  with .c down 1i from B1.c &quot;Box 2&quot;
+
+.PE</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>If you reference objects by their centers, you don't have to worry about where pic starts a new object or in which direction the new object is drawn.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>These notations&#151;left, right, .ne, .sw, and so on&#151;assume that you can tell left from right and east from west. If you are directionally challenged like me, you should allow extra debugging time for your pics. I've tried sticking scraps of paper 
+
+labelled left/west and right/east on the sides of my monitor. It helps a little.
+
+<BR></P>
+
+<P>pic comes to your rescue with a solution. It understands Cartesian coordinates, as shown in Figure 25.3.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="25unx15.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx15.gif">Figure 25.3. </B><B><I>x,y</I></B><B> coordinates.</A></B>
+
+<BR></P>
+
+<P>Again, the unit is inches. The important thing to remember is that your first object starts at 0,0. In other words, the coordinates are relative. There is no specific location on a page or in a drawing that is always 0,0. It depends on where you start.
+
+<BR></P>
+
+<P>Cartesian coordinates enable you to specify the two boxes shown in Figure 25.1 as
+
+<BR></P>
+
+<PRE>.PS
+
+box at 0,0 &quot;Box 1&quot;
+
+box at 0,-1 &quot;Box 2&quot;
+
+.PE</PRE>
+
+<P>You'll probably find this easier.
+
+<BR></P>
+
+<P>pic also has an invis command. At first glance, it doesn't seem very useful. How often do you expect to draw a page full of invisible boxes? The real advantage of invis is in placing text. Consider Figure 25.4.
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="25unx16.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx16.gif">Figure 25.4. Using invisible lines.</A></B>
+
+<BR></P>
+
+<P>Placing those pesky dots could be a problem. Using invis, though, makes it easy. The code that produces Figure 25.4 is
+
+<BR></P>
+
+<PRE>.PS
+
+box; move; box
+
+line invis .75 &quot;\s12 . . . \s0&quot;
+
+box
+
+.PE</PRE>
+
+<P>There are other uses for invis. You can use it, for example, to define a large area in which you will be drawing several smaller objects and to provide compass points outside a smaller object.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Additional Shapes and Functions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>pic includes two more shapes in addition to the ones you've already seen. They are the arc and the spline.
+
+<BR></P>
+
+<P>To pic, an arc is a quarter of a circle. You can use the arc command to draw a circle, as in
+
+<BR></P>
+
+<PRE>.PS
+
+arc; arc; arc; arc
+
+.PE</PRE>
+
+<P>A more sensible use of arc is to draw a rectangle with rounded corners. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+line left; arc; line down; arc
+
+line right; arc; line up; arc
+
+.PE</PRE>
+
+<P>To make a spiral like the one shown in Figure 25.5, combine a series of arcs. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+arc rad .04
+
+arc rad .08
+
+arc rad .12
+
+arc rad .16
+
+arc rad .20
+
+arc rad .24
+
+arc rad .28
+
+arc rad .32
+
+arc rad .36
+
+arc rad .40
+
+arc rad .44
+
+arc rad .48
+
+.PE</PRE>
+
+<P>produces the following:
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="25unx20.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx20.gif">Figure 25.5. A spiral made of arcs.</A></B>
+
+<BR></P>
+
+<P>pic also recognizes trigonometric and other mathematical functions:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>atan2 </P>
+
+<TD>
+
+<P>(e<SUB>1</SUB>, e<SUB>2</SUB>)</P>
+
+<TD>
+
+<P>the arctangent of e<SUB>1</SUB>, e<SUB>2</SUB></P>
+
+<TR>
+
+<TD>
+
+<P>cos </P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>cosine of e (e must be in radians)</P>
+
+<TR>
+
+<TD>
+
+<P>exp </P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>10<SUP>e</SUP></P>
+
+<TR>
+
+<TD>
+
+<P>int </P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>integer part (by truncation)</P>
+
+<TR>
+
+<TD>
+
+<P>log </P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>logarithm base 10 of e</P>
+
+<TR>
+
+<TD>
+
+<P>max </P>
+
+<TD>
+
+<P>(e<SUB>1</SUB>, e<SUB>2</SUB>)</P>
+
+<TD>
+
+<P>maximum of e<SUB>1</SUB> and e<SUB>2</SUB></P>
+
+<TR>
+
+<TD>
+
+<P>min </P>
+
+<TD>
+
+<P>(e<SUB>1</SUB>, e<SUB>2</SUB>)</P>
+
+<TD>
+
+<P>minimum of e<SUB>1</SUB> and e<SUB>2</SUB></P>
+
+<TR>
+
+<TD>
+
+<P>rand </P>
+
+<TD>
+
+<P>(n)</P>
+
+<TD>
+
+<P>random number between 1 and n</P>
+
+<TR>
+
+<TD>
+
+<P>sin </P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>sine of e (e must be in radians)</P>
+
+<TR>
+
+<TD>
+
+<P>sqrt </P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>square root of e</P></TABLE>
+
+<P>These functions must be followed by an expression in parentheses. In the case of atan2, max, and min, two expressions must follow. rand is followed by empty parentheses and produces a random number between 0 and 1.
+
+<BR></P>
+
+<P>Lines and shapes don't have to be solid. You can draw dotted and dashed objects. Consider the following code. 
+
+<BR></P>
+
+<PRE>.PS
+
+B1: box
+
+move to B1.n up .05 right .05
+
+B2: box dashed
+
+move to B2.n up .05 right .05
+
+B3: box dotted
+
+.PE</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Controlling Size</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>pic variables include several that specify the default size of pic objects. Table 25.1 lists these variables and their default values.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 25.1. Default values of </B><B>pic</B><B> variables.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Variable</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Default Value</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Variable</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Default Value</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>arcrad</P>
+
+<TD>
+
+<P>.25i</P>
+
+<TD>
+
+<P>ellipsewid</P>
+
+<TD>
+
+<P>  .75i</P>
+
+<TR>
+
+<TD>
+
+<P>arrowhead</P>
+
+<TD>
+
+<P>  2i</P>
+
+<TD>
+
+<P>lineht</P>
+
+<TD>
+
+<P>   .5i</P>
+
+<TR>
+
+<TD>
+
+<P>arrowht</P>
+
+<TD>
+
+<P> .1i</P>
+
+<TD>
+
+<P>linewid</P>
+
+<TD>
+
+<P>  .75i</P>
+
+<TR>
+
+<TD>
+
+<P>arrowwid</P>
+
+<TD>
+
+<P>.05i</P>
+
+<TD>
+
+<P>moveht</P>
+
+<TD>
+
+<P>   .5i</P>
+
+<TR>
+
+<TD>
+
+<P>boxht</P>
+
+<TD>
+
+<P> .5i</P>
+
+<TD>
+
+<P>movewid</P>
+
+<TD>
+
+<P>  .75i</P>
+
+<TR>
+
+<TD>
+
+<P>boxwid</P>
+
+<TD>
+
+<P>.75i</P>
+
+<TD>
+
+<P>scale</P>
+
+<TD>
+
+<P>    1i</P>
+
+<TR>
+
+<TD>
+
+<P>circlerad</P>
+
+<TD>
+
+<P>.25i</P>
+
+<TD>
+
+<P>textht</P>
+
+<TD>
+
+<P>    0i</P>
+
+<TR>
+
+<TD>
+
+<P>dashwid</P>
+
+<TD>
+
+<P> .5i</P>
+
+<TD>
+
+<P>textwid</P>
+
+<TD>
+
+<P>    0i</P>
+
+<TR>
+
+<TD>
+
+<P>ellipseht</P>
+
+<TD>
+
+<P> .5i</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<P>arrowwid and arriowht refer to the arrowhead. The arrowhead variable specifies the fill style of the arrowhead.
+
+<BR></P>
+
+<P>It's easy to change the value of a variable. For example,
+
+<BR></P>
+
+<PRE>boxht = .75; boxwid = .5</PRE>
+
+<P>Remember: The default unit for pic is inches.
+
+<BR></P>
+
+<P>There are other ways of controlling the size of a picture. You can specify a height or a width&#151;or both&#151;on the .PS line. Usually it's better to specify only the width. If you specify both dimensions, your picture may be distorted.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> For some reason, you must specify the width first. For example, .PS 2 4 produces a picture 2 inches wide and 4 inches long. This is the opposite of the order in which you specify the dimensions of a 
+box or ellipse. The width and height you specify refer to the whole picture.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You can also set the variable scale. By default, scale is set at 100 or 1, depending on your version of pic. (You can test this by scaling a drawing to 1.5. If you get an error message or a garbled result, use 150.) All the dimensions in a pic drawing 
+are divided by the scaling factor. Therefore, if the scale is normally 1 and you set it to 4, your 1-inch lines will be a quarter-inch long. For example,
+
+<BR></P>
+
+<PRE>.PS
+
+scale = 2
+
+box ht 2i wid 2i
+
+.PE</PRE>
+
+<P>This code produces a box scaled down to half the size of its specifications, that is, a 1- inch square.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Text is not scaled. If your text needs resizing, you must do it with \s, and it's usually a matter of trial and error to find out what will fit in your scaled figure.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Object Blocks</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can define any sequence of objects or moves as a block, which you can manipulate almost as if it were a simple box. You need to name the block. The name must begin with an uppercase letter. Although pic places no specific restrictions on the length 
+
+of the name, shorter is better.
+
+<BR></P>
+
+<P>Object blocks are useful when you are placing text.
+
+<BR></P>
+
+<P>You can also position an object block easily, as in
+
+<BR></P>
+
+<PRE>.PS
+
+C1: circle rad .125
+
+Spiral [
+
+arc rad .04
+
+arc rad .08
+
+arc rad .12
+
+arc rad .16
+
+arc rad .20
+
+arc rad .24
+
+arc rad .28
+
+arc rad .32
+
+arc rad .36
+
+arc rad .40
+
+arc rad .44
+
+arc rad .48
+
+] with .s at C1.n
+
+.PE</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Macros and Variables</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you want to reuse an object, you can put it in a file by itself and use the copy function: 
+
+<BR></P>
+
+<PRE>.PS
+
+&lt;pic code&gt;
+
+copy filename
+
+&lt;pic code&gt;
+
+.PE</PRE>
+
+<P>You can also define a pic macro. Don't confuse pic macros with troff macros. In the broadest sense, a macro is a short way of referring to a complex process. In other words, a pic macro is just a collection of pic commands that have been given a name.
+
+<BR></P>
+
+<P>Unlike object blocks, which merely give you a convenient way of referring to positions in and around the object, macros can be used to draw objects. The first three lines of the following code sequence enable you to draw the defined object by invoking 
+its name, as shown in the last line.
+
+<BR></P>
+
+<PRE>.PS
+
+define SQ %
+
+box ht .5 wid .5
+
+%
+
+SQ; move; SQ
+
+.PE</PRE>
+
+<P>This code produces
+
+<BR></P>
+
+<P><B><IMG SRC="25unx21.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx21.gif"></B></P>
+
+<P>To create a macro, use the word define followed by a name for your macro and a delimeter. Next come all your pic instructions and finally, another delimeter. In the first example, I used % for delimeters. In the second example, I used curly braces. 
+There is no default. The choice is yours.
+
+<BR></P>
+
+<P>Macros can have up to nine arguments, specified $1 through $9. For example, you can define a square and supply the dimensions as arguments when you invoke the macro, as shown in the first three lines of the following code. The last line produces the 1/2 
+
+inches square shown in Figure 25.6.
+
+<BR></P>
+
+<PRE>.PS
+
+define SQ }
+
+box ht $1 wid $1 &quot;$2&quot;
+
+{
+
+SQ(.5, square)
+
+.PE</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P>
+
+<BR><B><A HREF="25unx22.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/25unx22.gif">Figure 25.6. Squares Created with a Macro</A></B>
+
+<BR></P>
+
+<P>Macro definitions require delimiters. As you can see, though, the choice is up to you. Percent signs (%) are usual choices. When you invoke the macro, the arguments go in parentheses.
+
+<BR></P>
+
+<P>Macro definitions persist throughout a file. If you ever have to get rid of a macro, use undef SQ&#151;or whatever you've named your macro.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Debugging</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>When you're dealing with pic, you aren't troubleshooting&#151;you're debugging. It's much easier to do this as you code. Draw the first element of your picture. Before you print it, send the file through pic to see whether any error messages are 
+generated. If your file contains only pic, you can do this:
+
+<BR></P>
+
+<PRE>pic filename</PRE>
+
+<P>If your file contains text, just use your normal troff command line. However, instead of sending the file to a printer, redirect your output to /dev/null. See Chapter 28, &quot;Tools for Writers,&quot; for more information on directing output to 
+/dev/null.
+
+<BR></P>
+
+<P>pic tries to help you pinpoint your errors with messages similar to the following:
+
+<BR></P>
+
+<PRE>pic: syntax error near line 26
+
+context is
+
+        &gt;&gt;&gt; linr &lt;&lt;&lt; left 1i</PRE>
+
+<P>Occasionally, pic tells you that it has reduced the size of your picture. This is almost always because you've made a mistake. Most often, you've left out a decimal point, and pic is trying to fit a line 1625 inches long&#151;you meant 1.625 
+inches&#151;on an 8.5-inch page. When this happens, your picture naturally is mangled out of all recognition.
+
+<BR></P>
+
+<P>Usually, your debugging involves the placement of objects and the placement or size of text.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B><I>pic</I></B><B> Tips and Tricks</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you can't get an object placed correctly by moving down and left (or up and right) from an object, try referring to both objects by their centers, as in box.c.
+
+<BR></P>
+
+<P>If your drawing involves a number of objects and placement is crucial, use x,y coordinates.
+
+<BR></P>
+
+<P>If you're having trouble placing text, remember over and under.
+
+<BR></P>
+
+<P>Using a box invis or a line invis to place your text usually works well.
+
+<BR></P>
+
+<P>Make yourself a library of pic drawings so that you don't have to keep reinventing the spiral.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>pic is a troff preprocessor for drawing lines, arrows, boxes, circles, ellipses, arcs, and splines. Output tends to vary from system to system, so be prepared to spend some time debugging. pic is well worth the trouble if you frequently include simple 
+graphics in text files. It is especially useful for organization charts, flow charts, state diagrams, and the like.
+
+<BR></P>
+
+<P><A HREF="unx24.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx24.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx26.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx26.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

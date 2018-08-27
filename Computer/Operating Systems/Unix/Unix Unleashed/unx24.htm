@@ -1,0 +1,1966 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx24.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx25.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx25.htm">
+
+<LINK REL="Previous" HREF="unx23.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx23.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx23.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx23.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx25.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx25.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">24 &#151; Formatting Equations with eqn</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Susan Peppard</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">eqn Macros and Delimiters</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Choosing Delimiters and Placing the Definition</A></LI></UL>
+
+<LI>
+
+<A HREF="#I6">eqn Keywords</A></LI>
+
+<LI>
+
+<A HREF="#I7">eqn Operators</A></LI>
+
+<LI>
+
+<A HREF="#I8">Spaces and Braces</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Grouping</A></LI></UL>
+
+<LI>
+
+<A HREF="#I10">Fractions</A></LI>
+
+<LI>
+
+<A HREF="#I11">Square Roots</A></LI>
+
+<LI>
+
+<A HREF="#I12">Sums, Integrals, and Limits</A></LI>
+
+<LI>
+
+<A HREF="#I13">Brackets, Braces, and Piles</A></LI>
+
+<LI>
+
+<A HREF="#I14">Arrays and Matrices</A></LI>
+
+<LI>
+
+<A HREF="#I15">Defines</A></LI>
+
+<LI>
+
+<A HREF="#I16">Precedence</A></LI>
+
+<LI>
+
+<A HREF="#I17">Finishing Touches</A></LI>
+
+<LI>
+
+<A HREF="#I18">Unconventional Uses for eqn</A></LI>
+
+<LI>
+
+<A HREF="#I19">Troubleshooting</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I20">Using checkeq</A></LI>
+
+<LI>
+
+<A HREF="#I21">Processing to /dev/null</A></LI>
+
+<LI>
+
+<A HREF="#I22">Additional Suggestions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I23">eqn and the Preprocessors</A></LI>
+
+<LI>
+
+<A HREF="#I24">eqn and pic</A></LI>
+
+<LI>
+
+<A HREF="#I25">eqn and grap</A></LI>
+
+<LI>
+
+<A HREF="#I26">eqn and tbl</A></LI>
+
+<LI>
+
+<A HREF="#I27">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>24 &#151; Formatting Equations with </B><B><I>eqn</I></B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Susan Peppard</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Suppose that you had to format an expression like this:
+
+<BR></P>
+
+<BR><IMG SRC="24unx01.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx01.gif"><BR>
+
+<BR><P>You could format it with troff primitives, but it would take some time&#151;probably a great deal of time. If you're writing a calculus text, you don't want to spend half of your day moving tiny numbers and letters up and down. You want to get on 
+with your writing.
+
+<BR></P>
+
+<P>There's good news. UNIX provides a tool, called eqn, that does all the formatting for you. There's more good news, too. Because the focus of eqn is limited&#151;all it does is format equations&#151;it is easier to learn and use than tbl or pic.
+
+<BR></P>
+
+<P>eqn is a troff preprocessor&#151;like tbl, pic, and grap&#151;that you use to format mathematical expressions. There is an nroff version. But let's face it: Formatting a complex equation with nroff is a bit like wearing double-bladed skates to the 
+Olympic trials.
+
+<BR></P>
+
+<P>Like the other preprocessor files, eqn files can't be sourced in (with .so). If you try this, troff formats your code neatly, but your code is left untouched by eqn. To source in code that has already been processed by eqn, run eqn on a file that 
+contains only your equation. First write the output to a file (eqn <I>filename</I> &gt; <I>outputfile</I>), and then source in the output file. You can also read in the output file.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You can't source in an in-line equation.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The devisers of eqn make a point of telling you that you don't have to know anything about mathematics (or typesetting) to use eqn. This is a bit misleading. If you don't know anything about math, you'll be surprised by the output of eqn: all the 
+letters are in italics. (If you don't know anything about typesetting you may not know what italics are, but I'm assuming you do.)
+
+<BR></P>
+
+<P>The italics are a mathematical convention. Letters representing constants or variables (a, b, c, x, y, z, etc.) are always set in italics. Numbers and special words (like &quot;sin&quot; and &quot;cos&quot;) are set in roman type.
+
+<BR></P>
+
+<P>Besides selecting fonts for the characters in your equations, eqn provides you with a wide range of mathematical symbols, including the integral sign, upper- and lower-case Greek letters, plus, minus, equal sign, greater than, and less than. 
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B><I>eqn</I></B><B> Macros and Delimiters</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>eqn processes your code before troff sees it. This means that you must send your file through eqn and pipe the output to troff. troff needs to know that you've used eqn. You tell it so by using two macros and one or two delimiters. A delimiter is a 
+character used to signal the beginning or the end&#151;or both&#151;of an equation. For example, # is a delimiter. To tell troff that you are using eqn with # as the beginning and ending delimiters, put these lines before the start of your equation:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim ##
+
+.EN</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>It's usually a good idea to put delimiter identification lines near the top of your file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The eqn delimiters are used for in-line equations. (Even if you're sure you won't need in-line equations, it's a good idea to provide the delimiters. You never know.)
+
+<BR></P>
+
+<P>To define the delimiter, include the following lines in your file:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim ##
+
+.EN</PRE>
+
+<P>To turn the delimiters off:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim off
+
+.EN</PRE>
+
+<P>To use the delimiters, just surround your eqn code with them:
+
+<BR></P>
+
+<PRE># a + b = c #</PRE>
+
+<P>Don't worry about the height of your in-line equation. troff automatically adjusts line spacings.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Choosing Delimiters and Placing the Definition</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The books suggest $$ and warn you to stay away from eqn symbols like { and ( and ~ and ^ and &quot;. There is no default delimiter. They also suggest you put your delimiter definition at the top of your file. This is fine until you have to say that the 
+
+widget costs $5000. 
+
+<BR></P>
+
+<PRE>.EQ
+
+delim $$
+
+.EN
+
+The widget costs $5000.
+
+.P
+
+The enhanced widget costs $7500.
+
+.P
+
+Here's a formula for the cost of the widget:
+
+$x sup 2 + x sup 2 =$ cost of widget.</PRE>
+
+<P>The result is:
+
+<BR></P>
+
+<PRE>The widget costs 5000. . <I>PTheenhancedwidgetcosts7500</I>.
+
+Here's a formula for the cost of the widget:x2+x2=cost of widget.</PRE>
+
+<P>Not quite what you wanted. You can, of course, turn the delimiters off before you use the dollar sign as dollar sign. 
+
+<BR></P>
+
+<P>Or you can choose a different delimiter. (There are drawbacks to all of them.) I prefer ##, but this choice can't be used with the other preprocessors. (See &quot;eqn and the Preprocessors&quot; later in the chapter.) Exclamation points are usually 
+safe, especially if you're doing technical writing. (Technical writing rarely rises to the level of excitement needed to justify exclamation points.)
+
+<BR></P>
+
+<P>The same might be said for placing the delimiter definition: There are drawbacks to any location. The traditional place for eqn delimiters is at the top of your file. That's where someone else would look for it. That's where you look for it six months 
+from now. If you're juggling text that's full of dollar signs and pound signs and exclamation points, then turn the delimiters off at the top of your file and invoke them as needed. Turn the delimiters off as soon as you're done with them.
+
+<BR></P>
+
+<P>If you really want to wreak havoc on a file, try this:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim ee
+
+.EN</PRE>
+
+<P>This is a wonderful April Fool's joke to play on your boss, if you have access to her files, and if you've already found another job.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=4><B><I>eqn</I></B><B> Keywords</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>eqn was designed to be easy for mathematicians to learn and use. It uses familiar words and abbreviations. For example, if you read a1=b2 aloud, you would say, &quot;a sub one equals b sub two.&quot; That's what eqn says. The spaces here are important. 
+
+They are discussed later in this chapter.
+
+<BR></P>
+
+<PRE>#a sub 1 = b sub 2#</PRE>
+
+<P>The opposite of sub is sup, for superscript. For example,
+
+<BR></P>
+
+<PRE>#a sup 2 &gt; b sup 2</PRE>
+
+<P>The eqn keywords are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>above</P>
+
+<TD>
+
+<P>back</P>
+
+<TD>
+
+<P>bar</P>
+
+<TD>
+
+<P>bold</P>
+
+<TD>
+
+<P>ccol</P>
+
+<TR>
+
+<TD>
+
+<P>copy</P>
+
+<TD>
+
+<P>cpile</P>
+
+<TD>
+
+<P>define</P>
+
+<TD>
+
+<P>delim</P>
+
+<TD>
+
+<P>dot</P>
+
+<TR>
+
+<TD>
+
+<P>dotdot</P>
+
+<TD>
+
+<P>down</P>
+
+<TD>
+
+<P>dyad</P>
+
+<TD>
+
+<P>fat</P>
+
+<TD>
+
+<P>font</P>
+
+<TR>
+
+<TD>
+
+<P>from</P>
+
+<TD>
+
+<P>fwd</P>
+
+<TD>
+
+<P>gfont</P>
+
+<TD>
+
+<P>gsize</P>
+
+<TD>
+
+<P>hat</P>
+
+<TR>
+
+<TD>
+
+<P>highbar</P>
+
+<TD>
+
+<P>ifdef</P>
+
+<TD>
+
+<P>include</P>
+
+<TD>
+
+<P>int</P>
+
+<TD>
+
+<P>integral</P>
+
+<TR>
+
+<TD>
+
+<P>inter</P>
+
+<TD>
+
+<P>italic</P>
+
+<TD>
+
+<P>lcol</P>
+
+<TD>
+
+<P>left</P>
+
+<TD>
+
+<P>lineup</P>
+
+<TR>
+
+<TD>
+
+<P>lowbar</P>
+
+<TD>
+
+<P>lpile</P>
+
+<TD>
+
+<P>mark</P>
+
+<TD>
+
+<P>matrix</P>
+
+<TD>
+
+<P>over</P>
+
+<TR>
+
+<TD>
+
+<P>pile</P>
+
+<TD>
+
+<P>prod</P>
+
+<TD>
+
+<P>rcol</P>
+
+<TD>
+
+<P>right</P>
+
+<TD>
+
+<P>roman</P>
+
+<TR>
+
+<TD>
+
+<P>rpile</P>
+
+<TD>
+
+<P>size</P>
+
+<TD>
+
+<P>space</P>
+
+<TD>
+
+<P>sqrt</P>
+
+<TD>
+
+<P>sub</P>
+
+<TR>
+
+<TD>
+
+<P>sumsup</P>
+
+<TD>
+
+<P>tilde</P>
+
+<TD>
+
+<P>to</P>
+
+<TD>
+
+<P>under</P>
+
+<TD>
+
+<P>union</P>
+
+<TR>
+
+<TD>
+
+<P>uputilde</P>
+
+<TD>
+
+<P>vec</P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<P>Table 24.1 lists the keywords for Greek letters.
+
+<BR></P>
+
+<A HREF="tab2401.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/tab2401.gif">Table 24.1. Keywords for Greek letters.</B></A>
+
+
+
+<P>Note that there is no provision for the upper-case letters that are identical to their roman cousins (A, B, E, H, I, K, M, N, O, P, T, X, and Z). If you want an upper-case alpha, just type A.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> If you want an upper-case alpha that is not italicized, you have to specify roman A.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>eqn also includes the following terms, which are printed in roman, not italic, type:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>and</P>
+
+<TD>
+
+<P>arc</P>
+
+<TD>
+
+<P>cos</P>
+
+<TD>
+
+<P>cosh</P>
+
+<TR>
+
+<TD>
+
+<P>det</P>
+
+<TD>
+
+<P>exp</P>
+
+<TD>
+
+<P>for</P>
+
+<TD>
+
+<P>if</P>
+
+<TR>
+
+<TD>
+
+<P>Im</P>
+
+<TD>
+
+<P>lim</P>
+
+<TD>
+
+<P>ln</P>
+
+<TD>
+
+<P>log</P>
+
+<TR>
+
+<TD>
+
+<P>max</P>
+
+<TD>
+
+<P>min</P>
+
+<TD>
+
+<P>Re</P>
+
+<TD>
+
+<P>sin</P>
+
+<TR>
+
+<TD>
+
+<P>sinh</P>
+
+<TD>
+
+<P>tan</P>
+
+<TD>
+
+<P>tanh</P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=4><B><I>eqn</I></B><B> Operators</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You've already met some of the eqn operators&#151;+, -, =, and &gt;. Table 24.2 lists the other eqn operators.
+
+<BR></P>
+
+<A HREF="tab2402.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/tab2402.gif"><B>Table 24.2. Some eqn operators.</B></A>
+
+<BR>
+
+<P>In addition, eqn offers nine diacritical marks, which are listed in Table 24.3.
+
+<BR></P>
+
+<A HREF="tab2403.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/tab2403.gif"><B>Table 24.3. Diacritical marks.</B></A>
+
+<BR>
+
+<P>If you need to use a bar with one of the other diacritical marks, use highbar to place the bar correctly. There is also a lowbar. For example, the following code
+
+<BR></P>
+
+<PRE>.EQ
+
+delim ##
+
+.EN
+
+#X highbar#
+
+.sp .5
+
+#x highbar#
+
+.sp .5
+
+#x bar#
+
+.sp .5
+
+#x lowbar#
+
+.sp .5
+
+#x dotdot highbar#
+
+.sp .5
+
+#{x tilde} highbar#</PRE>
+
+<P>produces this output:</P>
+
+<BR><IMG SRC="24unx02.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx02.gif"><BR>
+
+<P>To draw a bar over an entire expression, use braces. For example:
+
+<BR></P>
+
+<PRE>{ ( alpha - beta ) * gamma } bar</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=4><B>Spaces and Braces</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Like most UNIX programs, eqn has to be able to recognize keywords. And, like UNIX, eqn understands that spaces delimit keywords, as do certain operators. For example, UNIX understands
+
+<BR></P>
+
+<PRE>who|grep sally</PRE>
+
+<P>or
+
+<BR></P>
+
+<PRE>who | grep sally</PRE>
+
+<P>The pipe acts as a delimiter, so UNIX can parse your command. Similarly, UNIX understands both the following:
+
+<BR></P>
+
+<PRE>mail sally&lt;myletter
+
+mail sally &lt; myletter</PRE>
+
+<P>In this example, the redirect (less than) sign acts as a delimiter. UNIX does not recognize the hyphen (minus sign) as a delimiter, despite the fact that many options must be preceded by this character. If you type ls-1, UNIX politely responds: ls-1:  
+not found.
+
+<BR></P>
+
+<P>eqn behaves the same way. If you write
+
+<BR></P>
+
+<PRE>.EQ
+
+a+b=c
+
+.EN</PRE>
+
+<P>eqn will process this easily because it recognizes + and = as delimiters. The output of this code will be identical to the output from
+
+<BR></P>
+
+<PRE>.EQ
+
+a + b = c
+
+.EN</PRE>
+
+<P>or even
+
+<BR></P>
+
+<PRE>.EQ
+
+a+ b
+
+    =
+
+  c
+
+.EN</PRE>
+
+<P>All of these are output as a+b=c.
+
+<BR></P>
+
+<P>eqn pays no attention to spaces or newlines except as delimiters. Once eqn has determined what you mean (or what it thinks you mean), it throws away spaces and newlines.
+
+<BR></P>
+
+<P>To obtain spaces in your output, use a tilde (~) for a 1-character space, or a circumflex (^) for a half-character space:
+
+<BR></P>
+
+<PRE>.EQ
+
+a~+~b~=~c
+
+a^+^b~=~c
+
+.EN</PRE>
+
+<P>This produces
+
+<BR></P>
+
+<P>a+b=c
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Grouping</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If you say, &quot;3 plus 2 times 5&quot; your listener doesn't know whether you mean 25 or 13. eqn has the same problem. Like your listener, eqn makes an assumption about # a + b * c #. If you provide no more information, eqn groups according to the 
+order in which you enter information. In other words, it assumes parentheses.
+
+<BR></P>
+
+<P>Although computers do this, mathematicians don't. They believe in precedence, which holds that multiplication always precedes addition. Therefore, 3 + 2 <B>&#180;</B> 5 is 13. Period. Even mathematicians, though, sometimes need parentheses.
+
+<BR></P>
+
+<P>Because parentheses are used so often in mathematical expressions, eqn wants you to use curly braces&#151;{ and }&#151;to indicate grouping in your expressions. Therefore, if you really meant 13, you would write
+
+<BR></P>
+
+<PRE># a + {b * c} #</PRE>
+
+<P>The spaces here are important.
+
+<BR></P>
+
+<P>Because eqn's treatment of spaces is its hardest aspect to get used to, here is a list of rules to memorize. You could have them printed on a tee-shirt or tattooed on your hand if that seems easier.
+
+<BR></P>
+
+<OL>
+
+<LI>eqn throws away all internal spaces once it has used them.
+
+<BR>
+
+<BR></LI>
+
+<LI>eqn uses internal spaces to recognize special words and symbols.
+
+<BR>
+
+<BR></LI>
+
+<LI>You can use circumflexes (^)&#151;eqn calls them hats&#151;or tildes (~) to set off special words and symbols. eqn replaces each tilde with a space in the output. It replaces each circumflex with a half space.
+
+<BR>
+
+<BR></LI>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Earlier versions of eqn may not replace the circumflex with a half space. They may simply throw the circumflex away.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<LI>You can use braces or quotation marks to set off parts of an equation, but they have special meanings.
+
+<BR>
+
+<BR>Braces are used for grouping. They force eqn to treat the enclosed term (or terms) as a unit. Braces can be nested.
+
+<BR>
+
+<BR>Quotation marks force eqn to treat the enclosed term literally. For example, to print a brace, enclose it in quotation marks.
+
+<BR>
+
+<BR></LI>
+
+<LI>When in doubt, use a space.
+
+<BR>
+
+<BR></LI>
+
+<LI>eqn ignores newlines, so you can spread your equation over several lines to make it more readable.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Table 24.4 contains some examples that may help:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 24.4. Using spaces and brackets in </B><B>eqn</B><B>.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Desired Output</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Code</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Actual Output</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>a + b = c</P>
+
+<TD>
+
+<P>a~+~b~=~c</P>
+
+<TD>
+
+<P>(as desired)</P>
+
+<TR>
+
+<TD>
+
+<P>a + b = c</P>
+
+<TD>
+
+<P>a + b = c</P>
+
+<TD>
+
+<P>a+b=c</P>
+
+<TR>
+
+<TD>
+
+<P>a=(x<SUP>2</SUP>)+1</P>
+
+<TD>
+
+<P>a=(x sup 2) + 1</P>
+
+<TD>
+
+<P>(as desired)</P>
+
+<TR>
+
+<TD>
+
+<P>a=(x<SUB>2</SUB>)+1</P>
+
+<TD>
+
+<P>a=(x sup 2)+ 1</P>
+
+<TD>
+
+<P>a=(x<SUP>2)+1</SUP></P>
+
+<TR>
+
+<TD>
+
+<P>x<SUB>2</SUB></P>
+
+<TD>
+
+<P>x sub 2</P>
+
+<TD>
+
+<P>(as desired)</P>
+
+<TR>
+
+<TD>
+
+<P>x<SUB>2</SUB></P>
+
+<TD>
+
+<P>x sub2</P>
+
+<TD>
+
+<P>xsub2</P>
+
+<TR>
+
+<TD>
+
+<P>x<SUB>i</SUB><SUP>2</SUP></P>
+
+<TD>
+
+<P>x sub i sup 2</P>
+
+<TD>
+
+<P>(as desired)</P>
+
+<TR>
+
+<TD>
+
+<P>xi<SUP>2</SUP></P>
+
+<TD>
+
+<P>x sup 2 sub i</P>
+
+<TD>
+
+<P>x2i</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Fractions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Fractions are produced in a straightforward way. Simply use the word over. For example, the code
+
+<BR></P>
+
+<PRE># a over b #</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx03.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx03.gif"></B></P><BR>
+
+<P>More complex fractions present additional problems. Think about the following equation for a moment:
+
+<BR></P>
+
+<PRE>a + b over c</PRE>
+
+<P>This code line could mean # {a+b} over c # or # a + {b over c} #. The most important thing to remember about fractions is to use braces.
+
+<BR></P>
+
+<P>You can, of course, produce an expression with a fraction like this:
+
+<BR></P>
+
+<P><B><IMG SRC="24unx04.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx04.gif"></B></P><BR>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=4><B>Square Roots</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The keyword sqrt produces the root sign. Consider these expressions:
+
+<BR></P>
+
+<P><B><IMG SRC="24unx05.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx05.gif"></B></P>
+
+<P>They are produced with the following code:
+
+<BR></P>
+
+<PRE>sqrt a+b=x
+
+sqrt {X bar}
+
+y= sqrt {a-b}
+
+y = sigma over {sqrt N}</PRE>
+
+<P>You can also produce large root signs. For example,
+
+<BR></P>
+
+<PRE>sqrt {{a sup x} over b sub y}</PRE>
+
+<P>When you do this, however, the root sign doesn't just get bigger; it gets thicker&#151;and uglier. In cases like this, you're better off using a fractional power. For example,
+
+<BR></P>
+
+<PRE>{( a sup x /b sub y ) } sup half</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx06.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx06.gif"></B></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=4><B>Sums, Integrals, and Limits</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>In their simplest form, sums, integrals, and limits are produced by sum, int, and lim. Of course, you never see them in their simplest form. Usually included is a from or even a from and a to. For example,
+
+<BR></P>
+
+<PRE>sum from 1=0 to {i=inf} x sup i
+
+int from a to b
+
+lim from {n -&gt; inf} sum from i=0 to m c sup i</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx07.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx07.gif"></B></P>
+
+<P>In addition, you can use prod, union, and inter to produce the symbols used with sets.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Brackets, Braces, and Piles</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can create big braces and brackets by enclosing expressions that require them. Consider the following code:
+
+<BR></P>
+
+<PRE>#left [ {a over b} + {c over d} right ]#
+
+#left { {s over t} - {r over q} right }#</PRE>
+
+<P>The expression that this code produces is
+
+<BR></P>
+
+<P><B><IMG SRC="24unx08.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx08.gif"></B></P>
+
+<P>You can specify floor and ceiling characters. For example,
+
+<BR></P>
+
+<PRE>left floor a over b right floor =&gt;
+
+left ceiling x over y right ceiling</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx09.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx09.gif"></B></P>
+
+<P>Although piles look like big brackets, they are actually different. Piles line up in three ways: left, right, and centered. For example,
+
+<BR></P>
+
+<PRE>A= left [
+
+pile { a above b above c }
+
+pile { x above y above z }
+
+right ]</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx10.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx10.gif"></B></P>
+
+<P>If you require only one brace, you must include a null argument for the missing side. Consider
+
+<BR></P>
+
+<PRE>left &quot;&quot;
+
+lpile
+
+{SIGMA X sub 3 above SIGMA X sub 1
+
+X sub 3 above SIGMA X sub 2 X sub 3}
+
+right )</PRE>
+
+<P>which produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx11.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx11.gif"></B></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=4><B>Arrays and Matrices</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>To create an array or a matrix, use the keyword matrix, as in
+
+<BR></P>
+
+<PRE>matrix {
+
+lcol { 0 above {x over y} }
+
+rcol { 1 above {x sup 2} }
+
+}</PRE>
+
+<P>This code produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx12.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx12.gif"></B></P>
+
+<P>You could use ccol to center columns. The main advantage of using the matrix keyword, though, is that the elements align themselves horizontally better.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Defines</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>If you use a complex term over and over again, you can define it as something short. A good choice, for example, is &amp;. Then, instead of typing
+
+<BR></P>
+
+<PRE>x= sqrt {SIGMA {x sup 2}} over N</PRE>
+
+<P>you can type
+
+<BR></P>
+
+<PRE>x= &amp;</PRE>
+
+<P>define works like this:
+
+<BR></P>
+
+<PRE>.EQ
+
+define &amp;  'sqrt {SIGMA {x sup 2}} over N'
+
+x = &amp;
+
+.EN</PRE>
+
+<P>You can select any characters you want&#151;fg, xy, and so on&#151;but be sensible. Don't choose ^ or ~. Don't choose your eqn delimiters. And don't choose an eqn keyword, even though it is permitted.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Precedence</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Without braces to force it to look at terms as groups, eqn recognizes the following orders of precedence:
+
+<BR></P>
+
+<PRE>
+
+<BR>dyad vec under bar tilde hat dot dotdot
+
+
+
+<BR>left right
+
+
+
+<BR>fwd back down up
+
+
+
+<BR>fat roman italic bold size
+
+
+
+<BR>sub sup
+
+
+
+<BR>sqrt over
+
+
+
+<BR>from to</PRE>
+
+<P>All operations group to the right, except for sqrt, left, and right, which group to the left.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Finishing Touches</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>eqn offers several ways for you to beautify your output. You can line up several equations, change fonts and point sizes, and insert vertical and horizontal movement.
+
+<BR></P>
+
+<P>To line up several equations, use mark and lineup. mark, which can be used only once in an equation, marks the horizontal position where lineup aligns the other equations. For example,
+
+<BR></P>
+
+<PRE>.EQ
+
+a mark = b
+
+.EN
+
+.EQ
+
+lineup = b+1
+
+.EN
+
+.EQ
+
+lineup = b+c+1
+
+.EN</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B><IMG SRC="24unx13.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx13.gif"></B></P>
+
+<P>You can also change fonts and point sizes in an equation. Table 24.5 describes the keywords used.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 24.5. Keywords used to change fonts and point sizes.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Keyword</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Description</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>bold</P>
+
+<TD>
+
+<P>Prints the next character or term in bold type</P>
+
+<TR>
+
+<TD>
+
+<P>fat</P>
+
+<TD>
+
+<P>Prints the next character or term in pseudo-bold, by overstriking</P>
+
+<TR>
+
+<TD>
+
+<P>font <I>f</I></P>
+
+<TD>
+
+<P>Changes to font f any font that troff recognizes (such as R, B, I, CW, and HB)</P>
+
+<TR>
+
+<TD>
+
+<P>italic</P>
+
+<TD>
+
+<P>Prints the next character or term in italic type</P>
+
+<TR>
+
+<TD>
+
+<P>roman</P>
+
+<TD>
+
+<P>Prints the next character or term in roman type</P>
+
+<TR>
+
+<TD>
+
+<P>size <I>n</I></P>
+
+<TD>
+
+<P>Changes to point size n, which can be specified as a number or as a relative quantity (such as size -2 or size +3)</P></TABLE>
+
+<P>There is a gsize option for setting a global point size. Similarly, there is a gfont. You should put these options near the top of your file; otherwise, eqn uses the default point size (usually 10).
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=4><B>Unconventional Uses for </B><B><I>eqn</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can use eqn to put diacritical marks on foreign words. Just remember that eqn prints words in italics. So you need to specify roman. Consider the following code:
+
+<BR></P>
+
+<PRE>No# roman e dotdot #l Coward
+
+Georg H# roman a dotdot #ndel
+
+malague# roman n tilde #a</PRE>
+
+<P>It produces
+
+<BR></P>
+
+<P><B>No&#235;l Coward<BR>
+
+Georg H&#228;ndel<BR>
+
+malague&#241;a</B></P>
+
+<P>You can also use eqn to produce the service mark symbol if it isn't available as a troff special character. The service mark is like the trademark except that it reads SM. For example,
+
+<BR></P>
+
+<PRE>XYZZY-Box# sup roman SM #</PRE>
+
+<P>produces
+
+<BR></P>
+
+<P><B>XYZZY-Box<SUP>SM</SUP></B></P>
+
+<P>Okay, it's not as neat as XYZZY-BOX\(SM, but it's a whole lot better than XYZZY-Box\v' -3p'\s-3SM\s+3\v' +3p'!
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=4><B>Troubleshooting</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Sometimes, despite your best efforts, your equations just don't come out right. Here are some suggestions for detecting and correcting faulty code, and for dealing with some of eqn's more arcane characteristics.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Using checkeq</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>At its best, eqn is quirky. So, before you print a 50-page chapter containing 70 equations, check your equations. This pinpoints syntax errors such as unmatched delimiters. The checkeq program is a good place to start. Use checkeq like this:
+
+<BR></P>
+
+<PRE>checkeq myeqnfile</PRE>
+
+<P>If checkeq finds no errors, it displays the following:
+
+<BR></P>
+
+<PRE>myeqnfile</PRE>
+
+<P>or
+
+<BR></P>
+
+<PRE>myeqnfile:
+
+     New delims: ##, line 2</PRE>
+
+<P>If you have an odd number of delimiters, you'll see something like this:
+
+<BR></P>
+
+<PRE>myeqnfile:
+
+myeqnfile:
+
+     New delims: ##, line 2
+
+     3 line ##, lines 7-9
+
+     3 line ##, lines 9-11
+
+     3 line ##, lines 11-13
+
+     3 line ##, lines 13-15
+
+     3 line ##, lines 15-17
+
+     Unfinished ##</PRE>
+
+<P>If, for some reason, you've specified bad delimiters (#$, for example, or #), checkeq announces:
+
+<BR></P>
+
+<PRE>myeqnfile
+
+     Strange delims at Line 2</PRE>
+
+<P>or
+
+<BR></P>
+
+<PRE>myeqnfile
+
+     Unfinished</PRE>
+
+<P>checkeq isn't good for much more than this.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Processing to </B><B><I>/dev/null</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Because checkeq lets a lot of mistakes slip by, you can also process your equation and send output to /dev/null (so you don't clutter your directory with a lot of troff output).
+
+<BR></P>
+
+<P>To do this:
+
+<BR></P>
+
+<PRE>eqn myeqnfile &gt; /dev/null</PRE>
+
+<P>When errors are found, you see a message like the following:
+
+<BR></P>
+
+<PRE>eqn: syntax error near line 19, file nyeqnfile
+
+    context is
+
+    !a = (x &gt;&gt;&gt; {sup &lt;&lt;&lt;&lt; 2}) + 1!</PRE>
+
+<P>The line number is not guaranteed, but it should be close.
+
+<BR></P>
+
+<P>Again, this is not foolproof because, if eqn can process your code, it will. You'll get no error message, even if your output is garbled or nonexistent.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Additional Suggestions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P><B>If you get no output at all:</B>
+
+<BR></P>
+
+<P>If your file contains nothing but an equation, try inserting a line of text before the equation. If you don't want text, use translated tildes:
+
+<BR></P>
+
+<PRE>.tr ~
+
+~ ~ ~
+
+.EQ
+
+x sup 2 + y sup 2 = z sup 2
+
+.EN</PRE>
+
+<P>Oddly enough, this does not seem to affect eqn code&#151;even code with tildes in it.
+
+<BR></P>
+
+<P><B>If the vertical spacing is wrong:</B> Try printing your file with a different macro package&#151;or with no macro package. (If you're using a home-grown package, you may have to pipe your file through eqn before you send it through troff.) Try 
+processing the eqn code and replacing the code with the processed code in your file. Try using space 0 as the first line of your eqn code:
+
+<BR></P>
+
+<PRE>.EQ
+
+space 0
+
+code
+
+.
+
+.
+
+.
+
+.EN</PRE>
+
+<P>If you're using the .EQ/.EN macros to delimit your equation, try using delimiters (## or !!)&#151;and, of course, vice versa.
+
+<BR></P>
+
+<P><B>If your equation is garbled:</B> Check for omitted spaces and braces. (Use them, even if you don't really need them.) Count braces and parentheses to make sure you have an even number of each. checkeq&#151;and eqn itself&#151;doesn't always find this 
+
+problem. If your equation contains a sup, make sure you use spaces around its argument, even if there's a brace. Make sure you have keywords in the right order. For example, #x highbar tilde# produces no error message, but it prints the bar right on the 
+tilde. (The correct order is #x tilde highbar#.) If your equation is long or complicated, use lots of spaces and newlines to make it easy to read.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=4><B><I>eqn</I></B><B> and the Preprocessors</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You can use eqn with any of the other preprocessors (pic, grap, and tbl), but only with delimiters&#151;not with .EQ/.EN macros. Before you do this, however, ask yourself if it's really necessary. You could always get another job, or move to a tiny 
+island with no electricity and no telephone lines.
+
+<BR></P>
+
+<P>The sections that follow provide some help if you can't face life without grap.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>eqn and pic</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You cannot use ## as eqn delimiters with pic code. You can use $$ and !! and %%. I wouldn't experiment with anything else.
+
+<BR></P>
+
+<P>Complicated equations inside pic pictures will come out wrong if eqn has to provide extra vertical space&#151;for example, for an integral sign. Use space 0 to (try to) prevent this, as follows:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim !!
+
+.
+
+.
+
+.
+
+pic code &quot;!space 0 eqn code!&quot;</PRE>
+
+<P>You need the quotation marks for pic.
+
+<BR></P>
+
+<P>A simple example of pic and eqn is
+
+<BR></P>
+
+<P><B><IMG SRC="24unx14.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/24unx14.gif"></B></P>
+
+<P>The code is as follows:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim !!
+
+.EN
+
+.PS
+
+box ht .75i wid i.5i &quot;!a sup 2 + b sup 2 = c sup 2!&quot;
+
+.PE</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=4><B>eqn and grap</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Because grap is built on pic, you can expect similar problems if you use eqn with grap. You can use the same delimiters, and you can expect to have to use space 0 to correct vertical spacing problems. eqn tries to override grap's spacing unless you do. 
+
+Do just as you did for pic; here's an example:
+
+<BR></P>
+
+<PRE>.EQ
+
+delim !!
+
+.EN
+
+.G1
+
+label left &quot;!y= sqrt { (2x sup 3 + 1)/3}!&quot;
+
+.G2</PRE>
+
+<P>You must use quotation marks, as with pic.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=4><B>eqn and tbl</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>There are a few simple rules for using eqn in tables. (tbl is discussed in detail in Chapter 23.)
+
+<BR></P>
+
+<UL>
+
+<LI>If you have equations and tables in your file, run the file through tbl first.
+
+<BR>
+
+<BR></LI>
+
+<LI>Do not use pound signs (##) as delimiters. (I tried it and got several indignant screenfulls of complaints. I'm not sure what the conflict is.)
+
+<BR>
+
+<BR></LI>
+
+<LI>Do not use the same characters for eqn delimiters and tbl tab characters.
+
+<BR>
+
+<BR></LI>
+
+<LI>Avoid using T braces with equations.
+
+<BR>
+
+<BR></LI>
+
+<LI>Don't put an equation in an n-style column. tbl cannot process the equation properly.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>To put an equation in a table, do the following:
+
+<BR></P>
+
+<OL>
+
+<LI>Define your eqn delimiters (use exclamation points).
+
+<BR>
+
+<BR></LI>
+
+<LI>Start your table.
+
+<BR>
+
+<BR></LI>
+
+<LI>Insert your eqn code between exclamations points.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>With me and ms, you can use arguments to the .EQ macro to position your equation horizontally. Both packages accept the following:
+
+<BR></P>
+
+<PRE>.EQ C     \centers the equation
+
+.EQ I     \indents the equation
+
+.EQ L     \left justifies the equation</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>eqn is a limited use program, but a very useful one. It's easy to learn, easy to use (except for the spaces), and it does an excellent job of setting mathematical expressions.
+
+<BR></P>
+
+<P><A HREF="unx23.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx23.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx25.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx25.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

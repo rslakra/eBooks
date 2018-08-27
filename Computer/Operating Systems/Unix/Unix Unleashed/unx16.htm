@@ -1,0 +1,5966 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx16.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx17.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx17.htm">
+
+<LINK REL="Previous" HREF="unx15.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx15.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx15.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx15.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx17.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx17.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">16</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">Perl</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">By David Till</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I5">Overview</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">What Is Perl?</A></LI>
+
+<LI>
+
+<A HREF="#I7">Where Can I Get Perl?</A></LI>
+
+<LI>
+
+<A HREF="#I8">A Simple Sample Program</A></LI>
+
+<LI>
+
+<A HREF="#I9">Using Comments</A></LI>
+
+<LI>
+
+<A HREF="#I10">Reading from Standard Input</A></LI>
+
+<LI>
+
+<A HREF="#I11">Storing Values The Scalar Variable</A></LI>
+
+<LI>
+
+<A HREF="#I12">Assigning a Value to a Scalar Variable</A></LI>
+
+<LI>
+
+<A HREF="#I13">Scalar Variables Inside Character Strings</A></LI>
+
+<LI>
+
+<A HREF="#I14">Writing to Standard Output</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">Working with Scalar Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">Understanding Scalar Values</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I17">Using Octal and Hexadecimal Representation</A></LI>
+
+<LI>
+
+<A HREF="#I18">Using Double- and Single-Quoted Strings</A></LI>
+
+<LI>
+
+<A HREF="#I19">Using Floating-Point Values</A></LI>
+
+<LI>
+
+<A HREF="#I20">Interchangeability of Strings and Numeric Values</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Using Scalar Variable Operators</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">Performing Arithmetic</A></LI>
+
+<LI>
+
+<A HREF="#I23">Performing Comparisons</A></LI>
+
+<LI>
+
+<A HREF="#I24">Manipulating Bits</A></LI>
+
+<LI>
+
+<A HREF="#I25">Using the Assignment Operators</A></LI>
+
+<LI>
+
+<A HREF="#I26">Using Autoincrement and Autodecrement</A></LI>
+
+<LI>
+
+<A HREF="#I27">Concatenating and Repeating Strings</A></LI>
+
+<LI>
+
+<A HREF="#I28">Using Other C Operators</A></LI>
+
+<LI>
+
+<A HREF="#I29">Matching Patterns</A></LI>
+
+<LI>
+
+<A HREF="#I30">The Order of Operations</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I31">Using Lists and Array Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I32">Introducing Lists</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I33">Scalar Variables and Lists</A></LI>
+
+<LI>
+
+<A HREF="#I34">Using List Ranges</A></LI></UL>
+
+<LI>
+
+<A HREF="#I35">Storing Lists in Array Variables</A></LI>
+
+<LI>
+
+<A HREF="#I36">Assigning to Array Variables</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I37">Using Array Variables in Lists</A></LI>
+
+<LI>
+
+<A HREF="#I38">Assigning to Scalar Variables from Array Variables</A></LI>
+
+<LI>
+
+<A HREF="#I39">Retrieving the Length of a List</A></LI></UL>
+
+<LI>
+
+<A HREF="#I40">Using Array Slices</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I41">Using Array Slices with Scalar Variables</A></LI>
+
+<LI>
+
+<A HREF="#I42">Using the Array Slice Notation as a Shorthand</A></LI></UL>
+
+<LI>
+
+<A HREF="#I43">Other Array Operations</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I44">Sorting a List or Array Variable</A></LI>
+
+<LI>
+
+<A HREF="#I45">Reversing a List or Array Variable</A></LI>
+
+<LI>
+
+<A HREF="#I46">Using chop() on Array Variables</A></LI>
+
+<LI>
+
+<A HREF="#I47">Creating a Single String from a List</A></LI>
+
+<LI>
+
+<A HREF="#I48">Example: Sorting Words in a String</A></LI></UL>
+
+<LI>
+
+<A HREF="#I49">Using Command Line Arguments</A></LI>
+
+<LI>
+
+<A HREF="#I50">Standard Input and Array Variables</A></LI></UL>
+
+<LI>
+
+<A HREF="#I51">Controlling Program Flow</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I52">Conditional Execution The if Statement</A></LI>
+
+<LI>
+
+<A HREF="#I53">Two-Way Branching Using if and else</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I54">Multi-Way Branching Using elsif</A></LI></UL>
+
+<LI>
+
+<A HREF="#I55">Conditional Branching Using unless</A></LI>
+
+<LI>
+
+<A HREF="#I56">Repeating Statements Using while and until</A></LI>
+
+<LI>
+
+<A HREF="#I57">Using Single-Line Conditional Statements</A></LI>
+
+<LI>
+
+<A HREF="#I58">Looping with the for Statement</A></LI>
+
+<LI>
+
+<A HREF="#I59">Looping Through a List The foreach Statement</A></LI>
+
+<LI>
+
+<A HREF="#I60">Exiting a Loop with the last Statement</A></LI>
+
+<LI>
+
+<A HREF="#I61">Using next to Start the Next Iteration of a Loop</A></LI>
+
+<LI>
+
+<A HREF="#I62">Using Labelled Blocks for Multi-Level Jumps</A></LI>
+
+<LI>
+
+<A HREF="#I63">Terminating Execution Using die</A></LI></UL>
+
+<LI>
+
+<A HREF="#I64">Reading from and Writing to Files</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I65">Opening a File</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I66">Checking Whether the Open Succeeded</A></LI></UL>
+
+<LI>
+
+<A HREF="#I67">Reading from a File</A></LI>
+
+<LI>
+
+<A HREF="#I68">Writing to a File</A></LI>
+
+<LI>
+
+<A HREF="#I69">Closing a File</A></LI>
+
+<LI>
+
+<A HREF="#I70">Determining the Status of a File</A></LI>
+
+<LI>
+
+<A HREF="#I71">Reading from a Sequence of Files</A></LI></UL>
+
+<LI>
+
+<A HREF="#I72">Using Subroutines</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I73">Defining a Subroutine</A></LI>
+
+<LI>
+
+<A HREF="#I74">Using a Subroutine</A></LI>
+
+<LI>
+
+<A HREF="#I75">Returning a Value from a Subroutine</A></LI>
+
+<LI>
+
+<A HREF="#I76">Using Local Variables</A></LI>
+
+<LI>
+
+<A HREF="#I77">Passing Values to a Subroutine</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I78">Calling Subroutines from Other Subroutines</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I79">Associative Arrays</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I80">Defining Associative Arrays</A></LI>
+
+<LI>
+
+<A HREF="#I81">Accessing Associative Arrays</A></LI>
+
+<LI>
+
+<A HREF="#I82">Copying to and from Associative Arrays</A></LI>
+
+<LI>
+
+<A HREF="#I83">Adding and Deleting Array Elements</A></LI>
+
+<LI>
+
+<A HREF="#I84">Listing Array Indexes and Values</A></LI>
+
+<LI>
+
+<A HREF="#I85">Looping with an Associative Array</A></LI></UL>
+
+<LI>
+
+<A HREF="#I86">Formatting Your Output</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I87">Defining a Print Format</A></LI>
+
+<LI>
+
+<A HREF="#I88">Displaying a Print Format</A></LI>
+
+<LI>
+
+<A HREF="#I89">Displaying Values in a Print Format</A></LI>
+
+<LI>
+
+<A HREF="#I90">Choosing a Value Field Format</A></LI>
+
+<LI>
+
+<A HREF="#I91">Writing to Other Output Files</A></LI>
+
+<LI>
+
+<A HREF="#I92">Specifying a Page Header</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I93">Setting the Page Length</A></LI></UL>
+
+<LI>
+
+<A HREF="#I94">Formatting Long Character Strings</A></LI></UL>
+
+<LI>
+
+<A HREF="#I95">Using Built-In Functions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I96">The $_ Variable</A></LI></UL>
+
+<LI>
+
+<A HREF="#I97">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>16</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>Perl</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=3><B>By David Till</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Overview</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The following sections tell you what Perl is and how you can get it, and provide a short example of a working Perl program.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>What Is Perl?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Perl is a simple yet useful programming language that provides the convenience of shell scripts and the power and flexibility of high-level programming languages. Perl programs are interpreted and executed directly, just as shell scripts are; however, 
+they also contain control structures and operators similar to those found in the C programming language. This gives you the ability to write useful programs in a very short time.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Where Can I Get Perl?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Perl is freeware: it can be obtained by file transfer (ftp) from the Free Software Foundation at prep.ai.mit.edu (in the directory pub/gnu). Perl is also available from several other sites on the Internet, including any site that archives the newsgroup 
+
+comp.sources.unix.
+
+<BR></P>
+
+<P>The Free Software Foundation gives you the right to obtain Perl and its source, provided others have the right to obtain them from you. For more details on the Free Software Foundation licensing policy, refer to the file GETTING.GNU.SOFTWARE, also 
+available from the foundation.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>A Simple Sample Program</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To show easy it is to use Perl, here is a simple program that echoes (writes out) a line of input typed in at a terminal.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Listing 16.1. A Sample Perl Program.</B></LH></UL>
+
+<PRE>#!/usr/bin/perl
+
+$inputline = &lt;STDIN&gt;;
+
+print (&quot;$inputline&quot;);</PRE>
+
+<P>To run this program, do the following:
+
+<BR></P>
+
+<OL>
+
+<LI>Type in the program and save it in a file (say, foo).
+
+<BR>
+
+<BR></LI>
+
+<LI>Tell the system that this file contains executable statements. To do this, enter the command chmod +x foo.
+
+<BR>
+
+<BR></LI>
+
+<LI>Run the program by entering the command foo.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>If you receive the error message foo not found or some equivalent, either enter the command ./foo or add the current directory . to your PATH environment variable.
+
+<BR></P>
+
+<P>At this point, the program waits for you to type in an input line. Once you have done so, it echoes your input line and exits.
+
+<BR></P>
+
+<P>The following sections describe each of the components of this simple program in a little more detail.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Using Comments</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first line of this program is an example of a Perl comment. In Perl, anytime a # character is recognized, the rest of the line is treated as a comment:
+
+<BR></P>
+
+<PRE># this is a comment that takes up the whole line
+
+$count = 0;     # this part of the line is a comment </PRE>
+
+<P>A comment appearing as the first line of a program is special. This header comment indicates the location of the program interpreter to use. In this example, the string !/usr/bin/perl indicates that this file is a Perl program.
+
+<BR></P>
+
+<P>The Perl interpreter should be located in /usr/bin/perl on your system. If it is not, replace /usr/bin/perl in the header comment with the location of the Perl interpreter on your system.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Reading from Standard Input</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Like C, Perl recognizes the existence of the UNIX standard input file, standard output file, and standard error file. In C, these files are called stdin, stdout and stderr; in Perl, they are called STDIN, STDOUT and STDERR.
+
+<BR></P>
+
+<P>The Perl construct &lt;STDIN&gt; refers to a line of text read in from the standard input file. This line of text includes the closing newline character.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Storing Values The Scalar Variable</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The construct $inputline is an example of a scalar variable. A scalar variable is a variable that holds exactly one value. This value can be a string, integer, or floating point number.
+
+<BR></P>
+
+<P>All scalar variables start with a dollar sign, $. This distinguishes them from other Perl variables. In a scalar variable, the character immediately following the dollar sign must be a letter. Subsequent characters can be letters, digits, or 
+underscores. Scalar variable names can be as long as you like.
+
+<BR></P>
+
+<P>For more information on scalar variables and their values, see the section &quot;Working with Scalar Variables&quot; later in this chapter.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Assigning a Value to a Scalar Variable</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The statement $inputline = &lt;STDIN&gt;; contains the = character, which is the Perl assignment operator. This statement tells Perl that the line of text read from standard input, represented by &lt;STDIN&gt;, is to become the new value of the scalar 
+variable $inputline.
+
+<BR></P>
+
+<P>Perl provides a full set of useful arithmetic, logical, and string operators. For details, refer to the sections &quot;Working with Scalar Variables&quot; and &quot;Using Lists and Array Variables&quot; later in this chapter.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>All scalar variables are given an initial value of the null string, &quot;&quot;. Therefore, a Perl program can be run even when a scalar variable is used before a value has been assigned to it. 
+
+Consider the statement
+
+<BR>
+
+<BR>$b = $a;
+
+<BR>
+
+<BR>This statement assigns the value of the variable $a to $b. If $a has not been seen before, it is assumed to have the value &quot;&quot;, and &quot;&quot; is assigned to $b. Since this behavior is legal in Perl, you must check your programs for 
+&quot;undefined&quot; variables yourself.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Scalar Variables Inside Character Strings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The final statement of the program, print (&quot;$inputline&quot;);, contains a character string, which is a sequence of characters enclosed in double quotes. In this case, the character string is &quot;$inputline&quot;.
+
+<BR></P>
+
+<P>The string &quot;$inputline&quot; contains the name of a scalar variable, $inputline. When Perl sees a variable inside a character string, it replaces the variable with its value. In this example, the string &quot;$inputline&quot; is replaced with the 
+line of text read from the standard input file.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Writing to Standard Output</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The built-in function print() writes its arguments (the items enclosed in parentheses) to the standard output file. In this example, the statement print (&quot;$inputline&quot;); sends the contents of the scalar variable $inputline to the standard 
+output file.
+
+<BR></P>
+
+<P>The print() function can also be told to write to the standard error file or to any other specified file. See the section &quot;Reading from and Writing to Files&quot; later in this chapter for more details.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=4><B>Working with Scalar Variables</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Now that you know a little about Perl, it's time to describe the language in a little more detail. This section starts you off by discussing scalar variables and the values that can be stored in them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Understanding Scalar Values</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In Perl, a scalar value is any value that can be stored in a scalar variable. The following are scalar values:
+
+<BR></P>
+
+<UL>
+
+<LI>Integers
+
+<BR>
+
+<BR></LI>
+
+<LI>Double and single-quoted character strings
+
+<BR>
+
+<BR></LI>
+
+<LI>Floating-point values
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The following assignments are all legal in Perl:
+
+<BR></P>
+
+<PRE>$variable = 1;
+
+$variable = &quot;this is a string&quot;;
+
+$variable = 3.14159;</PRE>
+
+<P>The following assignments are not legal:
+
+<BR></P>
+
+<PRE>$variable = 67M;
+
+$variable = ^803;
+
+$variable = $%$%!;</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Using Octal and Hexadecimal Representation</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Normally, integers are assumed to be in standard base 10 notation. Perl also supports base 8 (octal) and base 16 (hexadecimal) notation.
+
+<BR></P>
+
+<P>To indicate that a number is in base 8, put a zero in front of the number:
+
+<BR></P>
+
+<PRE>$a = 0151;          # 0151 octal is 105</PRE>
+
+<P>To indicate base 16, put 0x (or 0X) in front of the number:
+
+<BR></P>
+
+<PRE>$a = 0x69;          # 69 hex is also 105</PRE>
+
+<P>The letters A through F (in either upper- or lowercase) represent the values 10 through 15:
+
+<BR></P>
+
+<PRE>$a = 0xFE;          # equals 16 * 15 + 1 * 14, or 254</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Strings containing a leading 0 or 0x are not treated as base 8 or base 16:
+
+<BR>
+
+<BR>$a = &quot;0151&quot;;
+
+<BR>$a = &quot;0x69&quot;;
+
+<BR>
+
+<BR>These strings are treated as character strings whose first character is &quot;0.&quot;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Using Double- and Single-Quoted Strings</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>So far, all of the strings you have seen have been enclosed by the &quot; (double quotation mark) characters:
+
+<BR></P>
+
+<PRE>$a = &quot;This is a string in double quotes&quot;;</PRE>
+
+<P>Perl also allows you to enclose strings using the ' (single quotation mark) character:
+
+<BR></P>
+
+<PRE>$a = 'This is a string in single quotes';</PRE>
+
+<P>There are two differences between double-quoted strings and single-quoted strings. The first difference is that variables are replaced by their values in double-quoted strings, but not in single-quoted strings:
+
+<BR></P>
+
+<PRE>$x = &quot;a string&quot;;
+
+$y = &quot;This is $x&quot;;  # becomes &quot;This is a string&quot;
+
+$z = 'This is $x';  # remains 'This is $x'</PRE>
+
+<P>Also, double-quoted strings recognize escape sequences for special characters. These escape sequences consist of a backslash (\) followed by one or more characters. The most common escape sequence is \n, representing the newline character:
+
+<BR></P>
+
+<PRE>$a = &quot;This is a string terminated by a newline\n&quot;;</PRE>
+
+<P>Table 16.1 lists the escape sequences recognized in double-quoted strings.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 16.1. Escape Sequences in Double-Quoted Strings.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>\a</P>
+
+<TD>
+
+<P>bell (beep)</P>
+
+<TR>
+
+<TD>
+
+<P>\b</P>
+
+<TD>
+
+<P>backspace</P>
+
+<TR>
+
+<TD>
+
+<P>\cn</P>
+
+<TD>
+
+<P>the control-n character</P>
+
+<TR>
+
+<TD>
+
+<P>\e</P>
+
+<TD>
+
+<P>escape</P>
+
+<TR>
+
+<TD>
+
+<P>\f</P>
+
+<TD>
+
+<P>form feed</P>
+
+<TR>
+
+<TD>
+
+<P>\l</P>
+
+<TD>
+
+<P>force next letter into lowercase</P>
+
+<TR>
+
+<TD>
+
+<P>\L</P>
+
+<TD>
+
+<P>all following letters are lowercase</P>
+
+<TR>
+
+<TD>
+
+<P>\n</P>
+
+<TD>
+
+<P>newline</P>
+
+<TR>
+
+<TD>
+
+<P>\r</P>
+
+<TD>
+
+<P>carriage return</P>
+
+<TR>
+
+<TD>
+
+<P>\t</P>
+
+<TD>
+
+<P>tab</P>
+
+<TR>
+
+<TD>
+
+<P>\u</P>
+
+<TD>
+
+<P>force next letter into uppercase</P>
+
+<TR>
+
+<TD>
+
+<P>\U</P>
+
+<TD>
+
+<P>all following letters are uppercase</P>
+
+<TR>
+
+<TD>
+
+<P>\v</P>
+
+<TD>
+
+<P>vertical tab</P></TABLE>
+
+<P>\L and \U can be turned off by \E:
+
+<BR></P>
+
+<PRE>$a = &quot;T\LHIS IS A \ESTRING&quot;;  # same as &quot;This is a STRING&quot;</PRE>
+
+<P>To include a backslash or double quote in a double-quoted string, precede it with another backslash:
+
+<BR></P>
+
+<PRE>$a = &quot;A quote \&quot; in a string&quot;;
+
+$a = &quot;A backslash \\ in a string&quot;;</PRE>
+
+<P>You can specify the ASCII value for a character in base 8 or octal notation using \<I>nnn</I>, where each <I>n</I> is an octal digit:
+
+<BR></P>
+
+<PRE>$a = &quot;\377&quot;;        # this is the character 255, or EOF</PRE>
+
+<P>You can also use hexadecimal to specify the ASCII value for a character. To do this, use the sequence \x<I>nn</I>, where each <I>n</I> is a hexadecimal digit:
+
+<BR></P>
+
+<PRE>$a = &quot;\xff&quot;;        # this is also 255</PRE>
+
+<P>None of these escape sequences is supported in single-quoted strings, except for \' and \\, which represent the single quote character and the backslash, respectively:
+
+<BR></P>
+
+<PRE>$a = '\b is not a bell'
+
+$a = 'a single quote \' in a string'
+
+$a = 'a backslash \\ in a string'</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> In Perl, strings are not terminated by a null character (ASCII 0), as they are in C. In Perl, the null character can appear anywhere in a string:
+
+<BR>
+
+<BR>$a = &quot;This string \000 has a null character in it&quot;;
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Using Floating-Point Values</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Perl supports floating-point numbers in both conventional and scientific notation. The letter E (or e) represents the power of ten to which a number in scientific notation is to be raised.
+
+<BR></P>
+
+<PRE>$a = 11.3;          # conventional notation
+
+$a = 1.13E01;       # 11.3 in scientific notation
+
+$a = -1.13e-01;     # the above divided by -10</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Note that Perl uses your machine's floating point representation. This means that only a certain number of digits (in mathematical terms, a certain precision) are supported. For example, 
+consider the following very short program:
+
+<BR>
+
+<BR>#!/usr/bin/perl
+
+<BR>$pi = 3.14159265358979233;
+
+<BR>print (&quot;pi is $pi\n&quot;);
+
+<BR>
+
+<BR>This program prints the following:
+
+<BR>
+
+<BR>pi = 3.1415926535897922
+
+<BR>
+
+<BR>This is because there just isn't room to keep track of all of the digits of pi specified by the program.
+
+<BR>
+
+<BR>This problem is made worse when arithmetic operations are performed on floating point numbers; see &quot;Performing Comparisons&quot; for more information on this problem.
+
+<BR>
+
+<BR>Note that most programming languages, including C, have this problem.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Interchangeability of Strings and Numeric Values</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In Perl, as you have seen, a scalar variable can be used to store a character string, an integer, or a floating point value. In scalar variables, a value that was assigned as a string can be used as an integer whenever it makes sense to do so, and vice 
+
+versa. For example, consider the program in file LIST 16_2 on the CD-ROM, which converts distances from miles to kilometers and vice versa. In this example, the scalar variable $originaldist contains the character string read in from the standard input 
+file. The contents of this string are then treated as a number, multiplied by the miles-to-kilometers and kilometers-to-miles conversion factors, and stored in $miles and $kilometers.
+
+<BR></P>
+
+<P>This program also contains a call to the function chop(). This function throws away the last character in the specified string. In this case, chop() gets rid of the newline character at the end of the input line.
+
+<BR></P>
+
+<P>If a string contains characters that are not digits, it is converted to 0:
+
+<BR></P>
+
+<PRE># this assigns 0 to $a, since &quot;hello&quot; becomes 0
+
+$a = &quot;hello&quot; * 5;</PRE>
+
+<P>In cases like this, Perl does not tell you that anything has gone wrong, and your results may not be what you expect.
+
+<BR></P>
+
+<P>Also, strings containing misprints yield unexpected results:
+
+<BR></P>
+
+<PRE>$a = &quot;12O34&quot;+1       # the letter O, not the number 0</PRE>
+
+<P>When Perl sees a string in the middle of an expression, it converts the string to an integer. To do this, it starts at the left of the string and continues until it sees a letter that is not a digit. In this case, &quot;12O34&quot; is converted to the 
+integer 12, not 12034.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Using Scalar Variable Operators</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The statement $miles = $originaldist * 0.6214; uses two scalar variable operators: =, the assignment operator, which assigns a value to a variable, and *, the multiplication operator, which multiplies two values.
+
+<BR></P>
+
+<P>Perl provides the complete set of operators found in C, plus a few others. These operators are described in the following sections.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Performing Arithmetic</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To do arithmetic in Perl, use the arithmetic operators.
+
+<BR></P>
+
+<P>Perl supports the following arithmetic operators:
+
+<BR></P>
+
+<PRE>$a = 15;            # assignment: $a now has the value 15
+
+$a = 4 + 5.1;       # addition: $a is now 9.1
+
+$a = 17 - 6.2;      # subtraction: $a is now 10.8
+
+$a = 2.1 * 6;       # multiplication: $a is now 12.6
+
+$a = 48 / 1.5;      # division: $a is now 32
+
+$a = 2 ** 3;        # exponentiation: $a is now 8
+
+$a = 21 % 5;        # remainder (modulo): $a is now 1
+
+$a = - $b;          # arithmetic negation: $a is now $b * -1</PRE>
+
+<P>Non-integral values are converted to integers before a remainder operation is performed:
+
+<BR></P>
+
+<PRE>$a = 21.4 % 5.1;    # identical to 21 % 5</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Performing Comparisons</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To compare two scalar values in Perl, use the logical operators.
+
+<BR></P>
+
+<P>Logical operators are divided into two classes: numeric and string. The following numeric logical operators are defined:
+
+<BR></P>
+
+<PRE>11.0 &lt; 16           # less than
+
+16 &gt; 11             # greater than
+
+15 == 15            # equals
+
+11.0 &lt;= 16          # less than or equal to
+
+16 &gt;= 11            # greater than or equal to
+
+15 != 14            # not equal to
+
+$a || $b            # logical OR:  true if either is non-zero
+
+$a &amp;&amp; $b            # logical AND:  true only if both are non-zero
+
+! $a                # logical NOT:  true if $a is zero</PRE>
+
+<P>In each case, the result of the operation performed by a logical operator is non-zero if true and zero if false, just like in C.
+
+<BR></P>
+
+<P>The expression on the left side of a || (logical or) operator is always tested before the expression on the right side, and the expression on the right side is only used when necessary. For example, consider the following expression:
+
+<BR></P>
+
+<PRE>$x == 0 || $y / $x &gt; 5</PRE>
+
+<P>Here, the expression on the left side of the ||, $x == 0, is tested first. If $x is zero, the result is true regardless of the value of $y / $x &gt; 5, so Perl doesn't bother to compute this value. $y / $x &gt; 5 is only evaluated if s is not zero. This 
+
+ensures that division by zero can never occur.
+
+<BR></P>
+
+<P>Similarly, the expression on the right side of a &amp;&amp; operator is only tested if the expression on the left side is true:
+
+<BR></P>
+
+<PRE>$x != 0 &amp;&amp; $y / $x &gt; 5</PRE>
+
+<P>Once again, a division by zero error is impossible, because $y / $x &gt; 5 is only evaluated if $x is non-zero.
+
+<BR></P>
+
+<P>Perl also defines the &lt;=&gt; operator, which returns 0 if the two values are equal, -1 if the left value is larger, and 1 if the right value is larger:
+
+<BR></P>
+
+<PRE>4 &lt;=&gt; 1             # returns -1
+
+3 &lt;=&gt; 3.0           # returns 0
+
+1 &lt;=&gt; 4.0           # returns 1</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Be careful when you use floating point numbers in comparison operations, because the result may not be what you expect. Consider the following code fragment:
+
+<BR>
+
+<BR>$val1 = 14.3;
+
+<BR>$val2 = 100 + 14.3 - 100;
+
+<BR>print &quot;val1 is $val1, val2 is $val2\n&quot;;
+
+<BR>
+
+<BR>On first examination, $val1 and $val2 appear to contain the same value, 14.3. However, the print statement produces the following:
+
+<BR>
+
+<BR>val1 is 14.300000000000001, val2 is 14.299999999999997
+
+<BR>
+
+<BR>Adding and subtracting 100 affects the value stored in $val2 because of the way floating point values are calculated and stored on the machine. As a result, $val1 and $val2 are not the same, and $val1 == $val2 is not true.
+
+<BR>
+
+<BR>This problem occurs in most programming languages (including C).
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Besides the preceding numeric logical operators, Perl also provides logical operators that work with strings:
+
+<BR></P>
+
+<PRE>&quot;aaa&quot; lt &quot;bbb&quot;      # less than
+
+&quot;bbb&quot; gt &quot;aaa&quot;      # greater than
+
+&quot;aaa&quot; eq &quot;aaa&quot;      # equals
+
+&quot;aaa&quot; le &quot;bbb&quot;      # less than or equal to
+
+&quot;bbb&quot; ge &quot;aaa&quot;      # greater than or equal to
+
+&quot;aaa&quot; ne &quot;bbb&quot;      # not equal to</PRE>
+
+<P>Perl also defines the cmp operator, which, like the numeric operator &lt;=&gt;, returns -1, 0 or 1:
+
+<BR></P>
+
+<PRE>&quot;aaa&quot; cmp &quot;bbb&quot;     # returns -1
+
+&quot;aaa&quot; cmp &quot;aaa&quot;     # returns 0
+
+&quot;bbb&quot; cmp &quot;aaa&quot;     # returns 1</PRE>
+
+<P>This behavior is identical to that of the C function strcmp().
+
+<BR></P>
+
+<P>Note that the logical string operators perform string comparisons, not numeric comparisons. For example, &quot;40&quot; lt &quot;8&quot; is true&#151;if the two strings are sorted in ascending order, &quot;40&quot; appears before &quot;8&quot;.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>Manipulating Bits</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Any integer can always be represented in binary or base-2 notation, of course. For example, the number 38 is equivalent to the binary value 100110: 32 plus 4 plus 2. Each 0 or 1 in this binary value is called a bit.
+
+<BR></P>
+
+<P>If a Perl scalar value happens to be an integer, Perl allows you to manipulate the bits that make up that integer. To do this, use the Perl bitwise operators.
+
+<BR></P>
+
+<P>The following bitwise operators are supported in Perl:
+
+<BR></P>
+
+<UL>
+
+<LI>The &amp; (bitwise AND) operator
+
+<BR>
+
+<BR></LI>
+
+<LI>The | (bitwise OR) operator
+
+<BR>
+
+<BR></LI>
+
+<LI>The ^ (bitwise EXOR, or exclusive OR) operator
+
+<BR>
+
+<BR></LI>
+
+<LI>The ~ (bitwise NOT) operator
+
+<BR>
+
+<BR></LI>
+
+<LI>The &lt;&lt; (left shift) and &gt;&gt; (right shift) operators
+
+<BR>
+
+<BR></LI></UL>
+
+<P>If a scalar value is not an integer, it is converted to an integer before a bitwise operation is performed:
+
+<BR></P>
+
+<PRE>$a = 24.5 &amp; 11.2    # identical to $a = 24 &amp; 11</PRE>
+
+<P>The &amp; operator works as follows: first, it examines the values on either side of the &amp;. (These values are also known as the operands of the &amp; operator.) These values are examined in their binary representations. For example, consider the 
+following bitwise operation:
+
+<BR></P>
+
+<PRE>$a = 29 &amp; 11;</PRE>
+
+<P>In this case, the 29 is converted to 11101, and the 11 is converted to 01011. (A binary representation can have as many leading zeroes as you like.)
+
+<BR></P>
+
+<P>Next, Perl compares each bit of the first operand with the corresponding bit in the second operand:
+
+<BR></P>
+
+<PRE>11101
+
+01011</PRE>
+
+<P>In this case, only the second and fifth bits (from the left) of the two operands are both 1; therefore, the binary representation of the result is 01001, or 9.
+
+<BR></P>
+
+<P>The | operator works in much the same way. The bits of the two operands are compared one at a time; if a bit in the first operand is 1 or its corresponding bit in the second operand is 1, the bit in the result is set to 1. Consider this example:
+
+<BR></P>
+
+<PRE>$a = 25 | 11;</PRE>
+
+<P>Here, the binary representations are 11001 and 01011.  In this case, only the third bits are both 0, and the result is 11011 or 27.
+
+<BR></P>
+
+<P>The ^ operator sets a result bit to 1 if exactly one of the corresponding bits in an operand is 1. If both bits are 1 or both are 0, the result bit is set to 0. In the example $a = 25 ^ 11; the binary representations of the operands are 11001 and 01011, 
+
+and the result is 10010, or 18.
+
+<BR></P>
+
+<P>The ~ operator works on one operand. Every 0 bit in the operand is changed to a 1 and vice versa. For example, consider the following:
+
+<BR></P>
+
+<PRE>$a = ~ 25;</PRE>
+
+<P>Here, the binary representation of 25 is 11001. The result, therefore, is 00110, or 6.
+
+<BR></P>
+
+<P>The &lt;&lt; operator shifts the bits of the left operand the number of places specified by the right operand, and fills the vacated places with zeroes:
+
+<BR></P>
+
+<PRE>$a = 29 &lt;&lt; 2;</PRE>
+
+<P>Here the value 29, whose binary representation is 11101, is shifted left two positions. This produces the result 1110100, or 116.
+
+<BR></P>
+
+<P>Similarly, the &gt;&gt; operator shifts the bits rightward, with the rightmost bits being lost:
+
+<BR></P>
+
+<PRE>$a = 29 &gt;&gt; 2;</PRE>
+
+<P>In this case, 29, or 11101, is shifted right two places. The 01 on the end is thrown away, and the result is 111, or 7.
+
+<BR></P>
+
+<P>Shifting left one bit is equivalent to multiplying by 2:
+
+<BR></P>
+
+<PRE>$a = 54 &lt;&lt; 1;       # this result is 108
+
+$a = 54 * 2;        # this result is also 108</PRE>
+
+<P>Shifting right one bit is equivalent to dividing by 2:
+
+<BR></P>
+
+<PRE>$a = 54 &gt;&gt; 1;       # this result is 27
+
+$a = 54 / 2;        # this result is also 27</PRE>
+
+<P>Similarly, shifting left or right n bits is equivalent to multiplying or dividing by 2**n.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Using the Assignment Operators</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The most common assignment operator is the = operator, which you've already seen:
+
+<BR></P>
+
+<PRE>$a = 9;</PRE>
+
+<P>Here, the value 9 is assigned to the scalar variable $a.
+
+<BR></P>
+
+<P>Another common assignment operator is the += operator, which combines the operations of addition and assignment:
+
+<BR></P>
+
+<PRE>$a = $a + 1;        # this adds 1 to $a
+
+$a += 1;            # this also adds 1 to $a</PRE>
+
+<P>Other assignment operators exist that correspond to the other arithmetic and bitwise operators:
+
+<BR></P>
+
+<PRE>$a -= 1;            # same as $a = $a - 1
+
+$a *= 2;            # same as $a = $a * 2
+
+$a /= 2;            # same as $a = $a / 2
+
+$a %= 2;            # same as $a = $a % 2
+
+$a **= 2;           # same as $a = $a ** 2
+
+$a &amp;= 2;            # same as $a = $a &amp; 2
+
+$a |= 2;            # same as $a = $a | 2
+
+$a ^= 2;            # same as $a = $a ^ 2</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Using Autoincrement and Autodecrement</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Another way to add 1 to a scalar variable is with the ++, or autoincrement, operator:
+
+<BR></P>
+
+<PRE>++$a;               # same as $a += 1 or $a = $a + 1</PRE>
+
+<P>This operator can appear either before or after its operand:
+
+<BR></P>
+
+<PRE>$a++;               # also equivalent to $a += 1 and $a = $a + 1</PRE>
+
+<P>The ++ operator can also be part of a more complicated sequence of operations. (A code fragment consisting of a sequence of operations and their values is known as an expression.) Consider the following statements:
+
+<BR></P>
+
+<PRE>$b = ++$a;
+
+$b = $a++;</PRE>
+
+<P>In the first statement, the ++ operator appears before its operand. This tells Perl to add 1 to $a before assigning its value to $b:
+
+<BR></P>
+
+<PRE>$a = 7;
+
+$b = ++$a;          # $a and $b are both 8</PRE>
+
+<P>If the ++ operator appears after the operand, Perl adds 1 to $a after assigning its value to $b:
+
+<BR></P>
+
+<PRE>$a = 7;
+
+$b = $a++;          # $a is now 8, and $b is now 7</PRE>
+
+<P>Similarly, the &#151;, or autodecrement, operator subtracts 1 from the value of a scalar variable either before or after assigning the value:
+
+<BR></P>
+
+<PRE>$a = 7;
+
+$b = &#151;$a;          # $a and $b are both 6
+
+$a = 7;
+
+$b = $a&#151;;          # $a is now 6, and $b is now 7</PRE>
+
+<P>The ++ and &#151; operators provide a great deal of flexibility, and are often used in loops and other control structures.
+
+<BR></P>
+
+<P>Do not use the ++ and &#151; operators on the same variable more than once in the same expression:
+
+<BR></P>
+
+<PRE>$b = ++$a + $a++;</PRE>
+
+<P>The value assigned to $b depends on which of the operands of the + operator is evaluated first. On some systems, the first operand (++$a) is evaluated first. On others, the second operand ($a++) is evaluated first.
+
+<BR></P>
+
+<P>You can ensure that you get the result you want by using multiple statements and the appropriate assignment operator:
+
+<BR></P>
+
+<PRE>$b = ++$a;
+
+$b += $a++;</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>Concatenating and Repeating Strings</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Perl provides three operators that operate on strings: The . operator, which joins two strings together; the x operator, which repeats a string; and the .= operator, which joins and then assigns.
+
+<BR></P>
+
+<P>The . operator joins the second operand to the first operand:
+
+<BR></P>
+
+<PRE>$a = &quot;be&quot; . &quot;witched&quot;;      # $a is now &quot;bewitched&quot;</PRE>
+
+<P>This join operation is also known as string concatenation.
+
+<BR></P>
+
+<P>The x operator (the letter x) makes <I>n</I> copies of a string, where <I>n</I> is the value of the right operand:
+
+<BR></P>
+
+<PRE>$a = &quot;t&quot; x 5;               # $a is now &quot;ttttt&quot;</PRE>
+
+<P>The .= operator combines the operations of string concatenation and assignment:
+
+<BR></P>
+
+<PRE>$a = &quot;be&quot;;
+
+$a .= &quot;witched&quot;;            # $a is now &quot;bewitched&quot;</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>Using Other C Operators</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Perl also supports the following operators, found in the C programming language: The , (comma) operator, and the ? and : (conditional) operator combination.
+
+<BR></P>
+
+<P>The , operator ensures that one portion of an expression is evaluated first:
+
+<BR></P>
+
+<PRE>$x += 1, $y = $x;</PRE>
+
+<P>The , operator breaks this expression into two parts:
+
+<BR></P>
+
+<PRE>$x += 1
+
+$y = $x</PRE>
+
+<P>The part before the comma is performed first. Thus, 1 is added to $x and then $x is assigned to $y.
+
+<BR></P>
+
+<P>The ? and : combination allows you to test the value of a variable and then perform one of two operations based on the result of the test. For example, in the expression $y = $x == 0 ? 15 : 8 the variable $x is compared with zero. If $x equals zero, $y 
+
+is assigned 15; if $x is not zero, $y is assigned 8.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>Matching Patterns</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Perl allows you to examine scalar variables and test for the existence of a particular pattern in a string. To do this, use the =~ (pattern matching) operator:
+
+<BR></P>
+
+<PRE>$x =~ /jkl/</PRE>
+
+<P>The character string enclosed by the / characters is the pattern to be matched, and the scalar variable on the left of the =~ operator is the variable to be examined. This example searches for the pattern jkl in the scalar variable $x. If $x contains 
+jkl, the expression is true; if not, the expression is false. In the statement $y = $x =~ /jkl/;, $y is assigned a non-zero value if $x contains jkl, and is assigned zero if $x does not contain jkl.
+
+<BR></P>
+
+<P>The !~ operator is the negation of =~:
+
+<BR></P>
+
+<PRE>$y = $x !~ /jkl/;</PRE>
+
+<P>Here, $y is assigned zero if $x contains jkl, and a non-zero value otherwise.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Using Special Characters in Patterns</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>You can use several special characters in your patterns. The * character matches zero or more of the character it follows:
+
+<BR></P>
+
+<PRE>/jk*l/</PRE>
+
+<P>This matches jl, jkl, jkkl, jkkkl, and so on.
+
+<BR></P>
+
+<P>The + character matches one or more of the preceding character:
+
+<BR></P>
+
+<PRE>/jk+l/</PRE>
+
+<P>This matches jkl, jkkl, jkkkl, and so on.
+
+<BR></P>
+
+<P>The ? character matches zero or one copies of the preceding character:
+
+<BR></P>
+
+<PRE>/jk?l/</PRE>
+
+<P>This matches jl or jkl.
+
+<BR></P>
+
+<P>The character . matches any character except the newline character:
+
+<BR></P>
+
+<PRE>/j.l/</PRE>
+
+<P>This matches any pattern consisting of a j, any character, and an l.
+
+<BR></P>
+
+<P>If a set of characters is enclosed in square brackets, any character in the set is an acceptable match:
+
+<BR></P>
+
+<PRE>/j[kK]l/            # matches jkl or jKl</PRE>
+
+<P>Consecutive alphanumeric characters in the set can be represented by a dash (-):
+
+<BR></P>
+
+<PRE>/j[k1-3K]l/         # matches jkl, j1l, j2l, j3l or jKl</PRE>
+
+<P>You can specify that a match must be at the start or end of a line by using ^ or $:
+
+<BR></P>
+
+<PRE>/^jkl/              # matches jkl at start of line
+
+/jkl$/              # matches jkl at end of line
+
+/^jkl$/             # matches line consisting of exactly jkl</PRE>
+
+<P>You can specify that a match must be either on a word boundary or inside a word by including \b or \B in the pattern:
+
+<BR></P>
+
+<PRE>/\bjkl/             # matches jkl, but not ijkl
+
+/\Bjkl/             # matches ijkl, but not jkl</PRE>
+
+<P>Some sets are so common that special characters exist to represent them:
+
+<BR></P>
+
+<UL>
+
+<LI>\d matches any digit, and is equivalent to [0-9].
+
+<BR>
+
+<BR></LI>
+
+<LI>\w matches any character that can appear in a variable name; it is equivalent to [A-Za-z_0-9].
+
+<BR>
+
+<BR></LI>
+
+<LI>\s matches any whitespace (any character not visible on the screen); it is equivalent to [ \r\t\n\f]. (These backslash characters were explained in &quot;Using Double- and Single-Quoted Strings&quot; earlier in this chapter.)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>To match all but a specified set of characters, specify ^ at the start of your set:
+
+<BR></P>
+
+<PRE>/j[^kK]l/</PRE>
+
+<P>This matches any string containing j, any character but k or K, and l.
+
+<BR></P>
+
+<P>To use a special character as an ordinary character, precede it with a backslash (\):
+
+<BR></P>
+
+<PRE>/j\*l/              # this matches j*l</PRE>
+
+<P>This matches j*l.
+
+<BR></P>
+
+<P>In patterns, the * and + special characters match as many characters in a string as possible. For example, consider the following:
+
+<BR></P>
+
+<PRE>$x = &quot;abcde&quot;;
+
+$y = $x =~ /a.*/;</PRE>
+
+<P>The pattern /a.*/ can match a, ab, abc, abcd, or abcde. abcde is matched, since it is the longest. This becomes meaningful when patterns are used in substitution.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Substituting and Translating Using Patterns</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>You can use the =~ operator to substitute one string for another:
+
+<BR></P>
+
+<PRE>$val =~ s/abc/def/;    # replace abc with def
+
+$val =~ s/a+/xyz/;     # replace a, aa, aaa, etc., with xyz
+
+$val =~ s/a/b/g;        # replace all a's with b's</PRE>
+
+<P>Here, the s prefix indicates that the pattern between the first / and the second is to be replaced by the string between the second / and the third.
+
+<BR></P>
+
+<P>You can also translate characters using the tr prefix:
+
+<BR></P>
+
+<PRE>$val =~ tr/a-z/A-Z/;   # translate lower case to upper</PRE>
+
+<P>Here, any character matched by the first pattern is replaced by the corresponding character in the second pattern.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>The Order of Operations</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Consider the following statement:
+
+<BR></P>
+
+<PRE>$a = 21 * 2 + 3 &lt;&lt; 1 &lt;&lt; 2 ** 2;</PRE>
+
+<P>The problem: Which operation should be performed first?
+
+<BR></P>
+
+<P>The following sections answer questions of this type.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Precedence</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>In standard grade-school arithmetic, certain operations are always performed before others. For example, multiplication is always performed before addition:
+
+<BR></P>
+
+<PRE>4 + 5 * 3</PRE>
+
+<P>Because multiplication is performed before addition, it has higher precedence than addition.
+
+<BR></P>
+
+<P>Table 16.2 defines the precedence of the Perl operators described in these sections. The items at the top of the table have the highest precedence, and the items at the bottom have the lowest.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 16.2. Operator Precedence in Perl.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>++, &#151;</P>
+
+<TD>
+
+<P>Autoincrement and autodecrement</P>
+
+<TR>
+
+<TD>
+
+<P>-, ~, !</P>
+
+<TD>
+
+<P>Operators with one operand</P>
+
+<TR>
+
+<TD>
+
+<P>**</P>
+
+<TD>
+
+<P>Exponentiation</P>
+
+<TR>
+
+<TD>
+
+<P>=~, !~</P>
+
+<TD>
+
+<P>Matching operators</P>
+
+<TR>
+
+<TD>
+
+<P>*, /, %, x</P>
+
+<TD>
+
+<P>Multiplication, division, remainder, repetition</P>
+
+<TR>
+
+<TD>
+
+<P>+, -, .</P>
+
+<TD>
+
+<P>Addition, subtraction, concatenation</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;&lt;, &gt;&gt;</P>
+
+<TD>
+
+<P>Shifting operators</P>
+
+<TR>
+
+<TD>
+
+<P>-e, -r, etc.</P>
+
+<TD>
+
+<P>File status operators</P>
+
+<TR>
+
+<TD>
+
+<P>&lt;, &lt;=, &gt;, &gt;=, lt, le, gt, ge</P>
+
+<TD>
+
+<P>Inequality comparison operators</P>
+
+<TR>
+
+<TD>
+
+<P>==, !=, &lt;=&gt;, eq, ne, cmp</P>
+
+<TD>
+
+<P>Equality comparison operators</P>
+
+<TR>
+
+<TD>
+
+<P>&amp;</P>
+
+<TD>
+
+<P>Bitwise AND</P>
+
+<TR>
+
+<TD>
+
+<P>|, ^</P>
+
+<TD>
+
+<P>Bitwise OR and exclusive OR</P>
+
+<TR>
+
+<TD>
+
+<P>&amp;&amp;</P>
+
+<TD>
+
+<P>Logical AND</P>
+
+<TR>
+
+<TD>
+
+<P>||</P>
+
+<TD>
+
+<P>Logical OR</P>
+
+<TR>
+
+<TD>
+
+<P>..</P>
+
+<TD>
+
+<P>List range operator</P>
+
+<TR>
+
+<TD>
+
+<P>? and :</P>
+
+<TD>
+
+<P>Conditional operator</P>
+
+<TR>
+
+<TD>
+
+<P>=, +=, -=, *=, etc.</P>
+
+<TD>
+
+<P>Assignment operators</P>
+
+<TR>
+
+<TD>
+
+<P>,</P>
+
+<TD>
+
+<P>Comma operator</P></TABLE>
+
+<P>For example, consider the following statement:
+
+<BR></P>
+
+<PRE>$x = 11 * 2 + 6 ** 2 &lt;&lt; 2;</PRE>
+
+<P>The operations in this statement are performed in the following order:
+
+<BR></P>
+
+<OL>
+
+<LI>6 ** 2, yielding 36.
+
+<BR>
+
+<BR></LI>
+
+<LI>11 * 2, yielding 22.
+
+<BR>
+
+<BR></LI>
+
+<LI>36 + 22, yielding 58.
+
+<BR>
+
+<BR></LI>
+
+<LI>58 &lt;&lt; 2, yielding 116.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>Therefore, 116 is assigned to $x.
+
+<BR></P>
+
+<P>This operator precedence table contains some operators that are defined in later sections. The .. (list range) operator is defined in &quot;Using Lists and Array Variables.&quot; The file status operators are described in &quot;Reading from and Writing 
+
+to Files.&quot;
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Associativity</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Consider the following statement:
+
+<BR></P>
+
+<PRE>$x = 2 + 3 - 4;</PRE>
+
+<P>In this case, it doesn't matter whether the addition (2 + 3) or the subtraction (3 - 4) is performed first, because the result is the same either way. However, for some operations, the order of evaluation makes a difference:
+
+<BR></P>
+
+<PRE>$x = 2 ** 3 ** 2;</PRE>
+
+<P>Is $x assigned 64 (8 ** 2) or 512 (2 ** 9)?
+
+<BR></P>
+
+<P>To resolve these problems, Perl associates a specified associativity with each operator. If an operator is right-associative, the rightmost operator is performed first when two operators have the same precedence:
+
+<BR></P>
+
+<PRE>$x = 2 ** 3 ** 2;    # the same as $x = 2 ** 9, or $x = 512</PRE>
+
+<P>If an operator is left-associative, the leftmost operator is performed first when two operators have the same precedence:
+
+<BR></P>
+
+<PRE>$x = 29 % 6 * 2;     # the same as $x = 5 * 2, or $x = 10</PRE>
+
+<P>The following operators in Perl are right-associative:
+
+<BR></P>
+
+<UL>
+
+<LI>The assignment operators (=, +=, and so on)
+
+<BR>
+
+<BR></LI>
+
+<LI>The ? and : operator combination
+
+<BR>
+
+<BR></LI>
+
+<LI>The ** operator (exponentiation)
+
+<BR>
+
+<BR></LI>
+
+<LI>The operators that have only one operand (!, ~ and -)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>All other operators are left-associative.
+
+<BR></P>
+
+<H6 ALIGN="CENTER">
+
+<CENTER>
+
+<FONT SIZE=3><B>Forcing Precedence Using Parentheses</B>
+
+<BR></FONT></CENTER></H6>
+
+<P>Perl allows you to force the order of evaluation of operations in expressions. To do this, use parentheses:
+
+<BR></P>
+
+<PRE>$x = 4 * (5 + 3);</PRE>
+
+<P>In this statement, 5 is added to 3 and then multiplied by 4, yielding 32.
+
+<BR></P>
+
+<P>You can use as many sets of parentheses as you like:
+
+<BR></P>
+
+<PRE>$x = 4 ** (5 % (8 - 6));</PRE>
+
+<P>Here, the result is 4:
+
+<BR></P>
+
+<UL>
+
+<LI>8 - 6 is performed, leaving 4 ** (5 % 2)
+
+<BR>
+
+<BR></LI>
+
+<LI>5 % 2 is performed, leaving 4 ** 1
+
+<BR>
+
+<BR></LI>
+
+<LI>4 ** 1 is 4
+
+<BR>
+
+<BR></LI></UL>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=4><B>Using Lists and Array Variables</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, the Perl programs you have seen have only used scalar data and scalar variables. In other words, they have only dealt with one value at a time.
+
+<BR></P>
+
+<P>Perl also allows you to manipulate groups of values, known as lists or arrays. These lists can be assigned to special variables known as array variables, which can be processed in a variety of ways.
+
+<BR></P>
+
+<P>This section describes lists and array variables, and how to use them. It also describes how to pass command-line arguments to your program using the special-purpose array @ARGV.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Introducing Lists</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A list is a collection of scalar values enclosed in parentheses. The following is a simple example of a list:
+
+<BR></P>
+
+<PRE>(1, 5.3, &quot;hello&quot;, 2)</PRE>
+
+<P>This list contains four elements, each of which is a scalar value: the numbers 1 and 5.3, the string &quot;hello&quot;, and the number 2. As always in Perl, numbers and character strings are interchangeable: each element of a list can be either a number 
+
+or a string.
+
+<BR></P>
+
+<P>A list can contain as many elements as you like (or as many as your machine's memory can store at one time). To indicate a list with no elements, just specify the parentheses:
+
+<BR></P>
+
+<PRE>()                  # this list is empty</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Scalar Variables and Lists</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Lists can also contain scalar variables:
+
+<BR></P>
+
+<PRE>(17, $var, &quot;a string&quot;)</PRE>
+
+<P>Here, the second element of the list is the scalar variable $var. When Perl sees a scalar variable in a list, it replaces the scalar variable with its current value.
+
+<BR></P>
+
+<P>A list element can also be an expression:
+
+<BR></P>
+
+<PRE>(17, $var1 + $var2, 26 &lt;&lt; 2)</PRE>
+
+<P>Here, the expression $var1 + $var2 is evaluated to become the second element, and the expression 26 &lt;&lt; 2 is evaluated to become the third element.
+
+<BR></P>
+
+<P>Scalar variables can also be replaced in strings:
+
+<BR></P>
+
+<PRE>(17, &quot;the answer is $var1&quot;)</PRE>
+
+<P>In this case, the value of $var1 is placed into the string.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Using List Ranges</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Suppose that you want to define a list consisting of the numbers 1 through 10, inclusive. You can do this by typing in each of the numbers in turn:
+
+<BR></P>
+
+<PRE>(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)</PRE>
+
+<P>However, there is a simpler way to do it: use the list range operator, which is .. (two consecutive periods). The following is a list created using the list range operator:
+
+<BR></P>
+
+<PRE>(1..10)</PRE>
+
+<P>This tells Perl to define a list whose first value is 1, whose second value is 2, and so on up to 10.
+
+<BR></P>
+
+<P>The list range operator can be used to define part of a list:
+
+<BR></P>
+
+<PRE>(2, 5..7, 11)</PRE>
+
+<P>This list consists of five elements: the numbers 2, 5, 6, 7 and 11.
+
+<BR></P>
+
+<P>List range operators can also be used with floating-point values:
+
+<BR></P>
+
+<PRE>(2.1..5.3)</PRE>
+
+<P>This list consists of four elements: 2.1, 3.1, 4.1, and 5.1. Each element of the list is one greater than the previous element, and the last element of the list is the largest possible number less than or equal to the number to the right of the .. 
+operator. (If the value to the left of the .. operator is greater than the value to the right, an empty list is created.)
+
+<BR></P>
+
+<P>Elements that define the range of a list range operator can be expressions, and these expressions can contain scalar variables:
+
+<BR></P>
+
+<PRE>($a..$b+5)</PRE>
+
+<P>This list consists of all values between the current value of $a and the current value of the expression $b+5.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>Storing Lists in Array Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Perl allows you to store lists in special variables designed for that purpose. These variables are called array variables.
+
+<BR></P>
+
+<P>The following is an example of a list being assigned to an array variable:
+
+<BR></P>
+
+<PRE>@array = (1, 2, 3);</PRE>
+
+<P>Here, the list (1, 2, 3) is assigned to the array variable @array. 
+
+<BR></P>
+
+<P>Note that the name of the array variable starts with the character @. This allows Perl to distinguish array variables from other kinds of variables, such as scalar variables, which start with the character $. As with scalar variables, the second 
+character of the variable name must be a letter, and subsequent characters of the name can be letters, numbers, or underscores.
+
+<BR></P>
+
+<P>When an array variable is first created (seen for the first time), it is assumed to contain the empty list () unless something is assigned to it.
+
+<BR></P>
+
+<P>Because Perl uses @ and $ to distinguish array variables from string variables, the same name can be used in an array variable and in a string variable:
+
+<BR></P>
+
+<PRE>$var = 1;
+
+@var = (11, 27.1, &quot;a string&quot;);</PRE>
+
+<P>Here, the name var is used in both the string variable $var and the array variable @var. These are two completely separate variables.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Assigning to Array Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you have already seen, lists can be assigned to array variables with the assignment operator =:
+
+<BR></P>
+
+<PRE>@x = (11, &quot;my string&quot;, 27.44);</PRE>
+
+<P>You can also assign one array variable to another:
+
+<BR></P>
+
+<PRE>@y = @x;</PRE>
+
+<P>A scalar value can be assigned to an array variable:
+
+<BR></P>
+
+<PRE>@x = 27.1;
+
+@y = $x;</PRE>
+
+<P>In this case, the scalar value (or value stored in a scalar variable) is converted into a list containing one element.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Using Array Variables in Lists</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As you have already seen, lists can contain scalar variables:
+
+<BR></P>
+
+<PRE>@x = (1, $y, 3);</PRE>
+
+<P>Here, the value of the scalar variable $y becomes the second element of the list assigned to @x.
+
+<BR></P>
+
+<P>You can also specify that the value of an array variable is to appear in a list:
+
+<BR></P>
+
+<PRE>@x = (2, 3, 4);
+
+@y = (1, @x, 5);</PRE>
+
+<P>Here, the list (2, 3, 4) is substituted for @x, and the resulting list (1, 2, 3, 4, 5) is assigned to @y.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Assigning to Scalar Variables from Array Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Consider the following assignment:
+
+<BR></P>
+
+<PRE>@x = ($a, $b);</PRE>
+
+<P>Here, the values of the scalar variables $a and $b are used to form a two-element list that is assigned to the array variable @x.
+
+<BR></P>
+
+<P>Perl also allows you to take the current value of an array variable and assign its components to a group of scalar variables:
+
+<BR></P>
+
+<PRE>($a, $b) = @x;</PRE>
+
+<P>Here, the first element of the list currently stored in @x is assigned to $a, and the second element is assigned to $b. Additional elements in @x, if they exist, are not assigned.
+
+<BR></P>
+
+<P>If there are more scalar variables than elements in an array variable, the excess scalar variables are given the value &quot;&quot; (the null string), which is equivalent to the numeric value 0:
+
+<BR></P>
+
+<PRE>@x = (1, 2);
+
+($a, $b, $c) = @x;  # $a is now 1, $b is now 2, $c is now &quot;&quot;</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Retrieving the Length of a List</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As you have already seen, when a scalar value is assigned to an array variable, the value is assumed to be a list containing one element. For example, the following statements are equivalent:
+
+<BR></P>
+
+<PRE>@x = $y;
+
+@x = ($y);</PRE>
+
+<P>However, the converse is not true. In the statement $y = @x;, the value assigned to $y is the number of elements in the list currently stored in @x:
+
+<BR></P>
+
+<PRE>@x = (&quot;string 1&quot;, &quot;string 2&quot;, &quot;string 3&quot;);
+
+$y = @x;            # $y is now 3</PRE>
+
+<P>To assign the value of the first element of a list to a scalar variable, enclose the scalar variable in a list:
+
+<BR></P>
+
+<PRE>@x = (&quot;string 1&quot;, &quot;string 2&quot;, &quot;string 3&quot;);
+
+($y) = @x;          # $y is now &quot;string 1&quot;  </PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Using Array Slices</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Perl allows you to specify what part of an array to use in an expression. The following example shows you how to do this:
+
+<BR></P>
+
+<PRE>@x = (1, 2, 3);
+
+@y = @x[0,1];</PRE>
+
+<P>Here, the list (1, 2, 3) is first assigned to the array variable @x. Then, the array slice [0,1] is assigned to @y: in other words, the first two elements of @x are assigned to @y. (Note that the first element of the array is specified by 0, not 1.)
+
+<BR></P>
+
+<P>You can assign to an array slice as well:
+
+<BR></P>
+
+<PRE>@x[0,1] = (11.5, &quot;hello&quot;);</PRE>
+
+<P>This statement assigns the value 11.5 to the first element of the array variable @x, and assigns the string &quot;hello&quot; to the second.
+
+<BR></P>
+
+<P>Array variables automatically grow when necessary, with null strings assigned to fill any gaps:
+
+<BR></P>
+
+<PRE>@x = (10, 20, 30);
+
+@x[4,5] = (75, 85);</PRE>
+
+<P>Here, the second assignment increases the size of the array variable @x from three elements to six, and assigns 75 to the fifth element and 85 to the sixth. The fourth element is set to be the null string.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Using Array Slices with Scalar Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>An array slice can consist of a single element. In this case, the array slice is treated as if it is a scalar variable:
+
+<BR></P>
+
+<PRE>@x = (10, 20, 30);
+
+$y = $x[1];         # $y now has the value 20</PRE>
+
+<P>Note that the array slice is now preceded by the character $, not the character @. This tells Perl that the array slice is to be treated as a scalar variable.
+
+<BR></P>
+
+<P>Recall that array variables and scalar variables can have the same name:
+
+<BR></P>
+
+<PRE>$x = &quot;Smith&quot;;
+
+@x = (47, &quot;hello&quot;);</PRE>
+
+<P>Here, the scalar variable $x and the array variable @x are both defined, and are completely independent of one another. This can cause problems if you want to include a scalar variable inside a string:
+
+<BR></P>
+
+<PRE>$y = &quot;Refer to $x[1] for more information.&quot;;</PRE>
+
+<P>In this case, Perl assumes that you want to substitute the value of the array slice $x[1] into the string. This produces the following:
+
+<BR></P>
+
+<PRE>$y = &quot;Refer to hello for more information.&quot;;</PRE>
+
+<P>To specify the scalar variable and not the array slice, enclose the variable name in braces:
+
+<BR></P>
+
+<PRE>$y = &quot;Refer to ${x}[1] for more information.&quot;;</PRE>
+
+<P>This tells Perl to replace $x, not $x[1], and produces the following:
+
+<BR></P>
+
+<PRE>$y = &quot;Refer to Smith[1] for more information.&quot;;</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Using the Array Slice Notation as a Shorthand</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>So far, we have been using the array slice notation @x[0,1] to refer to a portion of an array variable. As it happens, in Perl the above is exactly equivalent to a list of single-element array slices:
+
+<BR></P>
+
+<PRE>@y = @x[0,1];
+
+@y = ($x[0], $x[1]);   # these two statements are identical</PRE>
+
+<P>This allows you to use the array slice notation whenever you want to refer to more than one element in an array:
+
+<BR></P>
+
+<PRE>@y = @x[4,1,5];</PRE>
+
+<P>In this statement, the array variable @y is assigned the values of the fifth, second, and sixth elements of the array variable @x.
+
+<BR></P>
+
+<PRE>@y[0,1,2] = @x[1,1,1];</PRE>
+
+<P>Here, the second element of @x is copied to the first three elements of @y.
+
+<BR></P>
+
+<P>In Perl, assignments in which the operands overlap are handled without difficulty. Consider this example:
+
+<BR></P>
+
+<PRE>@x[4,3] = @x[3,4];</PRE>
+
+<P>Perl performs this assignment by creating a temporary array variable, copying @x[3,4] to it, and then copying it to @x[4,3]. Thus, this statement swaps the values in the fourth and fifth elements of @x.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Other Array Operations</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Perl provides a number of built-in functions that work on lists and array variables. For example, you can sort array elements in alphabetic order, reverse the elements of an array, remove the last character from all elements of an array, and merge the 
+elements of an array into a single string.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Sorting a List or Array Variable</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The built-in function sort() sorts the elements of an array in alphabetic order and returns the sorted list:
+
+<BR></P>
+
+<PRE>@x = (&quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;test&quot;);
+
+@x = sort (@x);     # @x is now (&quot;a&quot;, &quot;is&quot;, &quot;test&quot;, &quot;this&quot;)</PRE>
+
+<P>Note that the sort is in alphabetic, not numeric, order:
+
+<BR></P>
+
+<PRE>@x = (70, 100, 8);
+
+@x = sort (@x);     # @x is now (&quot;100&quot;, &quot;70&quot;, &quot;8&quot;)</PRE>
+
+<P>The number 100 appears first because the string &quot;100&quot; is alphabetically ahead of &quot;70&quot; (since &quot;1&quot; appears before &quot;7&quot;).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Reversing a List or Array Variable</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The function reverse() reverses the order of the elements in a list or array variable and returns the reversed list:
+
+<BR></P>
+
+<PRE>@x = (&quot;backwards&quot;, &quot;is&quot;, &quot;array&quot;, &quot;this&quot;);
+
+@x = reverse(@x);   # @x is now (&quot;this&quot;, &quot;array&quot;, &quot;is&quot;, &quot;backwards&quot;)</PRE>
+
+<P>You can sort and reverse the same list:
+
+<BR></P>
+
+<PRE>@x = reverse(sort(@x));</PRE>
+
+<P>This produces a sort in reverse alphabetical order.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>Using </B><B><I>chop()</I></B><B> on Array Variables</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The chop() function can be used on array variables as well as scalar variables:
+
+<BR></P>
+
+<PRE>$a[0] = &lt;STDIN&gt;;
+
+$a[1] = &lt;STDIN&gt;;
+
+$a[2] = &lt;STDIN&gt;;
+
+chop(@a);</PRE>
+
+<P>Here, three input lines are read into the array variable @a&#151;one in each of the first three elements. chop() then removes the last character (in this case, the terminating newline character) from all three elements.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Creating a Single String from a List</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>To create a single string from a list or array variable, use the function join():
+
+<BR></P>
+
+<PRE>$x = join(&quot; &quot;, &quot;this&quot;, &quot;is&quot;, &quot;a&quot;, &quot;sentence&quot;);</PRE>
+
+<P>The first element of the list supplied to join() contains the characters that are to be used to glue the parts of the created string together. In this example, $x becomes &quot;this is a sentence&quot;.
+
+<BR></P>
+
+<P>join() can specify other join strings besides &quot; &quot;:
+
+<BR></P>
+
+<PRE>@x = (&quot;words&quot;,&quot;separated&quot;,&quot;by&quot;);
+
+$y = join(&quot;::&quot;,@x,&quot;colons&quot;);</PRE>
+
+<P>Here, $y becomes &quot;words::separated::by::colons&quot;.
+
+<BR></P>
+
+<P>To undo the effects of join(), call the function split():
+
+<BR></P>
+
+<PRE>$y = &quot;words::separated::by::colons&quot;;
+
+@x = split(/::/, $y);</PRE>
+
+<P>The first element of the list supplied to split() is a pattern to be matched. When the pattern is matched, a new array element is started and the pattern is thrown away. In this case, the pattern to be matched is ::, which means that @x becomes 
+(&quot;words&quot;, &quot;separated&quot;, &quot;by&quot;, &quot;colons&quot;).
+
+<BR></P>
+
+<P>Note that the syntax for the pattern is the same as that used in the =~ operator; see &quot;Matching Patterns&quot; for more information on possible patterns to match.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Example: Sorting Words in a String</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The example in LIST 16_2 on the CD-ROM uses split(), join(), and sort() to sort the words in a string.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Using Command Line Arguments</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The special array variable @ARGV is automatically defined to contain the strings entered on the command line when a Perl program is invoked. For example, if the program
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+print(&quot;The first argument is $ARGV[0]\n&quot;);</PRE>
+
+<P>is called printfirstarg, entering the command
+
+<BR></P>
+
+<PRE>printfirstarg 1 2 3</PRE>
+
+<P>produces the following output:
+
+<BR></P>
+
+<PRE>The first argument is 1</PRE>
+
+<P>You can use join() to turn @ARGV into a single string, if you like:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$commandline = join(&quot; &quot;, @ARGV);
+
+print(&quot;The command line arguments: $commandline\n&quot;);</PRE>
+
+<P>If this program is called printallargs, entering
+
+<BR></P>
+
+<PRE>printallargs 1 2 3</PRE>
+
+<P>produces
+
+<BR></P>
+
+<PRE>The command line arguments: 1 2 3</PRE>
+
+<P>Note that $ARGV[0], the first element of the @ARGV array variable, does not contain the name of the program. For example, in the invocation
+
+<BR></P>
+
+<PRE>printallargs 1 2 3</PRE>
+
+<P>$ARGV[0] is &quot;1&quot;, not &quot;printallargs&quot;. This is a difference between Perl and C: in C, argv[0] is &quot;printallargs&quot; and argv[1] is &quot;1&quot;.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Standard Input and Array Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Since an array variable can contain as many elements as you like, you can assign an entire input file to a single array variable:
+
+<BR></P>
+
+<PRE>@infile = &lt;STDIN&gt;;</PRE>
+
+<P>This works as long as you have enough memory to store the entire file.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=4><B>Controlling Program Flow</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Like all programming languages, Perl allows you to include statements that are only executed when specified conditions are true; these statements are called conditional statements.
+
+<BR></P>
+
+<P>The following is a simple example of a conditional statement:
+
+<BR></P>
+
+<PRE>if ($x == 14) {
+
+        print(&quot;\$x is 14\n&quot;);
+
+}</PRE>
+
+<P>Here, the line if ($x == 14) { tells Perl that the following statements&#151;those between the { and }&#151;are only to be executed if $x is equal to 14.
+
+<BR></P>
+
+<P>Perl provides a full range of conditional statements; these statements are described in the following sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=3><B>Conditional Execution The </B><B><I>if</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The if conditional statement has the following structure:
+
+<BR></P>
+
+<PRE>if (expr) {
+
+        ...
+
+}</PRE>
+
+<P>When Perl sees the if, it evaluates the expression expr to be either true or false. If the value of the expression is the integer 0, the null string &quot;&quot;, or the string &quot;0&quot;, the value of the expression is false; otherwise, the value of 
+
+the expression is true.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>The only string values that evaluate to false are &quot;&quot; and &quot;0&quot;. Strings such as &quot;00&quot; and &quot;0.0&quot; return true, not false.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I53" NAME="I53">
+
+<FONT SIZE=3><B>Two-Way Branching Using </B><B><I>if</I></B><B> and </B><B><I>else</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The else statement can be combined with the if statement to allow for a choice between two alternatives:
+
+<BR></P>
+
+<PRE>if ($x == 14) {
+
+        print(&quot;\$x is 14\n&quot;);
+
+} else {
+
+        print(&quot;\$x is not 14\n&quot;);
+
+}</PRE>
+
+<P>Here, the expression following the if is evaluated. If it is true, the statements between the if and the else are executed. Otherwise, the statements between the else and the final } are executed. In either case, execution then proceeds to the statement 
+
+after the final }.
+
+<BR></P>
+
+<P>Note that the else statement cannot appear by itself: it must follow an if statement.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I54" NAME="I54">
+
+<FONT SIZE=3><B>Multi-Way Branching Using </B><B><I>elsif</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The elsif statement allows you to write a program that chooses between more than two alternatives:
+
+<BR></P>
+
+<PRE>if ($x == 14) {
+
+        print(&quot;\$x is 14\n&quot;);
+
+} elsif ($x == 15) {
+
+        print(&quot;\$x is 15\n&quot;);
+
+} elsif ($x == 16) {
+
+        print(&quot;\$x is 16\n&quot;);
+
+} else {
+
+        print(&quot;\$x is not 14, 15 or 16\n&quot;);
+
+}</PRE>
+
+<P>Here, the expression $x == 14 is evaluated. If it evaluates to true (if $x is equal to 14), the first print() statement is executed. Otherwise, the expression $x == 15 is evaluated. If $x == 15 is true, the second print() is executed; otherwise, the 
+expression $x == 16 is evaluated, and so on.
+
+<BR></P>
+
+<P>You can have as many elsif statements as you like; however, the first elsif statement of the group must be preceded by an if statement.
+
+<BR></P>
+
+<P>The else statement can be omitted:
+
+<BR></P>
+
+<PRE>if ($x == 14) {
+
+        print(&quot;\$x is 14\n&quot;);
+
+} elsif ($x == 15) {
+
+        print(&quot;\$x is 15\n&quot;);
+
+} elsif ($x == 16) {
+
+        print(&quot;\$x is 16\n&quot;);
+
+} # do nothing if $x is not 14, 15 or 16</PRE>
+
+<P>If the else statement is included, it must follow the last elsif.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I55" NAME="I55">
+
+<FONT SIZE=3><B>Conditional Branching Using </B><B><I>unless</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The unless statement is the opposite of the if statement:
+
+<BR></P>
+
+<PRE>unless ($x == 14) {
+
+        print(&quot;\$x is not 14\n&quot;);
+
+}</PRE>
+
+<P>Here, the statements between the braces are executed unless the value of the expression evaluates to true.
+
+<BR></P>
+
+<P>You can use elsif and else with unless, if you like; however, an if-elsif-else structure is usually easier to follow than an unless-elsif-else one.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I56" NAME="I56">
+
+<FONT SIZE=3><B>Repeating Statements Using </B><B><I>while</I></B><B> and </B><B><I>until</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In the examples above, each statement between braces is executed once, at most. To indicate that a group of statements between braces is to be executed until a certain condition is met, use the while statement:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$x = 1;
+
+while ($x &lt;= 5) {
+
+        print(&quot;\$x is now $x\n&quot;);
+
+        ++$x;
+
+}</PRE>
+
+<P>Here, the scalar variable $x is first assigned the value 1. The statements between the braces are then executed until the expression $x &lt;= 5 is false.
+
+<BR></P>
+
+<P>When you run the program shown above, you get the following output:
+
+<BR></P>
+
+<PRE>$x is now 1
+
+$x is now 2
+
+$x is now 3
+
+$x is now 4
+
+$x is now 5</PRE>
+
+<P>As you can see, the statements between the braces have been executed five times.
+
+<BR></P>
+
+<P>The until statement is the opposite of while:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$x = 1;
+
+until ($x &lt;= 5) {
+
+        print(&quot;\$x is now $x\n&quot;);
+
+        ++$x;
+
+}</PRE>
+
+<P>Here, the statements between the braces are executed until the expression $x &lt;= 5 is true. In this case, the expression is true the first time it is evaluated, which means that the print() statement is never executed. To fix this, reverse the 
+direction of the arithmetic comparison:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$x = 1;
+
+until ($x &gt; 5) {
+
+        print(&quot;\$x is now $x\n&quot;);
+
+        ++$x;
+
+}</PRE>
+
+<P>This now produces the same output as the program containing the while statement above.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>If you use while, until, or any other statement that repeats, you must make sure that the statement does not repeat forever:
+
+<BR>
+
+<BR>$x = 1;
+
+<BR>while ($x == 1) {
+
+<BR>        print(&quot;\$x is still $x\n&quot;);
+
+<BR>}
+
+<BR>
+
+<BR>Here, $x is always 1, $x == 1 is always true, and the print() statement is repeated an infinite number of times.
+
+<BR>
+
+<BR>Perl does not check for infinite loops such as this one above. It is your responsibility to make sure that infinite loops don't happen!
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I57" NAME="I57">
+
+<FONT SIZE=3><B>Using Single-Line Conditional Statements</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If only one statement is to be executed when a particular condition is true, you can write your conditional statement using a single-line conditional statement. For example, instead of writing
+
+<BR></P>
+
+<PRE>if ($x == 14) {
+
+        print(&quot;\$x is 14\n&quot;);
+
+}</PRE>
+
+<P>you can use the following single-line conditional statement:
+
+<BR></P>
+
+<PRE>print(&quot;\$x is 14\n&quot;) if ($x == 14);</PRE>
+
+<P>In both cases, the print() statement is executed if $x is equal to 14.
+
+<BR></P>
+
+<P>You can also use unless, while, or until in a single-line conditional statement:
+
+<BR></P>
+
+<PRE>print(&quot;\$x is not 14\n&quot;) unless ($x == 14);
+
+print(&quot;\$x is less than 14\n&quot;) while ($x++ &lt; 14);
+
+print(&quot;\$x is less than 14\n&quot;) until ($x++ &gt; 14);</PRE>
+
+<P>Note how useful the autoincrement operator ++ is in the last two statements: it allows you to compare $x and add one to it all at once. This ensures that the single-line conditional statement does not execute forever.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I58" NAME="I58">
+
+<FONT SIZE=3><B>Looping with the </B><B><I>for</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Most loops&#151;segments of code that are executed more than once&#151;use a counter to control and eventually terminate the execution of the loop. Here is an example similar to the ones you've seen so far:
+
+<BR></P>
+
+<PRE>$count = 1;                 # initialize the counter
+
+while ($count &lt;= 10) {      # terminate after ten repetitions
+
+        print(&quot;the counter is now $count\n&quot;);
+
+        $count += 1;        # increment the counter
+
+}</PRE>
+
+<P>As you can see, the looping process consists of three components:
+
+<BR></P>
+
+<UL>
+
+<LI>The initialization of the counter variable
+
+<BR>
+
+<BR></LI>
+
+<LI>A test to determine whether to terminate the loop
+
+<BR>
+
+<BR></LI>
+
+<LI>The updating of the counter variable after the execution of the statements in the loop
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Because a loop so often contains these three components, Perl provides a quick way to do them all at once by using the for statement. The following example uses the for statement and behaves the same as the example you just saw:
+
+<BR></P>
+
+<PRE>for ($count = 1; $count &lt;= 10; $count += 1) {
+
+        print(&quot;the counter is now $count\n&quot;);
+
+}</PRE>
+
+<P>Here the three components of the loop all appear in the same line, separated by semicolons. Because the components are all together, it is easier to remember to supply all of them, which makes it more difficult to write code that goes into an infinite 
+loop.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I59" NAME="I59">
+
+<FONT SIZE=3><B>Looping Through a List The </B><B><I>foreach</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>So far, all of the examples of loops that you've seen use a scalar variable as the counter. You can also use a list as a counter by using the foreach statement:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+@list = (&quot;This&quot;, &quot;is&quot;, &quot;a&quot;, &quot;list&quot;, &quot;of&quot;, &quot;words&quot;);
+
+print(&quot;Here are the words in the list: \n&quot;);
+
+foreach $temp (@list) {
+
+        print(&quot;$temp &quot;);
+
+}
+
+print(&quot;\n&quot;);</PRE>
+
+<P>Here, the loop defined by the foreach statement executes once for each element in the list @list. The resulting output is
+
+<BR></P>
+
+<PRE>Here are the words in the list:
+
+     This is a list of words </PRE>
+
+<P>The current element of the list being used as the counter is stored in a special scalar variable, which in this case is $temp. This variable is special because it is only defined for the statements inside the foreach loop:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$temp = 1;
+
+@list = (&quot;This&quot;, &quot;is&quot;, &quot;a&quot;, &quot;list&quot;, &quot;of&quot;, &quot;words&quot;);
+
+print(&quot;Here are the words in the list: \n&quot;);
+
+foreach $temp (@list) {
+
+        print(&quot;$temp &quot;);
+
+}
+
+print(&quot;\n&quot;);
+
+print(&quot;The value of temp is now $temp\n&quot;);</PRE>
+
+<P>The output from this program is the following:
+
+<BR></P>
+
+<PRE>Here are the words in the list:
+
+     This is a list of words 
+
+The value of temp is now 1</PRE>
+
+<P>The original value of $temp is restored after the foreach statement is finished.
+
+<BR></P>
+
+<P>Variables that only exist inside a certain structure, such as $temp in the foreach statement in the preceding example, are called local variables. Variables that are defined throughout a Perl program are known as global variables. Most variables you use 
+
+in Perl are global variables. To see other examples of local variables, refer to &quot;Using Subroutines.&quot;
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Changing the value of the local variable inside a foreach statement also changes the value of the corresponding element of the list:
+
+<BR>
+
+<BR>@list = (1, 2, 3, 4, 5);
+
+<BR>foreach $temp (@list) {
+
+<BR>        if ($temp == 2) {
+
+<BR>                $temp = 20;
+
+<BR>        }
+
+<BR>}
+
+<BR>
+
+<BR>In this loop, when $temp is equal to 2, $temp is reset to 20. Therefore, the contents of the array variable @list become (1, 20, 3, 4, 5).
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I60" NAME="I60">
+
+<FONT SIZE=3><B>Exiting a Loop with the </B><B><I>last</I></B><B> Statement</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Normally, you exit a loop by testing the condition at the top of the loop and then jumping to the statement after it. However, you can also exit a loop in the middle. To do this, use the last statement.
+
+<BR></P>
+
+<P>File LIST 16_5 on the CD-ROM totals a set of receipts entered one at a time; execution is terminated when a null line is entered. If a value entered is less than zero, the program detects this and exits the loop.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I61" NAME="I61">
+
+<FONT SIZE=3><B>Using </B><B><I>next</I></B><B> to Start the Next Iteration of a Loop</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In Perl, the last statement terminates the execution of a loop. To terminate a particular pass through a loop (also known as an iteration of the loop), use the next statement.
+
+<BR></P>
+
+<P>File LIST 16_4 on the CD-ROM sums up the numbers from 1 to a user-specified upper limit, and also produces a separate sum of the numbers divisible by two.
+
+<BR></P>
+
+<P>Be careful when you use next in a while or until loop. The following example goes into an infinite loop:
+
+<BR></P>
+
+<PRE>$count = 0;
+
+while ($count &lt;= 10) {
+
+        if ($count == 5) {
+
+                next;
+
+        }
+
+        $count++;
+
+}</PRE>
+
+<P>When $count is 5, the program tells Perl to start the next iteration of the loop. However, the value of $count is not changed, which means that the expression $count == 5 is still true.
+
+<BR></P>
+
+<P>To get rid of this problem, you need to increment $count before using next, as in:
+
+<BR></P>
+
+<PRE>$count = 0;
+
+while ($count &lt;= 10) {
+
+        if ($count == 5) {
+
+                $count++;
+
+                next;
+
+        }
+
+        $count++;
+
+}</PRE>
+
+<P>This, by the way, is why many programming purists dislike statements such as next and last: it's too easy to lose track of where you are and what needs to be updated.
+
+<BR></P>
+
+<P>Perl automatically assumes that variables are initialized to be the null string, which evaluates to 0 in arithmetic expressions. This means that in code fragments such as
+
+<BR></P>
+
+<PRE>$count = 0;
+
+while ($count &lt;= 10) {
+
+        ...
+
+        $count++;}</PRE>
+
+<P>you don't really need the $count = 0; statement. However, it is a good idea to explicitly initialize everything, even when you don't need to. This makes it easier to spot misprints:
+
+<BR></P>
+
+<PRE>$count = $tot = 0;
+
+while ($count &lt;= 10) {
+
+   $total += $count;  # misprint: you meant to type &quot;$tot&quot;
+
+        $count += 1;
+
+}
+
+print (&quot;the total is $tot\n&quot;);</PRE>
+
+<P>If you've gotten into the habit of initializing everything, it's easy to spot that $total is a misprint. If you use variables without initializing them, you first have to determine whether $total is really a different variable than $tot. This may be 
+difficult if your program is a large and complicated one.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I62" NAME="I62">
+
+<FONT SIZE=3><B>Using Labelled Blocks for Multi-Level Jumps</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In Perl, loops can be inside other loops: such loops are said to be nested. To get out of an outer loop from within an inner loop, label the outer loop and specify its label when using last or next:
+
+<BR></P>
+
+<PRE>$total = 0;
+
+$firstcounter = 1;
+
+DONE: while ($firstcounter &lt;= 10) {
+
+        $secondcounter = 1;
+
+        while ($secondcounter &lt;= 10) {
+
+                $total += 1;
+
+                if ($firstcounter == 4 &amp;&amp; $secondcounter == 7) {
+
+                        last DONE;
+
+                }
+
+                $secondcounter += 1;
+
+        }
+
+        $firstcounter += 1;
+
+}</PRE>
+
+<P>The statement
+
+<BR></P>
+
+<PRE>last DONE;</PRE>
+
+<P>tells Perl to jump out of the loop labelled DONE and continue execution with the first statement after the outer loop. (By the way, this code fragment is just a rather complicated way of assigning 37 to $total.)
+
+<BR></P>
+
+<P>Loop labels must start with a letter, and can consist of as many letters, digits, and underscores as you like. The only restriction is that you can't use a label name that corresponds to a word that has a special meaning in Perl:
+
+<BR></P>
+
+<PRE>if: while ($x == 0) {    # this is an error in perl
+
+...
+
+}</PRE>
+
+<P>When Perl sees the if, it doesn't know whether you mean the label if or the start of an if statement.
+
+<BR></P>
+
+<P>Words such as if that have special meanings in Perl are known as reserved words or keywords.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I63" NAME="I63">
+
+<FONT SIZE=3><B>Terminating Execution Using </B><B><I>die</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you have seen, the last statement terminates a loop. To terminate program execution entirely, use the die() function.
+
+<BR></P>
+
+<P>To illustrate the use of die(), see File LIST 16_6 on the CD-ROM, a simple program that divides two numbers supplied on a single line. die() writes its argument to the standard error file, STDERR, and then exits immediately. In this example, die() is 
+called when there are not exactly two numbers in the input line, or if the second number is zero.
+
+<BR></P>
+
+<P>If you like, you can tell die() to print the name of the Perl program and the line number being executed when the program was terminated. To do this, leave the closing newline character off the message:
+
+<BR></P>
+
+<PRE>die(&quot;This prints the filename and line number&quot;);</PRE>
+
+<P>If the closing newline character is included, the filename and line number are not included:
+
+<BR></P>
+
+<PRE>die(&quot;This does not print the filename and line number\n&quot;);</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I64" NAME="I64">
+
+<FONT SIZE=4><B>Reading from and Writing to Files</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, all of the examples have read from the standard input file, STDIN, and have written to the standard output file, STDOUT, and the standard error file, STDERR. You can also read from and write to as many other files as you like.
+
+<BR></P>
+
+<P>To access a file on your UNIX file system from within your Perl program, you must perform the following steps:
+
+<BR></P>
+
+<OL>
+
+<LI>First, your program must open the file. This tells the system that your Perl program wants to access the file.
+
+<BR>
+
+<BR></LI>
+
+<LI>Then, the program can either read from or write to the file, depending on how you have opened the file.
+
+<BR>
+
+<BR></LI>
+
+<LI>Finally, the program can close the file. This tells the system that your program no longer needs access to the file.
+
+<BR>
+
+<BR></LI></OL>
+
+<P>The following sections describe these operations, tell you how you can read from files specified in the command line, and describe the built-in file test operations.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I65" NAME="I65">
+
+<FONT SIZE=3><B>Opening a File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To open a file, call the built-in function open():
+
+<BR></P>
+
+<PRE>open(MYFILE, &quot;/u/jqpublic/myfile&quot;);</PRE>
+
+<P>The second argument is the name of the file you want to open. You can supply either the full UNIX pathname, as in /u/jqpublic/myfile, or just the filename, as in myfile. If only the filename is supplied, the file is assumed to be in the current working 
+
+directory.
+
+<BR></P>
+
+<P>The first argument is an example of a file variable. Once the file has been opened, your Perl program accesses the file by referring to this variable. Your file variable name must start with a letter, and can then contain as many letters and digits as 
+you like. (You must ensure, however, that your file variable name is not the same as a reserved word, such as if. See the note in &quot;Using Labelled Blocks for Multi-Level Jumps&quot; for more information on reserved words.)
+
+<BR></P>
+
+<P>By default, Perl assumes that you want to read any file that you open. To open a file for writing, put a &gt; (greater than) character in front of your filename:
+
+<BR></P>
+
+<PRE>open(MYFILE, &quot;&gt;/u/jqpublic/myfile&quot;);</PRE>
+
+<P>When you open a file for writing, any existing contents are destroyed. You cannot read from and write to the same file at the same time.
+
+<BR></P>
+
+<P>To append to an existing file, put two &gt; characters in front of the filename:
+
+<BR></P>
+
+<PRE>open(MYFILE, &quot;&gt;&gt;/u/jqpublic/myfile&quot;);</PRE>
+
+<P>You still cannot read from a file you are appending to, but the existing contents are not destroyed.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I66" NAME="I66">
+
+<FONT SIZE=3><B>Checking Whether the Open Succeeded</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The open() function returns one of two values:
+
+<BR></P>
+
+<UL>
+
+<LI>open() returns true (a non-zero value) if the open succeeds
+
+<BR>
+
+<BR></LI>
+
+<LI>open() returns false (zero) if an error occurs (that is, the file does not exist or you don't have permission to access the file)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>You can use the return value from open() to test whether the file is actually available, and call die() if it is not:
+
+<BR></P>
+
+<PRE>unless (open(MYFILE, &quot;/u/jqpublic/myfile&quot;)) {
+
+        die(&quot;unable to open /u/jqpublic/myfile for reading\n&quot;);
+
+}</PRE>
+
+<P>This ensures that your program does not try to read from a nonexistent file.
+
+<BR></P>
+
+<P>You can also use the || (logical or) operator in place of unless:
+
+<BR></P>
+
+<PRE>open(MYFILE, &quot;/u/jqpublic/myfile&quot;) ||
+
+     die(&quot;unable to open /u/jqpublic/myfile for reading\n&quot;);</PRE>
+
+<P>This works because the right side of the || operator is only executed if the left side is false. See &quot;Performing Comparisons&quot; for more information on the || operator.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I67" NAME="I67">
+
+<FONT SIZE=3><B>Reading from a File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To read from a file, enclose the name of the file in angle brackets:
+
+<BR></P>
+
+<PRE>$line = &lt;MYFILE&gt;;</PRE>
+
+<P>This statement reads a line of input from the file specified by the file variable MYFILE, and stores the line of input in the scalar variable $line. As you can see, you read from files in exactly the same way you read from the standard input file, 
+STDIN.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I68" NAME="I68">
+
+<FONT SIZE=3><B>Writing to a File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To write to a file, specify the file variable when you call the function print():
+
+<BR></P>
+
+<PRE>print MYFILE (&quot;This is a line of text to write \n&quot;,
+
+       &quot;This is another line to write\n&quot;);</PRE>
+
+<P>The file variable must appear before the first line of text to be written to the file.
+
+<BR></P>
+
+<P>This method works both when you are writing a new file and when you are appending to an existing one.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I69" NAME="I69">
+
+<FONT SIZE=3><B>Closing a File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you are finished reading from or writing to a file, you can tell the system that you are finished by calling close():
+
+<BR></P>
+
+<PRE>close(MYFILE);</PRE>
+
+<P>Note that close() is not required: Perl automatically closes the file when the program terminates or when you open another file using a previously defined file variable.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I70" NAME="I70">
+
+<FONT SIZE=3><B>Determining the Status of a File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you have seen, when you open a file for writing, the existing contents of the file are destroyed. If you only want to open the file for writing if the file does not already exist, you can first test to see if a file exists. To do this, use the -e 
+operator:
+
+<BR></P>
+
+<PRE>if (-e &quot;/u/jqpublic/filename&quot;) {
+
+        die (&quot;file /u/jqpublic/filename already exists&quot;);
+
+}
+
+open (MYFILE, &quot;/u/jqpublic/filename&quot;);</PRE>
+
+<P>The -e operator assumes that its operand&#151;a scalar value&#151;is the name of a file. It checks to see if a file with that name already exists. If the file exists, the -e operator returns true; otherwise, it returns false.
+
+<BR></P>
+
+<P>Similar tests exist to test other file conditions. The most commonly used file status operators are listed in Table 16.3.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 16.3. File Status Operators.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-d</P>
+
+<TD>
+
+<P>Is this file really a directory?</P>
+
+<TR>
+
+<TD>
+
+<P>-e</P>
+
+<TD>
+
+<P>Does this file exist?</P>
+
+<TR>
+
+<TD>
+
+<P>-f</P>
+
+<TD>
+
+<P>Is this actually a file?</P>
+
+<TR>
+
+<TD>
+
+<P>-l</P>
+
+<TD>
+
+<P>Is this file really a symbolic link?</P>
+
+<TR>
+
+<TD>
+
+<P>-o</P>
+
+<TD>
+
+<P>Is this file owned by the person running the program?</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Is this file readable by the person running the program?</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Is this a non-empty file?</P>
+
+<TR>
+
+<TD>
+
+<P>-w</P>
+
+<TD>
+
+<P>Is this file writeable by the person running the program?</P>
+
+<TR>
+
+<TD>
+
+<P>-x</P>
+
+<TD>
+
+<P>Is this file executable by the person running the program?</P>
+
+<TR>
+
+<TD>
+
+<P>-z</P>
+
+<TD>
+
+<P>Is this file empty?</P>
+
+<TR>
+
+<TD>
+
+<P>-B</P>
+
+<TD>
+
+<P>Is this a binary file?</P>
+
+<TR>
+
+<TD>
+
+<P>-T</P>
+
+<TD>
+
+<P>Is this a text file?</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I71" NAME="I71">
+
+<FONT SIZE=3><B>Reading from a Sequence of Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Many UNIX commands have the form
+
+<BR></P>
+
+<PRE>command file1 file2 file3 ...</PRE>
+
+<P>These commands operate on all of the files specified on the command line, starting with file1 and continuing on from there.
+
+<BR></P>
+
+<P>You can simulate this behavior in Perl. To do this, use the &lt;&gt; operator.
+
+<BR></P>
+
+<P>File LIST 16_7 on the CD-ROM counts all the times the word &quot;the&quot; appears in a set of files.
+
+<BR></P>
+
+<P>Suppose that this example is stored in a file named thecount. If the command thecount myfile1 myfile2 myfile3 is entered from the command line, the program starts by reading a line of input from the file myfile1 into the scalar variable $inputline. This 
+
+input line is then split into words, and each word is tested to see if it is &quot;the.&quot; Once this line is processed, the program reads another line from myfile1.
+
+<BR></P>
+
+<P>When myfile1 is exhausted, the program then begins reading lines from myfile2, and then from myfile3. When myfile3 is exhausted, the program prints the total number of occurrences of &quot;the&quot; in the three files.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I72" NAME="I72">
+
+<FONT SIZE=4><B>Using Subroutines</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Some programs perform the same task repeatedly. If you are writing such a program, you may soon get tired of writing the same lines of code over and over again. Perl provides a way around this problem: frequently used segments of code can be stored in 
+separate sections, known as subroutines.
+
+<BR></P>
+
+<P>The following sections describe how subroutines work, how to pass values to subroutines and receive values from them, and how to define variables that only exist inside subroutines.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I73" NAME="I73">
+
+<FONT SIZE=3><B>Defining a Subroutine</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A common Perl task is to read a line of input from a file and break it into words. Here is an example of a subroutine that performs this task. Note that it uses the &lt;&gt; operator described in &quot;Reading from a Sequence of Files.&quot;
+
+<BR></P>
+
+<PRE>sub getwords {
+
+        $inputline = &lt;&gt;;
+
+        @words = split(/\s+/, $inputline);
+
+}</PRE>
+
+<P>All subroutines follow this simple format: The reserved word sub, followed by the name of the subroutine (in this case, getwords), a { (open brace) character, one or more Perl statements (also known as the body of the subroutine), and a closing } (close 
+
+brace) character.
+
+<BR></P>
+
+<P>The subroutine name must start with a letter, and can then consist of any number of letters, digits, and underscores. (As always, you must ensure that your variable name is not a reserved word. See the note in &quot;Using Labelled Blocks for Multi-Level 
+
+Jumps&quot; for more information on reserved words.)
+
+<BR></P>
+
+<P>A subroutine can appear anywhere in a Perl program&#151;even right in the middle, if you like. However, programs are usually easier to understand if the subroutines are all placed at the end.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I74" NAME="I74">
+
+<FONT SIZE=3><B>Using a Subroutine</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once you have written your subroutine, you can use it by specifying its name. Here is a simple example that uses the subroutine getwords to count the number of occurrences of the word &quot;the&quot;:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$thecount = 0;
+
+&amp;getwords;
+
+while ($words[0] ne &quot;&quot;) {     # stop when line is empty
+
+        for ($index = 0; $words[$index] ne &quot;&quot;; $index += 1) {
+
+                $thecount += 1 if $words[$index] eq &quot;the&quot;;
+
+        }
+
+        &amp;getwords;
+
+}
+
+print (&quot;Total number of occurrences of the: $thecount\n&quot;);</PRE>
+
+<P>The statement &amp;getwords; tells Perl to call the subroutine getwords. When Perl calls the subroutine getwords, it executes the statements contained in the subroutine, namely
+
+<BR></P>
+
+<PRE>$inputline = &lt;&gt;;
+
+@words = split(/\s+/, $inputline);</PRE>
+
+<P>Once these statements have been executed, Perl then executes the statement immediately following the &amp;getwords statement.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I75" NAME="I75">
+
+<FONT SIZE=3><B>Returning a Value from a Subroutine</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The getwords subroutine defined above is useful, but it suffers from one serious limitation: it assumes that the words from the input line are always going to be stored in the array variable @words. This may lead to problems:
+
+<BR></P>
+
+<PRE>@words = (&quot;These&quot;, &quot;are&quot;, &quot;some&quot;, &quot;words&quot;);
+
+&amp;getwords;</PRE>
+
+<P>Here, calling getwords destroys the existing contents of @words.
+
+<BR></P>
+
+<P>To solve this problem, consider the subroutine getwords you saw earlier:
+
+<BR></P>
+
+<PRE>sub getwords {
+
+        $inputline = &lt;&gt;;
+
+        @words = split(/\s+/, $inputline);
+
+}</PRE>
+
+<P>In Perl subroutines, the last value seen by the subroutine becomes the subroutine's return value. In this example, the last value seen is the list of words assigned to @words. In the call to getwords, this value can be assigned to an array variable:
+
+<BR></P>
+
+<PRE>@words2 = &amp;getwords;</PRE>
+
+<P>Note that this hasn't yet solved the problem, since @words is still overwritten by the getwords subroutine. However, now you don't need to use @words in getwords, because you are assigning the list of words by using the return value. You can now change 
+
+getwords to use a different array variable:
+
+<BR></P>
+
+<PRE>sub getwords {
+
+        $inputline = &lt;&gt;;
+
+        @subwords = split(/s+/, $inputline);
+
+}</PRE>
+
+<P>Now, the statements
+
+<BR></P>
+
+<PRE>@words = (&quot;These&quot;, &quot;are&quot;, &quot;some&quot;, &quot;words&quot;);
+
+@words2 = &amp;getwords;</PRE>
+
+<P>work properly: @words is not destroyed when getwords is called. (For a better solution to this problem, see the following section, &quot;Using Local Variables.&quot;)
+
+<BR></P>
+
+<P>Since the return value of a subroutine is the last value seen, the return value may not always be what you expect.
+
+<BR></P>
+
+<P>Consider the following simple program that adds numbers supplied on an input line:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$total = &amp;get_total;
+
+print(&quot;The total is $total\n&quot;);
+
+sub get_total {
+
+        $value = 0;
+
+        $inputline = &lt;STDIN&gt;;
+
+        @subwords = split(/\s+/, $inputline);
+
+        $index = 0;
+
+        while ($subwords[$index] ne &quot;&quot;) {
+
+                $value += $subwords[$index++];
+
+        }
+
+}</PRE>
+
+<P>At first glance, you might think that the return value of the subroutine get_total is the value stored in $value. However, this is not the last value seen in the subroutine!
+
+<BR></P>
+
+<P>Note that the loop exits when $subwords[index] is the null string. Since no statements are processed after the loop exits, the last value seen in the subroutine is, in fact, the null string. Thus, the null string is the return value of get_total, and is 
+
+assigned to $total.
+
+<BR></P>
+
+<P>To get around this problem, always have the last statement of the subroutine refer to the value you want to use as the return value:
+
+<BR></P>
+
+<PRE>sub get_total {
+
+        $value = 0;
+
+        $inputline = &lt;STDIN&gt;;
+
+        @subwords = split(/\s+/, $inputline);
+
+        $index = 0;
+
+        while ($subwords[$index] ne &quot;&quot;) {
+
+                $value += $subwords[$index++];
+
+        }
+
+        $value;     # $value is now the return value
+
+}</PRE>
+
+<P>Now, get_total actually returns what you want it to.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I76" NAME="I76">
+
+<FONT SIZE=3><B>Using Local Variables</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As you saw in &quot;Returning a Value from a Subroutine,&quot; defining variables that appear only in a subroutine ensures that the subroutine doesn't accidentally overwrite anything:
+
+<BR></P>
+
+<PRE>sub getwords {
+
+        $inputline = &lt;&gt;;
+
+        @subwords = split(/s+/, $inputline);
+
+}</PRE>
+
+<P>Note, however, that the variables $inputline and @subwords could conceivably be added to your program at a later time. Then, a call to getwords would once again accidentally destroy values that your program needs to keep.
+
+<BR></P>
+
+<P>You can ensure that the variables used in a subroutine are known only inside that subroutine by defining them as local variables. Here is the subroutine getwords with $inputline and @subwords defined as local variables:
+
+<BR></P>
+
+<PRE>sub getwords {
+
+        local($inputline, @subwords);
+
+        $inputline = &lt;&gt;;
+
+        @subwords = split(/s+/, $inputline);
+
+}</PRE>
+
+<P>The local() statement tells Perl that versions of the variables $inputline and @subwords are to be defined for use inside the subroutine. Once a variable has been defined with local(), it cannot accidentally destroy values in your program:
+
+<BR></P>
+
+<PRE>@subwords = (&quot;Some&quot;, &quot;more&quot;, &quot;words&quot;);
+
+@words = getwords;</PRE>
+
+<P>Here, @subwords is not destroyed, because the @subwords used in getwords is known only inside the subroutine.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I77" NAME="I77">
+
+<FONT SIZE=3><B>Passing Values to a Subroutine</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can make your subroutines more flexible by allowing them to accept values.
+
+<BR></P>
+
+<P>As an example, here is the getwords subroutine modified to split the input line using a pattern that is passed to it:
+
+<BR></P>
+
+<PRE>sub getwords {
+
+        local($pattern) = @_;
+
+        local($inputline, @subwords);
+
+        $inputline = &lt;&gt;;
+
+        @subwords = split($pattern, $inputline);
+
+}</PRE>
+
+<P>The array variable @_ is a special system variable that contains a copy of the values passed to the subroutine. The statement local($pattern) = @_; creates a local scalar variable named $pattern and assigns the first value of the array, @_, to it.
+
+<BR></P>
+
+<P>Now, to call getwords you must supply the pattern you want it to use when splitting words. To split on white space, as before, call getwords as follows:
+
+<BR></P>
+
+<PRE>@words = getwords(/\s+/);</PRE>
+
+<P>If your input line consists of words separated by colons, you can split it using getwords by calling it as follows:
+
+<BR></P>
+
+<PRE>@words = getwords(/:/);</PRE>
+
+<P>If you like, you can even break your line into single characters:
+
+<BR></P>
+
+<PRE>@words = getwords(//);</PRE>
+
+<P>For more information on patterns you can use, see &quot;Matching Patterns.&quot;
+
+<BR></P>
+
+<P>The array variable @_ behaves like any other array variable. In particular, its components can be used as scalar values:
+
+<BR></P>
+
+<PRE>$x = $_[0];</PRE>
+
+<P>Here, the first element of @_&#151;the first value passed to the subroutine&#151;is assigned to $x.
+
+<BR></P>
+
+<P>Usually, assigning @_ to local variables is the best approach, because your subroutine becomes easier to understand.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I78" NAME="I78">
+
+<FONT SIZE=3><B>Calling Subroutines from Other Subroutines</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you like, you can have a subroutine call another subroutine you have written. For example, here is a subroutine that counts the number of words in an input line:
+
+<BR></P>
+
+<PRE>sub countline {
+
+        local(@words, $count);
+
+        $count = 0;
+
+        @words = getwords(/\s+/);
+
+        foreach $word (@words) {
+
+                $count += 1;
+
+        }
+
+        $count;      # make sure the count is the return value
+
+}</PRE>
+
+<P>The subroutine countline first calls the subroutine getwords to split the input line into words. Then it counts the number of words in the array returned by getwords and returns that value.
+
+<BR></P>
+
+<P>Once you have written countline, it is easy to write a program called wordcount that counts the number of words in one or more files:
+
+<BR></P>
+
+<PRE>#!/usr/bin/perl
+
+$totalwordcount = 0;
+
+while (($wordcount = &amp;countline) != 0) {
+
+        $totalwordcount += $wordcount;
+
+}
+
+print(&quot;The total word count is $totalwordcount\n&quot;);
+
+# include the subroutines getwords and countline here</PRE>
+
+<P>This program reads lines until an empty line&#151;a line with zero words&#151;is read in. (It assumes that the files contain no blank lines. You can get around this problem by having getwords test whether $inputline is empty before breaking it into 
+words, returning a special &quot;end of file&quot; value in this case. This value could then be passed from getwords to countline, and then to the main program.)
+
+<BR></P>
+
+<P>Because getwords uses the &lt;&gt; operator to read input, the files whose words are counted are those listed on the command line:
+
+<BR></P>
+
+<PRE>wordcount file1 file2 file3</PRE>
+
+<P>This counts the words in the files file1, file2, and file3.
+
+<BR></P>
+
+<P>The variable @_ is a local variable whose value is only defined in the subroutine in which it appears. This allows subroutines to pass values to other subroutines: each subroutine has its own copy of  @_ and none of the copies can destroy each other's 
+values.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I79" NAME="I79">
+
+<FONT SIZE=4><B>Associative Arrays</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>A common programming task is to keep counts of several different things at once. You can, of course, use scalar variables or array variables to solve this problem, but this requires a rather messy if-elsif structure:
+
+<BR></P>
+
+<PRE>if ($fruit eq &quot;apple&quot;) {
+
+        $apple += 1;
+
+} elsif ($letter eq &quot;banana&quot;) {
+
+        $banana += 1;
+
+} elsif ($letter eq &quot;cherry&quot;) {
+
+        $cherry += 1;
+
+...</PRE>
+
+<P>This takes up a lot of space, and is rather boring to write.
+
+<BR></P>
+
+<P>Fortunately, Perl provides an easier way to solve problems like these&#151;associative arrays. The following sections describe associative arrays and how to manipulate them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I80" NAME="I80">
+
+<FONT SIZE=3><B>Defining Associative Arrays</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In ordinary arrays, you access an array element by specifying an integer as the index:
+
+<BR></P>
+
+<PRE>@fruits = (9, 23, 11);
+
+$count = $fruits[0];     # $count is now 9</PRE>
+
+<P>In associative arrays, you do not have to use numbers such as 0, 1, and 2 to access array elements. When you define an associative array, you specify the scalar values you want to use to access the elements of the array. For example, here is a 
+definition of a simple associative array:
+
+<BR></P>
+
+<PRE>%fruits = (&quot;apple&quot;, 9,
+
+           &quot;banana&quot;, 23,
+
+           &quot;cherry&quot;, 11);
+
+$count = $fruits{&quot;apple&quot;};  # $count is now 9</PRE>
+
+<P>Here, the scalar value &quot;apple&quot; accesses the first element of the array %fruits, &quot;banana&quot; accesses the second element, and &quot;cherry&quot; accesses the third. You can use any scalar value you like as an array index, or any scalar 
+value as the value of the array element:
+
+<BR></P>
+
+<PRE>%myarray = (&quot;first index&quot;, 0,
+
+            98.6, &quot;second value&quot;,
+
+            76, &quot;last value&quot;);
+
+$value = $myarray{98.6};   # $value is now &quot;second value&quot;</PRE>
+
+<P>Associative arrays eliminate the need for messy if-elsif structures. To add 1 to an element of the %fruits array, for example, you just need to do the following:
+
+<BR></P>
+
+<PRE>$fruits{$fruit} += 1;</PRE>
+
+<P>Better still, if you decide to add other fruits to the list, you do not need to add more code, because the preceding statement also works on the new elements.
+
+<BR></P>
+
+<P>The character % tells Perl that a variable is an associative array. As with scalar variables and array variables, the remaining characters of the associative array variable name must consist of a letter followed by one or more letters, digits, or 
+underscores.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I81" NAME="I81">
+
+<FONT SIZE=3><B>Accessing Associative Arrays</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Since an associative array value is a scalar value, it can be used wherever a scalar value can be used:
+
+<BR></P>
+
+<PRE>$redfruits = $fruits{&quot;apple&quot;} + $fruits{&quot;cherry&quot;};
+
+print(&quot;yes, we have no bananas\n&quot;) if ($fruits{&quot;banana&quot;} == 0);</PRE>
+
+<P>Note that Perl uses braces (the { and } characters) to enclose the index of an associative array element. This makes it possible for Perl to distinguish between ordinary array elements and associative array elements.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I82" NAME="I82">
+
+<FONT SIZE=3><B>Copying to and from Associative Arrays</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Consider the following assignment, which initializes an associative array:
+
+<BR></P>
+
+<PRE>%fruits = (&quot;apple&quot;, 9,
+
+           &quot;banana&quot;, 23,
+
+           &quot;cherry&quot;, 11);</PRE>
+
+<P>The value on the right of this assignment is actually just the ordinary list, (&quot;apple&quot;, 9, &quot;banana&quot;, 23, &quot;cherry&quot;, 11), grouped into pairs for readability. You can assign any list, including the contents of an array 
+variable, to an associative array:
+
+<BR></P>
+
+<PRE>@numlist[0,1] = (&quot;one&quot;, 1);
+
+@numlist[2,3] = (&quot;two&quot;, 2);
+
+%numbers = @numlist;
+
+$first = $numbers{&quot;one&quot;};    # $first is now 1</PRE>
+
+<P>Whenever a list or an array variable is assigned to an associative array, the odd-numbered elements (the first, third, fifth, and so on) become the array indexes, and the even-numbered elements (the second, fourth, sixth, etc.) become the array values.
+
+<BR></P>
+
+<P>You can also assign an associative array to an array variable:
+
+<BR></P>
+
+<PRE>%numbers = (&quot;one&quot;, 1,
+
+            &quot;two&quot;, 2);
+
+@numlist = %numbers;
+
+$first = $numlist[3];        # first is now 2</PRE>
+
+<P>Here, the array indexes and array values both become elements of the array.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I83" NAME="I83">
+
+<FONT SIZE=3><B>Adding and Deleting Array Elements</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To add a new element to an associative array, just create a new array index and assign a value to its element. For example, to create a fourth element for the %fruits array, use the following:
+
+<BR></P>
+
+<PRE>$fruits{&quot;orange&quot;} = 1;</PRE>
+
+<P>This statement creates a fourth element with index &quot;orange&quot; and gives it the value 1.
+
+<BR></P>
+
+<P>To delete an element, use the delete() function:
+
+<BR></P>
+
+<PRE>delete($fruits{&quot;orange&quot;});</PRE>
+
+<P>This deletes the element indexed by &quot;orange&quot; from the array %fruits.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I84" NAME="I84">
+
+<FONT SIZE=3><B>Listing Array Indexes and Values</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The keys() function retrieves a list of the array indexes used in an associative array:
+
+<BR></P>
+
+<PRE>%fruits = (&quot;apple&quot;, 9,
+
+           &quot;banana&quot;, 23,
+
+           &quot;cherry&quot;, 11);
+
+@fruitindexes = keys(%fruits);</PRE>
+
+<P>Here, @fruitindexes is assigned the list consisting of the elements &quot;apple&quot;, &quot;banana&quot;, and &quot;cherry&quot;. Note that this list is in no particular order. To retrieve the list in alphabetic order, use sort() on the list:
+
+<BR></P>
+
+<PRE>@fruitindexes = sort(keys(%fruits));</PRE>
+
+<P>This produces the list (&quot;apple&quot;, &quot;banana&quot;, &quot;cherry&quot;).
+
+<BR></P>
+
+<P>To retrieve a list of the values stored in an associative array, use the function values():
+
+<BR></P>
+
+<PRE>%fruits = (&quot;apple&quot;, 9,
+
+           &quot;banana&quot;, 23,
+
+           &quot;cherry&quot;, 11);
+
+@fruitvalues = values(%fruits);</PRE>
+
+<P>@fruitvalues now contains a list consisting of the elements 9, 23, and 11 (again, in no particular order).
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I85" NAME="I85">
+
+<FONT SIZE=3><B>Looping with an Associative Array</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Perl provides a convenient way to use an associative array in a loop:
+
+<BR></P>
+
+<PRE>%fruits = (&quot;apple&quot;, 9,
+
+           &quot;banana&quot;, 23,
+
+           &quot;cherry&quot;, 11);
+
+while (($fruitname, $fruitvalue) == each(%fruitnames) {
+
+        ...
+
+}</PRE>
+
+<P>The each() function returns each element of the array in turn. Each element is returned as a two-element list (array index, then array value). Again, the elements are returned in no particular order.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I86" NAME="I86">
+
+<FONT SIZE=4><B>Formatting Your Output</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So far, the only output produced has been raw, unformatted output produced using the print() function. However, you can control how your output appears on the screen or on the printed page. To do this, define print formats and use the write() function 
+to print output using these formats.
+
+<BR></P>
+
+<P>The following sections describe print formats and how to use them.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I87" NAME="I87">
+
+<FONT SIZE=3><B>Defining a Print Format</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Here is an example of a simple print format:
+
+<BR></P>
+
+<PRE>format MYFORMAT =
+
+===================================
+
+Here is the text I want to display.
+
+===================================
+
+.</PRE>
+
+<P>Here, MYFORMAT is the name of the print format. This name must start with a letter, and can consist of any sequence of letters, digits, or underscores.
+
+<BR></P>
+
+<P>The subsequent lines define what is to appear on the screen. Here, the lines to be displayed are a line of = characters followed by a line of text and ending with another line of = characters. A line consisting of a period indicates the end of the print 
+
+format definition.
+
+<BR></P>
+
+<P>Like subroutines, print formats can appear anywhere in a Perl program.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I88" NAME="I88">
+
+<FONT SIZE=3><B>Displaying a Print Format</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To print using a print format, use the write() function. For example, to print the text in MYFORMAT, use
+
+<BR></P>
+
+<PRE>$~ = &quot;MYFORMAT&quot;;
+
+write();</PRE>
+
+<P>This sends
+
+<BR></P>
+
+<PRE>===================================
+
+Here is the text I want to display.
+
+===================================</PRE>
+
+<P>to the standard output file.
+
+<BR></P>
+
+<P>$~ is a special scalar variable used by Perl; it tells Perl which print format to use.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I89" NAME="I89">
+
+<FONT SIZE=3><B>Displaying Values in a Print Format</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To specify a value to be printed in your print format, add a value field to your print format. Here is an example of a print format that uses value fields:
+
+<BR></P>
+
+<PRE>format VOWELFORMAT =
+
+==========================================================
+
+Number of vowels found in text file:
+
+          a: @&lt;&lt;&lt;&lt;&lt; e: @&lt;&lt;&lt;&lt;&lt; i: @&lt;&lt;&lt;&lt;&lt; o: @&lt;&lt;&lt;&lt;&lt; u: @&lt;&lt;&lt;&lt;&lt;
+
+$letter{&quot;a&quot;}, $letter{&quot;e&quot;}, $letter{&quot;i&quot;}, $letter{&quot;o&quot;}, $letter{&quot;u&quot;}
+
+==========================================================
+
+.</PRE>
+
+<P>The line
+
+<BR></P>
+
+<PRE>a: @&lt;&lt;&lt;&lt;&lt; e: @&lt;&lt;&lt;&lt;&lt; i: @&lt;&lt;&lt;&lt;&lt; o: @&lt;&lt;&lt;&lt;&lt; u: @&lt;&lt;&lt;&lt;&lt;</PRE>
+
+<P>contains five value fields. Each value field contains special characters that provide information on how the value is to be displayed. (These special characters are described in the following section, &quot;Choosing a Value Field Format.&quot;)
+
+<BR></P>
+
+<P>Any line that contains value fields must be followed by a line listing the scalar values (or variables containing scalar values) to be displayed in these value fields:
+
+<BR></P>
+
+<PRE>$letter{&quot;a&quot;}, $letter{&quot;e&quot;}, $letter{&quot;i&quot;}, $letter{&quot;o&quot;}, $letter{&quot;u&quot;}</PRE>
+
+<P>The number of value fields must equal the number of scalar values.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I90" NAME="I90">
+
+<FONT SIZE=3><B>Choosing a Value Field Format</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The following value field formats are supported:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>@&lt;&lt;&lt;&lt;</P>
+
+<TD>
+
+<P>Left-justified output: width equals the number of characters supplied</P>
+
+<TR>
+
+<TD>
+
+<P>@&gt;&gt;&gt;&gt;</P>
+
+<TD>
+
+<P>Right-justified output: width equals the number of characters supplied</P>
+
+<TR>
+
+<TD>
+
+<P>@||||</P>
+
+<TD>
+
+<P>Centered output: width equals the number of characters supplied</P>
+
+<TR>
+
+<TD>
+
+<P>@##.##</P>
+
+<TD>
+
+<P>Fixed-precision numeric: . indicates location of decimal point</P>
+
+<TR>
+
+<TD>
+
+<P>@*</P>
+
+<TD>
+
+<P>Multi-line text</P></TABLE>
+
+<P>In all cases, the @ character is included when the number of characters in the field are counted. For example, the field @&gt;&gt;&gt;&gt; is five characters wide. Similarly, the field @###.## is seven characters wide: four before the decimal point, two 
+
+after the decimal point, and the decimal point itself.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I91" NAME="I91">
+
+<FONT SIZE=3><B>Writing to Other Output Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can also write to other files by using print formats and write(). For example, to write to the file represented by file variable MYFILE using print format MYFORMAT, use the following statements:
+
+<BR></P>
+
+<PRE>select(MYFILE);
+
+$~ = &quot;MYFORMAT&quot;;
+
+write(MYFILE);</PRE>
+
+<P>The select() statement indicates which file is to be written to, and the $~ = &quot;MYFORMAT&quot;; statement selects the print format to use.
+
+<BR></P>
+
+<P>Once an output file has been selected using select(), it stays selected until another select() is seen. This means that if you select an output file other than the standard output file, as in select(MYFILE);, output from write() won't go to the standard 
+
+output file until Perl sees the statement select (MYFILE);.
+
+<BR></P>
+
+<P>There are two ways of making sure you don't get tripped up by this:
+
+<BR></P>
+
+<P>Always use STDOUT as the default output file. If you change the output file, change it back when you're done:
+
+<BR></P>
+
+<PRE>select(MYFILE);
+
+$~ = &quot;MYFORMAT&quot;;
+
+write(MYFILE);
+
+select(STDOUT);</PRE>
+
+<P>Always specify the output file with select() before calling write():
+
+<BR></P>
+
+<PRE>select(STDOUT);
+
+$~ = &quot;MYFORMAT&quot;;
+
+write();    # STDOUT is assumed</PRE>
+
+<P>It doesn't really matter which solution you use, as long as you're consistent.
+
+<BR></P>
+
+<P>If you are writing a subroutine that writes to a particular output file, you can save the current selected output file in a temporary variable and restore it later:
+
+<BR></P>
+
+<PRE>$temp = select(MYFILE);   # select the output file
+
+$~ = &quot;MYFORMAT&quot;;
+
+write(MYFILE);
+
+select($temp); # restore the original selected output file</PRE>
+
+<P>This method is also useful if you're in the middle of a large program and you don't remember which output file is currently selected.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I92" NAME="I92">
+
+<FONT SIZE=3><B>Specifying a Page Header</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You can specify a header to print when you start a new page. To do this, define a print format with the name filename_TOP, where filename is the name of the file variable corresponding to the file you are writing to. For example, to define a header for 
+
+writing to standard output, define a print format named STDOUT_TOP:
+
+<BR></P>
+
+<PRE>format STDOUT_TOP =
+
+page @&lt;
+
+$%</PRE>
+
+<P>The system variable $% contains the current page number (starting with 1).
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I93" NAME="I93">
+
+<FONT SIZE=3><B>Setting the Page Length</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If a page header is defined for a particular output file, write() automatically paginates the output to that file. When the number of lines printed is greater than the length of a page, it starts a new page.
+
+<BR></P>
+
+<P>By default, the page length is 60 lines. To specify a different page length, change the value stored in the system variable $=:
+
+<BR></P>
+
+<PRE>$= = 66;     # set the page length to 66 lines</PRE>
+
+<P>This assignment must appear before the first write() statement.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I94" NAME="I94">
+
+<FONT SIZE=3><B>Formatting Long Character Strings</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A scalar variable containing a long character string can be printed out using multiple value fields:
+
+<BR></P>
+
+<PRE>format QUOTATION =
+
+Quotation for the day:
+
+&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;&#151;
+
+   ^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+   $quotation
+
+   ^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+   $quotation
+
+   ^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+
+   $quotation
+
+.</PRE>
+
+<P>Here the value of $quotation is written on three lines. The @ character in the value fields is replaced by ^: this tells Perl to fill the lines as full as possible (cutting the string on a space or tab). Any of the value fields defined in &quot;Choosing 
+
+a Value Field Format&quot; can be used.
+
+<BR></P>
+
+<P>If the quotation is too short to require all of the lines, the last line or lines are left blank. To define a line that is only used when necessary, put a ~ character in the first column:
+
+<BR></P>
+
+<PRE>~  ^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</PRE>
+
+<P>To repeat a line as many times as necessary, put two ~ characters at the front:
+
+<BR></P>
+
+<PRE>~~ ^&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> The contents of the scalar variable are destroyed by this write operation. To preserve the contents, make a copy before calling write().
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I95" NAME="I95">
+
+<FONT SIZE=4><B>Using Built-In Functions</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The examples you have seen so far use some of the many built-in functions provided with Perl. The following table provides a more complete list.
+
+<BR></P>
+
+<P>For more details on these functions and others, see the online manual page for Perl.
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 16.4. Built-In Functions.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>alarm($scalar)</P>
+
+<TD>
+
+<P>Deliver SIGALRM in $scalar seconds</P>
+
+<TR>
+
+<TD>
+
+<P>atan2($v1, $v2)</P>
+
+<TD>
+
+<P>Return arctangent of $v1/$v2</P>
+
+<TR>
+
+<TD>
+
+<P>caller($scalar)</P>
+
+<TD>
+
+<P>Return context of current subroutine</P>
+
+<TR>
+
+<TD>
+
+<P>chdir($scalar)</P>
+
+<TD>
+
+<P>Change working directory to $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>chmod(@array)</P>
+
+<TD>
+
+<P>Change permissions of file list</P>
+
+<TR>
+
+<TD>
+
+<P>chop($scalar)</P>
+
+<TD>
+
+<P>Remove the last character of a string</P>
+
+<TR>
+
+<TD>
+
+<P>chown(@array)</P>
+
+<TD>
+
+<P>Change owner and group of file list</P>
+
+<TR>
+
+<TD>
+
+<P>close(FILE)</P>
+
+<TD>
+
+<P>Close a file</P>
+
+<TR>
+
+<TD>
+
+<P>cos($scalar)</P>
+
+<TD>
+
+<P>Return cosine of $scalar in radians</P>
+
+<TR>
+
+<TD>
+
+<P>crypt($v1, $v2)</P>
+
+<TD>
+
+<P>Encrypt a string</P>
+
+<TR>
+
+<TD>
+
+<P>defined($scalar)</P>
+
+<TD>
+
+<P>Determine whether $scalar is defined</P>
+
+<TR>
+
+<TD>
+
+<P>delete($array{$val})</P>
+
+<TD>
+
+<P>Delete value from associative array</P>
+
+<TR>
+
+<TD>
+
+<P>die(@array)</P>
+
+<TD>
+
+<P>Print @array to STDERR and exit</P>
+
+<TR>
+
+<TD>
+
+<P>each(%array)</P>
+
+<TD>
+
+<P>Iterate through an associative array</P>
+
+<TR>
+
+<TD>
+
+<P>eof(FILE)</P>
+
+<TD>
+
+<P>Check whether FILE is at end of file</P>
+
+<TR>
+
+<TD>
+
+<P>eval($scalar)</P>
+
+<TD>
+
+<P>Treat $scalar as a subprogram</P>
+
+<TR>
+
+<TD>
+
+<P>exec(@array)</P>
+
+<TD>
+
+<P>Send @array to system as command</P>
+
+<TR>
+
+<TD>
+
+<P>exit($scalar)</P>
+
+<TD>
+
+<P>Exit program with status $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>exp($scalar)</P>
+
+<TD>
+
+<P>Compute e ** $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>fileno(FILE)</P>
+
+<TD>
+
+<P>Return file descriptor for FILE</P>
+
+<TR>
+
+<TD>
+
+<P>fork()</P>
+
+<TD>
+
+<P>Create parent and child processes</P>
+
+<TR>
+
+<TD>
+
+<P>getc(FILE)</P>
+
+<TD>
+
+<P>Get next character from FILE</P>
+
+<TR>
+
+<TD>
+
+<P>getlogin()</P>
+
+<TD>
+
+<P>Get current login from /etc/utmp</P>
+
+<TR>
+
+<TD>
+
+<P>gmtime($scalar)</P>
+
+<TD>
+
+<P>Convert time to GMT array</P>
+
+<TR>
+
+<TD>
+
+<P>grep($scalar, @array)</P>
+
+<TD>
+
+<P>Find $scalar in @array</P>
+
+<TR>
+
+<TD>
+
+<P>hex($scalar)</P>
+
+<TD>
+
+<P>Convert value to hexadecimal</P>
+
+<TR>
+
+<TD>
+
+<P>index($v1, $v2, $v3)</P>
+
+<TD>
+
+<P>Find $v2 in $v1 after position $v3</P>
+
+<TR>
+
+<TD>
+
+<P>int($scalar)</P>
+
+<TD>
+
+<P>Return integer portion of $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>join($scalar, @array)</P>
+
+<TD>
+
+<P>Join array into single string</P>
+
+<TR>
+
+<TD>
+
+<P>keys(%array)</P>
+
+<TD>
+
+<P>Retrieve indexes of associative array</P>
+
+<TR>
+
+<TD>
+
+<P>length($scalar)</P>
+
+<TD>
+
+<P>Return length of $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>link(FILE1, FILE2)</P>
+
+<TD>
+
+<P>Hard link FILE1 to FILE2</P>
+
+<TR>
+
+<TD>
+
+<P>localtime($scalar)</P>
+
+<TD>
+
+<P>Convert time to local array</P>
+
+<TR>
+
+<TD>
+
+<P>log($scalar)</P>
+
+<TD>
+
+<P>Get natural logarithm of $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>mkdir(DIR, $scalar)</P>
+
+<TD>
+
+<P>Create directory</P>
+
+<TR>
+
+<TD>
+
+<P>oct($string)</P>
+
+<TD>
+
+<P>Convert value to octal</P>
+
+<TR>
+
+<TD>
+
+<P>open(FILE, $scalar)</P>
+
+<TD>
+
+<P>Open file</P>
+
+<TR>
+
+<TD>
+
+<P>ord($scalar)</P>
+
+<TD>
+
+<P>Return ASCII value of character</P>
+
+<TR>
+
+<TD>
+
+<P>pack($scalar, @array)</P>
+
+<TD>
+
+<P>Pack array into binary structure</P>
+
+<TR>
+
+<TD>
+
+<P>pipe(FILE1, FILE2)</P>
+
+<TD>
+
+<P>Open pair of pipes</P>
+
+<TR>
+
+<TD>
+
+<P>pop(@array)</P>
+
+<TD>
+
+<P>Pop last value of array</P>
+
+<TR>
+
+<TD>
+
+<P>print(FILE, @array)</P>
+
+<TD>
+
+<P>Print string, list or array</P>
+
+<TR>
+
+<TD>
+
+<P>push(@array, @array2)</P>
+
+<TD>
+
+<P>Push @array2 onto @array</P>
+
+<TR>
+
+<TD>
+
+<P>rand($scalar)</P>
+
+<TD>
+
+<P>Return random value</P>
+
+<TR>
+
+<TD>
+
+<P>readlink($scalar)</P>
+
+<TD>
+
+<P>Return value of symbolic link</P>
+
+<TR>
+
+<TD>
+
+<P>require($scalar)</P>
+
+<TD>
+
+<P>include library file $scalar</P>
+
+<TR>
+
+<TD>
+
+<P>reverse(@list)</P>
+
+<TD>
+
+<P>Reverse order of @list</P>
+
+<TR>
+
+<TD>
+
+<P>rindex($v1, $v2)</P>
+
+<TD>
+
+<P>Return last occurrence of $v2 in $v1</P>
+
+<TR>
+
+<TD>
+
+<P>scalar($val)</P>
+
+<TD>
+
+<P>Interpret $val as scalar</P>
+
+<TR>
+
+<TD>
+
+<P>shift(@array)</P>
+
+<TD>
+
+<P>Shift off first value of @array</P>
+
+<TR>
+
+<TD>
+
+<P>sin($scalar)</P>
+
+<TD>
+
+<P>Return sine of $scalar in radians</P>
+
+<TR>
+
+<TD>
+
+<P>sleep($scalar)</P>
+
+<TD>
+
+<P>Sleep for $scalar seconds</P>
+
+<TR>
+
+<TD>
+
+<P>sort(@array)</P>
+
+<TD>
+
+<P>Sort @array in alphabetical order</P>
+
+<TR>
+
+<TD>
+
+<P>splice(@a1, $v1, $v2, @a2)</P>
+
+<TD>
+
+<P>Replace elements in array</P>
+
+<TR>
+
+<TD>
+
+<P>split($v1, $v2)</P>
+
+<TD>
+
+<P>Split scalar into array</P>
+
+<TR>
+
+<TD>
+
+<P>sprintf($scalar, @array)</P>
+
+<TD>
+
+<P>Create formatted string</P>
+
+<TR>
+
+<TD>
+
+<P>sqrt($expr)</P>
+
+<TD>
+
+<P>Return square root of $expr</P>
+
+<TR>
+
+<TD>
+
+<P>srand($expr)</P>
+
+<TD>
+
+<P>Set random number seed</P>
+
+<TR>
+
+<TD>
+
+<P>stat(FILE)</P>
+
+<TD>
+
+<P>Retrieve file statistics</P>
+
+<TR>
+
+<TD>
+
+<P>substr($v1, $v2)</P>
+
+<TD>
+
+<P>Retrieve substring</P>
+
+<TR>
+
+<TD>
+
+<P>symlink(FILE1, FILE2)</P>
+
+<TD>
+
+<P>Create symbolic link</P>
+
+<TR>
+
+<TD>
+
+<P>system(@array)</P>
+
+<TD>
+
+<P>Execute system command</P>
+
+<TR>
+
+<TD>
+
+<P>time()</P>
+
+<TD>
+
+<P>Get current time</P>
+
+<TR>
+
+<TD>
+
+<P>undef($scalar)</P>
+
+<TD>
+
+<P>Mark $scalar as undefined</P>
+
+<TR>
+
+<TD>
+
+<P>unlink(@array)</P>
+
+<TD>
+
+<P>Unlink a list of files</P>
+
+<TR>
+
+<TD>
+
+<P>unpack($v1, $v2)</P>
+
+<TD>
+
+<P>Unpack array from binary structure</P>
+
+<TR>
+
+<TD>
+
+<P>unshift(@a1, @a2)</P>
+
+<TD>
+
+<P>Add @a2 to the front of @a1</P>
+
+<TR>
+
+<TD>
+
+<P>utime(@array)</P>
+
+<TD>
+
+<P>Change date stamp on files</P>
+
+<TR>
+
+<TD>
+
+<P>values(%array)</P>
+
+<TD>
+
+<P>Return values of associative array</P>
+
+<TR>
+
+<TD>
+
+<P>vec($v1, $v2, $v3)</P>
+
+<TD>
+
+<P>Treat string as vector array</P>
+
+<TR>
+
+<TD>
+
+<P>wait()</P>
+
+<TD>
+
+<P>Wait for child process to terminate</P>
+
+<TR>
+
+<TD>
+
+<P>write(FILE)</P>
+
+<TD>
+
+<P>Write formatted output</P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I96" NAME="I96">
+
+<FONT SIZE=3><B>The </B><B><I>$_</I></B><B> Variable</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>By default, any function that accepts a scalar variable can have its argument omitted. In this case, Perl uses $_, which is the default scalar variable.
+
+<BR></P>
+
+<P>$_ is also the default variable when reading from a file. So, for example, instead of writing
+
+<BR></P>
+
+<PRE>$var = &lt;STDIN&gt;;
+
+chop($var);</PRE>
+
+<P>you can write
+
+<BR></P>
+
+<PRE>chop(&lt;STDIN&gt;);</PRE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I97" NAME="I97">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Perl is a programming language that allows you to write programs that manipulate files, strings, integers, and arrays quickly and easily. The features of Perl include:
+
+<BR></P>
+
+<UL>
+
+<LI>String and integer interchangeability
+
+<BR>
+
+<BR></LI>
+
+<LI>Arithmetic, logical, bitwise, and string operators
+
+<BR>
+
+<BR></LI>
+
+<LI>List, array, and associative array manipulation
+
+<BR>
+
+<BR></LI>
+
+<LI>Control structures for handling program flow
+
+<BR>
+
+<BR></LI>
+
+<LI>File input and output capability
+
+<BR>
+
+<BR></LI>
+
+<LI>Subroutines
+
+<BR>
+
+<BR></LI>
+
+<LI>Formatted output
+
+<BR>
+
+<BR></LI></UL>
+
+<P>A wide range of built-in functions
+
+<BR></P>
+
+<P><A HREF="unx15.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx15.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx17.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx17.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

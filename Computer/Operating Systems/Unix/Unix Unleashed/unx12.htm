@@ -1,0 +1,1676 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx12.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx12s2.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s2.htm">
+
+<LINK REL="Previous" HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx12s2.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s2.htm">[To Chapter 12 Section 2]</A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">12 &#151; Korn Shell</A></LI>
+
+<LI>
+
+<A HREF="#I3">By John Valley</A></LI></UL>
+
+<LI>
+
+<A HREF="#I4">Shell Basics</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Wildcard Expressions</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Tilde Expansion</A></LI>
+
+<LI>
+
+<A HREF="#I7">Pattern Expressions</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">Command Substitution</A></LI>
+
+<LI>
+
+<A HREF="#I9">An Improved cd Command</A></LI></UL>
+
+<LI>
+
+<A HREF="#I10">Aliases</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I11">Defining Aliases</A></LI>
+
+<LI>
+
+<A HREF="#I12">Removing an Alias</A></LI>
+
+<LI>
+
+<A HREF="#I13">Writing an Alias Definition</A></LI>
+
+<LI>
+
+<A HREF="#I14">Using Exported Aliases</A></LI>
+
+<LI>
+
+<A HREF="#I15">Using Tracked Aliases</A></LI></UL>
+
+<LI>
+
+<A HREF="#I16">Shell Options</A></LI>
+
+<LI>
+
+<A HREF="#I17">Command History</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I18">Displaying the Command History List</A></LI>
+
+<LI>
+
+<A HREF="#I19">Reexecuting a Command from the History</A></LI>
+
+<LI>
+
+<A HREF="#I20">Accessing the History List fc</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Command Editing</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I22">Activating Command Editing Mode</A></LI>
+
+</UL>
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><B>12 &#151; </B><A ID="I2" NAME="I2"></A><B>Korn Shell</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By John Valley</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The previous chapter introduced the basics of UNIX shells and discussed the Bourne shell in particular. This chapter expands on the subject of shells by introducing the Korn shell&#151;the second of the three main shell languages available to you. The 
+third major shell language&#151;the C shell&#151;is discussed in Chapter 13.
+
+<BR></P>
+
+<P>The Korn shell is named after its author, David G. Korn of AT&amp;T's Bell Laboratories, who wrote the first version of the program in 1986. The Korn shell is, therefore, a direct descendent of the Bourne shell. It is almost perfectly compatible with 
+the Bourne shell. That is, with a few minor exceptions, any shell script written to be executed by the Bourne shell can be executed correctly by the Korn shell. The converse is, however, not true. As a general rule, Korn shell scripts cannot be processed 
+correctly by the Bourne shell.
+
+<BR></P>
+
+<P>This upward compatibility provides a number of advantages, not the least of which is that it enables you to capitalize on your knowledge of the Bourne shell immediately. It also drastically reduces the amount of material that you need to learn in order 
+
+to begin using the Korn shell.
+
+<BR></P>
+
+<P>Because the Korn shell is intended as a replacement for and an improvement on the Bourne shell, it is best discussed as a series of features added to the basic functionality of the Bourne shell. Many aspects of the shell's operation presented in Chapter 
+
+11, &quot;The Bourne Shell,&quot; are not repeated here. Instead, this chapter summarizes the differences between the Bourne shell and the Korn shell.
+
+<BR></P>
+
+<P>The list of Korn shell enhancements is extensive, ranging from the profound to the picayune. The most dramatic enhancements are those that are intended to facilitate keyboard interaction with the shell, but there are also many important extensions to 
+shell syntax and shell programming technique which should not escape your notice. Altogether, the enhancements can be collected into the following categories:
+
+<BR></P>
+
+<P><B>Command aliases:</B> Aliases enable you to abbreviate frequently used commands without resorting to shell programming, thus improving your overall keyboard productivity.
+
+<BR></P>
+
+<P><B>Command history:</B> Command history can be used alone or in conjunction with command editing to modify and reuse previously typed commands. It can also be used as a log of keyboard actions.
+
+<BR></P>
+
+<P><B>Command editing:</B> The Korn shell provides two styles of command editing that enable you to revise and correct commands as you type them. Command editing can greatly reduce the amount of time you spend retyping commands.
+
+<BR></P>
+
+<P><B>Directory Management:</B> The Korn shell provides extensions to the cd command, new pathname syntax, and new shell variables to facilitate switching between directories and to abbreviate long pathnames.
+
+<BR></P>
+
+<P><B>Arithmetic expressions:</B> The Bourne shell offered minimal arithmetic capabilities. The Korn shell offers much greater power for handling numbers, even though a hand-held calculator is still a better tool for calculations.
+
+<BR></P>
+
+<P><B>Syntax improvements:</B> The Korn shell offers improvements in the syntax of the if statement, the test built-in command, and the command substitution expression, which can improve the power and readability of your shell scripts.
+
+<BR></P>
+
+<P><B>Wildcard expressions: </B>The Korn shell provides more wildcard formats to reduce your typing workload.
+
+<BR></P>
+
+<P><B>Coprocessing:</B> The conventional pipe of the Bourne shell is expanded to permit more flexible programmed interaction between your shell script and the commands you invoke.
+
+<BR></P>
+
+<P><B>Job processing:</B> The Korn shell includes batch job monitoring features to simplify running processes in the background and to enable you to do more things simultaneously.
+
+<BR></P>
+
+<P><B>Privileged mode switching:</B> The Bourne shell provided no special features to capitalize on the set-uid capability of UNIX. The privileged mode of the Korn shell, on the other hand, enables you to switch the set-uid mode on and off and to develop 
+procedures as shell scripts that previously required C language programming.
+
+<BR></P>
+
+<P>Although you haven't been introduced to the C shell yet, you'll find when you study it that many of the Korn shell features duplicate those of the C shell but with a different syntax. This is intentional. Although the C shell offers many desirable 
+features, its general syntax is incompatible with the Bourne shell, making it somewhat of a square peg in a round hole in the UNIX world. The Korn shell solves this long-standing quandary in the UNIX world by offering the keyboard and shell programming 
+features that people want but in a form compatible with the old, well established Bourne shell standard.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Shell Basics</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>As I mentioned earlier, the Korn shell is essentially a foundation equivalent to the Bourne shell with a new layer of goodies added on top. You can use the Korn shell as a one-for-one replacement of the Bourne shell, with no special knowledge of Korn 
+shell features. Korn shell extensions do not come into play until you explicitly invoke them.
+
+<BR></P>
+
+<P>In particular, the Korn shell is identical to the Bourne shell in the following areas:
+
+<BR></P>
+
+<P><B>Redirection of input and output:</B>The Bourne shell redirection operators &lt;, &lt;&lt;, &gt;, and &gt;&gt;, and the here document facility (<I>&lt;&lt;label</I>) all have identical syntax and work the same way.
+
+<BR></P>
+
+<P><B>Entering multiple commands on one line:</B>The semicolon (;) marks the end of a shell statement. To enter multiple commands on one line, simply end each command but the last with a semicolon.
+
+<BR></P>
+
+<P><B>Filename substitutions:</B>The Korn shell supports the familiar substitution characters *, ?, and [...], which when used in a word, cause the word to be replaced with all matching filenames. The Korn shell also supports additional filename matching 
+patterns having the general form *(expression), and the tilde (~) abbreviation, but you need not use these extensions.
+
+<BR></P>
+
+<P><B>Substitution of variables:</B>The Korn shell supports the variable substition form $name, as well as all the special variable references $*, $@, $$, $-, and $?, and the parameters $0 through $9. The special form ${name}, as well as the forms 
+${name[op]text} are also supported with their usual meaning. In addition, the Korn shell supports array variables ${name[index]}, special command substitutions $(...), and others. The extensions do not conflict with Bourne shell syntax, and you do not need 
+
+to use them.
+
+<BR></P>
+
+<P><B>Command substitutions:</B>The Bourne shell command substitution form 'command' is fully supported in the Korn shell, with the same syntax and behavior as the Bourne shell format. The Korn shell also supports the variant syntax $(...) to simplify the 
+
+use of command substitutions.
+
+<BR></P>
+
+<P><B>Escaping and quoting:</B>The Korn shell recognizes quoted strings of the form &quot;...&quot; and '...', with the same meaning and effect. A single special character can be deprived of its meaning with the backslash (\); the backslash is removed from 
+
+the generated command line, except when it appears within single quotes. There are no extensions to the standard escaping and quoting techniques.
+
+<BR></P>
+
+<P><B>Extending a command over multiple lines</B>:To extend a command over multiple lines, end the line with a backslash (\). The backslash must be the last character of the line. The combination of the backslash, followed immediately by a newline 
+character, is recognized and simply deleted from the command input. This is the same behavior as the Bourne shell.
+
+<BR></P>
+
+<P>The general philosophy of the Korn shell is to invoke extensions and special features with syntax that is not legal for the Bourne shell. As a result, any commands and shell scripts which are syntactically correct for the Bourne shell will be 
+interpreted identically by the Korn shell. All Korn shell extensions use syntactic forms that do not appear in the Bourne shell language.
+
+<BR></P>
+
+<P>Features which are not invoked directly by commands, such as command history and command editing, are controlled instead by shell options. To use command editing, you must first issue the command set -o vi or set -o EMACS. If you don't, the Korn shell 
+command line works the same as the Bourne shell. Also note that the set command follows the general philosophy: set -o is not valid in the Bourne shell and generates a syntax error.
+
+<BR></P>
+
+<P>The compatibility between the Bourne shell and Korn shell is nearly perfect, because it was one of the design objectives of the Korn shell that it should be able to execute system-provided shell scripts written for the Bourne shell, without the need to 
+
+revise those scripts, or to invoke the Bourne shell to run them. This objective meant that even minor idiosyncracies of Bourne shell behavior could not be overlooked: the Korn shell design had to implement them all.
+
+<BR></P>
+
+<P>The upshot of all this is that the entire contents of Chapter 11, &quot;Bourne Shell,&quot; applies equally well, without restriction or caveat and in its entirety, to the Korn shell.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Wildcard Expressions</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The Bourne shell supports a number of syntactic forms for abbreviating a command-line reference to filenames. These forms are based on the idea of embedding one or more special pattern-matching characters in a word. The word then becomes a template for 
+
+filenames and is replaced by all the filenames that match the template. The pattern-matching characters supported by the Bourne shell are *, ?, and the bracketed expression [...].
+
+<BR></P>
+
+<P>These pattern-matching characters are supported by the Korn shell, as well as a tilde expansion that uses the ~ character to shorten pathnames, and the extended pattern-matching expressions *(), ?(), +(), @(), and !(). The syntax of pattern-matching 
+expressions is based on the recognition of unquoted parentheses&#151;()&#151;in a word. Parentheses are special to the shell in both the Bourne and Korn shells; they must be quoted to avoid their special meaning. The Bourne shell attaches no special 
+significance to a word such as here+(by|with), but it would complain about the parentheses. Thus, words containing embedded parentheses do not occur in the Bourne shell. The Korn shell, therefore, uses this syntax to extend wildcard pattern-matching 
+without impairing Bourne shell compatibility.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Tilde Expansion</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A word beginning with ~ (the tilde) is treated specially by the Korn shell. To avoid its special meaning, you must quote the tilde. Note that words containing a tilde in any position except for the first are treated normally. The tilde has special 
+meaning only when it appeares as the first character of a word.
+
+<BR></P>
+
+<P>The four different styles of tilde expansion are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<CAPTION>Table caption goes here</CAPTION>
+
+     <TR>
+
+          <TD>~ </TD>
+
+          <TD>Used by itself or when followed by a slash (/), the tilde is replaced by the pathname of your home directory. It is the same as writing $HOME or $HOME/.... For example,</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD><BR></TD>
+
+          <TD><BR>$ <B>echo ~/bin</B>
+
+<BR>/usr/home/fran/bin
+
+<BR>
+
+<BR>$ <B>bindir=~/bin</B>
+
+<BR>$ <B>echo $bindir</B>
+
+<BR>~/bin</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD>~string</TD>
+
+          <TD>A tilde followed by an alphanumeric string is replaced by the home directory of the named user. It is an error if no entry exists in the /etc/passwd file for string. For example,
+
+</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD><BR></TD>
+
+          <TD>$ <B>echo ~bill</B>
+
+<BR>/usr/home/bill</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD>~+</TD>
+
+          <TD> A tilde followed by a plus sign is replaced by the full pathname of the current directory. It is the same as writing $PWD or $PWD/.... For example,</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD><BR></TD>
+
+          <TD>$ <B>pwd</B>
+
+<BR>/usr/lib
+
+<BR>$ <B>echo ~+/bin</B>
+
+<BR>/usr/lib/bin
+
+</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD>~- </TD>
+
+          <TD>A tilde followed by a minus sign is replaced by the full pathname of the previous directory. It is the same as writing $OLDPWD or $OLDPWD/.... For example,</TD>
+
+     </TR>
+
+     <TR>
+
+          <TD><BR></TD>
+
+          <TD>$ <B>pwd</B>
+
+<BR>/usr/lib
+
+<BR>$ <B>cd ~/lib</B>
+
+<BR>/usr/home/fran/lib
+
+<BR>$ <B>echo ~-/bin</B>
+
+<BR>/usr/lib/bin</TD>
+
+     </TR>
+
+     </TABLE>
+
+
+
+
+
+<P>The tilde shorthand is a great time saver. The most common error people make when using it is that they forget that the tilde is recognized only at the beginning of a word, and that it can't be used in assignment expressions such as bindir=~/bin.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Pattern Expressions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A pattern expression is any word consisting of ordinary characters and one or more shell pattern-matching characters. The pattern-matching characters are the familiar *, ?, and [...] from the Bourne shell, as well as any of the following extended 
+pattern-matching expressions:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>*(pattern[|pattern]...)</P>
+
+<TD>
+
+<P>Matches zero or more occurrences of the specified patterns. For example, time*(sheet|spent) matches the filenames time, timesheet, and timespent, but it doesn't match the filename timeused.</P>
+
+<TR>
+
+<TD>
+
+<P>+(pattern[|pattern]...)</P>
+
+<TD>
+
+<P>Matches one or more occurrences of the specified patterns. For example, time+(.x|.y) matches time.x, time.x.x, and time.y, but it doesn't match time or time.x.y.</P>
+
+<TR>
+
+<TD>
+
+<P>?(pattern[|pattern]...)</P>
+
+<TD>
+
+<P>Matches no or one occurrence of any of the patterns. For example, time?(.x|.y) matches time, time.x, and time.y, but it doesn't match time.x.x.</P>
+
+<TR>
+
+<TD>
+
+<P>@(pattern[|pattern]...)</P>
+
+<TD>
+
+<P>Matches exactly one occurrence of the pattern. For example, time@(.x|.y) matches time.x or time.y, but it doesn't match either time or time.x.x.</P>
+
+<TR>
+
+<TD>
+
+<P>!(pattern[|pattern]...)</P>
+
+<TD>
+
+<P>Same as * except that strings that would match the specified patterns are not considered matches. For example, time!(.x|.y) matches time, time.x.y, time.0, and everything beginning with time except for time.x and time.y.</P></TABLE>
+
+<P>Note that the definition of pattern expressions is recursive. Each form contains one or more pattern strings. This means that nested pattern expressions are legal. Consider, for example, time*(.[cho]|.sh). It contains the pattern [cho] inside the 
+pattern expression. The pattern time*(.*(sh|obj)) matches either of the filenames time.sh or time.obj.
+
+<BR></P>
+
+<P>The main value of these extended pattern-matching expressions is in enabling you to select a subset of files without having to list each filename explicitly on the command line. Pattern expressions are also legal in other contexts where the shell does 
+pattern matching, such as in the expression of the case statement.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Command Substitution</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Another noteworthy enhancement provided by the Korn shell is a more convenient syntax for command substitutions. Remember from Chapter 11 on the Bourne shell that a string quoted with back-quotes ('command') is replaced with the standard output of 
+command. The backquote notation isn't easy to use, though. The Korn shell supports the following alternate form in addition to the standard Bourne shell backquote notation:
+
+<BR></P>
+
+<PRE>$(command-list)</PRE>
+
+<P>Not only does the parenthesized form avoid the problem of recognizing backquotes on printed listings, but it also acts as a form of quoting or bracketing. You can use all the standard quoting forms inside the parentheses without having to use 
+backslashes to escape quotes. Furthermore, the parenthesized form nests. You can use $() expressions inside $() expressions without difficulty.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>An Improved </B><B><I>cd</I></B><B> Command</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>For directory movement, the Korn shell supports two new forms of the cd command:
+
+<BR></P>
+
+<PRE>
+
+<BR>cd -
+
+
+
+<BR>cd oldname newname</PRE>
+
+<P>The command cd - is especially helpful. It switches back to the directory you were in before your previous cd command. This command makes it easy for you to switch to another directory temporarily, and then to move back to your working directory by 
+typing cd -. The PWD and OLDPWD variables are maintained to carry the full pathnames of your current and previous directory, respectively. You can use these variables for writing commands to reference files in a directory without typing the full pathname.
+
+<BR></P>
+
+<P>You can use the cd oldname newname command to change a component of the pathname of your current directory. Thus, it makes lateral moves in a directory structure somewhat easier. For example, if your current directory is /usr/prod/bin and you want to 
+switch to the directory /usr/test/bin, just type the command cd prod test. Similarly, the command cd usr jjv switches from /usr/prod/bin to /jjv/prod/bin, assuming that the latter directory exists.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=4><B>Aliases</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The command aliasing feature of the Korn shell is certainly one of its most attractive and flexible enhancements over the Bourne shell. It's an enhancement you'll start using right away.
+
+<BR></P>
+
+<P>When you define a command alias, you specify a shorthand term to represent a command string. When you type the shorthand term, it is replaced during command execution with the string that it represents. The command string can be more than just a command 
+
+name. It can define stock options and arguments for the command as well.
+
+<BR></P>
+
+<P>For example, you might have one or more preferred ways of listing your directory contents. Personally, I like to use the -FC options on my ls command when I just want to see what's in the directory. Typing the command ls -FC ... repeatedly all day long, 
+
+though, would not be one of my favorite things to do. The command alias feature makes it easy to set up a short hand for the ls command. You do it like this:
+
+<BR></P>
+
+<PRE>$ alias lx='ls -FC'</PRE>
+
+<P>Now whenever you enter lx on the command line, the command ls -FC is executed.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Defining Aliases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The alias command is a shell built-in, meaning that it is available to you only when running the Korn shell. It is not part of the UNIX operating system at large. You use the alias command to define new aliases and to list the command aliases currently 
+
+in effect.
+
+<BR></P>
+
+<P>The general syntax of the alias command is
+
+<BR></P>
+
+<PRE>alias [ -tx ] [ name[=value] ... ]</PRE>
+
+<P>The arguments of alias are one or more specifications, each beginning with an alias name. The alias name is the shorthand command that you enter at the terminal. Following an equal sign (=), you enter the text with which you want the shell to replace 
+your shorthand. You should enclose the alias value string in single quotes to hide embedded blanks and special characters from immediate interpretation by the shell.
+
+<BR></P>
+
+<P>The Korn shell stores alias names and their definitions in an internal table kept in memory. Because it's not stored in a disk file, you lose your alias definitions whenever you log out or exit the Korn shell. To keep an alias from session to session, 
+you need to define the alias in your login profile&#151;a file in your home directory named .profile). There's nothing tricky about it. The same command that you enter at the keyboard to define an alias works just as well when issued from a login profile 
+script. Thus, for aliases you want to use over and over, simply type the alias command in your login profile; you only have to do it once. (For more information about using the login profile, see the section called &quot;Customizing&quot; near the end of 
+this chapter.)
+
+<BR></P>
+
+<P>The syntax of the alias command enables you to define more than one alias on a command. The general syntax is
+
+<BR></P>
+
+<PRE>alias name = value [name = value]...</PRE>
+
+<P>You don't usually write multiple definitions on one alias command. This is because you usually think them up one at a time. In your login profile, it's a good idea to write only one alias definition per alias command. This makes it easier to add and 
+delete alias definitions later.
+
+<BR></P>
+
+<P>After you've defined an alias, you might want to list the aliases in effect to see your new definition. Simply enter the alias command with no arguments. For example,
+
+<BR></P>
+
+<PRE>$ alias
+
+true=let 1
+
+false=let 0
+
+lx=ls -FC</PRE>
+
+<P>In all likelihood, there are a good many more alias definitions in effect than you defined. The Korn shell automatically defines a number of aliases when it starts up&#151;such as when you log in&#151;to provide convenient abbreviations for some Korn 
+shell commands. The true and false definitions fall into this category. The UNIX operating system provides true and false commands, but as programs they must be searched for and loaded into memory to execute. As aliases the shell can execute them much more 
+
+quickly, so these two particular aliases are provided as an easy performance enhancement for the many shell scripts you execute&#151;usually unknowingly&#151;throughout the day.
+
+<BR></P>
+
+<P>To use the lx command alias previously shown, use it as a new command name. For example,
+
+<BR></P>
+
+<PRE>$ lx</PRE>
+
+<P>by itself lists all the files in the current directory in a neat columnar format, sorted for easy inspection. To list a directory other than the current directory, use the command
+
+<BR></P>
+
+<PRE>$ lx /usr/bin</PRE>
+
+<P>After alias substitution, the shell sees the command ls -FC /usr/bin.
+
+<BR></P>
+
+<P>The ability to prespecify command options in an alias is a great help. Even better, you can usually augment or alter prespecified command options when you use the alias. Suppose, for example, that you want to add the command option -a when listing 
+/usr/bin so that you can see all dot files in the directory. You might think that you have to type the full ls command, because the lx alias doesn't include an a option letter. Not so. The following command works quite well:
+
+<BR></P>
+
+<PRE>$ lx -a /usr/bin</PRE>
+
+<P>When the shell executes this command, it immediately replaces lx with the alias value string, obtaining the following internal form:
+
+<BR></P>
+
+<PRE>$ ls -FC -a /usr/bin</PRE>
+
+<P>The ls command, like most other UNIX commands, is comfortable with command options specified in multiple words. In effect, the -a option has been added to the -FC options provided automatically by the alias.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Removing an Alias</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To remove an alias that you or the Korn shell previously defined, use the unalias command:
+
+<BR></P>
+
+<PRE>$ unalias name [ name ... ]</PRE>
+
+<P>Notice that just as you can define multiple aliases on one command line, you also can remove multiple aliases with one unalias command.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Writing an Alias Definition</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>One of my favorite aliases is the following one for the pg command:
+
+<BR></P>
+
+<PRE>$ alias pg='/usr/bin/pg -cns -p&quot;Page %d:&quot;'</PRE>
+
+<P>The pg alias is instructive in a number of ways. Take a look at it in detail.
+
+<BR></P>
+
+<P>First, note that the alias name is pg. This is the same as the pg command itself, so in effect the alias hides the pg command. You can invoke the real UNIX pg command by using an explicit pathname&#151;calling /usr/bin/pg&#151;but not by the short 
+command pg, which invokes the alias instead.
+
+<BR></P>
+
+<P>Choosing the same name for an alias as a real command name is unusual. It implies that you never want to execute the real command directly, and that you always want to dress it up with the options specified in the alias.
+
+<BR></P>
+
+<P>Because of the way I work, the options -c, -n, -s, and -p should have been built in to the command; I always want to use them. The -c option causes pg to clear the screen when it displays a new page. On a video terminal, this is more natural and faster 
+
+than scrolling the lines. The -n option causes pg to execute a command key immediately without waiting for the Enter key. All pg commands are one letter long. The only reason not to use the -n option is to avoid the slack in performance that results from 
+generating a terminal interrupt for each keypress, which the -n option requires. However, single-user workstations and modern high-performance computers don't notice the extra workload. Therefore, unless you're working on an old PDP-11, go ahead and 
+specify the -n option for the convenience it adds. The -s option displays messages, such as the current page number, in highlighted mode, usually inverse video, which makes the non-text part of the display easier to notice or to ignore.
+
+<BR></P>
+
+<P>The -p option causes the pg command to display the page number at the bottom of each screen. I like page numbering because it gives me a rough idea of where I am in the displayed document. By default, the page number is displayed as a bare number, run 
+on with the rest of the command line. The pg command, however, enables you supply a format for the page number. I specified -p&quot;Page %d:&quot;. It identifies the page number with the word Page and provides a colon (:) to separate the page number from 
+the input command line.
+
+<BR></P>
+
+<P>Because the page number format string contains characters special to the shell&#151;specifically, an embedded blank&#151;it must be enclosed in quotes. The alias command also requires that the entire alias definition be enclosed in quotes. Therefore, I 
+
+need a quote within a quote.
+
+<BR></P>
+
+<P>If you understood the discussion of quotes in the chapter on the Bourne shell, you should also realize that there are at least three ways to write this alias command:
+
+<BR></P>
+
+<PRE>$ alias pg='/usr/bin/ls -cns -p&quot;Page %d:&quot;'
+
+$ alias pg=&quot;/usr/bin/ls -cns -p'Page %d'&quot;
+
+$ alias pg=&quot;/usr/bin/ls -cns -p\&quot;Page %d\&quot;&quot;</PRE>
+
+<P>The first form is the form I chose for the example. The second embeds a single quoted string inside a double quoted string; it works just as well. The third form uses an escape character to embed a double quote inside a double quoted string. In this 
+case, the shell strips off the backslashes before it stores the alias value. I avoid this form, because I don't like to use escape sequences unless I have to.
+
+<BR></P>
+
+<P>The point here is that alias definitions usually must be enclosed in quotes&#151;unless the alias value is a single word. Thus, you must occasionally embed quoted strings inside a quoted string. You should recognize that this need can arise. Be prepared 
+
+to handle it by making sure that you understand how the shell quoting mechanism works.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION:</B> If you do get a handle on how the shell quoting syntax works, it incites many otherwise nice people to brand you as a UNIX guru. So be careful.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Using Exported Aliases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The alias command supports a number of options, including -x (export)  and -t (tracking).
+
+<BR></P>
+
+<P>An exported alias is much the same concept as an exported variable. Its value is passed into shell scripts that you invoke.
+
+<BR></P>
+
+<P>Exporting a command alias can be both helpful and harmful. For example, exporting the pg alias shown earlier would be helpful, because it would cause pg commands issued by a shell script&#151;many UNIX commands are implemented as shell scripts&#151;to 
+work as I prefer. On the other hand, if you define an alias for the rm command that always prompts before deleting a file, you might be inundated with requests from system-supplied shell scripts to delete temporary files that you never heard of.
+
+<BR></P>
+
+<P>Use the command alias -x to display only those command aliases that are exported. Used in the form alias -x name, the alias name is redefined as an exported alias; it should have been defined previously. To define a new exported alias, use the full form 
+
+alias -x name=value.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Using Tracked Aliases</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>By default, the Korn shell creates a tracked alias entry automatically for many of the commands that you invoke from the keyboard. This helps to improve performance. When an alias is tracked, the Korn shell remembers the directory where the command is 
+found. Therefore, subsequent invocations don't have to search your PATH list for the command file. Essentially, the alias for the command is simply set to the full pathname of the command.
+
+<BR></P>
+
+<P>You can display the commands for which a tracked alias exists by using the command alias -t.
+
+<BR></P>
+
+<P>To request explicit tracking for a command that you use frequently, use the form alias -t name. If no alias already exists with the given name, the Korn shell does a path search and stores the full pathname of the command name as the alias value. 
+Otherwise, the shell simply marks the alias as tracked for future reference.
+
+<BR></P>
+
+<P>Note that you generally don't set the tracked attribute for command aliases that you write&#151;that is, where the alias name differs from the alias value. The values for tracked aliases should usually be set by the Korn shell itself. You can achieve 
+the effect of a tracked alias by supplying the full pathname of the command in the alias value. This eliminates path searches. For example, the lx alias shown earlier would be better written as alias lx='/usr/bin/ls -FC'; it would achieve the same effect 
+as tracking.
+
+<BR></P>
+
+<P>As a final example, suppose that the vi command is not in the list when you issue the command alias -t, but that you know you will be using the command fairly frequently. To request tracking for the vi command, simply issue the command alias -t vi.
+
+<BR></P>
+
+<P>One of the major reasons for the name tracking is that the Korn shell takes account of the possibility that your search path&#151;the value of the PATH shell variable&#151;may include the directory . (dot), a reference to your current directory. If you 
+
+switch to another directory, commands that were available might become unavailable, or they might need to be accessed by a different pathname. Alias tracking interacts with the cd command to keep the full pathnames of tracked aliases current. In other 
+words, alias tracking keeps track of the proper full pathname for commands as you switch from directory to directory and create, remove, or relocate executable files.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=4><B>Shell Options</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Being a rather sophisticated program, the Korn shell deals with many human interface issues that might be resolved in two or more ways. To help you use the shell in ways most convenient to you, the shell enables you to choose how it behaves by setting 
+options.
+
+<BR></P>
+
+<P>There are two ways to set Korn shell options: on the ksh command when you invoke the shell and on the set command from within the shell once you've got it started. Options that you don't set explicitly take on a default value. Thus, you never need to 
+bother with option settings unless you want to.
+
+<BR></P>
+
+<P>The ksh command is normally issued on your behalf by the UNIX login processor, using a template stored in the /etc/passwd file for your login name. Generally, the system administrator constructs the password entry for you, but unless he's very busy or 
+very mean-spirited, he'll be happy to adjust your password entry to invoke the shell with your preferred settings. Of course, you can replace your login shell with the Korn shell at any time by using the following command:
+
+<BR></P>
+
+<PRE>$ exec ksh options ...</PRE>
+
+<P>The exec statement that you encountered in your study of the Bourne shell does the same thing under the Korn shell. It replaces the current shell with the command named as its first argument&#151;usually also a shell, but perhaps of a different type or 
+
+with different options and arguments.
+
+<BR></P>
+
+<P>The syntax of the ksh command is
+
+<BR></P>
+
+<PRE>ksh [ [pm]aefhkmnpstuvx- ] [-cirs] [[pm]o option] ... [[pm]A name] [arg ...]</PRE>
+
+<P>The -c, -i, -r, and -s options can be specified only on the ksh command line. All the other options can be specified on the set command as well.
+
+<BR></P>
+
+<P>The options specifiable only on the ksh command line are
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-c</P>
+
+<TD>
+
+<P>Command: The first (and only) arg is a command. The -c option prevents the shell from attempting to read commands from any other source. It merely executes the command given as arg and then exits. This option is not used often from the keyboard or from 
+
+within shell scripts. It is most often used internally by programs written in the C language.</P>
+
+<TR>
+
+<TD>
+
+<P>-i</P>
+
+<TD>
+
+<P>Interactive shell: Forces the shell to behave as though its input and output are a terminal. Usually, you don't need to specify the -i option explicitly. Its main purpose is to prevent the abnormal termination of commands invoked by the shell from 
+terminating the shell itself.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Restricted shell: The Korn shell runs as a restricted shell and prevents the user from using the cd command or from invoking a command by its full pathname. This option is normally of interest only to the system administrator for setting up specialized 
+
+user accounts.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>Standard input: The Korn shell doesn't activate the protections against abnormal termination given by option -i. The shell reads commands from standard input until end of file and then exits normally. This is a handy option, because it enables you to 
+pipe a stream of commands to the shell for execution.</P></TABLE>
+
+<P>Additional options that you may specify on either the ksh command or the set command are listed below. Options can be specified with a letter in the usual way&#151;for example, -a&#151;or by name&#151;for example, -o allexport. An option that has been 
+set, either explicitly or by default, can be turned off with the + flag&#151;as in +a or +o allexport.
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-a</P>
+
+<TD>
+
+<P>The equivalent option name is allexport. All variables are treated implicitly as exported variables. You don't need to invoke the typeset -x command or export alias to export the variable. A variable becomes eligible for export when it is first defined, 
+
+whether by the typeset statement or by an assignment statement. The typeset-x command and export alias are permitted, but they have no additional effect.</P>
+
+<TR>
+
+<TD>
+
+<P>-e</P>
+
+<TD>
+
+<P>The equivalent option name is errexit. Any command returning a non-zero exit code causes immediate termination of the shell. When it is set within a shell script, only the shell script is terminated.</P>
+
+<TR>
+
+<TD>
+
+<P>-f</P>
+
+<TD>
+
+<P>The equivalent option name is noglob. Filename expansion is disabled. Wildcard expressions are treated literally and, with the -f option in force, have no special meaning or effect. You might use set -f and set +f to disable wildcard expansion for a 
+short range of statements.</P>
+
+<TR>
+
+<TD>
+
+<P>-h</P>
+
+<TD>
+
+<P>The equivalent option name is trackall. Every command issued is automatically defined as a tracked alias, just as though you executed alias -t xxx in front of each command. The -h option is set on by default for non-interactive shells. Commands that 
+specify a full pathname or that use names not valid as command alias names are not tracked.</P>
+
+<TR>
+
+<TD>
+
+<P>-k</P>
+
+<TD>
+
+<P>The equivalent option name is keyword. When -k is set, command arguments having the form name=value are stripped from the command line and are executed as assignment statements before the command is executed. The assignment is temporarily exported for 
+the duration of the one command. The effect is equivalent to adding keyword arguments to the shell language and to UNIX commands and shell scripts that support this kind of argument. Most UNIX commands and shell scripts, however, do not support keyword 
+arguments. Therefore, the -k option has little real application.</P>
+
+<TR>
+
+<TD>
+
+<P>-m</P>
+
+<TD>
+
+<P>The equivalent option name is monitor. -m runs commands that you launch in the background&#151;using the &amp; shell operator&#151;in a separate process group, automatically reports the termination of such background jobs, and enables use of the jobs 
+command for managing background jobs. If -m is not set, commands launched with the &amp; operator execute in the same manner as with the Bourne shell, and job control is not in effect. The default is to enable this option automatically for interactive 
+shells.</P>
+
+<TR>
+
+<TD>
+
+<P>-n</P>
+
+<TD>
+
+<P>The equivalent option name is noexec. -n causes the shell to read and process commands but not execute them. You can use this option in the form ksh -n shell-script-filename to check the syntax of a shell script. You'll probably not want to use this 
+option with your login shell.</P>
+
+<TR>
+
+<TD>
+
+<P>-p</P>
+
+<TD>
+
+<P>The equivalent option name is privileged. The -p option is useful for script writers. A shell script file that has the set-uid bit, the set-gid bit, or both will, when invoked by the Korn shell, have the effective user-id and effective group-id set 
+according to the file permissions, the owner-id, and the group-id; and the -p option will be on. In this mode, the shell script enjoys the permissions of the effective user-id and group-id, not those of the real user. Setting the -p option off&#151;for 
+example, with set +p&#151;causes the Korn shell to set the effective user-id and group-id to those of the real user, effectively switching to the user's&#151;not the file's&#151;permissions. You can subsequently use the set -p command to revert to 
+privileged mode. Not all versions of the Korn shell support this definition of the -p option; only the more recent UNIX operating system releases include this facility.</P>
+
+<TR>
+
+<TD>
+
+<P>-s</P>
+
+<TD>
+
+<P>When used on the set command, -s sorts the arg command arguments into alphabetical sequence before storing. Used on the ksh command, the -s option has the different meaning described earlier.</P>
+
+<TR>
+
+<TD>
+
+<P>-t</P>
+
+<TD>
+
+<P>The Korn shell, invoked with this option, reads and executes one command and then exits. You should set the -t option on the ksh command, not with the set command.</P>
+
+<TR>
+
+<TD>
+
+<P>-u</P>
+
+<TD>
+
+<P>The equivalent option name is nounset. -u causes the shell to generate an error message for a reference to an unset variable&#151;for example, referring to $house when no value has previously been assigned to house. The default behavior is to replace 
+the variable reference with the null string. This option is useful to script writers for debugging shell scripts.</P>
+
+<TR>
+
+<TD>
+
+<P>-v</P>
+
+<TD>
+
+<P>The equivalent option name is verbose. Each command is printed before scanning, substitution, and execution occur. This is useful for testing shell scripts when used in the form ksh -v shell-script-filename, or with set -v and set +v from within a shell 
+
+script to force the display of a range of commands as they are being executed.</P>
+
+<TR>
+
+<TD>
+
+<P>-x</P>
+
+<TD>
+
+<P>The equivalent option name is xtrace. -x causes the Korn shell to display each command after scanning and substitution but before execution. Each line is prefixed with the expanded value of the PS4 variable. Using this option enables you to see the 
+effects of variable and command substitution on the command line. Used in the form ksh -x shell-script-filename, the -x option is a handy debugging tool for script writers.</P>
+
+<TR>
+
+<TD>
+
+<P>&#151;</P>
+
+<TD>
+
+<P>Used on either the ksh or set command, this option forces interpretation of the remaining words of the command line as arguments&#151;not options&#151;even for words beginning with - or +. The &#151; option is often used on the set command for setting 
+new values for the positional parameters, because it ensures that no substituted values are construed as set statement options.</P></TABLE>
+
+<P>In addition to the previous letter options, the -o keyletter supports the following additional named options:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>bgnice
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Requests the shell automatically to reduce the priority of background jobs initiated with the &amp; shell operator, as though the nice command had been used.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>EMACS
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Invokes the EMACS editing mode. It is reset with set +o EMACS or set -o vi.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>gmacs
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Invokes the EMACS editing mode with the alternate definition of the Ctrl-t transpose function.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>ignoreeof
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Requests the shell to ignore an end of file character entered at the beginning of the command line. Ordinarily an EOF character entered in this position causes the shell to terminate. To avoid accidentally terminating the shell, you can set this 
+option. You must use the exit command to terminate the shell and log out.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>markdirs
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Causes wildcard expansion to append a slash (/) to any generated pathnames that are the pathnames of directories.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>noclobber
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Modifies the behavior of the &gt; redirection operator to inhibit the overwriting of existing files. If you name an existing file after &gt;, the shell writes an error message and doesn't open the output file. Use &gt;| to redirect output to an 
+existing file when noclobber is set.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>nolog
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Inhibits the storing of functions in your command history file.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>vi
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Enables the vi editing mode with line input. Line input provides only a subset of the features of vi command editing, but it provides better performance than option viraw. You reset vi editing mode with set +o vi or set -o EMACS.
+
+<BR></P>
+
+<TR>
+
+<TD>
+
+<P>
+
+<BR>viraw
+
+<BR></P>
+
+<TD>
+
+<P>
+
+<BR>Enables vi editing mode with character input. Character input provides all the features of the vi editing mode but with more overhead than option vi.</P></TABLE>
+
+<BR>
+
+<P>The -A option can be used on either the ksh command line or the set command to define an array variable with initial values. When you specify -A, the next argument must be the name of the array variable to be initialized. Subsequent arguments are stored 
+
+as consecutive elements of the array beginning with element 0. The -A option resets any previous value of the array variable before it assigns new values. Thus, the ending value of the array consists of only those arguments specified as arg.
+
+<BR></P>
+
+<P>The +A option assigns the arg values successively starting with element 0, but it doesn't reset any previous value of the array. Thus, if the array variable previously had twelve values and only six values were provided with +A, after execution the 
+first six elements of the array would be the arg values and the last six elements would be left over from the previous value of the array.
+
+<BR></P>
+
+<P>The significance of the arg values depends on the options specified. If option -A is specified, the values are taken as initial array element values. If option -s or -i is specified, or if option -i defaults because the shell input is a terminal, the 
+arg values are used to initialize the positional parameters $1, $2, and so on. If option -c is specified, the first arg is taken as a command string to be executed. If none of the options -A, -c, -i, or -s is specified, the first arg is taken as the name 
+of a file of shell commands to be executed, and subsequent arg values are temporarily set as the positional parameters $1, $2, and so on, during the file's execution.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=4><B>Command History</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Command history and command editing are somewhat interrelated features. To employ fully all the benefits of command editing, however, you need an understanding of how command history works.
+
+<BR></P>
+
+<P>Command History is simply the automatic recording of commands that you enter in a numbered list. The list is kept in a special disk file in your home directory to preserve it from login session to session. Therefore, when you log in, the command history 
+
+list from your previous session is available for reference and use. New commands you enter are added to the end of the list. To keep the list from growing overly large, the oldest commands at the beginning of the list are deleted when the list grows to a 
+certain fixed size.
+
+<BR></P>
+
+<P>You don't need to do anything to activate the command history feature, nor do you need to specify its maximum size. Its operation is completely automatic. Your only mission, should you decide to accept it, is to use the list to make your life easier.
+
+<BR></P>
+
+<P>You can use the command history list in one of three ways. You can view the commands in the history list, using the history command. Use the history command when you can't remember whether you've already performed an action or if you want to refer to 
+the syntax or operands of a previous command. You can resubmit a command from the list, using the r command. Except for very short commands, it's faster to resubmit a command you typed before with the r command than it is to type the command again. The r 
+command provides several alternative ways for you to identify which command in the history list you want to reexecute. You can modify a command in the history list and then execute the modified command. You use the fc command to invoke this form of command 
+
+editing. You can use any text editor you like to edit the chosen command. By default, the Korn shell invokes the crusty old ed command for you, but you can change the default to any text editor you want.
+
+<BR></P>
+
+<P>Please note that command editing with the fc command, although a convenient and useful feature of Command History, is not the same as the command editing feature discussed later in this chapter.
+
+<BR></P>
+
+<P>Now take a closer look at these commands for viewing and manipulating command history.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Displaying the Command History List</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The command history command displays the commands in the command history list. Each command is listed with a line number preceding it. The line number uniquely identifies each command in the history list, and it is one way in which you can refer to a 
+specific line in the history list.
+
+<BR></P>
+
+<PRE>$ history
+
+[122] cd /usr/home/jim/src/payapp/pay001
+
+[123] vi main.c
+
+[124] cc -I../include -o main main.c
+
+[125] fgrep include *.c | grep '^#'
+
+[126] vi checkwrite.c checkfile.c checkedit.c
+
+[127] lint -I../include checkfile.c &gt;errs; vi errs
+
+[128] vi checkfile.c
+
+[129] cc -I../include -o checks check*.c
+
+[130] cp checks /usr/home/jim/bin</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The history command is actually an alias for the fc command&#151;specifically, for fc -l.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The complete syntax for the history command is
+
+<BR></P>
+
+<PRE>history [first] [last]</PRE>
+
+<P>For first, specify the first line to be displayed. You can designate a specific line directly by its line number&#151;for example, history 35&#151;or as a number of lines back from the current line&#151;for example, history -10. You can also give the 
+command name of the line from which the display should begin&#151;for example, history vi. The Korn shell looks backward from the current line until it finds a command beginning with vi and then displays lines from that point forward.
+
+<BR></P>
+
+<P>For last, specify the last line to be displayed. If you omit last, history lines are displayed from first up to the current&#151;most recently entered&#151;line in the command history. You can use an actual line number, a relative line number, or a 
+command name to designate the last line to be displayed.
+
+<BR></P>
+
+<P>If you omit both first and last, the Korn shell lists the last sixteen lines of history.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> You won't know what line numbers to use until you first list some history. Most people begin a search of command history without any operands. If you want to see more lines before line number 160, you 
+might want to try history 140.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Reexecuting a Command from the History</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The r command enables you to reexecute a command from the command history list. The r command itself isn't added to the history, but the command you reuse is added.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The r command is actually a preset alias for the fc command&#151;specifically, for fc -e -.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The general syntax for r is
+
+<BR></P>
+
+<PRE>r [ old=new ] [ line ]</PRE>
+
+<P>If you omit line, the most recently entered command is reexecuted.
+
+<BR></P>
+
+<P>Specify a line number (25), a relative line number (-8), or a command name (vi) for line to designate the command that you want to reuse. As with the history command, if you specify a command name, the most recently entered command with that name is 
+reused.
+
+<BR></P>
+
+<P>You can modify a word or phrase of the reused command using the syntax old=new. For example, if the command history contained the following line
+
+<BR></P>
+
+<PRE>135 find /usr -type f -name payroll -print</PRE>
+
+<P>you could reuse the find command, changing only the filename payroll to vendors, like this:
+
+<BR></P>
+
+<PRE>$ r payroll=vendors find</PRE>
+
+<P>The r command echoes the line that will be executed, showing any changes that might have been made. For example, the r command above will yield the following output:
+
+<BR></P>
+
+<PRE>$ r payroll=vendors find
+
+find /usr -type f -name vendors -print</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Accessing the History List </B><B><I>fc</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The fc (fix command) command is a built-in Korn shell command. It provides access to the command history list. Forms of the fc command enable you to display, edit, and reuse commands you previously entered. The Korn shell automatically defines the alias 
+
+names history and r for you to reduce the amount of typing needed to perform simple history functions.
+
+<BR></P>
+
+<P>The syntax of the fc command is
+
+<BR></P>
+
+<PRE>fc [ -e editor ] [ -nlr ] [ <I>first</I> ] [ <I>last</I> ]</PRE>
+
+<P>Invoked with no options, the fc command selects a line from the command history using the values of <I>first</I> and <I>last</I>, invokes the default command editor, and waits for you to edit the command or commands selected. When you exit the 
+editor&#151;either by filing the altered command text or by quitting the editor&#151;the commands are executed.
+
+<BR></P>
+
+<P>The fc command actually copies the selected commands into a temporary file and passes the file to the text editor. The contents of the file after editing become the command or commands to be executed.
+
+<BR></P>
+
+<P>For example, if you enter the command
+
+<BR></P>
+
+<PRE>$ fc vi</PRE>
+
+<P>where vi represents the value of first, the Korn shell copies the most recent vi command into a temporary file. The temporary file will have an unrecognizable name, such as /usr/tmp/fc13159, and is located in a directory designated for temporary files. 
+
+The file that you actually edit is /usr/tmp/fc13159. Regardless of whether you change the text in file /msr/tmp/fc13159, the Korn shell executes its contents immediately after you exit the editor.
+
+<BR></P>
+
+<P>You can specify the command or commands to be processed in the following manner:
+
+<BR></P>
+
+<P>To process the command that you most recently entered&#151;other than fc, of course&#151;omit both first and last.
+
+<BR></P>
+
+<P>To select and process only one command, specify the command as the value of first and omit last.
+
+<BR></P>
+
+<P>To select a range of commands, specify the first command in the range with first and specify the last command in the range with last.
+
+<BR></P>
+
+<P>To designate a command by its line number position in the history list, use a plain number&#151;for example, 219.
+
+<BR></P>
+
+<P>To designate a command preceding the most recent command in the history list, use a negative number. For example, in the command history list
+
+<BR></P>
+
+<PRE>135 mkdir paywork
+
+<BR>136 mv paymast/newemps paywork
+
+<BR>137 cd paywork
+
+<BR>138 vi newemps
+
+<BR>139 payedit newemps</PRE>
+
+<P>the command fc -2 selects the vi command.
+
+<BR></P>
+
+<P>To select a command by its name rather than by its position in the history list, use a command name or any prefix of a command name. The most recent command line that begins with the string that you specify will be selected. In the previous command 
+history example, you could also select the <B>vi</B> command by entering <B>fc vi</B>.
+
+<BR></P>
+
+<P>The <I>first</I> and <I>last</I> command line selectors don't have to use the same formats. For example, you could select line 145 of the history list through the fifth-to-the-last line by entering fc 145 -5.
+
+<BR></P>
+
+<P>By default the fc command invokes a text editor on the selected lines and reexecutes them after editing. You can modify this default behavior with the following options:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>-e</P>
+
+<TD>
+
+<P>Use the -e option to override the Korn shell's default editor. For example, to use the vi editor to modify and reuse commands, type <B>fc -e vi .... Use fc </B><B>-e vi ...</B> to override the default editor.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P>The special format -e - means to suppress the use of an editor. The selected lines are executed immediately with no opportunity to change them. This form of the fc command&#151;as in fc -e - 135&#151;is equivalent to the r command. When you use this 
+form, the second dash must be a word by itself. The command fc -e - 135 immediately reexecutes line 135 of the command history, while the command fc -e -135 attempts to edit the most recent command in the history list with an editor named -135, which 
+probably doesn't exist. Alternatively, the command fc -e- 135 generates another kind of error, for -e- isn't a valid option of the fc command.</P>
+
+<TR>
+
+<TD>
+
+<P>-l</P>
+
+<TD>
+
+<P>List: The selected lines are listed. No editor is invoked, and the lines are not reexecuted. The command fc -l is equivalent to the alias history.</P>
+
+<TR>
+
+<TD>
+
+<P>-n</P>
+
+<TD>
+
+<P>Numbers: Use the -n option to suppress the printing of line numbers in front of the command history. The -n option is meaningful only in combination with the -l option&#151;for example, fc -nl.</P>
+
+<TR>
+
+<TD>
+
+<P>-r</P>
+
+<TD>
+
+<P>Reverse: The -r option causes the command history to be printed in reverse order. The most recently entered command is shown first, and successive lines show progressively older commands. Use the -r option in combination with the -l option&#151;for 
+example, fc -lr.</P></TABLE>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=4><B>Command Editing</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Command editing is arguably the most important extension of the Bourne shell included in the Korn shell. It is a great time-saver, and it makes the shell much easier to use for UNIX beginners.
+
+<BR></P>
+
+<P>The basic idea underlying command editing is to enable you to use common keys occurring on most terminal keyboards to correct keying errors as you enter a command.
+
+<BR></P>
+
+<P>To bring this basic idea to reality, the Korn shell must have some support from the terminal you're using. For example, if you're going to backspace and retype a character, it would be helpful if the terminal is capable of backspacing, erasing a 
+character already displayed, and typing a new character in its place. For this reason, command editing is most useful with video display terminals. Hard-copy terminals such as teletypes are inappropriate for use with the command editing feature of the Korn 
+
+shell.
+
+<BR></P>
+
+<P>The Korn shell supports two distinct styles of command editing: the vi edit mode&#151;named after the vi text editor&#151;and the EMACS editing mode&#151;named after EMACS. If you're already familiar with either of these editors, you can begin to use 
+command editing immediately.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Activating Command Editing Mode</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before you can use command editing, you first must activate it. Until you do so, the Korn shell command line works much the same as the Bourne shell. That is, everything you type goes into the command line indiscriminately as text, including control and 
+
+function keys. This is a compatibility feature that you'll want to disable as soon as possible&#151;typically, by activating command editing in your login profile.
+
+<BR></P>
+
+<P>To enable the vi editing mode, enter the following command line or place it in your $.profile (see &quot;Customizing&quot; later in this chapter):
+
+<BR></P>
+
+<PRE>set -o vi</PRE>
+
+<P>To enable the EMACS editing mode, enter the following command line or place it in your profile: 
+
+<BR></P>
+
+<PRE>set -o EMACS</PRE>
+
+<P>If you're not familiar with either the vi or EMACS text editors but want to use command editing, read through the following sections and choose the editing interface that you find most natural.
+
+<BR></P>
+
+
+
+<P><A HREF="unx11.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx11.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx12s2.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx12s2.htm">[To Chapter 12 Section 2]</A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+

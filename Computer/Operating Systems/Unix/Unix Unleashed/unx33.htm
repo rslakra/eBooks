@@ -1,0 +1,2559 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx33.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx34.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx34.htm">
+
+<LINK REL="Previous" HREF="unxpt7au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt7au.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unxpt7au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt7au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx34.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx34.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">33</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">UNIX Installation Basics</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I4">What Do I Need to Know from the Start?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I5">Who Is Going to Use This System?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Which Type of Users</A></LI>
+
+<LI>
+
+<A HREF="#I7">For What Purpose?</A></LI></UL>
+
+<LI>
+
+<A HREF="#I8">What Other Systems Are Located on This Segment of the LAN?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I9">Determining Suitable Servers</A></LI>
+
+<LI>
+
+<A HREF="#I10">Determining Suitable Clients</A></LI>
+
+<LI>
+
+<A HREF="#I11">Managing Network Traffic</A></LI></UL>
+
+<LI>
+
+<A HREF="#I12">Summarizing What You Need to Know Before Starting</A></LI></UL>
+
+<LI>
+
+<A HREF="#I13">Planning for the Installation</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I14">From Where Am I Going to Install?</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I15">Media Distribution Type</A></LI>
+
+<LI>
+
+<A HREF="#I16">Using a Local Device or a Remote Device for Installation</A></LI></UL>
+
+<LI>
+
+<A HREF="#I17">Diskless, Dataless, or Stand-Alone Server System?</A></LI>
+
+<LI>
+
+<A HREF="#I18">Naming the System</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I19">Host Name</A></LI>
+
+<LI>
+
+<A HREF="#I20">Domain Name (DNS/Mail)</A></LI></UL>
+
+<LI>
+
+<A HREF="#I21">Choosing Which Packages to Install Locally</A></LI>
+
+<LI>
+
+<A HREF="#I22">Laying Out the Disk Slices</A></LI></UL>
+
+<LI>
+
+<A HREF="#I23">Why Multiple File Systems?</A></LI>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I24">The root Slice</A></LI>
+
+<LI>
+
+<A HREF="#I25">The swap Slice</A></LI>
+
+<LI>
+
+<A HREF="#I26">The usr Slice</A></LI>
+
+<LI>
+
+<A HREF="#I27">The var Slice</A></LI>
+
+<LI>
+
+<A HREF="#I28">The opt Slice</A></LI>
+
+<LI>
+
+<A HREF="#I29">The home Slice</A></LI>
+
+<LI>
+
+<A HREF="#I30">The tmp Slice</A></LI>
+
+<LI>
+
+<A HREF="#I31">Assigning Slices to Disk Drives</A></LI></UL>
+
+<LI>
+
+<A HREF="#I32">Assigning IP (network) Addresses</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I33">Do You Have the Needed Network Connections?</A></LI></UL>
+
+<LI>
+
+<A HREF="#I34">Using NIS/NIS+</A></LI></UL>
+
+<LI>
+
+<A HREF="#I35">Performing the Installation</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I36">Booting the Installation Media</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I37">Booting from Floppies</A></LI>
+
+<LI>
+
+<A HREF="#I38">Booting Directly from the CD-ROM</A></LI></UL>
+
+<LI>
+
+<A HREF="#I39">Installing the Master System</A></LI>
+
+<LI>
+
+<A HREF="#I40">Installing Optional or Additional Packages</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I41">Using pkgadd and pkgrm</A></LI>
+
+<LI>
+
+<A HREF="#I42">Using swmtool</A></LI></UL>
+
+<LI>
+
+<A HREF="#I43">Adding a Diskless Client to a Server</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I44">Installing the Diskless Client Operating System Support Files</A></LI>
+
+<LI>
+
+<A HREF="#I45">Adding the Diskless Client</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I46">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>33</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H2 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=5><B>UNIX Installation Basics</B>
+
+<BR></FONT></A></CENTER></H2>
+
+<P>Installing a UNIX system requires a bit more planning than does installing a PC. You need to decide whether the system is autonomous (able to run without any other systems being present on a network) or how dependent it would be on the other systems on 
+
+its network. You also have to decide which parts of the UNIX system and its various utilities and application programs each user of this system will need.
+
+<BR></P>
+
+<P>Why? MS-DOS is a system that takes less than 10 MB of disk space. MS-Windows takes a bit more, but it's still a rather small amount. UNIX is a large system. The complete installation of just the operating system and all that comes with it for Sun's 
+Solaris 2.3 release, as an example, is about 300 MB. With that much disk space in use, it's often wise to share it across several systems. In addition, there are few options in installing DOS or Windows that can be made by the installer. UNIX splits the 
+install into many different sections, called packages. Each package consists of files that provide a specific set of features. Many packages can be installed locally, remotely on a server, or not at all, depending on your needs.
+
+<BR></P>
+
+<P>Whereas DOS and Windows are not designed to easily share large sections of the installation, UNIX (especially because of its disk needs) almost expects that some sharing will occur. The degree of disk space sharing leads to the definition of 
+stand-alone, server, dataless, and diskless systems.
+
+<BR></P>
+
+<P>A stand-alone system is one that is capable of operating without a connection to a local area network (LAN) and other UNIX systems. It's not that it cannot be connected; it's capable of booting and operating without any connection. This means that it 
+does not need to access any other UNIX system's disk for boot or operating system files and for swap space.
+
+<BR></P>
+
+<P>A server is also a stand-alone system. It is capable of operating without a connection to other systems. But it also generally contains some extra files, which are used by its clients.
+
+<BR></P>
+
+<P>The clients may only have part of the operating system installed&#151;just enough to boot the system&#151;and depend on the server for the remainder of the commands, utilities, and library files. Such a client is called a dataless system. It has a boot 
+
+disk and local swap space, and it is missing the remainder of the utilities and operating system.
+
+<BR></P>
+
+<P>If the client system has no disk drive at all, it is considered diskless. It depends on its server for booting, for the entire operating system, and for swap space.
+
+<BR></P>
+
+<P>In addition to sharing the operating system, UNIX systems can share other disks, such as drives containing databases or user files. Sharing these disks does not make a system a server in the &quot;install&quot; sense. The &quot;server&quot; name is 
+reserved for serving the operating system or its utilities. A system might be an NFS server (sharing via Network File System user files) and still be considered a stand-alone system for the installation of the UNIX operating system.
+
+<BR></P>
+
+<P>As an example, Sun's Solaris 2.3 requires either 27 MB, 101 MB, 158 MB, or 213 MB just to install the operating system and its utilities and documentation.
+
+<BR></P>
+
+<P>A diskless system does not require that any of these files be installed, as it uses them from the server. A dataless system requires that the core system support files be installed. A stand-alone system could be set up with either end-user packages or 
+with developer packages, whereas a server traditionally needs the entire distribution.
+
+<BR></P>
+
+<P>So far this chapter just touches on the disk installation. There is much more to it: planning for users, the network and its traffic, applications, printers, remote access, and much more.
+
+<BR></P>
+
+<P>Thus, planning for a UNIX installation requires planning not only for this one system, but for all the systems in this segment of the network.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>What Do I Need to Know from the Start?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The first think you need to do is decide what you are going to install on this system. You decide this by looking not only at this system, but at all the systems on this segment of the network.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> A network segment is a group of machines all plugged into the same EtherNet, a type of LAN which uses a bus topology. Because the EtherNet uses a bus topology, each of the machines sees all the 
+traffic on the network. Each is local to each other and is immediately accessible via the network. Since the EtherNet LAN is only able to handle a finite amount of traffic, the network is broken into segments connected by routers or bridges. Traffic to 
+systems within the segment is not repeated, or retransmitted, into the other segments. Only traffic that is for systems outside the segment is repeated. With proper planning, almost all of the traffic will be internal to the segment, and more systems can 
+be placed on the overall network before everyone bogs down from trying to put more bytes out over the LAN than it can handle.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>You base your decision about what to install on the intended usage of the system, what systems it can be served by, and for which systems it will have to provide services.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=3><B>Who Is Going to Use This System?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Just as a PC for a user to run a spreadsheet and a word processor needs a much smaller disk and less of UNIX and its applications installed, such a UNIX system will also require less to be installed. However a power user or application developer needs 
+much more to be installed, perhaps including compilers and development libraries. To decide what to install on this segment of the LAN, let alone on this system, you need to determine which type of users are going to be using this system.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Not only will the type of user dictate what gets installed, it will also dictate how many systems can be put on this segment of the LAN, server capacity (sizing), and swap space requirements.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Which Type of Users</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>UNIX users generally fall into one or more of several categories:
+
+<BR></P>
+
+<UL>
+
+<LI>Application users
+
+<BR>
+
+<BR>These users run commercial or locally developed applications. They rarely interact with the shell directly and do not write their own applications. These users might be running a database application, a word processor or desktop publishing system, a 
+spreadsheet, or some in-house developed set of applications. They spend most of their time in &quot;think&quot; mode, where they are deciding what to do with the results the application has presented them, or in data entry mode, typing responses or data 
+into the system. Their need for large amounts of local disk access is minimal, and they do not change applications frequently, nor are they running many applications simultaneously. (They might have them open, but they are generally interacting with only a 
+
+couple of them at a time&#151;the rest are waiting for the user to provide input.) Although application users might put a large load on their database servers, they do not normally put large disk loads on their own systems.
+
+<BR>
+
+<BR></LI>
+
+<LI>Power users
+
+<BR>
+
+<BR>These users run applications, just like the application users, but they also run shell scripts and interact more closely with the system. They are likely to be running multiple applications at once, with all these applications processing in parallel. 
+These users keep several applications busy and access the disk more frequently and use more CPU resources than does the normal application user.
+
+<BR>
+
+<BR></LI>
+
+<LI>Developers
+
+<BR>
+
+<BR>Developers not only run applications, they also run compilers, access different applications than do users, require access to the development libraries, and generally use more components of the operating system than do users. Furthermore, they tend to 
+
+use debugging tools that require more swap space and access to more disk resources than the application user generally needs. The UNIX operating system has packages that are only needed by developers, and if a developer is on this segment of the LAN, these 
+
+files must be installed and accessible to the systems used by these developers.
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>You must not only consider who will use the system right away, but because you only install UNIX once, consider who might use the system over the next six months to a year.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>For What Purpose?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>UNIX systems that are being used as shared development machines, or are going be placed in a common user area, will need a lot of swap space, a large section of the disk for temporary files, and more of the packages from the operating system than 
+systems that are just being used on a single user's desk. In addition, if the system is going to be used as a computation or database server, it will need increased swap space.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>What Other Systems Are Located on This Segment of the LAN?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>As stated in the section &quot;What Do I Need to Know from the Start?,&quot; you have to consider all of the systems on this segment of the LAN. You are looking for systems that provide access to sections of the operating system, provide access to 
+application disk areas, have sufficient disk and memory resources to handle your diskless clients, and make suitable servers for the other systems on the segment.
+
+<BR></P>
+
+<P>In UNIX it is a good idea to remotely serve systems with most of the operating system packages. Dataless systems are a good idea. Sharing the operating system not only saves disk space, it also makes the future task of upgrading the operating system 
+easier. You only have to upgrade the server system with the full distribution, a process that can take an hour or more. For the Dataless clients, a small, few-minute procedure will update the small amount of the system that is located on their private 
+disks.
+
+<BR></P>
+
+<P>If a little disk sharing is good, isn't a lot better? If you are running diskless clients, they need no upgrade at all. All of the upgrade is done on the server. However, there is a downside to diskless systems: excessive network traffic. A diskless 
+system depends on its server not only for the operating system, but also for its swap and temporary disk space. The network is not as fast as a local disk, especially if it is getting overloaded by too many diskless clients. A reasonable trade-off is to 
+use diskless clients for small systems that are used by application users, and dataless clients for the rest.
+
+<BR></P>
+
+<P>When you make a system a diskless or dataless client, you reduce redundancy in the segment. These systems are totally dependent on their servers to function. If the server is down for any reason, these systems are also down. This causes many systems to 
+
+go down if a server is down. (This includes while upgrading the server with a new revision of the operating system.) You should not place mission-critical applications on systems that are clients of other systems. Having a mission-critical system freeze 
+due to NFS Server Unreachable is not good.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B>Determining Suitable Servers</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>It's usually easier to determine suitable servers than suitable clients, so start there. To make a good server system, you need the following:
+
+<BR></P>
+
+<P><B>Plenty of RAM</B>&#151;A server must not only cache files for its own use, but also for the demands of its clients. Having plenty of RAM so the in-memory disk cache managed by UNIX can be large really helps on servers. With the rapid drop in memory 
+prices, what used to be a good-sized buffer might not be any more, but as a minimum, consider 32 MB of RAM in the system.
+
+<BR></P>
+
+<P><B>Fast Disks</B>&#151;The client sees the delay to read a disk block as the time to ask the server for the block, the time the server takes to read the block, and the time to transmit the block over the network back to the client. If the server has a 
+fast disk, this time might be no longer, and is often shorter, than reading the same number of blocks locally.
+
+<BR></P>
+
+<P>Since a server is handling multiple clients, including itself, it is more likely that a disk block is already in the server's disk cache. This is especially true for program files and the operating system utilities, as they are used often. Access is 
+then very fast, as the disk read time is not needed at all. This helps make servers as responsive as if they were reading the disk block locally on the client server.
+
+<BR></P>
+
+<P><B>Sufficient disk space</B>&#151;A server will hold not only its own files and a copy of the UNIX operating system, but also the swap and temporary space for its diskless clients. A suitable server should have some spare disk space for adding not only 
+
+the current clients, but some extra to account for growth.
+
+<BR></P>
+
+<P>Dataless clients do not use space on the server for swap and temporary files.
+
+<BR></P>
+
+<P><B>Spare CPU resources</B>&#151;A server needs to have enough CPU cycles to serve its local users and still provide disk and network access services to its clients. But that does not mean to make the fastest system the server. Often you should do just 
+the opposite.
+
+<BR></P>
+
+<P>It does not take much CPU power to be a server. File access in UNIX is very efficient, as is network traffic. A system that is heavily loaded will delay the response of disk block requests for its clients. To keep response time up for the clients, leave 
+
+your power users on the faster systems and use a system with sufficient other resources and a light user load for the server, even if this system has a slower-model CPU.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Determining Suitable Clients</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Once the server is determined, choosing suitable clients is a balancing act. You need to mix performance, ease of administration, network traffic, and available resources.
+
+<BR></P>
+
+<P><B>Diskless clients</B>&#151;These are the easiest to determine. If the system does not have a disk, it must have a diskless client. Choose a server for this system that is going to be relatively lightly loaded. Diskless clients make larger demands on 
+their servers than do dataless clients.
+
+<BR></P>
+
+<P>Make sure the server for diskless clients is on the same segment of the network as the client. Although NFS requests for disk blocks will cross out of a segment and across a router to a different LAN segment, the boot request will not. It is a local 
+broadcast packet. The diskless client needs its bootp server, the system that holds its boot files and responds to its diskless request, to be local to the segment on which it resides. Even if the system that holds its boot files responds to its diskless 
+boot request, the segments are not connected by routers today. Follow this rule: when the segments are converted to using routers to reduce backbone traffic, the system will be unbootable without a local bootp server.
+
+<BR></P>
+
+<P><B>Dataless clients</B>&#151;Since a dataless client accesses the utility portions of the UNIX operating system only from its server, it makes relatively small demand on its server. Almost any system that is not critical that it operates if the server 
+is down makes a good choice for use as a dataless client.
+
+<BR></P>
+
+<P>If a system will have a large number of disk accesses to user files, such as for a local database, it still can be a dataless client. It can keep on its local disk a file system for those heavily used files, and still access the server for the portions 
+
+of the system that are not on its local disk. This will free more of the space on its local disk for the local file system.
+
+<BR></P>
+
+<P>For those systems that support a newer type of NFS remote mount, called a Cached File System, consider its use for the read-only mounting of the shared portions of the UNIX installation. It provides the remote access desired and can greatly reduce the 
+amount of network traffic. It is ideal for these partitions because they are read-only anyway.
+
+<BR></P>
+
+<P>If you have a very reliable server, such as a redundant system, consider placing the UNIX OS server on the backbone with multiple LAN connections on it, servicing each of the local LANs. This can greatly reduce the overhead in maintaining the server and 
+
+keeping it up to the latest release. This is only practical if the server can provide sufficient I/O band width to support all its clients.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Managing Network Traffic</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Before you can decide how to install the new system, you need to check on the amount of traffic on the network. Sources of this traffic include the following:
+
+<BR></P>
+
+<UL>
+
+<LI>Traffic from the systems in Department A to its local server for the following:
+
+<BR>
+
+<BR>Remote file systems, including accessing shared UNIX OS partitions and user files.
+
+<BR>
+
+<BR>Access to client/server applications hosted on the Department A server.
+
+<BR>
+
+<BR>Diskless client access to swap, temporary, and spool partitions.
+
+<BR>
+
+<BR></LI>
+
+<LI>Traffic between the systems in Department A, including the following:
+
+<BR>
+
+<BR>Client/server application traffic.
+
+<BR>
+
+<BR>Remote display updates (a window on one system showing output from a process on a different system).
+
+<BR>
+
+<BR>Sharing of local file systems that are not on the server.
+
+<BR>
+
+<BR></LI>
+
+<LI>Traffic between the systems in Department A and the backbone server, including the following:
+
+<BR>
+
+<BR>Remote file access to company-wide files.
+
+<BR>
+
+<BR>Access to client/server applications running on the backbone, such as a master database.
+
+<BR>
+
+<BR></LI>
+
+<LI>Traffic between the systems in Department A and those in Department B, including the following:
+
+<BR>
+
+<BR>Access to files located locally at Department B.
+
+<BR>
+
+<BR>Access to client/server applications running on the systems in Department B.
+
+<BR>
+
+<BR>Remote file access to local disks on Department B systems.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>The additional traffic generated by the installation of this new system must be compared to the existing traffic on the network. Adding a diskless client on a network segment running at 80% utilization is asking for trouble.
+
+<BR></P>
+
+<P>You don't need sophisticated tools to monitor network traffic. Just take one of the workstations and use the tools provided by your vendor to count the packets it sees on the network. A simple approach is to use a tool such as etherfind or snoop to 
+place the EtherNet interface into promiscuous mode, where it listens to all the packets on the network, not just those addressed to itself. Then count the number of packets received by the system over a period of time and their respective length. Most UNIX 
+
+systems can drive an EtherNet segment up to about 800 KB/second in bursts and over 500 KB/second sustained. If the traffic is anything close to this, consider splitting the segment into two segments to reduce the traffic.
+
+<BR></P>
+
+<P>There is a mistake in the silicon of many EtherNet chips, causing them not to be able to reach the numbers described before having excessive collisions. If the netstat -i command is consistently showing a significant number of collisions, say over 1 
+percent, even though the traffic levels are well below those numbers, you should consider the segment overloaded. You might have several systems on your network with chips with that problem.
+
+<BR></P>
+
+<P>When splitting the network into segments, if you can place a server and its systems into each of the split segments, often you can use a less expensive bridge to reduce the traffic on each segment rather than using a router.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>Summarizing What You Need to Know Before Starting</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In summary, before starting to plan for the actual installation of the new system, you need to determine who is going to use the system. You need to determine how much disk access they will be performing and how much they will contribute to the overall 
+
+network traffic; whether this system is going to be a client or a server; and whether the network can tolerate another system on this segment before the segment has to be split because of overloading.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=4><B>Planning for the Installation</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>You now have to determine on which segment to install this new system, decide what type of user it's for, and decide where to place it. What more do you need to plan for other than where to plug in the power cord and network connection?
+
+<BR></P>
+
+<P>This section guides you through a short pre-installation checklist to make the installation process go smoothly. It will have you answer the following questions:
+
+<BR></P>
+
+<UL>
+
+<LI>From where am I going to install?
+
+<BR>
+
+<BR></LI>
+
+<LI>Is this to be a diskless, dataless, stand-alone, or server system?
+
+<BR>
+
+<BR></LI>
+
+<LI>What is its name?
+
+<BR>
+
+<BR></LI>
+
+<LI>What is its address?
+
+<BR>
+
+<BR></LI>
+
+<LI>Which packages should be installed?
+
+<BR>
+
+<BR></LI>
+
+<LI>How should the disk be partitioned?
+
+<BR>
+
+<BR></LI>
+
+<LI>Should you use a network database?
+
+<BR>
+
+<BR></LI></UL>
+
+<P>These are some of the questions the system will ask as you install UNIX. Most of the rest have obvious answers, such as what time zone are you in.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>From Where Am I Going to Install?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Traditionally one installed a system by placing the medium in a drive and booting from that medium, such as floppy, tape, or CD-ROM. With the advent of networking, things are no longer so simple, but they actually can be a lot more convenient.
+
+<BR></P>
+
+<P>You have two choices for installing: locally and remotely. A local installation is the traditional case, where the media is inserted into some drive attached to the computer being installed, and the software is copied onto the system. A remote 
+installation further falls into two types.
+
+<BR></P>
+
+<P>You might use the remote systems's CD-ROM or tape drive to read the media because the system you are installing does not have one. But if there is a large number of systems to install you would access an install server, which already has all of the 
+installable files and boot images on its local disks. Since the local disks are faster than CD-ROM or tape, this is faster. It's only worthwhile to set up the install server, however, when you have a lot of systems to install.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>Media Distribution Type</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>With 300 MB of software to install, floppies are no longer practical. UNIX software vendors have switched from floppies to either a tape or CD-ROM as the install media. Currently, different UNIX vendors use different tape formats, some offering more 
+than one. You need to make sure you know which format your vendor is supplying, and that you will have access to a drive capable of reading the data.
+
+<BR></P>
+
+<P>If you have a choice, choose the CD-ROM media. It has several advantages over tape. Although it is slower than tape, it is random access. This makes the install process easier, as it is no longer necessary for the install to proceed in the order of the 
+
+data written on the tape.
+
+<BR></P>
+
+<P>Another advantage is that the media is read-only. It is impossible to overwrite it by mistake or by hardware malfunction. In addition, a CD-ROM is much less expensive to produce and holds more than the tape or floppies it replaces. Usually with a CD-ROM 
+
+there is no need to change media part way through the installation.
+
+<BR></P>
+
+<P>If your computer is unable to boot off the tape or CD-ROM, the vendor also supplies what is called a mini-root on floppy. This is a minimal RAM-based system that is loaded off the floppy and is used to read the tape or CD-ROM. Most workstations have 
+boot roms that are capable of booting directly off the tape or CD-ROM. Most PC-based systems do not, and they require boot floppies.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B> If you need boot floppies, be sure you order the proper boot floppies for your system. Many vendors of System V Releases 3 and 4 provide different boot floppies for systems that use SCSI-based 
+
+tape drives than for those that use dedicated controllers for the tape drive. Also some provide different floppies for CD-ROM than for tape and for different versions of disk controllers.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Read the release notes carefully. Most PC-based UNIX systems support only a limited set of hardware. Be sure your display adapter card, network card, and disk controller are supported. Check to 
+
+see if any special device drivers are required and that you have those drivers for your version of the operating system.
+
+<BR>
+
+<BR>If not, before you start the installation be sure to acquire current drivers for those cards from the manufacturer of the cards or from your UNIX vendor. Be sure the driver is specific to the version of UNIX you will be installing.
+
+<BR>
+
+<BR>If the installation procedure does not ask you to install these drivers, be sure to install them before rebooting from the mini-root used to install the system to the operating system just installed. Otherwise the system will not boot.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B>Using a Local Device or a Remote Device for Installation</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Since most UNIX vendors have decided to switch to CD-ROM as the distribution media of choice, most likely you will have a CD-ROM drive somewhere in the network. At this time you have two choices:
+
+<BR></P>
+
+<UL>
+
+<LI>Unplug the drive from where it is currently and add it to the new system to perform the install. Then you have a local CD-ROM drive and can follow the instructions in the installation notes for using a local CD-ROM drive.
+
+<BR>
+
+<BR></LI>
+
+<LI>Use the networking abilities of UNIX to access the drive remotely from the system on which it currently resides.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Since the network is so much faster than the CD-ROM drive, either choice will work. You just have to be sure that the drive remains available to you for the entire installation process. If someone else is going to need the CD-ROM drive, you will not be 
+
+able to relinquish it to them until the entire install procedure is complete.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>If the system must boot off the CD-ROM drive, it is not always possible to plug any CD-ROM drive into the system. Many UNIX workstation vendors have placed special roms in their CD-ROM drives to 
+
+modify their behavior to look more like a disk drive during the boot process. When in doubt, it is best to have available a model of that workstation vendor's CD-ROM drive for the installation.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B>Diskless, Dataless, or Stand-Alone Server System?</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Now is the time to decide whether this system is going to be a diskless client of some server, a dataless system, or a stand-alone system or server. You need to make this decision to make sure that the system ends up in the same domain as its server and 
+
+in the same segment of the network if it's diskless.
+
+<BR></P>
+
+<P>In addition you need to make this decision now so you can decide how to partition the disk.
+
+<BR></P>
+
+<P>In general, price determines whether a system is totally diskless. If you can afford a disk drive, you should purchase one and make the system a dataless system. Reserve your use of diskless clients times when it is impractical to place a disk locally 
+with the system because of environmental or power concerns; or where access to the system to upgrade the local disk is going to be difficult or impossible. Then it will be necessary to perform all the administration and upgrades on the server system.
+
+<BR></P>
+
+<P>You should see the release notes of your system for specifics, but use the following disk space requirements as a guideline:
+
+<BR></P>
+
+<P><B>Diskless</B>&#151;Since there is no local disk, all disk space resides on the server. Each diskless client must mount its root, swap, temp and spool partitions from the server. Expect to allocate the following from the server:
+
+<BR></P>
+
+<PRE>
+
+<BR>root: 10&#151;20 MB
+
+
+
+<BR>swap: Varies by memory size, but 16&#151;256 MB is the normal range.
+
+
+
+<BR>spool: 10&#151;20 MB
+
+
+
+<BR>tmp: 10&#151;40 MB</PRE>
+
+<P><B>Dataless</B>&#151;Dataless clients use the local disk for each of the partitions listed above for the diskless client.
+
+<BR></P>
+
+<P><B>Stand-alone</B>&#151;If system is for an application user, the same sizes as those for the dataless clients are appropriate.
+
+<BR></P>
+
+<P>In addition, a /usr partition will be needed with an additional 100 MB to hold the remainder of the operating system. If X window system is also to be stored locally, it can require up to an additional 70 MB, depending on the number of tools and fonts 
+that are installed. A minimal X installation requires about 30 MB.
+
+<BR></P>
+
+<P>If the user is a developer, the /usr partition will need to be about 150&#151;200 MB to hold the compilers, libraries, additional tools, and local tools the user will need.
+
+<BR></P>
+
+<P><B>Server</B>&#151;Server systems generally need the entire operating system installed. Here is a guideline for overall sizes:
+
+<BR></P>
+
+<PRE>
+
+<BR>root: 20 MB
+
+
+
+<BR>swap: varies by memory size, but 64&#151;512 MB is normal range.
+
+
+
+<BR>spool: 20&#151;80 MB
+
+
+
+<BR>tmp: 20&#151;80 MB
+
+
+
+<BR>usr: 200 MB
+
+
+
+<BR>X: 70 MB</PRE>
+
+<P>Per diskless client: 50&#151;200 MB (more if large swap areas are needed for the client)
+
+<BR></P>
+
+<P>In addition, a server may have more than one network interface installed. This is so it can serve multiple segments.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> Consider making one or two systems on the segment servers. Split the remaining systems between those that must stay up regardless of the server and those that are not as critical. Make the critical ones 
+
+stand-alone and the remainder dataless. The performance improvement gained from placing a small disk (even 200 MB) in a system is worthwhile.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B>Naming the System</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Each UNIX system is given a set of names:
+
+<BR></P>
+
+<UL>
+
+<LI>Host name&#151;a short name it is known by locally.
+
+<BR>
+
+<BR></LI>
+
+<LI>UUCP name&#151;usually the same as the host name. Used for modem-based communications between UNIX systems.
+
+<BR>
+
+<BR></LI>
+
+<LI>Domain name&#151;a name that identifies which set of systems this system is a part of for electronic mail and routing.
+
+<BR>
+
+<BR></LI>
+
+<LI>NIS domain&#151;a name that identifies which set of systems this system is grouped with for systems administration purposes. The set of systems share common password and other systems administration files. See Chapter 37, &quot;Networking,&quot; for 
+further details on the NIS system.
+
+<BR>
+
+<BR></LI></UL>
+
+<P>This chapter deals with the systems host and domain names. Using a UUCP name that is different from the host name is covered in Chapter 43, &quot;UUCP Administration.&quot; The NIS Domain is covered in Chapter 37.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B>Host Name</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A host name is typed often, so it should be relatively short. While it can be up to 256 characters long in System V Release 4 systems, no one wants to type a name that long all the time. A short word usually is desired. If this name is to be shared as 
+the UUCP name as well, it should be no longer than 8 characters.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> At any organization, people generally come and go, and when they go, the system they were using gets reassigned. Hardware also gets replaced. It's not a good idea to name a system for its current user 
+or for its current hardware.
+
+<BR>
+
+<BR>These are some poor name choices:
+
+<UL>
+
+<LI>sun1051&#151;Today it might be a Sun Sparc 10/51. Tomorrow it might be a Dec Alpha or something else. Choose a name that will retain its meaning regardless of the changes in hardware.
+
+<BR></LI>
+
+<LI>jerry&#151;It was Jerry's system, but who has it now? The name should help identify the system for the user and the administrators. You will be referring to the system by this name in many contexts.
+
+<BR></LI>
+
+<LI>mis1&#151;Systems migrate, even from department to department. When this system ends up in engineering, calling it mis anything could be confusing.
+
+<BR></LI></UL>
+
+Instead, consider using some name that allows for a selection of one of a group of names.
+
+<BR>
+
+<BR>These are some popular choices:
+
+<UL>
+
+<LI>The names of the seven dwarves&#151;This gives the systems some personality, and at least allows for seven. You could expand to use the names of other characters in stories besides Snow White when more names are needed.
+
+<BR></LI>
+
+<LI>Street names&#151;Be careful, though. If you name the aisles of your cubical system for streets, don't use the same street names for your systems. Moving them around could get confusing.
+
+<BR></LI></UL>
+
+Don't take this tip too literally. If functional names, such as mis1 or database make sense, use them. It isn't that difficult to retire the old name and change the system's name to a new one in the future.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>Domain Name (DNS/Mail)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you want to uniquely address every UNIX system by name, and you try to use short names for local convenience, you quickly run into the problem bemoaned often on the Internet: &quot;All the good ones are taken.&quot; One way around this problem is the 
+
+same way people resolve it with their own names. You can give systems first, middle, and last names.
+
+<BR></P>
+
+<P>One of the results of UNIX and the Internet growing up together is the domain name system. This allows every machine to be uniquely addressed by giving its fully qualified domain name, which is comprised of its host name and its domain name, separated 
+by dots, as in the following:
+
+<BR></P>
+
+<PRE>hostname.localdomain.masterdomain.topdomain</PRE>
+
+<P>As an example, the mail gateway at my company, Myxa Corporation, uses this fully qualified domain name:
+
+<BR></P>
+
+<PRE>dsinc.hv.myxa.com</PRE>
+
+<P>You read this name from right to left as follows:
+
+<BR></P>
+
+<P><B>com:</B> This is the top-level or root domain in the United States for commercial organizations. Other choices include edu, for educational institutions; gov, for governmental bodies; net, for network providers; org, for charitable organizations; and 
+
+us, used mostly for individuals. Outside of the United States, the International Standards Organization (ISO) country code is the top-level domain.
+
+<BR></P>
+
+<P><B>myxa:</B> This is the chosen domain name for the entire organization. Since the company is connected to the Internet, myxa.com had to be unique before it could be assigned.
+
+<BR></P>
+
+<P><B>hv:</B> The company is split into more than one office. This level splits the domains logically and distributes the responsibility for maintaining the local host names. This third level of the domain name is optional and is used only by larger 
+organizations to split the administrative responsibility. See Chapter 37 for more details on maintaining a domain name service.
+
+<BR></P>
+
+<P><B>dsinc:</B> This is the actual host name of this system.
+
+<BR></P>
+
+<P>The system is then referred to as dsinc within the local office, dsinc.hv within the company, and dsinc.hv.myxa.com from outside the company. 
+
+<BR></P>
+
+<P>If this is an installation of a system into an existing network, you should already have an existing domain name to use. Then you have to choose only a host name. If this is the first system to install in a local group of systems, consider choosing a 
+local domain name as well.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Why use a local domain name? In networked systems, a central administration group is responsible for assigning and maintaining all host names and their corresponding addresses. When the number of 
+systems gets large, there is too much burden on this one group. It can cause delays while you wait for the administration group to get around to adding your new information to their master files. If they delegate this responsibility for a set of systems to 
+
+a local group, they only need to add the local domain to their files and then you can add systems and make changes as needed.
+
+<BR>
+
+<BR>See Chapter 37 for more details on administering a local domain.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Only if this is the first system in the organization will you have to choose the remaining levels of the domain name. They should be the same for all systems within the organization.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Choosing Which Packages to Install Locally</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>When you made the choice of being a server, stand-alone system, dataless client, or diskless client, you made the base choice of what portions of the operating system to install. You can fine-tune this choice if you need to conserve disk space. Sun's 
+Solaris 2.3 gives you a large choice of packages to install. Some of those packages are specific to hardware you may not have installed. You can choose to omit those packages now, and if you change the configuration later, you can always add them to the 
+existing installation.
+
+<BR></P>
+
+<P>Sun is not the only vendor that gives choices of packages. System V Release 4.0, which is provided from many vendors, splits the operating system into the major groups of packages:
+
+<BR></P>
+
+<PRE>
+
+<BR>V4 Runtime System
+
+
+
+<BR>V4 Software Development
+
+
+
+<BR>V4 Networking System
+
+
+
+<BR>V4 X-Windowing System
+
+
+
+<BR>V4 Real-Time Extensions</PRE>
+
+<P>You can choose which of these you need to install locally. In addition, each of these is broken down further into individual packages. While every system needs the runtime group of packages, not all individual packages within it are required. The 
+Runtime System is further broken down into the following:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>compat</P>
+
+<TD>
+
+<P>BSD compatibility package</P>
+
+<TR>
+
+<TD>
+
+<P>crypt</P>
+
+<TD>
+
+<P>Security administration utilities</P>
+
+<TR>
+
+<TD>
+
+<P>ed</P>
+
+<TD>
+
+<P>Editing package</P>
+
+<TR>
+
+<TD>
+
+<P>face</P>
+
+<TD>
+
+<P>AT&amp;T Framed Access Command Environment</P>
+
+<TR>
+
+<TD>
+
+<P>fmli</P>
+
+<TD>
+
+<P>AT&amp;T Form and Menu Language Interpreter</P>
+
+<TR>
+
+<TD>
+
+<P>lp</P>
+
+<TD>
+
+<P>LP print service</P>
+
+<TR>
+
+<TD>
+
+<P>manbase</P>
+
+<TD>
+
+<P>Online manual pages, base system</P>
+
+<TR>
+
+<TD>
+
+<P>mouse</P>
+
+<TD>
+
+<P>Mouse driver package</P>
+
+<TR>
+
+<TD>
+
+<P>oam</P>
+
+<TD>
+
+<P>Operations, administration, and maintenance</P>
+
+<TR>
+
+<TD>
+
+<P>pci</P>
+
+<TD>
+
+<P>PC-interface utilities and RS-232 service</P>
+
+<TR>
+
+<TD>
+
+<P>pts</P>
+
+<TD>
+
+<P>Pseudo-tty support</P>
+
+<TR>
+
+<TD>
+
+<P>qt</P>
+
+<TD>
+
+<P>Cartridge tape utilities</P>
+
+<TR>
+
+<TD>
+
+<P>rpc</P>
+
+<TD>
+
+<P>Remote procedure call utilities</P>
+
+<TR>
+
+<TD>
+
+<P>termcap</P>
+
+<TD>
+
+<P>AT&amp;T Termcap Compatibility Package</P>
+
+<TR>
+
+<TD>
+
+<P>terminf</P>
+
+<TD>
+
+<P>Terminal information utilities</P>
+
+<TR>
+
+<TD>
+
+<P>xcp</P>
+
+<TD>
+
+<P>XENIX compatibility package</P>
+
+<TR>
+
+<TD>
+
+<P>xl</P>
+
+<TD>
+
+<P>Archive XL floppy tape utilities</P></TABLE>
+
+<P>If disk space is not critical, make the installation easy by choosing to install everything for the overall set of packages. If space is critical, you can choose not to install those items that correspond to hardware or options you do not intend to use.
+
+
+
+<BR></P>
+
+<P>Once you have chosen the packages you intend to install, sum their sizes as specified in the release notes for that version and you will be ready to lay out the disk slices.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Laying Out the Disk Slices</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Rather than use an entire disk drive for one file system, which leads to inefficiencies and other problems, UNIX systems have the ability to split a single drive into sections. These sections are called slices, as each is a slice of the disk's capacity.
+
+
+
+<BR></P>
+
+<P>If your system is based on a PC, the master disk will first be split into partitions, using a program that emulates the MS-DOS fdisk layout. Once the UNIX partition has been allocated, this partition becomes the logical disk drive. This chapter refers 
+to this partition as if it were the entire disk drive. Non&#151;PC-based systems do not have this step and allocate space on the disk drive directly.
+
+<BR></P>
+
+<P>Generally a disk can be split into eight subdisks or slices, each of which the operating system treats independently as a logical disk drive. This splitting of the disk is often called partitioning or labeling the disk.
+
+<BR></P>
+
+<P>Why split the disk? UNIX can only place one file system per logical disk. It is advantageous to split the files across multiple file systems. You can always buy multiple disk drives, one for each file system, and one for the swap space, but placing six 
+
+or more disk drives on a system tends to up the cost a bit. Instead, this method of subdividing the disk is used.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=4><B>Why Multiple File Systems?</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P><B>Damage control</B>&#151;If the system were to crash due to software error, hardware failure, or power problems, some of the disk blocks might still be in the file system cache and not have been written to disk yet. This causes damage to the file 
+system structure. While the methods used try to reduce this damage, and the fsck UNIX utility can repair most damage, spreading the files across multiple file systems reduces the possibility of damage, especially to critical files needed to boot the 
+system. When you split the files across disk slices, these critical files end up on slices that rarely change or are mounted read-only and never change. Their chances of being damaged and preventing you from recovering the remainder of the system are 
+greatly reduced.
+
+<BR></P>
+
+<P><B>Access control</B>&#151;Only a complete slice can be marked as read-only or read-write. If you desire to mount the shared operating system sections as read-only to prevent changes, they have to be on their own slice.
+
+<BR></P>
+
+<P><B>Space management</B>&#151;Files are allocated from a pool of free space on a per-file system basis. If a user allocated a large amount of space, depleting the free space, and the entire system were a single file system, there would be no free space 
+left for critical system files. The entire system would freeze when it ran out of space.
+
+<BR></P>
+
+<P>Using separate file systems, especially for user files, allows only that single user, or group of users, to be delayed when a file system becomes full. The system will continue to operate, allowing you to handle the problem.
+
+<BR></P>
+
+<P><B>Performance</B>&#151;The larger the file system, within limits, the larger its tables that have to be managed. As the disk fragments and space become scarce, the further apart the fragments of a file might be placed on the disk. Using multiple 
+smaller partitions reduces the absolute distance and keeps the sizes of the tables manageable. Although the UFS file system does not suffer from table size and fragmentation problems as much as System V file systems, this is still a concern.
+
+<BR></P>
+
+<P><B>Backups</B>&#151;Many of the backup utilities work on a complete file system basis. If the file system is very big, it could take longer than you want to allocate to back up. Multiple smaller backups are easier to handle and recover from.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Just because you are doing multiple backups does not necessarily mean you need multiple tapes. UNIX can place more than one backup on a single tape, provided there is space on the tape to hold them.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The following slices are required on all UNIX installations: root and swap.
+
+<BR></P>
+
+<P>The recommended additional slices are these: usr, var, opt, home, and tmp.
+
+<BR></P>
+
+<P>As you read the sections on each slice, make a map of your disk space and allocate each slice on the map. You will use this map when you enter the disk partitioning information as you install the system.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP:</B> For optimum performance, it's best to start each slice on an even cylinder boundary.
+
+<BR>
+
+<BR>This is easy enough to do for non-scsi disks. However, many scsi disks use zone bit recording. This means there is a different number of sectors per cylinder on the inside tracks than on the outside tracks of the disk. This means that the cylinder 
+boundaries are not computable, as they vary track to track.
+
+<BR>
+
+<BR>However, in either case, the disk is normally described to the operating system as a combination of heads, sectors, and tracks. A cylinder boundary occurs at an even combination of heads multiplied by sectors. The operating systems tables work out more 
+
+efficiently if the partitions occur on what it thinks by your description of the disk is a cylinder boundary.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=3><B>The </B><B><I>root</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The root slice is mounted at the top of the file system hierarchy. It is mounted automatically as the system boots, and it cannot be unmounted. All other file systems are mounted below the root.
+
+<BR></P>
+
+<P>The root needs to be large enough to hold the following:
+
+<BR></P>
+
+<UL>
+
+<LI>The boot information and the bootable UNIX kernel, and a backup copy of the kernel in case the main one gets damaged
+
+<BR>
+
+<BR></LI>
+
+<LI>Any local system configuration files, which are typically in the /etc directory
+
+<BR>
+
+<BR></LI>
+
+<LI>Any stand-alone programs, such as diagnostics, that might be run instead of the OS
+
+<BR>
+
+<BR></LI></UL>
+
+<P>This partition typically runs on between 10 and 20 MB. It is also usually placed on the first slice of the disk, often called slice 0 or the a slice.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>In System V&#151;based UNIX systems the recommended size from the vendor is probably sufficient for this slice. In BSD-based UNIX systems, consider increasing the size of this slice to allow for a few 
+extra kernels. BSD uses prelinked kernels instead of runtime driver loading, and you will need to keep more UNIX kernels around.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>The </B><B><I>swap</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The note in the section &quot;For What Purpose&quot; describes how UNIX uses the swap slice. The default rule is that there's twice as much swap space as there is RAM installed on the system. If you have 16 MB of ram, the swap space needs to be a 
+minimum of 32 MB. If you have 256 MB of RAM, the minimum swap is 512 MB.
+
+<BR></P>
+
+<P>This is just a starting point. If the users of this system run big applications that use large amounts of data, such as desktop publishing or CAD, this might not be enough swap. If you are unsure as to the swap needs of your users, start with the rule 
+of twice RAM. Monitor the amount of swap space used via the pstat or swap commands. If you did not allocate enough, most UNIX systems support adding additional swap at runtime via the swapon or swap commands.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>The </B><B><I>usr</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The usr slice holds the remainder of the UNIX operating system and utilities. It needs to be large enough to hold all the packages you chose to install when you made the list earlier.
+
+<BR></P>
+
+<P>If you intend to install local applications or third-party applications in this slice, it needs to be large enough to hold them as well. However, it is generally better, for ease of performing upgrades, if the usr slice contains the operating system and 
+
+only symbolic links, if necessary, to the applications.
+
+<BR></P>
+
+<P>This file system is often mounted read-only to prevent accidental changes.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=3><B>The </B><B><I>var</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The var slice holds the spool directories used to queue printer files and electronic mail, as well as log files unique to this system. It also holds the /var/tmp directory, which is used for larger temporary files. It is the read-write counterpart to 
+the usr slice. Every system, even a diskless client, needs its own var file system. It cannot be shared with other systems.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Although the var file system cannot be shared, subdirectories under it can (for example, /var/mail).
+
+<BR>
+
+<BR>These would be mounted on top of the var file system after it is already mounted.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If you do not print very large files, accept the size the release notes suggest for this slice. If you do print a large number of files or large files, or if your site will be performing a large volume of UUCP traffic, consider increasing the size of 
+this slice to accommodate your needs.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>For print files, a good starting point is adding 10 times the size of the largest print file to the size recommended. Add more if there are a large number of users or multiple printers attached to this 
+
+system.
+
+<BR>
+
+<BR>For UUCP files, have enough space to hold at least a day's worth of traffic for every site.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>The </B><B><I>opt</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In the newer UNIX systems based on System V Release 4 (Solaris 2.x, UnixWare, and so on), many sections of the operating system are considered optional and are no longer installed on the /usr file system. They are now installed into the /opt file 
+system. In addition, they place add-on packages in this file system.
+
+<BR></P>
+
+<P>To size this partition, take the suggested size from the release notes, and add to that the size of any add-on packages you plan to install.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Don't worry too much about getting it right. If you need to install an add-on package later and there is not enough room left in opt, install the package elsewhere and create a symbolic link from where 
+
+you did install it back into /opt.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>The </B><B><I>home</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>This is where the user's login directories are placed. Making home its own slice prevents users from hurting anything else if they run this file system out of space.
+
+<BR></P>
+
+<P>A good starting point for this slice is 1 MB per application user plus 5 MB per power user and 10 MB per developer you intend to support on this system.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Don't worry too much about getting it exactly right. If you need more space for a particular user, just move that user's directory to a different file system that does have room and create a symbolic 
+link in /home to point to its new location. The user may never know you moved the directory.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>The </B><B><I>tmp</I></B><B> Slice</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Large temporary files are placed in /var/tmp but sufficient temporary files are placed in /tmp that you don't want it to run your root file system out of space. If your users are mostly application users, 5&#151;10 MB is sufficient for this slice. If 
+they are power users or developers, 10-20 MB is better. If there are more than 10 users on the system at once, consider doubling the size of this slice.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>The files in the /tmp directory are very short-lived. Use the file system type TMPFS (Tmp file system, a ram based file system) for /tmp if your version of UNIX offers it. It can improve performance by 
+
+placing this file system in RAM instead of on the disk. Losing the files on each reboot is not a concern, as UNIX clears the /tmp directory on each reboot anyway.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The disk label that contains the disk layout is held in block 0 of the disk. UNIX does not use this block in file systems, so there is no danger of overwriting it if a file system is located as the first slice on a disk. However, if a raw slice is the 
+first slice, the application that uses the slice may overwrite block 0. Doing so will lose the label and make the disk inaccessible.
+
+<BR></P>
+
+<P>To prevent this, do the following: Make a file system the first slice (the one that contains block 0 of the disk drive). Skip cylinder 0 in assigning the space on the disk drive. It may waste one cylinder, but you won't lose your data.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>Assigning Slices to Disk Drives</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If you have more than one disk drive, a second decision you have is on which drive to place the slices. The goal is to balance the disk accesses between all of the drives. If you have two drives, consider the following split:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>Drive 1</P>
+
+<TD>
+
+<P>Drive 2</P>
+
+<TR>
+
+<TD>
+
+<P>root</P>
+
+<TD>
+
+<P>var</P>
+
+<TR>
+
+<TD>
+
+<P>swap</P>
+
+<TD>
+
+<P>opt</P>
+
+<TR>
+
+<TD>
+
+<P>usr</P>
+
+<TD>
+
+<P>home</P></TABLE>
+
+<P>The remaining slices split over the drives as space allows.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>Assigning IP (network) Addresses</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>If the system has a network connection, it will need to be assigned an IP address. IP addresses are explained in Chapter 37. An IP address is a set of four numbers separated by dots, called a dotted quad. Each network connection has its own IP address. 
+
+Within a LAN segment, usually the first three octets of the dotted quad will be the same. The fourth must be unique for each interface. The addresses 0 and 255 (all zeros and all ones) are reserved for broadcast addresses. The remaining 254 addresses may 
+be assigned to any system.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The IP address is not the EtherNet address. An EtherNet address is a hardware-level address assigned by the manufacturer. It is six octets long (48 bits). The first three represent the manufacturer of 
+
+the network interface board. The remaining three octets are unique to the system. An IP address is a software level address. Part of the IP protocol, also called ARP or Address Resolution Protocol, is used to match the software IP address with the physical 
+
+EtherNet address.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>If this is your first system, you must decide on the first three octets as well. See Chapter 37 for applying for a network number. The number should be unique within the world and is obtainable at no cost.
+
+<BR></P>
+
+<P>If this is not the first system, then any unused value for the fourth octet can be used for this system.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>Do You Have the Needed Network Connections?</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Now is the time to check that you have a network connection for each network interface. Now is the time to check that you have the proper cables, transceivers (if needed), and connectors.
+
+<BR></P>
+
+<P>EtherNet comes in three varieties: thick (10Base5), thin (10Base2), and twisted pair (10BaseT). UNIX Systems come with some combination of three types of EtherNet connections: AUI, BNC, or RJ45. If your system has multiple connector types, they are all 
+
+for the same network interface, unless you purchased an add-on interface that uses a connector type different from that of the main system. Using the matrix below, you can see which parts you need:
+
+<BR></P>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD COLSPAN=2>
+
+<PRE>
+
+<BR>Connector
+
+<BR></PRE>
+
+<TD COLSPAN=2>
+
+<PRE>
+
+<BR>Network Type
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>Type
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10Base5
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10Base2
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10BaseT
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>AUI
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>AUI cable
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>AUI to BNC
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>AUI to RJ45
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR><BR>
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>and transceiver
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>transceiver
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>transceiver
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>BNC
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10Base2 Hub
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>BNC Tee
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10Base2 Hub
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR>RJ45
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10BaseT Hub
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>10BaseT Hub
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>RJ45 Cable
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR><BR>
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>with AUI port
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>with BNC port
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>and free slot
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<PRE>
+
+<BR><BR>
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>and RJ45 Cable
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>and RJ45 Cable
+
+<BR></PRE>
+
+<TD>
+
+<PRE>
+
+<BR>on BaseT Hub</PRE></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>Using NIS/NIS+</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Administering a UNIX system requires dealing with many files, such as the password, group, network, and EtherNet address control files. Having to maintain each one of these files on multiple systems can be time-consuming. Discrepancies in the files can 
+
+lead to problems logging in to systems or to security issues.
+
+<BR></P>
+
+<P>One solution to this problem is the Network Information Service, or NIS. NIS is a network-wide set of databases for the common administrative files. This allows for centralized administration, even by using multiple servers having a redundant system in 
+
+case the master is down.
+
+<BR></P>
+
+<P>When installing a system into an NIS environment, you have to answer the install questions with the name of the NIS domain for this system. This is the name that is placed in the file /etc/defaultdomain by the install program.
+
+<BR></P>
+
+<P>The NIS domain does not unnecessarily match the mail domain entered earlier. Generally it is for security reasons or to further subdivide the administrative responsibilities when they do not match.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=4><B>Performing the Installation</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>By now, if you've been following along, you should have an installation checklist. It should contain the following:
+
+<BR></P>
+
+<UL>
+
+<LI>The name of the system holding the drive for the installation, and its device name
+
+<BR>
+
+<BR></LI></UL>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>Check your release notes&#151;you might have to enter the name of the new system into the root user's .rhost file temporarily during the installation or load the CD-ROM and mount the partition prior to 
+
+running the remote installation.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<UL>
+
+<LI>Diskless, dataless, stand-alone, or server system
+
+<BR>
+
+<BR>The name of the server for the new client, if it's a dataless or diskless system, should be on your sheet along with its IP address.
+
+<BR>
+
+<BR></LI>
+
+<LI>The name of the host and domain
+
+<BR>
+
+<BR></LI>
+
+<LI>The IP address
+
+<BR>
+
+<BR></LI>
+
+<LI>The packages to install
+
+<BR>
+
+<BR></LI>
+
+<LI>How to partition the disk (This is the map of the disk drive or drives you made earlier.)
+
+<BR>
+
+<BR></LI>
+
+<LI>Whether to use a network database (This is the name of the NIS domain, if you intend to run NIS.)
+
+<BR>
+
+<BR></LI></UL>
+
+<P>Now you should be all set.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>You are about to do things that will change the information on the disks. If this is not a brand new system, be sure you have readable backups in case something goes wrong.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>Booting the Installation Media</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>The first step in installing a UNIX system is to load the mini-root into RAM. UNIX uses the UNIX operating system to perform its installation. It needs a version of UNIX it can run, and to do this the install loader uses RAM to hold a small version of 
+the UNIX file system. When you boot the installation media, it builds a root file system and copies the files it needs to control the installation to this RAM-based file system. This is the reason it takes a while to boot the media.
+
+<BR></P>
+
+<P>If the system is PC based, boot floppies are generally provided. Workstation and server systems use the tape or CD-ROM media as a boot device.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>Booting from Floppies</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If your system is PC based, take the first boot floppy and place it in what MS-DOS would call drive A. Boot the system in the normal manner, by pressing the Ctrl+Alt+Del keys at the same time.
+
+<BR></P>
+
+<P>The system will load the boot loader off the first floppy and then use that to create the RAM-based file systems and load the UNIX image into RAM. It will ask for additional floppies as needed and then ask for the install media. Answer tape or CD-ROM, 
+as appropriate, and the system will then load the remainder of the mini-root from the installation media.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>Booting Directly from the CD-ROM</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Workstations and servers boot from the CD-ROM. They have the commands necessary built directly into the ROM monitor. Entering the command, <B>b </B><B>cdrom</B>, or the command,
+
+<BR></P>
+
+<PRE>boot cdrom, is normally sufficient to boot the CD-ROM. Sun's, SGI's, and HP's systems all use this form of boot command. If your system does not boot with this command, refer to the release notes for the exact boot command for your system.</PRE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B>Installing the Master System</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once the mini-root is loaded, you are generally presented with the install options. Some systems leave you at a shell prompt. If this happens, enter install to start the installation procedure.
+
+<BR></P>
+
+<P>UNIX contains a set of install procedures that walk you through the installation. They are almost identical to one another in concept, but they are slightly different in implementation. Given the information on the checklist produced as you followed 
+this chapter, answer the questions as presented by the installation screens.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>On Sun systems, to install a system with custom disk layouts or to install any server requires selecting the Custom Install menu option on the opening installation screen. This will walk you through all 
+
+the questions, setting everything up for you automatically.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Expect it to take over an hour to read all the information off the install media to the local disks if you are installing more than just a dataless client. Each system gives you a progress meter to show you how much it has done and how much further it 
+has to proceed.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>If you are installing from a nonstandard disk controller, be sure to select the option to add the custom driver for this controller and provide the floppy with the driver when requested. If you 
+
+exit install and attempt to reboot without providing this driver, you will be unable to boot the system and you will have to start the installation from the beginning.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>If you are installing from a nonstandard tape controller, be sure to select the option to add the custom driver for this controller and provide the floppy with the driver when requested. If you 
+
+exit install and attempt to reboot without providing this driver, you will be unable to access the tape drive to install additional components and you will have to start the installation from the beginning.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>Provided you plan ahead and fill out an installation checklist, installing a UNIX system is a simple and automatic process.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Installing Optional or Additional Packages</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once the system is installed and rebooted, you are running UNIX. Congratulations. Of course, you will still need to perform installations from time to time to add packages and applications. All UNIX packages and most standard applications for System V 
+Release 4 use the pkgadd format. Installation of these packages and applications is automatic using the pkgadd utility.
+
+<BR></P>
+
+<P>Other applications use their own installation format or tar format. Follow the release notes for these applications.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B>Using pkgadd and pkgrm</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Packages are added to System V Release 4 systems such as Solaris 2 and UnixWare by using the pkgadd command. This command automatically installs the software from the release media and updates a database of what is currently installed on the system. 
+Packages are deleted just as easily with the pkgrm command.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="caution.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/caution.gif" WIDTH = 37 HEIGHT = 35><B>CAUTION: </B>Many packages must be deleted before being reinstalled. If pkgadd is asked to install a package that is already installed, it will attempt to overwrite the existing package. Some packages work 
+with this overwrite and some do not. If the installation is an upgrade to a newer version of a package, it is safer to first remove the old copy with the pkgrm program and then install the new one.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="imp.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/imp.gif" WIDTH = 68 HEIGHT = 35><B>TIP: </B>To determine which packages are currently installed UNIX provides the pkginfo command. This command has two forms. The first form, when run with no path name as an argument, lists which packages are 
+currently installed. When run as pkginfo -l, it will also list when the package was installed, the version currently installed, if any patches installed affect this version, and how much disk space it is currently consuming.
+
+<BR>
+
+<BR>When run with a pathname, pkginfo tells you which packages reside on the installation media. Note that the -l argument also works in this mode and can tell you how much space each package will take to install.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>To run pkgadd on the install media, place the media in the drive and enter the command
+
+<BR></P>
+
+<PRE>pkgadd -d path-name-to-device</PRE>
+
+<P>pkgadd will then prompt you for which packages to install and give you progress messages as it installs the package. Different packages may also ask you questions prior to installation. These questions usually relate to where to install the package and 
+
+any other installation options.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> pkgadd also checks to make sure that other packages this new package requires are already installed. It will warn you or not let you install a package if the prerequisites are not already installed.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>Using swmtool</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Sun's Solaris system provides an X application to guide you through running pkgadd. It displays the contents of the CD-ROM and provides point-and-click installation and removal of the entire media or selected packages.
+
+<BR></P>
+
+<P>To install new packages using swmtool, click on the Properties button to pop up the menu for where the packages are located. Select the local or remote CD-ROM drive if the installation media is not already mounted. If it is already mounted, select 
+Mounted File System, and then type the pathname of the directory containing the packages.
+
+<BR></P>
+
+<P>swmtool then displays the contents of the disk. It can provide details on sizes required and versions on the media. To start the installation, select each of the packages to install and press the Begin Installation button. swmtool runs pkgadd for you. 
+You will still have to answer pkgadd's questions just as if you had run pkgadd by hand.
+
+<BR></P>
+
+<P>To remove software with swmtool, just select the Remove button from the top of the screen. Select the packages to remove and press the Begin Removal button. swmtool runs pkgrm for you.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>Adding a Diskless Client to a Server</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>You take two steps to add a diskless client to a server: Add the common files to support any client. Add the specific files for this client. The first needs to be done only if this is the first client of this type and revision of the operating system to 
+
+be installed.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>Installing the Diskless Client Operating System Support Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Traditionally diskless client support files are installed in the /export file system on the server. With System V Release 4, the common executable files are placed under the /export/exec directory. Each architecture will have its own subdirectory under 
+
+/export/exec.
+
+<BR></P>
+
+<P>Each UNIX vendor that supports diskless clients has an install procedure for loading support files from the installation media for each supported architecture. In Solaris 2, the swmtool edit menu contains the pull-down item Add client software.... This 
+
+configures the server to support clients of each of the available architecture types.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>Adding the Diskless Client</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Once the client support is available on the server, the client must be added to the server. Since the client has no disk, all installation occurs on the server. A shell script or window command is run to add the /export/root/hostname directory tree and 
+
+the /export/swap/hostname swap file.
+
+<BR></P>
+
+<P>Under Solaris 2, this is performed under admintool's host manager. Select the host manager icon from the admintool and then select Add Host from the Edit pull-down menu. Select diskless from the Client Type pull-down menu, and enter the host name, IP 
+address, and EtherNet address onto the menu and select the time zone from the pull-down menu. The remainder of the parameters should be correct except for the swap size. Adjust that to the proper swap size for this client and click on the Add button.
+
+<BR></P>
+
+<P>Other UNIX systems provide shell scripts or administrative pull-down menus for adding diskless clients.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The key to a trouble-free installation of your UNIX system is advance planning, using the guideline in this chapter and the release notes that came with your software. These are the things you should plan:
+
+<BR></P>
+
+<UL>
+
+<LI>The type of system you are installing: server, stand-alone, dataless, or diskless
+
+<BR>
+
+<BR></LI>
+
+<LI>Who will act as server for this system, if necessary
+
+<BR>
+
+<BR></LI>
+
+<LI>What size and on what disk each slice will be located
+
+<BR>
+
+<BR>root, usr, var, home, and tmp file systems
+
+<BR>
+
+<BR>swap slice
+
+<BR>
+
+<BR></LI>
+
+<LI>The name and address for this system: host name, domain name, IP address, and NIS domain name, if applicable
+
+<BR>
+
+<BR></LI>
+
+<LI>Which packages you are going to install
+
+<BR>
+
+<BR></LI>
+
+<LI>From where you are going to install
+
+<BR>
+
+<BR></LI></UL>
+
+<P>With the answers to these questions you can answer the UNIX install procedures questions. From there the installation is automatic.
+
+<BR></P>
+
+<P><A HREF="unxpt7au.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unxpt7au.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx34.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx34.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+

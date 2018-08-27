@@ -1,0 +1,3006 @@
+<HTML>
+
+<HEAD>
+
+<TITLE>UNIX Unleashed unx41.htm</TITLE>
+
+<LINK REL="ToC" HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm">
+
+<LINK REL="Next" HREF="unx42.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx42.htm">
+
+<LINK REL="Previous" HREF="unx40.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx40.htm"></HEAD>
+
+<BODY TEXT="#000000" LINK="#0000FF" VLINK="#800080" bgcolor=white>
+
+<P><A HREF="unx40.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx40.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx42.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx42.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P><UL>
+
+<LI>
+
+<A HREF="#I1">41 &#151; Mail Administration</A></LI>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<UL>
+
+<LI>
+
+<A HREF="#I3">By Jeff Smith</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I4">Introduction</A></LI>
+
+<LI>
+
+<A HREF="#I5">Overview &amp; Terminology&#151;E-mail from Point A to Point B</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I6">Background Material and Other Sources</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I7">Request for Comments Documents (RFCs)</A></LI>
+
+<LI>
+
+<A HREF="#I8">Sendmail Documentation</A></LI>
+
+<LI>
+
+<A HREF="#I9">sendmail, The Book</A></LI>
+
+<LI>
+
+<A HREF="#I10">Comp.mail.sendmail</A></LI></UL>
+
+<LI>
+
+<A HREF="#I11">Internet Mail Protocols</A></LI>
+
+<LI>
+
+<A HREF="#I12">The Domain Name System (DNS) and E-Mail</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I13">Mail Delivery and MX Records</A></LI>
+
+<LI>
+
+<A HREF="#I14">Header and Envelope Addresses</A></LI></UL>
+
+<LI>
+
+<A HREF="#I15">sendmail's Jobs</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I16">sendmail as Mail Router</A></LI>
+
+<LI>
+
+<A HREF="#I17">sendmail as MTA&#151;Client (Sender) and Server (Receiver) SMTP</A></LI>
+
+<LI>
+
+<A HREF="#I18">sendmail as a Final Delivery Agent (NOT!)</A></LI></UL>
+
+<LI>
+
+<A HREF="#I19">sendmail's Auxiliary Files</A></LI>
+
+<LI>
+
+<A HREF="#I20">The Aliases File</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I21">Reading Aliases from a File&#151;the :include: Directive</A></LI>
+
+<LI>
+
+<A HREF="#I22">Mail to Programs</A></LI>
+
+<LI>
+
+<A HREF="#I23">Mail to Files</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I24">Setting up sendmail</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I25">Obtaining the Source</A></LI>
+
+<LI>
+
+<A HREF="#I26">Unpacking the Source and Compiling sendmail</A></LI></UL>
+
+<LI>
+
+<A HREF="#I27">sendmail.cf&#151;the Configuration File</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I28">General Form of the Configuration File</A></LI>
+
+<LI>
+
+<A HREF="#I29">A Functional Description of the Configuration File</A></LI>
+
+<LI>
+
+<A HREF="#I30">The D Operator&#151;Macros</A></LI>
+
+<LI>
+
+<A HREF="#I31">The C and F Operators&#151;Classes</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I32">The H Operator&#151;Header Definitions</A></LI>
+
+<LI>
+
+<A HREF="#I33">The O Operator&#151;Setting Options</A></LI>
+
+<LI>
+
+<A HREF="#I34">The P Operator&#151;Mail Precedence</A></LI>
+
+<LI>
+
+<A HREF="#I35">The V Operator&#151;sendmail.cf Version Levels</A></LI>
+
+<LI>
+
+<A HREF="#I36">The K Operator&#151;Key Files</A></LI>
+
+<LI>
+
+<A HREF="#I37">The M Operator&#151;Mailer Definitions</A></LI>
+
+<LI>
+
+<A HREF="#I38">The S and R Operators&#151;Rulesets and Rewriting Rules</A></LI>
+
+<LI>
+
+<A HREF="#I39">sendmail's Built-In Ruleset Processing Rules</A></LI>
+
+<LI>
+
+<A HREF="#I40">Processing Rules Within Rulesets</A></LI>
+
+<LI>
+
+<A HREF="#I41">Parsing&#151;Turning Addresses into Tokens</A></LI>
+
+<LI>
+
+<A HREF="#I42">The Lefthand Side (lhs) of Rules</A></LI>
+
+<LI>
+
+<A HREF="#I43">The Righthand Side (rhs) of Rules</A></LI>
+
+<LI>
+
+<A HREF="#I44">$: and $@&#151;Altering a Ruleset's Evaluation</A></LI>
+
+<LI>
+
+<A HREF="#I45">$&gt;&#151;Calling Another Ruleset</A></LI>
+
+<LI>
+
+<A HREF="#I46">Testing Rules and Rulesets&#151;the -bt, -d and -C Options</A></LI>
+
+<LI>
+
+<A HREF="#I47">Conclusion</A></LI></UL>
+
+<LI>
+
+<A HREF="#I48">Creating a sendmail.cf</A></LI>
+
+<LI>
+
+<A HREF="#I49">Testing sendmail and sendmail.cf</A></LI>
+
+<LI>
+
+<A HREF="#I50">Installing sendmail and Friends</A></LI>
+
+<UL>
+
+<LI>
+
+<A HREF="#I51">Modifying sendmail's Boot-Time Startup</A></LI></UL></UL>
+
+<LI>
+
+<A HREF="#I52">Summary</A></LI></UL></UL></UL>
+
+
+
+<H1 ALIGN="CENTER">
+
+<CENTER><A ID="I1" NAME="I1">
+
+<BR>
+
+<FONT SIZE=5><A ID="I2" NAME="I2"></A><B>41 &#151; Mail Administration</B>
+
+<BR></FONT></A></CENTER></H1>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I3" NAME="I3">
+
+<FONT SIZE=3><B>By Jeff Smith</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I4" NAME="I4">
+
+<FONT SIZE=4><B>Introduction</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>So, they've gone and made you postmaster, have they? Perhaps you're approaching this new job with a little trepidation&#151;and you should. Electronic mail administration is one of the most complex system administration tasks and one of the most 
+visible. If you break an obscure program that few people use, your mistake may go unnoticed. If you break the mail system, all the users on your system will be affected, and most people consider electronic mail to be one of UNIX's most valuable services. 
+Even worse, if your site is connected to the Internet, your mistakes may be visible at remote sites, and those sites' postmasters will not hesitate to inform you that while your mother may love you, they consider you and your broken mail system to be 
+little better than pond scum. (Those are the moderates&#151;others may not be so kind.)
+
+<BR></P>
+
+<P>Still with me? Good. Despite the potential for making mistakes on a grand scale, mail administration at many sites is routine. You probably won't have to fuss with the e-mail system much once you manage to get it up and running, and this chapter helps 
+you do just that. First, you get a broad overview of how e-mail works, an explanation of some of the terminology you'll see in this and other books, and pointers on where to get more information. Finally, you'll see a step-by-step example of how to set up 
+
+the sendmail program and its configuration file, sendmail.cf.
+
+<BR></P>
+
+<P>What this chapter won't do is cover complex configurations like a multiprotocol mail hub that routes mail from the Internet to UUCP or a DECnet network. You won't learn how to set up the Domain Name System (DNS), although a properly working DNS is 
+essential to the e-mail system. Coverage of UUCP is minimal, and you only learn about one of the many variants of sendmail (version 8, or just V8). Finally, this chapter won't make you into a sendmail guru, but if you're lucky you'll never need to be one.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I5" NAME="I5">
+
+<FONT SIZE=4><B>Overview &amp; Terminology&#151;E-mail from Point A to Point B</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>An electronic mail message begins its life as a file on your computer's disk, created by a Mail User Agent (MUA). After you compose the letter, the MUA gives it to a mail router like sendmail. The mail router gives it to a Mail Transport Agent (MTA). 
+The message traverses one or more hosts and networks and is given to a final delivery agent, which appends it to the recipient's mailbox, another disk file. Each of these terms is explained in detail later in this chapter.
+
+<BR></P>
+
+<P>An MUA is just a fancy name for a mail-reading and -sending program, such as the SVR4 mailx. Other examples of MUAs are elm and the Rand corporation's Mail Handler (MH) programs. An MUA is the only part of the mail system with which users usually 
+interact, since a good MUA hides the complexity of the rest of the system from them (but not from the postmaster)!
+
+<BR></P>
+
+<P>A mail router is a program that takes a piece of mail and decides where it should go and how to get it there. For instance, depending on the recipient, a letter might need to travel over a TCP/IP network using the Simple Mail Transfer Protocol (SMTP), 
+or via a dial-up connection using the UNIX to UNIX Copy (UUCP) protocol, or even to an office fax machine. The mail router uses the recipient address and its own internal configuration information to decide the best MTA, and then hands the letter to the 
+MTA.
+
+<BR></P>
+
+<P>An MTA is a transport program that understands the e-mail protocols of a particular network and can transport a letter over that network. For instance, the UUCP transport agents understand UUCP protocols but know nothing about SMTP. If the mail router 
+were to mistakenly route an SMTP letter to a UUCP transport agent, it wouldn't know how to deliver it.
+
+<BR></P>
+
+<P>The final delivery agent does nothing but take a mail message and append it to the recipient's mailbox, following whatever local conventions are used to separate messages within a mailbox. The program /bin/mail is the usual final delivery agent on SVR4 
+
+systems.
+
+<BR></P>
+
+<P>In real life the distinctions between MTAs and MUAs and mail routers are sometimes blurred. For instance, sendmail, although primarily a mail router, can also function as an MTA because it understands the SMTP protocol and can transport mail over a 
+TCP/IP network. Therefore, in Figure 41.1 the separate functions of mail router and MTA are really a single program. Further, the SMTP-server part of the remote end of the MTA is often another sendmail program, which may do additional routing and 
+forwarding of the mail before it reaches its final delivery agent. Some MUAs even do their own mail routing, and some, like MH, can be configured to speak SMTP, an MTA function. Despite this real-world blurring of function, the conceptual framework 
+outlined above is a good one to keep in mind.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I6" NAME="I6">
+
+<FONT SIZE=3><B>Background Material and Other Sources</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>E-mail administration is a complex endeavor. This chapter gives you enough background to get you out of the gate and running, but you must carefully study the following materials to really understand what you're doing. It's a lot better to learn it 
+now&#151;with a warm cup of cocoa in hand&#151;than to wait until you've got a dozen angry users in your office demanding that you fix the mail system immediately. Trust me on this one.
+
+<BR></P>
+
+<P>Don't worry if some of the documents mentioned below don't make sense on a first reading; you don't have to understand every little clause of RFC 822 (described in the next section) to be a successful postmaster, and if you persevere you'll understand 
+as much as you need to know at first. After you gain some experience, you'll re-read them and understand them even better.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I7" NAME="I7">
+
+<FONT SIZE=3><B>Request for Comments Documents (RFCs)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>RFCs are issued by working groups of the Internet Engineering Task Force (IETF). They are known initially as a request for comments, but as they are adopted as Internet standards, you should think of them as requirements for compliance. So if you want 
+to exchange e-mail with another site on the Internet, you must comply with the provisions of both RFCs 821 and 822. RFCs are available for anonymous ftp on the host ftp.internic.net. The RFCs mentioned below are also on the UNIX Unleashed CD-ROM.
+
+<BR></P>
+
+<UL>
+
+<LI>RFC 821 Simple Mail Transfer Protocol (SMTP). RFC 821 defines the commands by which Internet mailers exchange e-mail. It is explained later in more detail.
+
+<BR>
+
+<BR></LI>
+
+<LI>RFC 822 Standard for the format of ARPA Internet text messages. RFC 822 defines the proper form of an e-mail message. E-mail is divided into two parts, the headers and the body, which are separated by a blank line. The headers contain essential 
+information such as the return address of the sender, and the body is the message you want to send.
+
+<BR>
+
+<BR></LI>
+
+<LI>RFC 1425 SMTP Service Extensions. RFC 1425 extends the SMTP protocol to what is commonly known as ESMTP.
+
+<BR>
+
+<BR></LI>
+
+<LI>RFC1123 Requirements for Internet Hosts&#151;Application and Support. RFC1123 is commonly known as the host requirements RFC. It clarifies requirements that all hosts on the Internet must meet and corrects some errors in earlier RFCs.
+
+<BR>
+
+<BR></LI>
+
+<LI>RFC 976 UUCP Mail Interchange Format Standard. RFC 976 explains the UUCP mail protocol, which is a store-and-forward mechanism. Instead of making a direct connection like a phone circuit, host A makes a temporary connection to send mail to host B, 
+which stores it temporarily and forwards it to host C, the final recipient. UUCP is a pain in the neck; avoid it if you can.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I8" NAME="I8">
+
+<FONT SIZE=3><B>Sendmail Documentation</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>V8 sendmail comes with three important documents:
+
+<BR></P>
+
+<UL>
+
+<LI>Sendmail Installation and Operation Guide (SIOG)
+
+<BR>
+
+<BR></LI>
+
+<LI>SENDMAIL&#151;An Internetwork Mail Router
+
+<BR>
+
+<BR></LI>
+
+<LI>Mail Systems and Addressing in 4.2bsd
+
+<BR>
+
+<BR></LI></UL>
+
+<P>All three were written by Eric Allman, the author of the sendmail program. The SIOG is an essential reference manual that explains the guts of sendmail. The other documents are more general overviews of mail router design. All are worth reading, but the 
+
+SIOG is your essential guide to sendmail. You'll want to read it several times and highlight parts relevant to your site's configuration.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I9" NAME="I9">
+
+<FONT SIZE=3><B><I>sendmail</I></B><B>, The Book</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The book sendmail by Bryan Costales, Eric Allman and Neil Rickert (O'Reilly &amp; Associates, Inc., 1993) is the most comprehensive treatment of the care and feeding of V8 sendmail. If you manage a complex site or must write custom configuration files, 
+
+it is invaluable. If your site is fairly simple or you find that you can get most of what you need from this chapter, the standard V8 sendmail documentation, comp.mail.sendmail and the RFCs, save your money.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I10" NAME="I10">
+
+<FONT SIZE=3><B>Comp.mail.sendmail</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>If your site receives USENET news, don't pass go, don't collect $200, just add the newsgroup comp.mail.sendmail to your newsreader's subscription list. Eric Allman, the author of sendmail, contributes regularly along with other sendmail wizards. You can 
+
+get more quality, free advice here than anywhere else on the USENET.
+
+<BR></P>
+
+<P>However, as with any newsgroup, read it for a few weeks before you make your first posting, and save yourself the embarrassment of asking a question that has already been answered a hundred times by first reading the V8 sendmail Frequently Asked 
+Questions (FAQ) document and the other documentation mentioned in this chapter. It may take a little longer to get your burning question answered, but you'll still respect yourself in the morning.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I11" NAME="I11">
+
+<FONT SIZE=3><B>Internet Mail Protocols</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In order to understand the different jobs that sendmail does, you need to know a little about Internet protocols. Protocols are simply agreed-upon standards that software and hardware use to communicate. 
+
+<BR></P>
+
+<P>Protocols are usually layered, with higher levels using the lower ones as building blocks. For instance, the Internet Protocol (IP) sends packets of data back and forth without building an end-to-end connection such as-used by SMTP and other 
+higher-level protocols. The Transmission Control Protocol (TCP) is built on top of IP and provides for connection-oriented services like those used by programs such as telnet and the Simple Mail Transfer Protocol (SMTP). Together, TCP/IP provide the basic 
+
+network services for the Internet. Higher-level protocols like the File Transfer Protocol (FTP) and SMTP are built on top of TCP/IP. The advantage of such layering is that programs which implement the SMTP or FTP protocols don't have to know anything about 
+
+transporting packets on the network and making connections to other hosts. They can use the services provided by TCP/IP for that.
+
+<BR></P>
+
+<P>SMTP defines how programs exchange e-mail on the Internet. It doesn't matter whether the program exchanging the e-mail is sendmail running on an HP workstation or an SMTP client written for an Apple Macintosh. As long as both programs implement the SMTP 
+
+protocol correctly, they will be able to exchange mail.
+
+<BR></P>
+
+<P>The following example of the SMTP protocol in action may help demystify it a little. The user betty at gonzo.gov is sending mail to joe at whizzer.com:
+
+<BR></P>
+
+<PRE>$ sendmail -v joe@whizzer.com &lt; letter
+
+joe@whizzer.com... Connecting to whizzer.com via tcp...
+
+Trying 123.45.67.1...  connected.
+
+220-whizzer.com SMTP ready at Mon, 6 Jun 1994 18:56:22 -0500
+
+220 ESMTP spoken here
+
+&gt;&gt;&gt; HELO gonzo.gov
+
+250 whizzer.com Hello gonzo.gov [123.45.67.2], pleased to meet you
+
+&gt;&gt;&gt; MAIL From:&lt;betty@gonzo.gov&gt;
+
+250 &lt;betty@gonzo.gov&gt;... Sender ok
+
+&gt;&gt;&gt; RCPT To:&lt;joe@whizzer.com&gt;
+
+250 &lt;joe@whizzer.com&gt;... Recipient ok
+
+&gt;&gt;&gt; DATA
+
+354 Enter mail, end with &quot;.&quot; on a line by itself
+
+&gt;&gt;&gt; .
+
+250 SAA08680 Message accepted for delivery
+
+&gt;&gt;&gt; QUIT
+
+221 whizzer.com closing connection
+
+joe@whizzer.com... Sent
+
+$</PRE>
+
+<P>The first line shows one way to invoke sendmail directly rather than letting your favorite MUA do it for you. The -v option tells sendmail to be verbose and shows you the SMTP dialogue. The other lines show an SMTP client and server carrying on a 
+conversation. Lines prefaced with &gt;&gt;&gt; are the client (or sender) on gonzo.gov, and the lines that immediately follow are the replies of the server (or receiver) on whizzer.com. The first line beginning with 220 is the SMTP server announcing itself 
+
+after the initial connection, giving its hostname and the date and time, and the second line informs the client that this server understands the Extended SMTP protocol (ESMTP) in case the client wants to use it. Numbers such as 220 are reply codes that the 
+
+SMTP client uses to communicate with the SMTP server. The text following the reply codes is only for human consumption.
+
+<BR></P>
+
+<P>Although this dialogue may still look a little mysterious, it will soon be old hat if you take the time to read RFC 821. Running sendmail with its -v option also helps you understand how an SMTP dialogue works.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I12" NAME="I12">
+
+<FONT SIZE=3><B>The Domain Name System (DNS) and E-Mail</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Names like whizzer.com are convenient for humans, but computers insist on using numeric IP addresses like 123.45.67.1. The Domain Name System (DNS) provides this hostname to IP address translation and other important information.
+
+<BR></P>
+
+<P>In the olden days when most of us walked several miles to school through deep snow, there were only a few thousand hosts on the Internet. All hosts were registered with the Network Information Center (NIC), which distributed a host table listing the 
+host names and IP addresses of all the hosts on the Internet. Those simple times are gone forever. No one really knows how many hosts are connected to the Internet now, but they number in the millions, and an administrative entity like the NIC can't keep 
+their names straight. Thus was born the DNS.
+
+<BR></P>
+
+<P>The DNS distributes authority for naming and numbering hosts to autonomous administrative domains. For instance, a company whizzer.com could maintain all the information about the hosts in its own domain. When the host a.whizzer.com wished to send mail 
+
+or telnet to the host b.whizzer.com, it would send an inquiry over the network to the whizzer.com name server, which might run on a host named ns.whizzer.com. The ns.whizzer.com name server would reply to a.whizzer.com with the IP address of b.whizzer.com 
+
+(and possibly other information), and the mail would be sent or the telnet connection made. Because ns.whizzer.com is authoritative for the whizzer.com domain, it can answer any inquiries about whizzer.com hosts regardless of where they originate; the 
+authority for naming hosts in this domain has been delegated.
+
+<BR></P>
+
+<P>Now, what if someone on a.whizzer.com wants to send mail to joe@gonzo.gov? Ns.whizzer.com has no information about hosts in the gonzo.gov domain, but it knows how to find out. When a name server receives a request for a host in a domain for which it has 
+
+no information, it asks the root name servers for the names and IP addresses of servers authoritative for that domain, in this case gonzo.gov. The root name server gives the ns.whizzer.com name server the names and IP addresses of hosts running name 
+servers with authority for gonzo.gov. The ns.whizzer.com name server enquires of them and forwards the reply back to a.whizzer.com.
+
+<BR></P>
+
+<P>From the description above you can see that the DNS is a large, distributed database containing mappings between hostnames and IP addresses, but it contains other information as well. When a program like sendmail delivers mail, it must translate the 
+recipient's host name into an IP address. This bit of DNS data is known as an A (Address) record, and it is the most fundamental data about a host. A second piece of host data is the Mail eXchanger (MX) record. An MX record for a host like a.whizzer.com 
+lists one or more hosts that are willing to receive mail for it.
+
+<BR></P>
+
+<P>What's the point?  Why shouldn't a.whizzer.com simply receive its own mail and be done with it? Isn't a postmaster's life complicated enough without having to worry about mail exchangers?  Well, while it's true that the postmaster's life is often overly 
+
+complicated, MX records serve useful purposes:
+
+<BR></P>
+
+<UL>
+
+<LI>Hosts not on the Internet (e.g., UUCP-only hosts) may designate an Internet host to receive their mail and so appear to have an Internet address. For instance, suppose that a.whizzer.com is only connected to ns.whizzer.com once a day via a UUCP link. 
+If ns.whizzer.com publishes an MX record for it, other Internet hosts can still send it mail. When ns.whizzer.com receives the mail, it saves it until a.whizzer.com connects. This use of MX records allows non-Internet hosts to appear to be on the Internet 
+
+(but only to receive e-mail).
+
+<BR>
+
+<BR></LI>
+
+<LI>Imagine a UNIX host pcserv.whizzer.com that acts as a file server for a cluster of personal computers. The PC clones have MUAs with built-in SMTP clients that allow them to send mail, but not receive mail. If return addresses on the outbound mail look 
+
+like someone@pc1.whizzer.com, how can people reply to the mail?  MX records come to the rescue again &#151; pcserv.whizzer.com publishes itself as the MX host for all the PC clones, and mail addressed to them is sent there.
+
+<BR>
+
+<BR></LI>
+
+<LI>Hosts may be off the Internet for extended times because of unpredictable reasons ranging from lightning strikes to the propensity of backhoe operators to unexpectedly unearth, fiber-optic cables. While your host is off the Internet, its mail queues on 
+
+other hosts, and after a while it bounces back to the sender. If your host has MX hosts willing to hold its mail in the interim, the mail will be delivered when your host is available again. The hosts can be either on-site (i.e., in your domain) or 
+off-site, or both. The last option is best, since backhoe operator disasters usually take your entire site off the net, in which case an on-site backup does no good.
+
+<BR>
+
+<BR></LI>
+
+<LI>MX records hide information and allow you more flexibility to reconfigure your local network. If all your correspondents know that your e-mail address is joe@whizzer.com, it doesn't matter whether the host that receives mail for whizzer.com is named 
+zippy.whizzer.com or pinhead.whizzer.com. It also doesn't matter if you decide to change it to white-whale.whizzer.com; your correspondents will never know the difference.
+
+<BR>
+
+<BR></LI></UL>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I13" NAME="I13">
+
+<FONT SIZE=3><B>Mail Delivery and MX Records</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>When an SMTP client delivers mail to a host, it must do more than translate the hostname into an IP address. First, it asks for MX records. If any exist, it sorts them according to the priority given in the record. For instance, whizzer.com might have 
+MX records listing the hosts mailhub.whizzer.com, walrus.whizzer.com, and mailer.gonzo.gov as the hosts willing to receive mail for it (and the &quot;host&quot; whizzer.com might not exist except as an MX record, meaning that there might be no IP address 
+for it). Although any of these hosts will accept mail for whizzer.com, the MX priorities specify which of those hosts the SMTP client should try first, and properly behaved SMTP clients will do so. In this case the system admin-istrator has set up a 
+primary mail relay mailhub.whizzer.com, an on-site backup walrus.whizzer.com, and arranged with the system administrator at mailer.gonzo.gov for an off-site backup. They have set the MX priorities so that SMTP clients will try the primary mail relay first, 
+
+the on-site backup second, and the off-site backup third. This setup takes care of the problems with the vendor who doesn't ship your parts on time as well as the wayward backhoe operator, who severs the fiber optic cable that provides your site's Internet 
+
+connection.
+
+<BR></P>
+
+<P>After collecting and sorting the MX records, the SMTP client gathers the IP addresses for the MX hosts and attempts delivery to them in order of MX preference. You should keep this in mind when debugging mail problems. Just because a letter is addressed 
+
+to joe@whizzer.com, it doesn't necessarily mean that a host named whizzer.com exists. Even if it does, it might not be the host that is supposed to receive the mail.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I14" NAME="I14">
+
+<FONT SIZE=3><B>Header and Envelope Addresses</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The distinction between header and envelope addresses is important because mail routers may process them differently. An example will help explain the difference between the two.
+
+<BR></P>
+
+<P>Suppose you have a paper memo that you want to send to your colleagues Mary and Bill at the Gonzo corporation, and Ted and Ben at the Whizzer company. You give a copy of the memo to your trusty mail clerk Alphonse, who notes the multiple recipients. 
+Since he's a clever fellow who wants to save your company 29 cents, he makes two copies of the memo and puts each in an envelope addressed to the respective companies (rather than sending a copy to each recipient). On the cover of the Gonzo envelope he 
+writes Mary and Bill, and on the cover of the Whizzer envelope he writes Ted and Ben. When his counterparts at Gonzo and Whizzer receive the envelopes, they make copies of the memo and send them to Mary, Bill, Ted and Ben, without inspecting the addresses 
+
+in the memo itself. As far as the Gonzo and Whizzer mail clerks are concerned, the memo itself might be addressed to the pope; they only care about the envelope addresses.
+
+<BR></P>
+
+<P>SMTP clients and servers work in much the same way. Suppose that joe@gonzo.gov sends mail to his colleagues betty@zippy.gov and fred@whizzer.com. The recipient list in the letter's headers may look like this:
+
+<BR></P>
+
+<PRE>To: betty@zippy.gov, fred@whizzer.com</PRE>
+
+<P>The SMTP client at gonzo.gov connects to the whizzer.com mailer to deliver Fred's copy. When it's ready to list the recipients (the envelope address), what should it say?  If it gives both recipients as they are listed in the To: line above (the header 
+
+address), Betty will get two copies of the letter because the whizzer.com mailer will forward a copy to zippy.gov. The same problem occurs if the gonzo.gov SMTP client connects to zippy.gov and lists both Betty and Fred as recipients. The zippy.gov mailer 
+
+will forward a second copy of Fred's letter.
+
+<BR></P>
+
+<P>The solution is the same one that Alphonse and his fellow mail clerks used. The gonzo.gov SMTP client puts an envelope around the letter that contains only the names of the recipients on each host. The complete recipient list is still in the letter's 
+headers, but those are inside the envelope, and the SMTP servers at gonzo.gov and whizzer.com don't look at them. In this example, the envelope for the whizzer.com mailer would list only fred, and the envelope for zippy.gov would only list betty.
+
+<BR></P>
+
+<P>Aliases illustrate another reason why header and envelope addresses differ. Suppose you send mail to the alias homeboys, which includes the names alphonse, joe, betty, and george. In your letter you write To: homeboys. However, sendmail expands the 
+alias and constructs an envelope that includes all of the recipients. Depending on whether those names are also aliases, perhaps on other hosts, the original message might be put into as many as four different envelopes and delivered to four different 
+hosts. In each case the envelope will contain only the name of the recipients, but the original message will contain the alias homeboys (expanded to homeboys@<I>your.host.domain</I> so replies will work).
+
+<BR></P>
+
+<P>A final example shows another way in which envelope addresses may differ from header addresses. sendmail allows you to specify recipients on the command line. Suppose you have a file named letter that looks like this:
+
+<BR></P>
+
+<PRE>$ cat letter
+
+To: null recipient &lt;&gt;
+
+Subject: header and envelope addresses
+
+testing</PRE>
+
+<P>and you send it with the following command (substituting your own login name for <I>yourlogin</I>):
+
+<BR></P>
+
+<PRE>$ sendmail yourlogin &lt; letter</PRE>
+
+<P>You will receive the letter even though your login name doesn't appear in the letter's headers because your address was on the envelope. Unless told otherwise (with the -t flag),  sendmail constructs envelope addresses from the recipients you specify on 
+
+the command line, and there isn't necessarily a correspondence between the header addresses and the envelope addresses.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I15" NAME="I15">
+
+<FONT SIZE=3><B>sendmail's Jobs</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>To better understand how to set up sendmail, you need to know what different jobs it does and how those jobs fit into the scheme of MUAs, MTAs, mail routers, final delivery agents, and SMTP clients and servers. sendmail can act as a mail router, an SMTP 
+
+client and an SMTP server. However, it does not do final delivery of mail.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I16" NAME="I16">
+
+<FONT SIZE=3><B><I>sendmail</I></B><B> as Mail Router</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>sendmail is primarily a mail router, meaning it takes a letter, inspects the recipient addresses, and decides the best way to send it. How does sendmail do this?
+
+<BR></P>
+
+<P>sendmail determines some of the information it needs on its own, like the current time and the name of the host on which it's running, but most of its brains are supplied by you, the postmaster, in the form of a configuration file, sendmail.cf. This 
+somewhat cryptic file tells sendmail exactly how you want various kinds of mail handled. It is extremely flexible and powerful, and at first glance seemingly inscrutable. However, one of the strengths of V8 sendmail is its set of modular configuration file 
+
+building blocks. Most sites can easily construct their configuration files from these modules, and many examples are included. Writing a configuration file from scratch is a daunting task and you should avoid it if you can.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I17" NAME="I17">
+
+<FONT SIZE=3><B><I>sendmail</I></B><B> as MTA&#151;Client (Sender) and Server (Receiver) SMTP</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As mentioned before, sendmail can function as an MTA since it understands the SMTP protocol (V8 sendmail also understands ESMTP). Because SMTP is a connection-oriented protocol, there is always a client and a server (also known as a sender and a 
+receiver). The SMTP client delivers a letter to an SMTP server, which listens continuously on its com-puter's SMTP port. sendmail can be an SMTP client or an SMTP server. When run by an MUA, it becomes an SMTP client and speaks client-side SMTP to an SMTP 
+
+server (not necessarily another sendmail program). When your system boots and it starts in daemon mode, it runs continuously, listening on the SMTP port for incoming mail.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I18" NAME="I18">
+
+<FONT SIZE=3><B><I>sendmail</I></B><B> as a Final Delivery Agent (NOT!)</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>One thing sendmail doesn't do is final delivery. sendmail's author wisely chose to leave this task to other programs. sendmail is a big, complicated program that runs with super-user privileges, an almost guaranteed recipe for security problems, and 
+there have been quite a few in sendmail's past. The additional complexity of final mail delivery is the last thing sendmail needs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I19" NAME="I19">
+
+<FONT SIZE=3><B><I>sendmail</I></B><B>'s Auxiliary Files</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>sendmail depends on a number of auxiliary files to do its job. The most important are the aliases file and the configuration file, sendmail.cf. The statistics file, sendmail.st, can be created or not depending on whether you want the statistics. 
+sendmail.hf is the SMTP help file, and should be installed if you intend to run sendmail as an SMTP server (most sites do). That's all that needs to be said about sendmail.st and sendmail.hf (there are other auxilary files that are covered in the SIOG), 
+but the aliases and sendmail.cf files are important enough to be covered in their own sections.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I20" NAME="I20">
+
+<FONT SIZE=3><B>The Aliases File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>sendmail always checks recipient addresses for aliases, which are alternate names for a recipient. For instance, each Internet site is required to have a valid address postmaster to which mail problems may be reported. Most sites don't have an actual 
+account of that name but divert the postmaster's mail to the person or persons responsible for e-mail administration. For instance, at the mythical site gonzo.gov, the users joe and betty are jointly responsible for e-mail administration, and the aliases 
+file has the following entry:
+
+<BR></P>
+
+<PRE>postmaster: joe, betty</PRE>
+
+<P>This line tells sendmail that mail to postmaster should instead be delivered to the login names joe and betty. In fact, those names could also be aliases:
+
+<BR></P>
+
+<PRE>postmaster: firstshiftops, secondshiftops, thirdshiftops
+
+firstshiftops: joe, betty
+
+secondshiftops: lou, emma
+
+thirdshiftops: ben, mark, clara</PRE>
+
+<P>In all of these examples, the alias name is the part on the left side of the colon, and the aliases for those names are on the right side. sendmail repeatedly evaluates aliases until they resolve to a real user or a remote address. In the previous 
+example, to resolve the alias postmaster, sendmail first expands it into the list of recipients firstshiftops, secondshiftops, and thirdshiftops and then expands each of these into the final list, joe, betty, lou, emma, ben, mark, and clara.
+
+<BR></P>
+
+<P>Although the right side of an alias may refer to a remote host, the left side may not. The alias joe: joe@whizzer.com is legal, but joe@gonzo.gov: joe@whizzer.com is not.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I21" NAME="I21">
+
+<FONT SIZE=3><B>Reading Aliases from a File&#151;the </B><B><I>:include:</I></B><B> Directive</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Aliases may be used to create mailing lists (in the example above, the alias postmaster is in effect a mailing list for the local postmasters). For big or frequently changing lists, you can use the :include: alias form to direct sendmail to read the 
+list members from a file. If the aliases file contains the line:
+
+<BR></P>
+
+<PRE>homeboys: :include:/home/alphonse/homeboys.aliases</PRE>
+
+<P>and the file /home/alphonse/homeboys.aliases contains:
+
+<BR></P>
+
+<PRE>alphonse
+
+joe
+
+betty
+
+george</PRE>
+
+<P>The effect is the same as the alias:
+
+<BR></P>
+
+<PRE>homeboys: alphonse, joe, betty, george</PRE>
+
+<P>This is handy for mailing lists that change frequently, or those managed by users other than the postmaster. If you find a user is asking for frequent changes to a mail alias, you may want to put it under her control.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I22" NAME="I22">
+
+<FONT SIZE=3><B>Mail to Programs</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The aliases file also may be used to send the contents of e-mail to a program. For instance, many mailing lists are set up so that you can get information about the list or subscribe to it by sending a letter to a special address, <I>list</I>-request. 
+The letter usually contains a single word in its body, such as help or subscribe, which causes a program to mail an information file to the sender. Suppose that the gonzo mailing list has such an address called gonzo-request:
+
+<BR></P>
+
+<PRE>gonzo-request: |/usr/local/lib/auto-gonzo-reply</PRE>
+
+<P>In this form of alias, the pipe sign (|) tells sendmail to use the program mailer, which is usually defined as /bin/sh (see &quot;The M command&#151;defining mailers&quot; below). sendmail feeds the message to the standard input of 
+/usr/local/lib/auto-gonzo-reply, and if it exits normally, sendmail considers the letter to be delivered.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I23" NAME="I23">
+
+<FONT SIZE=3><B>Mail to Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You can also create an alias that causes sendmail to send mail to files. An example of this is the alias nobody, which is common on systems running the Network File System (NFS):
+
+<BR></P>
+
+<PRE>nobody: /dev/null</PRE>
+
+<P>Aliases that specify files cause sendmail to append its message to the named file. Because the special file /dev/null is the UNIX bit-bucket, this alias simply throws mail away.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I24" NAME="I24">
+
+<FONT SIZE=4><B>Setting up </B><B><I>sendmail</I></B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>The easiest way to show you how to set up sendmail is to use a concrete example. However, because sendmail runs under many different versions of UNIX, your system may vary from the examples shown below. For the sake of concreteness, these examples 
+assume that you're setting up sendmail on a Solaris 2.3 system, Sun Microsystem's version of SVR4 UNIX.
+
+<BR></P>
+
+<P>First you must obtain the source and compile sendmail. Next you must choose a sendmail.cf file that closely models your site's requirements and tinker with it as necessary. Then you must test sendmail and its configuration file. Finally, you must 
+install sendmail, sendmail.cf, and other auxiliary files.
+
+<BR></P>
+
+<P>Those are the basic steps, but depending on where you install sendmail, you may also have to modify a file in the directory /etc/init.d so that sendmail will be started correctly when the system boots. In addition, if your system doesn't already have 
+one, you must create an aliases file, often named /usr/lib/aliases or /etc/mail/aliases (the location of the aliases file is given in sendmail.cf, so you can put it wherever you want). You may also have to make changes to your system's DNS database, but 
+that won't be covered here.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I25" NAME="I25">
+
+<FONT SIZE=3><B>Obtaining the Source</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>sendmail version 8.6.9 is on the UNIX Unleashed CD. This is the most recent version available as this book goes to press, and it is the version documented in the O'Reilly book sendmail. However, if your site is on the Internet and you want to obtain the 
+
+absolutely latest version, ftp to the host ftp.cs.berkeley.edu and look in the directory ~ftp/pub/ucb/sendmail. Use the following steps to download it:
+
+<BR></P>
+
+<PRE>$ ftp ftp.cs.berkeley.edu
+
+Connected to ftp.cs.berkeley.edu.
+
+220 kohler FTP server (Version wu-2.4(4) Fri May 6 16:09:33 PDT 1994) ready.
+
+Name (ftp.cs.berkeley.edu:yourname): <B>anonymous</B>
+
+331 Guest login ok, send your complete e-mail address as password.
+
+Password: (Type your e-mail address)
+
+230 Guest login ok, access restrictions apply.
+
+ftp&gt; cd ucb/sendmail
+
+250-This directory contains sendmail source distributions, currently for
+
+250-Release 8. The latest version is in four files:
+
+250-
+
+250-   sendmail.${VER}.base.tar.Z &#151; the base system source &amp; documentation.
+
+250-   sendmail.${VER}.cf.tar.Z &#151; configuration files.
+
+250-   sendmail.${VER}.misc.tar.Z &#151; miscellaneous support programs.
+
+250-   sendmail.${VER}.xdoc.tar.Z &#151; extended documentation, with postscript.
+
+250-
+
+250-The status of various ${VER}s is:
+
+250-8.6.9  This is the version documented in the O'Reilly sendmail book.
+
+250-       and which will be on the 4.4BSD-Lite tape. The files
+
+250-       sendmail.8.6.[123456789].patch will upgrade an 8.6 source to
+
+250-       this version (apply all of them).
+
+250-8.6.8  The previous version. It fixes some significant security
+
+250-       problems; you should be running at least this version.
+
+250-
+
+250 CWD command successful.
+
+ftp&gt; binary
+
+200 Type set to I.
+
+ftp&gt; mget sendmail.8.6.9.base.tar.Z sendmail.8.6.9.cf.tar.Z
+
+mget sendmail.8.6.9.base.tar.Z? <B>y</B>
+
+200 PORT command successful.
+
+150 Opening BINARY mode data connection for sendmail.8.6.9.base.tar.Z (500945 bytes).
+
+226 Transfer complete.
+
+local: sendmail.8.6.9.base.tar.Z remote: sendmail.8.6.9.base.tar.Z
+
+500945 bytes received in 14 seconds (34 Kbytes/s)
+
+mget sendmail.8.6.9.cf.tar.Z? <B>y</B>
+
+200 PORT command successful.
+
+150 Opening BINARY mode data connection for sendmail.8.6.9.cf.tar.Z (199863 bytes).
+
+226 Transfer complete.
+
+local: sendmail.8.6.9.cf.tar.Z remote: sendmail.8.6.9.cf.tar.Z
+
+199863 bytes received in 3.3 seconds (59 Kbytes/s)
+
+ftp&gt; <B>quit</B>
+
+221 Goodbye.</PRE>
+
+<P>Note that the exact name of the files to download differs depending on the current version of V8 sendmail, in this case version 8.6.9. Also, because the files are compressed, you must give ftp the binary command before transferring them. Note too that 
+you should include your complete e-mail address as the password, for instance, mylogin@gonzo.gov. You may also wish to download the extended documentation and the support programs, which in this example would have been contained in the files 
+sendmail.8.6.9.xdoc.tar.Z and sendmail.8.6.9.misc.tar.Z.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I26" NAME="I26">
+
+<FONT SIZE=3><B>Unpacking the Source and Compiling </B><B><I>sendmail</I></B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Now that you've got the source, you need to unpack it. Because it's a compressed tar image, you must first decompress it and then extract the individual files from the tar archive. If you're using the version from the CD-ROM, these steps are not 
+necessary.
+
+<BR></P>
+
+<PRE>$ mkdir /usr/src/local/sendmail
+
+$ mv sendmail.8.6.9.* /usr/src/local/sendmail
+
+$ cd /usr/src/local/sendmail
+
+$ uncompress *Z
+
+$ ls
+
+sendmail.8.6.9.base.tar sendmail.8.6.9.cf.tar
+
+$ tar xf sendmail.8.6.9.base.tar; tar xf sendmail.8.6.9.cf.tar
+
+$ ls -CF
+
+FAQ                    cf/                       sendmail.8.6.9.cf.tar
+
+KNOWNBUGS              doc/                      src/
+
+Makefile               mailstats/                test/
+
+READ_ME                makemap/
+
+RELEASE_NOTES          sendmail.8.6.9.base.tar
+
+$ rm *tar</PRE>
+
+<P>Now you're almost ready to compile sendmail, but first read the following files, which contain the latest news pertinent to the specific release of sendmail you've downloaded:
+
+<BR></P>
+
+<PRE>FAQ
+
+RELEASE_NOTES
+
+KNOWNBUGS
+
+READ_ME</PRE>
+
+<P>Now run cd and ls to see what files are in the source directory:
+
+<BR></P>
+
+<PRE>$ cd src
+
+$ ls
+
+Makefile               Makefile.SunOS.5.1     mailq.1
+
+Makefile.386BSD        Makefile.SunOS.5.2     mailstats.h
+
+Makefile.AIX           Makefile.SunOS.5.x     main.c
+
+Makefile.AUX           Makefile.Titan         makesendmail
+
+Makefile.BSD43         Makefile.ULTRIX        map.c
+
+Makefile.BSDI          Makefile.UMAX          mci.c
+
+Makefile.CLIX          Makefile.Utah          newaliases.1
+
+Makefile.ConvexOS      Makefile.dist          parseaddr.c
+
+Makefile.DGUX          READ_ME                pathnames.h
+
+Makefile.Dell          TRACEFLAGS             queue.c
+
+Makefile.DomainOS      alias.c                readcf.c
+
+Makefile.Dynix         aliases                recipient.c
+
+Makefile.FreeBSD       aliases.5              savemail.c
+
+Makefile.HP-UX         arpadate.c             sendmail.8
+
+Makefile.IRIX          cdefs.h                sendmail.h
+
+Makefile.Linux         clock.c                sendmail.hf
+
+Makefile.Mach386       collect.c              srvrsmtp.c
+
+Makefile.NCR3000       conf.c                 stab.c
+
+Makefile.NeXT          conf.h                 stats.c
+
+Makefile.NetBSD        convtime.c             sysexits.c
+
+Makefile.OSF1          daemon.c               trace.c
+
+Makefile.RISCos        deliver.c              udb.c
+
+Makefile.SCO           domain.c               useful.h
+
+Makefile.SVR4          envelope.c             usersmtp.c
+
+Makefile.Solaris       err.c                  util.c
+
+Makefile.SunOS         headers.c              version.c
+
+Makefile.SunOS.4.0.3   macro.c</PRE>
+
+<P>As you can see, because sendmail runs on a variety of hosts and operating systems, a Makefile is provided for many UNIX variants. Since in this example we're assuming a Sun Microsystems Solaris system, we'll use Makefile.Solaris to compile sendmail. But 
+
+before we type make, we should look at the files conf.h and Makefile.Solaris.
+
+<BR></P>
+
+<P>You probably won't want to change much in conf.h, but Makefile.Solaris is a different story. At the very least you should make sure that the correct version of the Solaris operating system is defined. In this case, since we're compiling for Solaris 2.3, 
+
+we must replace the line ENV=-DSOLARIS with the line ENV=-DSOLARIS_2_3 (Makefile.Solaris tells us to do so). If you've purchased the SunPro cc compiler, you may want to change the definition of the CC macro to use that instead of gcc. You may want to make 
+
+other changes; for example, you may not want to install sendmail in the default location. Read the Makefile carefully and make changes as needed.
+
+<BR></P>
+
+<P>Remember, when in doubt, you can always type make -n <I>arguments</I> to see what would happen before it happens. This is always an especially good idea when you're working as the super-user.
+
+<BR></P>
+
+<P>Now you're ready to compile. Type:
+
+<BR></P>
+
+<PRE>$ make -f Makefile.Solaris sendmail
+
+gcc -I.  -I/usr/sww/include/db -DNDBM -DNIS -DSOLARIS_2_3 -c  alias.c
+
+[...]
+
+gcc -I.  -I/usr/sww/include/db -DNDBM -DNIS -DSOLARIS_2_3 -c  util.c
+
+gcc -I.  -I/usr/sww/include/db -DNDBM -DNIS -DSOLARIS_2_3 -c version.c
+
+gcc -o sendmail alias.o arpadate.o clock.o collect.o conf.o convtime.o daemon.o
+
+deliver.o domain.o envelope.o err.o headers.o macro.o main.o  map.o mci.o
+
+parseaddr.o queue.o readcf.o recipient.o  savemail.o srvrsmtp.o stab.o stats.o
+
+sysexits.o  trace.o udb.o usersmtp.o util.o version.o
+
+-L/usr/sww/lib -lresolv -lsocket -lnsl -lelf</PRE>
+
+<P>The [...] above covers many deleted lines of output, as well as some warning messages from the compiler. Carefully inspect the output and determine whether the compiler warnings are pertinent. If necessary (and it should only be necessary if you're 
+porting sendmail to a new architecture), correct any problems and compile again.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I27" NAME="I27">
+
+<FONT SIZE=4><B><I>sendmail.cf</I></B><B>&#151;the Configuration File</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>Now you've got a working sendmail, but like the Wizard of Oz's Scarecrow, it's brainless. The sendmail.cf file provides sendmail with its brains, and because it's so important, we're going to cover it in fairly excruciating detail. Don't worry if you 
+don't understand everything in this section the first time through. It will make more sense upon rereading, and after you've had a chance to play with some configuration files of your own.
+
+<BR></P>
+
+<P>sendmail's power lies in its flexibility, which comes from its configuration file, sendmail.cf. sendmail.cf statements comprise a cryptic programming language that at first glance doesn't inspire much confidence (but C language code probably didn't 
+either the first time you saw it). However, learning the sendmail.cf language isn't that hard, and you won't have to learn the nitty-gritty details unless you plan to write a sendmail.cf from scratch&#151;a bad idea at best. You do need to learn enough to 
+
+understand and adapt the V8 sendmail configuration file templates to your site's needs.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I28" NAME="I28">
+
+<FONT SIZE=3><B>General Form of the Configuration File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Each line of the configuration file begins with a single command character that tells the function and syntax of that line. Lines beginning with a # are comments, and blank lines are ignored. Lines beginning with a space or tab are a continuation of the 
+
+previous line, although you should usually avoid continuations.
+
+<BR></P>
+
+<P>Table 41.1 shows the command characters and their functions. It is split into three parts corresponding to the three main functions of a configuration file, which are covered later in &quot;A Functional Description of the Configuration File.&quot;
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 41.1. </B><B>sendmail.cf</B><B> command characters.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<PRE><I>Command Character</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Command Syntax and Example</I>
+
+<BR></PRE>
+
+<TD>
+
+<PRE><I>Function</I>
+
+<BR></PRE>
+
+<TR>
+
+<TD>
+
+<P>#</P>
+
+<TD>
+
+<P># comments are ignored</P>
+
+<TD>
+
+<P>A comment line. Always use lots of comments.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B># Standard RFC822 parsing</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>D</P>
+
+<TD>
+
+<P>DX string</P>
+
+<TD>
+
+<P>Define a macro X to have the string value string.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>DMmailhub.gonzo.gov</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>C</P>
+
+<TD>
+
+<P>CX word1 word2 ...</P>
+
+<TD>
+
+<P>Define a class<B> </B>X as<B> </B>word1 word2 ...</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>Cwlocalhost myuucpname</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>F</P>
+
+<TD>
+
+<P>FX/path/to/a/file</P>
+
+<TD>
+
+<P>Define a class X by reading it from a file.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>Fw/etc/mail/host_aliases</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>H</P>
+
+<TD>
+
+<P>H?mailerflag?name:template</P>
+
+<TD>
+
+<P>Define a mail header.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>H?F?From: $q</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>O</P>
+
+<TD>
+
+<P>OX option arguments</P>
+
+<TD>
+
+<P>Set option X. Most command-line options may be set in sendmail.cf.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>OL9  # set log level to 9</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>P</P>
+
+<TD>
+
+<P>Pclass=nn</P>
+
+<TD>
+
+<P>Set mail delivery precedence based on the class of the mail.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>Pjunk=-100</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>V</P>
+
+<TD>
+
+<P>Vn</P>
+
+<TD>
+
+<P>Tell V8 sendmail the version level of the configuration file.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>V3</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>K</P>
+
+<TD>
+
+<P>Kname class arguments</P>
+
+<TD>
+
+<P>Define a key file (database map).</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>Kuucphosts dbm </B><B>/etc/mail/uucphsts</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>M</P>
+
+<TD>
+
+<P>Mname,field_1=value_1,...</P>
+
+<TD>
+
+<P>Define a<B> </B>mailer.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>Mprog,P=/bin/sh,F=lsD,A=sh </B><B>-c $u</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>S</P>
+
+<TD>
+
+<P>Snn</P>
+
+<TD>
+
+<P>Begin a new rule-set.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>S22</B></P>
+
+<TD>
+
+<P><BR></P>
+
+<TR>
+
+<TD>
+
+<P>R</P>
+
+<TD>
+
+<P>Rlhs rhs comment</P>
+
+<TD>
+
+<P>Define a matching/rewriting rule.</P>
+
+<TR>
+
+<TD>
+
+<P><BR></P>
+
+<TD>
+
+<P><B>R$+ $:$&gt;22  call ruleset 22</B></P>
+
+<TD>
+
+<P><BR></P></TABLE>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I29" NAME="I29">
+
+<FONT SIZE=3><B>A Functional Description of the Configuration File</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>A configuration file does three things. First, it sets the environment for sendmail by telling it what options you want set and the locations of the files and databases it uses.
+
+<BR></P>
+
+<P>Second, it defines the characteristics of the mailers (delivery agents or MTAs) that sendmail uses after it decides where to route a letter. All configuration files must define local and program mailers to handle delivery to users on the local host; 
+most also define one or more SMTP mailers; and sites that must handle UUCP mail define UUCP mailers.
+
+<BR></P>
+
+<P>Third, the configuration file specifies rulesets that rewrite sender and recipient addresses and select mailers. All rulesets are user-defined, but some have special meaning to sendmail. Ruleset 0, for instance, is used to select a mailer. Rulesets 0, 
+1, 2, 3, and 4 all have special meaning to sendmail and are processed in a particular order (see &quot;The S and R Operators&#151;Rulesets and Rewriting Rules&quot;) later in this chapter.
+
+<BR></P>
+
+<P>In the following sections we'll cover the operators in more detail, in the order in which they appear in Table 41.1.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I30" NAME="I30">
+
+<FONT SIZE=3><B>The </B><B><I>D</I></B><B> Operator&#151;Macros</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Macros are like shell variables. Once you define a macro's value you can refer to it later in the configuration file and its value will be substituted for the macro. For instance, a configuration file might have many lines that mention our hypothetical 
+
+mail hub, mailer.gonzo.gov. Rather than typing that name over and over, you can define a macro R (for relay mailer):
+
+<BR></P>
+
+<PRE>DRmailer.gonzo.gov</PRE>
+
+<P>When sendmail encounters a $R in sendmail.cf, it substitutes the string mailer.gonzo.gov.
+
+<BR></P>
+
+<P>Macro names are always a single character. Quite a few macros are defined by sendmail and shouldn't be redefined except to work around broken software1. sendmail uses lower-case letters for its predefined macros. Uppercase letters may be used freely. V8 
+
+sendmail's predefined macros are fully documented in section 5.1.2 of the SIOG.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I31" NAME="I31">
+
+<FONT SIZE=3><B>The </B><B><I>C</I></B><B> and </B><B><I>F</I></B><B> Operators&#151;Classes</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Classes are similar to macros but are used for different purposes in rewriting rules (see below, &quot;The S and R operators&#151;rulesets and rewriting rules&quot;). As with macros, classes are named by a single character. Lowercase letters are 
+reserved to sendmail, and uppercase letters for user-defined classes. A class contains one or more words. For instance, you could define a class H containing all the hosts in the local domain:
+
+<BR></P>
+
+<PRE>CH larry moe curly</PRE>
+
+<P>For convenience, large classes may be continued on subsequent lines. The following definition of the class H is exactly the same as the previous one:
+
+<BR></P>
+
+<PRE>CH larry
+
+CH moe
+
+CH curly</PRE>
+
+<P>You can also define a class by reading its words from a file:
+
+<BR></P>
+
+<PRE>CF/usr/local/lib/localhosts</PRE>
+
+<P>If the file /usr/local/lib/localhosts contains the words larry, moe, and curly, one per line, this definition is equivalent to the previous two.
+
+<BR></P>
+
+<P>Why use macros and classes? The best reason is that they centralize information in the configuration file. In the example above, if you decide to change the name of the mail hub from mailer.gonzo.gov to mailhub.gonzo.gov, you only have to change the 
+definition of the $R macro remedyand the configuration file will work as before. If the name mailer.gonzo.gov is scattered throughout the file, you might forget to change it in some places. Also, if important information is centralized, you can comment it 
+
+extensively in a single place. Because configuration files tend to be obscure at best, a liberal dose of comments is a good antidote to that sinking feeling you get when, six months later, you wonder why you made a change.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I32" NAME="I32">
+
+<FONT SIZE=3><B>The </B><B><I>H</I></B><B> Operator&#151;Header Definitions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>You probably won't want to change the header definitions given in the V8 sendmail configuration files because they already follow accepted standards. Here are some sample headers:
+
+<BR></P>
+
+<PRE>H?D?Date: $a
+
+H?F?Resent-From: $q
+
+H?F?From: $q
+
+H?x?Full-Name: $x</PRE>
+
+<P>Note that header definitions can use macros, which are expanded, when inserted into a letter. For instance, the $x macro used in the Full-Name: header definition above expands to the full name of the sender.
+
+<BR></P>
+
+<P>The optional ?<I>mailerflag</I>? construct tells sendmail to insert a header only if the chosen mailer has that mailer flag set. (See &quot;The M Operator&#151;Mailer Definitions&quot; later in this chapter.)
+
+<BR></P>
+
+<P>Suppose that the definition of your local mailer has a flag Q, and sendmail selects that mailer to deliver a letter. If your configuration file contains a header definition like the following one, sendmail will insert that header into letters delivered 
+
+through the local mailer, substituting the value of the macro $F:
+
+<BR></P>
+
+<PRE>H?Q?X-Fruit-of-the-day: $F</PRE>
+
+<P>Why would you use the ?mailerflag? feature? Different protocols may require different mail headers. Since they also need different mailers, you can define appropriate mailer flags for each in the mailer definition, and use the ?<I>mailerflag</I>? 
+construct in the header definition to tell sendmail whether to insert the header.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I33" NAME="I33">
+
+<FONT SIZE=3><B>The </B><B><I>O</I></B><B> Operator&#151;Setting Options</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>sendmail has many options that change its operation or tell it the location of files it uses. Most of them may be given either on the command line or in the configuration file. For instance, the location of the aliases file may be specified in either 
+place. To specify the aliases file on the command line, you use the -o option:
+
+<BR></P>
+
+<PRE>$ sendmail -oA/etc/mail/aliases [other arguments...]</PRE>
+
+<P>To do the same thing in the configuration file, you include a line like this:
+
+<BR></P>
+
+<PRE>OA/etc/mail/aliases</PRE>
+
+<P>Either use is equivalent, but options such as the location of the aliases file rarely change and most people set them in sendmail.cf. The V8 sendmail options are fully described in section 5.1.6 of the SIOG.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I34" NAME="I34">
+
+<FONT SIZE=3><B>The </B><B><I>P</I></B><B> Operator&#151;Mail Precedence</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Users can include mail headers indicating the relative importance of their mail, and sendmail can use those headers to decide the priority of competing letters. Precedences for V8 sendmail are given as:
+
+<BR></P>
+
+<PRE>Pspecial-delivery=100
+
+Pfirst-class=0
+
+Plist=-30
+
+Pbulk=-60
+
+Pjunk=-100</PRE>
+
+<P>If a user who runs a large mailing list includes the header Precedence: bulk in his letters, sendmail gives it a lower priority than a letter with the header Precedence: first-class.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I35" NAME="I35">
+
+<FONT SIZE=3><B>The </B><B><I>V</I></B><B> Operator&#151;</B><B><I>sendmail.cf</I></B><B> Version Levels</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>As V8 sendmail evolves its author adds new features. The V operator lets V8 sendmail know what features it should expect to find in your configuration file. Older versions of sendmail don't understand this command. Section 5.1.8 of the SIOG explains the 
+
+different configuration file version levels in detail.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The configuration file version level does not correspond to the sendmail version level. V8 sendmail understands versions 1 through 5 of configuration files, and there is no such thing as a version 8 
+configuration file.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I36" NAME="I36">
+
+<FONT SIZE=3><B>The </B><B><I>K</I></B><B> Operator&#151;Key Files</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>sendmail has always used keyed databases, for instance, the aliases databases. Given the key postmaster, sendmail looks up the data associated with that key and returns the names of the accounts to which the postmaster's mail should be delivered. V8 
+sendmail extends this concept to arbitrary databases, including NIS maps (Sun's Network Information Service, formerly known as Yellow Pages or YP). The K operator tells sendmail the location of the database, its class, and how to access it. V8 sendmail 
+supports the following classes of user-defined databases: dbm, btree, hash, and NIS. Depending on which of these databases you use, you must compile sendmail with different options. See section 5.1.9 of the SIOG for the lowdown on key files.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I37" NAME="I37">
+
+<FONT SIZE=3><B>The </B><B><I>M</I></B><B> Operator&#151;Mailer Definitions</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Mailers are either MTAs or final delivery agents. Recall that the aliases file allows you to send mail to a login name (which might be aliased to a remote user), a program, or a file. A special mailer may be defined for each purpose. And even though the 
+
+SMTP MTA is built-in, it must have a mailer definition to tailor sendmail's SMTP operations.
+
+<BR></P>
+
+<P>Mailer definitions are important because all recipient addresses must resolve to a mailer in ruleset 0. Resolving to a mailer is just another name for sendmail's main function, mail routing. For instance, resolving to the local mailer routes the letter 
+
+to a local user via the final delivery agent defined in that mailer (usually /bin/mail), and resolving to the SMTP mailer routes the letter to another host via sendmail's built-in SMTP transport, as defined in the SMTP mailer. A concrete example of a 
+mailer definition will make this clearer. Since sendmail requires a local mailer definition, let's look at that:
+
+<BR></P>
+
+<PRE>Mlocal, P=/bin/mail, F=lsDFMfSn, S=10, R=20, A=mail -d $u</PRE>
+
+<P>All mailer definitions begin with the M operator and the name of the mailer, in this case local. Other fields follow, separated by commas. Each field consists of a field name and its value, separated by an equals sign (=). The allowable fields are 
+explained in section 5.1.4 of the SIOG.
+
+<BR></P>
+
+<P>In the local mailer definition above, the P= equivalence gives the pathname of the program to run to deliver the mail, /bin/mail. The F= field gives the sendmail flags for the local mailer. (See also &quot;The H Operator&#151;Defining Headers&quot; 
+earlier in the chapter.) These flags are not passed to the command mentioned in the P= field but are used by sendmail to modify its operation depending on the mailer it chooses. For instance, sendmail usually drops its super-user status before invoking 
+mailers, but you can use the S mailer flag to tell sendmail to retain it for certain mailers.
+
+<BR></P>
+
+<P>The S= and R= fields specify rulesets for sendmail to use in rewriting sender and recipient addresses. Since you can give different R= and S= flags for each mailer you define, you can rewrite addresses differently for each mailer. For instance, if one 
+of your UUCP neighbors runs obsolete software that doesn't understand domain addressing, you might declare a special mailer just for that site and write mailer-specific rulesets to convert addresses into a form its mailer could understand.
+
+<BR></P>
+
+<P>The S= and R= fields can also specify different rulesets to rewrite the envelope and header addresses. (See &quot;Header and Envelope Addresses&quot;.) A specification like S=21/31 tells sendmail to use ruleset 21 to rewrite sender envelope addresses 
+and ruleset 31 to rewrite sender header addresses. This comes in handy for mailers that require addresses to be presented differently in the envelope and the headers.
+
+<BR></P>
+
+<P>The A= field gives the argument vector (command line) for the program that will be run, in this case /bin/mail. In this example, sendmail runs the command as mail -d $u, expanding the $u macro to the name of the user to which the mail should be 
+delivered, for instance:
+
+<BR></P>
+
+<PRE>/bin/mail -d joe</PRE>
+
+<P>This is exactly the same command that you could type to your shell at a command prompt.
+
+<BR></P>
+
+<P>There are many other mailer flags you may want to use to tune mailers, for instance to limit the maximum message size on a per-mailer basis. These flags are all documented in section 5.1.4 of the SIOG.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I38" NAME="I38">
+
+<FONT SIZE=3><B>The </B><B><I>S</I></B><B> and </B><B><I>R</I></B><B> Operators&#151;Rulesets and Rewriting Rules</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A configuration file is composed of a series of rulesets, which are somewhat like subroutines in a program. Rulesets are used to detect bad addresses, to rewrite addresses into forms that remote mailers can understand, and to route mail to one of 
+sendmail's internal mailers. (See the previous section, &quot;The M Operator&#151;Mailer Definitions&quot;.)
+
+<BR></P>
+
+<P>sendmail passes addresses to rulesets according to a built-in order. Rulesets may also call other rulesets not in the built-in order. The built-in order varies depending on whether the address being handled is a sender or receiver address, and what 
+mailer has been chosen to deliver the letter.
+
+<BR></P>
+
+<P>Rulesets are announced by the S command, which is followed by a number to identify the ruleset. sendmail collects subsequent R (rule) lines until it finds another S operator, or the end of the configuration file. The following example defines ruleset 
+11:
+
+<BR></P>
+
+<PRE># Ruleset 11
+
+S11
+
+R$+       $: $&gt;22 $1     call ruleset 22</PRE>
+
+<P>This ruleset doesn't do much that is useful. The important thing to note is that sendmail collects ruleset number 11, composed of a single rule.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I39" NAME="I39">
+
+<FONT SIZE=3><B><I>sendmail</I></B><B>'s Built-In Ruleset Processing Rules</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>sendmail uses a three-track approach to processing addresses, one to choose a delivery agent, another to process sender addresses, and one for receiver addresses.
+
+<BR></P>
+
+<P>All addresses are first sent through ruleset 3 for preprocessing into a canonical form that makes them easy for other rulesets to handle. Regardless of the complexity of the address, ruleset 3's job is to decide the next host to which a letter should be 
+
+sent. Ruleset 3 tries to locate that host in the address and mark it within angle brackets. In the simplest case, an address like joe@gonzo.gov becomes joe&lt;@gonzo.gov&gt;.
+
+<BR></P>
+
+<P>Ruleset 0 then determines the correct delivery agent (mailer) to use for each recipient. For instance, a letter from betty@whizzer.com to joe@gonzo.gov (an Internet site) and pinhead!zippy (an old-style UUCP site) will require two different mailers: an 
+
+SMTP mailer for gonzo.gov and an old-style UUCP mailer for pinhead. Mailer selection determines later processing of sender and recipient addresses because the rulesets given in the S= and R= mailer flags vary from mailer to mailer.
+
+<BR></P>
+
+<P>Addresses sent through ruleset 0 must resolve to a mailer. This means that when an address matches the lhs, the rhs gives a triple2 of mailer, user, host. The following line shows the syntax for a rule that resolves to a mailer:
+
+<BR></P>
+
+<PRE><I>Rlhs</I>      <B>$#</B><I>mailer</I> <B>$@</B><I>host</I> <B>$:</B><I>user</I>   your comment here...</PRE>
+
+<P>The mailer is the name of one of the mailers you've defined in an M command, for instance smtp. The host and user are usually positional macros taken from the lhs match. (See &quot;The Righthand Side (rhs) of Rules,&quot; later in the chapter.)
+
+<BR></P>
+
+<P>After sendmail selects a mailer in ruleset 0, it processes sender addresses through ruleset 1 (often empty), and then sends them to the ruleset given in the S= flag for that mailer.
+
+<BR></P>
+
+<P>Similarly, it sends recipient addresses through ruleset 2 (also often empty), and then to the ruleset mentioned in the R= mailer flag.
+
+<BR></P>
+
+<P>Finally, sendmail post-processes all addresses in ruleset 4, which among other things removes the angle brackets inserted by ruleset 3.
+
+<BR></P>
+
+<P>Why do mailers have different S= and R= flags? Consider the example above of the letter sent to joe@gonzo.gov and pinhead!zippy. If betty@whizzer.com sends the mail, her address must appear in a different form to each recipient. For Joe, it should be a 
+
+domain address, betty@whizzer.com. For Zippy, since whizzer.com expects old-style UUCP addresses (and assuming it has a UUCP link to pinhead and whizzer.com's UUCP hostname is whizzer), the return address should be whizzer!betty. Joe's address must also be 
+
+rewritten for the pinhead UUCP mailer, and Joe's copy must include an address for Zippy that his mailer can handle.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I40" NAME="I40">
+
+<FONT SIZE=3><B>Processing Rules Within Rulesets</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>sendmail passes an address to a ruleset, and then processes it through each rule line by line. If the lhs of a rule matches the address, it is rewritten by the rhs. If it doesn't match, sendmail continues to the next rule until it reaches the end of the 
+
+ruleset3.  At the end of the ruleset, sendmail returns the rewritten address to the calling ruleset or to the next ruleset in its built-in execution sequence.
+
+<BR></P>
+
+<P>If an address matches the lhs and is rewritten by the rhs, the rule is tried again&#151;an implicit loop (but see the $@ and $: modifiers below for exceptions).
+
+<BR></P>
+
+<P>As shown in Table 41.1, each rewriting rule is introduced by the R command and has three fields, the lefthand side (lhs, or matching side), the righthand side (rhs, or rewriting side) and an optional comment, each of which must be separated by tab 
+characters:
+
+<BR></P>
+
+<PRE>Rlhs      rhs       comment</PRE>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I41" NAME="I41">
+
+<FONT SIZE=3><B><I>Parsing</I></B><B>&#151;Turning Addresses into </B><B><I>Tokens</I></B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>sendmail parses addresses and the lhs of rules into tokens and then matches the address and the lhs, token by token. The macro $o contains the characters that sendmail uses to separate an address into tokens. It's often defined like this:
+
+<BR></P>
+
+<PRE># address delimiter characters
+
+Do.:%@!^/[]</PRE>
+
+<P>All of the characters in $o are both token separators and tokens. sendmail takes an address such as rae@rainbow.org and breaks it into tokens according to the characters in the o macro, like this:
+
+<BR></P>
+
+<PRE>&quot;rae&quot;     &quot;@&quot;     &quot;rainbow&quot;     &quot;.&quot;     &quot;org&quot;</PRE>
+
+<P>sendmail also parses the lhs of rewriting rules into tokens so they can be compared one by one with the input address to see if they match. For instance, the lhs $-@rainbow.org gets parsed as:
+
+<BR></P>
+
+<PRE>&quot;$-&quot;     &quot;@&quot;     &quot;rainbow&quot;     &quot;.&quot;     &quot;org&quot;</PRE>
+
+<P>(Don't worry about the $- just yet. It's a pattern-matching operator similar to shell wild cards that matches any single token, and is covered below in &quot;The Lefthand Side (lhs) of Rules.&quot;)  Now we can put the two together to show how sendmail 
+
+decides whether an address matches the lhs of a rule:
+
+<BR></P>
+
+<PRE>&quot;rae&quot;     &quot;@&quot;     &quot;rainbow&quot;     &quot;.&quot;     &quot;org&quot;
+
+&quot;$-&quot;     &quot;@&quot;     &quot;rainbow&quot;     &quot;.&quot;     &quot;org&quot;</PRE>
+
+<P>In this case, each token from the address matches a constant string (e.g., rainbow) or a pattern-matching operator ($-), so the address matches and sendmail would use the rhs to rewrite the address.
+
+<BR></P>
+
+<P>Consider the effect (usually bad!) of changing the value of $o. As shown above, sendmail breaks the address rae@rainbow.org into five tokens. However, if the @ character were not in $o, the address would be parsed quite differently, into only three 
+tokens:
+
+<BR></P>
+
+<PRE>&quot;rae@rainbow&quot;     &quot;.&quot;     &quot;org&quot;</PRE>
+
+<P>You can see that changing $o has a drastic effect on sendmail's address parsing, and you should leave it alone until you really know what you're doing. Even then you probably won't want to change it since the V8 sendmail configuration files already have 
+
+it correctly defined for standard RFC 822 and RFC 976 address interpretation.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I42" NAME="I42">
+
+<FONT SIZE=3><B>The Lefthand Side </B><B><I>(lhs)</I></B><B> of Rules</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The lhs is a pattern against which sendmail matches the input address. The lhs may contain ordinary text or any of the pattern-matching operators shown in Table 41.2:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 41.2. </B><B>lhs</B><B> pattern-matching operators.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>$-</P>
+
+<TD>
+
+<P>Match exactly one token4</P>
+
+<TR>
+
+<TD>
+
+<P>$+</P>
+
+<TD>
+
+<P>Match one or more tokens</P>
+
+<TR>
+
+<TD>
+
+<P>$*</P>
+
+<TD>
+
+<P>Match zero or more tokens</P>
+
+<TR>
+
+<TD>
+
+<P>$@</P>
+
+<TD>
+
+<P>Match the null input (used to call the error mailer)</P></TABLE>
+
+<P>The values of macros and classes are matched in the lhs with the operators shown in Table 41.3:
+
+<BR></P>
+
+<UL>
+
+<LH><B>Table 41.3. </B><B>lhs</B><B> macro and class matching operators.</B>
+
+<BR></LH></UL>
+
+<TABLE BORDER>
+
+<TR>
+
+<TD>
+
+<P>$X</P>
+
+<TD>
+
+<P>Match the value of macro X</P>
+
+<TR>
+
+<TD>
+
+<P>$=C</P>
+
+<TD>
+
+<P>Match any word in class C</P>
+
+<TR>
+
+<TD>
+
+<P>$~C</P>
+
+<TD>
+
+<P>Match if token is not in class C</P></TABLE>
+
+<P>The pattern-matching operators and macro- and class-matching operators are necessary because most rules must match many different input addresses. For instance, a rule might need to match all addresses that end with gonzo.gov and begin with one or more 
+
+of anything.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I43" NAME="I43">
+
+<FONT SIZE=3><B>The Righthand Side </B><B><I>(rhs)</I></B><B> of Rules</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>The rhs of a rewriting rule tells sendmail how to rewrite an address that matches the lhs. The rhs may include text, macros, and positional references to matches in the lhs. When a pattern-matching operator from Table 41.2 matches the input, sendmail 
+assigns it to a numeric macro $n, corresponding to the position it matches in the lhs. For instance, suppose the address joe@pc1.gonzo.gov is passed to the following rule:
+
+<BR></P>
+
+<PRE>R$+ @ $+       $: $1 &lt; @ $2 &gt;           focus on domain</PRE>
+
+<P>In this example, joe matches $+ (one or more of anything), so sendmail assigns the string joe to $1. The @ in the address matches the @ in the lhs, but constant strings are not assigned to positional macros. The tokens in the string pc1.gonzo.gov match 
+
+the second $+ and are assigned to $2. The address is rewritten as $1&lt;@$2&gt;, or joe&lt;@pc1.gonzo.gov&gt;.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I44" NAME="I44">
+
+<FONT SIZE=3><B>$: and $@&#151;Altering a Ruleset's Evaluation</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Consider the following rule:
+
+<BR></P>
+
+<PRE>R$*  $: $1 &lt; @ $j &gt; add local domain</PRE>
+
+<P>After rewriting an address in the rhs, sendmail tries to match the rewritten address with the lhs of the current rule. Since $* matches zero or more of anything, what prevents sendmail from going into an infinite loop on this rule? After all, no matter 
+
+how the rhs rewrites the address, it will always match $*.
+
+<BR></P>
+
+<P>The $: preface to the rhs comes to the rescue; it tells sendmail to evaluate the rule only once.
+
+<BR></P>
+
+<P>There are also times when you want a ruleset to terminate immediately and return the address to the calling ruleset or the next ruleset in sendmail's built-in sequence. Prefacing a rule's rhs with $@ causes sendmail to exit the ruleset immediately after 
+
+rewriting the address in the rhs.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I45" NAME="I45">
+
+<FONT SIZE=3><B>$&gt;&#151;Calling Another Ruleset</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>A ruleset can pass an address to another ruleset by using the $&gt; preface to the rhs. Consider the following rule:
+
+<BR></P>
+
+<PRE>R$*       $: $&gt;66 $1          call ruleset 66</PRE>
+
+<P>The lhs $* matches zero or more of anything, so sendmail always does the rhs. As we saw in the previous section, the $: prevents the rule from being evaluated more than once. The $&gt;66 $1 calls ruleset 66 with $1 as its input address. Since the $1 
+matches whatever was in the lhs, this rule simply passes the entirety of the current input address to ruleset 66. Whatever ruleset 66 returns is passed to the next rule in the ruleset.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I46" NAME="I46">
+
+<FONT SIZE=3><B>Testing Rules and Rulesets&#151;the </B><B><I>-bt, -d</I></B><B> and </B><B><I>-C</I></B><B> Options</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Debugging a sendmail.cf can be a tricky business. Fortunately, sendmail provides several ways to test rulesets before you install them.
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> The examples in this section assume that you have a working sendmail. If your system doesn't, try running them again after you've installed V8 sendmail.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The -bt option tells sendmail to enter its rule-testing mode:
+
+<BR></P>
+
+<PRE>$ sendmail -bt
+
+ADDRESS TEST MODE (ruleset 3 NOT automatically invoked)
+
+Enter &lt;ruleset&gt; &lt;address&gt;
+
+&gt;</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Notice the warning ruleset 3 NOT automatically invoked. Older versions of sendmail ran ruleset 3 automatically when in address test mode, which made sense since sendmail sends all addresses through 
+ruleset 3 anyway. V8 sendmail does not, but it's a good idea to invoke ruleset 3 manually since later rulesets expect the address to be in canonical form.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The &gt; prompt means sendmail is waiting for you to enter one or more ruleset numbers, separated by commas, and an address. Try your login name with rulesets 3 and 0. The result should look something like this:
+
+<BR></P>
+
+<PRE>&gt; 3,0 joe
+
+rewrite: ruleset  3   input: joe
+
+rewrite: ruleset  3 returns: joe
+
+rewrite: ruleset  0   input: joe
+
+rewrite: ruleset  3   input: joe
+
+rewrite: ruleset  3 returns: joe
+
+rewrite: ruleset  6   input: joe
+
+rewrite: ruleset  6 returns: joe
+
+rewrite: ruleset  0 returns: $# local $: joe
+
+&gt;</PRE>
+
+<P>The output shows how sendmail processes the input address joe in each ruleset. Each line of output is identified with the number of the ruleset processing it, the input address, and the address that the ruleset returns. The &gt; is a second prompt 
+indicating that sendmail is waiting for another line of input. When you're done testing, just type <B>Ctrl+D</B>.
+
+<BR></P>
+
+<P>Indentation and blank lines better show the flow of processing in this example:
+
+<BR></P>
+
+<PRE>rewrite: ruleset  3   input: joe
+
+rewrite: ruleset  3 returns: joe
+
+rewrite: ruleset  0   input: joe
+
+     rewrite: ruleset  3   input: joe
+
+     rewrite: ruleset  3 returns: joe
+
+     rewrite: ruleset  6   input: joe
+
+     rewrite: ruleset  6 returns: joe
+
+rewrite: ruleset  0 returns: $# local $: joe</PRE>
+
+<P>The rulesets called were 3 and 0, in that order. Ruleset 3 was processed and returned the value joe, and then sendmail called ruleset 0. Ruleset 0 called ruleset 3 again, and then ruleset 6, an example of how a ruleset can call another one by using 
+$&gt;. Neither ruleset 3 nor ruleset 6 rewrote the input address. Finally, ruleset 0 resolved to a mailer, as it must.
+
+<BR></P>
+
+<P>Often you need more detail than -bt provides&#151;usually just before you tear out a large handful of hair because you don't understand why an address doesn't match the lhs of a rule. You may remain hirsute because sendmail has verbose debugging 
+built-in to most of its code.
+
+<BR></P>
+
+<P>You use the -d option to turn on sendmail's verbose debugging. This option is followed by a numeric code that tells which section of debugging code to turn on, and at what level. The following example shows how to run sendmail in one of its debugging 
+modes and the output it produces:
+
+<BR></P>
+
+<PRE>$ sendmail -bt -d21.12
+
+Version 8.6.7
+
+ADDRESS TEST MODE (ruleset 3 NOT automatically invoked)
+
+Enter &lt;ruleset&gt; &lt;address&gt;
+
+&gt; 3,0 joe
+
+rewrite: ruleset  3   input: joe
+
+&#151;&#151;trying rule: $* &lt; &gt; $*
+
+&#129;97&#196;&#151; rule fails
+
+&#151;&#151;trying rule: $* &lt; $* &lt; $* &lt; $+ &gt; $* &gt; $* &gt; $*
+
+&#151;&#151; rule fails
+
+[etc.]</PRE>
+
+<P>The -d21.12 in the example above tells sendmail to turn on level 12 debugging in section 21 of its code. The same command with the option -d21.36 gives more verbose output (debug level 36 instead of 12).
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> You can combine one or more debugging specifications separated by commas, as in -d21.12,14.2, which turns on level 12 debugging in section 21 and level 2 debugging in section 14. You can also give a 
+range of debugging sections, as in -d1-10.35, which turns on debugging in sections 1 through 10 at level 35.  The specification -d0-91.104 turns on all sections of V8 sendmail's debugging code at the highest levels and produces thousands of lines of output 
+
+for a single address.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>The -d option is not limited to use with sendmail's address testing mode (-bt); you can also use it to see how sendmail processes rulesets while sending a letter, as the following example shows:
+
+<BR></P>
+
+<PRE>$ sendmail -d21.36 joe@gonzo.gov &lt; /tmp/letter
+
+[lots and lots of output...]</PRE>
+
+<P>Unfortunately, the SIOG doesn't tell you which numbers correspond to which sections of code. Instead, the author suggests that it's a lot of work to keep such documentation current (which it is), and that you should look at the code itself to discover 
+the correct debugging formulas.
+
+<BR></P>
+
+<P>The function tTd() is the one to look for. For example, suppose you wanted to turn on debugging in sendmail's address-parsing code. The source file parseaddr.c contains most of this code, and the following command finds the allowable debugging levels:
+
+<BR></P>
+
+<PRE>$ egrep tTd parseaddr.c
+
+        if (tTd(20, 1))
+
+[...]
+
+        if (tTd(24, 4))
+
+        if (tTd(22, 11))
+
+[etc.]</PRE>
+
+<P>The egrep output shows that debugging specifications like -d20.1,     -d24.4, and -d22.11 (and others) will make sense to sendmail.
+
+<BR></P>
+
+<P>If perusing thousands of lines of C code doesn't appeal to you, the book sendmail documents the debugging flags for sendmail version 8.6.9.
+
+<BR></P>
+
+<P>The -C option allows you to test new configuration files before you install them, which is always a good idea. If you want to test a different file, use -C<I>/path/to/the/file</I>. This can be combined with the -bt and -d flags. For instance, a common 
+invocation for testing new configuration files is:
+
+<BR></P>
+
+<PRE>sendmail -Ctest.cf -bt -d21.12</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING: </B>For security, sendmail drops its super-user permissions when you use the -C option. Final testing of configuration files should be done as the super-user to ensure that your testing is 
+compatible with sendmail's normal operating mode.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I47" NAME="I47">
+
+<FONT SIZE=3><B>Conclusion</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>Now you know a lot about the sendmail.cf language as well as some useful debugging techniques. However, configuration files will be easier to grasp when you look at some real ones. The section below shows you how to create one from the m4 templates 
+included with V8 sendmail.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I48" NAME="I48">
+
+<FONT SIZE=3><B>Creating a sendmail.cf</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>In this section, we'll develop a sendmail.cf for a Solaris 2.3 system, using the templates supplied with V8 sendmail. However, because every site is different, even if you're developing a sendmail.cf for another Solaris 2.3 system, yours will probably 
+differ from the one below.
+
+<BR></P>
+
+<P>Previous versions of sendmail included complete, sample configuration files to adapt for your site. By contrast, the V8 sendmail configuration files are supplied as m4 templates that you use like building blocks to create a custom configuration file. 
+This is a big advantage for most people. In previous versions, if your site did not want UUCP support, you had to pick through hundreds of lines of a configuration file and remove it line by line. In this version, you simply insert the statement 
+FEATURE(nouucp) into your configuration file template and you are done.
+
+<BR></P>
+
+<P>M4 is a programming language that reads a file of macro definitions and commands and creates an output file from it. As a trivial example, suppose you create a document and find yourself repeatedly typing the phrase sendmail Installation and Operation 
+Guide. To avoid the extra typing, you could define a macro siog and enter that instead:
+
+<BR></P>
+
+<PRE>$  cat &gt; test.m4
+
+define('siog','Sendmail Installation and Operation Guide')dnl
+
+Testing: siog
+
+Ctrl+D
+
+$ m4 test.m4
+
+Testing: Sendmail Installation and Operation Guide</PRE>
+
+<P>Running m4 on the file test.m4 converts all occurrences of siog to sendmail Installation and Operation Guide. This example only hints at m4's capabilities. The V8 sendmail.cf templates make full use of them.
+
+<BR></P>
+
+<P>The sendmail.cf templates and m4 support files are in the cf directory you created earlier when you unpacked V8 sendmail:
+
+<BR></P>
+
+<PRE>$ cd cf
+
+$ ls -CF
+
+README       domain/      hack/        mailer/      sh/
+
+cf/          feature/     m4/          ostype/      siteconfig/</PRE>
+
+<P>Please note the file README. If you don't read it, you have little hope of making a working configuration file.
+
+<BR></P>
+
+<P>The cf subdirectory is the main one of interest. It contains m4 templates for configuration files used at the University of California at Berkeley (UCB). You should look at them all; one of them may be very close to what you need, and all of them 
+provide good examples for you to adapt to your own site.
+
+<BR></P>
+
+<P>The other subdirectories contain m4 support files, the building blocks that are included based on the template you define in the cf subdirectory. You probably won't have to change any of these, although you may need to create site-specific files in the 
+
+domain and siteconfig subdirectories.
+
+<BR></P>
+
+<P>The cf subdirectory contains the following configuration file templates:
+
+<BR></P>
+
+<PRE>$ cd cf
+
+$ ls -CF
+
+Makefile            knecht.mc                 sunos4.1-cs-exposed.mc
+
+Makefile.dist       mail.cs.mc                sunos4.1-cs-hidden.mc
+
+alpha.mc            mail.eecs.mc              tcpproto.mc
+
+auspex.mc           obj/                      ucbarpa.mc
+
+chez.mc             osf1-cs-exposed.mc        ucbvax.mc
+
+clientproto.mc      osf1-cs-hidden.mc         udb.mc
+
+cogsci.mc           python.mc                 ultrix4.1-cs-exposed.mc
+
+cs-exposed.mc       riscos-cs-exposed.mc      ultrix4.1-cs-hidden.mc
+
+cs-hidden.mc        s2k.mc                    uucpproto.mc
+
+hpux-cs-exposed.mc  sunos3.5-cs-exposed.mc    vangogh.mc
+
+hpux-cs-hidden.mc   sunos3.5-cs-hidden.m</PRE>
+
+<P>The template tcpproto.mc is intended for a generic Internet site without UUCP connections. We'll use that as a starting point to develop our own. Since we don't want to modify the original file, we'll make a copy called test.mc and modify that. Although 
+
+we won't show this in the examples below, it's a good idea to use a version control system like SCCS or RCS, or some other version control system to track changes you make to your configuration file template.
+
+<BR></P>
+
+<P>Stripped of its comments (a copyright notice), blank lines, and an m4 directive, test.mc looks like this:
+
+<BR></P>
+
+<PRE>include('../m4/cf.m4')
+
+VERSIONID('@(#)tcpproto.mc      8.2 (Berkeley) 8/21/93')
+
+FEATURE(nouucp)
+
+MAILER(local)
+
+MAILER(smtp)</PRE>
+
+<P>This doesn't look like much, but m4 expands it to almost 600 lines. We'll look at this template line-by-line to show what it does.
+
+<BR></P>
+
+<P>The line include('../m4/cf.m4') must come first in all configuration file templates, immediately after any comments. It contains the macro definitions that m4 uses to build your configuration file, and if you don't include it here, nothing else will 
+work.
+
+<BR></P>
+
+<P>The VERSIONID() macro provides a place to put version information for the edification of humans&#151;sendmail ignores it. If you use RCS or SCCS, you can include their version information here. For instance, for RCS you can include the $Id$ keyword:
+
+<BR></P>
+
+<PRE>VERSIONID('$Id$')</PRE>
+
+<P>and the RCS co (check-out) command expands this to:
+
+<BR></P>
+
+<PRE>VERSIONID('$Id: test.mc,v 1.1 1994/03/26 21:46:12 joe Exp joe $')</PRE>
+
+<P>The FEATURE() macro is used to specify which features you want (or don't want). The line FEATURE(nouucp) in this configuration file template removes UUCP support from the resulting configuration file. Other features are documented in the README file 
+mentioned above. Some features of particular interest are redirect, which provides a clever way to notify senders when someone leaves your site; and nullclient, which creates a bare-bones configuration file that knows just enough to forward mail to a 
+relay. (See the template nullclient.mc for an example of its use.)
+
+<BR></P>
+
+<P>The next two lines are MAILER() macros to specify the mailers included in this sendmail.cf. The MAILER() macro takes a single argument, the name of the mailer when m4 expands the MAILER() macro into one or more ruleset definitions, rules to select them 
+
+in ruleset 0, and the rulesets given in the R= and S= flags. Selecting the smtp mailer actually causes three SMTP mailers to be included. The V8 templates also provide mailer definitions for UUCP mailers, a FAX mailer, and a POP (Post Office Protocol) 
+mailer. See the README file for details.
+
+<BR></P>
+
+<P>This is almost enough of a specification to create a working sendmail.cf for an SMTP-only site, but you'll want to tune it a little first with additional macros.
+
+<BR></P>
+
+<P>The OSTYPE() macro also takes a single argument, the name of a file in ../ostype. This file should contain definitions particular to your operating system, for instance, the location of the aliases file. A wide variety of operating system definitions 
+are included with the V8 configuration files:
+
+<BR></P>
+
+<PRE>$ cd ../ostype
+
+$ ls
+
+aix3.m4       bsdi1.0.m4     hpux.m4        osf1.m4        sunos3.5.m4
+
+aux.m4        dgux.m4        irix.m4        riscos4.5.m4   sunos4.1.m4
+
+bsd4.3.m4     domainos.m4    linux.m4       sco3.2.m4      svr4.m4
+
+bsd4.4.m4     dynix3.2.m4    nextstep.m4    solaris2.m4    ultrix4.1.m4</PRE>
+
+<P>Since we're developing a configuration file for a Solaris 2.3 system, we'll look at that file:
+
+<BR></P>
+
+<PRE>$ cat solaris2.m4
+
+define('ALIAS_FILE', /etc/mail/aliases)
+
+define('HELP_FILE', /etc/mail/sendmail.hf)
+
+define('STATUS_FILE', /etc/mail/sendmail.st)
+
+define('LOCAL_MAILER_FLAGS', 'fSn')</PRE>
+
+<P>This is pretty straightforward&#151;the file gives the location of sendmail's auxiliary files on that system and specifies local mailer flags appropriate for the Solaris version of /bin/mail. We'll include an OSTYPE() macro just after the VERSIONID() 
+macro, dropping the .m4 filename extension.
+
+<BR></P>
+
+<P>The other things you may define in an OSTYPE file are documented in the README.
+
+<BR></P>
+
+<P>You may also want to create a domain file and use the DOMAIN() macro to collect site-wide definitions such as your site's UUCP or BITNET relay hosts. You should only put things in this file that are true for all the hosts in your domain. If you only 
+have a single host, you may want to forego creating a domain file and keep this information in your m4 template.
+
+<BR></P>
+
+<P>The DOMAIN() macro takes a single argument, the name of a file in ../domain. For instance, DOMAIN(gonzo) would cause m4 to look for a file named ../domain/gonzo.m4. (Note that the .m4 extension is not included in the macro argument.) 
+
+<BR></P>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="warning.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/warning.gif" WIDTH = 37 HEIGHT = 35><B>WARNING: </B>If you copy one of the UCB templates that includes a DOMAIN() macro, make sure you change that line to use your own domain file, or delete it. 
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>A common feature to include in a domain file is the MASQUERADE_AS() macro, which causes all hosts using that sendmail.cf to masquerade as your mail hub. For example, if the Solaris 2.3 host we're building this configuration file for is one of many, all 
+
+named sun<I>X</I>.gonzo.gov, the following line would cause all their outbound mail to be addressed as login@gonzo.gov, regardless of which workstation sent it:
+
+<BR></P>
+
+<PRE>MASQUERADE_AS(gonzo.gov)dnl</PRE>
+
+<P>This line could also be included in the m4 template if you don't want to create a domain file. Now the template looks like this, with the lines we've added or changed in boldface type:
+
+<BR></P>
+
+<PRE>include('../m4/cf.m4')
+
+VERSIONID('$Id$')
+
+OSTYPE(solaris2)
+
+MASQUERADE_AS(gonzo.gov)
+
+FEATURE(nouucp)
+
+MAILER(local)
+
+MAILER(smtp)</PRE>
+
+<P>To create the working sendmail.cf, run m4 on the template:
+
+<BR></P>
+
+<PRE>$ m4 test.mc &gt; test.cf</PRE>
+
+<P>This creates a 600 line configuration file, which should be tested thoroughly before you install it. We will do just that in the next section, &quot;Testing sendmail and sendmail.cf.&quot;
+
+<BR></P>
+
+<P>But first, considering that building a sendmail.cf file from the V8 macros is so easy, you may be wondering why I went on at such length about the guts of it. After all, if including an SMTP mailer is as easy as typing MAILER(smtp), why bother to learn 
+
+the grungy details? The first answer is that someday you'll probably need them; something will go wrong and you'll have to figure out exactly why your sendmail isn't working the way it should. You can't do that unless you understand the details. A second 
+answer is that you can't properly test your sendmail.cf unless you know what's going on under the simplified m4 gloss. Finally, although the V8 configuration file templates are easy to work with compared to those included with previous versions of 
+sendmail, they're still not exactly on a par with plugging in a new toaster and shoving in a couple of slices of rye. If sendmail were a toaster, instead of a single lever it would have hundreds of complicated knobs and dials, a thick instruction manual, 
+and despite your best efforts, would periodically burst into flames.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I49" NAME="I49">
+
+<FONT SIZE=3><B>Testing sendmail and sendmail.cf</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Before installing a new or modified sendmail.cf you must test it thoroughly. Even small, apparently innocuous changes can lead to disaster, and as mentioned in the introduction to this chapter, people get really irate when you mess up the mail system.
+
+<BR></P>
+
+<P>The first step in testing is to create a list of addresses that you know should work at your site. For instance, at gonzo.gov, an Internet site without UUCP connections, they know that the following addresses must work:
+
+<BR></P>
+
+<PRE>joe
+
+joe@pc1.gonzo.gov
+
+joe@gonzo.gov</PRE>
+
+<P>If gonzo.gov has a UUCP link, those addresses must also be tested. Other addresses to consider include the various kinds of aliases (e.g., postmaster, a :include: list, an alias that mails to a file and one that mails to a program), nonlocal addresses, 
+
+source-routed addresses, and so on. If you want to be thorough, you can create a test address for each legal address format in RFC822.
+
+<BR></P>
+
+<P>Now that you've got your list of test addresses, you can use the -C and -bt options to see what happens. At a minimum you'll want to run the addresses through rulesets 3 and 0 to make sure they are routed to the correct mailer. An easy way to do this is 
+
+to create a file containing the ruleset invocations and test addresses, and run sendmail on that. For instance, if the file addr.test contains the following lines:
+
+<BR></P>
+
+<PRE>3,0 joe
+
+3,0 joe@pc1.gonzo.gov
+
+3,0 joe@gonzo.gov</PRE>
+
+<P>you can test your configuration file test.cf by typing:
+
+<BR></P>
+
+<PRE>$ sendmail -Ctest.cf -bt &lt; addr.test
+
+rewrite: ruleset  3   input: joe
+
+rewrite: ruleset  3 returns: joe
+
+[etc.]</PRE>
+
+<P>You may also want to follow one or more addresses through the complete rewriting process. For instance, if an address resolves to the smtp mailer and that mailer specifies R=21, you can test recipient address rewriting with 3,2,21,4 <I>test_address</I>.
+
+
+
+<BR></P>
+
+<P>If the sendmail.cf appears to work correctly so far, it's time to move on to sending some real letters. You can do so with a command like this:
+
+<BR></P>
+
+<PRE>$ sendmail -v -oQ/tmp -Ctest.cf recipient &lt; /dev/null</PRE>
+
+<P>The -v option tells sendmail to be verbose so you can see what's happening. Depending on whether the delivery is local or remote, you may see something as simple as joe... Sent, or an entire SMTP dialogue.
+
+<BR></P>
+
+<P>The -oQ/tmp tells sendmail to use /tmp as its queue directory. This is necessary because sendmail drops its super-user permissions when run with the -C option and can't write queue files into the normal mail queue directory. Because you are using the -C 
+
+and -oQ options, sendmail also includes the following warning headers in the letter to help alert the recipient of possible mail forgery:
+
+<BR></P>
+
+<PRE>X-Authentication-Warning: gonzo.gov: Processed from queue /tmp
+
+X-Authentication-Warning: gonzo.gov: Processed by joe with -C srvr.cf</PRE>
+
+<P>sendmail also inserts the header Apparently-to: joe because although you specified a recipient on the command line, there was none in the body of the letter. In this case the letter's body was taken from the empty file /dev/null, so there was no To: 
+header. If you do your testing as the super-user, you can skip the -oQ argument, and sendmail won't insert the warning headers. You can avoid the Apparently-to: header by creating a file like this:
+
+<BR></P>
+
+<PRE>To: recipient
+
+testing</PRE>
+
+<P>and using it as input instead of /dev/null.
+
+<BR></P>
+
+<P>The recipient should be you so you can inspect the headers of the letter for correctness. In particular, return address lines must include an FQDN for SMTP mail. That is, a header like From: joe@gonzo is incorrect since it doesn't include the domain 
+part of the name, but a header like From: joe@gonzo.gov is fine.
+
+<BR></P>
+
+<P>You should repeat this testing for the same variety of addresses you used in the first tests. You may have to create special aliases that point to you for some of the testing.
+
+<BR></P>
+
+<P>The amount of testing you do depends on the complexity of your site and the amount of experience you have, but a beginning system administrator should test things very thoroughly, even for apparently simple installations. Remember the flaming toaster.
+
+<BR></P>
+
+<H4 ALIGN="CENTER">
+
+<CENTER><A ID="I50" NAME="I50">
+
+<FONT SIZE=3><B>Installing </B><B><I>sendmail</I></B><B> and Friends</B>
+
+<BR></FONT></A></CENTER></H4>
+
+<P>Once you're satisfied that your sendmail and sendmail.cf work, you must decide where to install them. The most popular approach is to put sendmail and its other files in the same place that your vendor puts its distributed sendmail files. The advantage 
+
+of this approach is conformity; if someone else familiar with your operating system tries to diagnose a mail problem, he will know where to look.
+
+<BR></P>
+
+<P>However, some people prefer to install local programs separately from vendor programs, for several good reasons. First, operating system upgrades are usually easier when local modifications are clearly segregated from vendor programs. Second, some 
+vendors, notably Sun Microsystems, release operating system patches that bundle together everything including the kitchen sink. If you naively install such a patch, you may inadvertently overwrite your V8 sendmail with your vendor's version, and it 
+probably won't understand your V8 sendmail.cf.
+
+<BR></P>
+
+<P>Therefore, you may want to install sendmail in a subdirectory of /usr/local, the traditional directory for local enhancements to the vendor's operating system. The locations of sendmail's auxiliary files are given in sendmail.cf, so you can either leave 
+
+them in the vendor's usual locations or install them in /usr/local and modify the sendmail.cf to match. If you want to change the compiled-in location of the configuration file, redefine the C preprocessor macro _PATH_SENDMAILCF in src/Makefile and 
+recompile sendmail. For example, add the definition:
+
+<BR></P>
+
+<PRE>-D_PATH_SENDMAILCF=\&quot;/usr/local/lib/sendmail.cf\&quot;</PRE>
+
+<P>to the CFLAGS macro in the Makefile.
+
+<BR></P>
+
+<P>Once you've decided where the files should go, look at the Makefile you used to compile sendmail and see if it agrees. The easiest way is to use make's -n option to see what would have happened. The results look like this for the V8 distribution's 
+Makefile.Solaris:
+
+<BR></P>
+
+<PRE>$ make -n install
+
+/usr/ucb/install -o root -g sys -m 6555 sendmail /usr/lib
+
+for i in /usr/ucb/newaliases /usr/ucb/mailq; do rm -f $i; ln -s /usr/lib/sendmai
+
+l $i; done
+
+/usr/ucb/install -c -o root -g sys -m 644 /dev/null \
+
+    /var/log/sendmail.st
+
+/usr/ucb/install -c -o root -g sys -m 444 sendmail.hf /etc/mail
+
+nroff -h -mandoc aliases.5 &gt; aliases.0
+
+nroff -h -mandoc mailq.1 &gt; mailq.0
+
+nroff -h -mandoc newaliases.1 &gt; newaliases.0
+
+nroff -h -mandoc sendmail.8 &gt; sendmail.0</PRE>
+
+<P>If this isn't what you want, modify the Makefile as necessary.
+
+<BR></P>
+
+<P>Note that the sendmail manual pages use the 4.4BSD mandoc macros, which your system probably doesn't have. You can ftp the mandoc macros from the host ftp.uu.net, in the directory /systems/unix/bsd-sources/share/tmac.
+
+<BR></P>
+
+<P>If your system doesn't have the /usr/ucb/install program, you can copy the new files instead, and use chown, chgrp and chmod to set the correct owner, group, and mode. However, if you're installing on top of your vendor's files, it's a good idea to 
+first copy or rename them in case you ever need them again.
+
+<BR></P>
+
+<P>After you install sendmail and its auxiliary files, rebuild the aliases database by running sendmail -bi. You'll also need to kill and restart your sendmail daemon. If your vendor's system uses a frozen configuration file (sendmail.fc), remove it; V8 
+sendmail doesn't use one.
+
+<BR></P>
+
+<H5 ALIGN="CENTER">
+
+<CENTER><A ID="I51" NAME="I51">
+
+<FONT SIZE=3><B>Modifying </B><B><I>sendmail</I></B><B>'s Boot-Time Startup</B>
+
+<BR></FONT></A></CENTER></H5>
+
+<P>In its SMTP server role, sendmail starts when the system boots and runs continuously. If you install it in a non-standard location like /usr/local, you'll have to modify your system's startup scripts. Even if you install it in the standard location, you 
+
+should ensure that the default system startup is correct for V8 sendmail.
+
+<BR></P>
+
+<P>When SVR4 UNIX systems boot, they run a series of short shell scripts in the directories /etc/rc<I>X</I>.d, where the <I>X</I> corresponds to the system run level. For instance, shell scripts that bring the system to run level 2 are found in /etc/rc2.d.
+
+
+
+<BR></P>
+
+<P>However, SVR4 systems have many run levels and some software subsystems should be started in each of them. Therefore, the shell scripts in /etc/rc<I>X</I>.d are located in /etc/init.d and linked to the files in the /etc/rc<I>X</I>.d directories. The 
+/etc/init.d directory is therefore the best place to look for your sendmail startup script.
+
+<BR></P>
+
+<P>The following example shows how to find how sendmail starts on a Solaris 2.3 system. Other SVR4 systems are similar:
+
+<BR></P>
+
+<PRE>$ cd /etc/init.d
+
+$ grep sendmail *
+
+sendmail:#ident &quot;@(#)sendmail   1.4   92/07/14 SMI&quot;   /* SVr4.0 1.5 */
+
+sendmail:# /etc/init.d/sendmail - Start/Stop the sendmail daemon
+
+sendmail:# If sendmail is already executing, don't re-execute it.
+
+sendmail:if [ -f /usr/lib/sendmail -a -f /etc/mail/sendmail.cf ]; then
+
+sendmail:               /usr/lib/sendmail -bd -q1h;
+
+sendmail:pid='/usr/bin/ps -e | /usr/bin/grep sendmail | <I>[...]</I>
+
+sendmail:echo &quot;usage: /etc/rc2.d/S88sendmail {start|stop}&quot;
+
+$</PRE>
+
+<HR ALIGN=CENTER>
+
+<NOTE>
+
+<IMG SRC="note.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/note.gif" WIDTH = 35 HEIGHT = 35><B>NOTE:</B> Some of the lines above are truncated and shown as [...] due to page-width limitations.
+
+<BR></NOTE>
+
+<HR ALIGN=CENTER>
+
+<P>In this case the grep output shows that the vendor starts sendmail with a script named sendmail because each line of the grep output is prefixed with that filename. Examine the script sendmail to see if any changes are necessary. This script expects 
+sendmail to be located in /usr/lib. If you install V8 sendmail somewhere else, you'll have to modify the script to match, changing paths like /usr/lib/sendmail to /usr/local/lib/sendmail. If the command-line flags in the script aren't what you want, change 
+
+those too.
+
+<BR></P>
+
+<H3 ALIGN="CENTER">
+
+<CENTER><A ID="I52" NAME="I52">
+
+<FONT SIZE=4><B>Summary</B>
+
+<BR></FONT></A></CENTER></H3>
+
+<P>It's not possible in a single chapter to tell you all you must know about e-mail administration, but as Yogi Berra (or maybe that was Casey Stengal) once said, &quot;You could look it up,&quot; and you should. There are a lot of things you'll only learn 
+
+by reading the documentation mentioned previously in &quot;Background Material and Other Sources.&quot; However, this chapter should give you a good basis for understanding the theory behind Internet e-mail delivery and enough of the specifics of V8 
+sendmail to get your e-mail system up and running.
+
+<BR></P>
+
+<PRE>
+
+<BR>1. For instance, sendmail sets $j to your system's fully qualified domain name (FQDN, e.g., acme.com). If your system's gethostbyname() function returns something other than the FQDN, you must define $j in sendmail.cf.
+
+
+
+<BR>2. The local mailer omits the $@<I>host</I>.
+
+
+
+<BR>3. Ruleset 0 is an exception to this rule. sendmail stops evaluating rules in ruleset 0 as soon as a rule resolves to a mailer.</PRE>
+
+<P>4. Tokens are explained in &quot;Tokens&#151;How sendmail Interprets Input Patterns.&quot;</P>
+
+<P><A HREF="unx40.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx40.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Previous Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="blutoc.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blutoc.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="TOC"></A>
+
+<A HREF="unx42.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/unx42.htm"><IMG SRC="blunext.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/blunext.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Next Page"></A>
+
+<A HREF="index.htm" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/index.htm"><IMG SRC="bluprev.gif" tppabs="http://www.mcp.com/814665600/0-672/0-672-30402-3/bluprev.gif" WIDTH = 32 HEIGHT = 32 BORDER = 0 ALT="Home"></A>
+
+</P></BODY></HTML>
+
