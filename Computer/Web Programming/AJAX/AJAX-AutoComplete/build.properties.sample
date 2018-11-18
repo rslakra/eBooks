@@ -1,0 +1,7 @@
+servlet.jar=/Users/username/glassfish/lib//javaee.jar
+javaee.autodeploy.dir=/Users/username/glassfish/domains/domain1/autodeploy
+
+#Optional but are good for messages
+javaee.server.name=localhost
+javaee.server.port=8080
+

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Copyright 2005 Sun Microsystems, Inc. All rights reserved. You may not modify, use, reproduce, or distribute this software except in compliance with the terms of the License at: http://developer.sun.com/berkeley_license.html
+$Id: web.xml,v 1.1 2005/04/01 02:18:41 gmurray71 Exp $ -->
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:j2ee="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	  version="2.4" 
+   xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee    http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <servlet>
+    <description>AutoCompletes Form Input using XmlHttpRequest Objects</description>
+    <servlet-name> AutocompleteServlet </servlet-name>
+    <servlet-class>com.sun.javaee.blueprints.bpcatalog.ajax.AutocompleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutocompleteServlet</servlet-name>
+    <url-pattern>/autocomplete</url-pattern>
+  </servlet-mapping>
+</web-app>
+
