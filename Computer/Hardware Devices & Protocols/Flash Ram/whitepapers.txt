@@ -1,0 +1,37 @@
+Flash Memory
+What do all new digital accessories such as digital cameras, MP3 players, Dictaphones, etc have in common? Flash memory is where all of them turn to for low power storage, making this technology one of the 'hidden' influential technologies. You may look up 'It's no Flash in the Pan' in CHIP, April 2000 for a brief insight and read these documents for more detailed, technical information.
+
+
+Overview of Flash Memory
+Non-volatile Flash memory is the de-facto standard for portable digital devices and embedded systems. This brief document explains how Flash memory works and the important factors that need to be considered.
+overview_flash_memory.pdf
+
+
+CFI Specs
+The Common Flash Interface (CFI) specification outlines the software interrogation handshake between the Flash device and the host system. This Intel-defined standard is designed to maximise forward and backward compatibility between vendor-specific device families.
+cfi_specs.pdf
+
+
+Virtual Small Block
+The VFM file manager and the underlying Virtual Small Block (VSB) Flash media manager are Intel Flash reference code solutions provided to OEMs who need file manager capability, or who need to add Flash media management to an existing sector-based embedded file manager. The full VFM (VFM and VSB) can be used as the system file manager to Flash, or can be adapted to operate under an existing file system/operating system through the high-level API.
+virtual_small_block.pdf
+
+
+Managing Data in an Embedded System
+Flash memory has read/write characteristics that make it very different from traditional storage solutions. This document goes in great detail over techniques to optimally select solutions to manage system data in embedded environments.
+managing_data_in_embedded_system.pdf
+
+
+Small and Low-Cost Power Supply Solution
+While power consumption is not much of an issue with plugged in devices, it is a critical factor for embedded systems and the portable devices that use Flash Memory. Similarly, in the smaller cheap devices, every bit of cost counts heavily. This document lays out a simple, cheap power supply solution for Flash memory devices requiring 12 V and 5 V supplies.
+small_low_cost_power_supply_solution.PDF
+
+
+Flash Path User Guide
+Smart Disk's Flash Path memory is one of the more popular cheap solutions for interfacing flash cartridges with desktop computers. The mechanism offers an easy way to transfer data from your portable digital device, a camera for example, into your computer. The cartridge is inserted into a floppy disk shaped carriage that goes into standard floppy disk drives. This guide shows how this works.
+flash_path_user_guide.pdf
+
+
+Flash RAM Specifications
+If you are electronically inclined, you might want to have a look at this document for specifications of a product. The document outlines characteristics of V29C51001T 1-MegaBit Flash memory module.
+flash_ram_specifications.pdf

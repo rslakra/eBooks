@@ -1,0 +1,45 @@
+Mindware
+Resolve > FAQs
+
+Digital Cameras
+1. What is the difference between an ordinary camera and a digital camera?
+2. How does a digital camera work?
+3. What are the different types of digital cameras?
+4. What are the different image formats supported by digital cameras?
+5. How does a digital camera connect to a computer?
+6. What is the difference between number of pixels and maximum resolution?
+7. What kinds of removable storage are used in digital cameras?
+8. What are the pros and cons of using floppy drives and Flash-based memory devices as storage media in digital cameras?
+9. What is optical zoom and digital zoom?
+10. Should I get a digital camera or a digital camcorder?
+
+
+1. What is the difference between an ordinary camera and a digital camera?
+Ordinary cameras make use of films to take photographs, while digital cameras use removable media storage devices as substitutes for film. They are also called filmless cameras. In a digital camera, the light reflected from the photographed subject is converted into a digital image, which can be downloaded directly to the computer. 
+
+2. How does a digital camera work?
+Digital cameras make use of a sensor, which converts light into electrical charges. These sensors (diodes) are called photosites as they convert photons (light) into electrons (electrical charge). Each photosite is sensitive to light. The brighter the light that hits a single photosite, the greater the electrical charge that will accumulate at that site. An analog-to-digital converter converts the accumulated charge into a digital value.
+
+3. What are the different types of digital cameras?
+Depending on the type of image sensors used, digital cameras can be divided into two types: Charge Coupled Device (CCD) and Complementary Metal Oxide Semiconductor (CMOS). CMOS based cameras are less expensive than CCD based cameras, which make up the higher end of the digicam spectrum.
+
+4. What are the different image formats supported by digital cameras?
+The image formats supported are generally TIFF and JPEG. Since TIFF is an uncompressed image format, most cameras these days use the JPEG format. The cameras offer various image quality settings such as low, medium and high quality, which allow you to store a greater number of images at a lower resolution or vice versa depending on the image quality you select.
+
+5. How does a digital camera connect to a computer?
+Digital cameras can connect to the computer's serial, parallel, SCSI or USB ports. Most new digicams feature USB connectivity for hassle-free installation and faster transfer speeds.
+
+6. What is the difference between number of pixels and maximum resolution?
+Number of pixels is the total number of photosites used in the camera. However, not all of these are used to capture images. For example, a 2.1-Megapixel camera that can capture images at a maximum resolution of 1600x1200 uses only 1,920,000 pixels, which is less than the claimed 2,100,000 pixels. The unused photosites are for providing circuitry. These are dyed black to avoid absorption of light, otherwise it could lead to distorted images. 
+
+7. What kinds of removable storage are used in digital cameras?
+Digital cameras usually support removable storage devices such as CompactFlash, SmartMedia, Memory Sticks, etc, which are small, removable, solid-state Flash memory devices that have no moving parts. They are fast in operation and are not very expensive. Some cameras also make use of standard floppy disks and miniature hard drives for storage. 
+
+8. What are the pros and cons of using floppy drives and Flash-based memory devices as storage media in digital cameras?
+Floppy drives are easy to use, but they are much slower than Flash memory based devices. Flash memory has extremely fast transfer speeds which help you copy large files very fast. Floppy drives are present in almost all PCs, which makes exchanging your images with your friends and family a breeze, whereas you need special drives to read Flash memory cards (unless you are using the digital camera to transfer the images).
+ 
+9. What is optical zoom and digital zoom?
+Optical zoom is similar to what you'll find in a regular 35mm camera: when you push the button to zoom in or out, the focal length of the lens changes and the image is magnified by the lens. Digital zoom, on the other hand, has no moving parts. Instead, the camera uses the 'electronic brain' within to 'see' what it is 'looking at', and digitally zooms in, usually two or three times closer. The problem with digital zoom is that you lose quality when you do this- your images will tend to be more pixelated than the same image taken with an optical zoom camera. You can get a magnified image by shooting the photo without a zoom and blowing up the picture using image editing software. 
+
+10. Should I get a digital camera or a digital camcorder?
+Camcorders are usually not capable of taking images at resolutions as high as digital cameras. If you want print quality images, it is better to go in for a digital camera than a camcorder. If you just want to create simple videos, many digital cameras can record movies in MPEG format. Another problem with camcorders is that they tend to be bulkier than digital cameras, which can be a hassle if you plan to carry one around. 
