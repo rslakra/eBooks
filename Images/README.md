@@ -1,4 +1,4 @@
-# eBooks
+# Images
 
 --- 
 This repository contains all my electronic books, which are categorized based 
