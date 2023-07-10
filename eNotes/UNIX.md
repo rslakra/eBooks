@@ -51,7 +51,7 @@ The UNIX operating system is available on machines with a wide range of computin
 
   The system hides the machine architecture from the user, making it easier to write applications that can run on micros, minis and mainframes.
 
-- Mutli-user Operations
+- Multi-user Operations
 
   Unix is a multi-user system designed to support a group of users simultaneously. The system allows for the sharing of processing power and peripheral resources, while at the same time providing excellent security features.
 
