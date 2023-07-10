@@ -10,32 +10,10 @@ Connection pooling with session state
 
 ### Tree Traversal
 
-Tree of Alphabets
-```shell
-    B
-A       C
-```
+![Tree Traversal Types](Interview%20Preparation%2FData%20Structures%20and%20Algorithm%2FData%20Structures%2FTree%2FTree%20Traversal.png)
 
-#### Pre-Order Traversal
 
-Root - Left - Right
-```shell
-B - A - C
-```
 
-#### In-Order Traversal
-
-Left - Root - Right
-```shell
-A - B - C
-```
-
-#### Post-Order Traversal
-
-Left - Right - Root
-```shell
-A - C - B
-```
 
 ##
 
