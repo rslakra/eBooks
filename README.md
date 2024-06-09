@@ -10,7 +10,7 @@ or uses this repository AS IT IS with their own responsibility.
 
 ---
 
-## 
+* Version: 1.0.0
 
 
 ## 
