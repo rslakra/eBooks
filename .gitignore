@@ -25,6 +25,19 @@ dist/
 
 # JetBrains IDE
 .idea/
+*.iws
+*.iml
+*.ipr
+
+
+### STS/Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings/
+.springBeans
+.sts4-cache
 
 # Unit test reports
 TEST*.xml
