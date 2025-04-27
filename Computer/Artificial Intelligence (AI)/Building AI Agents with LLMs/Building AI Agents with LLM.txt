@@ -1,0 +1,64 @@
+Building AI Agents with LLMs (Large Language Models)
+
+
+Patterns
+- Copilot Pattern
+- Research Pattern
+
+
+- AutoGPT
+
+
+Selector
+
+- Rule Based Selector
+- Learning Based Selector
+
+
+
+Skills (Decision Maker)
+
+OpenAI
+
+
+- Get Info
+Tech Crunch
+Hacker News
+
+
+
+References
+- https://github.com/yoheinakajima
+- https://github.com/kenceanderson
+- https://github.com/MrKaehms
+
+
+
+Div Garg (MultiOn AI)
+
+https://en.wikipedia.org/wiki/Latent_space
+
+
+Arjun Bansal
+
+
+
+
+https://github.com/yoheinakajima/babyagi
+https://github.com/yoheinakajima/openai-cookbook/blob/main/examples/Semantic_text_search_using_embeddings.ipynb
+https://github.com/yoheinakajima/mindgraph
+https://github.com/yoheinakajima/predictivechat
+https://github.com/yoheinakajima
+https://accu.org/bookreviews/1998/kendall_1680/
+
+https://medium.com/@AlexanderObregon/java-and-virtual-assistants-building-intelligent-agents-af18d0238018
+
+https://developer.nvidia.com/blog/building-your-first-llm-agent-application/?ncid=pa-srch-goog-289887&_bt=692291200545&_bk=ai%20agents%20examples&_bm=p&_bn=g&_bg=168012264468&gad_source=1&gclid=CjwKCAjwwr6wBhBcEiwAfMEQs03qO-DOJPM5K7pUgm-jXP4aM2P9haG-tiPlgHmtx_rkJ5uCVnWeJRoCpNAQAvD_BwE
+https://en.wikipedia.org/wiki/JACK_Intelligent_Agents
+file:///Users/rlakra/Downloads/Constructing_Intelligent_Agents_Using_Java.pdf
+https://medium.com/@koushiknsec34/ai-simple-reflex-agent-in-java-838ccbbd562c
+chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://lanwuwei.github.io/courses/AU19/3521_slides/2-Intelligent-Agents.pdf
+https://python.plainenglish.io/intelligent-agents-in-artificial-intelligence-6b5f4153ad72
+
+
+https://github.com/kenceanderson/python-codebox/blob/master/test.py
