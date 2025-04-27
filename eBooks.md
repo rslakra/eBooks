@@ -14,31 +14,7 @@ or uses this repository AS IT IS with their own responsibility.
 
 ---
 
-
-
-## Folder Structure Conventions
-
----
-
-```
-    /
-    ├── BuildTools              # The build tools
-    ├── Database                # The database scripts
-    ├── Docker                  # The docker script
-    ├── IDE                     # The IDE scripts
-    ├── Java                    # The Java
-    ├── Logs                    # The Logs
-    ├── Mobile                  # The Mobile
-    ├── OS                      # The OS Scripts
-    ├── Python                  # The Python
-    ├── Servers                 # The Server
-    ├── VCS                     # The verson control system
-    └── README.md
-```
-
-
-
-# Reference
+## Reference
 
 ---
 
@@ -52,7 +28,6 @@ or uses this repository AS IT IS with their own responsibility.
 - [Forget code coverage! Use Mutation Testing](https://craftbettersoftware.com/p/forget-code-coverage-use-mutation)
 - [Screaming Architecture](https://www.milanjovanovic.tech/blog/screaming-architecture)
 - [Alexandre Zajac writes a weekly curating important articles](https://hungrymindsdev.substack.com/)
-
 
 
 # Author
