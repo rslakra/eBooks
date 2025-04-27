@@ -1,0 +1,44 @@
+<html>
+<title>Test disabling events</title>
+<!-- 
+	If you ever wanted to prevent users from "borrowing" images 
+	from your website through right-clicking them and "Save Image As..." or 
+	right-clicking the page and viewing your page source? This script will 
+	(attempt to) disable the right click on your page!
+-->
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript1.1">
+
+<!--
+function disableRightClick(e) {
+	if (navigator.appName == 'Netscape' && (e.which == 3 || e.which == 2)) {
+		alert("Don't break the rule! you don't have permission to right click.");
+		return false;
+	} else if (navigator.appName == 'Microsoft Internet Explorer' 
+			&& (event.button == 2 || event.button == 3)) {
+		alert("Don't break the rule! you don't have permission to right click.");
+		return false;
+	}
+	return true;
+}
+
+document.onmousedown=disableRightClick;
+document.onmouseup=disableRightClick;
+if (document.layers) window.captureEvents(Event.MOUSEDOWN);
+if (document.layers) window.captureEvents(Event.MOUSEUP);
+window.onmousedown=disableRightClick;
+window.onmouseup=disableRightClick;
+-->
+
+</script>
+
+</HEAD>
+
+<BODY>
+<center>Try right-clicking on an image or on the page
+<p><img src="http://www.devamatre.com/images/flowers.jpg"><p>
+<a href="http://www.devamatre.com">Home Link</a>
+</body>
+</html>
