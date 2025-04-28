@@ -1,0 +1,210 @@
+body, table, td, th, a, p, span, div, li, input, option, select, textarea
+{
+ font-family: sans, verdana, helvetica, arial;
+ border-collapse: collapse;
+ color: #000;
+ text-indent: 0pt;
+ font-size: 12px;
+}
+hr
+{
+ border: solid 1px;
+ color: #aaa;
+ width: 90%;
+}
+a
+{
+ color: #006;
+ text-decoration: none;
+}
+a:visited
+{
+ color: #333;
+ text-decoration: none;
+}
+a:hover
+{
+ text-decoration: underline;
+}
+
+a.fd, a.fd:visited, a.fd:hover, a.fd:active
+{
+ display: block;
+ text-decoration: none;
+ overflow: hidden;
+}
+a.fd:hover, a.fd:active
+{
+ border: 1px solid #CCC;
+ background: #EEE;
+ color: #000;
+}
+a.fd:active
+{
+ border: 1px solid #69F;
+ background: #CEE0EE;
+}
+a.fd:hover b
+{
+ text-decoration: none;
+ color: #06F;
+}
+ol, ul
+{
+ margin: 0px;
+ margin-left: 0px;
+ padding-left: 18px;
+ margin-bottom: 0px;
+ text-indent: 0px;
+}
+.fd, links
+{
+ font-size: 11px;
+}
+.summary
+{
+ font-size: 11px;
+}
+.except
+{
+ text-align: left;
+ font-size: 90%;
+}
+
+.header
+{
+ text-align: left;
+ font-size: 12px;
+ font-weight: bold;
+}
+
+.headersidebar
+{
+ text-align: left;
+ font-size: 12px;
+ font-weight: bold;
+ background: #8a8ce2;
+ color: #FFF;
+}
+
+.articletitle
+{
+ text-align: left;
+ font-size: 12px;
+ font-weight: bold;
+ padding-left: 5px;
+ background: #003399;
+ width: 80%;
+ height: 2em;
+}
+
+.earticletitle
+{
+ text-align: left;
+ font-size: 12px;
+ padding-left: 5px;
+ padding-bottom: 1px;
+}
+.contentheader
+{
+ background: #005A9C;
+ color: #FFF;
+ font-size: 17px;
+ font-weight: bold;
+ text-align: center;
+}
+.archivelink
+{
+ color: #00F;
+ font-size: 110%;
+ text-align: center;
+}
+.yearlinks
+{
+ color: #0000A0;
+ font-size: 12px;
+ font-weight: bold;
+ text-align: center;
+ text-decoration: underline;
+}
+.yearlinkblack
+{
+ color: #000;
+ font-size: 12px;
+ text-align: center;
+}
+.monthheader
+{
+ font-size: 12px;
+ font-weight: bold;
+ text-align: left;
+ background: #66F; 
+ color: #FFF;
+}
+.titletable
+{
+ border-style: solid;
+ border-left-width: 0px;
+ border-right-width: 1px;
+ border-top-width: 0px;
+ border-bottom-width: 1px;
+ border-color: #000;
+}
+.ArticleSection
+{
+ font-size: 11px;
+}
+.sectiontitle
+{
+ color: white;
+}
+a.sectiontitle, a.sectiontitle:visited, a.sectiontitle:hover, a.sectiontitle:active
+{
+ text-decoration: none;
+}
+
+.sidebarlink
+{
+ font-size: 9px;
+}
+
+.rightsidebar
+{
+ background-color: #eee;
+}
+
+a.rightsidebarlink
+{
+ color: black;
+ font-size: 9px;
+}
+
+a.rightsidebarlink:visited
+{
+ color: #AAA;
+}
+
+.whitenowrap
+{
+ color: white;
+ font-size: 0.9em;
+ white-space: nowrap;
+}
+
+.bluenowrap
+{
+ color: blue;
+ font-size: 0.9em;
+ white-space: nowrap;
+}
+
+.date
+{
+ background: #8a8ce2; 
+ color: #FFF; 
+ width: 100%; 
+ height: 1em; 
+ white-space: nowrap; 
+ text-align: right; 
+ padding-right: 0.5em;
+}

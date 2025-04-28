@@ -1,0 +1,4 @@
+http://code.google.com/p/onyxkernel/wiki/FirstStep
+
+Compile: gcc <cfilename> -o <outputfilename>
+Run: ./<outputfilename>

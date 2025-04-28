@@ -1,0 +1,2 @@
+alter table t1 modify z number(12)
+/

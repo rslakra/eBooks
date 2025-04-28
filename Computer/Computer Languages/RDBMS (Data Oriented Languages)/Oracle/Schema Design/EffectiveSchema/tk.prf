@@ -1,0 +1,198 @@
+
+TKPROF: Release 10.2.0.1.0 - Production on Tue Oct 11 09:35:31 2005
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+Trace file: /home/ora10gr2/admin/ora10gr2/udump/ora10gr2_ora_9504.trc
+Sort options: default
+
+********************************************************************************
+count    = number of times OCI procedure was executed
+cpu      = cpu time in seconds executing 
+elapsed  = elapsed time in seconds executing
+disk     = number of physical reads of buffers from disk
+query    = number of buffers gotten for consistent read
+current  = number of buffers gotten in current mode (usually for update)
+rows     = number of rows processed by the fetch or execute call
+********************************************************************************
+
+        alter session set events '10046 trace name context forever, level 12'
+    
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          0          0           0
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1      0.00       0.00          0          0          0           0
+
+Misses in library cache during parse: 0
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 63     (recursive depth: 1)
+********************************************************************************
+
+SELECT * 
+FROM
+ HEAP_LOOKUP WHERE OBJECT_ID = :B1 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute  49839     10.55      10.39          0          0          0           0
+Fetch    49839      5.23       3.26          0     149517          0       49839
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    99679     15.78      13.66          0     149517          0       49839
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 63     (recursive depth: 1)
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  49839  TABLE ACCESS BY INDEX ROWID HEAP_LOOKUP (cr=149517 pr=0 pw=0 time=3653025 us)
+  49839   INDEX UNIQUE SCAN SYS_C005849 (cr=99678 pr=0 pw=0 time=1366092 us)(object id 53260)
+
+********************************************************************************
+
+SELECT * 
+FROM
+ HASH_LOOKUP WHERE OBJECT_ID = :B1 
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute  49839     10.23       9.90          0          2          0           0
+Fetch    49839      4.36       2.57          0      53318          0       49839
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total    99679     14.60      12.47          0      53320          0       49839
+
+Misses in library cache during parse: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 63     (recursive depth: 1)
+
+Rows     Row Source Operation
+-------  ---------------------------------------------------
+  49839  TABLE ACCESS HASH HASH_LOOKUP (cr=53318 pr=0 pw=0 time=2199267 us)
+
+********************************************************************************
+
+declare
+    type array is table of number;
+    l_object_ids array;
+    l_rec        heap_lookup%rowtype;
+begin
+    select object_id bulk collect into l_object_ids
+      from heap_lookup;
+    execute immediate q'|
+        alter session set events '10046 trace name context forever, level 12'
+    |';
+    for k in 1 .. l_object_ids.count
+    loop
+        select * into l_rec
+          from heap_lookup
+         where object_id = l_object_ids(k);
+        select * into l_rec
+          from hash_lookup
+         where object_id = l_object_ids(k);
+    end loop;
+end;
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        0      0.00       0.00          0          0          0           0
+Execute      1     37.17      38.53          0     202947          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        1     37.17      38.53          0     202947          0           1
+
+Misses in library cache during parse: 0
+Misses in library cache during execute: 1
+Optimizer mode: ALL_ROWS
+Parsing user id: 63  
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       1        0.00          0.00
+  SQL*Net message from client                     1        0.00          0.00
+********************************************************************************
+
+BEGIN DBMS_OUTPUT.GET_LINES(:LINES, :NUMLINES); END;
+
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      1      0.00       0.00          0          3          0           1
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        2      0.00       0.00          0          3          0           1
+
+Misses in library cache during parse: 0
+Optimizer mode: ALL_ROWS
+Parsing user id: 63  
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       1        0.00          0.00
+  SQL*Net message from client                     1        0.00          0.00
+
+
+
+********************************************************************************
+
+OVERALL TOTALS FOR ALL NON-RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        1      0.00       0.00          0          0          0           0
+Execute      2     37.17      38.54          0     202950          0           2
+Fetch        0      0.00       0.00          0          0          0           0
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total        3     37.17      38.54          0     202950          0           2
+
+Misses in library cache during parse: 0
+Misses in library cache during execute: 1
+
+Elapsed times include waiting on following events:
+  Event waited on                             Times   Max. Wait  Total Waited
+  ----------------------------------------   Waited  ----------  ------------
+  SQL*Net message to client                       4        0.00          0.00
+  SQL*Net message from client                     4       39.54         39.54
+
+
+OVERALL TOTALS FOR ALL RECURSIVE STATEMENTS
+
+call     count       cpu    elapsed       disk      query    current        rows
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+Parse        2      0.00       0.00          0          0          0           0
+Execute  99679     20.79      20.30          0          2          0           0
+Fetch    99678      9.60       5.83          0     202835          0       99678
+------- ------  -------- ---------- ---------- ---------- ----------  ----------
+total   199359     30.39      26.13          0     202837          0       99678
+
+Misses in library cache during parse: 2
+Misses in library cache during execute: 1
+
+    5  user  SQL statements in session.
+    0  internal SQL statements in session.
+    5  SQL statements in session.
+********************************************************************************
+Trace file: /home/ora10gr2/admin/ora10gr2/udump/ora10gr2_ora_9504.trc
+Trace file compatibility: 10.01.00
+Sort options: default
+
+       1  session in tracefile.
+       5  user  SQL statements in trace file.
+       0  internal SQL statements in trace file.
+       5  SQL statements in trace file.
+       5  unique SQL statements in trace file.
+  897198  lines in trace file.
+      38  elapsed seconds in trace file.
+
+

@@ -1,0 +1,50 @@
+/* $Id: //websites/unixwiz/unixwiz.net/webroot/unixwiz.css#2 $ */
+
+BODY {
+	FONT-FAMILY: verdana, arial, sans-serif;
+}
+
+.banner {
+	font-size: 150%;
+	font-family: Verdana, "Courier New", Courier, Arial, monospace;
+	font-weight: bold;
+}
+
+.description {
+	font-size: 180%;
+	font-weight: bold;
+}
+
+.title {
+	font-size: 150%;
+	font-family: Verdana, "Courier New", Courier, Arial, monospace;
+	font-weight: bold;
+}
+
+.subtitle {
+	font-size: 180%;
+	font-weight: bold;
+}
+
+/* the text in the footer at the bottom */
+.footer {
+	font-size: 100%;
+}
+
+/* dimensions of our logo */
+.sjflogo {
+	height: 60px;
+	width:  56px;
+}
+
+/* dimensions of the little red bricks */
+.redbrick {
+	height: 14px;
+	width:  6px;
+}
+
+/* the left side of the nav links on main page */
+.leftside {
+	font-size: 80%;
+	background:#CCFFCC;
+}

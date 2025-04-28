@@ -1,0 +1,75 @@
+ops$tkyte@ORA10GR1> @hist
+
+''''||COLUMN_NAME||'''NAME,'||CHR(10)||'COUNT('||COLUMN_NAME||')CNT,'||CHR(10)||'COUNT(DISTINCT'||COLUMN_NAME||')DCNT,'||
+-------------------------------------------------------------------------------------------------------------------------
+'OWNER' name,
+count(OWNER) cnt,
+count(distinct OWNER) dcnt,
+max(vsize(OWNER) sz,
+
+'OBJECT_NAME' name,
+count(OBJECT_NAME) cnt,
+count(distinct OBJECT_NAME) dcnt,
+max(vsize(OBJECT_NAME) sz,
+
+'SUBOBJECT_NAME' name,
+count(SUBOBJECT_NAME) cnt,
+count(distinct SUBOBJECT_NAME) dcnt,
+max(vsize(SUBOBJECT_NAME) sz,
+
+'OBJECT_ID' name,
+count(OBJECT_ID) cnt,
+count(distinct OBJECT_ID) dcnt,
+max(vsize(OBJECT_ID) sz,
+
+'DATA_OBJECT_ID' name,
+count(DATA_OBJECT_ID) cnt,
+count(distinct DATA_OBJECT_ID) dcnt,
+max(vsize(DATA_OBJECT_ID) sz,
+
+'OBJECT_TYPE' name,
+count(OBJECT_TYPE) cnt,
+count(distinct OBJECT_TYPE) dcnt,
+max(vsize(OBJECT_TYPE) sz,
+
+'CREATED' name,
+count(CREATED) cnt,
+count(distinct CREATED) dcnt,
+max(vsize(CREATED) sz,
+
+'LAST_DDL_TIME' name,
+count(LAST_DDL_TIME) cnt,
+count(distinct LAST_DDL_TIME) dcnt,
+max(vsize(LAST_DDL_TIME) sz,
+
+'TIMESTAMP' name,
+count(TIMESTAMP) cnt,
+count(distinct TIMESTAMP) dcnt,
+max(vsize(TIMESTAMP) sz,
+
+'STATUS' name,
+count(STATUS) cnt,
+count(distinct STATUS) dcnt,
+max(vsize(STATUS) sz,
+
+'TEMPORARY' name,
+count(TEMPORARY) cnt,
+count(distinct TEMPORARY) dcnt,
+max(vsize(TEMPORARY) sz,
+
+'GENERATED' name,
+count(GENERATED) cnt,
+count(distinct GENERATED) dcnt,
+max(vsize(GENERATED) sz,
+
+'SECONDARY' name,
+count(SECONDARY) cnt,
+count(distinct SECONDARY) dcnt,
+max(vsize(SECONDARY) sz,
+
+
+13 rows selected.
+
+
+
+ops$tkyte@ORA10GR1> spoo off

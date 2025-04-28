@@ -1,0 +1,17 @@
+1.) Java API - Details about versioning issues and solutions
+
+2.) Exceptions Hierarchy Diagram (ExceptionInInitialization Error)
+
+3.) Sun's official assertion documentation.
+
+4.) Interfaces:
+	Why interfaces does not have constructors?
+	Interfaces are not part of the inheritance tree so don't have constructors?
+
+5.) why does the default constructor has the same access modifier as the class?
+
+6.) why constructors are not inhereted?
+
+7.) can a (static) NULL reference access the static values of a class? - Yes.
+
+8.)

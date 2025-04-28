@@ -1,0 +1,2 @@
+select dname, cursor( select ename, empno from emp where emp.deptno=dept.deptno) from dept
+/
