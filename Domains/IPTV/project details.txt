@@ -1,0 +1,56 @@
+Project: IP Television/Internet STB
+
+Client: IP Television (http://www.iptvmagazine.com), NC, USA
+
+404 Wake Chapel Road
+Fuquay Varina, NC 27526 USA
+
+IP television is the transmission of television (digital video and audio) through data networks such as DSL, cable modem or wireless broadband. IP television services may be on a subscription basis (paid for by the recipient) or may be funded by commercials or government agencies. IP television broadcasters transmit multimedia data signals to end users or they can send the media to multicast distribution points that redirect the digital television signals to end users. 
+
+IP Television magazine explains how and why people and companies are using IP television and Internet television services. You will discover how global television services are already available through managed broadband networks (DSL and Cable modem) and unmanaged networks (the Internet) and how it is possible to use standard television to watch global television channels using analog television adapter boxes. 
+
+Through IP Television magazine, you will discover how IP television (IPTV) can be watched on different types of viewing devices such as standard televisions with adapters, dedicated IP televisions, multimedia computers and mobile telephones.
+
+IP television service allows viewers to have more control of television services. This control ranges from instant service activation to real time television on demand controls. Some of the advanced Internet television features such as personal media channels, anywhere television extensions, global television channels and multimedia programs are described. 
+
+In addition to the traditional ways of television channel selection, you will learn about new ways television channels can be search and selected using interactive electronic programming guides (EPGs). The different types of media formats that are used for IP television services are explained along with their control protocols. 
+
+Not all IP Television systems and services are the same. There are cost and quality tradeoffs along with common problem areas and risks. You will discover how the audio and video service quality can range from poor to above the quality that is already delivered to standard TV.
+
+Because each IP television viewer has a unique address, this allows advertising messages to be sent to specific viewers (addressable advertising). The ability to direct advertising messages to specific target audiences is more valuable to companies than traditional broadcast advertising and this may result in reduced viewing costs.
+
+Some of the most important topics covered in the magazine are:
+
+Fundamentals of how IP Television works 
+How to use regular televisions to watch IP TV 
+Global television channels 
+Internet television service quality 
+The costs of IP Television 
+Control of Internet television services 
+Internet television service providers 
+Advanced Internet television features 
+Electronic programming guides 
+IP television Media formats 
+-----------------------------------------------------------
+Project: CollaboraTV
+Client: AT&T (http://www.research.att.com), NY, USA
+Description:
+CollaboraTV takes the concept of social media and applies it to video viewing, so you can share thoughts and comments while you watch a video “with” others, each at your own web browser and at your own time.
+
+It works like this. From a browser, select a video and audience members, and begin watching. You can watch simultaneously or at different times. At any point, type a comment using the keyboard or insert an emoticon or thumbs up or down from a menu. Comments and feedback will be seen in real time by viewers watching simultaneously and also saved where inserted for others to see later. The playbar lets you skip directly to each viewer insertion.
+
+CollaboraTV works equally well for social interactions and work collaborations. Friends can “watch TV together” while exchanging jokes or opinions, making TV-viewing less of a solitary activity. And team members working with one another to create videos can easily request changes or make suggestions to refine the content.
+
+The ability to directly insert comments into video, similar to the comment feature of file editing programs, fits a growing need as more information is dispersed through video rather than traditional documents.
+ 
+
+CollaboraTV can also be used to elicit feedback from test audiences and evaluate viewer interest at any part of a video. An interest graph summarizes what is compelling to the audience, and lets viewers compare their interest level with that of others.
+-----------------------------------------------------------
+Project: Web Video Delivery
+Client:VERIZON COMMUNICATIONS Verizon Communications, Inc. 
+ (http://www22.verizon.com), NY, USA
+
+Fios is an online video delivery component on sete-top boxes. This is similiar to Tivo but it is much more elegant than that. It allows user to add RSS subscriptions directly to Media Manager via web browser. These features will be offered as part of Verizon's top tier DVR package, which also includes PC photo sharing and multi-room DVR playback.
+-----------------------------------------------------------
+
+-----------------------------------------------------------

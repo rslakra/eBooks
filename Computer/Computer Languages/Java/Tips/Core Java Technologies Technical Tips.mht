@@ -1,0 +1,1658 @@
+From: <Saved by Microsoft Internet Explorer 5>
+Subject: Core Java Technologies Technical Tips
+Date: Wed, 15 Mar 2006 09:40:47 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	boundary="----=_NextPart_000_0000_01C64814.8A1733C0";
+	type="text/html"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2800.1106
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: text/html;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://java.sun.com/developer/JDCTechTips/2006/tt0113.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Core Java Technologies Technical Tips</TITLE>
+<META content=3Dreference name=3Dcollection>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Diso-8859-1">
+<META content=3D"MSHTML 6.00.2800.1106" name=3DGENERATOR></HEAD>
+<BODY><A name=3Dtop></A><!-- begin intro copy -->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD=20
+    style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif"=20
+    width=3D580>You are receiving this e-mail because you elected to =
+receive=20
+      e-mail from Sun Microsystems, Inc. To update your communications=20
+      preferences, please see the link at the bottom of this message. We =
+respect=20
+      your privacy and post our privacy policy prominently on our Web =
+site <A=20
+      style=3D"COLOR: rgb(0,124,194)" href=3D"http://sun.com/privacy/"=20
+      target=3D_blank>http://sun.com/privacy/</A><BR><BR>Please do not =
+reply to=20
+      the mailed version of the newsletter, this alias is not monitored. =
+
+      Feedback options are listed in the footer for both content and =
+delivery=20
+      issues.</TD></TR></TBODY></TABLE><!-- end intro copy --><!-- begin =
+header -->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD vAlign=3Dtop width=3D580><IMG height=3D58 alt=3D""=20
+      =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/header_top.=
+gif"=20
+      width=3D580 border=3D0></TD></TR>
+  <TR>
+    <TD vAlign=3Dtop width=3D580>
+      <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+        <TBODY>
+        <TR>
+          <TD vAlign=3Dcenter align=3Dmiddle width=3D190=20
+          =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/heade=
+r_bg.gif=20
+          height=3D98 rowSpan=3D2>
+            <TABLE cellSpacing=3D0 cellPadding=3D0 width=3D150 =
+border=3D0>
+              <TBODY>
+              <TR>
+                <TD width=3D12>&nbsp;</TD>
+                <TD=20
+                style=3D"FONT-SIZE: 11px; COLOR: rgb(102,102,102); =
+FONT-FAMILY: Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+                vAlign=3Dcenter width=3D138>Welcome to the Core Java =
+Technologies=20
+                  Tech Tips. </TD></TR></TBODY></TABLE></TD>
+          <TD vAlign=3Dtop width=3D15 rowSpan=3D2><IMG height=3D120 =
+alt=3D""=20
+            =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/header_mid.=
+gif"=20
+            width=3D15 border=3D0></TD>
+          <TD style=3D"PADDING-BOTTOM: 10px; BACKGROUND-COLOR: =
+rgb(104,144,168)"=20
+          vAlign=3Dtop width=3D375 height=3D60><SPAN=20
+            style=3D"PADDING-LEFT: 12px; FONT-WEIGHT: bold; FONT-SIZE: =
+22px; COLOR: rgb(255,255,255); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif">Core=20
+            Java Technologies<BR></SPAN><SPAN=20
+            style=3D"PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: =
+15px; COLOR: rgb(255,255,255); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif">TECHNICAL=20
+            TIPS </SPAN></TD></TR>
+        <TR>
+          <TD width=3D375=20
+          =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/heade=
+r_ftr_bg.gif=20
+          height=3D38><SPAN=20
+            style=3D"PADDING-LEFT: 7px; FONT-WEIGHT: bold; FONT-SIZE: =
+11px; COLOR: rgb(102,102,102); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif">January=20
+            13, 2006</SPAN><BR><A=20
+            style=3D"PADDING-LEFT: 7px; FONT-SIZE: 12px; COLOR: =
+rgb(51,51,51); FONT-FAMILY: Arial,Verdana,Helvetica,Sans-serif; =
+TEXT-DECORATION: none"=20
+            =
+href=3D"http://java.sun.com/developer/TechTips/txtarchive/2006/Jan06_John=
+Z.txt">View=20
+            this issue as simple text</A> =
+</TD></TR></TBODY></TABLE></TD></TR>
+  <TR>
+    <TD vAlign=3Dtop width=3D580><IMG height=3D34 alt=3D""=20
+      =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/header_btm.=
+gif"=20
+      width=3D580 border=3D0></TD></TR></TBODY></TABLE><!-- end header =
+-->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(105,145,169)" vAlign=3Dtop =
+width=3D29><IMG=20
+      height=3D13 alt=3D""=20
+      =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/title_left-=
+top.gif"=20
+      width=3D29 border=3D0></TD>
+    <TD=20
+    style=3D"FONT-SIZE: 16px; COLOR: rgb(255,255,255); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif"=20
+    width=3D522=20
+    =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/title=
+_middle-bg.gif=20
+    height=3D13>In This Issue</TD>
+    <TD style=3D"BACKGROUND-COLOR: rgb(105,145,169)" vAlign=3Dtop =
+width=3D29><IMG=20
+      height=3D13 alt=3D""=20
+      =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/title_right=
+-top.gif"=20
+      width=3D29 border=3D0></TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(166,186,201)" width=3D580 =
+colSpan=3D3=20
+    height=3D1></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(237,239,242)" =
+width=3D29>&nbsp;</TD>
+    <TD=20
+    style=3D"FONT-SIZE: 13px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+    vAlign=3Dtop width=3D"100%"><BR>Welcome to the Core Java =
+Technologies Tech=20
+      Tips for January 13, 2006. Here you'll get tips on using core Java =
+
+      technologies and APIs, such as those in Java 2 Platform, Standard =
+Edition=20
+      (J2SE). <BR><BR>This issue covers: <BR><BR><A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://java.sun.com/developer/JDCTechTips/2006/tt0113.html#1">=BB=
+ The=20
+      Singleton Pattern</A> <BR><A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://java.sun.com/developer/JDCTechTips/2006/tt0113.html#2">=BB=
+ The=20
+      Observer Pattern</A> <BR><BR>These tips were developed using Java =
+2=20
+      Platform, Standard Edition Development Kit 5.0 (JDK 5.0). You can =
+download=20
+      JDK 5.0 at <A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://java.sun.com/j2se/1.5.0/download.jsp">http://java.sun.com/=
+j2se/1.5.0/download.jsp</A>.=20
+      <BR><BR>This issue of the Core Java Technologies Tech Tips is =
+written by=20
+      John Zukowski, president of JZ Ventures, Inc. (<A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://www.jzventures.com/">http://www.jzventures.com/</A>).=20
+      <BR><BR>See the <A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://java.sun.com/developer/JDCTechTips/2006/tt0113.html#subscr=
+ibe">Subscribe/Unsubscribe</A>=20
+      note at the end of this newsletter to subscribe to Tech Tips that =
+focus on=20
+      technologies and products in other Java platforms. </TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(170,188,203)" width=3D580 =
+colSpan=3D3=20
+    height=3D1></TD></TR></TBODY></TABLE><BR><!-- begin module 1 --><A =
+name=3D1></A>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(105,145,169)" vAlign=3Dtop =
+width=3D29><IMG=20
+      height=3D13 alt=3D""=20
+      =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/title_left-=
+top.gif"=20
+      width=3D29 border=3D0></TD>
+    <TD=20
+    style=3D"FONT-SIZE: 14px; COLOR: rgb(255,255,255); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif"=20
+    width=3D522=20
+    =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/title=
+_middle-bg.gif=20
+    height=3D13>THE SINGLETON PATTERN</TD>
+    <TD style=3D"BACKGROUND-COLOR: rgb(105,145,169)" vAlign=3Dtop =
+width=3D29><IMG=20
+      height=3D13 alt=3D""=20
+      =
+src=3D"http://developers.sun.com/newsletters/fundamentals/img/title_right=
+-top.gif"=20
+      width=3D29 border=3D0></TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(166,186,201)" width=3D580 =
+colSpan=3D3=20
+    height=3D1></TD></TR></TBODY></TABLE><!-- CSI:START_CONTENT =
+--><!--CSI:CONTENT_TITLE  VALUE=3D"FILTERING JLIST MODELS" -->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(237,239,242)" =
+width=3D29>&nbsp;</TD>
+    <TD=20
+    style=3D"FONT-SIZE: 13px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+    vAlign=3Dtop width=3D"100%"><BR><BR>A design pattern is a general =
+solution to=20
+      a common problem in software design. The idea is that the solution =
+gets=20
+      translated into code, and that the code can be applied in =
+different=20
+      situations where the problem occurs. Discussion of design patterns =
+started=20
+      with the book <EM><A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      href=3D"http://www.amazon.com/exec/obidos/ASIN/0201633612/">Design =
+Patterns:=20
+      Elements of Reusable Object-Oriented Software</A></EM> by Erich =
+Gamma,=20
+      Richard Helm, Ralph Johnson, and John Vlissides. These four =
+authors are=20
+      known as the "Gang of Four" or simply "GoF". In their book, the =
+GoF=20
+      categorized patterns into different subject areas, of which there =
+are=20
+      three primary areas: creational, structural, and behavioral. =
+Creational=20
+      patterns describe how objects are created (or "instantiated" in=20
+      object-oriented terminology). Structural patterns offer help in =
+how to=20
+      connect and combine objects. Behavioral patterns describe =
+algorithms or=20
+      communication mechanisms. Some common pattern names are Singleton =
+in the=20
+      creational area, Observer in the behavioral area, and Facade in =
+the=20
+      structural area. This Tech Tip describes the Singleton pattern =
+strictly in=20
+      the context of the Java programming language. <BR><BR>One of the =
+commonly=20
+      used creational patterns is the Singleton pattern. It describes a=20
+      technique for ensuring that only a single instance of a class is =
+ever=20
+      created. In essence, the technique takes the following approach: =
+don't let=20
+      anyone outside the class create instances of the object. =
+Typically,=20
+      Singletons are lazily created to reduce memory requirements until =
+needed.=20
+      You can implement this approach in many different ways. <BR><BR>If =
+you=20
+      know the one instance being created will be a subclass, make the =
+parent=20
+      class abstract and provide a method to get the current instance. =
+An=20
+      example of this is the <CODE>Toolkit</CODE> class in the AWT =
+package. The=20
+      constructor for <CODE>Toolkit</CODE> is public (the default =
+constructor in=20
+      this particular case): <BR><PRE>   public Toolkit()
+</PRE>and the class has a <CODE>getDefaultToolkit()</CODE> method for=20
+      getting the specific subclass -- in this case, the subclass is=20
+      platform-specific: <BR><PRE>   public static Toolkit =
+getDefaultToolkit()
+</PRE>On a Linux platform with the Sun Java runtime, the specific =
+subclass=20
+      is of type <CODE>sun.awt.X11.XToolkit</CODE>. However you don't =
+need to=20
+      know that because you only access the class through its common =
+abstract=20
+      parent class, <CODE>Toolkit</CODE>. <BR><BR>The =
+<CODE>Collator</CODE>=20
+      class is another example of this pattern, with a slight =
+difference. It=20
+      offers two <CODE>getInstance()</CODE> methods. The no-argument =
+version=20
+      gets the <CODE>Collator</CODE> for the default locale. You can =
+pass in=20
+      your own locale to get the instance of the <CODE>Collator</CODE> =
+for that=20
+      locale. Request the <CODE>Collator</CODE> for the same locale =
+multiple=20
+      times and you get back the same <CODE>Collator</CODE> instance. =
+The=20
+      constructor itself is protected. Similar ways of restricting class =
+
+      creation can be found throughout the J2SE standard libraries. =
+<BR><BR>At=20
+      this point you might think that restricting access to the =
+constructor of a=20
+      class automatically makes it a Singleton. It doesn't. A case in =
+point is=20
+      the <CODE>Calendar</CODE> class. The <CODE>Calendar</CODE> class=20
+      constructor is protected, and the class offers a=20
+      <CODE>getInstance()</CODE> method to get an instance of the class. =
+
+      However, each call to <CODE>getInstance()</CODE> gets a new =
+instance of=20
+      the class. So that isn't a Singleton. <BR><BR>When you create your =
+own=20
+      Singleton class, make sure that only a single instance is ever =
+created:=20
+      <BR><PRE>   public class MySingleton {
+     private static final MySingleton INSTANCE =3D=20
+       new MySingleton();
+
+     private MySingleton() {
+     }
+
+     public static final MySingleton getInstance() {
+       return INSTANCE;
+     }
+   }
+</PRE>The static method, <CODE>getInstance()</CODE>, returns the single=20
+      instance of the class. Note that even if the single instance needs =
+to be a=20
+      subclass, you don't have to change the API. <BR><BR>Theoretically, =
+you=20
+      don't need the <CODE>getInstance()</CODE> method because the=20
+      <CODE>INSTANCE</CODE> variable could be public. However, the=20
+      <CODE>getInstance()</CODE> method does provide flexibility in case =
+of=20
+      future system changes. Good virtual machine implementations should =
+inline=20
+      the call to the static <CODE>getInstance()</CODE> method. =
+<BR><BR>That's=20
+      not quite all there is to creating a Singleton. If you need to =
+make your=20
+      Singleton class <CODE>Serializable</CODE>, you must provide a=20
+      <CODE>readResolve()</CODE> method: <BR><PRE>  /**
+   * Ensure Singleton class
+   */
+  private Object readResolve() throws ObjectStreamException {
+    return INSTANCE;
+  }
+</PRE>With the <CODE>readResolve()</CODE> method in place, =
+deserialization=20
+      results in the one (and only one) object -- the same object as =
+produced by=20
+      calls to the <CODE>getInstance()</CODE> method. If you don't =
+provide a=20
+      <CODE>readResolve()</CODE> method, an instance of the object is =
+created=20
+      each time you deserialize the object. <BR><BR>The Singleton =
+pattern is=20
+      useful if you know you only have a single resource, and need to =
+share=20
+      access to the state information of that single resource. =
+Identifying the=20
+      need for the Singleton pattern at design time can simplify =
+development.=20
+      However, sometimes you're not aware of the need until a =
+performance=20
+      problem leads you to refactor code and use the pattern at a later =
+time.=20
+      For example, you might discover that system performance is =
+degrading=20
+      because your program is repeatedly creating instances of the same =
+class to=20
+      pass along state information. By changing to the Singleton =
+pattern, you=20
+      avoid recreating the same object. This frees up time the system =
+uses to=20
+      recreate the object, and saves the time the garbage collector =
+needs to=20
+      free those instances. <BR><BR>In short, use the Singleton design =
+pattern=20
+      when you want to ensure that one, and only one, instance of a =
+class is=20
+      ever created. If your constructor doesn't require any operations, =
+provide=20
+      an empty private constructor (or a protected constructor if you =
+need to=20
+      subclass). Otherwise, by default, the system will provide a public =
+
+      constructor, something you don't want when working with a =
+Singleton.=20
+      <BR><BR>Note that Singletons are only guaranteed to be unique =
+within a=20
+      given class loader. If you use the same class across multiple =
+distinct=20
+      enterprise containers, you'll get one instance for each container. =
+
+      <BR><BR>A Singleton pattern is often used with another pattern =
+called the=20
+      Factory pattern. Like the Singleton pattern, the Factory pattern =
+is a=20
+      creational pattern. It describes how subclasses of a particular =
+object, or=20
+      more typically, implementers of a particular interface, do the =
+actual=20
+      object creation. A good example of the Factory pattern is the =
+Swing=20
+      <CODE>BorderFactory</CODE> class. The class has a series of static =
+methods=20
+      returning different types of <CODE>Border</CODE> objects. It hides =
+the=20
+      implementation details of the subclasses, allowing the factory to =
+directly=20
+      call the constructors for the interface implementations. Here's an =
+example=20
+      of <CODE>BorderFactory</CODE> in use: <BR><PRE>   Border line =3D =
+BorderFactory.createLineBorder(Color.RED);
+   JLabel label =3D new JLabel("Red Line");
+   label.setBorder(line);
+</PRE>Here, the fact that <CODE>BorderFactory</CODE> creates a=20
+      <CODE>LineBorder</CODE>, or how <CODE>BorderFactory</CODE> does =
+that, is=20
+      hidden from the developer. In this particular example, you can =
+directly=20
+      call the <CODE>LineBorder</CODE> constructor, but in many cases of =
+using=20
+      the Factory pattern, you can't. <BR><BR>Frequently, the class =
+implementing=20
+      the Singleton pattern returns an object to use as a Factory to =
+create=20
+      instances of a different class. This is exemplified by the=20
+      <CODE>PopupFactory</CODE> class in the way it creates =
+<CODE>Popup</CODE>=20
+      objects. <BR><BR>To get the Singleton factory, you call the=20
+      <CODE>getSharedInstance()</CODE> method of =
+<CODE>PopupFactory</CODE>: <BR><PRE>   PopupFactory factory =3D =
+PopupFactory.getSharedInstance();
+</PRE>Then you create a <CODE>Popup</CODE> object from the factory by=20
+      calling the factory's <CODE>getPopup()</CODE> method, passing in =
+the=20
+      parent component, its contents, and position: <BR><PRE>   Popup =
+popup =3D factory.getPopup(owner, contents, x, y);
+</PRE>You'll find the Factory pattern used frequently in a security=20
+      context. In the following example, a certificate factory is =
+obtained for a=20
+      particular algorithm, then a certificate for a stream is =
+generated: <BR><PRE>   FileInputStream fis =3D new =
+FileInputStream(filename);
+   CertificateFactory cf =3D=20
+      CertificateFactory.getInstance("X.509");
+   Collection c =3D cf.generateCertificates(fis);
+</PRE>As shown with <CODE>BorderFactory</CODE>, the Factory pattern does =
+
+      not have to be used with the Singleton pattern. However the two =
+patterns=20
+      are frequently used together. <BR><BR><A=20
+      style=3D"FONT-SIZE: 11px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://java.sun.com/developer/JDCTechTips/2006/tt0113.html#top">B=
+ack=20
+      to Top</A> </TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(170,188,203)" width=3D580 =
+colSpan=3D3=20
+    height=3D1></TD></TR></TBODY></TABLE><BR><!-- end module 1 --><!-- =
+begin module 2 --><A=20
+name=3D2></A>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD width=3D29=20
+    =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/title=
+_middle-bg.gif></TD>
+    <TD=20
+    style=3D"FONT-SIZE: 15px; COLOR: rgb(255,255,255); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif"=20
+    width=3D522=20
+    =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/title=
+_middle-bg.gif=20
+    height=3D13>THE OBSERVER PATTERN</TD>
+    <TD width=3D29=20
+    =
+background=3Dhttp://developers.sun.com/newsletters/fundamentals/img/title=
+_middle-bg.gif></TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(166,186,201)" width=3D580 =
+colSpan=3D3=20
+    height=3D1></TD></TR></TBODY></TABLE><!-- CSI:START_CONTENT =
+--><!--CSI:CONTENT_TITLE  VALUE=3D"DEQUES" -->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(237,239,242)" =
+width=3D29>&nbsp;</TD>
+    <TD=20
+    style=3D"FONT-SIZE: 13px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+    vAlign=3Dtop width=3D"100%"><BR><BR>Like the Singleton Pattern, =
+which was=20
+      covered in the first half of this tip, the Observer pattern is a =
+popular=20
+      design pattern used in Java programs. The pattern is a behavioral =
+design=20
+      pattern. It defines a way for classes to be loosely coupled and =
+for one=20
+      class (or many) to be notified when another is updated. Basically, =
+this=20
+      means that when something happens in one place, you notify anyone =
+who is=20
+      observing and that is interested in that one place. <BR><BR>There =
+are two=20
+      ways to look at the Observer pattern. The first way involves the=20
+      <CODE>Observer</CODE> and <CODE>Observable</CODE> classes found in =
+the=20
+      <CODE>java.util</CODE> package. The second way follows the =
+JavaBeans=20
+      component model of registering event listeners with components.=20
+      <BR><BR>Prior to the creation of the JavaBeans event model, the=20
+      <CODE>Observer</CODE> and <CODE>Observable</CODE> classes =
+described an=20
+      implementation of the Observable pattern. In other words, the =
+classes have=20
+      been around since the 1.0 version of the Java platform. There is =
+nothing=20
+      technically wrong with the classes and they are still present in =
+the=20
+      libraries. The classes still could be used to implement the =
+Observable=20
+      pattern, but the second model, the JavaBeans component model, is =
+typically=20
+      used. One significant problem in using the classes to implement =
+the=20
+      Observable pattern is that you have to extend =
+<CODE>Observable</CODE>.=20
+      This forces a class hierarchy structure that might not be possible =
+in the=20
+      single-inheritence world of the Java platform. <BR><BR>The =
+JavaBeans=20
+      component model of registering event listeners involves a series =
+of add=20
+      and remove methods, where the listener type is embedded in the =
+method=20
+      name. For instance, to observe the selection of a button, you =
+register an=20
+      <CODE>ActionListener</CODE> with the component: <BR><PRE>   =
+ActionListener listener =3D new ActionListener() {
+      public void actionPerformed(ActionEvent actionEvent) {
+          ...
+      }
+   };=20
+   JButton button =3D new JButton("Pick Me");
+   button.addActionListener(listener);
+</PRE>That really is all there is to the Observer pattern for the=20
+      system-defined classes. You implement a listener interface, attach =
+it to=20
+      the Subject of the observation, and wait. The Subject is what is =
+observed.=20
+      It is responsible for remembering who is observing. In the =
+JavaBeans=20
+      component model case, the interface to attach and detach the=20
+      <CODE>Observer</CODE> objects is the add/remove listener naming =
+pattern.=20
+      When the state of the Subject changes, it notifies the=20
+      <CODE>Observer</CODE> objects. <BR><BR>One of the main objectives =
+of the=20
+      pattern is to enable the loose coupling of the Subject and=20
+      <CODE>Observer</CODE>. When the <CODE>JButton</CODE> is selected, =
+instead=20
+      of calling a specific method of a fictitious subclass named=20
+      <CODE>ButtonNotification</CODE>, the notification is abstracted =
+out into=20
+      an interface that anyone can implement. The <CODE>JButton</CODE> =
+doesn't=20
+      care what class the attached <CODE>Observer</CODE> (listener) is. =
+In fact,=20
+      the button doesn't care if the implementing class is modified. All =
+it=20
+      cares about is that the Observer implements a listener. =
+<BR><BR>There are=20
+      a number of complications you need to watch out for when using the =
+
+      Observer pattern. First is the possibility of a memory leak. A =
+reference=20
+      to the <CODE>Observer</CODE> is maintained by the Subject. Until =
+the=20
+      Subject releases the reference, the <CODE>Observer</CODE> cannot =
+be=20
+      removed by the garbage collector. Be aware of this possibility and =
+remove=20
+      observers where appropriate. Also note that the set of=20
+      <CODE>Observer</CODE> objects is maintained in an unordered =
+collection --=20
+      at least when registering event listeners. You don't necessarily =
+know if=20
+      the first registered listener is notified first or last. If you =
+need to=20
+      have cascading notifications, where object A must be notified =
+first,=20
+      followed by object B, you must introduce an intermediary object to =
+enforce=20
+      the ordering. Simply registering the observers in a particular =
+order will=20
+      not enforce their order of notification. <BR><BR>Another area of =
+the Java=20
+      platform that models the Observer pattern is the Java Message =
+Service=20
+      (JMS), with its guaranteed delivery, non-local distribution, and=20
+      persistence, to name a few of its benefits. The JMS =
+publish-subscribe=20
+      messaging model allows any number of subscribers to listen to =
+topics of=20
+      interest. When a message for the published topic is produced, all =
+the=20
+      associated subscribers are notified. <BR><BR>There are many other =
+places=20
+      in the Java platform that model the Observer pattern -- the =
+pattern is=20
+      frequently used throughout the Java platform. <BR><BR>Since the =
+1995=20
+      publication of the <EM><A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      href=3D"http://www.amazon.com/exec/obidos/ASIN/0201633612/">Design =
+
+      Patterns</A></EM> book by the Gang of Four, other books have been=20
+      published that offer different perspectives on the same patterns =
+and=20
+      introduce additional patterns. Two of the more popular titles are: =
+
+      <UL>
+        <LI><A=20
+        style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+        =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0596007124/"><EM>Head =
+First=20
+        Design Patterns</EM></A>=20
+        <LI><A=20
+        style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+        =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0321213351/"><EM>Refactori=
+ng=20
+        to Patterns</EM></A> </LI></UL>Other books, such as <A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://www.amazon.com/exec/obidos/ASIN/0321127420/"><EM>Patterns =
+of=20
+      Enterprise Application Architecture</EM></A> are available for =
+those=20
+      interested in more targeted design pattern coverage -- in this =
+case, for=20
+      enterprise applications. <BR><BR>For more information on design =
+patterns=20
+      in general, see its <A=20
+      style=3D"FONT-SIZE: 13px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://en.wikipedia.org/wiki/Design_pattern_(computer_science)">W=
+ikipedia=20
+      entry</A>. <BR><BR>This Tech Tips issue is dedicated to the memory =
+of John=20
+      Vlissides, one of the original Gang of Four authors. He passed =
+away=20
+      November 2005. <BR><BR><A=20
+      style=3D"FONT-SIZE: 11px; COLOR: rgb(153,153,204); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; TEXT-DECORATION: none"=20
+      =
+href=3D"http://java.sun.com/developer/JDCTechTips/2006/tt0113.html#top">B=
+ack=20
+      to Top</A> </TD></TR>
+  <TR>
+    <TD style=3D"BACKGROUND-COLOR: rgb(170,188,203)" width=3D580 =
+colSpan=3D3=20
+    height=3D1></TD></TR></TBODY></TABLE><BR><!-- end module 2 --><!-- =
+BEGIN RATE AND REVIEW -->
+<SCRIPT type=3Dtext/javascript>=0A=
+=0A=
+<!-- Hide script from older browsers=0A=
+// Popup window function=0A=
+function onRateSubmitHandler()=0A=
+{=0A=
+   var w =3D =
+window.open("","rr","width=3D800,height=3D600,status=3Dno,toolbar=3Dno,sc=
+rollbars=3Dyes");=0A=
+   w.setTimeout("window.close();", 30000 );=0A=
+   return true;=0A=
+}=0A=
+// End of javascript=0A=
+-->=0A=
+=0A=
+</SCRIPT>
+
+<FORM name=3Darticle_rating onsubmit=3D"return onRateSubmitHandler()"=20
+action=3Dhttp://survey.sun.com/ViewsFlash/servlet/viewsflash =
+method=3Dpost=20
+target=3Drr>
+<TABLE class=3Ddkgrey style=3D"MARGIN-TOP: 7px" cellSpacing=3D0 =
+cellPadding=3D1=20
+width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD>
+      <TABLE class=3Dwhite cellSpacing=3D0 cellPadding=3D4 =
+width=3D"100%" border=3D0>
+        <TBODY>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+          vAlign=3Dtop><B>Rate and Review</B></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+          vAlign=3Dtop>Tell us what you think of the content of this =
+page.</TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+          vAlign=3Dtop><B><A name=3DVFquality></A><INPUT type=3Dradio=20
+            value=3DExcellent name=3Dquality> Excellent&nbsp;&nbsp; =
+<INPUT=20
+            type=3Dradio value=3DGood name=3Dquality> Good&nbsp;&nbsp; =
+<INPUT=20
+            type=3Dradio value=3DFair name=3Dquality> Fair&nbsp;&nbsp; =
+<INPUT=20
+            type=3Dradio value=3DPoor name=3Dquality> Poor&nbsp;&nbsp; =
+</B></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+          vAlign=3Dtop><A =
+name=3DVFcomments></A><B>Comments:</B><BR><TEXTAREA name=3Dcomments =
+rows=3D3 wrap=3Dvirtual cols=3D50></TEXTAREA></TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+          vAlign=3Dtop><A name=3DVFEmail></A><B>If you would like a =
+reply to your=20
+            comment, please submit your email address:</B><BR><INPUT=20
+            maxLength=3D60 size=3D35 name=3DEmail> Note: We may not =
+respond to all=20
+            submitted comments.</TD></TR>
+        <TR>
+          <TD=20
+          style=3D"FONT-SIZE: 11px; COLOR: rgb(51,51,51); FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif; BACKGROUND-COLOR: rgb(237,239,242)"=20
+          vAlign=3Dtop><INPUT style=3D"FONT-SIZE: 11px; COLOR: =
+rgb(51,51,51); FONT-FAMILY: Arial,Verdana,Helvetica,Sans-serif; =
+BACKGROUND-COLOR: rgb(237,239,242)" type=3Dsubmit value=3D"&nbsp;Submit =
+=BB&nbsp;" border=3D0 valign=3D"top">=20
+            <A name=3DVFURL></A><INPUT type=3Dhidden=20
+            =
+value=3Dhttp://java.sun.com/developer/JDCTechTips/2006/tt0113.html=20
+            name=3DURL> <A name=3DVFArticleTitle></A><INPUT =
+type=3Dhidden=20
+            value=3DEJTTips name=3DCoreTTipsTitle> <A=20
+            name=3DVFArticleAuthor></A><INPUT type=3Dhidden =
+value=3D"John Zukowski"=20
+            name=3DEJTTipsAuthor> <INPUT type=3Dhidden value=3Dtally =
+name=3Dcmd> <INPUT=20
+            type=3Dhidden value=3DCNP!tGreene name=3Dpollid> <INPUT =
+type=3Dhidden=20
+            value=3D"? =
+http://developers.sun.com/contact/thankyou.jsp?dlink=3Djavascript:window.=
+close();&amp;lname=3Darticle&amp;mesg=3D%3Ca+href%3D%22http%3A%2F%2Fdevel=
+oper.java.sun.com%2Fsubscription%22%3ESubscribe+to+a+newsletter%3C%2Fa%3E=
+"=20
+            name=3Dresults> <INPUT type=3Dhidden value=3DISO-8859-1 =
+name=3Dcharset>=20
+        </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE></FORM><!-- =
+END RATE AND REVIEW --><!-- begin footer copy -->
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D580 border=3D0>
+  <TBODY>
+  <TR>
+    <TD=20
+    style=3D"FONT-SIZE: 11px; COLOR: #333; FONT-FAMILY: =
+Arial,Verdana,Helvetica,Sans-serif"=20
+    width=3D580>Comments? Send your feedback on the Tech Tips: <A=20
+      style=3D"COLOR: #007cc2"=20
+      =
+href=3D"http://developers.sun.com/contact/feedback.jsp?category=3Dnewslet=
+">http://developers.sun.com/contact/feedback.jsp?category=3Dnewslet</A>=20
+      <BR><BR>Subscribe to the following newsletters for the latest =
+information=20
+      about technologies and products in other Java platforms:=20
+      <UL>
+        <LI>Enterprise Java Technologies Tech Tips. Get tips on using =
+enterprise=20
+        Java technologies and APIs, such as those in the Java 2 =
+Platform,=20
+        Enterprise Edition (J2EE).=20
+        <LI>Wireless Developer Tech Tips. Get tips on using wireless =
+Java=20
+        technologies and APIs, such as those in the Java 2 Platform, =
+Micro=20
+        Edition (J2ME). </LI></UL><A name=3Dsubscribe></A>You can =
+subscribe to these=20
+      and other Java technology developer newsletters or manage your =
+current=20
+      newsletter subscriptions on the <A style=3D"COLOR: #007cc2"=20
+      =
+href=3D"https://softwarereg.sun.com/registration/developer/en_US/subscrip=
+tions">Sun=20
+      Developer Network Subscriptions page</A> <BR><BR>ARCHIVES: You'll =
+find the=20
+      Core Java Technologies Tech Tips archives at:<BR><A =
+style=3D"COLOR: #007cc2"=20
+      =
+href=3D"http://java.sun.com/developer/JDCTechTips/index.html">http://java=
+.sun.com/developer/JDCTechTips/index.html</A>=20
+      <BR><BR>IMPORTANT: Please read our Terms of Use, Privacy, and =
+Licensing=20
+      policies:<BR><A style=3D"COLOR: #007cc2"=20
+      =
+href=3D"http://www.sun.com/share/text/termsofuse.html">http://www.sun.com=
+/share/text/termsofuse.html</A><BR><A=20
+      style=3D"COLOR: #007cc2"=20
+      =
+href=3D"http://www.sun.com/privacy/">http://www.sun.com/privacy/</A><BR><=
+A=20
+      style=3D"COLOR: #007cc2"=20
+      =
+href=3D"http://developer.java.sun.com/berkeley_license.html">http://devel=
+oper.java.sun.com/berkeley_license.html</A>=20
+      <BR><BR>=A9 2006 Sun Microsystems, Inc. All Rights Reserved. For =
+information=20
+      on Sun's trademarks see: <A style=3D"COLOR: #007cc2"=20
+      href=3D"http://sun.com/suntrademarks"=20
+      target=3D_blank>http://sun.com/suntrademarks</A><BR>Java, J2EE, =
+J2SE, J2ME,=20
+      and all Java-based marks are trademarks or registered trademarks =
+of Sun=20
+      Microsystems, Inc. in the United States and other countries. =
+<BR><BR>Sun=20
+      Microsystems, Inc. 10 Network Circle, MPK10-209 Menlo Park, CA =
+94025=20
+      US<BR><BR></TD></TR></TBODY></TABLE><!-- end footer copy -->
+<P></P></SPAN>
+<P></P></SPAN>
+<SCRIPT language=3DJavaScript=20
+src=3D"http://java.sun.com/js/omi/jsc/s_code_remote.js"></SCRIPT>
+</BODY></HTML>
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/header_top.gif
+
+R0lGODlhRAI6ANUAAF2Bl2KHncfR23GWrVl8ke3w89be5fX29/Ly8+rr7GaNpWmQqLzJ1aq8y+vu
+8cXP2JGrvdrg5/f5+vr7/KK2xmSKoImlueXo7OHm65qxwvn5+qizvrLC0IefsLzGz7G7xHmbsc3X
+4GWMo4GgtbvFzuTl5rbAybnDzPb3+fj6+/T19/z8/PHy9fr6+/f4+fr7+/39/fHz9fX2+Pf3+PX3
++fT19fb29/Hx8miPp/j4+fPz8/39/v3+//v8/P///2mRqSH5BAAAAAAALAAAAABEAjoAAAb/QJ9w
+SCwOYcikErlqOp/QqHRKrVqv2Kx2u116jeCweEwum8/otHrNbrvf8Lh8Tq+XvUqufs/v+/97eEl2
+hIWGh4iJiouMjXKCMFgvk5SVlpeYmZqbnJ2en6ChlVh4jqanqKmqq6ytXlKXGrKztLW2t7i5uru8
+vb6/wL2XUqWtxsfIycrLhnhRlbY50tPU1TPX2Nna29zd3t/g4eLj4dXm07WWUV/M7e7v8PGnr1CU
+tNTkNvr7/P3+/wADChxIsKBBg+OozaK0bom8hxAjSpxIhJ6TSbOkZeN3oKPHGiBDihxJsqTJkyhT
+qlzJsiVLjx75YUOngaEThxRz6tzJk9GS/ycYZWmcsa9jSB1IkypdyrSp06dQo0qdSrWq1achY9q4
+Jm3hiyc4e4odS7bsmJ8XXwjFps9oDaYI4sq9Qbeu3bt48+rdy7ev37+AA++VK5cpSK0zutb8elOJ
+2ceQI09EIrkyHcZNHFvezLlzIxieQ6exuSKs6NOoU6terSaHrEmZB7GeTbu27covEr9mrPm27985
+QQMXvVU37NjChytfzrw5ohc1Dmx1XbNxcufYs/vULvmAjujTq1vnTr68+eU3kEq/tnj8+ffw44ee
+QVd9+OO95evfz18nggI3IGCfcchd19+B5fGg4IIMNujggxBGKOGEFFZo4YUYZqjhhjzAkP+AA/V9
+d4BxvMmG4Inacajiiiy26OKLMC44QwIfhriea/hRhuKOzsXo449ABikkhDfQ6ACAAkZHYoE8Nqnc
+kFBGKeWUEyZwgZEh1nCfe052adsOYIYp5phklmnmmWimqeaabLbp5ptwxqlBCRdcmQCA6SmJI5de
+9rlanIAGKuighBZqKJoIlEAnlgHqcKMGfPopqWiHVmrppZhmuiYDG3T6wacfmCCqCSeUegIJqKbq
+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
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/header_mid.gif
+
+R0lGODlhDwBiAMQAALTF0Z2zxMXR2+Xp7dzi59Xd5dHa4sDN2GmRqOLn7Ojr7rrI1djf5ert8Iil
+uLzK1l+CmMzW32KGnbjH1HSXrVx/k+7w89Tc48fS3MnU3c/Z4cPP2t7j6WKHnmiPp2WMoyH5BAAA
+AAAALAAAAAAPAGIAAAX/IFCNFWR2aPetG1lCKbp+g3vGswWNJoyvFgrvhpLkHEOI5PexiF6+5ayZ
+STKbFmtqagn2ltucJfC9dje9okysO4Gnn0aX4l6vEIpGgwx7zzx5DRdKYX96CgoeYCpTHnp6AVce
+CI8KGZKOjw0IhR8emYcOHUZ/n4inE1IzCKaniAhwkwgDAwq0Aw6xk7W3ChFwrB60iLwUpZ+3yQGr
+n8LJtBkrzazPt8bTzrQJA9vLzcjVAwvBCOUJ5+joFNjp7QGfwe3pE8Gf8ugMk8336A7fHAQ4CAwo
+kEOAegAJBiQo4BsBggkXEqBQDkHBixD9lVs48KLBigk9Lpwg62HIjgJl/wHsCFGgg3IMHj5kQJPm
+w4MIYs4kENMmAQAwawoVOi7n0KMMgiIVSrGA06dQn76MStXp1KpRD2LNiuCC169gvwINS9YrUANo
+06pNmwHB2rdp3cJ9i0CD3bt48VLIy/eug76AA/ONQLiwYcMaDitezNhwhseQI0eOILmy5cuYM2uO
+jKGz58+gQ4seTVqA6dOoUWNIzRr1htewY8cWILs2bNq2c+uWfaC379+/NwAf7ls48eHGjytfvuGB
+8+fQoR+ITv158+rUNyzYzr079wfavYvfHn58d/AT0qtfrx49+/cT3MNff2ADgPv48+Ovr7///df+
+6TcBgAHiN6B9Bd63wANrIQAAOw==
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/header_btm.gif
+
+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
+CwUxxOyxj5sr5C57OZNBAAA7
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/title_left-top.gif
+
+R0lGODlhHQANALMAAGmRqSNrgFqHnk1/ljt1izFwhlR/k2ePp2ONpUV6kV+KolSDmwAAAAAAAAAA
+AAAAACH5BAAAAAAALAAAAAAdAA0AAARR0MhJq70m6M27/0EhjmRpngWhrmzrvkQiz3Rt38mg73zv
+/4OFcEgsGo8LgXLJbDqfAoV0Sq1arwqEdsvter+Ig3hMLpvPB4B6zW673/C4fB0BADs=
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/title_right-top.gif
+
+R0lGODlhHQANALMAAGmRqSNrgFqHnk1/ljt1izFwhlR/k2ePp2ONpUV6kV+KolSDmwAAAAAAAAAA
+AAAAACH5BAAAAAAALAAAAAAdAA0AAARR0MhJq70m6M27/0EhjmRpngWhrmzrvkQiz3Rt38mg73zv
+/4OFcEgsGo8LgXLJbDqfAoV0Sq1arwqEdsvter+Ig3hMLpvPB4B6zW673/C4fB0BADs=
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/header_bg.gif
+
+R0lGODlhvgCWANUAAOzv8rzK1rbG0uns8Ofq7t/k6cfT3MPP2rrI1fDy9dfe5djf5dXd5MvV3sjU
+3bnI1eLm6+jr797j6Nbd5fL09vb3+ODk6urt8O7w89zi6N3j6O/x8+/y9OTo7evt8cHO2c/Z4czW
+38TQ2tLa4tPc4+Pn6+Xp7eHm69ng5snU3s3X38XR29vh5+Xq7trg5uXp7r/N2NDZ4tHa4r7M17fH
+1O3w89Tc48DN2LjH1MbR29rh5/T29+vv8uTn7Nrg57TF0iH5BAAAAAAALAAAAAC+AJYAAAb/wEpi
+SCwaj8ikcslsOp/QqHQ6FVKv2Kx2y+0mK5yweEwum8/otHrNbrvf8Hh8J6/b7/i8fo/ebf6AgYKD
+hIWGh4iJiouMjY6Pj36Qk5SVlpeYmYU7GJ2en6ChoqOkpaanqKmqq6ytrZyusbKztLW2t6M7Nbu8
+vb6/wMHCw8TFxsfIycrLyzsAz9DR0tPU1dbX2Nna29zd3t/fzuDj5OXm5+jp1eLq7e7v8PHX7PL1
+9vf42BQe/P3+/wADChxIsKDBgwgTKlzIkOG+hhAjSpxIsaJFgRQuaNzIsaPHjyBDihxJsqTJkyhT
+qlSZcaXLlzBjypxJE2TLmjhz6tzJUySF/wFAgwodSrSo0aNIkypdyrSp06dQoSaISrWq1atYs2o9
+miCC169gw4odS7as2bNo06pdy7atW7dd38qdS7eu3bt4ySYgwLev37+AAwseTLiw4cOIEytezJjx
+3saQI0ueTLmyZcGPL2vezLmzZ8IJWogeTbq06dOoU6tezbq169ewY8uWneCF7du4c+vezbu379/A
+gwsfTry4ceMcTChfzry58+fQo0ufTr269evYs2vXzqGD9+/gw4sfT768+fPo06tfz769e/cb3suf
+T7++/fv4y28owb+///8ABijggAQWaOCBCCao4IIMMohBgxBGKOGEFFZo4YAPXqjhhhx26P9hgRl+
+KOKIJJZoIA8npKjiiiy26OKLMMYo44w01mjjjTjmmCMPBfTo449ABinkkEQWaeSRSCap5JJMNtkk
+j05GKeWUVFZp5ZVDeoDlllx26eWXR14gwZhklmnmmWimqeaabLbp5ptwxinnnHNeoMGdeOap5558
+9unnn4AGKuighBZq6KGH2onooow26uijkEba5wUZVGrppZhmqummnHbq6aeghirqqKSWWiqlpqaq
+6qqsturqq5tewMKstNZq66245qrrrrz26uuvwAYr7LDDDqDDscgmq+yyzDbr7LPQRivttNRWa+21
+1w7gwrbcduvtt+CGK+645JZr7rnopqv/7rrrDoDCu/DGK++89NZr77345qvvvvz26++//w6wwMAE
+F2zwwQgnrPDCDDfs8MMQRyzxxBMLTPHFGGes8cYcd5xwBAqELPLIJJds8skop6zyyiy37PLLMMcc
+MwEy12zzzTjnrPPOKBMwwc9ABy300EQXbfTRSCet9NJMN+30008TwMDUVFdt9dVYZ6311lx37fXX
+YIct9thjS0322WinrfbabLedNQE2xC333HTXbffdeOet99589+3334AHHjgBJBRu+OGIJ6744ow3
+7vjjkEcu+eSUV165CZZnrvnmnHfu+eeMmzDC6KSXbvrpqKeu+uqst+7667DHLvvss4tO//vtuOeu
+++689566CTIEL/zwxBdv/PHIJ6/88sw37/zz0EcfvQkxVG/99dhnr/323Hfv/ffghy/++OSXX34H
+IKSv/vrst+/++/DHL//89Ndv//34559/D/r37///AAygAAcIvx6o4IAITKACF8jABjrwgRCMoAQn
+SMEKWvCCFyxBCDbIwQ568IMgDKEIR0jCEprwhChMoQpXuEINsvCFMIyhDGdIwxqGsAQNyKEOd8jD
+Hvrwh0AMohCHSMQiGvGISExiEiGgxCY68YlQjKIUpwhECKTgiljMoha3yMUuevGLYAyjGMdIxjKa
+8YxntCIa18jGNrrxjXCMYxdP4IA62v/xjnjMox73yMc++vGPgAykIAdJyEIW8gQGSKQiF8nIRjry
+kZCMpCQnSclKWvKSmMxkJi2gyU568pOgDKUoRwlJTpLylKhMpSpXKUkL5OCVsIylLGdJy1ra8pa4
+zKUud8nLXvryl78swAqGScxiGvOYyEymMpfJzGY685nQjKY0pznNAojgmtjMpja3yc1uevOb4Ayn
+OMdJznKa85zntCY618nOdrrznfCMZzclcIB62vOe+MynPvfJz376858ADahAB0rQghZUAh9IqEIX
+ytCGOvShEI2oRCdK0Ypa9KIYzWhGNaDRjnr0oyANqUhHClGOkvSkKE2pSlcq0Qzc4KX/MI2pTGdK
+05ra9KY4zalOd8rTnvr0pz/NAAyGStSiGvWoSE2qUpfK1KY69alQjapUpzrVDMzgqljNqla3ytWu
+evWrYA2rWMdK1rKa9axn9UEA1srWtrr1rXCNq1znSte62vWueM2rXve6V7Xy9a+ADaxgB0vYwsYV
+BYZNrGIXy9jG1nUBCIisZCdL2cpa9rKYzaxmN8vZznr2s6ANbWghK9rSmva0qE2tald72QU84LWw
+ja1sZ0vb2tr2trjNrW53y9ve+va3v3UtcIdL3OIa97jITW5tF4CD5jr3udCNrnSnS93qWve62M2u
+drfL3e52VwE0CK94x0ve8pr3vOhN/69618ve9rr3vfCNb3wVIID62ve++M2vfvfL3/76978ADrCA
+B0zgAhd4AgZOsIIXzOAGO/jB/J3ADyZM4Qpb+MIYzrCGN8zhDnv4wyAOsYhHPGIFkPjEKE6xilfM
+4hZr2MQujrGMZ0zjGnMYxjbOsY53zOMO47jHQA6ykGP84yEb+chIvnGSl8xkJhe5yVCOco6fLOUq
+W3nFVL6ylrf84Sxz+ctgrrCXw0zmLY+5zGiW8pnTzOYlr7nNcB7ym+NMZx7Puc54rvGd88xnF++5
+z4BO8Z8DTWgRD7rQiPZxohfd4kMz+tEUdjSkHy3pSS+60pZGNKYzTehNcxrQnv40n2JDLWo8k7rU
+dD41quGs6lWzudWuRjOsY03mWdMazLa+NZdzrWst87rXVv41sNU8bEsLu9hNPjay3bxsSjeb0cp+
+tpGjLW0hU7vaQL42tu287U53O9Da/raNwy1uGpO73DIOAgA7
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/header_ftr_bg.gif
+
+R0lGODlhdwEPAMQAAMbR3PT198zW397k6uns8Pb4+fb3+fj6++Ln7Pj5++7x89jf5vr8/OPo7dXd
+5Pz8/d3j6NHa4tDZ4evu8cjT3eXp7fDy9drh58rU3efr79Pb4/39/uzv8urt8f3+/////yH5BAAA
+AAAALAAAAAB3AQ8AAAX/ICCOpEgBFIalauuqAizMtGTfeKTvmq5pjh8Q6Cgaj46FMrlgLi7QqDQK
+uUCq16z2Ouh6B4iweIxohBuVtHrNXmfecAIhI3/L7528vjOZ8PeAexwcCoWGh4iJFouMjY0BkJGS
+kwaVlQWYmJaXBZcGCaChCQekpQejpqkMq6ysD6sPsbCyqxsbsba4thsevb6/vh/Cw8Aew8fIwxAl
+zCgoKiwvLzEYNNY42BI7PD5DP0FI4U5MTlPmUFjpW1pfXmTvZmVt821wcXN1dHcEgXx+fv0ADUpE
+sKCjg4wmKZS0yUAmTZsgdhIVKhUpVBZJtdr4ikGsjh9Z5XowchevYsWS/6VMxvLDsmYkTrCIJq0F
+NWs1st3Y5qNbkG9ExBlR0mQJ0XPm0llZx64dmHdj4qGhR7WCPTv45ujDE6jPn4CCCBUcawghwoVo
+Gz7sFJHtRIoYTcW1uLEVSFoha90iudckypXHALc89rLZiZgtaE6ziXOGThvbevToJuRbkaDimpB7
+8gSpFHVMuTh9CrWM6TBp0Eytmubq1X2wu/bpw4H2oNu4xZIta7a3BbQLGwoXnikBJrgXk5/KqLGu
+x+fQ7c7SxZfkX8GDsyuDOeKwiRWKa1Zr/Bgyz8kRKv/EnFmzk86dp1RBp2UpO9FOS0cVU6GB/9Ws
+vYZVHbDx04GB/sw2yP8EuTGI226HWKCAhL45AlxwlrDl0HCdaGIcRaeMIuJcqmx0QHQohsSXSbfs
+ch0w2sW4nWHOyDSTNNRMU0NOOvEUWWXqCVWEe0QdxZlnWNi3RRcQjEaafmP0JyVrarimz1YFygaQ
+gw3mBmGEFFaY0IWUGBCAJxlGdMmHbIJykZsjMsfAiXbJ0tFzIHnE4p4v/iJjjBsgwF13FMgE3mIw
+MEbeYz5SBuRPQg5Z1BIXxBffOUqtMwAXTbYD5RllTKVaagHak89WWCKox2ys3kabbQN9OeEiE85a
+IZkMqZmhWwUYl8knofS63HIVMUfnnM7B4twr1PHZZy9/ardBYYMWOlP/eIlWM96iPabXKJBCHMEe
+EkUqUeml6FixlLpKapqffvGcsQaAVb2Wzz5YdvWHgg1yGeuXYYq5CK65ntmhhm152GZcqLiZEbLL
+MounR3m2uGcsz0IbbXbUcmeoeNq60BiP2TTq6KORtgefZ+uG1tS7n4ohKr1UCZjVHfnmYSCr/Obm
+s6y8CfwbwZCYOZxDCCN9HHLKOWzKnM0dq6wreSq7p8UnPbsxx9XGZC3IOW6LU3nnoaeeZeOSm4Sk
+LKd7RbtLdgozvP6F6l8bNLdmrx2pyiFbHgra5u+/sgo9JtEcbrgrJ70yHaKxJR6bF552PnexLhkb
+s3VLHTNjrQjgYWuT/9gCSEAyNpF566i4KQ9VJBToJjWfy/h5GrPMVNZjJZZ9H7iqPx3UJvzgtwFd
+CK0B90Z00cSpVYlxnwArSnIjOk0XxHXdWbVeJq2YdZ+bszTtoN2BfijYMjh2eg6q/xhuuClrZlTb
+n8F9X+3u3G73qLm7dirO+9BSqxz0qgcBLXliWt6ZjOY8xXXIV6BoHHJEBLkTSY1itKAaLS7Wogdk
+LnzJCBT5agQNkI2OdI4h23l88r7WEWUz5qJfpmg3mk9JJXe6M1VWBuS3vwEELHkgnPFsdSvEJQwi
+i9sQXEg0LDkl6y5QFElfpmiLjKkERjIaH/k+JjqRpe8aKkxderwxBI4XGmVSscNUy2g4N6jcEIdu
+2Nu9AuhDIOpBiMYT2vLU8hA+emKJGWFiKZIFnbxMriRU/N51ruinP3WufIgplAlRuD7U+egHY1xP
+69b2nhjKUF20k5vt4HWGu02JSv6jQ996KMDguYp4uimc4QaGuAUmbnFLAxGcpjcKZA1yWXWaxSyu
+losqag0Z2BlMoEIAADs=
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://developers.sun.com/newsletters/fundamentals/img/title_middle-bg.gif
+
+R0lGODlhhgAWALMAAGmRqU1/lkV6kSNrgFSDm2ePp1+KolR/kzt1izFwhqa6yWONpVqHngAAAAAA
+AAAAACH5BAAAAAAALAAAAACGABYAAATS8MhJq7046827/94gjmRpnmiqrmzrvm4iz3Rt33iu73zv
+/z6EcEgsGo/IpHLJbDqfToF0Sq1ar9isdsvter/egHhMLpvP6LR6zW67326CfE6v2+/4vH7P7/v/
+fgyCg4SFhoeIiYqLjI2Oj44GkpOUlZaXmJmam5ydnp+eC6KjpKWmp6ipqqusra6vrgWys7S1tre4
+ubq7vL2+v74AwsPExcbHyMnKy8zNzs/Q0dLT1NXW19jZ2tvc3d7f4OHi4+Tl5ufo6err7O3u7/Dx
+8vP09esRADs=
+
+------=_NextPart_000_0000_01C64814.8A1733C0
+Content-Type: application/octet-stream
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://java.sun.com/js/omi/jsc/s_code_remote.js
+
+/* SiteCatalyst Code Version: G.5 */=0A=
+/* SMI Version 6.3 */=0A=
+/*Note to SMI web developers. Do not install or test this code on your =
+site without approval from the .SUN organization!*/=0A=
+/* =0A=
+Convert all index.html, index.jsp, etc. to foo/.=0A=
+Increase s_hier to 15 levels=0A=
+Add java.net to internal links.=0A=
+*/=0A=
+=0A=
+/************************** CONFIG SECTION **************************/=0A=
+=0A=
+/* Set the Report Suite ID(s) and site ID for each Sun site. The site ID =0A=
+   is pre-pended to pageNames and channel names. */=0A=
+   var s_account=3D"sunglobal,sundeveloper"=0A=
+// var s_account=3D"devsunjavas"=0A=
+=0A=
+/* Uncomment one of the following */=0A=
+var s_siteid =3D "jsc:"=0A=
+=0A=
+var s_dynamicAccountSelection=3Dfalse=0A=
+var s_dynamicAccountList=3D""=0A=
+=0A=
+var =
+s_linkInternalFilters=3D"javascript:,sun.com,java.com,opensolaris.org,sun=
+-catalogue.com,java.net,netbeans.org,globalspecials.sun.com"=0A=
+=0A=
+/* List s_prop and s_eVar variables to be passed during =
+custom/exit/download links.=0A=
+   Otherwise, values passed in are ignored. */=0A=
+var s_linkTrackVars=3D"None"=0A=
+=0A=
+/* List event values in "s_events" to be passed during =
+custom/exit/download links.=0A=
+   Otherwise, events are ignored by default. */=0A=
+var s_linkTrackEvents=3D"None"=0A=
+=0A=
+/* Plugin Config - may be specific to each Sun site */=0A=
+var s_usePlugins=3Dtrue=0A=
+=0A=
+function s_doPlugins() {=0A=
+  /* Add calls to plugins here */=0A=
+        /*pageType 404 fix */=0A=
+        if(s_pageType=3D=3D""){=0A=
+  /* External campaigns */=0A=
+  if(s_campaign=3D=3D"")=0A=
+    s_vp_getCGI('s_campaign','cid');=0A=
+/* Campaign Pathing-30 minutes */=0A=
+  =
+s_vp_getCustomPagePath("s_prop4",s_vp_getValue("s_campaign"),"cmpPath","c=
+id=3D");=0A=
+/* Campaign Page Views */=0A=
+	s_vp_setAndPersistValue('s_prop5',s_vp_getValue('s_campaign'),1.0/48);=0A=
+  // Internal campaigns=0A=
+  s_vp_getCGI('s_eVar1','intcmp');=0A=
+//  s_vp_getFormAbandonState("s_prop1","o","Form Abandonment");=0A=
+        }=0A=
+}=0A=
+=0A=
+// ###################################################=0A=
+// CODE CHANGE FOR FILE: PROTOCOL EXCLUSION 6/28/2005=0A=
+// ###################################################=0A=
+// NEW CODE:=0A=
+   var s_isValid =3D true;=0A=
+   if (location.protocol=3D=3D"file:") { s_isValid=3Dfalse; }=0A=
+// END CODE CHANGE=0A=
+=0A=
+/***************** STANDARD CODE FOR ALL SUN SITES ******************/=0A=
+/**********TO BE CHANGED ONLY BY SMI .SUN PROGRAM MANAGEMENT*****/=0A=
+/* Make certain these variables are defined, if not on page */=0A=
+if (typeof s_channel=3D=3D'undefined')=0A=
+   var s_channel =3D "";=0A=
+if (typeof s_pageName=3D=3D'undefined')=0A=
+   var s_pageName =3D "";   =0A=
+if(typeof s_events=3D=3D'undefined')=0A=
+  var s_events=3D"";=0A=
+if(typeof s_campaign=3D=3D'undefined')=0A=
+  var s_campaign=3D"";=0A=
+if(typeof s_hier1=3D=3D'undefined')=0A=
+  var s_hier1=3D"";=0A=
+if (typeof s_pageType=3D=3D'undefined')=0A=
+  var s_pageType=3D"";=0A=
+        =0A=
+        /*pageType 404 fix */   =0A=
+        if(s_pageType=3D=3D""){=0A=
+/* Check for this common problem */=0A=
+if (s_pageName.toLowerCase()=3D=3D"document.title"){=0A=
+  s_pageName=3Ddocument.title;=0A=
+}=0A=
+=0A=
+/* Use URL as default page name unless s_pageName already populated. */=0A=
+if (typeof s_pageName!=3D'undefined') {=0A=
+    // See if it has a value=0A=
+    if (s_pageName=3D=3D"") {=0A=
+        s_pageName=3Dwindow.top.location.pathname.toLowerCase();=0A=
+        var s_iNames =3D =
+["index.html","index.jsp","index.htm","index.shtml","index.xml","index.jh=
+tml","index.jshtml","index.jspa","index.php"];=0A=
+        for (var a=3D0; a<s_iNames.length; a++) {=0A=
+            var s_iName =3D "/"+s_iNames[a];=0A=
+            if (s_pageName.indexOf(s_iName) > -1 && =
+s_pageName.indexOf(s_iName) =3D=3D s_pageName.length - s_iName.length) {=0A=
+                s_pageName =3D s_pageName.substring(0, s_pageName.length =
+- s_iNames[a].length);=0A=
+            }=0A=
+        }=0A=
+    }=0A=
+}=0A=
+        }=0A=
+var s_disableLegacyVars=3Dtrue=0A=
+var s_eVarCFG=3D""=0A=
+=0A=
+        /*pageType 404 fix */=0A=
+        if(s_pageType=3D=3D""){=0A=
+/* Link Tracking Config */=0A=
+var s_trackDownloadLinks=3Dtrue  // downloads=0A=
+var s_trackExternalLinks=3Dtrue  // external links=0A=
+var s_trackInlineStats=3Dtrue    // ClickMap=0A=
+var =
+s_linkDownloadFileTypes=3D"exe,zip,wav,mp3,mov,mpg,avi,doc,pdf,xls,bin,ta=
+r,Z,gz"=0A=
+var s_linkLeaveQueryString=3Dfalse=0A=
+=0A=
+/* Populate "s_channel" variable (if not already populated). Based on 15 =
+levels of directory. */=0A=
+if(s_channel=3D=3D""){=0A=
+  var s_t1=3D0=0A=
+  var s_t2=3D0=0A=
+  var s_du=3D""=0A=
+  s_du=3Dwindow.top.location.href.toLowerCase()=0A=
+  if((s_t1=3Ds_du.indexOf("://"))>=3D0){=0A=
+    if((s_t2=3Ds_du.indexOf("/",s_t1+3))>=3D(s_t1+3)){=0A=
+      if(s_du.indexOf(".",s_t1+3)<s_t2){=0A=
+        var s_c2=3D""=0A=
+       =0A=
+        s_t1=3Ds_t2+1=0A=
+        s_t2=3Ds_du.lastIndexOf("/")=0A=
+        s_channel=3Ds_du.substring(s_t1,s_t2)=0A=
+       =0A=
+        // Replace all "/" chars with ":"=0A=
+        for(s_t2=3D0; s_t2<s_channel.length; s_t2++){=0A=
+          if(s_channel.charAt(s_t2)=3D=3D"/"){=0A=
+            // Bogus code, but JavaScript 1.0-compatible=0A=
+            =
+s_c2=3Ds_channel.substring(0,s_t2)+":"+s_channel.substring(s_t2+1,s_chann=
+el.length)=0A=
+            s_channel=3Ds_c2=0A=
+          }=0A=
+        }=0A=
+      }=0A=
+    }=0A=
+    =0A=
+  =0A=
+    // Remove everything after the fifteenth "/"=0A=
+    s_t1=3D0=0A=
+    for(s_t2=3D0;s_t2<s_channel.length;s_t2++){=0A=
+      if(s_channel.charAt(s_t2)=3D=3D":"){=0A=
+        s_t1++=0A=
+        if(s_t1=3D=3D15){=0A=
+          s_channel=3Ds_channel.substring(0,s_t1-1)=0A=
+          break=0A=
+        }=0A=
+      }=0A=
+    }=0A=
+  }=0A=
+}=0A=
+=0A=
+/* Places entire path into Hierarchy variable, or just s_channel if =
+populated on page. */=0A=
+=0A=
+if(s_hier1=3D=3D""){=0A=
+	if(s_channel!=3D=3D""){=0A=
+      s_hier1=3Ds_siteid+s_channel=0A=
+    }=0A=
+}=0A=
+=0A=
+=0A=
+/* STANDARD SUN GLOBAL ACCOUNT CODE: pre-pend "pageName", "channel", and =
+"s_hier" with "s_siteid" if not already prepended*/=0A=
+if(typeof s_siteid!=3D'undefined'){=0A=
+  if(typeof s_pageName!=3D'undefined'&&s_pageName.length>0){=0A=
+    if(s_pageName.substr(0,s_siteid.length).toLowerCase()!=3Ds_siteid){=0A=
+      s_pageName=3Ds_siteid+s_pageName;=0A=
+    }=0A=
+  }=0A=
+  if(s_channel.length>0){=0A=
+    if (s_channel.substr(0,s_siteid.length).toLowerCase()!=3Ds_siteid){=0A=
+        s_channel=3Ds_siteid+s_channel;=0A=
+    }=0A=
+  }=0A=
+if(s_hier1.length>0){=0A=
+    if (s_hier1.substr(0,s_siteid.length).toLowerCase()!=3Ds_siteid){=0A=
+        s_hier1=3Ds_siteid+s_hier1;=0A=
+    }=0A=
+  }=0A=
+}=0A=
+=0A=
+/* PUT SITE_ID INTO S_PROP2*/=0A=
+if(typeof s_siteid=3D=3D'undefined'){var s_siteid=3D""};=0A=
+if(typeof s_prop2=3D=3D'undefined'){var s_prop2=3D""};=0A=
+   s_prop2=3Ds_siteid;=0A=
+        }=0A=
+=0A=
+/************************** PLUGINS SECTION *************************/=0A=
+/* You may insert any plugins you wish to use here.                 */=0A=
+/*=0A=
+ * Plugin: Get State Of Form On Abandon=0A=
+ New Form Abandon Plugin goes here when available.=0A=
+ */=0A=
+=0A=
+/*=0A=
+ * Plugin: Get Query String CGI Variable Value=0A=
+ */=0A=
+function s_vp_getCGI(vs,k)=0A=
+        {var v=3D'';if(k&&s_wd.location.search){var =
+q=3Ds_wd.location.search,=0A=
+        =
+qq=3Dq.indexOf('?');q=3Dqq<0?q:q.substring(qq+1);v=3Ds_pt(q,'&',s_cgif,=0A=
+        k)}s_vpr(vs,v)}function s_cgif(t,k){if(t){var =
+te=3Dt.indexOf('=3D'),=0A=
+        =
+sk=3Dte<0?t:t.substring(0,te),sv=3Dte<0?'True':t.substring(te+1);if(=0A=
+        sk=3D=3Dk)return s_epa(sv)}return ''}=0A=
+/* =0A=
+Plugin: Custom Page Path v1.0 (Campaign Pathing-30 minutes)=0A=
+*/=0A=
+function s_vp_getCustomPagePath(s,v,c,p) {=0A=
+var pn=3Ds_vp_getValue("s_pageName");=0A=
+var t=3Dnew Date;t.setTime(t.getTime()+1800000); =0A=
+if(v){if(s_c_w(c,v,t)){s_vpr(s,p+v+":"+pn)}}=0A=
+else{v=3Ds_c_r(c);if(v){s_c_w(c,v,t);s_vpr(s,pn);}}=0A=
+}=0A=
+/*=0A=
+ * Plugin: setAndPersistValue 0.1 - get a value on every page-30 minutes=0A=
+ */=0A=
+function s_vp_setAndPersistValue(vs,v,a){=0A=
+	var l,e=3Dnew Date;if(v){e.setTime(e.getTime()+a*86400000);s_c_w(=0A=
+	's_p_'+vs,v,a?e:a)};l=3Ds_c_r('s_p_'+vs);s_vpr(vs,l)}=0A=
+/*=0A=
+ * Plugin: Get Plugin Modified Value=0A=
+ */=0A=
+function s_vp_getValue(vs)=0A=
+        {var k=3Dvs.substring(0,2)=3D=3D's_'?vs.substring(2):vs;return =
+s_wd[=0A=
+        's_vpm_'+k]?s_wd['s_vpv_'+k]:s_gg(k)}=0A=
+/*=0A=
+ * Plugin Utilities v2.0 (Required For All Plugins)=0A=
+ */=0A=
+function s_vpr(vs,v){if(s_wd[vs])s_wd[vs]=3Ds_wd[vs];else s_wd[vs]=3D''=0A=
+if(vs.substring(0,2) =3D=3D =
+'s_')vs=3Dvs.substring(2);s_wd['s_vpv_'+vs]=3Dv=0A=
+s_wd['s_vpm_'+vs]=3D1}function s_dt(tz,t){var d=3Dnew =
+Date;if(t)d.setTime(=0A=
+t);d=3Dnew Date(d.getTime()+(d.getTimezoneOffset()*60*1000))=0A=
+return new Date(Math.floor(d.getTime()+(tz*60*60*1000)))}=0A=
+function s_vh_gt(k,v){var vh=3D'|'+s_c_r('s_vh_'+k),vi=3Dvh.indexOf('|'+v=0A=
++'=3D'),ti=3Dvi<0?vi:vi+2+v.length,pi=3Dvh.indexOf('|',ti),t=3Dti<0?'':=0A=
+vh.substring(ti,pi<0?vh.length:pi);return t}function s_vh_gl(k){var=0A=
+vh=3Ds_c_r('s_vh_'+k),e=3Dvh?vh.indexOf('=3D'):0;return =
+vh?(vh.substring(0,=0A=
+e?e:vh.length)):''}function s_vh_s(k,v){if(k&&v){var e=3Dnew Date,st=3D=0A=
+e.getTime(),y=3De.getYear(),c=3D's_vh_'+k,vh=3D'|'+s_c_r(c)+'|',t=3Ds_vh_=
+gt(k,=0A=
+v);e.setYear((y<1900?y+1900:y)+5);if(t)vh=3Ds_rep(vh,'|'+v+'=3D'+t+'|','|=
+'=0A=
+);if(vh.substring(0,1)=3D=3D'|')vh=3Dvh.substring(1);if(vh.substring(=0A=
+vh.length-1,vh.length)=3D=3D'|')vh=3Dvh.substring(0,vh.length-1);vh=3Dv=0A=
++'=3D[PCC]'+(vh?'|'+vh:'');s_c_w(c,vh,e);if(s_vh_gt(k,v)!=3D'[PCC]')=0A=
+return 0;vh=3Ds_rep(vh,'[PCC]',st);s_c_w(c,vh,e)}return 1}=0A=
+=0A=
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/=0A=
+var =
+s_un,s_ios=3D0,s_q=3D'',s_code=3D'',code=3D'',s_bcr=3D0,s_lnk=3D'',s_eo=3D=
+'',=0A=
+s_vb,s_pl,s_tfs=3D0,s_etfs=3D0,s_wd=3Dwindow,s_d=3Ds_wd.document,s_ssl=3D=
+(=0A=
+s_wd.location.protocol.toLowerCase().indexOf('https')>=3D0),s_n=3D=0A=
+navigator,s_u=3Ds_n.userAgent,s_apn=3Ds_n.appName,s_v=3Ds_n.appVersion,=0A=
+s_apv,s_i,s_ie=3Ds_v.indexOf('MSIE '),s_ns6=3Ds_u.indexOf('Netscape6/')=0A=
+if(s_v.indexOf('Opera')>=3D0||s_u.indexOf('Opera')>=3D0)s_apn=3D'Opera';v=
+ar=0A=
+s_isie=3D(s_apn=3D=3D'Microsoft Internet Explorer'),s_isns=3D(s_apn=3D=3D=0A=
+'Netscape'),s_isopera=3D(s_apn=3D=3D'Opera'),s_ismac=3D(s_u.indexOf('Mac'=
+)>=3D0)=0A=
+if(s_ie>0){s_apv=3DparseInt(s_i=3Ds_v.substring(s_ie+5));if(s_apv>3)s_apv=
+=3D=0A=
+parseFloat(s_i)}else if(s_ns6>0)s_apv=3DparseFloat(s_u.substring(s_ns6=0A=
++10));else s_apv=3DparseFloat(s_v);function s_fl(s,l){return (s+''=0A=
+).substring(0,l)}function s_co(o){if(!o)return o;var n=3Dnew Object=0A=
+for(x in o)n[x]=3Do[x];return n}function s_num(x){var s=3Dx.toString(),g=3D=0A=
+'0123456789',p,d;for(p=3D0;p<s.length;p++){d=3Ds.substring(p,p+1);if(=0A=
+g.indexOf(d)<0)return 0}return 1}function s_rep(s,o,n){var i=3D=0A=
+s.indexOf(o),l=3Dn.length>0?n.length:1;while(s&&i>=3D0){s=3Ds.substring(0=
+,i)=0A=
++n+s.substring(i+o.length);i=3Ds.indexOf(o,i+l)}return s}function s_ape(=0A=
+s){return s?s_rep(escape(''+s),'+','%2B'):s}function s_epa(s){=0A=
+return s?unescape(s_rep(''+s,'+',' ')):s}function s_pt(s,d,f,a){var t=3D=0A=
+s,x=3D0,y,r;while(t){y=3Dt.indexOf(d);y=3Dy<0?t.length:y;t=3Dt.substring(=
+0,y)=0A=
+r=3Df(t,a);if(r)return =
+r;x+=3Dy+d.length;t=3Ds.substring(x,s.length);t=3Dx<=0A=
+s.length?t:''}return ''}function =
+s_isf(t,a){if(t.substring(0,2)=3D=3D's_')=0A=
+t=3Dt.substring(2);return (t!=3D''&&t=3D=3Da)}function =
+s_fsf(t,a){if(s_pt(a,=0A=
+',',s_isf,t))s_fsg+=3D(s_fsg!=3D''?',':'')+t;return 0}var s_fsg=0A=
+function s_fs(s,f){s_fsg=3D'';s_pt(s,',',s_fsf,f);return s_fsg}var=0A=
+s_c_d=3D'';function s_c_gdf(t,a){if(!s_num(t))return 1;return 0}=0A=
+function s_c_gd(){var d=3Ds_wd.location.hostname,n=3Ds_gg(=0A=
+'cookieDomainPeriods'),p;if(d&&!s_c_d){n=3Dn?parseInt(n):2;n=3Dn>2?n:2;p=3D=0A=
+d.lastIndexOf('.');while(p>=3D0&&n>1){p=3Dd.lastIndexOf('.',p-1);n--}=0A=
+s_c_d=3Dp>0&&s_pt(d,'.',s_c_gdf,0)?d.substring(p):''}return s_c_d}=0A=
+function s_c_r(k){k=3Ds_ape(k);var c=3D' '+s_d.cookie,s=3Dc.indexOf(' '+k=0A=
++'=3D'),e=3Ds<0?s:c.indexOf(';',s),v=3Ds<0?'':s_epa(c.substring(s+2=0A=
++k.length,e<0?c.length:e));return v}function s_c_w(k,v,e){var d=3D=0A=
+s_c_gd(),l=3Ds_gg('cookieLifetime');v=3D''+v;l=3Dl?(''+l).toUpperCase():'=
+'=0A=
+if(e&&l!=3D'SESSION'&&l!=3D'NONE'){l=3DparseInt(l);if(l){e=3Dnew Date=0A=
+e.setTime(e.getTime()+(parseInt(l)*1000))}}if(k&&l!=3D'NONE'){=0A=
+s_d.cookie=3Dk+'=3D'+s_ape(v)+'; path=3D/;'+(e&&l!=3D'SESSION'?' =
+expires=3D'=0A=
++e.toGMTString()+';':'')+(d?' domain=3D'+d+';':'');return =
+s_c_r(k)=3D=3Dv}=0A=
+return 0}function s_cet(f,a,et,oe,fb){var r,d=3D0=0A=
+/*@cc_on@if(@_jscript_version>=3D5){try{return f(a)}catch(e){return =
+et(e)}d=3D1}@end@*/=0A=
+if(!d){if(s_ismac&&s_u.indexOf('MSIE 4')>=3D0)return fb(a);else{=0A=
+s_wd.s_oe=3Ds_wd.onerror;s_wd.onerror=3Doe;r=3Df(a);s_wd.onerror=3Ds_wd.s=
+_oe=0A=
+return r}}}function s_gtfset(e){return s_tfs}function s_gtfsoe(e){=0A=
+s_wd.onerror=3Ds_wd.s_oe;s_etfs=3D1;var =
+code=3Ds_gs(s_un);if(code)s_d.write(=0A=
+code);s_etfs=3D0;return true}function s_gtfsfb(a){return s_wd}=0A=
+function s_gtfsf(w){var p=3Dw.parent,l=3Dw.location;s_tfs=3Dw;if(p&&=0A=
+p.location!=3Dl&&p.location.host=3D=3Dl.host){s_tfs=3Dp;return =
+s_gtfsf(s_tfs)}=0A=
+return s_tfs}function s_gtfs(){if(!s_tfs){s_tfs=3Ds_wd;if(!s_etfs)s_tfs=3D=0A=
+s_cet(s_gtfsf,s_tfs,s_gtfset,s_gtfsoe,s_gtfsfb)}return s_tfs}=0A=
+function s_ca(un){un=3Dun.toLowerCase();var =
+ci=3Dun.indexOf(','),fun=3Dci<0?=0A=
+un:un.substring(0,ci),imn=3D's_i_'+fun;if(s_d.images&&s_apv>=3D3&&=0A=
+!s_isopera&&(s_ns6<0||s_apv>=3D6.1)){s_ios=3D1;if(!s_d.images[imn]&&(=0A=
+!s_isns||(s_apv<4||s_apv>=3D5))){s_d.write('<im'+'g name=3D"'+imn=0A=
++'" height=3D1 width=3D1 border=3D0 =
+alt=3D"">');if(!s_d.images[imn])s_ios=3D0}}}=0A=
+function s_it(un){s_ca(un)}function s_mr(un,sess,q,ta){un=3D=0A=
+un.toLowerCase();var ci=3Dun.indexOf(','),fun=3Dci<0?un:un.substring(0,ci=0A=
+),unc=3Ds_rep(fun,'_','-'),imn=3D's_i_'+fun,im,b,e,rs=3D'http'+(s_ssl?'s'=
+:''=0A=
+)+'://'+(s_ssl?'102':unc)+'.112.2O7.net/b/ss/'+un+'/1/G.5-PD-R/'=0A=
++sess+'?[AQB]&ndh=3D1'+(q?q:'')+(s_q?s_q:'')+'&[AQE]';if(s_ios){im=3Ds_wd=
+[=0A=
+imn]?s_wd[imn]:s_d.images[imn];if(!im)im=3Ds_wd[imn]=3Dnew =
+Image;im.src=3Drs=0A=
+if(rs.indexOf('&pe=3D')>=3D0&&(!ta||ta=3D=3D'_self'||ta=3D=3D'_top'||(s_w=
+d.name&&=0A=
+ta=3D=3Ds_wd.name))){b=3De=3Dnew =
+Date;while(e.getTime()-b.getTime()<500)e=3D=0A=
+new Date}return ''}return '<im'+'g sr'+'c=3D"'+rs=0A=
++'" width=3D1 height=3D1 border=3D0 alt=3D"">'}function s_gg(v){var =
+g=3D's_'+v=0A=
+return s_wd[g]||s_wd.s_disableLegacyVars?s_wd[g]:s_wd[v]}var s_qav=3D''=0A=
+function s_havf(t,a){var b=3Dt.substring(0,4),s=3Dt.substring(4),n=3D=0A=
+parseInt(s),k=3D's_g_'+t,m=3D's_vpm_'+t,q=3Dt,v=3Ds_gg('linkTrackVars'),e=
+=3D=0A=
+s_gg('linkTrackEvents');if(!s_wd['s_'+t])s_wd['s_'+t]=3D'';s_wd[k]=3Ds_wd=
+[=0A=
+m]?s_wd['s_vpv_'+t]:s_gg(t);if(s_lnk||s_eo){v=3Dv?v+',pageName,charSet,'=0A=
++'cookieDomainPeriods,cookieLifetime,eVarCFG,purchaseID':'';if(v&&=0A=
+!s_pt(v,',',s_isf,t))s_wd[k]=3D'';if(t=3D=3D'events'&&e)s_wd[k]=3Ds_fs(s_=
+wd[k=0A=
+],e)}s_wd[m]=3D0;if(t=3D=3D'charSet')q=3D'ce';else =
+if(t=3D=3D'cookieDomainPeriods'=0A=
+)q=3D'cdp';else if(t=3D=3D'cookieLifetime')q=3D'cl';else =
+if(t=3D=3D'channel')q=3D=0A=
+'ch';else if(t=3D=3D'campaign')q=3D'v0';else =
+if(s_num(s)){if(b=3D=3D'prop')q=3D'c'=0A=
++n;else if(b=3D=3D'eVar')q=3D'v'+n;else =
+if(b=3D=3D'hier')q=3D'h'+n}if(s_wd[k]&&t!=3D=0A=
+'linkName'&&t!=3D'linkType')s_qav+=3D'&'+q+'=3D'+s_ape(s_wd[k]);return =
+''}=0A=
+function s_hav(){var n,av=3D'charSet,cookieDomainPeriods,cookieLifetime'=0A=
++',pageName,channel,server,pageType,campaign,state,zip,events,product'=0A=
++'s,purchaseID,eVarCFG,linkName,linkType';for(n=3D1;n<26;n++)av+=3D',prop=
+'=0A=
++n+',eVar'+n+',hier'+n;s_qav=3D'';s_pt(av,',',s_havf,0);return s_qav}=0A=
+function s_lnf(t,h){t=3Dt?t.toLowerCase():'';h=3Dh?h.toLowerCase():'';var=0A=
+te=3Dt.indexOf('=3D');if(t&&te>0&&h.indexOf(t.substring(te+1))>=3D0)=0A=
+return t.substring(0,te);return ''}function s_ln(h){if(s_gg(=0A=
+'linkNames'))return s_pt(s_gg('linkNames'),',',s_lnf,h);return ''}=0A=
+function =
+s_ltdf(t,h){t=3Dt?t.toLowerCase():'';h=3Dh?h.toLowerCase():'';var=0A=
+qi=3Dh.indexOf('?');h=3Dqi>=3D0?h.substring(0,qi):h;if(t&&h.substring(=0A=
+h.length-(t.length+1))=3D=3D'.'+t)return 1;return 0}function s_ltef(t,h){=0A=
+t=3Dt?t.toLowerCase():'';h=3Dh?h.toLowerCase():'';if(t&&h.indexOf(t)>=3D0=
+)=0A=
+return 1;return 0}function s_lt(h){var lft=3Ds_gg(=0A=
+'linkDownloadFileTypes'),lef=3Ds_gg('linkExternalFilters'),lif=3Ds_gg(=0A=
+'linkInternalFilters')?s_gg('linkInternalFilters'):=0A=
+s_wd.location.hostname;h=3Dh.toLowerCase();if(s_gg('trackDownloadLinks'=0A=
+)&&lft&&s_pt(lft,',',s_ltdf,h))return 'd';if(s_gg('trackExternalLinks'=0A=
+)&&(lef||lif)&&(!lef||s_pt(lef,',',s_ltef,h))&&(!lif||!s_pt(lif,',',=0A=
+s_ltef,h)))return 'e';return ''}function s_lc(e){s_lnk=3Ds_co(this)=0A=
+s_gs('');s_lnk=3D'';if(this.s_oc)return this.s_oc(e);return true}=0A=
+function s_ls(){var l,ln,oc;for(ln=3D0;ln<s_d.links.length;ln++){l=3D=0A=
+s_d.links[ln];oc=3Dl.onclick?l.onclick.toString():'';if(oc.indexOf(=0A=
+"s_gs(")<0&&oc.indexOf("s_lc(")<0){l.s_oc=3Dl.onclick;l.onclick=3Ds_lc}}}=0A=
+function s_bc(e){s_eo=3De.srcElement?e.srcElement:e.target;s_gs('')=0A=
+s_eo=3D''}function s_ot(o){var x=3Do.type,y=3Do.tagName;return (x&&=0A=
+x.toUpperCase?x:y&&y.toUpperCase?y:o.href?'A':'').toUpperCase()}=0A=
+function s_oid(o){var =
+t=3Ds_ot(o),p=3Do.protocol,c=3Do.onclick,n=3D'',x=3D0;if(=0A=
+!o.s_oid){if(o.href&&(t=3D=3D'A'||t=3D=3D'AREA')&&(!c||!p||p.toLowerCase(=0A=
+).indexOf('javascript')<0))n=3Do.href;else if(c){n=3Ds_rep(s_rep(s_rep(=0A=
+s_rep(c.toString(),"\r",''),"\n",''),"\t",''),' ','');x=3D2}else if(=0A=
+o.value&&(t=3D=3D'INPUT'||t=3D=3D'SUBMIT')){n=3Do.value;x=3D3}else =
+if(o.src&&t=3D=3D=0A=
+'IMAGE')n=3Do.src;if(n){o.s_oid=3Ds_fl(n,100);o.s_oidt=3Dx}}return =
+o.s_oid}=0A=
+function s_rqf(t,un){var =
+e=3Dt.indexOf('=3D'),u=3De>=3D0?','+t.substring(0,e)=0A=
++',':'';return u&&u.indexOf(','+un+',')>=3D0?s_epa(t.substring(e+1)):''}=0A=
+function s_rq(un){var =
+c=3Dun.indexOf(','),v=3Ds_c_r('s_sq'),q=3D'';if(c<0)=0A=
+return s_pt(v,'&',s_rqf,un);return s_pt(un,',',s_rq,0)}var s_sqq,s_squ=0A=
+function s_sqp(t,a){var =
+e=3Dt.indexOf('=3D'),q=3De<0?'':s_epa(t.substring(e=0A=
++1));s_sqq[q]=3D'';if(e>=3D0)s_pt(t.substring(0,e),',',s_sqs,q);return 0}=0A=
+function s_sqs(un,q){s_squ[un]=3Dq;return 0}function s_sq(un,q){s_sqq=3D=0A=
+new Object;s_squ=3Dnew Object;s_sqq[q]=3D'';var =
+k=3D's_sq',v=3Ds_c_r(k),x,c=3D0=0A=
+s_pt(v,'&',s_sqp,0);s_pt(un,',',s_sqs,q);v=3D'';for(x in s_squ)s_sqq[=0A=
+s_squ[x]]+=3D(s_sqq[s_squ[x]]?',':'')+x;for(x in s_sqq)if(x&&s_sqq[x]&&(=0A=
+x=3D=3Dq||c<2)){v+=3D(v?'&':'')+s_sqq[x]+'=3D'+s_ape(x);c++}return =
+s_c_w(k,v,0=0A=
+)}function s_wdl(e){s_wd.s_wd_l=3D1;var =
+r=3Dtrue;if(s_wd.s_ol)r=3Ds_wd.s_ol(=0A=
+e);if(s_wd.s_ls)s_wd.s_ls();return r}function s_wds(un){un=3D=0A=
+un.toLowerCase();s_wd.s_wd_l=3D1;if(s_apv>3&&(!s_isie||!s_ismac||s_apv>=3D=0A=
+5)){s_wd.s_wd_l=3D0;if(!s_wd.s_unl)s_wd.s_unl=3Dnew Array;s_wd.s_unl[=0A=
+s_wd.s_unl.length]=3Dun;if(s_d.body&&s_d.body.attachEvent){if(=0A=
+!s_wd.s_bcr&&s_d.body.attachEvent('onclick',s_bc))s_wd.s_bcr=3D1}=0A=
+else if(s_d.body&&s_d.body.addEventListener){if(!s_wd.s_bcr&&=0A=
+s_d.body.addEventListener('click',s_bc,false))s_wd.s_bcr=3D1}else{var=0A=
+ol=3Ds_wd.onload?s_wd.onload.toString():'';if(ol.indexOf("s_wdl(")<0){=0A=
+s_wd.s_ol=3Ds_wd.onload;s_wd.onload=3Ds_wdl}}}}function s_iepf(i,a){if(=0A=
+i.substring(0,1)!=3D'{')i=3D'{'+i+'}';if(s_d.body.isComponentInstalled(i,=0A=
+'ComponentID')){var n=3Ds_pl.length;s_pl[n]=3Dnew Object;s_pl[n].name=3Di=0A=
++':'+s_d.body.getComponentVersion(i,'ComponentID')}return 0}=0A=
+function s_vs(un,x){var s=3Ds_gg('visitorSampling'),g=3Ds_gg(=0A=
+'visitorSamplingGroup'),k=3D's_vsn_'+un+(g?'_'+g:''),n=3Ds_c_r(k),e=3D=0A=
+new Date,y=3De.getYear();e.setYear(y+10+(y<1900?1900:0));if(s){s*=3D100=0A=
+if(!n){if(!s_c_w(k,x,e))return 0;n=3Dx}if(n%10000>s)return 0}return 1}=0A=
+function s_dyasmf(t,m){if(t&&m&&m.indexOf(t)>=3D0)return 1;return 0}=0A=
+function s_dyasf(t,m){var =
+i=3Dt?t.indexOf('=3D'):-1,un,s;if(i>=3D0&&m){var=0A=
+un=3Dt.substring(0,i),s=3Dt.substring(i+1);if(s_pt(s,',',s_dyasmf,m))=0A=
+return un}return 0}function s_dyas(un,l,m){if(!m)m=3Ds_wd.location.host=0A=
+if(!m.toLowerCase)m=3Dm.toString();l=3Dl.toLowerCase();m=3Dm.toLowerCase(=
+)=0A=
+var nun=3Ds_pt(l,';',s_dyasf,m);if(nun)return nun;return un}=0A=
+function s_gs(un){un=3Dun.toLowerCase()=0A=
+var dyas=3Ds_gg('dynamicAccountSelection'),dyal=3Ds_gg(=0A=
+'dynamicAccountList'),dyam=3Ds_gg('dynamicAccountMatch');if(dyas&&dyal)=0A=
+un=3Ds_dyas(un,dyal,dyam);=0A=
+s_un=3Dun;var trk=3D1,tm=3Dnew Date,sed=3DMath&&Math.random?Math.floor(=0A=
+Math.random()*10000000000000):tm.getTime(),sess=3D's'+Math.floor(=0A=
+tm.getTime()/10800000)%10+sed,yr=3Dtm.getYear(),t,ta=3D'',q=3D'',qs=3D'';=
+yr=3D=0A=
+yr<1900?yr+1900:yr;t=3Dtm.getDate()+'/'+tm.getMonth()+'/'+yr+' '=0A=
++tm.getHours()+':'+tm.getMinutes()+':'+tm.getSeconds()+' '+tm.getDay()=0A=
++' '+tm.getTimezoneOffset();if(!s_q){var =
+tfs=3Ds_gtfs(),tl=3Dtfs.location,=0A=
+r=3Dtfs.document.referrer,s=3D'',c=3D'',v=3D'',p=3D'',bw=3D'',bh=3D'',j=3D=
+'1.0',g=3D=0A=
+s_wd.location,k=3Ds_c_w('s_cc','true',0)?'Y':'N',hp=3D'',ct=3D'',iepl=3Ds=
+_gg(=0A=
+'iePlugins'),pn=3D0,ps;if(s_apv>=3D4)s=3Dscreen.width+'x'+screen.height;i=
+f(=0A=
+s_isns||s_isopera){if(s_apv>=3D3){j=3D'1.1';v=3Ds_n.javaEnabled()?'Y':'N'=0A=
+if(s_apv>=3D4){j=3D'1.2';c=3Dscreen.pixelDepth;bw=3Ds_wd.innerWidth;bh=3D=0A=
+s_wd.innerHeight;if(s_apv>=3D4.06)j=3D'1.3'}}s_pl=3Ds_n.plugins}else if(=0A=
+s_isie){if(s_apv>=3D4){v=3Ds_n.javaEnabled()?'Y':'N';j=3D'1.2';c=3D=0A=
+screen.colorDepth;if(s_apv>=3D5){bw=3Ds_d.documentElement.offsetWidth;bh=3D=0A=
+s_d.documentElement.offsetHeight;j=3D'1.3';if(!s_ismac&&s_d.body){=0A=
+s_d.body.addBehavior("#default#homePage");hp=3Ds_d.body.isHomePage(tl)?=0A=
+"Y":"N";s_d.body.addBehavior("#default#clientCaps");ct=3D=0A=
+s_d.body.connectionType;if(iepl){s_pl=3Dnew Array;s_pt(iepl,',',s_iepf,=0A=
+'');}}}}else r=3D'';if(!s_pl&&iepl)s_pl=3Ds_n.plugins}if(s_pl)while(pn<=0A=
+s_pl.length&&pn<30){ps=3Ds_fl(s_pl[pn].name,100)+';';if(p.indexOf(ps)<0)=0A=
+p+=3Dps;pn++}s_q=3D(g?'&g=3D'+s_ape(s_fl(g,255)):'')+(r?'&r=3D'+s_ape(s_f=
+l(r,=0A=
+255)):'')+(s?'&s=3D'+s_ape(s):'')+(c?'&c=3D'+s_ape(c):'')+(j?'&j=3D'+j:''=
+)+(=0A=
+v?'&v=3D'+v:'')+(k?'&k=3D'+k:'')+(bw?'&bw=3D'+bw:'')+(bh?'&bh=3D'+bh:'')+=
+(ct?=0A=
+'&ct=3D'+s_ape(ct):'')+(hp?'&hp=3D'+hp:'')+(s_vb?'&vb=3D'+s_vb:'')+(p?'&p=
+=3D'=0A=
++s_ape(p):'')}if(s_gg('usePlugins'))s_wd.s_doPlugins();q+=3D(t?'&t=3D'=0A=
++s_ape(t):'')+s_hav();if(s_lnk||s_eo){var o=3Ds_eo?s_eo:s_lnk;if(!o)=0A=
+return '';var =
+p=3Ds_wd.s_g_pageName,w=3D1,t=3Ds_ot(o),n=3Ds_oid(o),x=3Do.s_oidt,=0A=
+h,l,i,oc;if(s_eo&&o=3D=3Ds_eo){while(o&&!n&&t!=3D'BODY'){o=3Do.parentElem=
+ent?=0A=
+o.parentElement:o.parentNode;if(!o)return '';t=3Ds_ot(o);n=3Ds_oid(o);x=3D=0A=
+o.s_oidt}oc=3Do.onclick?o.onclick.toString():'';if(oc.indexOf("s_gs(")>=3D=0A=
+0)return =
+''}ta=3Do.target;h=3Do.href?o.href:'';i=3Dh.indexOf('?');h=3Ds_gg(=0A=
+'linkLeaveQueryString')||i<0?h:h.substring(0,i);l=3Ds_gg('linkName')?=0A=
+s_gg('linkName'):s_ln(h);t=3Ds_gg('linkType')?s_gg('linkType'=0A=
+).toLowerCase():s_lt(h);if(t&&(h||l))q+=3D'&pe=3Dlnk_'+(t=3D=3D'd'||t=3D=3D=
+'e'?=0A=
+s_ape(t):'o')+(h?'&pev1=3D'+s_ape(h):'')+(l?'&pev2=3D'+s_ape(l):'');else=0A=
+trk=3D0;if(s_gg('trackInlineStats')){if(!p){p=3Ds_wd.location.href;w=3D0}=
+p=3D=0A=
+p?s_fl(p,255):'';t=3Ds_ot(o);i=3Do.sourceIndex;if(s_gg('objectID')){n=3D=0A=
+s_gg('objectID');x=3D1;i=3D1}if(p&&n&&t)qs=3D'&pid=3D'+s_ape(p)+(w?'&pidt=
+=3D'+w:=0A=
+'')+'&oid=3D'+s_ape(n)+(x?'&oidt=3D'+x:'')+'&ot=3D'+s_ape(t)+(i?'&oi=3D'+=
+i:'')=0A=
+}s_wd.s_linkName=3Ds_wd.s_linkType=3Ds_wd.s_objectID=3Ds_lnk=3Ds_eo=3D'';=
+if(=0A=
+!s_wd.s_disableLegacyVars)s_wd.linkName=3Ds_wd.linkType=3Ds_wd.objectID=3D=
+''=0A=
+}if(!trk&&!qs)return '';var code=3D'';if(un){if(trk&&s_vs(un,sed))code+=3D=0A=
+s_mr(un,sess,q+(qs?qs:s_rq(un)),ta);s_sq(un,trk?'':qs)}else if(=0A=
+s_wd.s_unl)for(var unn=3D0;unn<s_wd.s_unl.length;unn++){un=3Ds_wd.s_unl[=0A=
+unn];if(trk&&s_vs(un,sed))code+=3Ds_mr(un,sess,q+(qs?qs:s_rq(un)),ta)=0A=
+s_sq(un,trk?'':qs)}return code}function s_dc(un){un=3Dun.toLowerCase()=0A=
+var dyas=3Ds_gg('dynamicAccountSelection'),dyal=3Ds_gg(=0A=
+'dynamicAccountList'),dyam=3Ds_gg('dynamicAccountMatch');if(dyas&&dyal)=0A=
+un=3Ds_dyas(un,dyal,dyam);=0A=
+s_wds(un);s_ca(un);return s_gs(un)}=0A=
+=0A=
+// ###################################################=0A=
+// CODE CHANGE FOR FILE: PROTOCOL EXCLUSION 6/28/2005=0A=
+// ###################################################=0A=
+// OLD CODE:=0A=
+// s_code=3Ds_dc(s_account);if(s_code)s_d.write(s_code)=0A=
+// NEW CODE:=0A=
+   if(s_isValid) {  s_code=3Ds_dc(s_account);if(s_code)s_d.write(s_code) =
+}=0A=
+// END CODE CHANGE=0A=
+
+------=_NextPart_000_0000_01C64814.8A1733C0--
