@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmarks>
+   <site url="http://download.eclipse.org/technology/actf/0.7/update-site/" selected="true" name="ACTF 0.7 Updates"/>
+   <site url="http://aws.amazon.com/eclipse" selected="true" name="AWS Toolkit for Eclipse"/>
+   <site url="http://download.eclipse.org/birt/update-site/2.3" selected="true" name="Birt Updates 2.3"/>
+   <site url="http://download.eclipse.org/birt/update-site/2.5" selected="true" name="Birt Updates 2.5"/>
+   <site url="http://download.eclipse.org/tools/cdt/releases/galileo" selected="true" name="CDT Galileo Updates"/>
+   <site url="http://download.eclipse.org/datatools/updates" selected="true" name="Datatools Updates"/>
+   <site url="http://download.eclipse.org/dsdp/dd/updates" selected="true" name="Debug Services Framework (DSF) Updates"/>
+   <site url="http://download.eclipse.org/dsdp/nab/updates" selected="true" name="Debug Services Framework (DSF) Updates"/>
+   <site url="http://download.eclipse.org/technology/dltk/updates-dev/1.0/" selected="true" name="DLTK Update Site"/>
+   <site url="http://download.eclipse.org/technology/dltk/updates/" selected="true" name="DLTK Updates"/>
+   <site url="http://download.eclipse.org/eclipse/updates/3.4" selected="true" name="Eclipse 3.4 p2 repository"/>
+   <site url="https://ajax.dev.java.net/eclipse/" selected="true" name="Eclipse AJAX Updates"/>
+   <site url="http://download.eclipse.org/rt/eclipselink/incremental-updates/milestone" selected="true" name="Eclipse Incremental Updates"/>
+   <site url="http://www.eclipse.org/modeling/updates/" selected="true" name="Eclipse Modeling Project Update Site"/>
+   <site url="http://update.eclipse.org/updates/3.0" selected="true" name="Eclipse Update Site 3.0"/>
+   <site url="http://update.eclipse.org/updates/3.3" selected="true" name="Eclipse Update Site 3.3"/>
+   <site url="http://update.eclipse.org/updates/" selected="true" name="Eclipse Updates"/>
+   <site url="http://download.eclipse.org/tools/emf/updates/" selected="true" name="EMF Updates"/>
+   <site url="http://download.eclipse.org/technology/emft/updates/" selected="true" name="EMFT Updates"/>
+   <site url="http://download.eclipse.org/technology/epp/packages/galileo" selected="true" name="EPP Packages Repository"/>
+   <site url="http://download.eclipse.org/technology/epp/updates/1.1/" selected="true" name="EPP Updates 1.1"/>
+   <site url="http://download.eclipse.org/technology/epp/updates/1.0/" selected="true" name="EPP Usage Data Collector Update Site"/>
+   <site url="http://download.eclipse.org/releases/galileo" selected="true" name="Galileo"/>
+   <site url="http://download.eclipse.org/galileo/releases/" selected="true" name="Galileo Updates"/>
+   <site url="http://download.eclipse.org/releases/ganymede/" selected="true" name="Ganymede Update Site"/>
+   <site url="http://download.eclipse.org/tools/gef/updates/releases" selected="true" name="GEF Update Site"/>
+   <site url="http://www.apache.org/dist/geronimo/eclipse/updates/" selected="true" name="Geronimo Eclipse Updates"/>
+   <site url="http://download.eclipse.org/modeling/gmf/update-site/releases/site.xml" selected="true" name="GMF SDK 2.0.2"/>
+   <site url="http://java.decompiler.free.fr/jd-eclipse/update" selected="true" name="JD-Eclipse Plug-in Updates"/>
+   <site url="http://www.webtide.com/eclipse" selected="true" name="Jetty Eclipse Download Site"/>
+   <site url="http://jope.ow2.org/update/jope/" selected="true" name="Jope Updates"/>
+   <site url="http://download.eclipse.org/modeling/m2t/updates/site.xml" selected="true" name="M2T JET SDK (Incubation)"/>
+   <site url="http://download.eclipse.org/modeling/mdt/updates/releases/" selected="false" name="MDT Update Site"/>
+   <site url="http://www.eclipse.org/modeling/emft/updates/" selected="true" name="Modeling EMFP Updates"/>
+   <site url="http://download.eclipse.org/modeling/emft/updates/" selected="true" name="Modeling EMFT Updates"/>
+   <site url="http://www.eclipse.org/modeling/emft/?project=search#search" selected="true" name="Modeling EMFT Updates"/>
+   <site url="http://download.eclipse.org/modeling/gmf/updates/releases/" selected="true" name="Modeling GMF Updates"/>
+   <site url="http://download.eclipse.org/modeling/m2m/updates/" selected="true" name="Modeling M2M Updates"/>
+   <site url="http://download.eclipse.org/modeling/m2t/updates/" selected="true" name="Modeling M2T Updates"/>
+   <site url="http://download.eclipse.org/modeling/m2t/updates/releases/" selected="true" name="Modeling M2T Updates"/>
+   <site url="http://download.eclipse.org/modeling/tmf/updates/" selected="true" name="Modeling TMF Updates"/>
+   <site url="http://download.eclipse.org/modeling/emf/updates/" selected="true" name="Modelling EMF Updates"/>
+   <site url="http://download.eclipse.org/modeling/mdt/updates/" selected="true" name="Modelling MDT Updates"/>
+   <site url="http://download.eclipse.org/tools/mylyn/update/e3.4/" selected="true" name="Mylyn for Eclipse 3.4 and 3.5"/>
+   <site url="http://download.eclipse.org/tools/mylyn/update/extras" selected="true" name="Mylyn Updates"/>
+   <site url="http://download.eclipse.org/tools/pdt/updates/2.0/" selected="true" name="PDT 2.0 Updates"/>
+   <site url="http://download.eclipse.org/tools/php/updates/" selected="true" name="PDT SDK 1.0.3"/>
+   <site url="http://download.eclipse.org/tools/pdt/updates/" selected="true" name="PDT Updates"/>
+   <site url="http://download.eclipse.org/rt/rap/update-site" selected="true" name="RAP Updates"/>
+   <site url="http://download.eclipse.org/rt/riena/1.1.0.1/update/" selected="true" name="Riena Update Site"/>
+   <site url="http://download.eclipse.org/rt/eclipselink/updates" selected="true" name="RT Eclipse Updates"/>
+   <site url="http://download.eclipse.org/rt/riena/1.1.0.0/update/" selected="true" name="RT RIENA 1.1.0.0 Updates"/>
+   <site url="http://download.eclipse.org/rt/swordfish/updates" selected="true" name="RT Swordfish Updates"/>
+   <site url="http://download.eclipse.org/technology/subversive/0.7/update-site/" selected="true" name="Subversion 0.7 Updates"/>
+   <site url="http://download.eclipse.org/eclipse/updates/3.5" selected="true" name="The Eclipse Project Updates"/>
+   <site url="http://download.eclipse.org/webtools/updates" selected="true" name="The Eclipse Web Tools Platform (WTP) Project update site"/>
+   <site url="http://download.eclipse.org/tools/gef/updates/releases/site.xml" selected="true" name="Tools GEF Updates"/>
+   <site url="http://download.eclipse.org/tptp/updates/" selected="true" name="TPTP Update Site"/>
+   <site url="http://download.eclipse.org/releases/europa" selected="true" name="update site: http://download.eclipse.org/releases/europa"/>
+   <site url="http://download.eclipse.org/tools/cdt/releases/ganymede" selected="true" name="update site: http://download.eclipse.org/tools/cdt/releases/ganymede"/>
+   <site url="http://download.eclipse.org/tools/gef/update-site/releases/site.xml" selected="true" name="update site: http://download.eclipse.org/tools/gef/update-site/releases/site.xml"/>
+   <site url="http://geronimo.apache.org/devtools/" selected="true" name="update site: http://geronimo.apache.org/devtools/"/>
+   <site url="http://update.eclipse.org/tools/ve/updates/1.0" selected="true" name="update site: http://update.eclipse.org/tools/ve/updates/1.0"/>
+   <site url="http://download.eclipse.org/dsdp/mtj/updates/1.0.1/stable/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/dsdp/tm/updates/3.0" selected="false" name=""/>
+   <site url="http://download.eclipse.org/dsdp/tml/updates/0.3/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/modeling/emft/updates/releases/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/modeling/gmt/modisco/updates/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/modeling/gmt/modisco/updates/release" selected="false" name=""/>
+   <site url="http://download.eclipse.org/modeling/m2m/updates/releases/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/modeling/mdt/ocl/3_0/updates/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/rt/rap/1.2/runtime-update" selected="false" name=""/>
+   <site url="http://download.eclipse.org/rt/rap/1.2/update" selected="false" name=""/>
+   <site url="http://download.eclipse.org/stp/updates/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/technology/emft/jet/update-site/site.xml" selected="true" name=""/>
+   <site url="http://download.eclipse.org/technology/gmf/update-site/releases/site.xml" selected="true" name=""/>
+   <site url="http://download.eclipse.org/technology/jwt/update-site" selected="false" name=""/>
+   <site url="http://download.eclipse.org/technology/mat/0.8/update-site/" selected="false" name=""/>
+   <site url="http://download.eclipse.org/tools/buckminster/updates" selected="true" name=""/>
+   <site url="http://download.eclipse.org/tools/uml2/updates/" selected="true" name=""/>
+   <site url="http://eclipse.org/tptp/updates/" selected="false" name=""/>
+   <site url="http://jmaki.com/eclipse" selected="true" name=""/>
+   <site url="http://www.mia-software.com/html/miaStudio/download/modisco/updates" selected="false" name=""/>
+</bookmarks>
