@@ -1,0 +1,1101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- saved from url=(0053)http://www.javaworld.com/javatips/jw-javatip35_p.html -->
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List
+href="Java%20Tip%2035%20Create%20new%20event%20types%20in%20Java_files/filelist.xml">
+<link rel=Edit-Time-Data
+href="Java%20Tip%2035%20Create%20new%20event%20types%20in%20Java_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<title>Java Tip 35: Create new event types in Java</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>administrator</o:Author>
+  <o:LastAuthor>administrator</o:LastAuthor>
+  <o:Revision>7</o:Revision>
+  <o:TotalTime>1</o:TotalTime>
+  <o:Created>2004-07-05T11:40:00Z</o:Created>
+  <o:LastSaved>2004-07-08T07:52:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>2522</o:Words>
+  <o:Characters>14378</o:Characters>
+  <o:Company>daffsoft</o:Company>
+  <o:Lines>119</o:Lines>
+  <o:Paragraphs>33</o:Paragraphs>
+  <o:CharactersWithSpaces>16867</o:CharactersWithSpaces>
+  <o:Version>10.2625</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:View>Print</w:View>
+  <w:Zoom>90</w:Zoom>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+h3
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:3;
+	font-size:13.5pt;
+	font-family:"Times New Roman";
+	color:black;
+	font-weight:bold;}
+a:link, span.MsoHyperlink
+	{color:#990033;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#990033;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+code
+	{mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:"Courier New";
+	mso-ascii-font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-hansi-font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";
+	font-variant:normal !important;
+	font-weight:normal;
+	font-style:normal;}
+pre
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	tab-stops:45.8pt 91.6pt 137.4pt 183.2pt 229.0pt 274.8pt 320.6pt 366.4pt 412.2pt 458.0pt 503.8pt 549.6pt 595.4pt 641.2pt 687.0pt 732.8pt;
+	font-size:12.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	color:black;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:251134862;
+	mso-list-template-ids:54301780;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:1883440204;
+	mso-list-template-ids:-114115556;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+<meta content=" event types, event handling, JDK 1.1" name=keywords>
+<meta
+content="&#10;JDK 1.1 has introduced a new event-handling paradigm. While generation and handling of AWT events is relatively well-documented by now, the method of creating new event types is still unclear. This tip presents a step-by-step guide to creating and handling new event types. To benefit from this tip, readers should have a good working knowledge of the new AWT event model. (2,250 words)&#10;"
+name=description>
+<meta content=NOARCHIVE name=GOOGLEBOT>
+
+<script language="JavaScript">
+            <!--
+            function openBrWindow() {
+                win=window.open("http://www.javaworld.com/channel_content/jw-story-feedback.shtml",'Feedback','width=600,height=330,toolbar=no,location=no,directories=no,menubar=no,scrollbars=yes,resizable=yes');
+            }
+            -->
+</script>
+<!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="4098"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body bgcolor=white lang=EN-US link="#990033" vlink="#990033" style='tab-interval:
+.5in' alink="#990033" bottomMargin=0 leftmargin=0 rightMargin=0 topmargin=0
+marginwidth=0 marginheight=0>
+
+<div class=Section1>
+
+<h1 align=center style='margin-left:9.0pt;text-align:center'><span
+style='font-family:Verdana'>Create new event types in Java<o:p></o:p></span></h1>
+
+<h3 align=center style='margin-left:9.0pt;text-align:center'><span
+style='font-family:Verdana'>How to make event classes for components in JDK 1.1<o:p></o:p></span></h3>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'><!--<BLOCKQUOTE><STRONG>Summary</STRONG><BR>--><img
+width=800 height=2 id="_x0000_i1025"
+src="Java%20Tip%2035%20Create%20new%20event%20types%20in%20Java_files/rule_ltblue.gif"><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>While
+JDK 1.1 certainly has streamlined event handling with the introduction of the
+delegation event model, it does not make it easy for developers to create their
+own event types. The basic procedure described here is actually rather
+straightforward. For the sake of simplicity, I will not discuss concepts of
+event enabling and event masks. Plus, you should know that events created using
+this procedure will not be posted to the event queue and will work only with
+registered listeners. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Currently,
+the Java core consists of 12 event types defined in </span><span class=SpellE><code><span
+style='font-size:11.0pt'>java.awt.events</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>ActionEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>AdjustmentEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>ComponentEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>ContainerEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>FocusEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>InputEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>ItemEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>KeyEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>MouseEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>PaintEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>TextEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l1 level1 lfo2;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-size:10.0pt;
+font-family:Verdana'>WindowEvent</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Because
+creating new event types is a non-trivial task, you should examine events that
+are part of core Java. If possible, try to use those types rather than create
+new ones. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>There
+will be times, however, when a new event type will need to be developed for a
+new component. For purposes of this discussion, I will use the example of a
+simple component, a wizard panel, as a means to demonstrate how to create a new
+event type. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>A
+wizard panel implements a simple <em><span style='font-family:Verdana'>wizard</span></em>
+interface. The component consists of a card panel that can be advanced using
+the NEXT button. The BACK button allows you to flip to the previous panel.
+FINISH and CANCEL buttons are also provided. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>In
+order to make the component flexible, I wanted to provide full control over the
+actions taken by all the buttons to the developer who uses it. For example,
+when the NEXT button is pressed, it should be possible for the developer to
+first check if the required data was entered on the component currently visible
+before advancing to the next component. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'><o:p>&nbsp;</o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>There
+are five main tasks in creating your own event type: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l0 level1 lfo4;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Create
+an event listener <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l0 level1 lfo4;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Create
+a listener adapter <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l0 level1 lfo4;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Create
+an event class <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l0 level1 lfo4;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Modify
+the component <o:p></o:p></span></p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:9.0pt;text-indent:-.25in;mso-list:l0 level1 lfo4;tab-stops:list .5in'><![if !supportLists]><span
+style='font-size:10.0pt;font-family:Symbol;mso-fareast-font-family:Symbol;
+mso-bidi-font-family:Symbol'><span style='mso-list:Ignore'>·<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-size:10.0pt;font-family:Verdana'>Managing
+multiple listeners <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>We'll
+examine each of these tasks in turn and then put them all together. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><strong><span style='font-family:Verdana'>Create
+an event listener </span></strong><span style='font-size:10.0pt;font-family:
+Verdana'><br>
+One way (and there are many) of informing objects that a certain action has
+occurred is to create a new event type that could be delivered to registered
+listeners. In the case of the wizard panel, a listener should support four
+different event cases, one for each button. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>I
+start by creating a listener interface. For each button, I define a listener
+method in the following fashion: <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span style='font-size:11.0pt;font-family:"Courier New"'>import <span
+class=SpellE>java.util.EventListener</span>;<br>
+public interface <span class=SpellE>WizardListener</span> extends <span
+class=SpellE>EventListener</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public abstract void <span class=SpellE>nextSelected</span>(<span
+class=SpellE>WizardEvent</span> e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public abstract void <span class=SpellE>backSelected</span>(<span
+class=SpellE>WizardEvent</span> e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public abstract void <span class=SpellE>cancelSelected</span>(<span
+class=SpellE>WizardEvent</span> e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public abstract void <span class=SpellE>finishSelected</span>(<span
+class=SpellE>WizardEvent</span> e);<br>
+<br>
+}</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Each
+method takes one argument: </span><span class=SpellE><code><span
+style='font-size:11.0pt'>WizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, which is defined next. Note that
+the interface extends </span><span class=SpellE><code><span style='font-size:
+11.0pt'>EventListener</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'>, used to identify this interface as an AWT listener. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><strong><span style='font-family:Verdana'>Create a
+listener adapter</span></strong><span style='font-size:10.0pt;font-family:Verdana'><br>
+Creating a listener adapter is an optional step. In AWT, a listener adapter is
+a class that provides a default implementation for all methods of a certain
+listener type. All adapter classes in the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>java.awt.event</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> package provide empty methods
+that do nothing. Here is an adapter class for </span><span class=SpellE><code><span
+style='font-size:11.0pt'>WizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>: <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span class=GramE><span style='font-size:11.0pt;font-family:"Courier New"'>public</span></span><span
+style='font-size:11.0pt;font-family:"Courier New"'> class <span class=SpellE>WizardAdapter</span>
+implements <span class=SpellE>WizardListener</span> {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>nextSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>backSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>cancelSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>finishSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {}<br>
+<br>
+}</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>When
+writing a class that is to be a wizard listener, it is possible to extend the </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardAdapter</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> and provide implementation for
+(or override) only those listener methods <span class=GramE>that are</span> of
+interest. This is strictly a convenience class. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><strong><span style='font-family:Verdana'>Create
+an event class</span></strong><span style='font-size:10.0pt;font-family:Verdana'><br>
+<span class=GramE>The</span> next step is to create the actual </span><code><span
+style='font-size:11.0pt'>Event</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> class here: </span><span class=SpellE><code><span
+style='font-size:11.0pt'>WizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span style='font-size:11.0pt;font-family:"Courier New"'>import <span
+class=SpellE>java.awt.AWTEvent</span>;<br>
+public class <span class=SpellE>WizardEvent</span> extends <span class=SpellE>AWTEvent</span>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static final <span class=SpellE>int</span>
+WIZARD_FIRST = <span class=SpellE>AWTEvent.RESERVED_ID_MAX</span> + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static final <span class=SpellE>int</span>
+NEXT_SELECTED&nbsp;&nbsp; = WIZARD_FIRST;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static final <span class=SpellE>int</span>
+BACK_SELECTED&nbsp;&nbsp; = WIZARD_FIRST + 1;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static final <span class=SpellE>int</span>
+CANCEL_SELECTED = WIZARD_FIRST + 2;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static final <span class=SpellE>int</span>
+FINISH_SELECTED = WIZARD_FIRST + 3;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static final <span class=SpellE>int</span>
+WIZARD_LAST = WIZARD_FIRST + 3;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public <span class=SpellE>WizardEvent</span>(Wizard
+source, <span class=SpellE>int</span> id) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(source, id);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+}</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Two
+constants, </span><code><span style='font-size:11.0pt'>WIZARD_FIRST</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> and </span><code><span
+style='font-size:11.0pt'>WIZARD_LAST</span></code><span style='font-size:10.0pt;
+font-family:Verdana'>, mark the inclusive range of masks used by this Event
+class. Note that the event IDs use the </span><code><span style='font-size:
+11.0pt'>RESERVED_ID_MAX</span></code><span style='font-size:10.0pt;font-family:
+Verdana'> constant of class </span><span class=SpellE><code><span
+style='font-size:11.0pt'>AWTEvent</span></code></span><span style='font-size:
+10.0pt;font-family:Verdana'> to determine the range of IDs that will not
+conflict with the event ID values defined by the AWT. As more AWT components
+are added, the </span><code><span style='font-size:11.0pt'>RESERVED_ID_MAX</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> may increase in the future. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>The
+remaining four constants represent four event IDs, each corresponding to a
+different action type, as defined by the wizard's functionality. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Event
+ID and event source are two arguments for the wizard event constructor. Event
+source must be of type </span><code><span style='font-size:11.0pt'>Wizard</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> -- that is the component type the
+event is defined for. The reasoning is that only a wizard panel can be a source
+of wizard events. Note that the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>WizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> class extends </span><span
+class=SpellE><code><span style='font-size:11.0pt'>AWTEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><!-- break --><strong><span style='font-family:
+Verdana'>Modify the component</span></strong><span style='font-size:10.0pt;
+font-family:Verdana'><br>
+<span class=GramE>The</span> next step is to equip our component with methods
+allowing it to register and remove listeners for the new event. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>To
+deliver an event to a listener, normally one would call the appropriate event
+listener method (depending on the event mask). I can register an action
+listener to receive action events from the NEXT button and relay them to
+registered </span><span class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> objects. The </span><span
+class=SpellE><code><span style='font-size:11.0pt'>actionPerformed</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method of the action listener for
+the NEXT (or other actions) button could be implemented as follows: <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>&lt;a
+name=<span class=SpellE>actionPerformed</span>&gt; <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span class=GramE><span style='font-size:11.0pt;font-family:"Courier New"'>public</span></span><span
+style='font-size:11.0pt;font-family:"Courier New"'> void <span class=SpellE>actionPerformed</span>(<span
+class=SpellE>ActionEvent</span> e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//do nothing if no listeners are registered<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (<span class=SpellE>wizardListener</span> == null)
+return;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class=SpellE>WizardEvent</span> w;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Wizard source = this;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if (<span class=SpellE>e.getSource</span>() == <span
+class=SpellE>nextButton</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; w = new <span class=SpellE>WizardEvent</span>(source,
+<span class=SpellE>WizardEvent.NEXT_SELECTED</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class=SpellE>wizardListener.nextSelected</span>(w);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;//handle the rest of the wizard buttons in a similar
+fashion<br>
+<br>
+}</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><em><span style='font-size:10.0pt;font-family:
+Verdana'>Note: In the above example, the</span></em><span style='font-size:
+10.0pt;font-family:Verdana'> </span><code><span style='font-size:11.0pt'>Wizard</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> <em><span style='font-family:
+Verdana'>panel itself is the listener for the</span></em> NEXT <em><span
+style='font-family:Verdana'>button.</span></em> <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>When
+the NEXT button is pressed, a new </span><span class=SpellE><code><span
+style='font-size:11.0pt'>WizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> is created with the appropriate
+source and mask that corresponds to the NEXT button being pressed. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>In
+the example, the line <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span style='font-size:11.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+class=SpellE><span class=GramE>wizardListener.nextSelected</span></span><span
+class=GramE>(</span>w);</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span class=GramE><span style='font-size:10.0pt;
+font-family:Verdana'>refers</span></span><span style='font-size:10.0pt;
+font-family:Verdana'> to the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>wizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> object that is a private member
+variable for </span><code><span style='font-size:11.0pt'>Wizard</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> and is of type </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. We have defined this type as the
+first step in creating a new component event. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>At
+first glance, the code above seems to restrict the number of listeners to one.
+The private variable </span><span class=SpellE><code><span style='font-size:
+11.0pt'>wizardListener</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'> is not an array, and only one </span><span class=SpellE><code><span
+style='font-size:11.0pt'>nextSelected</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> call is made. To explain why the
+code above actually does not pose that restriction, let's examine how listeners
+are added. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Each
+new component that generates events (predefined or new) needs to provide two
+methods: one to support listener addition and one to support listener removal.
+In the case of the </span><code><span style='font-size:11.0pt'>Wizard</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> class, these methods are: <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>&lt;a
+name=<span class=SpellE>add_remove</span>&gt; <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span style='font-size:11.0pt;font-family:"Courier New"'>&nbsp;&nbsp;&nbsp;&nbsp;<span
+class=GramE>public</span> synchronized void <span class=SpellE>addWizardListener</span>(<span
+class=SpellE>WizardListener</span> l) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=SpellE>wizardListener</span>
+= <span class=SpellE>WizardEventMulticaster.add</span>(<span class=SpellE>wizardListener</span>,
+l);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public synchronized void <span class=SpellE>removeWizardListener</span>(<span
+class=SpellE>WizardListener</span> l) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=SpellE>wizardListener</span>
+= <span class=SpellE>WizardEventMulticaster.remove</span>(<span class=SpellE>wizardListener</span>,
+l);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Both
+methods make a call to static method members of class </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><strong><span style='font-family:Verdana'>Managing
+multiple listeners</span></strong><span style='font-size:10.0pt;font-family:
+Verdana'><br>
+<span class=GramE>While</span> it is possible to use a </span><code><span
+style='font-size:11.0pt'>Vector</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> to manage multiple listeners, JDK 1.1 defines a special
+class for maintaining a listener list: </span><span class=SpellE><code><span
+style='font-size:11.0pt'>AWTEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. A single <span class=SpellE>multicaster</span>
+instance maintains references to two listener objects. Because the <span
+class=SpellE>multicaster</span> is also a listener itself (it implements all
+listener interfaces), each of the two listeners it keeps track of can also be <span
+class=SpellE>multicasters</span>, thus creating a chain of event listeners or <span
+class=SpellE>multicasters</span>: <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>If
+a listener is also a <span class=SpellE>multicaster</span>, then it represents
+a link in the chain. Otherwise, it is merely a listener and is thus the last
+element in the chain. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Unfortunately,
+it is not possible simply to reuse the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>AWTEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> to handle event multicasting for
+new event types. The best that can be done is to extend the AWT <span
+class=SpellE>multicaster</span>, although this operation is rather
+questionable. </span><span class=SpellE><code><span style='font-size:11.0pt'>AWTEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> contains 56 methods. Of these, 51
+methods provide support for the 12 event types and their corresponding
+listeners that are part of AWT. If you subclass </span><span class=SpellE><code><span
+style='font-size:11.0pt'>AWTEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, you will never use them anyway.
+Out of the remaining five methods, </span><span class=SpellE><span class=GramE><code><span
+style='font-size:11.0pt'>addInternal</span></code></span></span><span
+class=GramE><code><span style='font-size:11.0pt'>(</span></code></span><span
+class=SpellE><code><span style='font-size:11.0pt'>EventListener</span></code></span><code><span
+style='font-size:11.0pt'>, <span class=SpellE>EventListener</span>)</span></code><span
+style='font-size:10.0pt;font-family:Verdana'>, and </span><code><span
+style='font-size:11.0pt'>remove(<span class=SpellE>EventListener</span>)</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> need to be recoded. (I say
+recoded because in </span><span class=SpellE><code><span style='font-size:11.0pt'>AWTEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, </span><span class=SpellE><code><span
+style='font-size:11.0pt'>addInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> is a static method and therefore
+cannot be overloaded. For reasons unknown to me at this time, </span><code><span
+style='font-size:11.0pt'>remove</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> makes a call to </span><span class=SpellE><code><span
+style='font-size:11.0pt'>addInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> and it needs to be overloaded.) <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Two
+<span class=GramE>methods,</span> </span><code><span style='font-size:11.0pt'>save</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> and </span><span class=SpellE><code><span
+style='font-size:11.0pt'>saveInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, provide support for object
+streaming and can be reused in the new <span class=SpellE>multicaster</span>
+class. The last method that supports listener remove routines, </span><span
+class=SpellE><code><span style='font-size:11.0pt'>removeInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, can also be reused, provided that
+new versions of </span><code><span style='font-size:11.0pt'>remove</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> and </span><span class=SpellE><code><span
+style='font-size:11.0pt'>addInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> have been implemented. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>For
+the sake of simplicity, I am going to subclass </span><span class=SpellE><code><span
+style='font-size:11.0pt'>AWTEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, but with very little effort, it
+is possible to code </span><code><span style='font-size:11.0pt'>remove</span></code><span
+style='font-size:10.0pt;font-family:Verdana'>, </span><code><span
+style='font-size:11.0pt'>save</span></code><span style='font-size:10.0pt;
+font-family:Verdana'>, and </span><span class=SpellE><code><span
+style='font-size:11.0pt'>saveInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> and have a fully functional,
+standalone event <span class=SpellE>multicaster</span>. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Here
+is the event <span class=SpellE>multicaster</span> as implemented to handle </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>: <o:p></o:p></span></p>
+
+<p style='margin-top:5.0pt;margin-right:0in;margin-bottom:12.0pt;margin-left:
+9.0pt'><span style='font-size:11.0pt;font-family:"Courier New"'>import <span
+class=SpellE>java.awt.AWTEventMulticaster</span>;<br>
+<br>
+import <span class=SpellE>java.util.EventListener</span>;<br>
+public class <span class=SpellE>WizardEventMulticaster</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;extends <span class=SpellE>AWTEventMulticaster</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;implements <span class=SpellE>WizardListener</span><br>
+<br>
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected <span class=SpellE>WizardEventMulticaster</span>(<span
+class=SpellE>EventListener</span> a, <span class=SpellE>EventListener</span> b)
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(a, b);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static <span class=SpellE>WizardListener</span>
+add(<span class=SpellE>WizardListener</span> a, <span class=SpellE>WizardListener</span>
+b) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (<span class=SpellE>WizardListener</span>)
+<span class=SpellE>addInternal</span>(a, b);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public static <span class=SpellE>WizardListener</span>
+remove(<span class=SpellE>WizardListener</span> l,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+class=SpellE>WizardListener</span> <span class=SpellE>oldl</span>) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (<span class=SpellE>WizardListener</span>)
+<span class=SpellE>removeInternal</span>(<span class=SpellE>l,oldl</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>nextSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//casting exception will never
+occur in this case<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//casting _is_ needed because
+this <span class=SpellE>multicaster</span> may<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//handle more than just one
+listener<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a != null) ((<span
+class=SpellE>WizardListener</span>) a).<span class=SpellE>nextSelected</span>(e);<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (b != null) ((<span
+class=SpellE>WizardListener</span>) b).<span class=SpellE>nextSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>backSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a != null) ((<span
+class=SpellE>WizardListener</span>) a).<span class=SpellE>backSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (b != null) ((<span
+class=SpellE>WizardListener</span>) b).<span class=SpellE>backSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>cancelSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a != null) ((<span
+class=SpellE>WizardListener</span>) a).<span class=SpellE>cancelSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (b != null) ((<span
+class=SpellE>WizardListener</span>) b).<span class=SpellE>cancelSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;public void <span class=SpellE>finishSelected</span>(<span
+class=SpellE>WizardEvent</span> e) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a != null) ((<span
+class=SpellE>WizardListener</span>) a).<span class=SpellE>finishSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (b != null) ((<span
+class=SpellE>WizardListener</span>) b).<span class=SpellE>finishSelected</span>(e);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected static <span class=SpellE>EventListener</span>
+<span class=SpellE>addInternal</span>(<span class=SpellE>EventListener</span>
+a,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class=SpellE>EventListener</span> b) {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a == null) return b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (b == null) return a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return new <span class=SpellE>WizardEventMulticaster</span>(a,
+b);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;protected <span class=SpellE>EventListener</span>
+remove(<span class=SpellE>EventListener</span> <span class=SpellE>oldl</span>)
+{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (<span class=SpellE>oldl</span>
+== a) return b;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (<span class=SpellE>oldl</span>
+== b) return a;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=SpellE>EventListener</span>
+a2 = <span class=SpellE>removeInternal</span>(a, <span class=SpellE>oldl</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class=SpellE>EventListener</span>
+b2 = <span class=SpellE>removeInternal</span>(b, <span class=SpellE>oldl</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (a2 == a &amp;&amp; b2 == b)
+return this;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return <span class=SpellE>addInternal</span>(a2,
+b2);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<br>
+}</span><span style='font-size:10.0pt;font-family:Verdana'><o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><!-- break --><strong><span style='font-family:
+Verdana'>Methods in the <span class=SpellE>multicaster</span> class: A review</span></strong><span
+style='font-size:10.0pt;font-family:Verdana'><br>
+<span class=GramE>Let's</span> review the methods that are part of the <span
+class=SpellE>multicaster</span> class above. The constructor is protected, and
+in order to obtain a new </span><span class=SpellE><code><span
+style='font-size:11.0pt'>WizardEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, a static </span><span
+class=GramE><code><span style='font-size:11.0pt'>add(</span></code></span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><code><span
+style='font-size:11.0pt'>, <span class=SpellE>WizardListener</span>)</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> method must be called. It takes
+two listeners as arguments that represent two pieces of a listener chain to be
+linked: <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:9.0pt'><span class=GramE><span
+style='font-size:10.0pt;font-family:Symbol;mso-ascii-font-family:Verdana'>·</span><span
+style='font-size:10.0pt;font-family:Verdana'><span style='mso-spacerun:yes'> 
+</span>To</span></span><span style='font-size:10.0pt;font-family:Verdana'>
+start a new chain, use null as the first argument. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:9.0pt'><span class=GramE><span
+style='font-size:10.0pt;font-family:Symbol;mso-ascii-font-family:Verdana'>·</span><span
+style='font-size:10.0pt;font-family:Verdana'><span style='mso-spacerun:yes'> 
+</span>To</span></span><span style='font-size:10.0pt;font-family:Verdana'> add
+a new listener, use the existing listener as the first argument and a new
+listener as the second argument. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>This,
+in fact, is what has been done in <a
+href="http://www.javaworld.com/javatips/jw-javatip35_p.html#add_remove">the
+code for class <code><span style='font-size:11.0pt'>Wizard</span></code></a>
+that we have already examined. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Another
+static routine is </span><span class=GramE><code><span style='font-size:11.0pt'>remove(</span></code></span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><code><span
+style='font-size:11.0pt'>, <span class=SpellE>WizardListener</span>)</span></code><span
+style='font-size:10.0pt;font-family:Verdana'>. The first argument is a listener
+(or listener <span class=SpellE>multicaster</span>), and the second is a
+listener to be removed. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Four
+public, non-static methods were added to support event propagation through the
+event chain. For each </span><span class=SpellE><code><span style='font-size:
+11.0pt'>WizardEvent</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'> case (that is, next, back, cancel, and finish selected)
+there is one method. These methods must be implemented since the </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> implements </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, which in turn requires the four
+methods to be present. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><strong><span style='font-family:Verdana'>How it
+all works together</span></strong><span style='font-size:10.0pt;font-family:
+Verdana'><br>
+<span class=GramE>Let's</span> now examine how the <span class=SpellE>multicaster</span>
+actually is used by the </span><code><span style='font-size:11.0pt'>Wizard</span></code><span
+style='font-size:10.0pt;font-family:Verdana'>. Let's suppose a wizard object is
+constructed and three listeners are added, creating a listener chain. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Initially,
+the private variable </span><span class=SpellE><code><span style='font-size:
+11.0pt'>wizardListener</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'> of class </span><code><span style='font-size:11.0pt'>Wizard</span></code><span
+style='font-size:10.0pt;font-family:Verdana'> is null. So when a call is made
+to </span><span class=SpellE><span class=GramE><code><span style='font-size:
+11.0pt'>WizardEventMulticaster.add</span></code></span></span><span
+class=GramE><code><span style='font-size:11.0pt'>(</span></code></span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><code><span
+style='font-size:11.0pt'>, <span class=SpellE>WizardListener</span>)</span></code><span
+style='font-size:10.0pt;font-family:Verdana'>, the first argument, </span><span
+class=SpellE><code><span style='font-size:11.0pt'>wizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>, is null and the second is not
+(it does not make sense to add a null listener). The </span><code><span
+style='font-size:11.0pt'>add</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> method, in turn, calls </span><span class=SpellE><code><span
+style='font-size:11.0pt'>addInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. Since one of the arguments is
+null, the return of </span><span class=SpellE><code><span style='font-size:
+11.0pt'>addInternal</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'> is the non-null listener. The return propagates to the </span><code><span
+style='font-size:11.0pt'>add</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> method that returns the non-null listener to the </span><span
+class=SpellE><code><span style='font-size:11.0pt'>addWizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method. There the </span><span
+class=SpellE><code><span style='font-size:11.0pt'>wizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> variable is set to the new
+listener being added. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>This
+is exactly what we expected: If there are no listeners and a new listener is
+added, assign it to the </span><span class=SpellE><code><span style='font-size:
+11.0pt'>wizardListener</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'> variable. Note that at this point, </span><span
+class=SpellE><code><span style='font-size:11.0pt'>wizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> holds a reference to a </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> object that is not a <span
+class=SpellE>multicaster</span> (it is not necessary to use a <span
+class=SpellE>multicaster</span> if only one listener is registered). <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>When
+a second call is made to the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>addWizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method, both arguments passed to </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardEventMulticaster.add</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> are not null. In order to hold
+two listeners, we need a <span class=SpellE>multicaster</span>, so an instance
+of </span><span class=SpellE><code><span style='font-size:11.0pt'>WizardEventMulticaster</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> is returned by the </span><span
+class=SpellE><code><span style='font-size:11.0pt'>addInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method and therefore by </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardEventMulticaster.add</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. The new <span class=SpellE>multicaster</span>
+object is assigned to the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>wizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> variable, which now holds a chain
+of two listeners. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>When
+a third listener is added, the procedure is the same as for adding the second
+listener. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>At
+this point, if the NEXT button is pressed on the wizard panel, it is enough to
+invoke the </span><span class=SpellE><code><span style='font-size:11.0pt'>nextSelected</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method on a </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> object represented by a </span><span
+class=SpellE><code><span style='font-size:11.0pt'>wizardListener</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> variable to send a </span><span
+class=SpellE><code><span style='font-size:11.0pt'>WizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> to all listeners in the chain
+(see <a
+href="http://www.javaworld.com/javatips/jw-javatip35_p.html#actionPerformed">sample
+code above</a>). <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>The
+removal of listeners is achieved by searching the listener chain in a recursive
+fashion: Event-specific </span><span class=GramE><code><span style='font-size:
+11.0pt'>remove</span></code></span><span style='font-size:10.0pt;font-family:
+Verdana'> calls </span><span class=SpellE><code><span style='font-size:11.0pt'>removeInternal</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> and that may call the protected </span><code><span
+style='font-size:11.0pt'>remove</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> method. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><strong><span style='font-family:Verdana'>Conclusions</span></strong><span
+style='font-size:10.0pt;font-family:Verdana'><br>
+I think developing custom event types in JDK 1.1 is a non-trivial process. It
+requires a lot of (mostly) simple coding. The interaction between different
+events and event support classes is often intricate and difficult to follow
+(although, I must say, quite ingenuous). <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>The
+good news is that you do not have to create a new <span class=SpellE>multicaster</span>
+for every new event type developed. Since one <span class=SpellE>multicaster</span>
+can extend several listener interfaces, it is enough just to add listener and
+event-specific methods to an existing <span class=SpellE>multicaster</span> to
+make it handle more event types. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Please
+remember that we have not talked about support for event queuing on the system
+queue, nor have we mentioned event enabling. In the case of the </span><code><span
+style='font-size:11.0pt'>Wizard</span></code><span style='font-size:10.0pt;
+font-family:Verdana'> class, such event queuing and enabling support would
+involve the addition of </span><span class=SpellE><code><span style='font-size:
+11.0pt'>processEvent</span></code></span><span style='font-size:10.0pt;
+font-family:Verdana'> and </span><span class=SpellE><code><span
+style='font-size:11.0pt'>processWizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>. Both of these deal with events
+delivered to a component from the queue. Event masks also need to be
+investigated and assigned with caution to avoid potential conflicts with events
+that are already part of AWT. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><span style='font-size:10.0pt;font-family:Verdana'>Finally,
+the way in which events are dispatched would need to be changed: Currently, a
+call is made to <span class=GramE>listeners</span> right where the triggering
+action occurs (for example, from the </span><span class=SpellE><code><span
+style='font-size:11.0pt'>actionPerformed</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method for the NEXT button). It
+appears that components in AWT first post an event to the queue. The event is
+then received by a </span><span class=SpellE><code><span style='font-size:11.0pt'>processEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'> method of the source component,
+which in turn calls the event-specific processor (in our case that would be </span><span
+class=SpellE><code><span style='font-size:11.0pt'>processWizardEvent</span></code></span><span
+style='font-size:10.0pt;font-family:Verdana'>), which calls the appropriate
+listener method, thus triggering event delivery. <o:p></o:p></span></p>
+
+<p style='margin-left:9.0pt'><em><span style='font-size:10.0pt;font-family:
+Verdana'>Note: I would like to thank John <span class=SpellE>Zukowski</span>
+for encouraging me to write this article. He was also a great help in improving
+the original draft.</span></em><span style='font-size:10.0pt;font-family:Verdana'>
+<o:p></o:p></span></p>
+
+</div>
+
+</body>
+
+</BASEFONT>
+</html>

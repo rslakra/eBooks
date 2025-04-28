@@ -1,0 +1,1903 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\froman\fcharset0 Times New Roman;}{\f1\ftech\fcharset0 Symbol;}{\f2\fswiss\fcharset0 Arial;}{\f3\fmodern\fcharset0 Courier;}{\f4\fmodern\fcharset0 Courier-Bold;}}
+{\colortbl ;\red0\green0\blue0;\red255\green255\blue255;}
+\viewkind4\uc1\pard\cf1\f0\fs14 Sun Microsystems, Inc.\par
+901 San Antonio Road\par
+Palo Alto, California 94303 USA\par
+\i\fs60 100% Pure Java\i0\f1\'d4\par
+\i\f0 Cookbook\par
+\fs28 Guidelines for achieving the\par
+100% Pure Java Standard\par
+\i0\fs16 Revision 4.0\par
+\b\fs20 Copyrights\par
+\b0\f1\'d3 \f0 2000 Sun Microsystems, Inc. All rights reserved.\par
+901 San Antonio Road, Palo Alto, California 94043, U.S.A.\par
+This product and related documentation are protected by copyright and distributed under licenses\par
+restricting its use, copying, distribution, and decompilation. No part of this product or related\par
+documentation may be reproduced in any form by any means without prior written authorization of Sun\par
+and its licensors, if any.\par
+\b Restricted Rights Legend\par
+\b0 Use, duplication, or disclosure by the United States Government is subject to the restrictions set forth in\par
+DFARS 252.227-7013 (c)(1)(ii) and FAR 52.227-19.\par
+The product described in this manual may be protected by one or more U.S. patents, foreign patents, or\par
+pending applications.\par
+\b Trademarks\par
+\b0 Sun, the Sun logo, Sun Microsystems, Java, Java Compatible, 100% Pure Java, JavaStar, JavaPureCheck,\par
+JavaBeans, Java 2D, Solaris,Write Once, Run Anywhere, JDK, Java Development Kit Standard Edition,\par
+JDBC, JavaSpin, HotJava, The Network Is The Computer, and JavaStation are trademarks or registered\par
+trademarks of Sun Microsystems, Inc. in the U.S. and certain other countries. UNIX is a registered\par
+trademark in the United States and other countries, exclusively licensed through X/Open Company, Ltd.\par
+All other product names mentioned herein are the trademarks of their respective owners.\par
+Netscape and Netscape Navigator are trademarks of Netscape Communications Corporation in the\par
+United States and other countries.\par
+THIS PUBLICATION IS PROVIDED \ldblquote AS IS\rdblquote  WITHOUTWARRANTY OF ANY KIND, EITHER\par
+EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIEDWARRANTIES OF\par
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.\par
+THIS PUBLICATION COULD INCLUDE TECHNICAL INACCURACIES OR TYPOGRAPHICAL\par
+ERRORS. CHANGES ARE PERIODICALLY ADDED TO THE INFORMATION HEREIN; THESE\par
+CHANGES WILL BE INCORPORATED INNEWEDITIONS OF THE PUBLICATION. SUN\par
+MICROSYSTEMS, INC.MAY MAKE IMPROVEMENTS AND/OR CHANGES IN THE PRODUCT(S)\par
+AND/OR THE PROGRAM(S) DESCRIBED IN THIS PUBLICATION AT ANY TIME.\par
+\b Revision History\par
+\b0\fs18 4/97 - 1.0 First release\par
+5/97 - 1.1 Minor updates\par
+4/98 - 2.0 Added certification instructions for beans\par
+Introduced new feature based dynamic testing requirements\par
+Dropped code coverage requirements\par
+Added instructions for recertification\par
+4/99 - 2.1 Added certification instructions for servlets\par
+Added guidelines for certification under 1.2 runtime environments\par
+Updated recertification requirements\par
+Added guidelines for certifying hybrid programs\par
+Added FAQ\par
+10/99 - 3.0 Reorganized and updated\par
+3/00 - 3.1 Reorganized and updated\par
+10/00 - 4.0 Formerly \ldblquote 100% Pure Java Certification Guide\rdblquote , rewritten to remove the certification\par
+process and branding program.\par
+\f2\fs20 Revision Date: 10/00 i\par
+\i\f0\fs60 Table of Contents\par
+\b\i0\fs24 Introduction\par
+\b0\fs22 The 100% Pure Java\'99 Standard . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 1\par
+About this Guide . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 1\par
+Contents . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 2\par
+100% Pure Java Definitions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 3\par
+Online Information . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 3\par
+What is the 100% Pure Java Standard? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 4\par
+Purpose . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 4\par
+API Constraints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 4\par
+Common Behavior . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 4\par
+Should I Comply With The Purity Standard?. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 - 5\par
+The \ldblquote Suggested Compliance Evaluation Criteria?\rdblquote  Checklist . . . . . . . . . . . . . . . . . 1 - 5\par
+\b\fs24 Understanding Portability\par
+& Purity\par
+\b0\fs22 Standards for Portability . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 1\par
+The Purpose of the Purity Standard . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 1\par
+Which Java\'99 API? . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 2\par
+Understanding \lquote Purity\rquote . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 2\par
+Purity is Not Goodness. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 3\par
+Portability vs. Purity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 3\par
+Rules of Purity . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 4\par
+The Rules . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2 - 5\par
+\f2\fs20 ii 100% Pure Java Cookbook\par
+\b\f0\fs24 Guidelines for Developing Pure Programs\par
+\b0\fs22 How to Develop a Program. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 1\par
+Use of Native Code. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 3\par
+Use of exec . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 4\par
+Failure to Use the Portability Features of Java Core API . . . . . . . . . . . . . . . . . . . . . . 3 - 4\par
+Reflection . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 4\par
+Direct Use of AWT Peer Classes. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 4\par
+Misuse of System.exit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 5\par
+Use of Hard-Coded File Paths . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 5\par
+JDBC\'99 Driver Loading . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 7\par
+Line Termination . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 8\par
+Unportable Command-Line Programs. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 9\par
+Command Line Processing . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 9\par
+Internationalization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 9\par
+Unicode Rendering . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 9\par
+File I/O . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 10\par
+GUI Element Size. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 10\par
+GUI Fonts . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 10\par
+GUI Appearance . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 10\par
+The Paint Protocol . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 11\par
+Mixed Event Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 12\par
+Use of Deprecated Methods . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 12\par
+The \f3\fs29 Object.hashCode \f0\fs22 and \f3\fs29 Object.equals \f0\fs22 Methods . . . . . . . . . 3 - 12\par
+Installation Issues . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 13\par
+Hostname Format . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 13\par
+Pluggable Look and Feel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 14\par
+Mixing Classes Compiled on Different Versions of the Java Platform . . . . . . . . . 3 - 15\par
+Portability Hints . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 16\par
+Security Exceptions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 16\par
+Coping with Bugs . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 3 - 17\par
+\b\fs24 Explanations of Purity Problems and Variances\par
+\b0\fs22 Explanations of Purity Problems . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 1\par
+Report Information Categories . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 1\par
+Explanations. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 2\par
+Warnings. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 2\par
+Possible Hardcoded Path . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 2\par
+Mixing the 1.0 and 1.1 Event Models . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 2\par
+Dynamically Loaded Classes:. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 2\par
+Object is Compiled for a Previous (Java Development Kit) release . . . . . . . . . . 4 - 3\par
+Unsupported Pluggable Look and Feel . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 3\par
+Errors. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+Constant Strings with OS-Specific Syntax Used in I/O Class Constructors . . . 4 - 4\par
+Peer Use . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+\f2\fs20 Revision Date: 10/00 iii\par
+\f0\fs22 Use of Native Code . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+Use of \f3\fs29 java.lang.Runtime.exec\f0\fs22 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+Injection into Core Library . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+Undefined Reference . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+Undocumented Internal \f3\fs29 sun.* \f0\fs22 Class . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 4\par
+Variances. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 5\par
+Types of Variances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 5\par
+The Variances . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 5\par
+Variances for Program Invocation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 5\par
+Variances for Programs Containing Native Code . . . . . . . . . . . . . . . . . . . . . . . . 4 - 7\par
+Miscellaneous Variances. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 4 - 9\par
+\b\fs24 Available Java Platforms\par
+\b0\fs22 Platforms for Java Applications and Applets . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .A - 1\par
+Available Platforms for Java Application Environment Version 1.0.2 . . . . . . . . . .A - 2\par
+Available Platforms for Java Application Environment 1.1 . . . . . . . . . . . . . . . . . . .A - 3\par
+Available Platforms for Java Application Environment 1.2 . . . . . . . . . . . . . . . . . . .A - 4\par
+\b\fs24 Frequently Asked Questions for Purity\par
+\b0\fs22 Frequently Asked Questions . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . B - 1\par
+\f2\fs20 iv 100% Pure Java Cookbook\par
+Revision Date: 10/00 1 - 1\par
+\i\f0\fs60 Introduction \fs72 1\par
+\fs40 The 100% Pure Java\i0\fs20\'99 \i\fs40 Standard\par
+\i0\fs20 The \ldblquote 100% Pure Java\f1\'d4 \f0 Standard\rdblquote  is part of Sun Microsystems initiative to\par
+promote the development of portable applications, applets, beans, class\par
+libraries, and servlets written using the Java\f1\'d4 \f0 Programming language.\par
+Compliance to the standard consists of code analysis and testing the program\par
+on multiple Java Application Environment.\par
+This cookbook will assist you in the process of understanding the guidelines\par
+for writing portable code. The steps described in this guide are designed to\par
+ensure that your code is portable and that it will meet your customer\rquote s\par
+expectations of a 100% Pure Java program.\par
+\i\fs40 About this Guide\par
+\i0\fs20 This guide covers all of the basic things that you should know about the 100%\par
+Pure Java Standard.\par
+This document serves as:\par
+\bullet  \b Developers Style Guide\b0 : for developers using the Java programming\par
+language who want to maximize the portability of their programs. It explains\par
+the important difference between merely writing programs using the Java\par
+programming language, and writing effective and portable programs that will\par
+indeed run on Java Compatible platform or device.\par
+\bullet  \b Programming Manual for Purity\b0 : for programmers. It presents the rules for\par
+compliance with 100% Pure Java standard. It also provides practical hints and\par
+\f2 1 - 2 100% Pure Java Cookbook\par
+\cf2\b\fs24 Introduction\par
+\cf1\b0\f0\fs20 advice for maximizing portability of programs, and offers workarounds for the\par
+most common portability pitfalls encountered when writing software.\par
+This document can help you:\par
+\bullet  \b Gain purity expertise\b0 : developers can benefit from the collective experience\par
+of Sun\rquote s development team. This guide contains information and ideas to help\par
+developers achieve the maximum portability with their programs. This guide\par
+describes the principles for purity, along with hints for portability.\par
+\i\fs32 Contents\par
+\i0\fs20 This guide has two purposes: it sets out the rules for achieving the 100% Pure\par
+Java standard, and it presents advice and examples to aid the development of\par
+fully portable software. It defines the steps you must take to certify a program.\par
+It also defines what criteria applies to 100% Pure Java programs and, equally\par
+important, what does not.\par
+\b\fs24 Chapter 1, "Introduction"\par
+\b0\fs20 gives basic definitions that describe the vocabulary of purity. This chapter is\par
+important for everyone.\par
+\b\fs24 Chapter 2, "Understanding Portability & Purity"\par
+\b0\fs20 describes the virtues of purity. The 100% Pure Java standard is not designed\par
+for all programs; this chapter will help determine if following the purity\par
+standard is appropriate for you.\par
+\b\fs24 Chapter 3,"Guidelines for Developing Pure Programs"\par
+\b0\fs20 describes the rules and guidelines that a programmer must know in order to\par
+develop a 100% Pure Java program.\par
+\b\fs24 Chapter 4, "Explanations of Purity Problems and Variances"\par
+\b0\fs20 describes the pitfalls that programmers frequently encounter while trying to\par
+modify their programs for purity. This chapter will give Sun\rquote s perscribed\par
+solutions to these pitfalls. Some pitfalls will require \ldblquote bending\rdblquote  purity rules to\par
+some degree.\par
+The Appendices also give helpful information describing:\par
+\b\fs24 Appendix A, "Available Java Platforms"\par
+\b0\fs20 describes the supported architectures, OS types, JAE versions that a pure java\par
+program should run on.\par
+\f2 Revision Date: 10/00 1 - 3\par
+\cf2\b\fs24 About this Guide\par
+\cf1\f0 Appendix B, "Frequently Asked Questions for Purity"\par
+\b0\fs20 describes common questions that people have relating to the rules of purity,\par
+how to interpret results from JavaPureCheck\f1\'d4 \f0 software, etc..\par
+\i\fs32 100% Pure Java Definitions\par
+\b\i0\fs20 Java Compatible : \b0 A brand that is associated with the JAE. This brand\par
+describes that a given version of the Java language compiler, Virtual Machine\par
+(VM), and Java Class Libraries (Application Program Interfaces, or API\rquote s) have\par
+passed Sun\rquote s conformance tests.\par
+\b 100% Pure Java : \b0 A term used to describe programs that follow Sun\rquote s purity\par
+standard. This term describes that a program that runs on top of a Java\par
+Compatible platform has passed the requirements set forth in this document..\par
+\b Java Application Environment (or \lquote JAE\rquote ): \b0 A specific version of the Java\par
+language compiler, Virtual Machine (VM), and Java Class Libraries\par
+(Application Program Interfaces, or API\rquote s) define the JAE. The Java 2 Platform,\par
+Standard Edition is an example of a JAE.\par
+\b Java Compatible Platform (or \lquote Platform\rquote ): \b0 A specific combination of computer\par
+hardware (or architecture), operating system, and version of a supported JAE.\par
+\b Program: \b0 In the context of this document, a program is a self-contained set of\par
+classes. A program can be a application, an applet, a class library, a servlet, a\par
+bean, or more than one of these.\par
+\i\fs32 Online Information\par
+\i0\fs20 For online information about Sun Microsystems and some of their programs,\par
+go to these sites:\par
+\b Sun Microsystems Main Web Site\par
+\b0\f3 http://www.sun.com\par
+\b\f0 Java Developer News & Information\par
+\b0\f3 http://industry.java.sun.com/\par
+\f2 1 - 4 100% Pure Java Cookbook\par
+\cf2\b\fs24 Introduction\par
+\cf1\b0\i\f0\fs40 What is the 100% Pure Java Standard?\par
+\i0\fs20 The 100% Pure Java standard is the set of guidelines that a programmer can\par
+follow to assure a reasonable sense of portability. Customers can be assured\par
+that the program relies only on the documented and specified Java platform, so\par
+that it will run on any computer hosting a Java Compatible application\par
+environment. The end result is that your program delivers on the promise of\par
+\ldblquote Write Once, Run Anywhere\f1\'d4\f0 .\rdblquote\par
+Programmers can inspect the program for compliance to the standards defined\par
+in this guide\i , \i0 using the procedures and test tools provided by Sun.\par
+The steps described in this guide are necessary to ensure that your program is\par
+portable and that it will meet your customer\rquote s expectations of a product\par
+meeting the 100% Pure Java standard.\par
+\i\fs32 Purpose\par
+\i0\fs20 The purpose of the 100% Pure Java standard is to provide reasonable and\par
+economic assurance that a program will run on any Java Compatible platform.\par
+Sun addresses these goals by defining the domain where purity is analyzed:\par
+\bullet  \b API Constraints \b0 the parts of the Java Class Library that are defined as usable\par
+in a pure manner.\par
+\bullet  \b Common Behavior \b0 The behavior that your program exhibits on different Java\par
+Compatible platforms.\par
+\b\fs24 API C\fs19 ONSTRAINTS\par
+\b0\fs20 API Constraints describe the rules that Sun has chosen regarding how you call\par
+methods defined in the Java Class Library. Only Java Compatible platform\par
+API\rquote s can be referenced, and must be used in a portable manner.\par
+For more information about API constraints , see "Rules of Purity" in Chapter\par
+2, and Chapter 3, "Guidelines for Developing Pure Programs".\par
+\b\fs24 C\fs19 OMMON \fs24 B\fs19 EHAVIOR\par
+\b0\fs20 An important part of the 100% Pure Java standard is to observe that a program\par
+behaves with functional commonality independent of the platform upon which\par
+it is run. This means (in principle) that each product feature is demonstrable on\par
+any Java Compatible platform. While platforms may exhibit cosmetic user\par
+interface and \ldblquote look and feel\rdblquote  differences or have limitations in underlying\par
+hardware, operating system, or browser functionality, all product features\par
+\f2 Revision Date: 10/00 1 - 5\par
+\cf2\b\fs24 Should I Comply With The Purity Standard?\par
+\cf1\b0\f0\fs20 should still function in every supported Java environment. \ldblquote Common\par
+behavior\rdblquote  does not mean identical behavior, but functional behavior\par
+conformant with the underlying platform.\par
+For more information about portability, see Chapter 2, "Understanding\par
+Portability & Purity".\par
+\i\fs40 Should I ComplyWith The Purity Standard?\par
+\i0\fs20 Before deciding whether to modify your program for purity, read the rest of\par
+this document, and the JavaPureCheck users guide.\par
+\i\fs32 The \ldblquote Suggested Compliance Evaluation Criteria?\rdblquote  Checklist\par
+\i0\fs20 Depending on the design details of your program it might be more or less\par
+advisable to try to comply with the standard. Review the Table 1 - 1 to see how\par
+your program stacks up to the recommended criteria.\par
+Evaluate each Program Characteristic question and the evaluation statement\par
+that follows it, then check \lquote Yes\rquote , for Advisable, \lquote No\rquote  for Not Advisable, or\par
+\lquote Maybe\rquote  if you are not sure.\par
+\f2 1 - 6 100% Pure Java Cookbook\par
+\cf2\b\fs24 Introduction\par
+\cf1\fs20 Table 1-1: Suggested Compliance Evaluation Criteria\par
+\fs18 Program Characteristic Yes No Maybe\par
+\b0\fs16 Is platform portability an important differentiator for my program?\par
+A single code base can significantly reduce maintenance costs if you plan to support your\par
+program on several hardware platforms. If your product is an applet, servlet, or\par
+development library/bean, then you might want to market your code as usable in many/all\par
+Java environments.\par
+Can my program comply with the purity standard?\par
+Use the JavaPureCheck tool to see if there are existing portability problems. It\rquote s free, and\par
+takes only a few minutes to run. If problems exist, determine whether they can be fixed or\par
+worked around. See \f0\fs18 Chapter 3\b , \b0 "Guidelines for Developing Pure Programs" \f2\fs16 for more\par
+information.\par
+What if my program can\rquote t comply with the purity standard?\par
+Impure programs are not necessarily bad programs. In some cases, it isn\rquote t possible to\par
+achieve certain functionality without making direct calls to the operating system or using\par
+native code (e.g. using platform-specific devices). Identifying portability problems in your\par
+program will, however, make it much easier to port to other hardware platforms. The\par
+JavaPureCheck tool provides an excellent means to find potential portability issues in your\par
+program.\par
+Is complying with the standard worth my effort?\par
+A competent engineer should need 3-4 full days (without distractions) to prepare a typical\par
+program for for purity compliance. Your time may vary, depending on the nature of your\par
+program.\par
+Another valuable benefit you might realize is that the process of testing and checking your\par
+program with the JavaPureCheck tool might expose bugs or problems in your code.\par
+Naturally, it is always best to find these problems \emdash  and fix them \emdash  before your\par
+customers find them.\par
+\fs20 Revision Date: 10/00 2 - 1\par
+\i\f0\fs60 Understanding Portability\par
+& Purity \fs72 2\par
+\fs40 Standards for Portability\par
+\i0\fs20 The ideal of the 100% Pure Java standard is to assure that the end user has a\par
+seamless and painless experience running a given Java program on any\par
+conforming Java platform. Identical behavior is not the standard; a portable\par
+program might behave differently on different platforms, but still exhibit the\par
+same feature set.\par
+For some programs, portability is not a property of the program, but of the\par
+program's input. As an example, consider a program that parses and interprets\par
+Java programming language statements. This program will necessarily behave\par
+unportably when given an unportable program to interpret. As long as the\par
+portability problem is not intrinsic to the program, the program cannot be\par
+considered compliant with the 100% Pure Java standard. The software's\par
+developer must be the final authority on the program's correct behavior.\par
+Similarly, the appearance of the program (if it has a GUI) is the responsibility\par
+of the developer. The standard for purity is that the program display\par
+essentially the same elements on all platforms, not that those elements have the\par
+same appearance.\par
+\i\fs32 The Purpose of the Purity Standard\par
+\i0\fs20 The purpose of the purity standard is to provide reasonable and economic\par
+assurance that the 100% Pure Java program design guidelines have been\par
+followed, and that the program will run on any Java Compatible platform. The\par
+process is not intended to be immune to subversion, but is intended to be a\par
+chance for you to provide evidence of the portability of your product in a\par
+uniform and consistent way.\par
+\f2 2 - 2 100% Pure Java Cookbook\par
+\cf2\b\fs24 Understanding Portability & Purity\par
+\cf1\b0\i\f0\fs32 Which Java\i0\fs20\'99 \i\fs32 API?\par
+\i0\fs20 Sun Microsystems recommends writing to the 1.1 or later versions of the Java\par
+API.\par
+The Java technology web site has helpful information about making the\par
+transition between v1.0 and v1.1.\par
+For information, go to:\par
+\f3 http://java.sun.com/products/jdk/1.1/compatible\par
+\f0 Unless your circumstances prohibit you from moving away from version 1.0, it\par
+is a good idea to do so. You will gain portability benefits along with extra\par
+features. In particular, the conformance requirements for 1.1 and later Java\par
+platform versions are much more stringent than those that were in place for\par
+the 1.0 version; you can thus expect a greater uniformity between platforms\par
+implementing 1.1 and later versions than among 1.0 platforms.\par
+By writing to the 1.0 interfaces, you achieve backward compatibility with old\par
+installations. By writing to the 1.1 or later interfaces, you take advantage of the\par
+recent improvements and prepare for the future. The choice depends on your\par
+circumstances. Programs written to any version are eligible for certification.\par
+The enhancements made to the Java 2 Platform, Standard Edition, v 1.2 API are\par
+quite compelling for many developers. Choosing this version of the Java\par
+platform (or later) is recommended for all developers who need the state of the\par
+art API support found in this version.\par
+\i\fs40 Understanding \lquote Purity\rquote\par
+\i0\fs20 The Java platform promises streamlined software development and delivery. It\par
+saves developers time and it saves their companies the expense of multiple\par
+ports and traditional distribution methods. Unlike programming systems that\par
+tie developers to a single hardware platform, the Java platform bridges many\par
+varieties of hardware and system software with a common language, opening\par
+up new markets rather than limiting market opportunities.\par
+This portability brings new freedom to developers, who can now deliver\par
+solutions for a wide variety of hardware, without the expense and delay of\par
+porting and qualification. It also brings new freedom to users, who can choose\par
+to change hardware platforms to best meet their needs, while preserving their\par
+investment ins software.\par
+\f2 Revision Date: 10/00 2 - 3\par
+\cf2\b\fs24 Understanding \lquote Purity\rquote\par
+\cf1\b0\f0\fs20 Yet the inherent portability of the Java platform alone does not ensure seamless\par
+operation for every program. A number of pitfalls can adversely affect the\par
+portability of programs, and developers need to know what they are and how\par
+to work around them. That is why Sun has developed guidelines for writing\par
+100% Pure Java code.\par
+A pure program is defined as one that relies only on the documented and\par
+specified Java platform. By focusing on this design criterion now, developers\par
+can reduce their exposure to portability risks in the future.\par
+\i\fs32 Purity is Not Goodness\par
+\i0\fs20 Not all good programs are pure; not all pure programs are good.\par
+It is entirely possible to use the Java programming language to write a\par
+program that depends on platform-specific capabilities, defines native\par
+methods, and violates all the rules for purity. Just because a program is not\par
+pure does not mean it is poor quality or bad in any way; the program may in\par
+fact meet the needs of its users in ways not possible to achieve in a pure\par
+manner. An program can be good without being pure.\par
+Likewise, the measurements made to ascertain the purity of a program are\par
+intentionally blind to the user\rquote s requirements. A program can be completely\par
+pure and still be quite unsuited to the user\rquote s requirements \emdash  even be quite\par
+buggy. The purity process attempts to find out if the program will behave the\par
+same on all Java Compatible platforms, not if it will behave well on all\par
+platforms. An program can be pure without being good.\par
+Purity is intended to be a measure of only one of the many characteristics\par
+required of a program. Although it is not a perfect measure of portability, it is\par
+nonetheless a useful measure. Experience has shown that performing purity\par
+assessment will detect some common portability problems. In that way,\par
+checking the \lquote purity\rquote  of programs does result in better portability of programs.\par
+\i\fs32 Portability vs. Purity\par
+\i0\fs20 There is a critical distinction\emdash and connection\emdash between portability and purity.\par
+Most people think of a portable program as one that produces the same results\par
+on any platform. This is actually a very imprecise definition.\par
+\f2 2 - 4 100% Pure Java Cookbook\par
+\cf2\b\fs24 Understanding Portability & Purity\par
+\cf1\b0\f0\fs20 For example, consider this program:\par
+\b Figure 2 - 1: Example Code \emdash  Pure Example (class ShowOS)\par
+\b0 Most people would say that this is a portable program, even though it\par
+produces different results on different platforms. Compare it to this program:\par
+\b Figure 2 - 2: Example Code \emdash Impure Example (class BadOS)\par
+\b0 The difference between these two programs is not in the use of the Java\par
+platform; formally, they are very nearly identical. The difference is in the\par
+functionality they implement. The second example contains an OS platform\par
+dependency that is implemented into the program in a portable way.\par
+\i\fs40 Rules of Purity\par
+\i0\fs20 A 100% Pure Java program is one that depends only on the Java platform, as\par
+defined in this documentation. It is relatively easy to determine if a program\par
+conforms to the design criteria detailed in this manual. If it does, it is defined\par
+as \lquote pure.\rquote\par
+\f3 class ShowOS \{\par
+public static void main (String[] args) \{\par
+try \{\par
+String osName = System.getProperty("os.name");\par
+System.out.println(osName);\par
+\} catch (RuntimeException re) \{\par
+System.err.println(\ldblquote Problem: " + re);\par
+\}\par
+\}\par
+\}\par
+class BadOS\par
+public static void main(String[] args) \{\par
+try \{\par
+String osName = System.getProperty("os.name");\par
+if (osName.equals("Solaris")) \{\par
+throw new RuntimeException();\par
+\}\par
+System.out.println(osName);\par
+\} catch (RuntimeException re) \{\par
+System.err.println("Problem: "+ re);\par
+\}\par
+\}\par
+\}\par
+\f2 Revision Date: 10/00 2 - 5\par
+\cf2\b\fs24 Rules of Purity\par
+\cf1\b0\f0\fs20 Purity is measured at the bottom (platform) edge of the program, rather than at\par
+the top (user) edge. Experience has shown us that if a program has been\par
+designed according to these standards, in other words, is \lquote pure,\rquote  it is a good\par
+predictor of portability; a pure program should not be accidentally unportable.\par
+The platform edge is defined by the calls to the Java API (Application Program\par
+Interfaces) that the program makes. In this discussion, we will often refer to the\par
+\ldblquote Java core API\rdblquote . The core API is the set of documented classes (typically\par
+under the \f3 java \f0 and \f3 javax \f0 packages) that Sun designates as public classes.\par
+This document sets out the rules and principles for purity, along with hints and\par
+tips for the more general goal of portability.\par
+\i\fs32 The Rules\par
+\i0\fs20 A pure program should:\par
+\b 1. Use no native methods.\par
+2. Depend only on the Java core Application Programmer Interfaces .\par
+3. Rely on no hardwired platform-specific constants.\par
+4. Follow any applicable API protocols.\par
+\fs28 R\fs22 ULE \fs28 1: U\fs22 SE NO NATIVE METHODS\fs28 .\par
+\b0\fs20 The first and foremost rule of purity is to avoid the usage of native methods.\par
+Attempting to introduce native code into a program results in the sacrifice of\par
+most of the benefits of the Java programming language: security, platform\par
+independence, garbage collection, and easy class loading over the network.\par
+For users, the security issues of software that includes native methods are\par
+substantial. There is no assurance that the code is virus-free; moreover, if a\par
+native method has a pointer overrun or attempts to access protected memory, it\par
+can crash the Java virtual machine, possibly corrupting and certainly\par
+interrupting the user s work.\par
+The only exception to this rule is in alternative implementations of standard\par
+interfaces. Several of the Java core APIs function as standardized interfaces to\par
+specific external functionality; examples are the JDBC\'99 database access\par
+interface and the JSA cryptography interface. These are circumscribed\par
+interfaces, well-defined and with precise specifications, designed to facilitate\par
+free substitution of the user s chosen implementation. Due to this\par
+substitutability, a program can include native code implementations of these\par
+\f2 2 - 6 100% Pure Java Cookbook\par
+\cf2\b\fs24 Understanding Portability & Purity\par
+\cf1\b0\f0\fs20 interfaces, as long as it also includes at least one pure implementation. The\par
+other implementations may be made available to users as an installation or\par
+runtime option.\par
+\b\fs28 R\fs22 ULE \fs28 2: D\fs22 EPEND ONLY ON THE \fs28 J\fs22 AVA CORE \fs28 A\fs22 PPLICATION\par
+\fs28 P\fs22 ROGRAMMER \fs28 I\fs22 NTERFACES \fs28 .\par
+\b0\fs20 The Java core APIs form a standard foundation for components, applets and\par
+applications; it is the essential framework for program development. 100%\par
+Pure Java programs must depend only on classes and interfaces documented in\par
+the Java core API specification.\par
+This means, in detail, that a 100% Pure Java program must be a complete\par
+program, without dependencies on external libraries or interfaces that are not\par
+part of the Java core API specification.\par
+The Java core APIs provide the basic language, utility, I/O, network, GUI, and\par
+applet services; vendors who have licensed this Java technology from Sun have\par
+contracted to include them in any Java platform they deploy.\par
+The specifications for all Java APIs are freely accessible on the World Wide Web\par
+at http://java.sun.com.\par
+\fs24 I\fs19 NCOMPLETE \fs24 P\fs19 ROGRAMS ARE \fs24 I\fs19 MPURE\par
+\fs20 To be certified as a program meeting the 100% Pure Java certification standard,\par
+must be self-contained; it must include all required classes aside from the core\par
+API. An incomplete program is unportable, because it will not run on a Java\par
+platform implementation that lacks the special classes required by the\par
+program.\par
+\fs24 D\fs19 ON\fs24\rquote\fs19 T \fs24 D\fs19 EPEND ON THE \fs24 I\fs19 NTERNALS OF \fs24 A\fs19 NY \fs24 P\fs19 ARTICULAR \fs24 I\fs19 MPLEMENTATION\par
+\fs20 Any implementation of the Java core APIs will include classes and packages\par
+that are not part of the documented API interface. Portable programs must not\par
+depend on these undocumented classes, because they might vary among\par
+different Java platform implementations. This is true even if the classes in\par
+question are undocumented parts of the reference Java platform\par
+implementation from Sun Microsystems. Those interfaces are not part of the\par
+Java platform definition, and they are not checked by the Java tests for\par
+compatibility, so they might be absent or might behave in subtly and\par
+dangerously different ways on different Java platform implementations. They\par
+are not documented because they are not intended for client use.\par
+\f2 Revision Date: 10/00 2 - 7\par
+\cf2\b\fs24 Rules of Purity\par
+\cf1\b0\f0\fs20 One subtle way that a program might depend on a class is by defining classes\par
+into the packages that are part of the core APIs or a specific implementation.\par
+Defining a class within an existing core package is called \ldblquote injecting a class into\par
+a core package\rdblquote . This breaks protection boundaries that the core implementors\par
+are entitled to count on.\par
+Another subtle dependency on implementation details is direct use of the AWT\par
+component peer interfaces defined in classes in the \f3 java.awt.peer \f0 package.\par
+These interfaces are documented as being for use by AWT implementors; a\par
+portable program uses the AWT rather than implementing it.\par
+\fs24 U\fs19 SING \fs24 R\fs19 UNTIME\fs24 .\fs19 EXEC\par
+\fs20 Using \f3 Runtime.exec \f0 is generally not acceptable as pure. Certain features of\par
+the Java programming language definition give the programmer access to\par
+hardware-specific code; native method definition (see Rule 3, \ldblquote No Hardwired\par
+Platform-Specific Constants\rdblquote ), and some methods in the class\par
+\f3 java.lang.Runtime\f0 . This hardware access is very useful for writing\par
+programs that interface to legacy systems, but such interface programs are by\par
+definition not compliant to the 100% Pure Java standard.\par
+The use of the \f3 Runtime.exec \f0 method is only allowed if it\rquote s at the request of\par
+the user of the program. For example, a command interpreter that executed\par
+programs named in the user\rquote s input could be pure. Another example is the\par
+invocation of an external program with a specific function, such as a Web\par
+browser, as long as the user has control of which browser is invoked.\par
+The exact criteria for use of the \f3 Runtime.exec \f0 method are:\par
+\b\fs28\bullet  \b0\fs20 The invocation must be a direct result of a specific user action; the user\par
+must know they\rquote re executing a separate program.\par
+\b\fs28\bullet  \b0\fs20 The user must be able to choose, by configuration or as part of the\par
+invocation action, which program is executed.\par
+\b\fs28\bullet  \b0\fs20 A failure of the \f3 Runtime.exec \f0 method, especially one caused by the\par
+absence of the requested program, must be handled cleanly.\par
+\b\fs28\bullet  \b0\fs20 Use of the \f3 Runtime.exec \f0 method is platform neutral. No platform\par
+specific functionality documented by your product can be made\par
+exclusively available to users of any particular hardware/OS platform.\par
+Examples of the correct use of \f3 Runtime.exec \f0 are:\par
+\b\fs28\bullet  \b0\fs20 Invocation of a Java compiler, with the name of the compiler specified as a\par
+user-settable Property.\par
+\b\fs28\bullet  \b0\fs20 Execution of a command the user typed in (a \ldblquote shell\rdblquote ).\par
+\b\fs28\bullet  \b0\fs20 Invocation of a browser, configured as part of the installation of the\par
+program, when the user presses a \ldblquote Help\rdblquote  button.\par
+\f2 2 - 8 100% Pure Java Cookbook\par
+\cf2\b\fs24 Understanding Portability & Purity\par
+\cf1\b0\f0\fs20 see Chapter 4, "Explanations of Purity Problems and Variances" for additional\par
+information.\par
+\fs24 D\fs19 UMMY \fs24 C\fs19 LASSES\par
+\fs20 The use of \ldblquote stubs\rdblquote  or \ldblquote dummy classes\rdblquote  to hide references to external classes is\par
+prohibited in pure programs. For example, it is considered cheating if you\par
+include a class in your program that can be substituted (e.g., via classpath\par
+manipulation) with another more functional \emdash  and possibly impure \emdash  class.\par
+\b\fs28 R\fs22 ULE \fs28 3: R\fs22 ELY ON NO HARDWIRED PLATFORM\fs28 -\fs22 SPECIFIC\par
+CONSTANTS\fs28 .\par
+\b0\fs20 This rule prevents programs from using platform-specific constants (such as\par
+os.name, os.arch, or os.version) to determine function that your program\par
+provides. It is not pure to for a program to provide one set of services for one\par
+platform, and a different set of services on another platform.\par
+This does not mean that all uses of platform-specific constants are prohibited.\par
+For example, testing for and working around platform bugs is encouraged, as\par
+long as the solution to the bugs does not provide extra features for a given\par
+platform.\par
+The \f3 java.io.File \f0 class can be used in an unportable way, by constructing\par
+Files using a platform-specific path constant. Similarly, input and output\par
+streams can be used unportably, with hard-coded and hardware-specific line\par
+termination characters. Fortunately, it is easy to avoid these sources of\par
+unportability, because the Java core APIs provide portable alternatives.\par
+\b\fs28 R\fs22 ULE \fs28 4: F\fs22 OLLOW \fs28 A\fs22 NY \fs28 A\fs22 PPLICABLE \fs28 API P\fs22 ROTOCOLS\par
+\b0\fs20 There are certain methods in the core API that must be called or implemented\par
+in a certain pattern. By failing to follow these patterns, it is possible to write a\par
+program that is syntactically correct, but which will be highly non-portable.\par
+For example:\par
+\bullet  AnAWTimplementation is allowed to invalidate a Graphics object after a call to\par
+a Component\rquote s update method returns. A Component that retains a reference to\par
+the Graphics object may happen to work on one implementation, but is not\par
+portable.\par
+\bullet  The JavaBeans\'99 component protocol and patterns, which must be followed in\par
+order to make a portable bean, are described in the JavaBeans documentation.\par
+\bullet  A class that overrides the java.lang.Object equals method must also override the\par
+\f3 java.lang.Object.hashCode \f0 method, to preserve the invariant that equal\par
+Objects have the same hashCode.\par
+\bullet  The 1.1 JDK introduced a new AWT event model; a program should not mix the\par
+\f2 Revision Date: 10/00 2 - 9\par
+\cf2\b\fs24 Rules of Purity\par
+\cf1\b0\f0\fs20 1.0 and 1.1 (or later) AWT event models.\par
+\b\i Note: \i0 This rule is not completely detectable, because not all protocolspecified\par
+behavior is predictable. This means that the compliance testing\par
+will not catch all violations of this rule. Certain applications of this rule,\par
+however, do lead to practical measures, and those will be incorporated into\par
+the compliance detection.\par
+\b0\f2 2 - 10 100% Pure Java Cookbook\par
+\cf2\b\fs24 Understanding Portability & Purity\par
+\cf1\b0\fs20 Revision Date: 10/00 3 - 1\par
+\i\f0\fs60 Guidelines for Developing Pure\par
+Programs \fs72 3\par
+\fs40 How to Develop a Program\par
+\i0\fs20 This section identifies common problems encountered in program\par
+programming for portability, and offers solutions or workarounds.\par
+This is information about portability, not specifically about purity; some of\par
+these portability problems are detected in the purity checking process and\par
+some are not. Similarly, some of these pitfalls are specific to given methods of\par
+classes, while other pitfalls are stated with principles instead of remedies.\par
+\i\fs28 1. Pitfall: Thread Scheduling\par
+\i0\fs20 Explanation: Thread scheduling may differ on different platforms. If you rely\par
+on priorities or luck to prevent two threads from accessing the same object at\par
+the same time, your program is not portable.\par
+\f2 3 - 2 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\f0\fs20 For example, this program is not portable:\par
+\f3 class Counter implements Runnable \{\par
+static long val = 0;\par
+public void run() \{\par
+val += 1;\par
+\}\par
+public static void main(String[] args)\{\par
+try \{\par
+Thread t1 = new Thread(new Counter());\par
+t1.setPriority(1);\par
+Thread t2 = new Thread(new Counter());\par
+t2.setPriority(2);\par
+t1.start();\par
+t2.start();\par
+t1.join();\par
+t2.join();\par
+System.out.println(val);\par
+\} catch (Exception e) \{\par
+e.printStackTrace();\par
+\}\par
+\}\par
+\}\par
+\b\f0 Figure 3 - 1: Example of an Unportable Program\par
+\b0 This program might not print \ldblquote 2\rdblquote  on all platforms, even barring errors, because\par
+the two threads are not synchronized.\par
+Unfortunately, this is a deep problem, and there is no quick check for its\par
+presence nor easy fix to prevent it occurring.\par
+\b Workaround: \b0 One simple, if drastic, answer is to make all methods\par
+synchronized. This may make some synchronization errors show up as obvious\par
+deadlocks rather than as silent data corruption. Unfortunately, there are\par
+examples of thread contention that will not be detected. For example, the\par
+JavaPureCheck Tool will not detect the problem in the example \f3 Counter \f0 class,\par
+because the contention in the example is in field access rather than method\par
+access.\par
+\f2 Revision Date: 10/00 3 - 3\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\f0\fs20 Solution: \b0 Adopt a discipline of multithreaded application programming, as\par
+described in several textbooks. One that is specifically written for developers\par
+using the Java programming language is \f2 Concurrent Application Programming\par
+in Java\f0\'99\f2 , Second Edition, \f0 by Doug Lea, Addison-Wesley 1999,\par
+ISBN 0-201-69581-2.\par
+\i\fs28 2. Pitfall: Use of Native Code\par
+\b\i0\fs20 Explanation: \b0 Calling native functions is inherently not portable. In rare\par
+instances however, it may seem necessary to include native methods to deliver\par
+access to a system resource that is not supported by the Java technology APIs\par
+or to boost performance of a particular program.\par
+\b Solutions:\par
+\b0\bullet  Define a simple protocol to give that service, then write your 100% Pure Java\par
+program as a client of that protocol.\par
+\bullet  Rewrite the native method using the Java programming language.\par
+It may seem that you could confine the native methods to one class and\par
+provide an implementation of that class for every Java platform. However, this\par
+\ldblquote solution\rdblquote  in fact only complicates matters, because the number of Java\par
+platforms is not fixed, but is ever-increasing; and some Java platforms, such as\par
+the JavaStation\'99 workstation, have no ability to execute native program code.\par
+There is no 100% Pure Java program workaround for native code. Even though\par
+it is possible that a program with native methods can be made portable (by\par
+writing a class or method with the Java programming language to serve as a\par
+fallback for the native code), such a program cannot be certified as pure\par
+because we know no principled way to show that the native-code and Java\par
+language versions of such a program actually implement the same functionally.\par
+If the two versions do, in fact, implement the same functionality, the program\par
+without the native code is an equally capable 100% Pure Java program. That\par
+program is the one you can measure purity against, and classify as a 100% Pure\par
+Java program.\par
+\b\i Note: \i0 The Java Native Method Interface is not a way to make native code\par
+platform-independent; it is a way to make it easy to port native code. The\par
+native code still must be recompiled for each different hardware, and that\par
+recompilation will be difficult or impossible if the target hardware does not\par
+provide the library or the capabilities required by the native method.\par
+\b0\f2 3 - 4 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\i\f0\fs28 3. Pitfall: Use of \i0\f3 exec\par
+\b\f0\fs20 Explanation: \b0 The \f3 java.lang.Runtime.exec \f0 method is not generally\par
+portable; not all platforms have programs that can be run, and not all\par
+platforms have the notion of \ldblquote standard input\rdblquote  or \ldblquote standard output.\rdblquote  A hardcoded\par
+program name will not be portable; there is no program that has the\par
+same name on all Java platforms.\par
+\b Solution\b0 : Don\rquote t use this method except under the restrictions detailed in\par
+\ldblquote Using Runtime.exec\rdblquote  in Chapter 2.\par
+\i\fs28 4. Pitfall: Failure to Use the Portability Features of Java Core API\par
+\b\i0\fs20 Explanation: \b0 It is unportable to hard-code text display sizes, colors, layout\par
+management details, etc.\par
+\b Solution: \b0 The system properties in general are very useful for portability; use\par
+them whenever applicable. The AWT abstracts the details of coping with the\par
+platform's window system. Use that abstraction to the fullest. For example:\par
+\bullet  Use a \f3 LayoutManager \f0 rather than hard-coding component sizes or positions\par
+\bullet  Use the various \f3 getSize \f0 methods\par
+\bullet  Use the desktop colors available in \f3 java.awt.SystemColor\f0 .\par
+\i\fs28 5. Pitfall: Reflection\par
+\b\i0\fs20 Explanation: \b0 The reflection facilities of JDK 1.1 and later versions of the Java\par
+platform are an immensely powerful addition to the language; they also make\par
+it harder to predict what a program will do. \f3 Method.invoke \f0 can be used to\par
+invoke any method, including ones that present portability problems.\par
+\b Solution: \b0 Be careful. Any use of \f3 Method.invoke \f0 to start another program\par
+must follow the same requirements as \f3 Runtime.exec \f0 detailed in \ldblquote Using\par
+Runtime.exe\rdblquote  in Chapter 2.\par
+\i\fs28 6. Pitfall: Direct Use of AWT Peer Classes\par
+\b\i0\fs20 Explanation: \b0 Portable programs, that use rather than implement the AWT\par
+interfaces, should not use the AWT peer classes directly. The protocol for\par
+interaction with the peer classes is platform specific.\par
+\b Solution: \b0 Stay on the client side of the AWT.\par
+\f2 Revision Date: 10/00 3 - 5\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\b0\i\f0\fs28 7. Pitfall: Misuse of System.exit\par
+\b\i0\fs20 Explanation: \b0 The \f3 System.exit \f0 method forces termination of all threads in\par
+the Java virtual machine. This is drastic. It might, for example, destroy all\par
+windows created by the interpreter without giving the user a chance to record\par
+or even read their contents.\par
+\b Solution: \b0 Programs should usually terminate by stopping all non-daemon\par
+threads; in the simplest case of a command-line program, this is as easy as\par
+returning from the main method. \f3 System.exit \f0 should be reserved for a\par
+catastrophic error exit, or for cases when a program is intended for use as a\par
+utility in a command script that may depend on the program\rquote s exit code.\par
+\i\fs28 8. Pitfall: Use of Hard-Coded File Paths\par
+\b\i0\fs20 Explanation: \b0 Hard-coded filenames may present portability problems. Hardcoded\par
+paths (with directory names joined to filenames) certainly do.\par
+\b Solution: \b0 The most portable way to construct a \f3 File \f0 for a file in a directory is\par
+to use the \f3 File(File,String) \f0 constructor to build up the path. Other\par
+portable solutions are to use the system properties to get the local file separator\par
+and starting directory, or to use a file dialog to ask the user for a filename.\par
+\b\i Note: \i0 The concept of an \ldblquote absolute path\rdblquote  is somewhat system dependent; for\par
+example, UNIX\b0\f1\fs16\'e2 \b\f0\fs20 absolute paths all start with \ldblquote /\rdblquote , while Windows absolute\par
+paths may start with any letter. For this reason, the use of an absolute path\par
+that is not derived from user input or from a system property is unportable.\par
+\b0 Here is the code for a utility class that might make it more convenient to\par
+construct portable pathnames:\par
+\f3 package util;\par
+import java.io.File;\par
+import java.util.StringTokenizer;\par
+/** A utility class to make it easier to use\par
+* java.io.File in a portable way.\par
+*/\par
+public class FileUtil \{\par
+/** Create a new pathname by gluing together\par
+* a series of names.\par
+* If initial base is null, works from\par
+* current directory.\par
+*/\par
+public static File fromDir(File bse,\par
+\f2 3 - 6 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\f3\fs20 String[] path) \{\par
+File val = bse;\par
+int i = 0;\par
+if (val == null && path.length > 0) \{\par
+val = new File(path[i++]);\par
+\}\par
+for ( ; i < path.length; i++) \{\par
+val = new File(val, path[i]);\par
+\}\par
+return val;\par
+\}\par
+public static File fromHere(String[] path) \{\par
+return fromDir(null, path);\par
+\}\par
+private static File fromProp(String propName) \{\par
+String pd = System.getProperty(propName);\par
+return new File(pd);\par
+\}\par
+/** A File for system property "user.dir".\par
+*/\par
+public static File userDir() \{\par
+return fromProp("user.dir");\par
+\}\par
+/** A File for system property "java.home".\par
+*/\par
+public static File javaHome() \{\par
+return fromProp("java.home");\par
+\}\par
+/** A File for system property "user.home".\par
+*/\par
+public static File userHome() \{\par
+return fromProp("user.home");\par
+\}\par
+/** Split first argument, using second arg\par
+* as separator char.\par
+* Convenient for creating a portable pathname.\par
+*/\par
+public static String[] split(String p,\par
+String sep) \{\par
+StringTokenizer st =\par
+new StringTokenizer(p, sep);\par
+String[] val = new String[st.countTokens()];\par
+\f2 Revision Date: 10/00 3 - 7\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\b0\f3\fs20 for (int i = 0; i < val.length; i++) \{\par
+val[i] = st.nextToken();\par
+\}\par
+return val;\par
+\}\par
+\}\par
+\i\f0\fs28 9. Pitfall: JDBC\i0\'99\i Driver Loading\par
+\b\i0\fs20 Explanation: \b0 The JDBC interface, defined by the \f3 java.sql \f0 package, provides\par
+for flexibility in loading the actual JDBC driver code. This flexibility allows for\par
+substitution of different JDBC drivers without changes to the programs code.\par
+This flexibility is provided by the \f3 DriverManager \f0 class, which selects among\par
+the available JDBC drivers during connection establishment. Drivers can be\par
+made available to the DriverManager in two ways:\par
+\bullet  They can be named in the \f3 jdbc.drivers \f0 system property\par
+\bullet  They can be explicitly loaded by use of the \f3 java.lang.Class.forName\par
+\f0 method.\par
+This becomes a portability issue because JDBC drivers, particularly those that\par
+include native code, might be less portable than the programs that uses them.\par
+If you code a specific JDBC driver name into your program, your program is\par
+only as portable as that driver. To be pure, your program must be certified with\par
+a portable driver.\par
+\b Solution: \b0 In order to maximize the portability of your JDBC program, we\par
+recommend that you make the exact JDBC driver name configurable. You can\par
+do this either by relying on the \f3 jdbc.drivers \f0 system property, or by using a\par
+property file (or some other configuration mechanism) to provide the name of\par
+the JDBC driver class that will be loaded with the \f3 Class.forName \f0 method.\par
+It is also possible to load a selection of drivers, relying on the \f3 DriverManager\par
+\f0 selection mechanism to find an appropriate driver when the database\par
+connection is made.\par
+\f2 3 - 8 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\f0\fs20 If you chose to use this approach, consider the following guidelines:\par
+\bullet  Drivers are tried in the order they were registered, so earlier drivers will have\par
+priority over later ones, with drivers listed in \f3 jdbc.drivers \f0 having highest\par
+priority.\par
+\bullet  Adriver that includes native code will fail to load on any platform other than the\par
+one for which it was written; therefore, your program must cope gracefully with\par
+the ensuing \f3 ClassNotFoundException\f0 ,\par
+\bullet  Adriver with native code must not register itself with the \f3 DriverManager \f0 until\par
+it knows that it has successfully loaded.\par
+\bullet  A driver with native code is not governed by the security sandbox, and presents\par
+a potential security hazard.\par
+In addition, relying on \f3 Class.forName \f0 to run the static section of the driver\par
+(which typically creates a driver instance and registers it) causes portability\par
+problems. The workaround is to explicitly create and register an instance of the\par
+driver class, like this:\par
+\f3 DriverManager.register(\par
+Class.forName("MyDriver").newInstance());\par
+\f0 Since the static section may run, and may register the class, this can result in\par
+duplicate instances and duplicate registrations; however, according to the\par
+JDBC team this should not create a problem.\par
+\i\fs28 10. Pitfall: Line Termination\par
+\b\i0\fs20 Explanation: \b0 Different platforms have different conventions for line\par
+termination in a text file. This is a common instance of the general problem of\par
+representing text.\par
+Different machines have different internal representations of text. The Java\par
+platform uses Unicode internally, which is an international standards-based\par
+solution to the problem; but we still need to get text to and from files.\par
+The Java 1.1 (and later) API has the \f3 java.io.Reader \f0 and \f3 java.io.Writer\par
+\f0 classes to handle that kind of character-set conversion. However, the problem\par
+can arise even when reading and writing plain ASCII files, because the ASCII\par
+standard isn't specific about the line termination character. Some machines use\par
+"\f3\\n\f0 ", some use "\f3\\r\f0 ", some use the sequence "\f3\\r\\n\f0 ". The portable way to deal\par
+with this, so you'll write files that the user can read, is to use the "\f3 println\f0 "\par
+methods to write a line of text, or to put the line marker at the end of a line.\par
+You may also use the \ldblquote\f3 line.separator\f0\rdblquote  system property (using the System\par
+properties may be problematic for applets that can not access the System for\par
+security reasons).\par
+\b Solution: \b0 For input, rather than writing the code yourself to look for the\par
+various line-termination sequences, it's best and easiest to use the \f3 readLine\par
+\f0 method from the \f3 java.io.BufferedReader \f0 class to fetch a complete line of\par
+\f2 Revision Date: 10/00 3 - 9\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\b0\f0\fs20 text. The other \f3 readLine \f0 methods are also useful, but the one in\par
+\f3 BufferedReader \f0 gives you code set translation as well. Likewise, for output,\par
+use \f3 writeLine or println \f0 function to output lines of text.\par
+\i\fs28 11. Pitfall: Unportable Command-Line Programs\par
+\b\i0\fs20 Explanation: \b0 Command-line programs that use \f3 System.in, System.out\f0 ,\par
+or \f3 System.err \f0 might be less than perfectly portable, because not all Java\par
+platforms have the concept of standard input or output streams.\par
+\b Solution: \b0 Consider using a GUI, at least as an alternative \emdash  some platforms\par
+don't have a command line.\par
+\i\fs28 12. Pitfall: Command Line Processing\par
+\b\i0\fs20 Explanation: \b0 The Java platform leaves command line processing up to the\par
+programmer. However, the syntax and conventions are quite different on the\par
+different platforms.\par
+\b Solution: \b0 The most portable answer is not to use the command line, but that's\par
+no good for batch programs that need to be driven from a script. Use the\par
+widely understood POSIX convention (options indicated with a dash) when\par
+processing command line options. Provide, at least as an alternative, a GUI, or\par
+read options from properties files (and document the properties).\par
+\i\fs28 13. Pitfall: Internationalization\par
+\b\i0\fs20 Explanation: \b0 Computing is a worldwide phenomenon. Particularly if your\par
+program is an applet, it is highly likely to be run in an environment with a\par
+different native language than yours.\par
+\b Advice: \b0 Use the internationalization and localization features of JDK\fs28\'99\fs20 1.1\par
+software and later Java platform versions. Complete documentation is\par
+included in the JDK software, and is also available at:\par
+\f3 http://java.sun.com/products/jdk/1.1/docs/guide/intl\par
+\f0 and\par
+\f3 http://java.sun.com/products/jdk/1.2/docs/guide/intl\par
+\i\f0\fs28 14. Pitfall: Unicode Rendering\par
+\b\i0\fs20 Explanation: \b0 Not all platforms can render all Unicode characters.\par
+\f2 3 - 10 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\f0\fs20 Workaround: \b0 For the default text of messages, buttons, labels, and menus, use\par
+only ASCII. Of course, it is all right to use non-ASCII in localization resources\par
+and in text obtained from the user.\par
+\i\fs28 15. Pitfall: File I/O\par
+\b\i0\fs20 Explanation: \b0 The JDK 1.0 input and output classes are not portable to\par
+hardware architectures with non-ASCII native file formats.\par
+\b Solution: \b0 Use the reader & writer classes found in the JDK 1.1 software and\par
+later versions of the Java platform.\par
+\i\fs28 16. Pitfall: GUI Element Size\par
+\b\i0\fs20 Explanation: \b0 The exact size of the AWT elements will differ from platform to\par
+platform, as will the size of the screen and the default and maximum size of a\par
+window. Any hard-coded positions or sizes will run afoul of these variations.\par
+\b Solution: \b0 Use a layout manager.\par
+\i\fs28 17. Pitfall: GUI Fonts\par
+\b\i0\fs20 Explanation: \b0 The size and availability of fonts varies from display to display\par
+(even on the same hardware platform, depending on installation).\par
+\b Solution: \b0 Don\rquote t hard-code text sizes; let text elements assume their natural size\par
+in a layout, and use the FontMetrics methods to find the actual displayed size\par
+of a string on a Canvas. When setting a nondefault font, be sure to implement\par
+a fallback in the \ldblquote catch\rdblquote  block. When creating a font menu, get the font names\par
+from the \f3 java.awt.Toolkit.getFontList \f0 method rather than using a\par
+hardwired font list.\par
+When updating a program from 1.0 to 1.1 or later versions of the Java platform,\par
+be sure to update the font names as described in the documentation for the\par
+\f3 java.awt.Toolkit.getFontList \f0 method:\par
+\bullet  \f3 Times Roman \f0 becomes \f3 Serif\par
+\f0\bullet  \f3 Helvetica \f0 becomes \f3 Sans-serif\par
+\f0\bullet  \f3 Courier \f0 becomes \f3 Monospaced\par
+\i\f0\fs28 18. Pitfall: GUI Appearance\par
+\b\i0\fs20 Explanation: \b0 The size of the screen and the number of available colors may\par
+change from platform to platform, or even user-to-user or day-to-day. This can\par
+make a display illegible (for example, black text on a dark blue background), or\par
+can hide buttons if they display off the screen.\par
+\f2 Revision Date: 10/00 3 - 11\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\f0\fs20 Solution: \b0 It may be necessary to adjust font size or default window size\par
+according to screen resolution, which may be obtained by:\par
+\f3 Toolkit tk = java.awt.Toolkit.getDefaultToolkit();\par
+int dpi = tk.getScreenResolution();\par
+\f0 Applets are probably safest to use the default font, as it may have been\par
+customized by the user according to their personal preferences.\par
+For an application, you may wish to give the user an option or control to select\par
+among several appearances, so they can choose one that suits their display and\par
+mood.\par
+If writing to the JDK 1.1 software or later interface, you can make your colors\par
+harmonize with the user\rquote s desktop by using the colors from the\par
+\f3 java.awt.SystemColor \f0 class.\par
+If you choose to use your own color scheme instead, beware that displays vary\par
+greatly in the color displayed for a particular RGB triple. Your program\rquote s\par
+appearance will be more portable if you use named color fields from\par
+\f3 java.awt.Color \f0 rather than numeric colors.\par
+\i\fs28 19. Pitfall: The Paint Protocol\par
+\b\i0\fs20 Explanation: \b0 The AWT \f3 Component.paint \f0 and \f3 Component.update \f0 methods\par
+take a Graphics object as a parameter. This object should not be retained,\par
+because it might be a transient object valid only during the paint; an AWT\par
+implementation is free to destroy that Graphics object after the paint method\par
+returns, which makes it pointless (and dangerous) to retain the object.\par
+\b Solution: \b0 Do not retain the paint Graphics object. In general, it is not safe to\par
+paint outside a call to \f3 update() \f0 (or \f3 paint()\f0 , which is called by the default\par
+\f3 Component.update()\f0 ). If you do need a long-lived Graphics object, you\par
+should create a new one from the argument value, but be warned that this\par
+might fail on some platforms:\par
+\f3 Graphics myGraphics = null; // retained\par
+void paint(Graphics g) \{\par
+if (myGraphics == null) \{\par
+myGraphics = g.create();\par
+\}\par
+// painting code goes here\par
+\}\par
+\f2 3 - 12 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\i\f0\fs28 20. Pitfall: Mixed Event Models\par
+\b\i0\fs20 Explanation: \b0 The JDK 1.1 software (and later) AWT uses a different event\par
+model from the previous AWT. Programs written to the 1.0.2 event model will\par
+work on a 1.1 or later platform version, but mixing the two event models in\par
+one program will almost certainly not work.\par
+\b Solution: \b0 Stick to one event model per program. Don\rquote t try to convert a\par
+program gradually from the old event model to the new; do it all at once.\par
+\i\fs28 21. Pitfall: Use of Deprecated Methods\par
+\b\i0\fs20 Explanation: \b0 Certain methods from the Java core APIs have been marked as\par
+deprecated. While these methods work in the current release, they are slated\par
+for removal at some point.\par
+\b Advice: \b0 When you work on code (class, method, or field) that uses deprecated\par
+methods, it is probably a good idea to update the code for the replacement as\par
+suggested in the API documentation. This will also give you a head start on\par
+future work.\par
+\i\fs28 22. Pitfall: The \i0\f3\fs29 Object.hashCode\i\f0\fs28 and \i0\f3\fs29 Object.equals\par
+\i\f0\fs28 Methods\par
+\b\i0\fs20 Explanation: \b0 The \f3 Object.hashCode \f0 method returns a number which is\par
+effectively random. The number is also implementation- and instancedependent.\par
+This has several consequences:\par
+\bullet  The order of iteration for elements in a \f3 Hashtable \f0 will be unpredictable, and\par
+will generally differ from one program invocation to the next.\par
+\bullet  Aclass that overrides \f3 Object.equals \f0 must also override \f3 Object.hashCode\f0 .\par
+It is safe, if inefficient, if the \f3 hashCode \f0 method returns the same value for\par
+unequal objects. It is unsafe if the \f3 hashCode \f0 method returns different values for\par
+two objects that are, in fact, equal.\par
+\b Solution: \b0 If a repeatable (although unpredictable) order of enumeration over\par
+the elements in a \f3 Hashtable \f0 is important to your program, then any object\par
+used as a key in the \f3 Hashtable \f0 should have a class-specific \f3 hashCode\par
+\f0 method which returns a value computed from data fields of the object.\par
+If any of your classes defines an equals method, it must also define a\par
+\f3 hashCode \f0 method, such that for any two objects \f3 a,b \f0 of that class,\par
+\f3 a.equals(b) \f0 implies that \f3 a.hashCode() == b.hashCode()\f0 . Note that\par
+hashCode should not depend on any mutable property. If an object\rquote s\par
+\f3 hashCode \f0 value changes, that object is very likely to become unfindable.\par
+\f2 Revision Date: 10/00 3 - 13\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\b0\i\f0\fs28 23. Pitfall: Installation Issues\par
+\b\i0\fs20 Explanation: \b0 There are a series of problems that can arise when installing on\par
+various platforms, due to limitations or restrictions on filenames. This might\par
+interfere with the convention that the Java virtual machine uses to locate\par
+required class files, which depends on a simple mapping from class name to\par
+filename.\par
+The problems might occur when installing, or when attempting to run the\par
+installed program.\par
+The problematic restrictions are:\par
+\bullet  \b File name length: \b0 This is particularly a problem with inner classes, which are\par
+represented as class files with concatenated names.\par
+\bullet  \b Case distinctions: \b0 Some platforms ignore case when comparing filenames. If you\par
+have two classes\emdash or a class and a package\emdash whose names differ only by case,\par
+your program will not be portable to those platforms.\par
+\bullet  \b Imperfect Unicode Support: \b0 Class names may contain Unicode characters that\par
+are not usable as filenames on all platforms.\par
+\bullet  \b Special Filenames: \b0 Some platforms assign special meaning to certain filenames,\par
+such as \ldblquote\f3 LPT\f0\rdblquote  or \ldblquote\f3 con\f0\rdblquote . These filenames cannot be used as part of a package\par
+name for classes that are to be installed as files on those systems.\par
+\b Workarounds: \b0 Package your classes into a \f3 .jar \f0 archive, which is part of the\par
+JDK, starting with version 1.1. This will work around the problems of long\par
+class names and of case distinctions. It might not work around the problem of\par
+non-ASCII class names.\par
+If you are writing for the JDK 1.0 platform, a \f3 .zip \f0 file is a possible alternative.\par
+\b Solution: \b0 Either rename your packages and classes, or use a \f3 .jar \f0 or \f3 .zip \f0 file.\par
+\i\fs28 24. Pitfall: Hostname Format\par
+\b\i0\fs20 Explanation: \b0 The format of the string returned by the\par
+\f3 java.net.InetAddress.getHostName \f0 method depends on the hardware\par
+platform. In some cases, it will be a fully-qualified domain name; in others, it\par
+will only be the host part of that name.\par
+\b Workaround: \b0 In most cases, this problem, which is a case of underspecification,\par
+will pose no practical problem, because the unqualified name and\par
+the fully-qualified name can be used for identification and connection within a\par
+domain. In cases where the name must be exported to distant hosts, it may be\par
+best to give the IP number in addition to the host name. The IP number is\par
+available from the \f3 getAddress \f0 method.\par
+\f2 3 - 14 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\i\f0\fs28 25. Pitfall: Pluggable Look and Feel\par
+\b\i0\fs20 Explanation: \b0 The Pluggable Look and Feel (PLAF) architecture built into the\par
+Swing classes of the Java 2 Standard Edition and the Java Foundation Classes\par
+standard extension for JDK 1.1 software allows windows, dialogs and other\par
+GUI components to take on a distinctive visual identity called a LookAndFeel.\par
+Not all PLAFs are available on every platform and some may only be\par
+supported on the operating system the PLAF emulates. Portable programs\par
+should ensure that a PLAF is both supported and available to the underlying\par
+Java platform before it is set.\par
+\b\i Note: \i0 The Java platform Look and Feel is the default LookAndFeel and is\par
+always available. It will be used if the requested PLAF is not available or\par
+unsupported.\par
+Advice: \b0 For method:\par
+\f3 javax.swing.UIManager.setLookAndFeel(javax.swing.LookAnd\par
+Feel)\par
+\f0 Make sure that the specified PLAF class is supported on the active Java\par
+platform by using \f3 LookAndFeel.isNativeLookAndFeel() \f0 or use the\par
+current PLAF class from method \f3 UIManager.getLookAndFeel()\f0 .\par
+For method:\par
+\f3 javax.swing.UIManager.setLookAndFeel(java.lang.String)\par
+\f0 Use \f3 UIManager.getSystemLookAndFeelClassName() \f0 or\par
+\f3 UIManager.getCrossPlatformLookAndFeelClassName() \f0 to ensure that\par
+the PLAF class is supported.\par
+Alternatively, you can call \f3 UIManager.getInstalledLookAndFeels()\par
+\f0 This returns a \f3 LookAndFeelInfo \f0 object. This object can be queried to\par
+determine which PLAFs are available to the currently active Java platform.\par
+You must be careful when designing a user interface based upon a particular\par
+PLAF since your user interface might be compromised if your program is run\par
+on a platform where that PLAF is unavailable. To be safe, check your user\par
+interface with the Java platform Look and Feel unless you are certain the\par
+targeted PLAF will always be available.\par
+Obviously, the most portable PLAF is the default Java Platform Look and Feel.\par
+\f2 Revision Date: 10/00 3 - 15\par
+\cf2\b\fs24 How to Develop a Program\par
+\cf1\b0\i\f0\fs28 26. Pitfall: Mixing Classes Compiled on Different Versions of the Java\par
+Platform\par
+\b\i0\fs20 Explanation: \b0 Classes are compiled against a particular API set defined by the\par
+Java platform version. A program compiled on one major version (i.e., 1.0, 1.1,\par
+1.2, etc.) of the Java platform might not run on earlier versions because the\par
+program might target APIs that do not exist in earlier versions.\par
+Mixing classes compiled against different major versions of the Java platform is\par
+generally not recommended because, in some rare situations, bug fixes or\par
+subtle incompatibilities between the versions may cause portability problems.\par
+\b\i Note: \i0 When the JavaPureCheck tool is used to check a program using the 1.2\par
+API system model, it will generate a warning when the program references a\par
+method from JDK 1.1 software that has been removed in the 1.2 API. The 1.2\par
+virtual machine will properly resolve this reference if the superclass\par
+contains a method with the same signature. However, the JavaPureCheck\par
+tool does not resolve these references to the superclass, and it generates a\par
+warning to flag the use of a class compiled on an earlier Java platform\par
+version.\par
+\b0 Sometimes you might be forced to include a library or \f3 .jar \f0 of class files\par
+compiled against JDK1.1 software with a program that is compiled against 1.2.\par
+In this case, the warnings are unavoidable.\par
+\b Advice: \b0 If possible, compile all class files against the same Java platform\par
+version on which you plan to run your program. For situations where you\par
+must make use of classes that were compiled against earlier versions of the\par
+Java platform, check the relevant compatibility page for the Java development\par
+kit:\par
+\f3 http://java.sun.com/products/jdk/1.1/compatibility.html\par
+http://java.sun.com/products/jdk/1.2/compatibility.html\par
+\f0 If you have difficulty with a 3rd party class library, contact the vendor and ask\par
+to have a library compiled for your target Java platform version.\par
+\b\i Note: \i0 Compiling your classes with the \f4 -target 1.1 \f0 compiler flag on\par
+version 1.2 only affects the class file format; it does not change the version of\par
+the JDK software APIs that the compiler compiles against.\par
+\b0\f2 3 - 16 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\i\f0\fs40 Portability Hints\par
+\i0\fs20 This section presents general hints for writing portable code.\par
+\i\fs28 1. Hint: Writing Portable Applets\par
+\i0\fs20 Writing portable applets is somewhat harder than writing portable programs.\par
+An applet is, formally, a class that extends \f3 java.applet.Applet\f0 . In\par
+actuality, an applet's portability situation includes the Web page the applet\par
+loads from, the other classes the applet uses, the HTML that loads the applet,\par
+and the security manager and AppletContext of the user's browser.\par
+One subtle, possible problem in the HTML \f3 <applet> \f0 tag is that the contents\par
+of the applet markup must follow these rules:\par
+\bullet  \f3 <param> \f0 elements come before the alternate contents\par
+\bullet  alternate contents are text elements, such as the contents of a paragraph (the \f3 <p>\par
+\f0 tag). This means that you cannot use \f3 <p> \f0 tags in the alternate contents!\par
+Applets will almost certainly have to run under control of a security manager.\par
+However, there is no standard profile for security managers. The user can\par
+instruct their security manager to deny any combination of access. The best\par
+tactic is to make sure that your applet handles any security exception\par
+gracefully.\par
+Similarly, the Java technology API specifications do not specify required\par
+content types or protocols. The MIME types \f3 image/jpeg \f0 and \f3 image/gif\par
+\f0 are probably safe, as are the \f3 http\f0 :, \f3 file\f0 :, and \f3 ftp\f0 : protocols. Again, handle\par
+any errors gracefully.\par
+In the Java 1.0 technology API, the specification of the \f3 AppletContext\f0 /\par
+\f3 Applet \f0 protocol was not very precise. As a consequence, different browsers\par
+call the applet\rquote s enter & leave methods at different times. The protocol\par
+specification is much more precise in the Java 1.1 software and later API, so\par
+this problem will disappear in time. Meanwhile, beware that an applet that\par
+behaves politely on one browser may hog resources on another, while a\par
+different applet may function normally on one browser but stall on another.\par
+\i\fs28 2. Hint: Security Exceptions\par
+\i0\fs20 If your program will run under control of a \f3 SecurityManager \f0\emdash  for\par
+example, if it's an applet \emdash  it might encounter a \f3 SecurityException\f0 . This is\par
+an unchecked exception, so it may be thrown without being declared.\par
+\f2 Revision Date: 10/00 3 - 17\par
+\cf2\b\fs24 Portability Hints\par
+\cf1\b0\f0\fs20 Depending on the particular \f3 SecurityManager\f0 , the user can restrict any\par
+access to protected resources attempted by the program. Therefore, it will\par
+greatly enhance the portability of your program if you catch any\par
+\f3 SecurityException \f0 and report the situation to the user in a polite manner.\par
+\i\fs28 3. Hint: Coping with Bugs\par
+\i0\fs20 There are bugs in some Java platform implementations. To be most portable, it\par
+is courteous to work around those bugs. It is helpful to consult the known bug\par
+lists available from Sun and from some browser makers. Bugs are harder to\par
+cope with than features, because they are less well defined and less well\par
+designed.\par
+\b Workarounds: \b0 In some cases, a program will have to include different code for\par
+different platforms. Workarounds are expensive, both to code and to test. They\par
+are, unfortunately, inescapable in some circumstances.\par
+In general, you can activate a workaround either proactively by branching on\par
+system properties, such as \f3 java.class.version \f0 and \f3 os.name\f0 , or reactively\par
+by putting the workaround in an exception handler. The choice depends on the\par
+character of the workaround. If the structure of the program or of long-lived\par
+data structures is affected, it\rquote s probably best to be proactive. If the workaround\par
+has relatively local effect, a reactive fallback may be easiest to code and\par
+understand. When possible, the reactive fallback will probably perform better\par
+when the fallback is not taken, because the cost of establishing an exception\par
+handler is quite low.\par
+A preemptive fallback is required if the normal code path would cause\par
+irreversible changes before the problem is detected.\par
+Here\rquote s an example of a preemptive workaround:\par
+\f3 class Preemptive \{\par
+private boolean hasFooBug() \{\par
+String java_name =\par
+System.getProperty(\ldblquote java.maker\rdblquote );\par
+return java_name.equals(\ldblquote KnownBad\rdblquote );\par
+\}\par
+void something() \{\par
+if (hasFooBug()) \{\par
+workaround();\par
+\} else \{\par
+// normal code path\par
+\f2 3 - 18 100% Pure Java Cookbook\par
+\cf2\b\fs24 Guidelines for Developing Pure Programs\par
+\cf1\b0\f3\fs20\}\par
+\}\par
+\}\par
+\b\f0 Figure 3 - 1: class Preemptive\par
+\b0 And here is an example of a reactive workaround:\par
+\f3 class Reactive \{\par
+void something() \{\par
+try \{\par
+// normal code path\par
+\} catch (Exception e) \{\par
+workaround();\par
+\}\par
+\}\par
+\}\par
+\b\f0 Figure 3 - 2: class \f4 Reactive\par
+\b0\f2 Revision Date: 10/00 4 - 1\par
+\i\f0\fs60 Explanations of Purity Problems\par
+and Variances \fs72 4\par
+\fs40 Explanations of Purity Problems\par
+\i0\fs20 For a detailed HTML-generated list of the purity problems, use the following\par
+command line to run the JavaPureCheck tool to generate a report:\par
+\f3 java JavaPureCheck -d <model> -h\par
+\f0 where \f3 <model> \f0 is: \f3 jdk102\f0 , \f3 jdk11 \f0 or \f3 jdk12\par
+\f0 In this usage, the JavaPureCheck tool creates an html description file of the\par
+system model JavaPureCheck loads for a given JDK version..\par
+\i\fs32 Report Information Categories\par
+\i0\fs20 The report categorizes reports into three categories:\par
+\bullet  \b Pure: \b0 No portability problems. The class file is a pure Java class.\par
+\bullet  \b Warning: \b0 Possible portability problem. You must provide an explanation for all\par
+warnings.\par
+\bullet  \b Error: \b0 An unequivocal portability problem. An error must be granted a variance\par
+by Sun. The only acceptable explanation for such an error is a reference to a\par
+variance number granted by Sun.\par
+\f2 4 - 2 100% Pure Java Cookbook\par
+\cf2\b\fs24 Explanations of Purity Problems and Variances\par
+\cf1\b0\i\f0\fs32 Explanations\par
+\i0\fs20 You should provide explanations for all warnings and errors identified on the\par
+JavaPureCheck tool report. An explanation must describe why the reported\par
+problem does not, in fact, impede portability. Below is a list of typical problems\par
+reported by the JavaPureCheck tool, the reason they were flagged, and an\par
+indication of how to handle them:\par
+\b\i Note: \i0 See the documentation included with the JavaPureCheck tool and the\par
+information below for complete coverage of all warnings and errors.\par
+\b0\i\fs32 Warnings\par
+\fs28 Warning: Possible Hardcoded Path\par
+\i0\fs20 The JavaPureCheck tool checks the string constants in your application,\par
+looking for any that resemble hardcoded file pathnames. The JavaPureCheck\par
+tool attempts to resolve any suspicious strings by determining how they are\par
+used. If a suspicious string (one that looks like a hardcoded path) is used in\par
+an I/O class constructor, this is reported as an error. If the JavaPureCheck\par
+tool cannot determine how a suspicious string is used, it reports a warning.\par
+If the string identified in the JavaPureCheck tool report is not a hardcoded\par
+path, you should supply an explanation that describes how the string is\par
+used. Strings used as URLs, for example, are acceptable.\par
+\i\fs28 Warning: Mixing the 1.0 and 1.1 Event Models\par
+\i0\fs20 This is likely to be a application programming error that will impair\par
+portability.\par
+Possible explanations for this warning would have to show reasonable need\par
+for mixing event models.\par
+\i\fs28 Warning: Dynamically Loaded Classes:\par
+\i0\fs20\bullet  Use of \f3 java.lang.Class.forName\par
+\f0\bullet  Use of \f3 java.lang.ClassLoader.defineClass\par
+\f0\bullet  Use of \f3 java.lang.ClassLoader.resolveClass\par
+\f0\bullet  Use of \f3 java.lang.ClassLoader.findSystemClass\par
+\f0 Classes that are dynamically loaded might contain portability bugs.\par
+\f2 Revision Date: 10/00 4 - 3\par
+\cf2\b\fs24 Explanations of Purity Problems\par
+\cf1\b0\f0\fs20 To explain an acceptable use of these methods, you should list all the classes\par
+that could be dynamically loaded such that you can determine that those\par
+classes are part of the systembeing checked for compliance. All classes\par
+should be checked for purity.\par
+If your application does dynamic loading of arbitrary classes, you should\par
+provide a description of how the names of those classes are determined.\par
+\i\fs28 Warning: Object is Compiled for a Previous (Java Development Kit)\par
+release\par
+\i0\fs20 This warning appears when your class files are compiled on one version of\par
+the Java platform, and have dependencies on methods that no longer exist\par
+when tested on a later system model by the JavaPureCheck tool.\par
+Even though the Java virtual machine will handle these situations by\par
+deferring execution of a missing method to its superclass, mixing classes\par
+compiled against different versions of the Java platform is discouraged\par
+because, in rare situations, bug fixes or subtle incompatibilities between the\par
+versions might cause portability problems. See \ldblquote Mixing Classes Compiled on\par
+Different Versions of the Java Platform\rdblquote  for more information.\par
+Explanations for these warnings should describe why all application classes\par
+are not compiled against the same Java platform version (e.g., your\par
+application might require the use of 3rd party libraries which were compiled\par
+against a previous JDK version).\par
+\i\fs28 Warning: Unsupported Pluggable Look and Feel\par
+\i0\fs20 The Swing classes in the Java 2 SDK and the JFC standard extension for JDK\par
+1.1 software define a pluggable look and feel architecture that may cause\par
+portability problems when an unsupported or unavailable LookAndFeel is\par
+hard-coded into your application.\par
+Explanations for this warning should show that the proper allowances for\par
+unavailable and/or unsupported LookAndFeel have been made in your\par
+application.\par
+\f2 4 - 4 100% Pure Java Cookbook\par
+\cf2\b\fs24 Explanations of Purity Problems and Variances\par
+\cf1\b0\i\f0\fs32 Errors\par
+\fs28 Error: Constant Strings with OS-Specific Syntax Used in I/O Class\par
+Constructors\par
+\i0\fs20 Use of strings including OS-specific constants, such as hardcoded line\par
+termination characters or device names, are not portable.\par
+\i\fs28 Error: Peer Use\par
+\i0\fs20 The AWT peer classes are not intended for direct use by Java applications.\par
+\i\fs28 Error: Use of Native Code\par
+\i0\fs20\bullet  Native method definition\par
+\bullet  Use of \f3 java.lang.Runtime.load\par
+\f0\bullet  Use of \f3 java.lang.Runtime.loadLibrary\par
+\f0 100% Pure Java programs cannot depend on native code.\par
+\i\fs28 Error: Use of \i0\f3\fs29 java.lang.Runtime.exec\i\f0\fs28 .\par
+\i0\fs20 Execution of an external application is not platform independent, except\par
+under the circumstances detailed in the sections of this chapter that deal with\par
+Variance Numbers 1, 5, and 17.\par
+\i\fs28 Error: Injection into Core Library\par
+\i0\fs20 100% Pure Java applications may not insert classes into the Java core library\par
+(e.g. packages whose names start with \ldblquote\f3 java\f0\rdblquote , \ldblquote\f3 javax\f0\rdblquote , or \ldblquote\f3 omg\f0\rdblquote ).\par
+\i\fs28 Error: Undefined Reference\par
+\i0\fs20 An incomplete application (i.e., an application with dependencies on missing\par
+or unavailable class files) cannot, obviously, be completely checked. It will be\par
+reported as an error, because that is the most conservative estimate of what\par
+might be in the missing class files. To remove these errors, simply include the\par
+required classes to your list of \f3 .class \f0 files that JavaPureCheck parses.\par
+\i\fs28 Error: Undocumented Internal \i0\f3\fs29 sun.*\i\f0\fs28 Class\par
+\i0\fs20 Use of \f3 sun.* \f0 classes is not allowed by 100% Pure Java applications because\par
+these classes are not guaranteed to be available on all platforms.\par
+\f2 Revision Date: 10/00 4 - 5\par
+\cf2\b\fs24 Variances\par
+\cf1\b0\i\f0\fs40 Variances\par
+\i0\fs20 Errors generated by the JavaPureCheck tool should include a Variance number\par
+as part of the explanation in the JavaPureCheck tool report. Applications\par
+containing errors without explanations are not compliant with the purity\par
+standard.\par
+Variances were previously granted to developers making variance requests to\par
+Sun\rquote s Variance Council.\par
+\i\fs32 Types of Variances\par
+\i0\fs20 Variances are classified into three types:\par
+\bullet  \b General Variances: \b0 General variances are available to all developers, and are\par
+accepted as valid explanations for JavaPureCheck errors, and still being\par
+compliant to the purity standard.\par
+\bullet  \b Restricted Variances: \b0 Restricted variances are available to all developers.\par
+Restricted variances typically have the potential for abuse that might\par
+compromise application portability.\par
+\i\fs32 The Variances\par
+\i0\fs20 The following variances have been collected into groups. All variances listed\par
+are general variances unless marked \ldblquote RESTRICTED.\rdblquote  The few specific\par
+variances that have been granted are not identified due to their limited\par
+applicability.\par
+\b\i Note: \i0 Variances are numbered according to the order they were received as\par
+variance requests from developers. Numbers that do not appear in the lists\par
+below are associated with variance requests that were either denied,\par
+dropped, or granted as Specific Variances (see above).\par
+\fs24 V\fs19 ARIANCES FOR \fs24 P\fs19 ROGRAM \fs24 I\fs19 NVOCATION\par
+\b0\fs20 Invoking another program by using either \f3 Runtime.exec() \f0 or\par
+\f3 Method.invoke() \f0 is normally not portable, especially when the invoked\par
+program itself is not pure. However, in most situations, portability will not be\par
+compromised if the following criteria are followed:\par
+\bullet  The invocation must be a direct result of a specific user action; the user must\par
+know they\rquote re executing a separate application.\par
+\bullet  The user must be able to choose, by configuration or as part of the invocation\par
+action, which program gets invoked.\par
+\f2 4 - 6 100% Pure Java Cookbook\par
+\cf2\b\fs24 Explanations of Purity Problems and Variances\par
+\cf1\b0\f0\fs20\bullet  A failure of the \f3 Runtime.exec() \f0 or \f3 Method.invoke() \f0 methods, especially\par
+one caused by the absence of the requested program, must be handled cleanly.\par
+\bullet  Use of this invocation is platform neutral. No platform specific functionality\par
+documented by your product may be made available only to users of any\par
+particular hardware/OS platform.\par
+See \ldblquote Using Runtime.exec\rdblquote  in Chapter 2 for more information about these\par
+variances.\par
+\i\fs28 Variance: #1\emdash Invoking a Compiler\par
+\i0\fs20 A compiler may be invoked using \f3 Runtime.exec() \f0 as long as the above\par
+mentioned criteria are met. This variance also applies to the use of\par
+\f3 Method.invoke() \f0 when used in a manner similar to \f3 Runtime.exec()\f0 .\par
+\b Application of Variance: \b0 Variance #1 may be used as an explanation for errors\par
+or warnings generated when these methods are used to start a compiler. A\par
+statement must be included in the explanation that says:\par
+\bullet  Invocation of the compiler is triggered by a user action.\par
+\bullet  The specific compiler invoked can be selected (or preselected at installation\par
+time) by the user.\par
+\bullet  Any failure due to absence of the compiler is handled cleanly.\par
+\bullet  No documented platform-specific functionality is made available.\par
+\b\i Note: \i0 This error may be reported as \ldblquote Requires explanation; see Program\par
+Invocation Variance.\rdblquote  Use Variance #1 for compiler invocation errors and\par
+warnings.\par
+\b0\i\fs28 Variance: #5\emdash Invoking a Browser\par
+\i0\fs20 A browser may be invoked using \f3 Runtime.exec() \f0 as long as the above\par
+mentioned criteria are met. This variance also applies to the use of\par
+\f3 Method.invoke() \f0 when used in a manner similar to \f3 Runtime.exec()\f0 .\par
+\b Application of Variance: \b0 Variance #5 may be used as an explanation for errors\par
+or warnings generated when these methods are used to start a Web browser\par
+(e.g., to display help text). A statement must be included in the explanation\par
+that says:\par
+\bullet  Invocation of the compiler is triggered by a user action.\par
+\bullet  The specific compiler invoked can be selected (or preselected at installation\par
+time) by the user.\par
+\bullet  Any failure due to absence of the compiler is handled cleanly.\par
+\bullet  No documented platform-specific functionality is made available.\par
+\f2 Revision Date: 10/00 4 - 7\par
+\cf2\b\fs24 Variances\par
+\cf1\i\f0\fs20 Note: \i0 This error may be reported as \ldblquote Requires explanation; see Program\par
+Invocation Variance.\rdblquote  Use Variance #5 for browser invocation.\par
+\b0\i\fs28 Variance: #17\emdash Invoking a Configurable User Action\par
+\i0\fs20 A program that is specified by a user (e.g., a user-configurable menu\par
+application) can be invoked using \f3 Runtime.exec() \f0 as long as the above\par
+mentioned criteria are met. This variance also applies to the use of\par
+\f3 Method.invoke() \f0 when used in a manner similar to \f3 Runtime.exec().\par
+\b\f0 Application of Variance: \b0 Variance #17 may be used as an explanation for\par
+errors or warnings generated when these methods are used to start a program\par
+selected by a user (e.g., a program chosen from a user configurable menu). A\par
+statement must be included in the explanation that says:\par
+\bullet  Invocation of the program is triggered by a user action.\par
+\bullet  The specific program invoked can be selected (or preselected at installation\par
+time) by the user.\par
+\bullet  Any failure due to absence of the program is handled cleanly.\par
+\bullet  No documented platform specific functionality is made available.\par
+\b\i Note: \i0 This error may be reported as \ldblquote Requires explanation; see Program\par
+Invocation Variance.\rdblquote  Variance #5 is for browser invocation; use Variance #17\par
+for application invocation errors and warnings.\par
+\fs24 V\fs19 ARIANCES FOR \fs24 P\fs19 ROGRAMS \fs24 C\fs19 ONTAINING \fs24 N\fs19 ATIVE \fs24 C\fs19 ODE\par
+\b0\fs20 The following variances address allowed uses of native code in pure programs.\par
+\i\fs28 Variance: #45\emdash Use of Native Code to Enable Common Platform\par
+Functionality ***RESTRICTED***\par
+\i0\fs20 It is often desirable to have an application \ldblquote well integrated\rdblquote  into the host\par
+operating system. For example, a server running on Windows NT could benefit\par
+greatly by running as an NT service (i.e., so it responds to task-shutdown\par
+events). Similarly, a server running on UNIX could benefit from receiving\par
+signals like \f3 SIGHUP \f0 or \f3 SIGINT\f0 . Unfortunately, this cannot currently be done\par
+on the Java platform without using native methods. At some time in the future,\par
+Sun may provide a Java technology API for this, but in the meantime, a\par
+workaround is needed.\par
+This variance extends the purity criteria to allow the use of native code for\par
+situations where Java technology API functionality cannot be accommodated\par
+due to a limitation (e.g., security measures) in a particular OS. Native code can\par
+be used to enable features on a specific Java platform when these features\par
+\f2 4 - 8 100% Pure Java Cookbook\par
+\cf2\b\fs24 Explanations of Purity Problems and Variances\par
+\cf1\b0\f0\fs20 cannot be exposed using Java APIs, and those features are exposed on other\par
+Java platforms without the use of native code. Proper application of this\par
+variance can actually improve portability.\par
+\b\i Note: \i0 It is never acceptable to add new platform-specific features in this\par
+manner or to use native code for the purpose of improving performance.\par
+\b0 For example, to connect to port 80 on UNIX, a process must have root\par
+privileges; but since it is generally unacceptable for an program to run with\par
+root privileges, the privileges must be reduced after the connection is made.\par
+This can be accomplished via a native call to UNIX. On Mac and other\par
+operating systems, connections to port 80 do not have this restriction. Thus, by\par
+allowing a check for various UNIX platforms, a 100% Pure Java program can\par
+call the appropriate native routines to ensure it can run on these otherwise\par
+blocked platforms.\par
+\b Application of Variance: \b0 Variance #45 is a RESTRICTED variance.\par
+\i\fs28 Variance: #47\emdash Use of Class Libraries Containing Unused Native\par
+Code or Unused External References ***RESTRICTED***\par
+\i0\fs20 If your program has dependencies on a class library that contains native or\par
+impure code \emdash  but your program never exercises this code \emdash  purity is not\par
+compromised, and you can use this variance.\par
+The rule of thumb for these cases is that you must be able to adequately prove\par
+that a potential portability problem cannot occur.\par
+\b Application of Variance: \b0 Variance #47 is a RESTRICTED variance.\par
+\i\fs28 Variance: #67\emdash  Use of Netscape Navigator and Internet Explorer\par
+Security Managers\par
+\i0\fs20 For an applet to work outside the sandbox (i.e., access security-constrained\par
+methods), it must be granted permission by the Java platform security\par
+manager. The two most widely used browsers in the industry today are\par
+Netscape Navigator and Internet Explorer. However, both of these browsers\par
+implement security manager functionality in a proprietary manner that\par
+requires calls to impure classes within the browser itself.\par
+While these proprietary implementations are within the scope of the Java\par
+platform specifications, true platform independence might be compromised by\par
+any applet that makes use of these classes. In particular, API differences\par
+existing between platform implementations and/or versions of these products\par
+\emdash  although these are unlikely \emdash  are outside of Sun\rquote s control, so portability is\par
+not assured to the same level of certainty as with Java technology APIs.\par
+\f2 Revision Date: 10/00 4 - 9\par
+\cf2\b\fs24 Variances\par
+\cf1\b0\f0\fs20 Recognizing the need for this applet functionality and its low risk to\par
+portability, Sun has granted Variance #67 to allow applets to directly call the\par
+necessary APIs in Netscape Navigator\fs28\'99\fs20 and Internet Explorer to access\par
+security constrained methods.\par
+\b\i Note: \i0 It is not acceptable to add platform-specific functionality through this\par
+variance. The result of all method calls should preserve platform-neutral\par
+behavior.\par
+\b0 Calls to these proprietary APIs should produce \ldblquote Undefined Reference\rdblquote  errors\par
+when tested by the JavaPureCheck tool. Use of stub or dummy classes to mask\par
+calls to these APIs is not permitted.\par
+Use of this variance is acceptable as long as care is taken to minimize the risk\par
+of the Java virtual machine accidentally trying to load a class that does not\par
+exist (which would cause a runtime error). This is best done by isolating calls\par
+for each of these browsers into separate classes, and only loading those classes\par
+that are applicable to the active browser.\par
+\b Application of Variance: \b0 Variance #67 can be used as an explanation for\par
+\ldblquote Undefined Reference\rdblquote  errors or warnings generated when making calls to\par
+security methods in Netscape Navigator and Internet Explorer. Include in your\par
+explanation a statement specifying that no platform specific functionality is\par
+enabled by these calls other than to gain the necessary security permissions\par
+required. Contact Netscape or Microsoft for information about developing to\par
+their APIs.\par
+\b\i Note: \i0 Compliance is always measured using Java Compatible platforms.\par
+Specific code written to enable a browser\rquote s ability to access secure methods\par
+will only be exercised if that browser uses a Java Compatible runtime\par
+environment. See the list of recommended platforms in Appendix A,\par
+"Available Java Platforms" for more information.\par
+\b0\i\fs32 Miscellaneous Variances\par
+\i0\fs20 The following variances address special cases that do not fall into a particular\par
+category.\par
+\i\fs28 Variance: #44\emdash  Use of Transitional Beans in 1.0.2 Applications\par
+\i0\fs20 Transitional beans are a set of APIs used with JDK 1.0.2 to implement bean-like\par
+functionality on the 1.0.2 Java platform. Sun discourages the use of these\par
+classes since the JavaBeans architecture available on JDK 1.1 software (and\par
+later Java platform versions) is much more robust.\par
+\f2 4 - 10 100% Pure Java Cookbook\par
+\cf2\b\fs24 Explanations of Purity Problems and Variances\par
+\cf1\b0\f0\fs20 A transitional bean must implement the following classes:\par
+\f3\bullet  sunw.io.Serializable\par
+\bullet  sunw.util.EventObject\par
+\bullet  sunw.util.EventListener\par
+\f0 See \f3 http://java.sun.com/beans/initial.html \f0 for more information\par
+about transitional beans.\par
+\b Application of Variance: \b0 Variance #44 can be used as an explanation for errors\par
+or warnings generated when adding the \f3 sunw.* \f0 classes necessary to\par
+implement transitional beans. In addition, you must provide an explanation\par
+stating that the classes are used for transitional beans purposes, and explain\par
+why the code cannot be implemented as a \ldblquote real\rdblquote  bean.\par
+\i\fs28 Variance: #68\emdash  Use of Java Platform-Specific (Hybrid) Functionality\par
+\i0\fs20 Programs can be designed that run differently, depending upon the version of\par
+the Java platform active during runtime. These programs are called hybrid\par
+applications and can be classified as a 100% Pure Java program on each\par
+targeted Java platform version.\par
+For example, a hybrid program could use AWT calls when the program runs\par
+on Java platform version 1.1, but use Java 2D\fs28\'99\fs20 calls when it runs on a 1.2\par
+platform. The JavaPureCheck tool reports errors for the Java 2D API alls when\par
+it tests the program using the 1.1 system model because the Java 2D APIs are\par
+not defined for the 1.1 platform.\par
+The JavaPureCheck tool will generate \ldblquote Undefined Reference\rdblquote  errors for any\par
+API call made that does not exist in the selected system model.\par
+Use of this variance is acceptable as long as care is taken to minimize the risk\par
+of the Java virtual machine accidentally trying to load a class that does not\par
+exist (which would cause a runtime error). This is best done by isolating\par
+differences in application logic into separate classes and only loading those\par
+classes which are applicable to a particular Java platform version.\par
+\b\i Note: \i0 Making direct calls to a method and catching\par
+\f4 ClassNotFoundException \f0 errors is not sufficient for this purpose.\par
+Application of Variance: \b0 Variance #68 can be used as an explanation for\par
+undefined reference errors on hybrid programs only. A description of how the\par
+undefined reference has been isolated from affected Java platform versions\par
+must be included in the explanation.\par
+\f2 Revision Date: 10/00 A - 1\par
+\i\f0\fs60 Available Java Platforms\par
+A\par
+\i0\fs20 You should execute your program on multiple Java platforms as a Dynamic\par
+Test of your program for purity. Your program should run to completion and\par
+demonstrate common behavior of all major features on at least three unique\par
+Java platforms. A Java platform is a combination of the operating system and a\par
+Java Compatible implementation of the Java application environment.\par
+\i\fs40 Platforms for Java Applications and Applets\par
+\i0\fs20 Tables A-1, A-3, and A-5 list the available platforms for the 1.0, 1.1, and 1.2\par
+versions of the Java application environment used to verify the purity of Java\par
+applications, servlets, beans and class libraries.\par
+Tables A-2, A-4, and A-6 list the available platforms and browsers for the 1.0,\par
+1.1, and 1.2 versions of the Java application environment used to verify the\par
+purity of Java applets.\par
+\b\i Note: \i0 Servlets should be verified using the Servlet Development Kit which\par
+is available from \f4\fs18 http://java.sun.com/products/servlet/index.html.\par
+\b0\f2\fs20 A - 2 100% Pure Java Cookbook\par
+\cf2\b\fs24 Available Java Platforms\par
+\cf1\b0\i\f0\fs32 Available Platforms for Java Application Environment Version 1.0.2\par
+\b\i0\fs20 Table A-1: Test Platforms for Applications and Class Libraries for Java Version 1.0.2\par
+\fs18 Operating System Java Compatible Implementation Vendor\par
+\b0\fs16 Win95/NT (32-bit Windows) Sun Microsystems\par
+Solaris Operating Environment Sun Microsystems\par
+Mac OS Apple Computer\par
+OS/2 Warp IBM\par
+AIX IBM\par
+Network Station IBM\par
+Netware 4.11 Novell\par
+HP UX Hewlett Packard\par
+\b\fs20 Table A-2: Test Platforms and Browsers for Applets for Java Version 1.0.2\par
+\fs18 Operating System Browser\par
+Java Compatible\par
+Implementation\par
+Vendor\par
+\b0\fs16 Win95/NT (32-bit Windows) Navigator 3.x Netscape\par
+Solaris Operating Environment Navigator 3.x Netscape\par
+Mac OS Navigator 3.x Netscape\par
+OS/2 Warp Navigator 3.x Netscape\par
+AIX Navigator 3.x Netscape\par
+HP UX Navigator 3.x Netscape\par
+Win95/98/NT (32-bit Windows) Internet Explorer 3.x Microsoft\par
+Mac OS Internet Explorer 3.x Microsoft\par
+Mac OS (IE option for MRJ 1.x) Internet Explorer 3.x Apple Computer\par
+(any Java Compatible platform) AppletViewer (most)\par
+Mac OS AppletRunner Apple Computer\par
+\f2\fs20 Revision Date: 10/00 A - 3\par
+\cf2\b\fs24 Platforms for Java Applications and Applets\par
+\cf1\b0\i\f0\fs32 Available Platforms for Java Application Environment 1.1\par
+\b\i0\fs20 Table A-3: Test Platforms for Applications, Beans, Class Libraries and Servlets for Java Version 1.1\par
+\fs18 Operating System N/C\par
+Java Compatible\par
+Implementation Vendor\par
+\b0\fs16 Win95/98/NT (32-bit Windows) Sun Microsystems\par
+Solaris Operating Environment Sun Microsystems\par
+JavaStation\f1\fs20\'d4 \f0\fs16 Sun Microsystems\par
+Mac OS Apple Computer\par
+OS/2 Warp IBM\par
+AIX IBM\par
+Network Station IBM\par
+Netware 5 Novell\par
+HP UX Hewlett Packard\par
+\b\fs20 Table A-4: Test Platforms and Browsers for Applets for Java Version 1.1\par
+\fs18 Operating System N/C Browser\par
+Java Compatible\par
+Implementation Vendor\par
+\b0\fs16 Win95/98/NT (32-bit Windows) HotJava\f1\fs20\'d4 \f0\fs16 Browser 1.1 Sun Microsystems\par
+Solaris Operating Environment HotJava Browser 1.1 Sun Microsystems\par
+JavaStation HotJavaViews 1.0 Sun Microsystems\par
+Mac OS (IE option for MRJ 2.x) Internet Explorer 3.x Apple Computer\par
+Mac OS (IE option for MRJ 2.x) Internet Explorer 4.x Apple Computer\par
+Win95/98/NT (32-bit Windows) Internet Explorer 4.x\par
+with Java Plug-In\par
+Microsoft and Sun Microsystems\par
+Win95/98/NT (32-bit Windows) Navigator 4.x\par
+with Java Plug-In\par
+Netscape and Sun Microsystems\par
+(any Java Compatible platform) AppletViewer (most)\par
+Mac OS AppletRunner Apple Computer\par
+\f2\fs20 A - 4 100% Pure Java Cookbook\par
+\cf2\b\fs24 Available Java Platforms\par
+\cf1\b0\i\f0\fs32 Available Platforms for Java Application Environment 1.2\par
+\b\i0\fs20 Table A-5: Test Platforms for Applications, Beans, Class Libraries and Servlets for Java Version 1.2\par
+\fs18 Operating System/NC Vendor\par
+\b0\fs16 Win95/98/NT Sun Microsystems\par
+Solaris Operating Environment Sun Microsystems\par
+Solaris x86 Operating Environment Sun Microsystems\par
+\b\fs20 Table A-6: Testing Platforms and Browsers for Applets for Java Version 1.2\par
+\fs18 Operating System N/C Browser Implementation Vendor\par
+\b0\fs16 Win95/98/NT (32-bit Windows) Internet Explorer 4.x\par
+with Java Plug-In\par
+Microsoft and Sun Microsystems\par
+Win95/98/NT (32-bit Windows) Navigator 4.x\par
+with Java Plug-In\par
+Netscape and Sun Microsystems\par
+Win95/98/NT (32-bit Windows) AppletViewer Sun Microsystems\par
+Solaris Operating Environment AppletViewer Sun Microsystems\par
+Solaris x86 Operating Environment AppletViewer Sun Microsystems\par
+\f2\fs20 Revision Date: 10/00 B - 1\par
+\i\f0\fs60 Frequently Asked Questions for\par
+Purity \fs72 B\par
+\fs40 Frequently Asked Questions\par
+\b\i0\fs20 Question 1: How do I explain all the bogus \ldblquote possible hard-coded path name\rdblquote\par
+warnings I get with the JavaPureCheck tool?\par
+\b0 Write a brief statement explaining that it is not a hard-coded path (if obvious)\par
+or a description of the string usage. The intent of your explanation is to show\par
+that the warning does not identify a potential portability problem.\par
+\b Examples:\par
+\b0\f3 Class :MyClass1\par
+\fs18 Warning: possible hard-coded path: big/small\par
+Note :Defines a bad path\par
+Explanation :This is not a pathname.\par
+\fs20 Class :MyClass2\par
+\fs18 Warning: possible hard-coded path: product/big/pricing\par
+Note :Defines a bad path\par
+Explanation :This is part of a URL string.\par
+\b\f0\fs20 Question 2: How do I explain the Class.forName warnings?\par
+\b0 List each class that could be referenced by this statement. If your code allows a\par
+user to select or input the class being loaded (e.g., the class is user\par
+configurable), it is sufficient to explain how the class is chosen.\par
+\b Examples:\par
+\b0\f3 Class :com.myorg.foo.bar\par
+\fs18 Warning: method reference:\par
+\f2\fs20 B - 2 100% Pure Java Cookbook\par
+\cf2\b\fs24 Frequently Asked Questions for Purity\par
+\cf1\b0\f3\fs18 java.lang.Class.forName(java.lang.String)\par
+Note :May load impure class\par
+Explanation :The following classes can be loaded by this\par
+statement and all are included as part of my\par
+verification package:\par
+com.myorg.Class1\par
+com.myorg.Class2a\par
+com.myorg.Class2b\par
+com.myorg.Class3\par
+\fs20 Class :com.abc.x123\par
+\fs18 Warning: method reference:\par
+java.lang.Class.forName(java.lang.String)\par
+Note :May load impure class\par
+Explanation :This class is selected by the user from a\par
+menu that is preconfigured at install time.\par
+\b\f0\fs20 Question 3: I get Class.forName warnings in places I don't use it. What's up?\par
+\b0 The JavaPureCheck tool is not always able to distinguish how calls to this\par
+method were initiated. For example, the fragment of source code\par
+\f3 return java.lang.System.class;\par
+\f0 results in the execution of the following bytecodes (or equivalent)\par
+\f3 ldc #1 <String "java.lang.System">\par
+invokestatic #12 <Method\par
+java.lang.ClassforName(java.lang.String)>\par
+areturn\par
+\f0 Currently, the JavaPureCheck tool is not sophisticated enough to tell this code\par
+from the very similar\par
+\f3 return Class.forName(cn);\par
+\f0 which results in\par
+\f3 aload_1\par
+invokestatic #12 <Method\par
+java.lang.Class.forName(java.lang.String)>\par
+areturn\par
+\f0 Another example is the following code, which will also generate the warning:\par
+\f3 public class test\par
+\{\par
+\f2 Revision Date: 10/00 B - 3\par
+\cf2\b\fs24 Frequently Asked Questions\par
+\cf1\b0\f3\fs18 Class c = test.class;\par
+\fs20\}\par
+\f0 Enter an explanation for the warning; the relevant line of source code would be\par
+a perfectly acceptable explanation. It's important that the explanation tell the\par
+class to which the \f3\fs18 .class \f0\fs20 operator is being applied. If the class is not part of\par
+the core set of Java technology APIs, then it is probable that the \f3 forName\par
+\f0 method is being used in a way which will require a much more detailed\par
+explanation.\par
+\b Example:\par
+\b0\f3 Class :com.myorg.foo.bar\par
+\fs18 Warning: method reference:\par
+java.lang.Class.forName(java.lang.String)\par
+Note :May load impure class\par
+Explanation :This is not a use of method Class.forName.\par
+The warning is being generated for the source statement:\par
+return java.lang.System.class\par
+\b\f0\fs20 Question 4: How do I mark warnings and errors that exist in pure 3rd party\par
+products I use in my code?\par
+\b0 If the product is certified, mark each warning and error as being dependent on\par
+a pure 3rd party product.\par
+\b Example:\par
+\b0\f3 Class :sunsoft.jws.visual.rt.type.Converter\par
+\fs18 Warning: method reference:\par
+java.lang.Class.forName(java.lang.String)\par
+Note :May load impure class\par
+Explanation :This warning occurs in Sun's Java WorkShop\par
+(Version 2.0) libraries. According to information on\par
+http://java.sun.com/100percent, this library is\par
+certified as 100% Pure Java.\par
+\b\f0\fs20 Question 5: How do I mark warnings and errors that exist in non-certified 3rd\par
+party products I use in my code?\par
+\b0 If the product has not been certified, you might have to contact the vendor for\par
+explanations. Please encourage these vendors to make their products\par
+compliant with Sun\rquote s purity standard. Remember that any and all classes that\par
+you use, rely on, or call, must pass the JavaPureCheck tool testing and have\par
+appropriate purity explanations in order to be considered compliant with Sun\rquote s\par
+purity standard.\par
+\f2 B - 4 100% Pure Java Cookbook\par
+\cf2\b\fs24 Frequently Asked Questions for Purity\par
+\cf1\f0\fs20 Question 6: I can't get the JavaPureCheck tool to work. Help!\par
+\b0 The JavaPureCheck tool will run on any 1.1 or later version Java Compatible\par
+runtime.\par
+Prior to running the JavaPureCheck tool, you can add the\par
+\f3 javapurecheck.jar \f0 file to your \f3\fs18 CLASSPATH \f0\fs20 statement. The syntax for\par
+executing the JavaPureCheck tool once your \f3\fs18 CLASSPATH \f0\fs20 is set is:\par
+\f3 java JavaPureCheck\par
+\f0 Alternatively, you can also set the classpath on your java commandline.\par
+Consult your Java runtime documentation for details..\par
+\b Question 7: Why does the JavaPureCheck tool take so long to process my files,\par
+no matter how much memory I give it? What can I do?\par
+\b0 The JavaPureCheck tool does code checking that requires method simulation.\par
+This can be particularly memory intensive, and can also take time. Generally,\par
+the speed of the JavaPureCheck tool depends entirely on the number of class\par
+files that you give it, the class sizes(physical file size), and the number of static\par
+strings defined in each class file.\par
+The GUI interface of the JavaPureCheck tool can be rather memory intensive as\par
+well. This is especially true when clicking on the \ldblquote details\rdblquote  button to view\par
+purity warnings or errors because of the additional information that is being\par
+displayed.\par
+If you find that the JavaPureCheck tool seems to \ldblquote hang\rdblquote  at this point, run its\par
+command line version instead. The documentation that comes with the\par
+JavaPureCheck tool explains how to do this. You will still need to use the \f3 -ms\par
+\f0 and \f3 -mx \f0 Java virtual machine switches, but this should enable you to check\par
+your product and any third party classes that it uses more quickly.\par
+When the JavaPureCheck tool has finished running, it will output a file called\par
+\f3\fs18 RESULTS.JPC\f0\fs20 . This file can be viewed and edited by any standard text editor.\par
+Optionally, you can still run the GUI, but click on \ldblquote exit\rdblquote  rather than viewing\par
+the \ldblquote details\rdblquote  from within the GUI. The \f3 RESULTS.JPC \f0 file will be available on\par
+disk and you can view or edit it in a text editor.\par
+\b Question 8: When running the JavaPureCheck tool, I see a number of\par
+\ldblquote undefined reference\rdblquote  errors that point to classes that are not mine.\par
+\b0 Example:\par
+\f3 Class :com.myclasses.classXYZ\par
+\fs18 Error: undefined reference:\par
+com.thirdparty.class123.Init()\par
+Note :Undefined reference.\par
+Explanation : <Explanation required>\par
+\f2\fs20 Revision Date: 10/00 B - 5\par
+\cf2\b\fs24 Frequently Asked Questions\par
+\cf1\b0\f3\fs18 Status :ERROR\par
+\f0\fs20 Think of the \ldblquote undefined reference\rdblquote  error as a message stating: \ldblquote incomplete\par
+product\rdblquote  or \ldblquote classes missing\rdblquote . It is important to remember when running the\par
+JavaPureCheck tool that you must include all of the classes that your product\par
+calls, uses, or relies upon. An \ldblquote undefined reference\rdblquote  indicates that the\par
+JavaPureCheck tool cannot find one or more of these classes. Remember that\par
+the \f3 CLASSPATH \f0 will not be used to resolve these undefined references, and\par
+that they must be included in your JavaPureCheck test. Just add the missing\par
+class(es) to the JavaPureCheck list of classes to check and the error should go\par
+away.\par
+\b Question 9: When I run the JavaPureCheck tool on my classes, I get an\par
+\ldblquote undefined reference\rdblquote  error pointing to the same class.\par
+Example:\par
+\b0\f3 Class :com.myclasses.classFoobar\par
+\fs18 Error: undefined reference: com.myclasses.classFoobar\par
+Note :Undefined reference.\par
+Explanation : <Explanation required>\par
+Status :ERROR\par
+\f0\fs20 This error sometimes occurs with \f3 .class \f0 files that have been \ldblquote modified\rdblquote  after\par
+being compiled. Specifically, the problem might occur after running a \ldblquote post\par
+processor\rdblquote  (e.g.. an obfuscator or optimizer) on your complied files. If you run\par
+into this problem, please contact the post-processorvendor for assistance.\par
+\b Question 10: I get an error for the use of \ldblquote Runtime.exec()\rdblquote  in my class files. Is\par
+this permitted?\par
+\b0 This issue is completely documented in \ldblquote Using Runtime.exec\rdblquote  in Chapter 2. To\par
+summarize, use of \f3 Runtime.exec() \f0 is permitted only when certain\par
+conditions are met. The exact criteria for use of the \f3 Runtime.exec() \f0 method\par
+are:\par
+\bullet  The invocation must be a direct result of a specific user action; the user must\par
+know they're executing a separate application.\par
+\bullet  The user must be able to choose, by configuration or as part of the invocation\par
+action, which application is executed.\par
+\bullet  A failure of the \f3 Runtime.exec() \f0 method, especially one caused by the\par
+absence of the requested application, must be handled cleanly.\par
+For each class that uses \f3 Runtime.exec() \f0 you must include information\par
+concerning each of these aspects to demonstrate that you meet the defined\par
+criteria.\par
+\f2 B - 6 100% Pure Java Cookbook\par
+\cf2\b\fs24 Frequently Asked Questions for Purity\par
+\cf1\f0\fs20 Question 11: Can a developer call all future releases of a certified program\par
+100% Pure Java without undergoing further tests?\par
+\b0 No. If you release a new version of the product that is for bug fixes only, you\par
+should run JavaPureCheck on the updated product. If the new version includes\par
+bug fixes and new features, functionality or enhancements, then the product\par
+must be verified again to be considered compliant with the purity standard.\par
+\b Question 12: What Variances requests are allowble?\par
+\b0\bullet  (#1) Use of \f3 Runtime.exec \f0 or \f3 Method.invoke \f0 to start a compiler.\par
+\bullet  (#5) Use of \f3 Runtime.exec \f0 or \f3 Method.invoke \f0 to start a browser.\par
+\bullet  (#17) Use of \f3 Runtime.exec \f0 or \f3 Method.invoke \f0 to perform a configurable\par
+user action.\par
+\bullet  (#44) Use of transitional beans in 1.0.2 applications.\par
+\bullet  (#45) Use of native code to enable common functionality (e.g., allowing access\par
+to port 80 on UNIX) -- RESTRICTED.\par
+\bullet  (#47) Use of class libraries containing unused native code or unused external\par
+references --RESTRICTED.\par
+\bullet  (#67) Use of Netscape\f1\'d4 \f0 and Internet Explorer security managers.\par
+\bullet  (#68) Inclusion of Java platform version-specific (hybrid) functionality.\par
+\b\i Note: \i0 These variances are fully explained in the \ldblquote Variances\rdblquote  section of this\par
+guide.\par
+Question 13: What Variance requests are not acceptable?\par
+\b0\bullet  Use of native code with pure workarounds for unsupported platforms.\par
+\bullet  Any use of \f3 sun.* \f0 packages.\par
+\bullet  Use of optional native libraries as plug-in replacements for pure libraries.\par
+\bullet  Use of external class dependencies (e.g., JavaScript support in browser).\par
+\bullet  Dependencies on non-portable (i.e., impure) standard extensions.\par
+\b Question 14: When running the JavaPureCheck tool, I note that some of my\par
+classes are missing from the results but I know that I included them because\par
+they are in the same directory as all of the other classes. I also will sometimes\par
+see the message \ldblquote error: bad class file\rdblquote  appear in the console where the\par
+JavaPureCheck tool is being run. What's happening?\par
+\b0 This problem generally occurs because the file was compiled incorrectly or has\par
+been modified in such a way as to be invalid. We have seen this issue occur\par
+when compiling using Microsoft Visual J++ and marking the \ldblquote debug\rdblquote  option.\par
+If you remove this option, then re-compile your classes, the \ldblquote bad class file\rdblquote\par
+message should go away.\par
+\b Question 15: Can I evaluate programs with dependencies on \ldblquote optional\par
+packages\rdblquote ?\par
+\b0 Yes and no. Java optional packages are implementations of Sun authorized\par
+APIs that extend the core Java platform. These implementations can, in some\par
+cases, be portable and be written completely in the Java application\par
+\f2 Revision Date: 10/00 B - 7\par
+\cf2\b\fs24 Frequently Asked Questions\par
+\cf1\b0\f0\fs20 programming language, or they may be non-portable and make specific\par
+platform dependent references to native code or to the underlying operating\par
+system. Only programs bundled with portable optional packages can be\par
+considered compliant with the purity standard.\par
+Portable optional packages are normally considered compliant with the 100%\par
+Pure Java standard. When bundled with a dependent program seeking\par
+certification, these portable optional packages are treated in the same manner\par
+as pure class libraries or beans.\par
+\b\i Note: \i0 Sun has defined an exception to this \ldblquote must bundle\rdblquote  requirement for\par
+the Servlet optional package. Because the Servlet API is normally\par
+implemented as part of a web server, it is not reasonable to bundle a 100%\par
+Pure Java program implementation of the API with every servlet because\par
+there is no guaranteed way to invoke it.\par
+Question 16: Can I use native JDBC drivers with my product?\par
+\b0 Yes, native JDBC drivers can be included in your program as long as you\par
+certify your program using a pure driver (i.e., references to native drivers may\par
+not be exclusively hard-coded into your program). See \ldblquote Pitfall: "JDBC\'99 Driver\par
+Loading" \rdblquote  in Chapter 3 for more information about using JDBC drivers.\par
+You can either include a 100% Pure Java certified driver in your verification\par
+package for certification, or use an uncertified (but pure) driver that will be\par
+included as part of the static check of your program.\par
+\b Question 17: How can my applet work outside the sandbox (i.e., access\par
+security-constrained methods) in Netscape Navigator and Internet Explorer?\par
+\b0 Use Variance #67. This variance allows your applet to make direct calls to the\par
+native Netscape and Microsoft security manger APIs. See \ldblquote Variance: #67\emdash Use\par
+of Netscape Navigator and Internet Explorer Security Managers.\rdblquote  Contact\par
+Netscape or Microsoft for more information about developing to these APIs.\par
+\b\i Note: \i0 Verification of your program to the purity standard should always be\par
+done using Java Compatible platforms. Specific code written to enable a\par
+browser\rquote s ability to access secure methods will only be exercised if that\par
+browser uses a Java Compatible runtime environment. See Appendix A,\par
+"Available Java Platforms" for information about the platforms used for\par
+certification.\b0\par
+\cf0\f2\par
+}
+ 
