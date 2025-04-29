@@ -1,12 +1,8 @@
 # eBooks
 
 --- 
-This repository contains all my electronic books, which are categorized based 
-on the programming languages and usability. It might be some of the books have 
-copyright as most of these are downloaded from the public links (and owner of 
-those books, can send email to remove that book from this repository, and I'll 
-remove that one) and for personal learning only, so if anyone either downloads 
-or uses this repository AS IT IS with their own responsibility.
+This repository contains an electronic books, which are categorized based 
+on the usability. It might be some of the books have copyright as most of these are downloaded from the public links (and owner of those books, can send email to remove that book from this repository, and I'll remove that one). I'm maintaining it only for personal learning, so anyone can either downloads or uses this repository AS IT IS with their own responsibility.
 
 ---
 

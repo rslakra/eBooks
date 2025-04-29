@@ -1,0 +1,30 @@
+1)What is a software design pattern?
+2)Why is the study of patterns important?
+3)How do I document a design pattern?
+4)Where can I learn more about design patterns?
+5)What is an example of a design pattern?
+6)Calendar is an abstract class. The getInstance() method tries to instantiate GregorianCalendar() i.e., parent instantiating a derived class. This looks Non-OO? Ex: Calendar a=Calendar.getInstance(); Can somebody explain why is it so?
+7)What major patterns do the Java APIs utilize?
+8)How can I make sure at most one instance of my class is ever created?
+9)When would I use the delegation pattern instead of inheritence to extend a class's behavior?
+10)Which patterns were used by Sun in designing the Enterprise JavaBeans model?
+11)What is an analysis pattern?
+12)What are the differences between analysis patterns and design patterns?
+13)How does "Extreme Programming" (XP) fit with patterns?
+14)What is the disadvantage of using the Singleton pattern? It is enticing to use this pattern for all the classes as it makes it easy to get the reference of the singleton object.
+15)How do you write a Thread-Safe Singleton?
+16)What is the Reactor pattern?
+17)What are Process Patterns?
+18)How and where did the concept of design patterns get started?
+19)Where can I find good examples of the Prototype pattern?
+20)What are Anti-Patterns?
+21)What patterns are particularly useful in building networked applications?
+22)Are there any good Java-specific patterns books available?
+23)What are Collaboration Patterns?
+24)Is it correct from a design point of view to make an object both an Observer and Observable at the same time?
+25)How can I maintain a single instance of an object in an applet?
+26)What is the best way to generate a universally unique object ID? Do I need to use an external resource like a file or database, or can I do it all in memory?
+27)Is there some kind of Design pattern which would make it possible to use the Same code base in EJB and non EJB context?
+28)What is session facade?
+29)How is JDO different from VO ?
+30)How can I implement the MVC design pattern using JSP?
