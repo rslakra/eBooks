@@ -52,7 +52,7 @@ or uses this repository AS IT IS with their own responsibility.
 - [Forget code coverage! Use Mutation Testing](https://craftbettersoftware.com/p/forget-code-coverage-use-mutation)
 - [Screaming Architecture](https://www.milanjovanovic.tech/blog/screaming-architecture)
 - [Alexandre Zajac writes a weekly curating important articles](https://hungrymindsdev.substack.com/)
-
+- [Git Large File Storage](https://git-lfs.github.com)
 
 
 # Author
