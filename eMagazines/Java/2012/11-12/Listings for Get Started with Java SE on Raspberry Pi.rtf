@@ -1,0 +1,120 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 NeueSansPro-Normal;}
+{\colortbl;\red255\green255\blue255;\red88\green88\blue91;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Code listings for "Get Started with Java SE for Embedded Devices on Raspberry Pi," Java Magazine, November/December 2012.\
+\
+Listing 1\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 [ 110.084625] sdb: detected capacity change from 0 to \
+3963617280\
+[ 118.055249] sd 2:0:0:0: [sdb] 7741440 512-byte logical \
+blocks: (3.96 GB/3.69 GiB)\
+[ 118.059409] sd 2:0:0:0: [sdb] Assuming drive cache: \
+write through\
+[ 118.064547] sd 2:0:0:0: [sdb] Assuming drive cache: \
+write through\
+[ 118.066015] sdb: sdb1\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Listing 2\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 $ cd ~/RaspberryPi/debian6-19-04-2012\
+$ sudo dd if=yourDebian.img of=/dev/sdb bs=1M\
+1859+1 records in\
+1859+1 records out\
+1950000000 bytes (2.0 GB) copied, 212.344 s, 9.2MB/s
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+Listing 3\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 $ ls ejre*\
+ejre1.7.0_04\
+$ cd ejre*\
+$ ./bin/java -version\
+java version "1.7.0_04-ea"\
+Java(TM) SE Runtime Environment for Embedded (build \
+1.7.0_04-ea-b20, headless)\
+Java Hotspot(TM) Embedded Client VM (build 23.0-b21, mixed mode)
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+Listing 4\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 127.0.0.1 localhost\uc0\u8232 192.168.0.100  raspberrypi.yourDomain \
+raspberrypi loghost 
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+Listing 5\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 $ ip a\
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 16436 qdisc noqueue state \
+UNKNOWN\
+   link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00\
+   inet 127.0.0.1/8 scope host lo\
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1488 qdisc \
+pfifo_fast state UNKNOWN qlen 1000\
+   link/ether b8:27:eb:b5:e8:90 brd ff:ff:ff:ff:ff:ff\
+   inet xx.xxx.xxx.xx/xx brd xx.xxx.xxx.xxx scope global eth0
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+Listing 6\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 # Used by ifup(8) and ifdown(8). See the interfaces(5) manpage\
+# or /usr/share/doc/ifupdown/examples for more information.\
+auto lo\
+iface lo inet loopback\
+#\
+# New entries to support static IP follow: \
+\
+auto eth0\
+iface eth0 inet static\
+hwaddress ether b8:27:eb:b5:e8:90\
+address 192.168.0.100\
+network 192.168.0.0\
+netmask 255.255.255.0\
+broadcast 192.168.0.255\
+gateway 192.168.0.1
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+\
+Listing 7\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 proc            /proc     proc    defaults    0   0 \
+/dev/mmcblk0p1  /boot     vfat    defaults    0   0 \
+#/dev/mmcblk0p3  none     swap    sw          0   0 
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+\
+Listing 8\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl320
+
+\f1\fs26 \cf2 proc            /proc   proc    defaults    0   0 \
+/dev/mmcblk0p1  /boot   vfat    defaults    0   0 \
+/dev/mmcblk0p2  /       auto    rw,noatime,nodiratime,\
+errors=remount-ro 0   1\
+/dev/mmcblk0p3  none    swap    sw          0   0
+\f0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+Copyright 2012, Oracle Corporation\
+}

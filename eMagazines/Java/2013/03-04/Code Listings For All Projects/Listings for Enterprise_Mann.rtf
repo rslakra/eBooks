@@ -1,0 +1,612 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Calibri;\f2\froman\fcharset0 TimesNewRomanPSMT;
+\f3\fmodern\fcharset0 CourierNewPSMT;\f4\fswiss\fcharset0 ArialMT;\f5\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue10;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Code listings for "Responsive Interportlet Communication with Ajax," Java Magazine, March/April 2013\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\fs22 \cf0 \
+[Listing 1]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+\f2 \
+
+\f3    xmlns:aui="http://liferay.com/faces/aui"
+\f2 \
+
+\f3    xmlns:f="http://java.sun.com/jsf/core"
+\f2 \
+
+\f3    xmlns:h="http://java.sun.com/jsf/html"
+\f2 \
+
+\f3    xmlns:ice="http://www.icesoft.com/icefaces/component"
+\f2 \
+
+\f3    xmlns:ui="http://java.sun.com/jsf/facelets">\
+   <h:head>\
+      <h:outputStylesheet library="example" name="portlet.css" />\
+   </h:head>\
+   <h:body>\
+      <ice:form id="form">\
+         <ice:commandButton id="count" actionListener="#\{counter.increment\}"
+\f2 \
+
+\f3             value="Count">\
+         </ice:commandButton>\
+      </ice:form>\
+   </h:body>\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 </f:view>
+\f2\fs22 \
+\pard\tx709\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1 \cf0 [Listing 2] \
+\pard\pardeftab720\ri720\sl276\slmult1
+
+\f3\fs20 \cf0 @RequestScoped\
+@ManagedBean\
+public class Counter \{\
+\
+   public static final String COUNTER_KEY = "count";\
+   public static final String COUNTER_RENDER_GROUP = \
+"counter-render-group";\
+\
+   @ManagedProperty("#\{httpSessionScope\}")\
+   private Map appSession;\
+\
+   public Counter() \{\
+      PushRenderer.addCurrentSession(COUNTER_RENDER_GROUP);\
+   \}\
+   @PreDestroy\
+   public void preDestroy() \{\
+      PushRenderer.removeCurrentSession(COUNTER_RENDER_GROUP);\
+   \}\
+   public Integer getValue() \{\
+      Integer value = (Integer) getAppSession().get(Counter.COUNTER_KEY);\
+      return value == null ? 0 : value;\
+   \}\
+   private void setValue(Integer value) \{\
+      getAppSession().put(Counter.COUNTER_KEY, value);\
+   \}\
+   public void increment() \{\
+      setValue(getValue() + 1);\
+      PushRenderer.render(COUNTER_RENDER_GROUP);\
+      System.out.println(\
+"Counter value incremented to: " + getValue());\
+   \}\
+   public Map getAppSession() \{\
+      return appSession;\
+   \}\
+   public void setAppSession(Map portletSession) \{\
+      this.appSession = portletSession;\
+   \}\
+\}\
+\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\fs22 \cf0 [Listing 3]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+\f2 \
+
+\f3    xmlns:aui="http://liferay.com/faces/aui"
+\f2 \
+
+\f3    xmlns:f="http://java.sun.com/jsf/core"
+\f2 \
+
+\f3    xmlns:h="http://java.sun.com/jsf/html"
+\f2 \
+
+\f3       xmlns:ice="http://www.icesoft.com/icefaces/component"
+\f2 \
+
+\f3    xmlns:ui="http://java.sun.com/jsf/facelets">\
+   <h:head>\
+      <h:outputStylesheet library="example" name="portlet.css" />\
+   </h:head>\
+   <h:body>\
+      <ice:outputText id="counterViewer" 
+\f2 \
+
+\f3 value="#\{counterViewer.value\}"
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f4 \cf0  
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3 \cf0 styleClass="counter-viewer" />\
+   </h:body>\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 </f:view>
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+
+\f1\fs22 \cf0 [Listing 4]\
+\pard\pardeftab720\ri720
+
+\f3\fs20 \cf0 @RequestScoped\
+@ManagedBean\
+public class CounterViewer \{\
+\'a0\
+\'a0\'a0\'a0\'a0\'a0 public static final String COUNTER_KEY = "count";\
+\'a0\'a0\'a0\'a0\'a0 public static final String COUNTER_RENDER_GROUP = 
+\f2 \
+
+\f3 "counter-render-group";\
+\'a0\'a0\'a0\'a0\'a0 @ManagedProperty("#\{httpSessionScope\}")\
+\'a0\'a0\'a0\'a0\'a0 private Map<String, Object> appSession;\
+\'a0\
+\'a0\'a0\'a0\'a0\'a0 public CounterViewer() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 PushRenderer.addCurrentSession(COUNTER_RENDER_GROUP);\
+\'a0\'a0\'a0\'a0\'a0 \}\
+\'a0\'a0\'a0\'a0\'a0 @PreDestroy\
+\'a0\'a0\'a0\'a0\'a0 public void preDestroy() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 PushRenderer.removeCurrentSession(
+\f2 \
+
+\f3 COUNTER_RENDER_GROUP);\
+\'a0\'a0\'a0\'a0\'a0 \}\
+\'a0\'a0\'a0\'a0\'a0 public Integer getValue() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 Integer value = (Integer) getAppSession().get(
+\f2 \
+
+\f3 COUNTER_KEY);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 return value == null ? 0 : value;\
+\'a0\'a0\'a0\'a0\'a0 \}\
+\'a0\'a0\'a0\'a0\'a0 public Map<String, Object>\'a0 getAppSession() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 return appSession;\
+\'a0\'a0\'a0\'a0\'a0 \}\
+\'a0\'a0\'a0\'a0\'a0 public void setAppSession(
+\f2 \
+
+\f3 Map<String, Object>\'a0 portletSession) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0 this.appSession = portletSession;\
+\'a0\'a0\'a0\'a0\'a0 \}\
+\}
+\f2 \
+\pard\pardeftab720\ri720\sl276\slmult1
+
+\fs22 \cf0 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1 \cf0 [Listing 5]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+\f2 \
+
+\f3    xmlns:aui="http://liferay.com/faces/aui"
+\f2 \
+
+\f3    xmlns:f="http://java.sun.com/jsf/core"
+\f2 \
+
+\f3    xmlns:h="http://java.sun.com/jsf/html"
+\f2 \
+
+\f3    xmlns:p="http://primefaces.org/ui"
+\f2 \
+
+\f3    xmlns:ui="http://java.sun.com/jsf/facelets">\
+   <h:head>\
+      <h:outputStylesheet library="example" name="portlet.css" />\
+   </h:head>\
+   <h:body>\
+      <h:form id="form">\
+         <p:commandButton value="Count" actionListener="#\{
+\f2 \
+
+\f3 counter.increment\}" />\
+      </h:form>\
+   </h:body>\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 </f:view>
+\f2 \
+\pard\pardeftab720\ri720\sl276\slmult1
+
+\fs22 \cf0 \
+\pard\tx709\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1 \cf0 [Listing 6]
+\f2\fs24 \cf2 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\fs22 \cf0 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 @SessionScoped\
+@ManagedBean\
+public class Counter \{\
+\
+   private Integer value = new Integer(1);\
+\
+   public Integer getValue() \{\
+      return value;\
+   
+\f2 \}\
+
+\f3    private void setValue(Integer value) \{\
+      this.value = value;\
+   
+\f2 \}\
+
+\f3    public void increment() \{\
+      Integer newValue = getValue() + 1;\
+      setValue(newValue);\
+      PushContext pushContext = PushContextFactory.getDefault()\
+            .getPushContext();\
+      pushContext.push(getChannelName(), newValue.toString());\
+      System.out.println(
+\f2 \
+
+\f3 "Counter value incremented to: " + newValue);\
+   
+\f2 \}\
+
+\f3    public String getChannelName() \{\
+      return "/counter" + getPortletSession().getId();\
+   
+\f2 \}\
+
+\f3    protected PortletSession getPortletSession() \{\
+      FacesContext facesContext = 
+\f2 \
+
+\f3 FacesContext.getCurrentInstance();\
+      return (PortletSession) facesContext.getExternalContext().getSession(\
+            false);\
+   
+\f2 \}\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 \}\
+\pard\pardeftab720\ri720
+
+\f1\fs22 \cf0 [Listing 7]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 <p:socket 
+\f2 \
+
+\f3   channel="#\{counterViewer.channel\}" 
+\f2 \
+
+\f3   onMessage="handleMessage">\
+   <p:ajax event="message" process=":form:hiddenCountValue" />\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 </p:socket>
+\f2 \
+\pard\pardeftab720\ri720
+
+\f1\fs22 \cf0 [Listing 8]
+\f2 \
+\pard\pardeftab720\ri720
+
+\f3\fs20 \cf0 channelViewerSocket = new PrimeFaces.widget.Socket(\{\
+   url:"/primefaces-ipc-counter/primepush#\{counterViewer.\
+channel\}",\
+   autoConnect:true,\
+   transport:"websocket",\
+   fallbackTransport:"long-polling",\
+   onMessage:handleMessage,\
+   behaviors: \{\
+      message: function(a) \{\
+      PrimeFaces.ab(\{\
+         source:"#\{view.getClientId(facesContext)\}:form",\
+         event:"message",\
+         process:"#\{view.getClientId(facesContext)\}:form:\
+hiddenCountValue"\
+     \},\
+     arguments[1])\}\
+  \}\
+\});
+\f2\fs22 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\fs28 \cf0 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\fs22 \cf0 [Listing 9a]
+\f2 \
+\pard\pardeftab720\ri720
+
+\f3\fs20 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<f:view xmlns="http://www.w3.org/1999/xhtml"\
+   xmlns:aui="http://liferay.com/faces/aui"\
+   xmlns:f="http://java.sun.com/jsf/core"\
+   xmlns:h="http://java.sun.com/jsf/html"\
+   xmlns:p="http://primefaces.org/ui"\
+   xmlns:ui="http://java.sun.com/jsf/facelets">\
+   <h:head>\
+      <h:outputStylesheet library="example" name="portlet.css" />\
+      <h:outputScript library="primefaces" name="primefaces.js"/>\
+      <h:outputScript library="primefaces" name="push/push.js"/>\
+   </h:head>\
+   <h:body>\
+      <h:form id="form">\
+         <h:outputText id="counterValue" value="#\{counterViewer.value\}"\
+            styleClass="counter-viewer" />\
+         <h:inputHidden id="hiddenCountValue" value="#\{counterViewer.value\}" />\
+      </h:form>\
+\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+\cf0 Listing 9b\
+\pard\pardeftab720\ri720
+\cf0 <h:outputScript>\
+         function handleMessage(data) \{\
+            document.getElementById("#\{view.getClientId(facesContext)\}:form:counterValue").innerHTML = data;\
+            document.getElementById("#\{view.getClientId(facesContext)\}:form:hiddenCountValue").value = data;\
+         \};         \
+         channelViewerSocket = new PrimeFaces.widget.Socket(\{\
+            url:"/primefaces-ipc-counter/primepush#\{counterViewer.channel\}",\
+            autoConnect:true,\
+            transport:"websocket",\
+            fallbackTransport:"long-polling",\
+            onMessage:handleMessage,\
+            behaviors: \{\
+               message: function(a) \{\
+                  PrimeFaces.ab(\{\
+                     source:"#\{view.getClientId(facesContext)\}:form",\
+                     event:"message",\
+                     process:"#\{view.getClientId(facesContext)\}:form:hiddenCountValue"\
+                   \},\
+                  arguments[1])\}\
+               \}\
+            \});\
+      </h:outputScript>\
+   </h:body>\
+</f:view>\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f2\b\fs22 \cf0 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\b0 \cf0 [Listing 10]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 @SessionScoped\
+@ManagedBean\
+public class CounterViewer \{\
+\
+   private Integer value = 0;\
+\
+   public Integer getValue() \{\
+      return value;\
+   
+\f2 \}\
+\
+
+\f3    public void setValue(Integer value) \{\
+      this.value = value;\
+      System.out.println("
+\f2 \
+
+\f3 Counter viewer value set to: " + value);\
+   
+\f2 \}\
+
+\f3    
+\f2 \
+
+\f3    public String getChannel() \{\
+      return "/counter" + getPortletSession().getId();\
+   
+\f2 \}\
+
+\f3    
+\f2 \
+
+\f3    protected PortletSession getPortletSession() \{\
+      FacesContext facesContext = 
+\f2 \
+
+\f3 FacesContext.getCurrentInstance();\
+      return (PortletSession) facesContext.getExternalContext().getSession(\
+            false);\
+	\}\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+
+\f2 \cf0 \}\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f4 \cf0 [Listing 11]\
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+\f2 \
+
+\f3    xmlns:aui="http://liferay.com/faces/aui"
+\f2 \
+
+\f3    xmlns:f="http://java.sun.com/jsf/core"
+\f2 \
+
+\f3    xmlns:h="http://java.sun.com/jsf/html"
+\f2 \
+
+\f3    xmlns:ui="http://java.sun.com/jsf/facelets">\
+   <h:head>\
+      <h:outputStylesheet library="example" name="portlet.css" />\
+      <h:outputScript library="example" 
+\f2 \
+
+\f3 name="jquery-1.8.2.js" target="head"/>\
+   </h:head>\
+   <h:body>\
+      <h:outputScript>\
+      function sendCount(data) \{\
+         if (data.status == "success") \{\
+            var value = document.getElementById(
+\f2 \
+
+\f3 "#\{view.getClientId(facesContext)\}:form:
+\f2 \
+
+\f3 hiddenCountValue")
+\f4  
+\f2 \
+
+\f3 .value;\
+            jQuery(document).trigger("count", value);\
+         
+\f2 \}\
+
+\f3       
+\f2 \}\
+
+\f3       </h:outputScript>\
+      <h:form id="form">\
+         <h:commandButton id="count" 
+\f2 \
+
+\f3 actionListener="#\{counter.increment\}"
+\f2 \
+
+\f3             value="Count">\
+            <f:ajax render="hiddenCountValue" 
+\f2 \
+
+\f3 onevent="sendCount" />\
+         </h:commandButton>\
+         <h:inputHidden id="hiddenCountValue" 
+\f2 \
+
+\f3 value="#\{counter.value\}" />\
+      </h:form>\
+   </h:body>\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 </f:view>
+\f2 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\fs22 \cf0 [Listing 12]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 @SessionScoped\
+@ManagedBean\
+public class Counter \{\
+   private int value;\
+\
+   public int getValue() \{\
+      return value;\
+   
+\f2 \}\
+
+\f3    private void setValue(int value) \{\
+      this.value = value;\
+   
+\f2 \}\
+
+\f3    public void increment() \{\
+      setValue(getValue() + 1);\
+      System.out.println(
+\f2 \
+
+\f3 "Counter value incremented to: " + getValue());\
+   
+\f2 \}\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 \}\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\fs22 \cf0 [Listing 13]
+\f2 \
+\pard\pardeftab720\ri720\sl180\slmult1
+
+\f3\fs20 \cf0 <?xml version="1.0" encoding="UTF-8"?>\
+<f:view xmlns="http://www.w3.org/1999/xhtml"\
+   xmlns:aui="http://liferay.com/faces/aui"\
+   xmlns:f="http://java.sun.com/jsf/core"\
+   xmlns:h="http://java.sun.com/jsf/html"\
+   xmlns:ui="http://java.sun.com/jsf/facelets">\
+   <h:head>\
+      <h:outputStylesheet library="example" name="portlet.css" />\
+      <h:outputScript library="example" 
+\f2 \
+
+\f3 name="jquery-1.8.2.js" target="head" />\
+   </h:head>\
+   <h:body>\
+      <h:outputText id="counterViewer" 
+\f2 \
+
+\f3 value="#\{counterViewer.value\}"\
+         styleClass="counter-viewer" />\
+      <h:form id="form">\
+         <h:outputScript>\
+\pard\pardeftab720\li720\ri720\sl180\slmult1
+\cf0          jQuery(document).ready(function() \{\
+            jQuery(document).on(
+\f2 \
+
+\f3 "count", function(event, count) \{\
+document.getElementById("#\{view.getClientId(
+\f2 \
+
+\f3 facesContext)\}:counterViewer").innerText = count;\
+             var hiddenCountValue = 
+\f2 \
+
+\f3 document.getElementById("#\{view.getClientId(
+\f2 \
+
+\f3 facesContext)\}:form:hiddenCountValue");\
+               hiddenCountValue.value = count;\
+               jsf.ajax.request (
+\f2 \
+
+\f3 hiddenCountValue, 'change');\
+         
+\f2 \}
+\f3 );\});\
+\pard\pardeftab720\ri720\sl180\slmult1
+\cf0          </h:outputScript>\
+         <h:inputText id="hiddenCountValue" value="#\{counterViewer.value\}" style="display:none"/>\
+      </h:form>\
+   </h:body>\
+\pard\pardeftab720\ri720\sl180\slmult1\sa200
+\cf0 </f:view>
+\f2 \
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f1\fs22 \cf0 \
+\
+
+\f0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\pard\pardeftab720\ri-722
+
+\f4\fs21 \cf0 \
+\pard\pardeftab720\ri-722
+
+\f5 \cf0 Copyright 2013 Oracle Corporation}

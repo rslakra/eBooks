@@ -1,0 +1,404 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fmodern\fcharset0 CourierNewPSMT;
+\f3\fswiss\fcharset0 ArialMT;\f4\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Code listings for "The Advanced Java Compiler API, Part 1," Java Magazine, March/April 2013\
+\
+\pard\pardeftab720\ri-612\sa120
+
+\f1 \cf0 [Listing 1]
+\f2\fs18 \
+JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();\
+StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
+\f1\fs24 \
+\
+[Listing 2]
+\f2\fs18 \
+\pard\pardeftab720\ri-612\sb100
+\cf0 Iterable<? extends JavaFileObject> units;\
+\pard\pardeftab720\ri-612\sb100\sa240
+\cf0 units = fileManager.getJavaFileObjects(new File("tests/TestClass.java"));
+\f1\fs24 \
+\pard\pardeftab720\ri-612\sa120
+\cf0 \
+[Listing 3]\
+\pard\pardeftab720\ri-612\sb100\sa58
+
+\f2\fs18 \cf0 CompilationTask task = compiler.getTask(null, fileManager,null,null,null,units);\
+task.call();\
+\pard\pardeftab720\ri-612\sa120
+
+\f1\fs24 \cf0 \
+[Listing 4]
+\f2\fs18 \
+@SupportedSourceVersion(SourceVersion.RELEASE_6)\
+@SupportedAnnotationTypes("*")\
+public static class SimpleProcessor extends AbstractProcessor \{
+\f1 \
+\pard\pardeftab720\ri-612\sa120
+
+\f2 \cf0     public boolean process(Set<? extends TypeElement> types, RoundEnvironment env) \{
+\f1 \
+
+\f2         if(!env.processingOver()) \{
+\f1 \
+
+\f2             for(Element elem : env.getRootElements()) \{
+\f1 \
+
+\f2                 System.out.println("element: " + elem.getSimpleName() + " kind = " + elem.getKind());
+\f1 \
+
+\f2                 for(Element child : elem.getEnclosedElements()) \{
+\f1 \
+
+\f2                    System.out.println("  element: " + child.getSimpleName() + " kind = " + child.getKind());
+\f1 \
+
+\f2                 \}
+\f1 \
+
+\f2             \}
+\f1 \
+
+\f2         \}
+\f1 \
+
+\f2         return false;
+\f1 \
+
+\f2     \}\
+\}
+\f1\fs24 \
+[Listing 5]\
+\pard\pardeftab720\ri-612\sb100\sa58
+
+\f2\fs18 \cf0 List<Processor> processors = new ArrayList<Processor>();\
+processors.add(new SimpleProcessor());\
+task.setProcessors(processors);\
+task.call();\
+\pard\pardeftab720\ri-612\sa120
+
+\f1\fs24 \cf0 \
+[Listing 6]\
+\pard\pardeftab720\ri-612\sb100\sa58
+
+\f2\fs18 \cf0 element: TestClass kind = CLASS\
+element: TestInnerClass kind = CLASS\
+element: foo kind = FIELD\
+element: bar kind = FIELD\
+element: <init> kind = CONSTRUCTOR\
+element: <init> kind = CONSTRUCTOR\
+element: toString kind = METHOD\
+\pard\pardeftab720\ri-612\sa120
+
+\f1\fs24 \cf0 \
+[Listing 7]
+\f2\fs18 \
+public static class SimpleProcessor extends AbstractProcessor \{
+\f1 \
+\pard\pardeftab720\ri-612\sa120
+
+\f2 \cf0     public boolean process(Set<? extends TypeElement> types, RoundEnvironment env) \{
+\f1 \
+
+\f2         if(env.processingOver()) return false;
+\f1 \
+
+\f2         int classCount = 0;
+\f1 \
+
+\f2         int methodCount = 0;
+\f1 \
+
+\f2         int fieldCount = 0;\
+\
+        for(Element elem : env.getRootElements()) \{
+\f1 \
+
+\f2             if(elem.getKind() == ElementKind.CLASS)
+\f1 \
+
+\f2                 classCount++;            
+\f1 \
+
+\f2             for(Element sub : elem.getEnclosedElements()) \{
+\f1 \
+
+\f2                 if(sub.getKind() == ElementKind.FIELD)
+\f1 \
+
+\f2                     fieldCount++;
+\f1 \
+
+\f2                 if(sub.getKind() == ElementKind.METHOD 
+\f1 \
+
+\f2                         || sub.getKind() == ElementKind.CONSTRUCTOR)
+\f1 \
+
+\f2                     methodCount++;
+\f1 \
+
+\f2             \}
+\f1 \
+
+\f2         \}
+\f1 \
+
+\f2         \
+        u.p("total class count: " + classCount);
+\f1 \
+
+\f2         u.p("total method count " + methodCount);
+\f1 \
+
+\f2         u.p("total field count  " + fieldCount);
+\f1 \
+
+\f2         return false;
+\f1 \
+
+\f2     \}\
+\}
+\f1\fs24 \
+\
+[Listing 8]
+\f2\fs18 \
+import java.lang.String;\
+\
+public class TestClass \{
+\f1 \
+
+\f2     private int foo;
+\f1 \
+
+\f2     private String bar;
+\f1 \
+
+\f2     \
+    public TestClass() \{    \}
+\f1 \
+
+\f2     public TestClass(String str) \{    \}\
+\
+    public String toString() \{
+\f1 \
+
+\f2         return null;
+\f1 \
+
+\f2     \}\
+\
+    public static class TestInnerClass \{
+\f1 \
+
+\f2         private int baz;
+\f1 \
+
+\f2         public String toFoo() \{
+\f1 \
+
+\f2             int x = 0;
+\f1 \
+
+\f2             return null;
+\f1 \
+
+\f2         \}
+\f1 \
+
+\f2     \}\
+\}
+\f1\fs24 \
+\
+[Listing 9]
+\f2\fs18 \
+public static class CodeCounter extends ElementScanner6<Void,Void> \{
+\f1 \
+
+\f2     private SimpleProcessor proc;\
+\
+    public CodeCounter(SimpleProcessor proc) \{
+\f1 \
+
+\f2         this.proc = proc;
+\f1 \
+
+\f2     \}\
+\
+    public Void visitType(TypeElement type, Void v) \{
+\f1 \
+
+\f2         proc.classCount++;
+\f1 \
+
+\f2         return super.visitType(type,v);
+\f1 \
+
+\f2     \}\
+\
+    public Void visitExecutable(ExecutableElement exe, Void v) \{
+\f1 \
+
+\f2         proc.methodCount++;
+\f1 \
+
+\f2         return super.visitExecutable(exe,v);
+\f1 \
+
+\f2     \}\
+\
+    public Void visitVariable(VariableElement var, Void v) \{
+\f1 \
+
+\f2         if(var.getEnclosingElement().getKind() == ElementKind.CLASS)
+\f1 \
+
+\f2             proc.fieldCount++;
+\f1 \
+
+\f2         return super.visitVariable(var,v);
+\f1 \
+
+\f2     \}\
+\}
+\f1\fs24 \
+\
+[Listing 10]
+\f2\fs18 \
+StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);\
+fileManager.setLocation(StandardLocation.CLASS_OUTPUT, Arrays.asList(new File("/tmp")));        File pth = new File("/Users/josh/projects/Leo/LeonardoSketch/Sketch/src/");\
+fileManager.setLocation(StandardLocation.SOURCE_PATH, Arrays.asList(pth));\
+\
+Set<JavaFileObject.Kind> kinds = new HashSet<JavaFileObject.Kind>();\
+kinds.add(JavaFileObject.Kind.SOURCE);\
+\
+Iterable<JavaFileObject> files = fileManager.list(
+\f1 \
+
+\f2         StandardLocation.SOURCE_PATH, "", kinds, true);\
+JavaCompiler.CompilationTask task = compiler.getTask(
+\f1 \
+
+\f2         null, fileManager, null, null, null, files);
+\f1\fs24 \
+\
+[Listing 11]
+\f2\fs18 \
+private static class Claz implements Comparable<Claz> \{
+\f1 \
+
+\f2     String qname;
+\f1 \
+
+\f2     String sname;
+\f1 \
+
+\f2     String pkgname;
+\f1 \
+
+\f2     Set<String> refs = new HashSet<String>();
+\f1 \
+
+\f2     List<String> sortedRefs = new ArrayList<String>();\
+\
+    public int compareTo(Claz claz) \{
+\f1 \
+
+\f2         return this.qname.compareTo(claz.qname);
+\f1 \
+
+\f2     \}\
+\}
+\f1\fs24 \
+\
+[Listing 12]
+\f2\fs18 \
+public static class CodeCounter extends ElementScanner6<Void,Void> \{
+\f1 \
+
+\f2     public Void visitType(TypeElement type, Void v) \{
+\f1 \
+
+\f2         if(type.getKind() == ElementKind.CLASS) \{
+\f1 \
+
+\f2             Claz claz = new Claz();
+\f1 \
+
+\f2             claz.qname = type.getQualifiedName().toString();
+\f1 \
+
+\f2             claz.sname = type.getSimpleName().toString();
+\f1 \
+
+\f2             claz.pkgname = claz.qname.substring(0,claz.qname.lastIndexOf('.'));
+\f1 \
+
+\f2                 \
+            if(!pkgs.containsKey(claz.pkgname)) \{
+\f1 \
+
+\f2                 pkgs.put(claz.pkgname,new ArrayList<Claz>());
+\f1 \
+
+\f2             \}
+\f1 \
+
+\f2             List<Claz> classes = pkgs.get(claz.pkgname);
+\f1 \
+
+\f2             classes.add(claz);
+\f1 \
+
+\f2             currentClass = claz;
+\f1 \
+
+\f2         \}
+\f1 \
+
+\f2         return super.visitType(type,v);
+\f1 \
+
+\f2     \}\
+\
+    public Void visitVariable(VariableElement var, Void v) \{
+\f1 \
+
+\f2         if(!var.asType().getKind().isPrimitive()) \{
+\f1 \
+
+\f2             String type = var.asType().toString();
+\f1 \
+
+\f2             if(!currentClass.refs.contains(type)) \{
+\f1 \
+
+\f2                     currentClass.refs.add(type);
+\f1 \
+
+\f2                     currentClass.sortedRefs.add(type);
+\f1 \
+
+\f2             \}
+\f1 \
+
+\f2         \}
+\f1 \
+
+\f2         return super.visitVariable(var,v);
+\f1 \
+
+\f2     \}\
+\}
+\f1\fs24 \
+\pard\pardeftab720\ri-722
+
+\f3\fs21 \cf0 \
+\pard\pardeftab720\ri-722
+
+\f4 \cf0 Copyright 2013 Oracle Corporation}

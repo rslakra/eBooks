@@ -1,0 +1,315 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 ArialMT;
+\f3\fmodern\fcharset0 CourierNewPSMT;\f4\fnil\fcharset0 Calibri;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf0 Code listings for "JavaFX in Spring, Part 2," Java Magazine, March/April 2013\
+
+\f1 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 1]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 @SuppressWarnings("unchecked")\
+private Node createDataTable() \{\
+\'a0\'a0\'a0\'a0StackPane dataTableBorder = new StackPane();\
+\'a0\'a0\'a0\'a0dataTableBorder.getChildren().add(tableView);\
+\'a0\'a0\'a0\'a0dataTableBorder.setPadding(new Insets(8));\
+\'a0\'a0\'a0\'a0dataTableBorder.setStyle("-fx-background-color: lightgray");\
+\'a0\'a0\'a0\'a0tableView.setItems(controller.getCustomers());\
+\'a0\'a0\'a0\'a0tableView.getColumns().setAll(\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0TableColumnBuilder.<Customer, String>create()\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.text("First Name")\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.cellValueFactory(\
+new PropertyValueFactory<Customer, String>("firstName"))\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.prefWidth(204)\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.build(),\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0TableColumnBuilder.<Customer, String>create()\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.text("Last Name")\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.cellValueFactory(\
+new PropertyValueFactory<Customer, String>("lastName"))\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.prefWidth(204)\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.build(),\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0TableColumnBuilder.<Customer, String>create()\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.text("Sign-up Date")\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.cellValueFactory(\
+new PropertyValueFactory<Customer, String>("signupDate"))\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.prefWidth(351)\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0.build()\
+\'a0\'a0\'a0\'a0);\
+\'a0\'a0\'a0\'a0tableView.setPrefHeight(500);\
+\'a0\'a0\'a0\'a0return dataTableBorder;\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 2]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 Customer[] customers = \
+restTemplate.getForObject("http://localhost:8080/crm/customers",\
+ Customer[].class);\
+\pard\pardeftab720\ri720
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 3]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 private RestTemplate restTemplate;\
+\
+public void setRestTemplate(RestTemplate restTemplate) \{\
+\'a0\'a0\'a0\'a0this.restTemplate = restTemplate;\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f2 \cf0 [Listing 4]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 @Bean\
+RestTemplate restTemplate() \{\
+\'a0\'a0\'a0\'a0RestTemplate restTemplate = new RestTemplate();\
+\'a0\'a0\'a0\'a0restTemplate.setMessageConverters(\
+Collections.<HttpMessageConverter<?>>singletonList(\
+new MappingJacksonHttpMessageConverter()));\
+\'a0\'a0\'a0\'a0return restTemplate;\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f2 \cf0 [Listing 5]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 public class CustomerModel \{\
+\'a0\'a0\'a0\'a0private ObservableList<Customer> customers = \
+FXCollections.observableArrayList();\
+\'a0\'a0\'a0\'a0public ObservableList<Customer> getCustomers() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0return customers;\
+\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0private RestTemplate restTemplate;\
+\'a0\'a0\'a0\'a0public void setRestTemplate(RestTemplate restTemplate) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0this.restTemplate = restTemplate;\
+\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0@SuppressWarnings("unchecked")\
+\'a0\'a0\'a0\'a0public void loadData() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0Customer[] customers = restTemplate.getForObject(\
+"http://localhost:8080/crm/customers", Customer[].class);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0this.customers.setAll(customers);\
+\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0public void remove(Customer customer) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0restTemplate.delete(\
+"http://localhost:8080/crm/customer/" + customer.getId());\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0customers.remove(customer);\
+\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0public void addCustomer(String firstName, String lastName) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0Customer customer = new Customer();\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0customer.setFirstName(firstName);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0customer.setLastName(lastName);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0customer.setSignupDate(new Date());\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0Integer id = restTemplate.postForObject(\
+"http://localhost:8080/crm/customers", customer, Integer.class);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0customer.setId(id);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0customers.add(customer);\
+\'a0\'a0\'a0\'a0\}\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 6]
+\f1 \
+\
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 @Bean\
+@Scope("prototype")\
+FXMLDialog loginDialog() \{\
+\'a0\'a0\'a0\'a0return new FXMLDialog(\
+loginController(), getClass().getResource(\
+"Login.fxml"), primaryStage, StageStyle.UNDECORATED);\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f2 \cf0 [Listing 7]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 public class LoginController implements DialogController \{\
+\'a0\'a0\'a0\'a0@Autowired\
+\'a0\'a0\'a0\'a0private AuthenticationManager authenticationManager;\
+\'a0\'a0\'a0\'a0private ScreensConfiguration screens;\
+\'a0\'a0\'a0\'a0private FXMLDialog dialog;\
+\'a0\'a0\'a0\'a0public void setDialog(FXMLDialog dialog) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0this.dialog = dialog;\
+\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0public LoginController(ScreensConfiguration screens) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0this.screens = screens;\
+\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0@FXML Label header;\
+\'a0\'a0\'a0\'a0@FXML TextField username;\
+\'a0\'a0\'a0\'a0@FXML TextField password;\
+\'a0\'a0\'a0\'a0@FXML  void login() \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0Authentication authToken = \
+new UsernamePasswordAuthenticationToken(\
+username.getText(), password.getText());\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0try \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0authToken = \
+authenticationManager.authenticate(authToken);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0SecurityContextHolder.getContext().setAuthentication(\
+authToken);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\} catch (AuthenticationException e) \{\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0header.setText("Login failure, please try again:");\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0header.setTextFill(Color.DARKRED);\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0return;\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\}\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0dialog.close();\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0screens.showScreen(screens.customerDataScreen());\
+\'a0\'a0\'a0\'a0\}\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 8]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 <beans xmlns="http://www.springframework.org/schema/beans"\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0xmlns:security="\
+http://www.springframework.org/schema/security"\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0xsi:schemaLocation=\
+"http://www.springframework.org/schema/beans\
+ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd\
+             http://www.springframework.org/schema/security http:
+\f2  
+\f3 \
+//www.springframework.org/schema/security/\
+spring-security-3.1.xsd">\
+\'a0\'a0\'a0\'a0<security:global-method-security secured-annotations=\
+"enabled"/>\
+\'a0\'a0\'a0\'a0<security:authentication-manager>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<security:authentication-provider>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<security:password-encoder hash="plaintext"/>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<security:user-service>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<security:user name="manager" password="\
+password" authorities="ROLE_MANAGER"/>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0<security:user name="employee" password="\
+lol" authorities="ROLE_EMPLOYEE"/>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0</security:user-service>\
+\'a0\'a0\'a0\'a0\'a0\'a0\'a0\'a0</security:authentication-provider>\
+\'a0\'a0\'a0\'a0</security:authentication-manager>\
+</beans>\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f2 \cf0 [Listing 9]
+\f1 \
+\pard\tx916\tx1832\tx2748\tx3664\tx4580\tx5496\tx6412\tx7328\tx8244\tx9160\tx10076\tx10992\tx11908\tx12824\tx13740\tx14656\pardeftab720\ri720
+
+\f3\fs20 \cf0 @Secured("ROLE_MANAGER")\
+public void remove(Customer customer) \{\
+\'a0\'a0\'a0\'a0restTemplate.delete(\
+"http://localhost:8080/crm/customer/" + customer.getId());\
+\'a0\'a0\'a0\'a0customers.remove(customer);\
+\}\
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f1\fs24 \cf0 \
+\pard\pardeftab720\ri720\sb120\sa120
+
+\f2 \cf0 [Listing 10]
+\f1 \
+\pard\pardeftab720\ri720
+
+\f3\fs20 \cf0 removeButton = ButtonBuilder.create()\
+    .text("Remove Customer")\
+    .onAction(new EventHandler<ActionEvent>() \{\
+        public void handle(ActionEvent actionEvent) \{\
+            try \{\
+                controller.removeCustomer(\
+tableView.getSelectionModel().getSelectedItem());\
+                tableView.getSelectionModel().select(\
+Math.min(tableView.getSelectionModel().getSelectedIndex(),\
+                    tableView.getItems().size() - 1));\
+            \} catch (AccessDeniedException e) \{\
+                controller.showErrorDialog();\
+            \}\
+        \}\
+    \})\
+\pard\pardeftab720\ri720\sb120\sa120
+\cf0     .build()
+\f1\fs24 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0 \cf0 Code listings for "JavaFX in Spring, Part 2" Java Magazine, March/April 2013\
+
+\f2 \
+\pard\pardeftab720\ri720
+\cf0 [Listing 11]
+\f1 \
+\pard\pardeftab720\ri720\sb120
+
+\f3\fs20 \cf0 public class FXMLDialogProvider implements Provider<Stage> \{\
+\pard\pardeftab720\ri720
+\cf0     @Inject\
+    private ApplicationContext applicationContext;\
+    private final StageStyle style;\
+    private final URL fxml;\
+    \
+    public FXMLDialogProvider(URL fxml, StageStyle style) \{\
+        this.style = style;\
+        this.fxml = fxml;\
+    \}\
+\
+    @Override\
+    public Stage get() \{\
+        Stage dialog = new Stage(style);\
+        dialog.initModality(Modality.WINDOW_MODAL);\
+        dialog.initOwner(CustomerApp.getPrimaryStage());\
+        try \{\
+            FXMLLoader loader = new FXMLLoader(fxml);\
+            loader.setControllerFactory(\
+new Callback<Class<?>, Object>() \{\
+                @Override\
+                public Object call(Class<?> aClass) \{\
+                    return applicationContext.getBean(aClass);\
+                \}\
+            \});\
+            dialog.setScene(new Scene((Parent) loader.load()));\
+        \} catch (IOException e) \{\
+            throw new RuntimeException(e);\
+        \}\
+        return dialog;\
+    \}\
+\} \
+\
+\pard\pardeftab720\ri334\sl276\slmult1\sa200
+
+\f4\fs22 \cf0 Copyright 2013, Oracle Corporation
+\f3\fs20 \
+}

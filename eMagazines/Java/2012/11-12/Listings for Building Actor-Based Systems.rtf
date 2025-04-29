@@ -1,0 +1,281 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 ArialMT;\f1\fnil\fcharset0 NeueSansPro-Normal;\f2\fnil\fcharset0 Calibri;
+\f3\froman\fcharset0 TimesNewRomanPSMT;\f4\fmodern\fcharset0 Courier;\f5\fnil\fcharset128 HiraKakuProN-W3;
+}
+{\colortbl;\red255\green255\blue255;\red9\green14\blue8;\red19\green19\blue19;}
+\margl1440\margr1440\vieww19080\viewh14640\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf2 Code listings for 
+\f1 "
+\f0 \cf0 Building Actor-Based Systems Using the Akka Framework, Part 1\cf2 ," Java Magazine, November/December  2012\
+\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f2\fs22 \cf0 [Listing 1]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 import akka.actor.\{ ActorSystem, Actor, Props \}\
+\
+case object Start\
+\
+object Main \{\
+  def main(args: Array[String]): Unit = \{\
+    val system = ActorSystem()\
+    system.actorOf(Props[HelloActor]) ! Start\
+  \}\
+\}\
+\
+class HelloActor extends Actor \{\
+  def receive = \{\
+    case Start => System.out.println("Hello, Akka!")\
+  \}\
+\}\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f3 \cf0 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 2]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 object Main \{\
+  def main(args: Array[String]): Unit = \{\
+    val system = ActorSystem()\
+    system.actorOf(Props[HelloActor]) ! "Start"\
+  \}\
+\}\
+\
+class HelloActor extends Actor \{\
+  def receive = \{\
+    case "start" => System.out.println("Hello, Akka!")\
+  \}\
+\}\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f3 \cf0 \
+
+\f2 [Listing 3]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 import akka.actor.\{ ActorSystem, Actor, Props \}\
+\
+case object Start\
+case object Stop\
+\
+object Main \{\
+  def main(args: Array[String]): Unit = \{\
+    val system = ActorSystem()\
+    val helloActor = system.actorOf(Props[HelloActor])\
+    helloActor ! Start\
+    helloActor ! Stop\
+  \}\
+\}\
+\
+class HelloActor extends Actor \{\
+  def receive = \{\
+    case Start => System.out.println("Hello, Akka!")\
+    case Stop => context.system.shutdown()\
+  \}\
+\}\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f3 \cf0 \
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 4]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 case object Start\
+case class Message(val message : String)\
+case class RepeatMessage (override val message : String, val num \
+: Int)\
+    extends Message(message)\
+case object Stop\
+\
+\pard\pardeftab720\ri720\sl276\slmult1\sa200
+
+\f2 \cf0 [Listing 5]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 class HelloActor extends Actor \{\
+  def receive = \{\
+    case Start => \
+        System.out.println("Hello, Akka!")\
+    case incoming : RepeatMessage =>\
+        for (it <- 0 to incoming.num)\
+            System.out.println("Repeat: " + incoming.message)\
+    case incoming : Message =>\
+        System.out.println("Message: " + incoming.message)\
+    case Stop => \
+        context.system.shutdown()\
+  \}\
+\}\
+\
+\pard\pardeftab720\ri720
+
+\f2 \cf0 [Listing 6]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 object Main \{\
+  def main(args: Array[String]): Unit = \{\
+    val system = ActorSystem()\
+    val helloActor = system.actorOf(Props[HelloActor])\
+    helloActor ! Start\
+    helloActor ! Message("A message!")\
+    helloActor ! RepeatMessage("Repeat 3 times", 3)\
+    helloActor ! Stop\
+  \}\
+\}\
+\
+\pard\pardeftab720\ri720
+
+\f3 \cf0 \
+
+\f2 [Listing 7a]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 /**\
+ * Copyright (C) 2009-2012 Typesafe Inc. <http://www.typesafe.com>\
+ */\
+package akka.tutorial.first.scala\
+\
+import akka.actor._\
+import akka.routing.RoundRobinRouter\
+import akka.util.Duration\
+import akka.util.duration._\
+\
+object Pi extends App \{\
+\
+  calculate(nrOfWorkers=4, nrOfElements=10000,\
+\pard\pardeftab720\ri720\sl276\slmult1
+\cf0                   nrOfMessages=10000)\
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+\cf0 \
+  sealed trait PiMessage\
+  case object Calculate extends PiMessage\
+  case class Work(start: Int, nrOfElements: Int)\
+    extends PiMessage\
+  case class Result(value: Double) extends PiMessage\
+  case class PiApproximation(pi: Double, duration: Duration)\
+\pard\pardeftab720\ri720
+
+\f3 \cf0 \
+
+\f2 [Listing 7b]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0 \
+  class Worker extends Actor \{\
+\
+    def calculatePiFor(start: Int, nrOfElements: Int): Double = \{\
+      var acc = 0.0\
+      for (i <- start until (start + nrOfElements))\
+        acc += 4.0 * (1 - (i % 2) * 2) / (2 * i + 1)\
+      acc\
+    \}\
+\
+    def receive = \{\
+      case Work(start, nrOfElements) =>\
+        // Do the work\
+        sender ! Result(calculatePiFor(start, nrOfElements))\
+    \}\
+  \}\
+\
+\pard\pardeftab720\ri720
+
+\f3 \cf0 \
+
+\f2 [Listing 7c]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0   class Master(nrOfWorkers: Int, \
+    nrOfMessages: Int, \
+    nrOfElements: Int, \
+    listener: ActorRef) extends Actor \{\
+\
+    var pi: Double = _\
+    var nrOfResults: Int = _\
+    val start: Long = System.currentTimeMillis\
+\
+    val workerRouter = context.actorOf(\
+      Props[Worker].withRouter(RoundRobinRouter(nrOfWorkers)), \
+        name = "workerRouter")\
+\
+    def receive = \{\
+      case Calculate =>\
+        for (i <- 0 until nrOfMessages) \
+          workerRouter ! Work(i * nrOfElements, nrOfElements)\
+      case Result(value) =>\
+        pi += value\
+        nrOfResults += 1\
+        if (nrOfResults == nrOfMessages) \{\
+          // Send the result to the listener\
+          listener ! PiApproximation(pi, \
+            duration = (System.currentTimeMillis - start).millis)\
+          // Stops this actor and all its supervised children\
+          context.stop(self)\
+        \}\
+    \}\
+  \}\
+\
+\pard\pardeftab720\ri720
+
+\f3 \cf0 \
+
+\f2 [Listing 7d]
+\f3 \
+\pard\pardeftab720\li720\ri720\sl276\slmult1
+
+\f4 \cf0   class Listener extends Actor \{\
+    def receive = \{\
+      case PiApproximation(pi, duration) 
+\f5 \'81\'cb
+\f4 \
+        println("\\n\\tPi approximation: \\t%s\\n" + \
+                "\\tCalculation time: \\t%s"\
+          .format(pi, duration))\
+        context.system.shutdown()\
+    \}\
+  \}\
+\
+  def calculate(nrOfWorkers: Int, nrOfElements: Int,\
+                nrOfMessages: Int)\
+  \{\
+    // Create an Akka system\
+    val system = ActorSystem("PiSystem")\
+\
+    // create the result listener, which will print the result \
+    // and shutdown the system\
+    val listener = system.actorOf(Props[Listener], \
+      name = "listener")\
+\
+    // create the master\
+    val master = system.actorOf(Props(new Master(\
+      nrOfWorkers, nrOfMessages, nrOfElements, listener)),\
+      name = "master")\
+\
+    // start the calculation\
+    master ! Calculate\
+  \}\
+\}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\fs24 \cf2 \
+\
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl280
+
+\f1\fs22 \cf3       
+\f0\fs24 \
+\pard\tqr\tx5580\pardeftab720\ri-1440\sl280
+
+\f1 \cf3 Copyright 2012, Oracle Corporation}
