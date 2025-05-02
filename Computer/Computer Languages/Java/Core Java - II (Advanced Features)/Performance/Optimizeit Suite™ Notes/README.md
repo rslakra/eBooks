@@ -1,4 +1,4 @@
-# Machine Learning (ML)
+# Optimizeit Suite™ Notes
 
 --- 
 This repository contains all my electronic books, which are categorized based 
