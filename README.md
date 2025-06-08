@@ -1,16 +1,18 @@
 # eBooks
 
 --- 
-This repository contains an electronic books, which are categorized based 
-on the usability. It might be some of the books have copyright as most of these are downloaded from the public links (and owner of those books, can send email to remove that book from this repository, and I'll remove that one). I'm maintaining it only for personal learning, so anyone can either downloads or uses this repository AS IT IS with their own responsibility.
+This repository contains an electronic books, which are categorized based
+on the usability. It might be some of the books have copyright as most of these
+are downloaded from the public links (and owner of those books, can send email
+to remove that book from this repository, and I'll remove that one). I'm
+maintaining it only for personal learning, so anyone can either download or
+uses this repository AS IT IS with their own responsibility.
 
 ---
 
 * Version: 1.0.0
 
 ---
-
-
 
 ## Folder Structure Conventions
 
@@ -32,8 +34,6 @@ on the usability. It might be some of the books have copyright as most of these 
     └── README.md
 ```
 
-
-
 # Reference
 
 ---
@@ -49,6 +49,7 @@ on the usability. It might be some of the books have copyright as most of these 
 - [Screaming Architecture](https://www.milanjovanovic.tech/blog/screaming-architecture)
 - [Alexandre Zajac writes a weekly curating important articles](https://hungrymindsdev.substack.com/)
 - [Git Large File Storage](https://git-lfs.github.com)
+
 
 
 # Author

@@ -1,8 +1,8 @@
-# Cultural
+# Scriptures
 
 ---
 
-The ```Cultural``` contains various .
+The ```Scriptures``` to acquire knowledge.
 
 
 
