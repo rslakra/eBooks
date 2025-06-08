@@ -1,10 +1,13 @@
-Interview Guide
-===============
+# Interview Guide
+
 ---
 
-This repository contains information regarding interview preparation.
+The ```Interview Guide``` contains various learning materials.
 
 ## Interview Types
+
+
+## Folder Structure Conventions
 
 ---
 

@@ -41,6 +41,7 @@ brew install python-requests
 python3 -m venv venv_weather
 python3 -m pip install requests
 
+
 # References
 
 https://github.com/mccutchen/docker-python-black
