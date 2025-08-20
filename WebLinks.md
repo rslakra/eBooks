@@ -67,6 +67,10 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://openai.com/index/introducing-deep-research/
 - https://openai.com/index/chatgpt/
 - https://gemini.google.com/app/1c09c4d3de8dca39
+- [Llama Index - Using VectorStoreIndex](https://docs.llamaindex.ai/en/stable/module_guides/indexing/vector_store_index)
+- [Llama Index - Documents / Nodes](https://docs.llamaindex.ai/en/stable/module_guides/loading/documents_and_nodes)
+- [Llama Index - Usage Pattern (Response Evaluation)](https://docs.llamaindex.ai/en/stable/module_guides/evaluating/usage_pattern)
+
 
 
 ## AWS
@@ -79,6 +83,17 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - [Using API destinations with Amazon EventBridge](https://aws.amazon.com/blogs/compute/using-api-destinations-with-amazon-eventbridge)
 - webhook.site
 - 
+
+
+### Email
+- [AWS SDK for Python - Quickstart](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html)
+- [Amazon Pinpoint Email Service - SendEmail](https://docs.aws.amazon.
+  com/pinpoint-email/latest/APIReference/API_SendEmail.html)
+- [Amazon Pinpoint Email Client](https://boto3.amazonaws.com/v1/documentation/api/1.26.
+  3/reference/services/pinpoint-email.html)
+- [Introduction to Boto3 Logging](https://codesignal.com/learn/courses/introduction-to-aws-sdk-for-python/lessons/managing-logs-with-aws-sdk-for-python)
+
+
 
 
 ## Python
@@ -102,7 +117,7 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://www.youtube.com/@realpython/playlists
 - https://pep8.org/#descriptive-naming-styles
 
-### Fast API
+### FastAPI
 - https://www.geeksforgeeks.org/creating-first-rest-api-with-fastapi/?ref=ml_lbp
 - https://www.geeksforgeeks.org/simple-chat-application-using-websockets-with-fastapi/?ref=ml_lbp
 - https://www.geeksforgeeks.org/authentication-and-authorization-with-fastapi/?ref=ml_lbp
@@ -113,6 +128,13 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://www.tutorialspoint.com/fastapi/index.htm
 - https://realpython.com/fastapi-python-web-apis/
 - https://fastapi.tiangolo.com/python-types/#newer-versions-of-python
+
+- [FastAPI (Python Framework) - Auto-Generating Migrations with Alembic & SQLAlchemy](https://www.youtube.com/watch?v=HuOG7VS8qvE)
+- [Full Stack FastAPI Template](https://github.com/fastapi/full-stack-fastapi-template)
+- [Auto Generating Migrations (FastAPI + SQLAlchemy + Alembic)](https://github.com/Describly/fastapi-sqlalchemy-alembic)
+- [FastAPI - SQL (Relational) Databases](https://fastapi.tiangolo.com/tutorial/sql-databases)
+
+
 
 ### Flask
 - https://flask.palletsprojects.com/en/stable/patterns/appfactories/
