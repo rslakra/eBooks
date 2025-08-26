@@ -12,18 +12,20 @@ The ```Interview Guide``` contains various learning materials.
 ---
 
 ```
-    .
-    ├── AI                              # AI Resources
-    ├── AWS                             # AWS Resources
-    ├── CheatSheets                     # CheatSheets
-    ├── Computer                        # Computer
-    ├── Interview Guide                 # Interview Guide Resources
-        ├── Behavioral                  # Behavioral Interview Resources
-        ├── Data Structure & Algorithm  # Data Structure Interview Resources
-        ├── Interpersonal Skills        # Interpersonal Interview Resources
-        ├── System Design               # System Design Interview Resources
-    ├── Recordings                      # Learning Recordings
-    └── README.md
+./
+├── AI                              # AI Resources
+├── AWS                             # AWS Resources
+├── CheatSheets                     # CheatSheets
+├── Computer                        # Computer
+├── Interview Guide                 # Interview Guide Resources
+│    ├── Behavioral                 # Behavioral Interview Resources
+│    ├── Data Structure & Algorithm # Data Structure Interview Resources
+│    ├── Interpersonal Skills       # Interpersonal Interview Resources
+│    ├── System Design              # System Design Interview Resources
+│    └── /
+├── Recordings                      # Learning Recordings
+├── README.md
+└── /
 ```
 
 ## Prerequisites

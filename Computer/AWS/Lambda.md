@@ -11,12 +11,12 @@ The ```Lambda``` contains various .
 ---
 
 ```
-    /
-    ├── Cheatsheets             # The Cheatsheets
-    ├── Computer                # The Computer
-    ├── Cultural                # The Cultural
-    ├── Interview Guide         # An Interview Guide
-    └── README.md
+/
+├── Cheatsheets             # The Cheatsheets
+├── Computer                # The Computer
+├── Cultural                # The Cultural
+├── Interview Guide         # An Interview Guide
+└── README.md
 ```
 
 

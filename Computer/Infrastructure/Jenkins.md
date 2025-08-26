@@ -2,23 +2,27 @@ Jenkins
 =======
 ---
 
+The Jenkins helps to automate the build creation process (the CI/CD process).
 
-## Jenkins
+
+## Folder Structure Conventions
 
 ---
 
-The Jenkins helps to automate the build creation process (the CI/CD process).
+```
+/
+├── Jenkins Host
+│    ├── Jenkin
+│    └── /
+├── GitHub
+│    ├── WebDemoRepo
+│    └── /
+├── AWS
+│    ├── S3 Bucket
+│    └── /
+└── README.md
+```
 
-- Jenkins Host
-        - Jenkin
-
-    - GitHub
-        - WebDemoRepo
-
-    - AWS
-        - S3 Bucket
-
--
 
 ## Jenkin Setup Steps
 

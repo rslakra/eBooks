@@ -36,15 +36,15 @@ For example, if a website has 100,000 total actions in a month and 30 days, the 
 
 DUA can be calculated over different time intervals such as daily, weekly or monthly. And also, it's important to consider the specific actions that you're measuring, as different actions may have different values.
 
-|Metric|Description|Example|
-|:---|:---|:---|
-|Profile views|The number of times a user's profile is viewed|3,000|
-|Posts created|The number of posts created by users|1,500|
-|Comments made|The number of comments made by users|500|
-|Likes given|The number of likes given by users|2,000|
-|Shares made|The number of shares made by users|200|
-|Direct messages sent|The number of direct messages sent by users|100|
-|Metric|Metric|Metric|
+| Metric               | Description                                    | Example |
+|:---------------------|:-----------------------------------------------|:--------|
+| Profile views        | The number of times a user's profile is viewed | 3,000   |
+| Posts created        | The number of posts created by users           | 1,500   |
+| Comments made        | The number of comments made by users           | 500     |
+| Likes given          | The number of likes given by users             | 2,000   |
+| Shares made          | The number of shares made by users             | 200     |
+| Direct messages sent | The number of direct messages sent by users    | 100     |
+| Metric               | Metric                                         | Metric  |
 
 
 ## Folder Structure Conventions
@@ -52,38 +52,42 @@ DUA can be calculated over different time intervals such as daily, weekly or mon
 ---
 
 ```
-    /
-    ├── Computer                            # contains the computer ebooks
-    |    ├── BuildTools                     # contains the build-tools
-    |    |    ├── Gradle                    # contains the Gradle ebooks
-    |    |    ├── Maven                     # contains the Maven ebooks
-    |    |    └── README.md
-    |    ├── Computer Languages             # contains the computer langauges ebooks
-    |    |    ├── Java                      # contains the java ebooks
-    |    |    ├── Mobile                    # contains the mobile ebooks
-    |    |    ├── Python                    # contains the python ebooks
-    |    |    └── README.md
-    |    ├── Database                       # contains the database ebooks
-    |    ├── IDEs                           # contains the IDE's ebooks
-    |    ├── Infrastructure                 # contains the infrastructure ebooks
-    |    |    ├── Docker                    # contains the docker ebooks
-    |    |    ├── GitHub                    # contains the GitHub ebooks
-    |    |    ├── VCS                       # contains the VCS (Verson Control System) ebooks
-    |    ├── Servers                        # contains the server ebooks
-    |    └── README.md
-    ├── Domains                             # contains the domain specific ebooks
-    ├── Interpersonal Skills                # contains the interpersonal skills ebooks
-    ├── Interview Guide                     # contains the interview ebooks
-    |    ├── Coding Interview               # contains the coding ebooks
-    |    |    ├── Data Structure            # contains the data structure ebooks
-    |    |    └── README.md
-    |    ├── System Design Interview        # contains the python ebooks
-    |    |    ├── Elasticsearch             # 
-    |    |    └── README.md
-    |    └── README.md
-    └── README.md
+/
+├── Computer                            # contains the computer ebooks
+│    ├── BuildTools                     # contains the build-tools
+│    │    ├── Gradle                    # contains the Gradle ebooks
+│    │    ├── Maven                     # contains the Maven ebooks
+│    │    ├── README.md
+│    │    └── /
+│    ├── Computer Languages             # Computer langauges ebooks
+│    │    ├── Java                      # Java ebooks
+│    │    ├── Mobile                    # Mobile ebooks
+│    │    ├── Python                    # Python books
+│    │    └── /
+│    ├── Database                       # database ebooks
+│    ├── IDEs                           # contains the IDE's ebooks
+│    ├── Infrastructure                 # contains the infrastructure ebooks
+│    │    ├── Docker                    # contains the docker ebooks
+│    │    ├── GitHub                    # contains the GitHub ebooks
+│    │    ├── VCS                       # contains the VCS (Verson Control System) ebooks
+│    │    └── /
+│    ├── Servers                        # contains the server ebooks
+│    ├── README.md
+│    └── /
+├── Domains                             # contains the domain specific ebooks
+├── Interpersonal Skills                # contains the interpersonal skills ebooks
+├── Interview Guide                     # contains the interview ebooks
+│    ├── Coding Interview               # contains the coding ebooks
+│    │    ├── Data Structure            # contains the data structure ebooks
+│    │    ├── README.md
+│    ├── System Design Interview        # contains the python ebooks
+│    │    ├── Elasticsearch
+│    │    ├── README.md
+│    ├── README.md
+│    └── /
+├── README.md
+└── /
 ```
-
 
 
 
