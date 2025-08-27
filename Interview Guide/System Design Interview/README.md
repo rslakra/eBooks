@@ -136,4 +136,4 @@ DUA can be calculated over different time intervals such as daily, weekly or mon
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

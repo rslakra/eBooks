@@ -45,7 +45,7 @@ The ```Interview Guide``` contains various learning materials.
 Please read [CONTRIBUTING.md](https://github.com/rslakra/eBooks/blob/master/CONTRIBUTING.md) for details on our code
 of conduct, and the process for submitting pull requests to us.
 
-## Authors
+# Author
 
 ---
 

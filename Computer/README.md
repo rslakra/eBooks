@@ -46,5 +46,5 @@ Connection pooling with session state
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)
 

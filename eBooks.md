@@ -49,5 +49,5 @@ http://www.intelinfo.com/cat2.html#Hard1
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)
 

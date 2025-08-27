@@ -48,4 +48,4 @@ or uses this repository AS IT IS with their own responsibility.
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

@@ -25,4 +25,4 @@ The ```Kubernetes (K8S)``` contains various learning materials.
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

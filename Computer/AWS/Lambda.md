@@ -58,4 +58,4 @@ sam local invoke MyFunction1 --env-vars environment_variables.json -e event.json
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

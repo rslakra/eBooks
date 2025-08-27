@@ -25,4 +25,4 @@ The ```System Design``` contains various learning materials.
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

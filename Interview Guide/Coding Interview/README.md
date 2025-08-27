@@ -12,4 +12,4 @@ Coding Interview
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

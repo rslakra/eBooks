@@ -72,7 +72,7 @@ docker run <SERVICE_NAME> ls -la
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)
 
 
 

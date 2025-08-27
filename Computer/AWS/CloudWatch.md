@@ -72,5 +72,5 @@ FIELDS @timestamp, @message, @logStream
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)
 

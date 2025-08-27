@@ -21,4 +21,4 @@ No. of 3 pairs equal to zero.
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

@@ -25,4 +25,4 @@ The ```Scriptures``` to acquire knowledge.
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)

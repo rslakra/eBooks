@@ -24,5 +24,5 @@ The ```Artificial Intelligence (AI)``` contains various .
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)
 

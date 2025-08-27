@@ -34,4 +34,7 @@ Double-check the APN settings and ensure it matches the following:
 ---
 
 # Author
-- Rohtash Lakra
+
+---
+
+- [Rohtash Lakra](https://github.com/rslakra)

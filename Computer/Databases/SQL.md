@@ -48,4 +48,4 @@ SHOW GRANTS FOR 'rslakra'@'localhost';
 
 ---
 
-- Rohtash Lakra
+- [Rohtash Lakra](https://github.com/rslakra)
