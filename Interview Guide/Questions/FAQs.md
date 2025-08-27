@@ -1,0 +1,1138 @@
+# Java Interview Questions
+
+---
+
+
+
+
+--------------------------------------------------------------------------------------- 
+Core Java Questions
+--------------------------------------------------------------------------------------- 
+1. What is a class? A class is a blueprint, or prototype, that defines the variables and the methods common to all objects of a certain kind.
+
+2. What is a object? An object is a software bundle of variables and related methods.An instance of a class depicting the state and behavior at that particular time in real world.
+
+3. What is a method? Encapsulation of a functionality which can be called to perform specific tasks. n
+
+4. What is encapsulation? Explain with an example. Encapsulation is the term given to the process of hiding the implementation details of the object. Once an object is encapsulated, its implementation details are not immediately accessible any more. Instead they are packaged and are only indirectly accessible via the interface of the object
+
+5.What is inheritance? Explain with an example. Inheritance in object oriented programming means that a class of objects can inherit properties and methods from another class of objects.
+
+6. What is polymorphism? Explain with an example. In object-oriented programming, polymorphism refers to a programming language's ability to process objects differently depending on their data type or class. More specifically, it is the ability to redefine methods for derived classes. For example, given a base class shape, polymorphism enables the programmer to define different area methods for any number of derived classes, such as circles, rectangles and triangles. No matter what shape an object is, applying the area method to it will return the correct results. Polymorphism is considered to be a requirement of any true object-oriented programming language
+
+7 .Is multiple inheritance allowed in Java? No, multiple inheritance is not allowed in Java.
+
+8 .What is interpreter and compiler? Java interpreter converts the high level language code into a intermediate form in Java called as bytecode, and then executes it, where as a compiler converts the high level language code to machine language making it very hardware specific
+
+9 .What is JVM? The Java interpreter along with the runtime environment required to run the Java application in called as Java virtual machine(JVM)
+
+10.What are the different types of modifiers? There are access modifiers and there are other identifiers. Access modifiers are public, protected and private. Other are final and static.
+
+11.What are the access modifiers in Java? There are 3 access modifiers. Public, protected and private, and the default one if no identifier is specified is called friendly, but programmer cannot specify the friendly identifier explicitly.
+
+12 .What is a wrapper class? They are classes that wrap a primitive data type so it can be used as a object
+
+13 .What is a static variable and static method? What's the difference between two? The modifier static can be used with a variable and method. When declared as static variable, there is only one variable no matter how instances are created, this variable is initialized when the class is loaded. Static method do not need a class to be instantiated to be called, also a non static method cannot be called from static method.
+
+14 . What is garbage collection? Garbage Collection is a thread that runs to reclaim the memory by destroying the objects that cannot be referenced anymore.
+
+15 .What is abstract class? Abstract class is a class that needs to be extended and its methods implemented, aclass has to be declared abstract if it has one or more abstract methods.
+
+16. What is meant by final class, methods and variables? This modifier can be applied to class method and variable. When declared as final     class the class cannot be extended. When declared as final variable, its value cannot be changed if is primitive value, if it is a   reference to the object it will always refer to the same object, internal attributes of the object can be changed.
+
+17. What is interface? Interface is a contact that can be implemented by a class, it has method that need implementation.
+
+18. What is method overloading? Overloading is declaring multiple method with the same name, but with different argument list.
+
+19. What is method overriding? Overriding has same method name, identical arguments used in subclass.
+
+20. What is singleton class? Singleton class means that any given time only one instance of the class is present, in one JVM.
+
+21. What is the difference between an array and a vector? Number of elements in an array are fixed at the construction time, whereas the number of elements in vector can grow dynamically.
+
+22. What is a constructor? In Java, the class designer can guarantee initialization of every object by providing a special method called a constructor. If a class has a constructor, Java automatically calls that constructor when an object is created, before users can even get their hands on it. So initialization is guaranteed.
+
+23. What is casting? Conversion of one type of data to another when appropriate. Casting makes explicitly converting of data.
+
+24. What is the difference between final, finally and finalize? The modifier final is used on class variable and methods to specify certain behaviour explained above. And finally is used as one of the loop in the try catch blocks, It is used to hold code that needs to be executed whether or not the exception occurs in the try catch block. Java provides a method called finalize( ) that can be defined in the class. When the garbage collector is ready to release the storage ed for your object, it will first call finalize( ), and only on the next garbage-collection pass will it reclaim the objects memory. So finalize( ), gives you the ability to perform some important cleanup at the time of garbage collection.
+
+25. What is are packages? A package is a collection of related classes and interfaces providing access protection and namespace management.
+
+26. What is a super class and how can you call a super class? When a class is extended that is derived from another class there is a relationship is created, the parent class is referred to as the super class by the derived class that is the child. The derived class can make a call to the super class using the keyword super. If used in the constructor of the derived class it has to be the first statement.
+
+27. What is meant by a Thread? Thread is defined as an instantiated parallel process of a given program.
+    What is multi-threading? Multi-threading as the name suggest is the scenario where more than one threads are running.
+    What are two ways of creating a thread? Which is the best way and why? Two ways of creating threads are, one can extend from the Java.lang.Thread and can implement the rum method or the run method of a different class can be called which implements the interface Runnable, and the then implement the run() method. The latter one is mostly used as first due to Java rule of only one class inheritance, with implementing the Runnable interface that problem is sorted out.
+    What is deadlock? Deadlock is a situation when two threads are waiting on each other to release a resource. Each thread waiting for a resource which is held by the other waiting thread. In Java, this resource is usually the object lock obtained by the synchronized keyword.
+    What are the three types of priority? MAX_PRIORITY which is 10, MIN_PRIORITY which is 1, NORM_PRIORITY which is 5.
+    What is the use of synchronizations? Every object has a lock, when a synchronized keyword is used on a piece of code the, lock must be obtained by the thread first to execute that code, other threads will not be allowed to execute that piece of code till this lock is released.
+    What is the Collections API? - The Collections API is a set of classes and interfaces that support operations on collections of objects
+    What is the List interface? - The List interface provides support for ordered collections of objects.
+    What is the Vector class? - The Vector class provides the capability to implement a growable array of objects
+    What is an Iterator interface? - The Iterator interface is used to step through the elements of a Collection
+    Which java.util classes and interfaces support event handling? - The EventObject class and the EventListener interface support event processing
+    What is the GregorianCalendar class? - The GregorianCalendar provides support for traditional Western calendars
+    What is the Locale class? - The Locale class is used to tailor program output to the conventions of a particular geographic, political, or cultural region
+    What is the SimpleTimeZone class? - The SimpleTimeZone class provides support for a Gregorian calendar
+    What is the Map interface? - The Map interface replaces the JDK 1.1 Dictionary class and is used associate keys with values
+    What is the highest-level event class of the event-delegation model? - The java.util.EventObject class is the highest-level class in the event-delegation class hierarchy
+    What is the Collection interface? - The Collection interface provides support for the implementation of a mathematical bag - an unordered collection of objects that may contain duplicates
+    What is the Set interface? - The Set interface provides methods for accessing the elements of a finite mathematical set. Sets do not allow duplicate elements
+    What is the purpose of the enableEvents() method? - The enableEvents() method is used to enable an event for a particular object. Normally, an event is enabled when a listener is added to an object for a particular event. The enableEvents() method is used by objects that handle events by overriding their event-dispatch methods.
+    What is the ResourceBundle class? - The ResourceBundle class is used to store locale-specific resources that can be loaded by a program to tailor the program's appearance to the particular locale in which it is being run.
+    What is the difference between yielding and sleeping? - When a task invokes its yield() method, it returns to the ready state. When a task invokes its sleep() method, it returns to the waiting state.
+    When a thread blocks on I/O, what state does it enter? - A thread enters the waiting state when it blocks on I/O.
+    When a thread is created and started, what is its initial state? - A thread is in the ready state after it has been created and started.
+    What invokes a thread's run() method? - After a thread is started, via its start() method or that of the Thread class, the JVM invokes the thread's run() method when the thread is initially executed.
+    What method is invoked to cause an object to begin executing as a separate thread? - The start() method of the Thread class is invoked to cause an object to begin executing as a separate thread.
+    What is the purpose of the wait(), notify(), and notifyAll() methods? - The wait(),notify(), and notifyAll() methods are used to provide an efficient way for threads to wait for a shared resource. When a thread executes an object's wait() method, it enters the waiting state. It only enters the ready state after another thread invokes the object's notify() or notifyAll() methods.
+    What are the high-level thread states? - The high-level thread states are ready, running, waiting, and dead
+    What happens when a thread cannot acquire a lock on an object? - If a thread attempts to execute a synchronized method or synchronized statement and is unable to acquire an object's lock, it enters the waiting state until the lock becomes available.
+    How does multithreading take place on a computer with a single CPU? - The operating system's task scheduler allocates execution time to multiple tasks. By quickly switching between executing tasks, it creates the impression that tasks execute sequentially.
+    What happens when you invoke a thread's interrupt method while it is sleeping or waiting? - When a task's interrupt() method is executed, the task enters the ready state. The next time the task enters the running state, an InterruptedException is thrown.
+    What state is a thread in when it is executing? - An executing thread is in the running state
+    What are three ways in which a thread can enter the waiting state? - A thread can enter the waiting state by invoking its sleep() method, by blocking on I/O, by unsuccessfully attempting to acquire an object's lock, or by invoking an object's wait() method. It can also enter the waiting state by invoking its (deprecated) suspend() method.
+    What method must be implemented by all threads? - All tasks must implement the run() method, whether they are a subclass of Thread or implement the Runnable interface.
+    What are the two basic ways in which classes that can be run as threads may be defined? - A thread class may be declared as a subclass of Thread, or it may implement the Runnable interface.
+    How can you store international / Unicode characters into a cookie? - One way is, before storing the cookie URLEncode it. URLEnocder.encoder(str); And use URLDecoder.decode(str) when you get the stored cookie.
+    What are synchronized methods and synchronized statements? Synchronized methods are methods that are used to control access to an object. For example, a thread only executes a synchronized method after it has acquired the lock for the method's object or class. Synchronized statements are similar to synchronized methods. A synchronized statement can only be executed after a thread has acquired the lock for the object or class referenced in the synchronized statement.
+    What are different ways in which a thread can enter the waiting state? A thread can enter the waiting state by invoking its sleep() method, blocking on I/O, unsuccessfully attempting to acquire an object's lock, or invoking an object's wait() method. It can also enter the waiting state by invoking its (deprecated) suspend() method.
+    Can a lock be acquired on a class? Yes, a lock can be acquired on a class. This lock is acquired on the class's Class object.
+    What's new with the stop(), suspend() and resume() methods in new JDK 1.2? The stop(), suspend() and resume() methods have been deprecated in JDK 1.2.
+    What is the preferred size of a component? The preferred size of a component is the minimum component size that will allow the component to display normally.
+    What method is used to specify a container's layout? The setLayout() method is used to specify a container's layout. For example, setLayout(new FlowLayout()); will be set the layout as FlowLayout.
+    Which containers use a FlowLayout as their default layout? The Panel and Applet classes use the FlowLayout as their default layout.
+    What state does a thread enter when it terminates its processing? When a thread terminates its processing, it enters the dead state.
+    What is the Collections API? The Collections API is a set of classes and interfaces that support operations on collections of objects. One example of class in Collections API is Vector and Set and List are examples of interfaces in Collections API.
+    What is the List interface? The List interface provides support for ordered collections of objects. It may or may not allow duplicate elements but the elements must be ordered.
+    How does Java handle integer overflows and underflows? It uses those low order bytes of the result that can fit into the size of the type allowed by the operation.
+    What is the Vector class? The Vector class provides the capability to implement a growable array of objects. The main visible advantage of this class is programmer needn't to worry about the number of elements in the Vector.
+    What modifiers may be used with an inner class that is a member of an outer class? A (non-local) inner class may be declared as public, protected, private, static, final, or abstract.
+    If a method is declared as protected, where may the method be accessed? A protected method may only be accessed by classes or interfaces of the same package or by subclasses of the class in which it is declared.
+    What is an Iterator interface? The Iterator interface is used to step through the elements of a Collection.
+    How many bits are used to represent Unicode, ASCII, UTF-16, and UTF-8 characters? Unicode requires 16 bits, ASCII require 7 bits (although the ASCII character set uses only 7 bits, it is usually represented as 8 bits), UTF-8 represents characters using 8, 16, and 18 bit patterns, UTF-16 uses 16-bit and larger bit patterns
+    What is the difference between yielding and sleeping? Yielding means a thread returning to a ready state either from waiting, running or after creation, where as sleeping refers a thread going to a waiting state from running state. With reference to Java, when a task invokes its yield() method, it returns to the ready state and when a task invokes its sleep() method, it returns to the waiting state
+    What are wrapper classes? Wrapper classes are classes that allow primitive types to be accessed as objects. For example, Integer, Double. These classes contain many methods which can be used to manipulate basic data types
+    Does garbage collection guarantee that a program will not run out of memory? No, it doesn't. It is possible for programs to use up memory resources faster than they are garbage collected. It is also possible for programs to create objects that are not subject to garbage collection. The main purpose of Garbage Collector is recover the memory from the objects which are no longer required when more memory is needed.
+    Name Component subclasses that support painting? The following classes support painting: Canvas, Frame, Panel, and Applet.
+    What is a native method? A native method is a method that is implemented in a language other than Java. For example, one method may be written in C and can be called in Java.
+    How can you write a loop indefinitely?
+    for(;;) //for loop
+    while(true); //always true
+    Can an anonymous class be declared as implementing an interface and extending a class? An anonymous class may implement an interface or extend a superclass, but may not be declared to do both.
+    What is the purpose of finalization? The purpose of finalization is to give an unreachable object the opportunity to perform any cleanup processing before the object is garbage collected. For example, closing a opened file, closing a opened database Connection.
+    What invokes a thread's run() method? After a thread is started, via its start() method or that of the Thread class, the JVM invokes the thread's run() method when the thread is initially executed.
+    What is the GregorianCalendar class? The GregorianCalendar provides support for traditional Western calendars.
+    What is the SimpleTimeZone class? The SimpleTimeZone class provides support for a Gregorian calendar.
+    What is the Properties class? The properties class is a subclass of Hashtable that can be read from or written to a stream. It also provides the capability to specify a set of default values to be used.
+    What is the purpose of the Runtime class? The purpose of the Runtime class is to provide access to the Java runtime system.
+    What is the purpose of the System class? The purpose of the System class is to provide access to system resources.
+    What is the purpose of the finally clause of a try-catch-finally statement? The finally clause is used to provide the capability to execute code no matter whether or not an exception is thrown or caught. For example,
+    try
+    {
+    //some statements
+    }
+    catch
+    {
+    // statements when exception is cought
+    }
+    finally
+    {
+    //statements executed whether exception occurs or not
+    }
+    What is the Locale class? The Locale class is used to tailor program output to the conventions of a particular geographic, political, or cultural region.
+    What must a class do to implement an interface? It must provide all of the methods in the interface and identify the interface in its implements clause.
+    Q1: What are the advantages of OOPL?
+    Ans: Object oriented programming languages directly represent the real life objects. The features of OOPL as inhreitance, polymorphism, encapsulation makes it powerful.
+    Q2: What do mean by polymorphisum, inheritance, encapsulation?
+    Ans: Polymorhisum: is a feature of OOPl that at run time depending upon the type of object the appropriate method is called.
+    Inheritance: is a feature of OOPL that represents the "is a" relationship between different objects(classes). Say in real life a manager is a employee. So in OOPL manger class is inherited from the employee class.
+    Encapsulation: is a feature of OOPL that is used to hide the information.
+    Q3: What do you mean by static methods?
+    Ans: By using the static method there is no need creating an object of that class to use that method. We can directly call that method on that class. For example, say class A has static function f(), then we can call f() function as A.f(). There is no need of creating an object of class A.
+    Q4: What do you mean by virtual methods?
+    Ans: virtual methods are used to use the polymorhism feature in C++. Say class A is inherited from class B. If we declare say fuction f() as virtual in class B and override the same function in class A then at runtime appropriate method of the class will be called depending upon the type of the object.
+    Q5: Given two tables Student(SID, Name, Course) and Level(SID, level) write the SQL statement to get the name and SID of the student who are taking course = 3 and at freshman level.
+    Ans: SELECT Student.name, Student.SID
+    FROM Student, Level
+    WHERE Student.SID = Level.SID
+    AND Level.Level = "freshman"
+    AND Student.Course = 3;
+    Q6: What are the disadvantages of using threads?
+    Ans: DeadLock.
+    Q1: Write the Java code to declare any constant (say gravitational constant) and to get its value
+    Ans: Class ABC
+    {
+    static final float GRAVITATIONAL_CONSTANT = 9.8;
+    public void getConstant()
+    {
+    system.out.println("Gravitational_Constant: " + GRAVITATIONAL_CONSTANT);
+    }
+    }
+    Q2: What do you mean by multiple inheritance in C++ ?
+    Ans: Multiple inheritance is a feature in C++ by which one class can be of different types. Say class teachingAssistant is inherited from two classes say teacher and Student.
+    Q3: Can you write Java code for declaration of multiple inheritance in Java ?
+    Ans: Class C extends A implements B
+    {
+    }
+    Question 1: What is the three tier model?
+    Answer: It is the presentation, logic, backend
+    Question 2: Why do we have index table in the database?
+    Answer: Because the index table contain the information of the other tables. It will
+    be faster if we access the index table to find out what the other contain.
+    Question 3: Give an example of using JDBC access the database.
+    Answer:
+    try
+    {
+    Class.forName("register the driver");
+    Connection con = DriverManager.getConnection("url of db", "username","password");
+    Statement state = con.createStatement();
+    state.executeUpdate("create table testing(firstname varchar(20), lastname varchar(20))");
+    state.executeQuery("insert into testing values('phu','huynh')");
+    state.close();
+    con.close();
+    }
+    catch(Exception e)
+    {
+    System.out.println(e);
+    }
+    Question 4: What is the different of an Applet and a Java Application
+    Answer: The applet doesn't have the main function
+    Question 5: How do we pass a reference parameter to a function in Java?
+    Answer: Even though Java doesn't accept reference parameter, but we can
+    pass in the object for the parameter of the function.
+    For example in C++, we can do this:
+    void changeValue(int& a)
+    {
+    a++;
+    }
+    void main()
+    {
+    int b=2;
+    changeValue(b);
+    }
+    however in Java, we cannot do the same thing. So we can pass the
+    the int value into Integer object, and we pass this object into the
+    the function. And this function will change the object.
+--------------------------------------------------------------------------------------- 
+EJB
+--------------------------------------------------------------------------------------- 
+Life Cycles of Stateless,Stateful Session Bean
+Difference between Stateless and Stateful Session Bean
+Objective of using narrowMethod
+Difference between EJB1.1 and EJB2.0
+Purpose of Local Interface in EJB2.0
+1) Types of beans
+2) How many types of Persistence Mech
+3) Why CMP and why BMP (Addvantage and Dis Adv)
+4) Where is Transcation maintained (whichc level)
+5) How does EJB-QL works
+6) Diff Between Session and Entity Bean
+7) How does statefull bean works
+8) Have some info on CMR
+   Ask the candidate to identify the drawbacks of EJB
+   ---> For one programme we have to write Remote & Home Interfcae lot of
+   xml files we have to write its too time consuming process
+   Now days in EJB's, interviewers are stressing to know about the practical
+   exposure of candidate in EJB applications. For that they used to ask about EJB patterns.
+   So preparing about EJB patterns will be very useful to those who are planning
+   to appear in the interviews.
+--------------------------------------------------------------------------------------- 
+JSPs
+--------------------------------------------------------------------------------------- 
+What is JSP? Describe its concept. JSP is a technology that combines HTML/XML markup languages and elements of Java programming Language to return dynamic content to the Web client, It is normally used to handle Presentation logic of a web application, although it may have business logic.
+What are the lifecycle phases of a JSP?
+JSP page looks like a HTML page but is a servlet. When presented with JSP page the JSP engine does the following 7 phases.
+Page translation: -page is parsed, and a java file which is a servlet is created.
+Page compilation: page is compiled into a class file
+Page loading : This class file is loaded.
+Create an instance :- Instance of servlet is created
+jspInit() method is called
+_jspService is called to handle service calls
+_jspDestroy is called to destroy it when the servlet is not required.
+What is a translation unit? JSP page can include the contents of other HTML pages or other JSP files. This is done by using the include directive. When the JSP engine is presented with such a JSP page it is converted to one servlet class and this is called a translation unit, Things to remember in a translation unit is that page directives affect the whole unit, one variable declaration cannot occur in the same unit more than once, the standard action jsp:useBean cannot declare the same bean twice in one unit.
+How is JSP used in the MVC model? JSP is usually used for presentation in the MVC pattern (Model View Controller ) i.e. it plays the role of the view. The controller deals with calling the model and the business classes which in turn get the data, this data is then presented to the JSP for rendering on to the client.
+What are context initialization parameters? Context initialization parameters are specified by the <context-param> in the web.xml file, these are initialization parameter for the whole application and not specific to any servlet or JSP.
+What is a output comment? A comment that is sent to the client in the viewable page source. The JSP engine handles an output comment as un-interpreted HTML text, returning the comment in the HTML output sent to the client. You can see the comment by viewing the page source from your Web browser.
+What is a Hidden Comment? A comment that documents the JSP page but is not sent to the client. The JSP engine ignores a hidden comment, and does not process any code within hidden comment tags. A hidden comment is not sent to the client, either in the displayed JSP page or the HTML page source. The hidden comment is useful when you want to hide or "comment out" part of your JSP page.
+What is a Expression? Expressions are act as place holders for language expression, expression is evaluated each time the page is accessed.
+What is a Declaration? It declares one or more variables or methods for use later in the JSP source file. A declaration must contain at least one complete declarative statement. You can declare any number of variables or methods within one declaration tag, as long as semicolons separate them. The declaration must be valid in the scripting language used in the JSP file.
+What is a Scriptlet? A scriptlet can contain any number of language statements, variable or method declarations, or expressions that are valid in the page scripting language. Within scriptlet tags, you can declare variables or methods to use later in the file, write expressions valid in the page scripting language, use any of the JSP implicit objects or any object declared with a <jsp:useBean>.
+What are the implicit objects? List them. Certain objects that are available for the use in JSP documents without being declared first. These objects are parsed by the JSP engine and inserted into the generated servlet. The implicit objects are:
+request
+response
+pageContext
+session
+application
+out
+config
+page
+exception
+What's the difference between forward and sendRedirect? When you invoke a forward request, the request is sent to another resource on the server, without the client being informed that a different resource is going to process the request. This process occurs completely with in the web container And then returns to the calling method. When a sendRedirect method is invoked, it causes the web container to return to the browser indicating that a new URL should be requested. Because the browser issues a completely new request any object that are stored as request attributes before the redirect occurs will be lost. This extra round trip a redirect is slower than forward.
+What are the different scope values for the <jsp:useBean>? The different scope values for <jsp:useBean> are:
+page
+request
+session
+application
+Why are JSP pages the preferred API for creating a web-based client program? Because no plug-ins or security policy files are needed on the client systems(applet does). Also, JSP pages enable cleaner and more module application design because they provide a way to separate applications programming from web page design. This means personnel involved in web page design do not need to understand Java programming language syntax to do their jobs.
+Is JSP technology extensible? Yes, it is. JSP technology is extensible through the development of custom actions, or tags, which are encapsulated in tag libraries.
+What is difference between custom JSP tags and beans? Custom JSP tag is a tag you defined. You define how a tag, its attributes and its body are interpreted, and then group your tags into collections called tag libraries that can be used in any number of JSP files. Custom tags and beans accomplish the same goals - encapsulating complex behavior into simple and accessible forms. There are several differences:
+Custom tags can manipulate JSP content; beans cannot.
+Complex operations can be reduced to a significantly simpler form with custom tags than with beans.
+Custom tags require quite a bit more work to set up than do beans.
+Custom tags usually define relatively self-contained behavior, whereas beans are often defined in one servlet and used in a different servlet or JSP page.
+Custom tags are available only in JSP 1.1 and later, but beans can be used in all JSP 1.x versions.
+Q: What are the most common techniques for reusing functionality in object-oriented systems?
+A: The two most common techniques for reusing functionality in object-oriented systems are class inheritance and object composition.
+Class inheritance lets you define the implementation of one class in terms of another's. Reuse by subclassing is often referred to as white-box reuse.
+Object composition is an alternative to class inheritance. Here, new functionality is obtained by assembling or composing objects to get more complex functionality. This is known as black-box reuse.
+Q: Why would you want to have more than one catch block associated with a single try block in Java?
+A: Since there are many things can go wrong to a single executed statement, we should have more than one catch(s) to catch any errors that might occur.
+Q: What language is used by a relational model to describe the structure of a database?
+A: The Data Definition Language.
+Q: What is JSP? Describe its concept.
+A: JSP is the JavaServer Page. The JavaServer Page concept is to provide an HTML document with the ability to plug in content at selected locations in the document. (This content is then supplied by the Web server along with the rest of the HTML document at the time the document is downloaded).
+Q: What does the JSP engine do when presented with a JavaServer Page to process?
+A: The JSP engine builds a servlet. The HTML portions of the JavaServer Page become Strings transmitted to print methods of a PrintWriter object. The JSP tag portions result in calls to methods of the appropriate JavaBean class whose output is translated into more calls to a println method to place the result in the HTML document.
+What are the implicit objects? - Implicit objects are objects that are created by the web container and contain information related to a particular request, page, or application. They are: request, response, pageContext, session, application, out, config, page, exception.
+Is JSP technology extensible? - Yes. JSP technology is extensible through the development of custom actions, or tags, which are encapsulated in tag libraries.
+How can I implement a thread-safe JSP page? What are the advantages and Disadvantages of using it? - You can make your JSPs thread-safe by having them implement the SingleThreadModel interface. This is done by adding the directive <%@ page isThreadSafe="false" %> within your JSP page. With this, instead of a single instance of the servlet generated for your JSP page loaded in memory, you will have N instances of the servlet loaded and initialized, with the service method of each instance effectively synchronized. You can typically control the number of instances (N) that are instantiated for all servlets implementing SingleThreadModel through the admin screen for your JSP engine. More importantly, avoid using the tag for variables. If you do use this tag, then you should set isThreadSafe to true, as mentioned above. Otherwise, all requests to that page will access those variables, causing a nasty race condition. SingleThreadModel is not recommended for normal use. There are many pitfalls, including the example above of not being able to use <%! %>. You should try really hard to make them thread-safe the old fashioned way: by making them thread-safe
+How does JSP handle run-time exceptions? - You can use the errorPage attribute of the page directive to have uncaught run-time exceptions automatically forwarded to an error processing page. For example: <%@ page errorPage="error.jsp" %>
+redirects the browser to the JSP page error.jsp if an uncaught exception is encountered during request processing. Within error.jsp, if you indicate that it is an error-processing page, via the directive: <%@ page isErrorPage="true" %> Throwable object describing the exception may be accessed within the error page via the exception implicit object. Note: You must always use a relative URL as the value for the errorPage attribute.
+How do I prevent the output of my JSP or Servlet pages from being cached by the browser? - You will need to set the appropriate HTTP header attributes to prevent the dynamic content output by the JSP page from being cached by the browser. Just execute the following scriptlet at the beginning of your JSP pages to prevent them from being cached at the browser. You need both the statements to take care of some of the older browser versions.
+<%
+response.setHeader("Cache-Control","no-store"); //HTTP 1.1
+response.setHeader("Pragma","no-cache"); //HTTP 1.0
+response.setDateHeader ("Expires", 0); //prevents caching at the proxy server
+%>
+How do I use comments within a JSP page? - You can use "JSP-style" comments to selectively block out code while debugging or simply to comment your scriptlets. JSP comments are not visible at the client. For example:
+<%-- the scriptlet is now commented out
+<%
+out.println("Hello World");
+%>
+--%>
+You can also use HTML-style comments anywhere within your JSP page. These comments are visible at the client. For example:
+<!-- (c) 2004 -->Of course, you can also use comments supported by your JSP scripting language within your scriptlets. For example, assuming Java is the scripting language, you can have: 
+    <% 
+    //some comment 
+    /** 
+    yet another comment 
+    **/ 
+    %> 
+Response has already been commited error. What does it mean? - This error show only when you try to redirect a page after you already have written something in your page. This happens because HTTP specification force the header to be set up before the lay out of the page can be shown (to make sure of how it should be displayed, content-type="text/html" or "text/xml" or "plain-text" or "image/jpg", etc.) When you try to send a redirect status (Number is line_status_402), your HTTP server cannot send it right now if it hasn't finished to set up the header. If not starter to set up the header, there are no problems, but if it 's already begin to set up the header, then your HTTP server expects these headers to be finished setting up and it cannot be the case if the stream of the page is not over... In this last case it's like you have a file started with <HTML Tag><Some Headers><Body>some output (like testing your variables.) Before you indicate that the file is over (and before the size of the page can be setted up in the header), you try to send a redirect status. It s simply impossible due to the specification of HTTP 1.0 and 1.1
+How do I use a scriptlet to initialize a newly instantiated bean? - A jsp:useBean action may optionally have a body. If the body is specified, its contents will be automatically invoked when the specified bean is instantiated. Typically, the body will contain scriptlets or jsp:setProperty tags to initialize the newly instantiated bean, although you are not restricted to using those alone.
+The following example shows the "today" property of the Foo bean initialized to the current date when it is instantiated. Note that here, we make use of a JSP expression within the jsp:setProperty action.
+<jsp:useBean id="foo" class="com.Bar.Foo" >
+<jsp:setProperty name="foo" property="today"
+value="<%=java.text.DateFormat.getDateInstance().format(new java.util.Date()) %>"/ >
+<%-- scriptlets calling bean setter methods go here --%>
+</jsp:useBean >
+How can I enable session tracking for JSP pages if the browser has disabled cookies? - We know that session tracking uses cookies by default to associate a session identifier with a unique user. If the browser does not support cookies, or if cookies are disabled, you can still enable session tracking using URL rewriting. URL rewriting essentially includes the session ID within the link itself as a name/value pair. However, for this to be effective, you need to append the session ID for each and every link that is part of your servlet response. Adding the session ID to a link is greatly simplified by means of of a couple of methods: response.encodeURL() associates a session ID with a given URL, and if you are using redirection, response.encodeRedirectURL() can be used by giving the redirected URL as input. Both encodeURL() and encodeRedirectedURL() first determine whether cookies are supported by the browser; if so, the input URL is returned unchanged since the session ID will be persisted as a cookie. Consider the following example, in which two JSP files, say hello1.jsp and hello2.jsp, interact with each other. Basically, we create a new session within hello1.jsp and place an object within this session. The user can then traverse to hello2.jsp by clicking on the link present within the page.Within hello2.jsp, we simply extract the object that was earlier placed in the session and display its contents. Notice that we invoke the encodeURL() within hello1.jsp on the link used to invoke hello2.jsp; if cookies are disabled, the session ID is automatically appended to the URL, allowing hello2.jsp to still retrieve the session object. Try this example first with cookies enabled. Then disable cookie support, restart the brower, and try again. Each time you should see the maintenance of the session across pages. Do note that to get this example to work with cookies disabled at the browser, your JSP engine has to support URL rewriting.
+hello1.jsp
+<%@ page session="true" %>
+<%
+Integer num = new Integer(100);
+session.putValue("num",num);
+String url =response.encodeURL("hello2.jsp");
+%>
+<a href='<%=url%>'>hello2.jsp</a>
+hello2.jsp
+<%@ page session="true" %>
+<%
+Integer i= (Integer )session.getValue("num");
+out.println("Num value in session is "+i.intValue());
+How can I declare methods within my JSP page? - You can declare methods for use within your JSP page as declarations. The methods can then be invoked within any other methods you declare, or within JSP scriptlets and expressions. Do note that you do not have direct access to any of the JSP implicit objects like request, response, session and so forth from within JSP methods. However, you should be able to pass any of the implicit JSP variables as parameters to the methods you declare. For example:
+<%!
+public String whereFrom(HttpServletRequest req) {
+HttpSession ses = req.getSession();
+...
+return req.getRemoteHost();
+}
+%>
+<%
+out.print("Hi there, I see that you are coming in from ");
+%>
+<%= whereFrom(request) %>
+Another Example
+file1.jsp:
+<%@page contentType="text/html"%>
+<%!
+public void test(JspWriter writer) throws IOException{
+writer.println("Hello!");
+}
+%>
+file2.jsp
+<%@include file="file1.jsp"%>
+<html>
+<body>
+<%test(out);% >
+</body>
+</html>
+Is there a way I can set the inactivity lease period on a per-session basis? - Typically, a default inactivity lease period for all sessions is set within your JSP engine admin screen or associated properties file. However, if your JSP engine supports the Servlet 2.1 API, you can manage the inactivity lease period on a per-session basis. This is done by invoking the HttpSession.setMaxInactiveInterval() method, right after the session has been created. For example:
+<%
+session.setMaxInactiveInterval(300);
+%>
+would reset the inactivity period for this session to 5 minutes. The inactivity interval is set in seconds.
+How can I set a cookie and delete a cookie from within a JSP page? - A cookie, mycookie, can be deleted using the following scriptlet:
+<%
+//creating a cookie
+Cookie mycookie = new Cookie("aName","aValue");
+response.addCookie(mycookie);
+//delete a cookie
+Cookie killMyCookie = new Cookie("mycookie", null);
+killMyCookie.setMaxAge(0);
+killMyCookie.setPath("/");
+response.addCookie(killMyCookie);
+%>
+How does a servlet communicate with a JSP page? - The following code snippet shows how a servlet instantiates a bean and initializes it with FORM data posted by a browser. The bean is then placed into the request, and the call is then forwarded to the JSP page, Bean1.jsp, by means of a request dispatcher for downstream processing.
+public void doPost (HttpServletRequest request, HttpServletResponse response) {
+try {
+govi.FormBean f = new govi.FormBean();
+String id = request.getParameter("id");
+f.setName(request.getParameter("name"));
+f.setAddr(request.getParameter("addr"));
+f.setAge(request.getParameter("age"));
+//use the id to compute
+//additional bean properties like info
+//maybe perform a db query, etc.
+// . . .
+f.setPersonalizationInfo(info);
+request.setAttribute("fBean",f);
+getServletConfig().getServletContext().getRequestDispatcher
+("/jsp/Bean1.jsp").forward(request, response);
+} catch (Exception ex) {
+. . .
+}
+}
+The JSP page Bean1.jsp can then process fBean, after first extracting it from the default request scope via the useBean action.
+jsp:useBean id="fBean" class="govi.FormBean" scope="request"
+/ jsp:getProperty name="fBean" property="name"
+/ jsp:getProperty name="fBean" property="addr"
+/ jsp:getProperty name="fBean" property="age"
+/ jsp:getProperty name="fBean" property="personalizationInfo" /
+How do I have the JSP-generated servlet subclass my own custom servlet class, instead of the default? - One should be very careful when having JSP pages extend custom servlet classes as opposed to the default one generated by the JSP engine. In doing so, you may lose out on any advanced optimization that may be provided by the JSP engine. In any case, your new superclass has to fulfill the contract with the JSP engine by:
+Implementing the HttpJspPage interface, if the protocol used is HTTP, or implementing JspPage otherwise Ensuring that all the methods in the Servlet interface are declared final Additionally, your servlet superclass also needs to do the following:
+The service() method has to invoke the _jspService() method
+The init() method has to invoke the jspInit() method
+The destroy() method has to invoke jspDestroy()
+If any of the above conditions are not satisfied, the JSP engine may throw a translation error.
+Once the superclass has been developed, you can have your JSP extend it as follows:
+<%@ page extends="packageName.ServletName" %>
+How can I prevent the word "null" from appearing in my HTML input text fields when I populate them with a resultset that has null values? - You could make a simple wrapper function, like
+<%!
+String blanknull(String s) {
+return (s == null) ? "" : s;
+}
+%>
+then use it inside your JSP form, like
+<input type="text" name="shoesize" value="<%=blanknull(shoesize)% >" >
+How can I get to print the stacktrace for an exception occuring within my JSP page? - By printing out the exception's stack trace, you can usually diagonse a problem better when debugging JSP pages. By looking at a stack trace, a programmer should be able to discern which method threw the exception and which method called that method. However, you cannot print the stacktrace using the JSP out implicit variable, which is of type JspWriter. You will have to use a PrintWriter object instead. The following snippet demonstrates how you can print a stacktrace from within a JSP error page:
+<%@ page isErrorPage="true" %>
+<%
+out.println("    ");
+PrintWriter pw = response.getWriter();
+exception.printStackTrace(pw);
+out.println(" ");
+%>
+How do you pass an InitParameter to a JSP? - The JspPage interface defines the jspInit() and jspDestroy() method which the page writer can use in their pages and are invoked in much the same manner as the init() and destory() methods of a servlet. The example page below enumerates through all the parameters and prints them to the console.
+<%@ page import="java.util.*" %>
+<%!
+ServletConfig cfg =null;
+public void jspInit(){
+ServletConfig cfg=getServletConfig();
+for (Enumeration e=cfg.getInitParameterNames(); e.hasMoreElements();) {
+String name=(String)e.nextElement();
+String value = cfg.getInitParameter(name);
+System.out.println(name+"="+value);
+}
+}
+%>
+How can my JSP page communicate with an EJB Session Bean? - The following is a code snippet that demonstrates how a JSP page can interact with an EJB session bean:
+<%@ page import="javax.naming.*, javax.rmi.PortableRemoteObject, foo.AccountHome, foo.Account" %>
+<%!
+//declare a "global" reference to an instance of the home interface of the session bean
+AccountHome accHome=null;
+public void jspInit() {
+//obtain an instance of the home interface
+InitialContext cntxt = new InitialContext( );
+Object ref= cntxt.lookup("java:comp/env/ejb/AccountEJB");
+accHome = (AccountHome)PortableRemoteObject.narrow(ref,AccountHome.class);
+}
+%>
+<%
+//instantiate the session bean
+Account acct = accHome.create();
+//invoke the remote methods
+acct.doWhatever(...);
+// etc etc...
+%>
+
+---------------------------------------------------------------------------------------
+Java Questions
+---------------------------------------------------------------------------------------
+1.) Java API - Details about versioning issues and solutions
+
+2.) Exceptions Hierarchy Diagram (ExceptionInInitialization Error)
+
+3.) Sun's official assertion documentation.
+
+4.) Interfaces:
+Why interfaces does not have constructors?
+Interfaces are not part of the inheritance tree so don't have constructors?
+
+5.) why does the default constructor has the same access modifier as the class?
+
+6.) why constructors are not inhereted?
+
+7.) can a (static) NULL reference access the static values of a class? - Yes.
+
+
+--------------------------------------------------------------------------------------- 
+JavaDatabase Questions
+--------------------------------------------------------------------------------------- 
+How do you call a Stored Procedure from JDBC? - The first step is to create a CallableStatement object. As with Statement and PreparedStatement objects, this is done with an open Connection object. A CallableStatement object contains a call to a stored procedure.
+CallableStatement cs =
+con.prepareCall("{call SHOW_SUPPLIERS}");
+ResultSet rs = cs.executeQuery();
+Is the JDBC-ODBC Bridge multi-threaded? - No. The JDBC-ODBC Bridge does not support concurrent access from different threads. The JDBC-ODBC Bridge uses synchronized methods to serialize all of the calls that it makes to ODBC. Multi-threaded Java programs may use the Bridge, but they won't get the advantages of multi-threading.
+Does the JDBC-ODBC Bridge support multiple concurrent open statements per connection? - No. You can open only one Statement object per connection when you are using the JDBC-ODBC Bridge.
+What is cold backup, hot backup, warm backup recovery? - Cold backup (All these files must be backed up at the same time, before the databaseis restarted). Hot backup (official name is 'online backup') is a backup taken of each tablespace while the database is running and is being accessed by the users.
+When we will Denormalize data? - Data denormalization is reverse procedure, carried out purely for reasons of improving performance. It maybe efficient for a high-throughput system to replicate data for certain data.
+What is the advantage of using PreparedStatement? - If we are using PreparedStatement the execution time will be less. The PreparedStatement object contains not just an SQL statement, but the SQL statement that has been precompiled. This means that when the PreparedStatement is executed,the RDBMS can just run the PreparedStatement's Sql statement without having to compile it first.
+What is a "dirty read"? - Quite often in database processing, we come across the situation wherein one transaction can change a value, and a second transaction can read this value before the original change has been committed or rolled back. This is known as a dirty read scenario because there is always the possibility that the first transaction may rollback the change, resulting in the second transaction having read an invalid value. While you can easily command a database to disallow dirty reads, this usually degrades the performance of your application due to the increased locking overhead. Disallowing dirty reads also leads to decreased system concurrency.
+What is Metadata and why should I use it? - Metadata ('data about data') is information about one of two things: Database information (java.sql.DatabaseMetaData), or Information about a specific ResultSet (java.sql.ResultSetMetaData). Use DatabaseMetaData to find information about your database, such as its capabilities and structure. Use ResultSetMetaData to find information about the results of an SQL query, such as size and types of columns
+Different types of Transaction Isolation Levels? - The isolation level describes the degree to which the data being updated is visible to other transactions. This is important when two transactions are trying to read the same row of a table. Imagine two transactions: A and B. Here three types of inconsistencies can occur:
+Dirty-read: A has changed a row, but has not committed the changes. B reads the uncommitted data but his view of the data may be wrong if A rolls back his changes and updates his own changes to the database.
+Non-repeatable read: B performs a read, but A modifies or deletes that data later. If B reads the same row again, he will get different data.
+Phantoms: A does a query on a set of rows to perform an operation. B modifies the table such that a query of A would have given a different result. The table may be inconsistent.
+TRANSACTION_READ_UNCOMMITTED : DIRTY READS, NON-REPEATABLE READ AND PHANTOMS CAN OCCUR.
+TRANSACTION_READ_COMMITTED : DIRTY READS ARE PREVENTED, NON-REPEATABLE READ AND PHANTOMS CAN OCCUR.
+TRANSACTION_REPEATABLE_READ : DIRTY READS , NON-REPEATABLE READ ARE PREVENTED AND PHANTOMS CAN OCCUR.
+TRANSACTION_SERIALIZABLE : DIRTY READS, NON-REPEATABLE READ AND PHANTOMS ARE PREVENTED.
+What is 2 phase commit? - A 2-phase commit is an algorithm used to ensure the integrity of a committing transaction. In Phase 1, the transaction coordinator contacts potential participants in the transaction. The participants all agree to make the results of the transaction permanent but do not do so immediately. The participants log information to disk to ensure they can complete In phase 2 f all the participants agree to commit, the coordinator logs that agreement and the outcome is decided. The recording of this agreement in the log ends in Phase 2, the coordinator informs each participant of the decision, and they permanently update their resources.
+How do you handle your own transaction ? - Connection Object has a method called setAutocommit(Boolean istrue)
+- Default is true. Set the Parameter to false , and begin your transaction
+  What is the normal procedure followed by a java client to access the db.? - The database connection is created in 3 steps:
+  Find a proper database URL
+  Load the database driver
+  Ask the Java DriverManager class to open a connection to your database
+  In java code, the steps are realized in code as follows:
+  Create a properly formatted JDBR URL for your database. (See FAQ on JDBC URL for more information). A JDBC URL has the form
+  jdbc:someSubProtocol://myDatabaseServer/theDatabaseName
+  Class.forName("my.database.driver");
+  Connection conn = DriverManager.getConnection("a.JDBC.URL", "databaseLogin","databasePassword");
+  What is a data source? - A DataSource class brings another level of abstraction than directly using a connection object. Data source can be referenced by JNDI. Data Source may point to RDBMS, file System , any DBMS etc.
+  What are collection pools? What are the advantages? - A connection pool is a cache of database connections that is maintained in memory, so that the connections may be reused
+  How do you get Column names only for a table (SQL Server)? Write the Query. -
+  select name from syscolumns
+  where id=(select id from sysobjects where name='user_hdr')
+  order by colid --user_hdr is the table name
+--------------------------------------------------------------------------------------- 
+Java Messaging Questions
+--------------------------------------------------------------------------------------- 
+What are the types of messaging? - There are two kinds of Messaging. Synchronous messaging involves a client that waits for the server to respond to a message. Asynchronous messaging involves a client that does not wait for a message from the server. An event is used to trigger a message from a server.
+What is publish/subscribe messaging? - With publish/subscribe message passing the sending application/client establishes a named topic in the JMS broker/server and publishes messages to this queue. The receiving clients register (specifically, subscribe) via the broker to messages by topic; every subscriber to a topic receives each message published to that topic. There is a one-to-many relationship between the publishing client and the subscribing clients.
+Why doesn't the JMS API provide end-to-end synchronous message delivery and notification of delivery? -Some messaging systems provide synchronous delivery to destinations as a mechanism for implementing reliable applications. Some systems provide clients with various forms of delivery notification so that the clients can detect dropped or ignored messages. This is not the model defined by the JMS API. JMS API messaging provides guaranteed delivery via the once-and-only-once delivery semantics of PERSISTENT messages. In addition, message consumers can insure reliable processing of messages by using either CLIENT_ACKNOWLEDGE mode or transacted sessions. This achieves reliable delivery with minimum synchronization and is the enterprise messaging model most vendors and developers prefer. The JMS API does not define a schema of systems messages (such as delivery notifications). If an application requires acknowledgment of message receipt, it can define an application-level acknowledgment message.
+What are the core JMS-related objects required for each JMS-enabled application? - Each JMS-enabled client must establish the following:
+A connection object provided by the JMS server (the message broker)
+Within a connection, one or more sessions, which provide a context for message sending and receiving
+Within a session, either a queue or topic object representing the destination (the message staging area) within the message broker
+Within a session, the appropriate sender or publisher or receiver or subscriber object (depending on whether the client is a message producer or consumer and uses a point-to-point or publish/subscribe strategy, respectively). Within a session, a message object (to send or to receive)
+What is the Role of the JMS Provider? - The JMS provider handles security of the messages, data conversion and the client triggering. The JMS provider specifies the level of encryption and the security level of the message, the best data type for the non-JMS client.
+How does a typical client perform the communication? -
+Use JNDI to locate administrative objects.
+Locate a single ConnectionFactory object.
+Locate one or more Destination objects.
+Use the ConnectionFactory to create a JMS Connection.
+Use the Connection to create one or more Session(s).
+Use a Session and the Destinations to create the MessageProducers and MessageConsumers needed.
+Perform your communication.
+Give an example of using the point-to-point model. - The point-to-point model is used when the information is specific to a single client. For example, a client can send a message for a print out, and the server can send information back to this client after completion of the print job.
+How does the Application server handle the JMS Connection? -
+App server creates the server session and stores them in a pool.
+Connection consumer uses the server session to put messages in the session of the JMS.
+Server session is the one that spawns the JMS session.
+Applications written by Application programmers creates the message listener.
+--------------------------------------------------------------------------------------- 
+Java Servelets Questions
+--------------------------------------------------------------------------------------- 
+What is the difference between CGI and Servlet?
+What is meant by a servlet?
+What are the types of servlets? What is the difference between 2 types of Servlets?
+What is the type of method for sending request from HTTP server ?
+What are the exceptions thrown by Servlets? Why?
+What is the life cycle of a servlet?
+What is meant by cookies? Why is Cookie used?
+What is HTTP Session?
+What is the difference between GET and POST methods?
+How can you run a Servlet Program?
+What is the middleware? What is the functionality of Webserver?
+What webserver is used for running the Servlets?
+How do you invoke a Servelt? What is the difference in between doPost and doGet methods?
+What is the difference in between the HTTPServlet and Generic Servlet? Explain their methods? Tell me their parameter names also?
+What are session variable in Servlets?
+What is meant by Session? Tell me something about HTTPSession Class?
+What is Session Tracking?
+Difference between doGet and doPost?
+What are the methods in HttpServlet?
+What are the types of SessionTracking? Why do you use Session Tracking in HttpServlet?
+What is a servlet?
+Servlets are modules that extend request/response-oriented servers,such as Java-enabled web servers. For example, a servlet might be responsible for taking data in an HTML order-entry form and applying the business logic used to update a company's order database. Servlets are to servers what applets are to browsers. Unlike applets, however, servlets have no graphical user interface.
+Whats the advantages using servlets over using CGI?
+Servlets provide a way to generate dynamic documents that is both easier to write and faster to run. Servlets also address the problem of doing server-side programming with platform-specific APIs: they are developed with the Java Servlet API, a standard Java extension.
+What are the general advantages and selling points of Servlets?
+A servlet can handle multiple requests concurrently, and synchronize requests. This allows servlets to support systems such as online
+real-time conferencing. Servlets can forward requests to other servers and servlets. Thus servlets can be used to balance load among several servers that mirror the same content, and to partition a single logical service over several servers, according to task type or organizational boundaries.
+Which package provides interfaces and classes for writing servlets? javax
+What's the Servlet Interface?
+The central abstraction in the Servlet API is the Servlet interface. All servlets implement this interface, either directly or, more
+commonly, by extending a class that implements it such as HttpServlet.Servlets > Generic Servlet > HttpServlet > MyServlet.
+The Servlet interface declares, but does not implement, methods that manage the servlet and its communications with clients. Servlet writers provide some or all of these methods when developing a servlet.
+When a servlet accepts a call from a client, it receives two objects. What are they?
+ServletRequest (which encapsulates the communication from the client to the server) and ServletResponse (which encapsulates the communication from the servlet back to the client). ServletRequest and ServletResponse are interfaces defined inside javax.servlet package.
+What information does ServletRequest allow access to?
+Information such as the names of the parameters passed in by the client, the protocol (scheme) being used by the client, and the names
+of the remote host that made the request and the server that received it. Also the input stream, as ServletInputStream.Servlets use the input stream to get data from clients that use application protocols such as the HTTP POST and GET methods.
+What type of constraints can ServletResponse interface set on the client?
+It can set the content length and MIME type of the reply. It also provides an output stream, ServletOutputStream and a Writer through
+which the servlet can send the reply data.
+Explain servlet lifecycle?
+Each servlet has the same life cycle: first, the server loads and initializes the servlet (init()), then the servlet handles zero or more client requests (service()), after that the server removes the servlet (destroy()). Worth noting that the last step on some servers is done when they shut down.
+How does HTTP Servlet handle client requests?
+An HTTP Servlet handles client requests through its service method. The service method supports standard HTTP client requests by dispatching each request to a method designed to handle that request.
+--------------------------------------------------------------------------------------- 
+JDBC Questions
+--------------------------------------------------------------------------------------- 
+What are the steps involved in establishing a JDBC connection? This action involves two steps: loading the JDBC driver and making the connection.
+How can you load the drivers?
+Loading the driver or drivers you want to use is very simple and involves just one line of code. If, for example, you want to use the JDBC-ODBC Bridge driver, the following code will load it:
+Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+Your driver documentation will give you the class name to use. For instance, if the class name is jdbc.DriverXYZ, you would load the driver with the following line of code:
+Class.forName("jdbc.DriverXYZ");
+What will Class.forName do while loading drivers? It is used to create an instance of a driver and register it with the
+DriverManager. When you have loaded a driver, it is available for making a connection with a DBMS.
+How can you make the connection? To establish a connection you need to have the appropriate driver connect to the DBMS.
+The following line of code illustrates the general idea:
+String url = "jdbc:odbc:Fred";
+Connection con = DriverManager.getConnection(url, "Fernanda", "J8?);
+How can you create JDBC statements and what are they?
+A Statement object is what sends your SQL statement to the DBMS. You simply create a Statement object and then execute it, supplying the appropriate execute method with the SQL statement you want to send. For a SELECT statement, the method to use is executeQuery. For statements that create or modify tables, the method to use is executeUpdate. It takes an instance of an active connection to create a Statement object. In the following example, we use our Connection object con to create the Statement object
+Statement stmt = con.createStatement();
+How can you retrieve data from the ResultSet?
+JDBC returns results in a ResultSet object, so we need to declare an instance of the class ResultSet to hold our results. The following code demonstrates declaring the ResultSet object rs.
+ResultSet rs = stmt.executeQuery("SELECT COF_NAME, PRICE FROM COFFEES");
+String s = rs.getString("COF_NAME");
+The method getString is invoked on the ResultSet object rs, so getString() will retrieve (get) the value stored in the column COF_NAME in the current row of rs.
+What are the different types of Statements?
+Regular statement (use createStatement method), prepared statement (use prepareStatement method) and callable statement (use prepareCall)
+How can you use PreparedStatement? This special type of statement is derived from class Statement.If you need a
+Statement object to execute many times, it will normally make sense to use a PreparedStatement object instead. The advantage to this is that in most cases, this SQL statement will be sent to the DBMS right away, where it will be compiled. As a result, the PreparedStatement object contains not just an SQL statement, but an SQL statement that has been precompiled. This means that when the PreparedStatement is executed, the DBMS can just run the PreparedStatement's SQL statement without having to compile it first.
+PreparedStatement updateSales =
+con.prepareStatement("UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ?");
+What does setAutoCommit do?
+When a connection is created, it is in auto-commit mode. This means that each individual SQL statement is treated as a transaction and will be automatically committed right after it is executed. The way to allow two or more statements to be grouped into a transaction is to disable auto-commit mode:
+con.setAutoCommit(false);
+Once auto-commit mode is disabled, no SQL statements will be committed until you call the method commit explicitly.
+con.setAutoCommit(false);
+PreparedStatement updateSales =
+con.prepareStatement( "UPDATE COFFEES SET SALES = ? WHERE COF_NAME LIKE ?");
+updateSales.setInt(1, 50); updateSales.setString(2, "Colombian");
+updateSales.executeUpdate();
+PreparedStatement updateTotal =
+con.prepareStatement("UPDATE COFFEES SET TOTAL = TOTAL + ? WHERE COF_NAME LIKE ?");
+updateTotal.setInt(1, 50);
+updateTotal.setString(2, "Colombian");
+updateTotal.executeUpdate();
+con.commit();
+con.setAutoCommit(true);
+How do you call a stored procedure from JDBC?
+The first step is to create a CallableStatement object. As with Statement an and PreparedStatement objects, this is done with an open
+Connection object. A CallableStatement object contains a call to a stored procedure.
+CallableStatement cs = con.prepareCall("{call SHOW_SUPPLIERS}");
+ResultSet rs = cs.executeQuery();
+How do I retrieve warnings?
+SQLWarning objects are a subclass of SQLException that deal with database access warnings. Warnings do not stop the execution of an
+application, as exceptions do; they simply alert the user that something did not happen as planned. A warning can be reported on a
+Connection object, a Statement object (including PreparedStatement and CallableStatement objects), or a ResultSet object. Each of these
+classes has a getWarnings method, which you must invoke in order to see the first warning reported on the calling object:
+SQLWarning warning = stmt.getWarnings();
+if (warning != null)
+{
+System.out.println("n---Warning---n");
+while (warning != null)
+{
+System.out.println("Message: " + warning.getMessage());
+System.out.println("SQLState: " + warning.getSQLState());
+System.out.print("Vendor error code: ");
+System.out.println(warning.getErrorCode());
+System.out.println("");
+warning = warning.getNextWarning();
+}
+}
+How can you move the cursor in scrollable result sets?
+One of the new features in the JDBC 2.0 API is the ability to move a result set's cursor backward as well as forward. There are also methods that let you move the cursor to a particular row and check the position of the cursor.
+Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
+ResultSet srs = stmt.executeQuery("SELECT COF_NAME, PRICE FROM COFFEES");
+The first argument is one of three constants added to the ResultSet API to indicate the type of a ResultSet object: TYPE_FORWARD_ONLY, TYPE_SCROLL_INSENSITIVE , and TYPE_SCROLL_SENSITIVE. The second argument is one of two ResultSet constants for specifying whether a result set is read-only or updatable: CONCUR_READ_ONLY and CONCUR_UPDATABLE. The point to remember here is that if you specify a type, you must also specify whether it is read-only or updatable. Also, you must specify the type first, and because both parameters are of type int , the compiler will not complain if you switch the order. Specifying the constant TYPE_FORWARD_ONLY creates a nonscrollable result set, that is, one in which the cursor moves only forward. If you do not specify any constants for the type and updatability of a ResultSet object, you will automatically get one that is TYPE_FORWARD_ONLY and CONCUR_READ_ONLY.
+What's the difference between TYPE_SCROLL_INSENSITIVE , and TYPE_SCROLL_SENSITIVE?
+You will get a scrollable ResultSet object if you specify one of these ResultSet constants.The difference between the two has to do with whether a result set reflects changes that are made to it while it is open and whether certain methods can be called to detect these changes. Generally speaking, a result set that is TYPE_SCROLL_INSENSITIVE does not reflect changes made while it is still open and one that is TYPE_SCROLL_SENSITIVE does. All three types of result sets will make changes visible if they are closed and then reopened:
+Statement stmt =
+con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+ResultSet srs =
+stmt.executeQuery("SELECT COF_NAME, PRICE FROM COFFEES");
+srs.afterLast();
+while (srs.previous())
+{
+String name = srs.getString("COF_NAME");
+float price = srs.getFloat("PRICE");
+System.out.println(name + " " + price);
+}
+How to Make Updates to Updatable Result Sets?
+Another new feature in the JDBC 2.0 API is the ability to update rows in a result set using methods in the Java programming language rather than having to send an SQL command. But before you can take advantage of this capability, you need to create a ResultSet object that is updatable. In order to do this, you supply the ResultSet constant CONCUR_UPDATABLE to the createStatement method.
+Connection con =
+DriverManager.getConnection("jdbc:mySubprotocol:mySubName");
+Statement stmt =
+con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+ResultSet uprs =
+stmt.executeQuery("SELECT COF_NAME, PRICE FROM COFFEES");
+--------------------------------------------------------------------------------------- 
+Java Applet Questions
+--------------------------------------------------------------------------------------- 
+What is an Applet? Should applets have constructors?
+- Applets are small programs transferred through Internet, automatically installed and run as part of web-browser. Applets implements functionality of a client. Applet is a dynamic and interactive program that runs inside a Web page displayed by a Java-capable browser. We don't have the concept of Constructors in Applets. Applets can be invoked either through browser or through Appletviewer utility provided by JDK.
+  What are the Applet's Life Cycle methods? Explain them? - Following are methods in the life cycle of an Applet:
+  init() method - called when an applet is first loaded. This method is called only once in the entire cycle of an applet. This method usually intialize the variables to be used in the applet.
+  start( ) method - called each time an applet is started.
+  paint() method - called when the applet is minimized or refreshed. This method is used for drawing different strings, figures, and images on the applet window.
+  stop( ) method - called when the browser moves off the applet's page.
+  destroy( ) method - called when the browser is finished with the applet.
+  What is the sequence for calling the methods by AWT for applets? - When an applet begins, the AWT calls the following methods, in this sequence:
+  init()
+  start()
+  paint()
+  When an applet is terminated, the following sequence of method calls takes place :
+  stop()
+  destroy()
+  How do Applets differ from Applications? - Following are the main differences: Application: Stand Alone, doesn't need
+  web-browser. Applet: Needs no explicit installation on local machine. Can be transferred through Internet on to the local machine and may run as part of web-browser. Application: Execution starts with main() method. Doesn't work if main is not there. Applet: Execution starts with init() method. Application: May or may not be a GUI. Applet: Must run within a GUI (Using AWT). This is essential feature of applets.
+  Can we pass parameters to an applet from HTML page to an applet? How? - We can pass parameters to an applet using <param> tag in the following way:
+<param name="param1? value="value1?> 
+<param name="param2? value="value2?> 
+Access those parameters inside the applet is done by calling getParameter() method inside the applet. Note that getParameter() method returns String value corresponding to the parameter name. 
+How do we read number information from my applet's parameters, given that Applet's getParameter() method returns a string? 
+- Use the parseInt() method in the Integer Class, the Float(String) constructor or parseFloat() method in the Class Float, or the 
+Double(String) constructor or parseDoulbl() method in the class Double. 
+How can I arrange for different applets on a web page to communicate with each other? 
+- Name your applets inside the Applet tag and invoke AppletContext's getApplet() method in your applet code to obtain references to the 
+other applets on the page. 
+How do I select a URL from my Applet and send the browser to that page? - Ask the applet for its applet context and invoke showDocument() on that context object. 
+URL targetURL; 
+String URLString 
+AppletContext context = getAppletContext(); 
+try 
+{ 
+    targetURL = new URL(URLString); 
+} 
+catch (MalformedURLException e) 
+{ 
+    // Code for recover from the exception 
+} 
+context. showDocument (targetURL); 
+Can applets on different pages communicate with each other? 
+- No, Not Directly. The applets will exchange the information at one meeting place either on the local file system or at remote system. 
+How do I determine the width and height of my application? 
+- Use the getSize() method, which the Applet class inherits from the Component class in the Java.awt package. The getSize() method returns the size of the applet as a Dimension object, from which you extract separate width, height fields. The following code snippet explains this: 
+Dimension dim = getSize(); 
+int appletwidth = dim.width(); 
+int appletheight = dim.height(); 
+Which classes and interfaces does Applet class consist? - Applet class consists of a single class, the Applet class and three interfaces: AppletContext, AppletStub, and AudioClip. 
+What is AppletStub Interface? 
+- The applet stub interface provides the means by which an applet and the browser communicate. Your code will not typically implement this interface. 
+What tags are mandatory when creating HTML to display an applet? 
+name, height, width 
+code, name 
+codebase, height, width 
+code, height, width 
+Correct answer is d. 
+What are the Applet's information methods? 
+- The following are the Applet's information methods: getAppletInfo() method: Returns a string describing the applet, its author, copyright information, etc. getParameterInfo( ) method: Returns an array of string describing the applet's parameters. 
+What are the steps involved in Applet development? - Following are the steps involved in Applet development: 
+Create/Edit a Java source file. This file must contain a class which extends Applet class. 
+Compile your program using javac 
+Execute the appletviewer, specifying the name of your applet's source file or html file. In case the applet information is stored in html file then Applet can be invoked using java enabled web browser. 
+Which method is used to output a string to an applet? Which function is this method included in? - drawString( ) method is used to output a string to an applet. This method is included in the paint method of the Applet. 
+--------------------------------------------------------------------------------------- 
+Java AWT Questions 
+--------------------------------------------------------------------------------------- 
+What is meant by Controls and what are different types of controls? - Controls are componenets that allow a user to interact with your application. The AWT supports the following types of controls: 
+Labels 
+Push buttons 
+Check boxes 
+Choice lists 
+Lists 
+Scroll bars 
+Text components 
+These controls are subclasses of Component. 
+Which method of the component class is used to set the position and the size of a component? - setBounds(). The following code snippet explains this: 
+txtName.setBounds(x,y,width,height); 
+places upper left corner of the text field txtName at point (x,y) with the width and height of the text field set as width and height. 
+Which TextComponent method is used to set a TextComponent to the read-only state? - setEditable() 
+How can the Checkbox class be used to create a radio button? - By associating Checkbox objects with a CheckboxGroup. 
+What methods are used to get and set the text label displayed by a Button object? - getLabel( ) and setLabel( ) 
+What is the difference between a Choice and a List? - Choice: A Choice is displayed in a compact form that requires you to pull it down to see the list of available choices. Only one item may be selected from a Choice. List: A List may be displayed in such a way that several List items are visible. A List supports the selection of one or more List items. 
+What is the difference between a Scollbar and a Scrollpane? - A Scrollbar is a Component, but not a Container. A Scrollpane is a Container and handles its own events and performs its own scrolling. 
+Which are true about the Container class? 
+The validate( ) method is used to cause a Container to be laid out and redisplayed. 
+The add( ) method is used to add a Component to a Container. 
+The getBorder( ) method returns information about a Container's insets. 
+getComponent( ) method is used to access a Component that is contained in a Container. 
+Answers: a, b and d 
+Suppose a Panel is added to a Frame and a Button is added to the Panel. If the Frame's font is set to 12-point TimesRoman, the Panel's font is set to 10-point TimesRoman, and the Button's font is not set, what font will be used to display the Button's label? 
+12-point TimesRoman 
+11-point TimesRoman 
+10-point TimesRoman 
+9-point TimesRoman 
+Answer: c. 
+What are the subclasses of the Container class? - The Container class has three major subclasses. They are: 
+Window 
+Panel 
+ScrollPane 
+Which object is needed to group Checkboxes to make them exclusive? - CheckboxGroup. 
+What are the types of Checkboxes and what is the difference between them? - Java supports two types of Checkboxes: 
+Exclusive 
+Non-exclusive. 
+In case of exclusive Checkboxes, only one among a group of items can be selected at a time. I f an item from the group is selected, the checkbox currently checked is deselected and the new selection is highlighted. The exclusive Checkboxes are also called as Radio buttons. The non-exclusive checkboxes are not grouped together and each one can be selected independent of the other. 
+What is a Layout Manager and what are the different Layout Managers available in java.awt and what is the default Layout manager for the panel and the panel subclasses? - A layout Manager is an object that is used to organize components in a container. The different layouts available in java.awt are: 
+FlowLayout: The elements of a FlowLayout are organized in a top to bottom, left to right fashion. 
+BorderLayout: The elements of a BorderLayout are organized at the borders (North, South, East and West) and the center of a container. 
+CardLayout: The elements of a CardLayout are stacked, one on top of the other, like a deck of cards. 
+GridLayout: The elements of a GridLayout are of equal size and are laid out using the square of a grid. 
+GridBagLayout: 
+The elements of a GridBagLayout are organized according to a grid.However, the elements are of different sizes and may occupy more 
+than one row or column of the grid. In addition, the rows and columns may have different sizes. 
+The default Layout Manager of Panel and Panel sub classes is FlowLayout. 
+Can I add the same component to more than one container? - No. Adding a component to a container automatically removes it from any previous parent (container). 
+How can we create a borderless window? - Create an instance of the Window class, give it a size, and show it on the screen. 
+Frame aFrame = new Frame(); 
+Window aWindow = new Window(aFrame); 
+aWindow.setLayout(new FlowLayout()); 
+aWindow.add(new Button("Press Me")); 
+aWindow.getBounds(50,50,200,200); 
+aWindow.show(); 
+Can I create a non-resizable windows? If so, how? - Yes. By using setResizable() method in class Frame. 
+Which containers use a BorderLayout as their default layout? Which containers use a FlowLayout as their default layout? - The Window, Frame and Dialog classes use a BorderLayout as their default layout. The Panel and the Applet classes use the FlowLayout as their default layout. 
+How do you change the current layout manager for a container? 
+Use the setLayout method 
+Once created you cannot change the current layout manager of a component 
+Use the setLayoutManager method 
+Use the updateLayout method 
+Answer: a. 
+What is the difference between a MenuItem and a CheckboxMenuItem?- The CheckboxMenuItem class extends the MenuItem class to support a menu item that may be checked or unchecked. 
+--------------------------------------------------------------------------------------- 
+J2EE Questions 
+--------------------------------------------------------------------------------------- 
+What makes J2EE suitable for distributed multitiered Applications? 
+- The J2EE platform uses a multitiered distributed application model. Application logic is divided into components according to function, and the various application components that make up a J2EE application are installed on different machines depending on the tier in the multitiered J2EE environment to which the application component belongs. The J2EE application parts are: 
+Client-tier components run on the client machine. 
+Web-tier components run on the J2EE server. 
+Business-tier components run on the J2EE server. 
+Enterprise information system (EIS)-tier software runs on the EIS server. 
+What is J2EE? - J2EE is an environment for developing and deploying enterprise applications. The J2EE platform consists of a set of services, application programming interfaces (APIs), and protocols that provide the functionality for developing multitiered, web-based applications. 
+What are the components of J2EE application? 
+- A J2EE component is a self-contained functional software unit that is assembled into a J2EE application with its related classes and files and communicates with other components. The J2EE specification defines the following J2EE components: 
+Application clients and applets are client components. 
+Java Servlet and JavaServer Pages technology components are web components. 
+Enterprise JavaBeans components (enterprise beans) are business components. 
+Resource adapter components provided by EIS and tool vendors. 
+What do Enterprise JavaBeans components contain? - Enterprise JavaBeans components contains Business code, which is logic 
+that solves or meets the needs of a particular business domain such as banking, retail, or finance, is handled by enterprise beans running in the business tier. All the business code is contained inside an Enterprise Bean which receives data from client programs, processes it (if necessary), and sends it to the enterprise information system tier for storage. An enterprise bean also retrieves data from storage, processes it (if necessary), and sends it back to the client program. 
+Is J2EE application only a web-based? - No, It depends on type of application that client wants. A J2EE application can be web-based or non-web-based. if an application client executes on the client machine, it is a non-web-based J2EE application. The J2EE application can provide a way for users to handle tasks such as J2EE system or application administration. It typically has a graphical user interface created from Swing or AWT APIs, or a command-line interface. When user request, it can open an HTTP connection to establish communication with a servlet running in the web tier. 
+Are JavaBeans J2EE components? - No. JavaBeans components are not considered J2EE components by the J2EE specification. They are written to manage the data flow between an application client or applet and components running on the J2EE server or between server components and a database. JavaBeans components written for the J2EE platform have instance variables and get and set methods for accessing the data in the instance variables. JavaBeans components used in this way are typically simple in design and implementation, but should conform to the naming and design conventions outlined in the JavaBeans component architecture. 
+Is HTML page a web component? - No. Static HTML pages and applets are bundled with web components during application assembly, but are not considered web components by the J2EE specification. Even the server-side utility classes are not considered web components, either. 
+What can be considered as a web component? - J2EE Web components can be either servlets or JSP pages. Servlets are Java programming language classes that dynamically process requests and construct responses. JSP pages are text-based documents that execute as servlets but allow a more natural approach to creating static content. 
+What is the container? - Containers are the interface between a component and the low-level platform specific functionality that supports the component. Before a Web, enterprise bean, or application client component can be executed, it must be assembled into a J2EE application and deployed into its container. 
+What are container services? - A container is a runtime support of a system-level entity. Containers provide components with services such as lifecycle management, security, deployment, and threading. 
+What is the web container? - Servlet and JSP containers are collectively referred to as Web containers. It manages the execution of JSP page and servlet components for J2EE applications. Web components and their container run on the J2EE server. 
+What is Enterprise JavaBeans (EJB) container? - It manages the execution of enterprise beans for J2EE applications. 
+Enterprise beans and their container run on the J2EE server. 
+What is Applet container? - IManages the execution of applets. Consists of a Web browser and Java Plugin running on the client together. 
+How do we package J2EE components? - J2EE components are packaged separately and bundled into a J2EE application for deployment. Each component, its related files such as GIF and HTML files or server-side utility classes, and a deployment descriptor are assembled into a module and added to the J2EE application. A J2EE application is composed of one or more enterprise bean,Web, or application client component modules. The final enterprise solution can use one J2EE application or be made up of two or more J2EE applications, depending on design requirements. A J2EE application and each of its modules has its own deployment descriptor. A deployment descriptor is an XML document with an .xml extension that describes a component's deployment settings. 
+What is a thin client? - A thin client is a lightweight interface to the application that does not have such operations like query databases, execute complex business rules, or connect to legacy applications. 
+What are types of J2EE clients? - Following are the types of J2EE clients: 
+Applets 
+Application clients 
+Java Web Start-enabled rich clients, powered by Java Web Start technology. 
+Wireless clients, based on Mobile Information Device Profile (MIDP) technology. 
+What is deployment descriptor? - A deployment descriptor is an Extensible Markup Language (XML) text-based file with an .xml extension that describes a component's deployment settings. A J2EE application and each of its modules has its own deployment descriptor. For example, an enterprise bean module deployment descriptor declares transaction attributes and security authorizations 
+for an enterprise bean. Because deployment descriptor information is declarative, it can be changed without modifying the bean source code. At run time, the J2EE server reads the deployment descriptor and acts upon the component accordingly. 
+What is the EAR file? - An EAR file is a standard JAR file with an .ear extension, named from Enterprise ARchive file. A J2EE application with all of its modules is delivered in EAR file. 
+What is JTA and JTS? - JTA is the abbreviation for the Java Transaction API. JTS is the abbreviation for the Jave Transaction Service. JTA provides a standard interface and allows you to demarcate transactions in a manner that is independent of the transaction manager implementation. The J2EE SDK implements the transaction manager with JTS. But your code doesn't call the JTS methods directly. Instead, it invokes the JTA methods, which then call the lower-level JTS routines. Therefore, JTA is a high level transaction interface that your application uses to control transaction. and JTS is a low level transaction interface and ejb uses behind the scenes (client code doesn't directly interact with JTS. It is based on object transaction service(OTS) which is part of CORBA. 
+What is JAXP? - JAXP stands for Java API for XML. XML is a language for representing and describing text-based data which can be read and handled by any program or tool that uses XML APIs. It provides standard services to determine the type of an arbitrary piece of data, encapsulate access to it, discover the operations available on it, and create the appropriate JavaBeans component to perform those operations. 
+What is J2EE Connector? - The J2EE Connector API is used by J2EE tools vendors and system integrators to create resource adapters that support access to enterprise information systems that can be plugged into any J2EE product. Each type of database or EIS has a different resource adapter. Note: A resource adapter is a software component that allows J2EE application components to access and interact with the underlying resource manager. Because a resource adapter is specific to its resource manager, there is typically a different resource adapter for each type of database or enterprise information system. 
+What is JAAP? - The Java Authentication and Authorization Service (JAAS) provides a way for a J2EE application to authenticate and authorize a specific user or group of users to run it. It is a standard Pluggable Authentication Module (PAM) framework that extends the Java 2 platform security architecture to support user-based authorization. 
+What is Java Naming and Directory Service? - The JNDI provides naming and directory functionality. It provides applications with methods for performing standard directory operations, such as associating attributes with objects and searching for objects using their attributes. Using JNDI, a J2EE application can store and retrieve any type of named Java object. Because JNDI is independent of any specific implementations, applications can use JNDI to access multiple naming and directory services, including existing naming and 
+directory services such as LDAP, NDS, DNS, and NIS. 
+What is Struts? - A Web page development framework. Struts combines Java Servlets, Java Server Pages, custom tags, and message resources into a unified framework. It is a cooperative, synergistic platform, suitable for development teams, independent developers, and everyone between. 
+How is the MVC design pattern used in Struts framework? - In the MVC design pattern, application flow is mediated by a central Controller. The Controller delegates requests to an appropriate handler. The handlers are tied to a Model, and each handler acts as an adapter between the request and the Model. The Model represents, or encapsulates, an application's business logic or state. Control is usually then forwarded back through the Controller to the appropriate View. The forwarding can be determined by consulting a set of mappings, usually loaded from a database or configuration file. This provides a loose coupling between the View and Model, which can make an application significantly easier to create and maintain. Controller: Servlet controller which supplied by Struts itself; View: what you can see on the screen, a JSP page and presentation components; Model: System state and a business logic JavaBeans. 
+--------------------------------------------------------------------------------------- 
+Java GUI Designer Questions 
+--------------------------------------------------------------------------------------- 
+What advantage do Java's layout managers provide over traditional windowing systems? - Java uses layout managers to lay out components in a consistent manner across all windowing platforms. Since Java's layout managers aren't tied to absolute sizing and positioning, they are able to accomodate platform-specific differences among windowing systems. 
+What is the difference between the paint() and repaint() methods? - The paint() method supports painting via a Graphics object. The repaint() method is used to cause paint() to be invoked by the AWT painting thread. 
+How can the Checkbox class be used to create a radio button? - By associating Checkbox objects with a CheckboxGroup 
+What is the difference between a Choice and a List? - A Choice is displayed in a compact form that requires you to pull it down to see the list of available choices. Only one item may be selected from a Choice. A List may be displayed in such a way that several List items are visible. A List supports the selection of one or more List items. 
+What interface is extended by AWT event listeners? - All AWT event listeners extend the java.util.EventListener interface. 
+What is a layout manager? - A layout manager is an object that is used to organize components in a container 
+Which Component subclass is used for drawing and painting? - Canvas 
+What are the problems faced by Java programmers who dont use layout managers? - Without layout managers, Java programmers are faced with determining how their GUI will be displayed across multiple windowing systems and finding a common sizing and positioning that will work within the constraints imposed by each windowing system 
+What is the difference between a Scrollbar and a ScrollPane? (Swing) - A Scrollbar is a Component, but not a Container. A ScrollPane is a Container. A ScrollPane handles its own events and performs its own scrolling. 
+--------------------------------------------------------------------------------------- 
+Java N/w and algorithmic Questions 
+--------------------------------------------------------------------------------------- 
+What is the protocol used by server and client ? 
+Can I modify an object in CORBA ? 
+What is the functionality stubs and skeletons ? 
+What is the mapping mechanism used by Java to identify IDL language ? 
+Diff between Application and Applet ? 
+What is serializable Interface ? 
+What is the difference between CGI and Servlet ? 
+What is the use of Interface ? 
+Why Java is not fully objective oriented ? 
+Why does not support multiple Inheritance ? 
+What it the root class for all Java classes ? 
+What is polymorphism ? 
+Suppose If we have variable ' I ' in run method, If I can create one or more thread each thread will occupy a separate copy or same variable will be shared ? 
+In servlets, we are having a web page that is invoking servlets username and password ? which is checked in the database ? Suppose the second page also If we want to verify the same information whether it will connect to the database or it will be used previous information? 
+What are virtual functions ? 
+Write down how will you create a binary Tree ? 
+What are the traverses in Binary Tree ? 
+Write a program for recursive Traverse ? 
+What are session variable in Servlets ? 
+What is client server computing ? 
+What is Constructor and Virtual function? Can we call Virtual function in a constructor ? 
+Why we use OOPS concepts? What is its advantage ? 
+What is the middleware ? What is the functionality of Webserver ? 
+Why Java is not 100 % pure OOPS ? ( EcomServer ) 
+When we will use an Interface and Abstract class ? 
+What is an RMI? 
+How will you pass parameters in RMI ? Why u serialize? 
+What is the exact difference in between Unicast and Multicast object ? Where we will use ? 
+What is the main functionality of the Remote Reference Layer ? 
+How do you download stubs from a Remote place ? 
+What is the difference in between C++ and Java ? can u explain in detail ? 
+I want to store more than 10 objects in a remote server ? Which methodology will follow ? 
+What is the main functionality of the Prepared Statement ? 
+What is meant by static query and dynamic query ? 
+What are the Normalization Rules ? Define the Normalization ? 
+What is meant by Servlet? What are the parameters of the service method ? 
+What is meant by Session ? Tell me something about HTTPSession Class ? 
+How do you invoke a Servlet? What is the difference in between doPost and doGet methods ? 
+What is the difference in between the HTTPServlet and Generic Servlet ? Explain their methods ? Tell me their parameter names also ? 
+Have you used threads in Servlet ? 
+Write a program on RMI and JDBC using StoredProcedure ? 
+How do you sing an Applet ? 
+In a Container there are 5 components. I want to display the all the components names, how will you do that one ? 
+Why there are some null interface in java ? What does it mean ? Give me some null interfaces in JAVA ? 
+Tell me the latest versions in JAVA related areas ? 
+What is meant by class loader ? How many types are there? When will we use them ? 
+How do you load an Image in a Servlet ? 
+What is meant by flickering ? 
+What is meant by distributed Application ? Why we are using that in our applications ? 
+What is the functionality of the stub ? 
+Have you used any version control ? 
+What is the latest version of JDBC ? What are the new features are added in that ? 
+Explain 2 tier and 3 -tier Architecture ? 
+What is the role of the webserver ? 
+How have you done validation of the fields in your project ? 
+What is the main difficulties that you are faced in your project ? 
+What is meant by cookies ? Explain ? 
+--------------------------------------------------------------------------------------- 
+Other Java Questions 
+--------------------------------------------------------------------------------------- 
+What is the difference between an Abstract class and Interface ? 
+What is user defined exception ? 
+What do you know about the garbage collector ? 
+What is the difference between C++ & Java ? 
+Explain RMI Architecture? 
+How do you communicate in between Applets & Servlets ? 
+What is the use of Servlets ? 
+What is JDBC? How do you connect to the Database ? 
+In an HTML form I have a Button which makes us to open another page in 15 seconds. How will do you that ? 
+What is the difference between Process and Threads ? 
+What is the difference between RMI & Corba ? 
+What are the services in RMI ? 
+How will you initialize an Applet ? 
+What is the order of method invocation in an Applet ? 
+When is update method called ? 
+How will you pass values from HTML page to the Servlet ? 
+Have you ever used HashTable and Dictionary ? 
+How will you communicate between two Applets ? 
+What are statements in JAVA ? 
+What is JAR file ? 
+What is JNI ? 
+What is the base class for all swing components ? 
+What is JFC ? 
+What is Difference between AWT and Swing ? 
+Considering notepad/IE or any other thing as process, What will happen if you start notepad or IE 3 times? Where 3 processes are started or 3 threads are started ? 
+How does thread synchronization occurs inside a monitor ? 
+How will you call an Applet using a Java Script function ? 
+Is there any tag in HTML to upload and download files ? 
+Why do you Canvas ? 
+How can you push data from an Applet to Servlet ? 
+What are 4 drivers available in JDBC ? 
+How you can know about drivers and database information ? 
+If you are truncated using JDBC, How can you know ..that how much data is truncated ? 
+And What situation , each of the 4 drivers used ? 
+How will you perform transaction using JDBC ? 
+In RMI, server object first loaded into the memory and then the stub reference is sent to the client ? or whether a stub reference is directly sent to the client ? 
+Suppose server object is not loaded into the memory, and the client request for it , what will happen? 
+What is serialization ? 
+Can you load the server object dynamically? If so, what are the major 3 steps involved in it ? 
+What is difference RMI registry and OSAgent ? 
+To a server method, the client wants to send a value 20, with this value exceeds to 20,. a message should be sent to the client ? What will you do for achieving for this ? 
+What are the benefits of Swing over AWT ? 
+Where the CardLayout is used ? 
+What is the Layout for ToolBar ? 
+What is the difference between Grid and GridbagLayout ? 
+How will you add panel to a Frame ? 
+What is the corresponding Layout for Card in Swing ? 
+What is light weight component ? 
+Can you run the product development on all operating systems ? 
+What is the webserver used for running the Servlets ? 
+What is Servlet API used for connecting database ? 
+What is bean ? Where it can be used ? 
+What is difference in between Java Class and Bean ? 
+Can we send object using Sockets ? 
+What is the RMI and Socket ? 
+How to communicate 2 threads each other ? 
+What are the files generated after using IDL to Java Compilet ? 
+--------------------------------------------------------------------------------------- 
+Java n/w Questions 
+--------------------------------------------------------------------------------------- 
+QUESTION: What is a JavaBean? (asked by Lifescan inc) 
+ANSWER: JavaBeans are reusable software components written in the Java programming language, designed to be manipulated visually by a software develpoment environment, like JBuilder or VisualAge for Java. They are similar to Microsoft's ActiveX components, but designed to be platform-neutral, running anywhere there is a Java Virtual Machine (JVM). 
+QUESTION: What are the seven layers(OSI model) of networking? (asked by Caspio.com) 
+ANSWER: 1.Physical, 2.Data Link, 3.Network, 4.Transport, 5.Session, 6.Presentation and 7.Application Layers. 
+QUESTION: What are some advantages and disadvantages of Java Sockets? (asked by Arashsoft.com) 
+ANSWER: 
+Advantages of Java Sockets: 
+Sockets are flexible and sufficient. Efficient socket based programming can be easily implemented for general communications. 
+Sockets cause low network traffic. Unlike HTML forms and CGI scripts that generate and transfer whole web pages for each new request, Java applets can send only necessary updated information. 
+Disadvantages of Java Sockets: 
+Security restrictions are sometimes overbearing because a Java applet running in a Web browser is only able to establish connections to the machine where it came from, and to nowhere else on the network 
+Despite all of the useful and helpful Java features, Socket based communications allows only to send packets of raw data between applications. Both the client-side and server-side have to provide mechanisms to make the data useful in any way. 
+Since the data formats and protocols remain application specific, the re-use of socket based implementations is limited. 
+QUESTION: What is the difference between a NULL pointer and a void pointer? (asked by Lifescan inc) 
+ANSWER: A NULL pointer is a pointer of any type whose value is zero. A void pointer is a pointer to an object of an unknown type, and is guaranteed to have enough bits to hold a pointer to any object. A void pointer is not guaranteed to have enough bits to point to a function (though in general practice it does). 
+QUESTION: What is encapsulation technique? (asked by Microsoft) 
+ANSWER: Hiding data within the class and making it available only through the methods. This technique is used to protect your class against accidental changes to fields, which might leave the class in an inconsistent state. 
+--------------------------------------------------------------------------------------- 
+Java advanced Questions 
+--------------------------------------------------------------------------------------- 
+1) What is the purpose of garbage collection in Java, and when is it used? 
+The purpose of garbage collection is to identify and discard objects that are no longer needed by a program so that their resources can be reclaimed and reused. A Java object is subject to garbage collection when it becomes unreachable to the program in which it is used. 
+2) Describe synchronization in respect to multithreading. 
+With respect to multithreading, synchronization is the capability to control the access of multiple threads to shared resources. Without synchonization, it is possible for one thread to modify a shared variable while another thread is in the process of using or updating same shared variable. This usually leads to significant errors. 
+> 
+3) How is JavaBeans differ from Enterprise JavaBeans? 
+The JavaBeans architecture is meant to provide a format for general-purpose components. On the other hand, the Enterprise JavaBeans architecture provides a format for highly specialized business logic components. 
+4) In what ways do design patterns help build better software? 
+Design patterns helps software developers to reuse successful designs and architectures. It helps them to choose design alternatives that make a system reusuable and avoid alternatives that compromise reusability through proven techniques as design patterns. 
+5) Describe 3-Tier Architecture in enterprise application development. 
+In 3-tier architecture, an application is broken up into 3 separate logical layers, each with a well-defined set of interfaces. The presentation layer typically consists of a graphical user interfaces. The business layer consists of the application or business logic, and the data layer contains the data that is needed for the application. 
+Q:In Java, what is the difference between an Interface and an Abstract class? 
+A: An Abstract class declares have at least one instance method that is declared abstract which will be implemented by the subclasses. An abstract class can have instance methods that implement a default behavior. An Interface can only declare constants and instance methods, but cannot implement default behavior. 
+Q: Can you have virtual functions in Java? Yes or No. If yes, then what are virtual functions? 
+A: Yes, Java class functions are virtual by default. Virtual functions are functions of subclasses that can be invoked from a reference to their superclass. In other words, the functions of the actual object are called when a function is invoked on the reference to that object. 
+Q:Write a function to reverse a linked list p in C++? 
+A: 
+Link* reverse_list(Link* p) 
+{ 
+if (p == NULL) 
+return NULL; 
+Link* h = p; 
+p = p->next; 
+h->next = NULL; 
+while (p != null) 
+{ 
+Link* t = p->next; 
+p->next = h; 
+h = p; 
+p = t; 
+} 
+return h; 
+} 
+Q:In C++, what is the usefulness of Virtual destructors? 
+A:Virtual destructors are neccessary to reclaim memory that were allocated for objects in the class hierarchy. If a pointer to a base class object is deleted, then the compiler guarantees the various subclass destructors are called in reverse order of the object construction chain. 
+Q:What are mutex and semaphore? What is the difference between them? 
+A:A mutex is a synchronization object that allows only one process or thread to access a critical code block. A semaphore on the other hand allows one or more processes or threads to access a critial code block. A semaphore is a multiple mutex. 
+What is a Servlet? 
+Answer: Servlets are modules of Java code that run in a server application (hence the name "Servlets", similar to "Applets" on the client side) to answer client requests. 
+Question2: 
+What advantages does CMOS have over TTL(transitor transitor logic)? (ALCATEL) 
+Answer: 
+low power dissipation 
+pulls up to rail 
+easy to interface 
+How is Java unlike C++? (Asked by Sun) 
+Answer: 
+Some language features of C++ have been removed. String manipulations in Java do not allow for buffer overflows and other typical attacks. OS-specific calls are not advised, but you can still call native methods. Everything is a class in Java. Everything is compiled to Java bytecode, not executable (although that is possible with compiler tools). 
+Question4: 
+What is HTML (Hypertext Markup Language)? 
+Answer: 
+HTML (HyperText Markup Language) is the set of "markup" symbols or tags inserted in a file intended for display on a World Wide Web browser. The markup tells the Web browser how to display a Web page's words and images for the user. 
+Question5: 
+Define class. 
+Answer: A class describes a set of properties (primitives and objects) and behaviors (methods). 
+1. Why do you prefer Java? 
+Answer: write once ,run anywhere. 
+2. Name some of the classes which provide the functionality of collation? 
+Answer: collator, rulebased collator, collationkey, collationelement iterator. 
+3. Awt stands for? and what is it? 
+Answer: AWT stands for Abstract window tool kit. It is a is a package that provides an integrated set of classes to manage user interface components. 
+4. why a java program can not directly communicate with an ODBC driver? 
+Answer: Since ODBC API is written in C language and makes use of pointers which Java can not support. 
+5. Are servlets platform independent? If so Why? Also what is the most common application of servlets? 
+Answer: Yes, Because they are written in Java. The most common application of servlet is to access database and dynamically construct HTTP response 
+Question: What is an HTML tag? 
+Answer: An HTML tag is a syntactical construct in the HTML language that abbreviates specific instruction to be executed when the HTML script is loaded into a Web brower. It is like a method in Java, a function in C++, a procedure in Pascal, or a routine in FORTRAN. 
+Question: What is polymorphism? 
+Answer: In object-oriented programming, the term "polymorphism" refers to the ability of objects to take the form objects of difference classes. 
+Question: What is the difference between a component and a container? 
+Answer: 
+A component is an object, like a button or a sroll bar, that has a visual representation in a sreen window. 
+A container is a window-like component that can contain other components. 
+Every component has a unique container that directly contains it. 
+Question: What is the difference between a constructor and a method? 
+Answer: 
+A constructor is a member function of a class that is used to create objects of that class. It has the same name as the class itself, has no return type, and is invoked using the new operator. 
+A method is an ordinary member function of a class. It has its own name, a return type (which may be void), and is invoked using the dot operator. 
+Question: What are the advantages and disadvantages of using an AVL tree? 
+The advantage of an AVL tree is that it is always balanced, guaranteeing the O(lgn) speed of the Binary Search algorithm. 
+The disadvantages the complex rotations used by the insertion and removal algorithms needed to maintain the tree's balance. 
+--------------------------------------------------------------------------------------- 
+UML interview questions 
+--------------------------------------------------------------------------------------- 
+What is UML? UML is Unified Modeling Language. It is a graphical language for visualizing specifying constructing and documenting the artifacts of the system. It allows you to create a blue print of all the aspects of the system, before actually physically implementing the system. 
+What is modeling? What are the advantages of creating a model? Modeling is a proven and well-accepted engineering technique which helps build a model. Model is a simplification of reality; it is a blueprint of the actual system that needs to be built. Model helps to visualize the system. Model helps to specify the structural and behavior of the system. Model helps make templates for constructing the system. Model helps document the system. 
+What are the different views that are considered when building an object-oriented software system? Normally there are 5 views. Use Case view - This view exposes the requirements of a system. Design View - Capturing the vocabulary. Process View - modeling the distribution of the systems processes and threads. Implementation view - addressing the physical implementation of the system. Deployment view - focus on the modeling the components required for deploying the system. 
+What are diagrams? Diagrams are graphical representation of a set of elements most often shown made of things and associations. 
+What are the major three types of modeling used? Major three types of modeling are structural, behavioral, and architectural. 
+Mention the different kinds of modeling diagrams used? Modeling diagrams that are commonly used are, there are 9 of them. Use case diagram, Class Diagram, Object Diagram, Sequence Diagram, statechart Diagram, Collaboration Diagram, Activity Diagram, Component diagram, Deployment Diagram. 
+What is Architecture? Architecture is not only taking care of the structural and behavioral aspect of a software system but also taking into account the software usage, functionality, performance, reuse, economic and technology constraints. 
+What is SDLC? SDLC is Software Development Life Cycle. SDLC of a system included processes that are Use case driven, Architecture centric and Iterative and Incremental. This Life cycle is divided into phases. Phase is a time span between two milestones. The milestones are Inception, Elaboration, Construction, and Transition. Process Workflows that evolve through these phase are Business Modeling, Requirement gathering, Analysis and Design, Implementation, Testing, Deployment. Supporting Workflows are Configuration and change management, Project management. 
+What are Relationships? There are different kinds of relationships: Dependencies, Generalization, and Association. Dependencies are relations ships between two entities that that a change in specification of one thing may affect another thing. Most commonly it is used to show that one class uses another class as an argument in the signature of the operation. Generalization is relationships specified in the class subclass scenario, it is shown when one entity inherits from other. Associations are structural relationships that are: a room has walls, Person works for a company. Aggregation is a type of association where there is a has a relation ship, That is a room has walls, ??f there are two classes room and walls then the relation ship is called a association and further defined as an aggregation. 
+How are the diagrams divided? The nine diagrams are divided into static diagrams and dynamic diagrams. 
+Static Diagrams (Also called Structural Diagram): Class diagram, Object diagram, Component Diagram, Deployment diagram. 
+Dynamic Diagrams (Also called Behavioral Diagrams): Use Case Diagram, Sequence Diagram, Collaboration Diagram, Activity diagram, Statechart diagram. 
+What are Messages? A message is the specification of a communication, when a message is passed that results in action that is in turn an executable statement. 
+What is an Use Case? A use case specifies the behavior of a system or a part of a system, ??cases are used to capture the behavior that need to be developed. It involves the interaction of actors and the system. 
+
+
+
+
+# Author
+
+---
+
+* [Rohtash Lakra](https://github.com/rslakra)
