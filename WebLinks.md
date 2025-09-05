@@ -94,11 +94,13 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - [Introduction to Boto3 Logging](https://codesignal.com/learn/courses/introduction-to-aws-sdk-for-python/lessons/managing-logs-with-aws-sdk-for-python)
 
 
+## Computer Languages
 
+### Java
 
-## Python
+### Python
 
-### Python Basics
+#### Python Basics
 - [pandas-merge-join-and-concat](https://realpython.com/pandas-merge-join-and-concat)
 - [itertools](https://realpython.com/python-itertools)
 - [queue-in-python](https://realpython.com/queue-in-python/#queue-first-in-first-out-fifo)
@@ -117,7 +119,7 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://www.youtube.com/@realpython/playlists
 - https://pep8.org/#descriptive-naming-styles
 
-### FastAPI
+#### FastAPI
 - https://www.geeksforgeeks.org/creating-first-rest-api-with-fastapi/?ref=ml_lbp
 - https://www.geeksforgeeks.org/simple-chat-application-using-websockets-with-fastapi/?ref=ml_lbp
 - https://www.geeksforgeeks.org/authentication-and-authorization-with-fastapi/?ref=ml_lbp
@@ -136,7 +138,7 @@ By implementing these features, you can create a dynamic webpage that efficientl
 
 
 
-### Flask
+#### Flask
 - https://flask.palletsprojects.com/en/stable/patterns/appfactories/
 - https://flask.palletsprojects.com/en/stable/appcontext/
 - https://flask.palletsprojects.com/en/stable/api/#application-object
@@ -162,13 +164,14 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://flask.palletsprojects.com/en/stable/deploying/nginx/
 
 
-### Django
+#### Django
 - https://realpython.com/modeling-polymorphism-django-python/
 - https://realpython.com/move-django-model/
 
 
-### Python ORM Tools
-#### SQLAlchemy
+#### Python ORM Tools
+##### SQLAlchemy
+
 - https://staskoltsov.medium.com/demystifying-flask-sqlalchemy-a3d8a786ed2f
 - https://flask-sqlalchemy.palletsprojects.com/en/stable/quickstart/#road-to-enlightenment
 - https://docs.sqlalchemy.org/en/20/orm/session_basics.html#session-faq-whentocreate
@@ -177,13 +180,13 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://realpython.com/flask-connexion-rest-api-part-2/
 
 
-### Job Scheduler
+#### Job Scheduler
 
 - [Python Job Scheduling with ```schedule```](https://schedule.readthedocs.io/en/stable/)
 - [Parallel Execution](https://schedule.readthedocs.io/en/stable/parallel-execution.html)
 
 
-### GraphQL
+#### GraphQL
 
 - [Using GraphQL with Python – A Complete Guide](https://www.apollographql.com/blog/complete-api-guide)
 - [Flask GraphQL](https://github.com/Shadid12/flask-graphql)
@@ -192,6 +195,7 @@ By implementing these features, you can create a dynamic webpage that efficientl
 ## Unit-tests
 - https://blog.miguelgrinberg.com/post/how-to-write-unit-tests-in-python-part-3-web-applications
 
+
 ## Behave (BDD) Python
 - https://github.com/automationleg/behave-rest-tests/blob/master/features/rest_steps/api_steps.py
 - https://github.com/behave/behave/blob/main/features/step_dialect.given_when_then.feature
@@ -199,6 +203,7 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://tott-meetup.readthedocs.io/en/latest/sessions/behave.html
 - https://behave.readthedocs.io/en/stable/tutorial.html#step-parameters
 - https://github.com/ismaild/flaskr-bdd/blob/master/features/environment.py
+
 
 ## Infra
 
@@ -213,10 +218,12 @@ By implementing these features, you can create a dynamic webpage that efficientl
 - https://github.com/aws-ia/terraform-aws-vpc/blob/main/data.tf
 - https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-build
 
+
 ## WebCrawler
 - https://www.zenrows.com/blog/web-crawler-python
 - https://github.com/xukai92/crawlerfromscratch/blob/master/README.md
 - https://www.scrapingbee.com/blog/crawling-python/
+
 
 ## OKR's
 - https://quantive.com/resources/articles/okrs-for-digital-transformation
@@ -225,14 +232,34 @@ By implementing these features, you can create a dynamic webpage that efficientl
 ## ZooKeeper
 - https://zookeeper.apache.org/
 
+
 ## Zipkin
 - https://zipkin.io/pages/quickstart
+
 
 ## File Upload/Download
 - https://stackoverflow.com/questions/24577349/flask-download-a-file
 - https://www.geeksforgeeks.org/uploading-and-downloading-files-in-flask/
 - https://github.com/sqlalchemy/sqlalchemy/blob/main/examples/association/basic_association.py
 
+
+
+
+
+## Download eBook:
+
+http://www.soldierx.com/books/index2.html
+http://www.manning.com/
+http://www.mcsebraindumps.com/
+http://www.linuxguruz.org/ebooks/eckel/
+http://www.informit.com/free_library/
+http://www.oreilly.com/openbook/
+http://www.w3schools.com/
+
+
+## Domain Knowledge
+
+- [DNA](https://en.wikipedia.org/wiki/DNA)
 
 
 # Author
