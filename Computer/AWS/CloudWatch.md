@@ -2,8 +2,7 @@
 
 ---
 
-The ```CloudWatch``` contains various .
-
+AWS CloudWatch Logs
 
 
 ## Folder Structure Conventions
@@ -12,16 +11,92 @@ The ```CloudWatch``` contains various .
 
 ```
 /
-├── Cheatsheets             # The Cheatsheets
 ├── Computer                # The Computer
-├── Cultural                # The Cultural
-├── Interview Guide         # An Interview Guide
 └── README.md
 ```
 
 
+## Logs
 
-## CloudWatch Log Filter Query
+---
+
+
+
+### Logs Insights
+
+#### Filter Query
+
+```shell
+[(w1="*ERROR*" || w1="*Exception*") && w1!="*WARN*"]
+```
+
+
+##### Find all logs for a given request ID or X-Ray trace ID
+```shell
+fields @timestamp, @message
+| filter @message like /REQUEST_ID_GOES_HERE/
+```
+
+Note: ```/REQUEST_ID_GOES_HERE/``` is a placeholder for the actual request ```ID/xRayTraceId``` you want to search for. Bear in mind that ```/something/``` is a regular expression.
+
+- Find 50 most recent errors
+```shell
+fields Timestamp, LogLevel, Message
+| filter LogLevel == "ERR"
+| sort @timestamp desc
+| limit 50
+```
+
+OR
+
+```shell
+fields @timestamp, @message
+| display @timestamp, @message, errorMessage, status!="200" as ERROR
+| sort @timestamp desc
+| limit 50
+```
+
+OR
+
+```shell
+fields @timestamp, @message
+| filter status != "200"
+| display @timestamp, @message, @status_code
+| sort @timestamp desc
+| limit 50
+```
+
+OR
+
+```shell
+fields @timestamp, @message, @requestId, @duration, @xrayTraceId, @logStream, @logStream
+| filter
+@message like /fail/ or
+@message like /timed/ or
+@message like /X-Amz-Function-Error/ or
+@message like /status: 4/ or
+@message like /status: 5/
+| sort @timestamp desc
+```
+
+
+latest_charge_status
+
+```shell
+fields @timestamp, @message, @logStream
+| filter @message like "[ERROR]"
+| sort @timestamp desc
+| limit 10
+```
+
+```shell
+fields @timestamp, @message, @logStream
+| filter @message like "154e2e3cf3b34bc09a3389662e400db8"
+| sort @timestamp desc
+| limit 10
+```
+
+##### Find logs containing a given ID
 
 ```
 fields @timestamp, @message, @logStream, @log
@@ -30,7 +105,7 @@ fields @timestamp, @message, @logStream, @log
 | limit 100
 ```
 
----
+##### Find logs containing a given ID and status
 
 ```shell
 fields @timestamp, @message, @logStream
@@ -39,7 +114,7 @@ fields @timestamp, @message, @logStream
 | limit 100
 ```
 
----
+##### Find logs containing a given project_id
 
 ```shell
 fields @timestamp, @message, @logStream, @log
@@ -48,7 +123,7 @@ fields @timestamp, @message, @logStream, @log
 | sort @timestamp desc
 ```
 
----
+##### Find logs containing an error message
 
 ```shell
 fields @timestamp, @message, @logStream, @log
@@ -56,7 +131,7 @@ fields @timestamp, @message, @logStream, @log
 | sort @timestamp desc
 ```
 
----
+##### Find logs containing an error message and project_id
 
 ```shell
 FIELDS @timestamp, @message, @logStream
@@ -66,6 +141,11 @@ FIELDS @timestamp, @message, @logStream
 ```
 
 
+# Reference
+
+---
+
+- [Logs Insights](https://cloudash.dev/blog/cloudwatch-logs-insights-examples)
 
 
 # Author
