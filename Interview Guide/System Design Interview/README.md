@@ -93,6 +93,87 @@ DUA can be calculated over different time intervals such as daily, weekly or mon
 | Metric               | Metric                                         | Metric  |
 
 
+## System Design Theory
+
+---
+
+- Key Characteristics of Distributed Systems
+- Load Balancing
+- Caching
+- Data Partitioning
+- Indexes
+- Proxies
+- Redundancy and Replication
+- SQL vs. NoSQL
+- CAP Theorem
+- Consistent Hashing
+- Long-Polling vs WebSockets vs Server-Sent Events
+
+
+
+## System Design Topics
+
+---
+
+- Designing a URL Shortening Service
+  - TinyURL
+- Designing Pastebin
+- Designing Instagram
+- Designing Dropbox
+- Designing Facebook Messenger
+- Designing Twitter
+- Designing Youtube or Netflix
+- Designing Typeahead Suggestion
+- Designing an API Rate Limiter
+- Designing Twitter Search
+- Designing a Web Crawler
+- Designing Facebook’s Newsfeed
+- Designing Yelp or Nearby Friends
+- Designing Uber backend
+- Design Ticketmaster
+
+
+- Functional (create topic, publish message, subscribe to a topic) and non-functional (high scalability, high availability, high performance, durability) requirements.
+- High-level architecture of a notification service.
+- FrontEnd service host components (reverse proxy, local cache, logs and metrics agents).
+- Metadata service, distributed cache, consistent hashing ring, gossip protocol.
+- Storage for messages: SQL/NoSQL database, in-memory store, distributed message queue, stream-processing platform.
+- Message sender service,  thread pool, semaphore.
+- Duplicate messages, retry policy, message order, security, monitoring.
+
+
+- Functional (put, get) and non-functional (high scalability, high availability, high performance) requirements.
+- Least recently used (LRU) cache.
+- Dedicated cache cluster, co-located cache
+- MOD hashing, consistent hashing.
+- Cache client.
+- Static vs dynamic cache servers list configuration.
+- Leader-follower (master-slave) data replication.
+- Cache consistency, data expiration, local and remote cache, security, monitoring and logging.
+- Memcached, Redis.
+
+
+### Book to Refer
+
+- Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems
+
+
+## Number Systems
+
+- Decimal (0-9) 10
+- Binary (0, 1) 2
+- Octal (0-7) 7
+- HexaDecimal (0-9A-F) 16
+
+
+##
+
+
+
+
+
+
+
 # Reference
 
 ---
@@ -130,6 +211,9 @@ DUA can be calculated over different time intervals such as daily, weekly or mon
 | -                              | -                                                 | -                                                                                                                                    | -                                                                                                                                                                 |
 | Category                       | Title                                             | URL                                                                                                                                  |                                                                                                                                                                   | 
 
+
+
+---
 
 
 # Author

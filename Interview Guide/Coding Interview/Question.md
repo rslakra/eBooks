@@ -1,42 +1,43 @@
-----------------<Questions - Coinbase>----------------
-Coinbase Questions
+# Questions
 
-Top Talent
+## Question by Company
+
+### Coinbase
+
+#### Top Talent
 - Unremarkable performance gets a generous severance package.
 
-Which one you think is an unremarkable performance?
-Based on what skills an interviewer is measured whether he/she did an unremarkable performance or not?
+- Which one you think is an unremarkable performance?
+- Based on what skills an interviewer is measured whether he/she did an unremarkable performance or not?
 
 Mission
 - Our mission is to increase economic freedom in the world
 
-What do you mean by economic freedom?
+- What do you mean by economic freedom?
+  - Clear communication
+  - Act line an owner
+  - Continuous learning
+  - Effective execution
+  - Top Talent
+  - Customer focus
+  - Positive energy
 
-
-- Clear communication
-- Act line an owner
-- Continuous learning
-- Effective execution
-- Top Talent
-- Customer focus
-- Positive energy
-
-
-Event ID:
-CNB-Tg3g-ee8Q-ygQgZ
-
+### eBay
 
 ----------------<eBay - Round 1: Question 1>----------------
 
-Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums. If target exists, then return its index. Otherwise, return -1.
+Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search 
+target in nums. If target exists, then return its index. Otherwise, return -1.
 
-Example 1:
+#### Example 1:
 
+```text
 Input: nums = [-1,0,3,5,9,12], target = 9
 Output: 4
 Explanation: 9 exists in nums and its index is 4
+```
 
-
+```java
 class Solution {
 
 		// sorted
@@ -54,17 +55,16 @@ class Solution {
           }
         }
     
-    
      	return -1; // target not found in the array
     }
 }
-
-
+```
 
 ----------------<eBay - Round 1: Question 2>----------------
 Input: nums = [1,3,-1,-3,5,3,6,7], k = 3
 Output: [3,3,5,5,6,7]
-Explanation: 
+Explanation:
+```text
 Window position                Max
 ---------------               -----
 [1  3  -1] -3  5  3  6  7       3
@@ -73,39 +73,41 @@ Window position                Max
  1  3  -1 [-3  5  3] 6  7       5
  1  3  -1  -3 [5  3  6] 7       6
  1  3  -1  -3  5 [3  6  7]      7
+```
+
  
  
- Win Size
+ Window Size
  Find the max element at particular point of time?
  
- [3, ]
- 
- 
- public int[] printMaxAtWindowPosition(int[] nums, int k) {
-	// size
-	int[] ans = new int[nums.length - k + 1];
-  int index = 0;
-  PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>(){
-    	public int compare(Integer i1, Integer i2) {
-      	return i2 - i1;
+````java
+public int[] printMaxAtWindowPosition(int[] nums, int k) {
+    // size
+    int[] ans = new int[nums.length - k + 1];
+    int index = 0;
+    
+    PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>(){
+        public int compare(Integer i1, Integer i2) {
+        return i2 - i1;
       }
     });
     
-  for(int i = 0; i <nums.length; i++) {
-    	if(pq.size() == k) {
-      	ans[index++] = pq.peek(); // max
-        pq.remove(i - k - 1) // remove 0th consider first k elements
+    for(int i = 0; i <nums.length; i++) {
+        if(pq.size() == k) {
+        ans[index++] = pq.peek(); // max
+        pq.remove(i - k - 1); // remove 0th consider first k elements
       }else {
-      	pq.add(nums[i]);
+        pq.add(nums[i]);
       }
-  }
-
-
-	return ans;
- }
+    }
+    
+    return ans;
+}
+````
  
  
 ----------------<eBay - Round 1: Question 3>----------------
+```java
 import java.io.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -129,7 +131,6 @@ class Solution {
             }
         }
     
-    
         return -1; // target not found in the array
     }
     
@@ -143,41 +144,39 @@ class Solution {
         System.out.println(search(input, 12));
     }
     
-    
-    
 }
+```
 
 ----------------<eBay - Round 2>----------------
+```java
 import java.io.*;
 import java.util.*;
 
-    /**
-     * Question - Part 1
-     * 1. You are tasked to design and implement a Key-Value (KV) Store.
-     * 2. The following operations should be supported by the system
-     *     - save(key,value) : should save the key, value
-     *     - update(key,value) : should update the value for an existing key
-     *     - delete(key) : delete an existing key
-     *     - get(key) : return the value 
-     *
-     * 3. Design the interface (IDataStore) and implement the interface (DataStoreImpl) to handle the above operations.
-     */
+/**
+ * Question - Part 1
+ * 1. You are tasked to design and implement a Key-Value (KV) Store.
+ * 2. The following operations should be supported by the system
+ *     - save(key,value) : should save the key, value
+ *     - update(key,value) : should update the value for an existing key
+ *     - delete(key) : delete an existing key
+ *     - get(key) : return the value 
+ *
+ * 3. Design the interface (IDataStore) and implement the interface (DataStoreImpl) to handle the above operations.
+ */
+ 
+/**
+ * Question - Part 2    
+ * 4. Now the system is evolved to handle "transactions"
+ * 5. A user will start a transaction and within a transaction save(key,value), update(key,value), delete(key), get(key) can be called in any order and for any data set which may or may not be present in the data store
+ * 6. During a transaction is in progress the data store needs to return the latest value in the data store for a given key. Example if the key has been modified during a transaction return the new value. if the key has been deleted in the transaction return null
+ * 7. Once a transaction has been completed a user can choose to - COMMIT or ROLLBACK the transaction.
+ * 8. In COMMIT - whatever is the state of the datastore during the transaction it becomes the permanent state of the data store
+ * 9. In ROLLBACK - all changes made in data store are removed and the data store is restored to its original state before the transaction started.
+ *
+ */
      
-    /**
-     * Question - Part 2    
-     * 4. Now the system is evolved to handle "transactions"
-     * 5. A user will start a transaction and within a transaction save(key,value), update(key,value), delete(key), get(key) can be called in any order and for any data set which may or may not be present in the data store
-     * 6. During a transaction is in progress the data store needs to return the latest value in the data store for a given key. Example if the key has been modified during a transaction return the new value. if the key has been deleted in the transaction return null
-     * 7. Once a transaction has been completed a user can choose to - COMMIT or ROLLBACK the transaction.
-     * 8. In COMMIT - whatever is the state of the datastore during the transaction it becomes the permanent state of the data store
-     * 9. In ROLLBACK - all changes made in data store are removed and the data store is restored to its original state before the transaction started.
-     *
-     */
-     
-
 // Main class should be named 'Solution' and should not be public.
 class Solution {
-    
     
     static interface IDataStore {
         boolean save(String key, String value); //should save the key, value
@@ -188,17 +187,14 @@ class Solution {
         boolean startTransaction();
         boolean commitTransaction();
         boolean rollbackTransaction();
-        
     }
     
     static class DataStoreImpl implements IDataStore {
-        
         private Map<String, String> dataStore = new HashMap<>();
         private Map<String, String> tempMap = new HashMap<>();
         private ThreadLocal<IDataStore> threadLocal = new ThreadLocal();   
         
-        public boolean save(String key, String value) // should save the key, value
-        {
+        public boolean save(String key, String value) { // should save the key, value
             if(!dataStore.containsKey(key)) {
                 dataStore.put(key, value);
                 return true;
@@ -207,8 +203,7 @@ class Solution {
             return false;
         }
         
-        public boolean update(String key, String value) // should update the value for an existing key
-        {
+        public boolean update(String key, String value) { // should update the value for an existing key
             if(dataStore.containsKey(key)) {
                 dataStore.put(key, value);
                 return true;
@@ -217,8 +212,7 @@ class Solution {
             return false;
         }
         
-        public boolean delete(String key) // delete an existing key
-        {
+        public boolean delete(String key) { // delete an existing key
             if(dataStore.containsKey(key)) {
                 dataStore.remove(key);
                 return true;
@@ -227,8 +221,7 @@ class Solution {
             return false;
         }
         
-        public String get(String key) // return the value 
-        {
+        public String get(String key) { // return the value 
             return dataStore.get(key);
         }
         
@@ -251,11 +244,8 @@ class Solution {
         }
     }
     
-
-    
     public static void main(String[] args) {
         System.out.println("Hello, World");
-        
         IDataStore dataStore = new DataStoreImpl();
 
         // dataStore.save("1","2");
@@ -278,26 +268,19 @@ class Solution {
         System.out.println(dataStore.get("3")); // null
         System.out.println(dataStore.get("1")); // 1
         
-        
-
         List<String> list1 = new ArrayList<>(); // 10,000
         List<String> list2 = new ArrayList<>(); // 50,000
         
         dataStore.startTransaction()
         //=========== request 1 ==========
-        
         list1.parallelStream().foreach(dataStore.save)
-        
         
         //=========== request 2 ==========
         list2.parallelStream().foreach(dataStore.save)
         
         dataStore.commitTransaction() // rollback
-        
-        
         foo();
     }
-    
     
     processStoreTransaction() {
         
@@ -317,27 +300,22 @@ class Solution {
     List<StoreNode> deletedTransaction;
     
     // define the interface
-    
     //implement the interface
 }
 
-
-
-
 @interface StoreTransaction {
-    
-    start() = null;
-    
+    // start() = null;
 }
 
+```
 
 
+### Walmart
 
 ----------------<Company - Walmart - Aug 30, 2024>----------------
 Q1
 
 /*
-
 Input:
 - 2d integer array
 - src. e.g., (0,0)
@@ -358,8 +336,6 @@ Example:
 |s|1|1|1|0|0|1|
 |1|0|0|0|0|0|d|
 
-
-
 return 9
 
 To-do: implement function(s) that do above.
@@ -373,14 +349,13 @@ src[2, 0]
 dest[3, 6]
 */
 
-
+````java
 // src (row, col)
 // dest (row, col)
 int findSteps(int[][] matrix, int[] src, int[] dest) {
     boolean[][] visited = new boolean[matrix.length][matrix[0].length];
     return findStepsHelper(matrix, src, dest, src[0], src[1], 0, visited);
 }
-
 
 int findStepsHelper(int[][] matrix, int[] src, int[] dest, int row, int col, int steps, boolean[][]visited) {
     // base case
@@ -419,12 +394,14 @@ int findStepsHelper(int[][] matrix, int[] src, int[] dest, int row, int col, int
     return -1;
     
 }
+````
 
 
 
 Q2.
 
 Part 1:
+
 import java.io.*;
 import java.util.*;
 import java.text.*;
@@ -458,8 +435,8 @@ Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 2 - put the PQ ()
 
 */
+```java
 public class Solution {
-    
     
     public static List<Integer[]> mergeIntervals(List<Integer[]> intervals) {
         PriorityQueue<Integer[]> pq = new PriorityQueue<>();
@@ -497,6 +474,7 @@ public class Solution {
     }
 }
 
+```
 
 
 Part 2:
@@ -559,7 +537,7 @@ Explanation:
 A double period ".." refers to the directory up a level.
 
 */
-
+```java
 public class Solution {
 
     static int addNumbers(int a, int b) {
@@ -578,9 +556,7 @@ public class Solution {
         System.out.println(sum);
     }
 }
-
-
-
+```
 
 ----------------<Walmart - Karat: Sep 3, 2024>----------------
 /*
@@ -645,7 +621,6 @@ Ticket Prices:
 
 Expected results
 
-
 matching(users,payments,prices) =>
 # Payment ID -> Name
 5  -> Bobby B.     # Bobby's email (bob@mail.com) matches
@@ -668,6 +643,7 @@ U = number of users or payments
 T = number ticket prices
 */
 
+```java
 import java.io.*;
 import java.util.*;
 import javafx.util.Pair;
@@ -730,29 +706,28 @@ public class Solution {
   
   
   public static void main(String[] argv) {
-// // password_1 = "Strongpwd9999#abc"             ==> []
-// // password_2 = "Aess10#"                       ==> [1]
-// // password_3 = "Password@"                     ==> [1,2]
-// // password_4 = "#PassWord011111112222223x"     ==> [2,3]
-// // password_5 = "PASSWORDz#1111111"             ==> [2,3]
-// // password_6 = "aaaapassword$$"                ==> [1,2,3,4,5]
-// // password_7 = "LESS10#"                       ==> [1,4]
-// // password_8 = "SsSSSt#passWord"               ==> [1,2]
-// // password_9 = "SsSSSt#passWordpassword"       ==> [2,3]
-// // password_10 = "aZ*"                          ==> [1]
-    
-//     // [1,2,3,4,5]
-//     System.out.println(password_1 + " =>" + validatePassword(password_1));
-//     System.out.println(password_2 + " =>" + validatePassword(password_2));
-//     System.out.println(password_3 + " =>" + validatePassword(password_3));
-//     System.out.println(password_4 + " =>" + validatePassword(password_4));
-//     System.out.println(password_5 + " =>" + validatePassword(password_5));
-//     System.out.println(password_6 + " =>" + validatePassword(password_6));
-//     System.out.println(password_7 + " =>" + validatePassword(password_7));
-//     System.out.println(password_8 + " =>" + validatePassword(password_8));            
-//     System.out.println(password_9 + " =>" + validatePassword(password_9));
-//     System.out.println(password_10 + " =>" + validatePassword(password_10));
-    
+    // // password_1 = "Strongpwd9999#abc"             ==> []
+    // // password_2 = "Aess10#"                       ==> [1]
+    // // password_3 = "Password@"                     ==> [1,2]
+    // // password_4 = "#PassWord011111112222223x"     ==> [2,3]
+    // // password_5 = "PASSWORDz#1111111"             ==> [2,3]
+    // // password_6 = "aaaapassword$$"                ==> [1,2,3,4,5]
+    // // password_7 = "LESS10#"                       ==> [1,4]
+    // // password_8 = "SsSSSt#passWord"               ==> [1,2]
+    // // password_9 = "SsSSSt#passWordpassword"       ==> [2,3]
+    // // password_10 = "aZ*"                          ==> [1]
+        
+    //     // [1,2,3,4,5]
+    //     System.out.println(password_1 + " =>" + validatePassword(password_1));
+    //     System.out.println(password_2 + " =>" + validatePassword(password_2));
+    //     System.out.println(password_3 + " =>" + validatePassword(password_3));
+    //     System.out.println(password_4 + " =>" + validatePassword(password_4));
+    //     System.out.println(password_5 + " =>" + validatePassword(password_5));
+    //     System.out.println(password_6 + " =>" + validatePassword(password_6));
+    //     System.out.println(password_7 + " =>" + validatePassword(password_7));
+    //     System.out.println(password_8 + " =>" + validatePassword(password_8));            
+    //     System.out.println(password_9 + " =>" + validatePassword(password_9));
+    //     System.out.println(password_10 + " =>" + validatePassword(password_10));
     
     String[][] users = {
       {"John A.", "john.a@mail.com", "Top", "3"},
@@ -795,15 +770,18 @@ public class Solution {
     };
   }
 }
-
- 
- 
- 
- 
- 
- 
- 
- 
+```
 
 
+### Generic Questions
 
+- Write a program to check whether the given files can adjust in the given disk sizes or not?
+  - Memory Allocation
+    - Varios Size Disks (or VMs)
+    - Input of Files (i.e. 5gb)
+
+  - For Example
+    - Disk Sizes: 50G, 45G
+    - Files: 35G, 45G, 15G
+
+ 
