@@ -1,0 +1,38 @@
+------------------------------------------------------------------------------------------------------------
+Homework 1: Ruby Calisthenics — View Assignment
+------------------------------------------------------------------------------------------------------------
+The homework PDF is available here: http://spark-university.s3.amazonaws.com/berkeley-saas/homework/hw1.pdf
+
+For submission, please submit one (1) Ruby file for each part containing your solution for the entire part. Submit the file as an Output Submission, and leave Addition Submission blank. You may submit as many times as you want before the deadline. Only your latest submission will be used for scoring.
+
+To see the status of your submissions, click on the score. Submissions which have been graded will have feedback. 
+
+------------------------------------------------------------------------------------------------------------
+Homework 3: BDD and Cucumber — View Assignment
+------------------------------------------------------------------------------------------------------------
+The PDF for the homework is available here: http://spark-university.s3.amazonaws.com/berkeley-saas/homework/hw3.pdf To submit your assignment, please submit a .tar.gz compressed archive file containing just your features directory. The command for doing this in a UNIX environment is:
+
+tar czf features.tar.gz features/
+
+Please make sure that the features directory is contained in the archive. For example, unarchiving your submission should create a directory named features/ in the current working directory. It should not extract all your features directly into the current working directory. 
+
+------------------------------------------------------------------------------------------------------------
+Homework 4: BDD + TDD Cycle — View Assignment
+------------------------------------------------------------------------------------------------------------
+Homework is available here: http://spark-university.s3.amazonaws.com/berkeley-saas/homework/hw4.pdf.
+
+Many apologies for the delay. Here are the instructions for submitting HW4. Submission will be similar to HW3. You will submit a .tar.gz file with various directories of your app:
+
+    app/
+    config/
+    db/migrate
+    features/
+    spec/
+    Gemfile
+
+If you modified any other files, please include them too. Here are the commands you should run:
+
+cd hw4_root
+tar czf hw4.tar.gz app/ config/ db/migrate features/ spec/ Gemfile
+
+Then submit hw4.tar.gz on the assignment website. You will not need to submit your code coverage report, but you need to make sure that when we run rake cucumber and rake spec the coverage report will be generated so that we can grade you on it. You also do not need to submit the URI to your Heroku deployment; we will not be grading it. 

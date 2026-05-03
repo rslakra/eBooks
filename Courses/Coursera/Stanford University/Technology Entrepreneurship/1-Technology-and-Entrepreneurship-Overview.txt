@@ -1,0 +1,1320 @@
+1
+00:00:00,010 --> 00:00:05,410
+Hello and welcome to E145 Technology Entrepreneurship. In
+
+2
+00:00:05,429 --> 00:00:11,160
+this video I will give an overview of the course.
+
+3
+00:00:11,179 --> 00:00:14,439
+[inaudible] Today's agenda is to do some introductions, talk
+
+4
+00:00:14,459 --> 00:00:17,859
+a little bit about what you'll be learning as part of the
+
+5
+00:00:17,879 --> 00:00:21,160
+class, and then to talk about the definition of technology
+
+6
+00:00:21,179 --> 00:00:24,870
+entrepreneurship. I'll talk a bit about the course design
+
+7
+00:00:24,890 --> 00:00:28,250
+and logistics, and then what some other opportunities are
+
+8
+00:00:28,269 --> 00:00:35,039
+for entrepreneurship education and at Stanford. So first of
+
+9
+00:00:35,059 --> 00:00:37,959
+all some introductions to the teaching team which includes
+
+10
+00:00:37,979 --> 00:00:41,729
+myself, a couple of course assistants, and a number of
+
+11
+00:00:41,750 --> 00:00:44,369
+exciting guest speakers from Silicon Valley who we'll be
+
+12
+00:00:44,390 --> 00:00:50,719
+bringing in. So as for me, my name is Chuck Easley. I am a
+
+13
+00:00:50,739 --> 00:00:53,549
+faculty member in Stanford's department of management,
+
+14
+00:00:53,570 --> 00:00:54,729
+science and engineering.
+
+15
+00:00:54,750 --> 00:00:58,549
+And also part of the Stanford technology ventures program.
+
+16
+00:00:58,570 --> 00:01:03,389
+And before Stanford I spent four years at MIT, doing my PHD
+
+17
+00:01:03,409 --> 00:01:06,280
+there in the Sloan school of management, Studying the
+
+18
+00:01:06,299 --> 00:01:09,420
+success factors and the early strategic decisions that play
+
+19
+00:01:09,439 --> 00:01:13,540
+a role for technology-based entrepreneurs. Both in the US
+
+20
+00:01:13,560 --> 00:01:18,750
+and in China, Prior to MIT, I did my undergraduate studies
+
+21
+00:01:18,769 --> 00:01:22,349
+at Duke University where I got my start in entrepreneurship
+
+22
+00:01:22,369 --> 00:01:25,140
+working in a company called Sundance Genetics with a
+
+23
+00:01:25,159 --> 00:01:28,560
+professor in the biology department. So in addition to
+
+24
+00:01:28,579 --> 00:01:32,010
+studying entrepreneurship, I've also been an entrepreneur.
+
+25
+00:01:32,030 --> 00:01:36,709
+While at MIT, I worked on an educational software firm and
+
+26
+00:01:36,729 --> 00:01:40,069
+also created a life sciences consulting firm called Labiten
+
+27
+00:01:40,089 --> 00:01:43,870
+Consulting. In addition, I worked with two venture capital
+
+28
+00:01:43,890 --> 00:01:47,849
+firms, Lux Capital, where I focused on biotech and clean
+
+29
+00:01:47,869 --> 00:01:51,109
+energy and worked with one of their portfolio companies,
+
+30
+00:01:51,129 --> 00:01:54,579
+[inaudible] Bio-sciences, And also with Flagship Ventures
+
+31
+00:01:54,599 --> 00:01:58,189
+where I focused on medical devices investments. I've also
+
+32
+00:01:58,209 --> 00:02:01,769
+mentored many start-ups in the MIT 100K Business Plan
+
+33
+00:02:01,789 --> 00:02:08,689
+Competition and the Ignite Clean Energy Competition.
+
+34
+00:02:08,710 --> 00:02:12,339
+The course assistants for the class are Tim Hua and Huang
+
+35
+00:02:12,359 --> 00:02:15,789
+Kuezonka. They're both PhD students in our department, and
+
+36
+00:02:15,810 --> 00:02:20,229
+have backgrounds in IT consulting and also co-founding
+
+37
+00:02:20,250 --> 00:02:26,369
+companies of their own. We have an exciting lineup of guest
+
+38
+00:02:26,389 --> 00:02:29,289
+speakers for you, which will both be coming into the class
+
+39
+00:02:29,310 --> 00:02:32,469
+and also recording some videos here for the students
+
+40
+00:02:32,489 --> 00:02:36,059
+watching on line. So, this includes, entrepreneurs, and,
+
+41
+00:02:36,079 --> 00:02:41,239
+including co-founder at LinkedIn
+
+42
+00:02:41,259 --> 00:02:42,259
+[inaudible], who founded
+
+43
+00:02:42,259 --> 00:02:43,769
+[inaudible] technologies
+
+44
+00:02:43,789 --> 00:02:45,469
+[inaudible], who founded
+
+45
+00:02:45,489 --> 00:02:46,489
+[inaudible] and
+
+46
+00:02:46,069 --> 00:02:47,069
+[inaudible] exciting mobile
+
+47
+00:02:47,069 --> 00:02:49,969
+[inaudible], as well as venture capitalists, from silicon
+
+48
+00:02:49,989 --> 00:02:52,179
+valley, including, Henry Wong and
+
+49
+00:02:52,199 --> 00:02:57,519
+[inaudible] Ventures, and
+
+50
+00:02:57,539 --> 00:02:58,539
+[inaudible], from
+
+51
+00:02:57,759 --> 00:02:58,759
+[inaudible].
+
+52
+00:02:58,759 --> 00:03:04,959
+>> So it?s now your turn, for the students who are watching
+
+53
+00:03:04,979 --> 00:03:08,769
+online, I encourage you to go to the forum and tell us a
+
+54
+00:03:08,789 --> 00:03:11,919
+little bit about yourself and your background. Hopefully you
+
+55
+00:03:11,939 --> 00:03:15,439
+might be able to also find other students who are taking the
+
+56
+00:03:15,459 --> 00:03:18,959
+class online in your area and get to together to talk about
+
+57
+00:03:18,979 --> 00:03:22,869
+your ventures and even the cases and issues coming up in the
+
+58
+00:03:22,889 --> 00:03:27,609
+class. For the Stanford students this is point where we will
+
+59
+00:03:27,629 --> 00:03:30,579
+talk, about a little about where you?re from, what year you
+
+60
+00:03:30,579 --> 00:03:37,599
+are at Stanford, what your major is and so on. So what's
+
+61
+00:03:37,619 --> 00:03:41,379
+different about this course? First of all since this is a
+
+62
+00:03:41,399 --> 00:03:44,149
+class in the Engineering department at Stanford, we'll be
+
+63
+00:03:44,169 --> 00:03:47,089
+taking a science and engineering approach to building high
+
+64
+00:03:47,109 --> 00:03:48,329
+tech ventures.
+
+65
+00:03:48,349 --> 00:03:51,289
+This will include applying a version of the scientific
+
+66
+00:03:51,310 --> 00:03:56,179
+method to start up process. We'll also be combining both
+
+67
+00:03:56,199 --> 00:04:00,059
+theory and practice in the class. You will be working on
+
+68
+00:04:00,079 --> 00:04:03,969
+your own start-up ventures, and we'll also be providing a
+
+69
+00:04:03,989 --> 00:04:07,399
+broader framework and way to think about what it is your
+
+70
+00:04:07,419 --> 00:04:11,309
+doing in an entrepreneurial venture. The class will be
+
+71
+00:04:11,329 --> 00:04:15,279
+driven by research. Most entrepreneurship classes tend to be
+
+72
+00:04:15,299 --> 00:04:18,780
+a successful entrepreneur coming in and telling stories from
+
+73
+00:04:18,800 --> 00:04:21,860
+their own experience. But we have an opportunity in this
+
+74
+00:04:21,879 --> 00:04:25,590
+class to look at some of the research that actually examines
+
+75
+00:04:25,610 --> 00:04:29,019
+across many, many ventures, what are the characteristics of
+
+76
+00:04:29,039 --> 00:04:32,449
+those that tend to be successful, versus those that tend to
+
+77
+00:04:32,469 --> 00:04:39,110
+be more likely to fail. So what will you learn as part of
+
+78
+00:04:39,129 --> 00:04:43,209
+this class? You'll learn to articulate a process for taking
+
+79
+00:04:43,229 --> 00:04:46,569
+a new technology, and finding a high potential or commercial
+
+80
+00:04:46,589 --> 00:04:47,589
+opportunity.
+
+81
+00:04:47,589 --> 00:04:52,730
+You'll create and verify a business plan for gathering
+
+82
+00:04:52,750 --> 00:04:57,329
+resources, such as talent and capital. Then you also create
+
+83
+00:04:57,349 --> 00:04:59,689
+your fine business model far
+
+84
+00:04:59,709 --> 00:05:02,079
+[inaudible] marketing and distribution and all the varies
+
+85
+00:05:02,099 --> 00:05:05,649
+ceases and central into a new technology base Venture come
+
+86
+00:05:05,669 --> 00:05:10,290
+together, Another level of generalized resort far no one
+
+87
+00:05:10,310 --> 00:05:14,110
+sends process to something you can be employed and mortar
+
+88
+00:05:14,129 --> 00:05:18,439
+company used or other side and even to create new nonprofit
+
+89
+00:05:18,459 --> 00:05:23,009
+organizations. These are important skills for twenty-first
+
+90
+00:05:23,029 --> 00:05:27,050
+century technology leaders, and so we're gonna be building
+
+91
+00:05:27,069 --> 00:05:30,949
+some of these skills as well as dispelling some common myths
+
+92
+00:05:30,969 --> 00:05:38,050
+and misconceptions about entrepreneurship. So what's our way
+
+93
+00:05:38,069 --> 00:05:42,149
+of teaching learning technology entrepreneurship? We'll be
+
+94
+00:05:42,169 --> 00:05:47,800
+providing some basic terminology and concepts through the
+
+95
+00:05:47,819 --> 00:05:50,360
+readings that we're gonna be doing and the lecture
+
+96
+00:05:50,379 --> 00:05:54,280
+discussions. You'll be learning critical thinking through
+
+97
+00:05:54,300 --> 00:05:57,660
+some of the case studies as well as teamwork through your
+
+98
+00:05:57,680 --> 00:06:00,500
+own start-up ventures and the presentations you'll make as a
+
+99
+00:06:00,500 --> 00:06:04,920
+team for the opportunity analysis and opportunity execution
+
+100
+00:06:04,939 --> 00:06:08,649
+projects. And then finally, you'll be doing a bit of career
+
+101
+00:06:08,669 --> 00:06:11,670
+planning through the personal business plan that you'll be
+
+102
+00:06:11,689 --> 00:06:15,430
+writing towards the end of the course.
+
+103
+00:06:15,449 --> 00:06:19,250
+So what is entrepreneurship, what do you think the
+
+104
+00:06:19,269 --> 00:06:23,569
+definition of entrepreneurship is. One definition that I
+
+105
+00:06:23,589 --> 00:06:27,949
+particularly like is that entrepreneurship is a management
+
+106
+00:06:27,969 --> 00:06:32,209
+and leadership style that involves pursuing opportunity
+
+107
+00:06:32,229 --> 00:06:36,089
+without regard to the resources currently controlled. So,
+
+108
+00:06:36,109 --> 00:06:38,899
+what does this mean? This means that you see some
+
+109
+00:06:38,919 --> 00:06:42,680
+opportunity either in a technology or in the market and
+
+110
+00:06:42,699 --> 00:06:45,920
+despite the fact that you don't currently control all of the
+
+111
+00:06:45,939 --> 00:06:50,509
+capital or all of the people that you need to take advantage
+
+112
+00:06:50,529 --> 00:06:53,540
+of this opportunity, you're gonna pursue this opportunity
+
+113
+00:06:53,560 --> 00:06:57,670
+nonetheless. So this comes from Gregory Dees and it's my
+
+114
+00:06:57,689 --> 00:07:01,720
+belief that this process can be learned and can be taught.
+
+115
+00:07:01,740 --> 00:07:05,180
+There's of course a large component that's luck. But for the
+
+116
+00:07:05,199 --> 00:07:08,759
+rest of it we want to eliminate as many mistakes as
+
+117
+00:07:08,779 --> 00:07:15,300
+possible. What is high technology? This is a class that's
+
+118
+00:07:15,319 --> 00:07:19,560
+focused on high tech, highly scalable ventures, as different
+
+119
+00:07:19,579 --> 00:07:24,069
+than starting a small business. Many of these things that
+
+120
+00:07:24,089 --> 00:07:27,089
+you'll learn in the class can also be applied to a small
+
+121
+00:07:27,089 --> 00:07:30,129
+business, but our focus is gonna be on technology-based
+
+122
+00:07:30,149 --> 00:07:36,500
+ventures. So, the thing that Intel, Google, Amazon.com,
+
+123
+00:07:36,519 --> 00:07:41,269
+Apple, all of these diverse companies have in common is that
+
+124
+00:07:41,289 --> 00:07:45,310
+they're applying some type of science or technology to solve
+
+125
+00:07:45,329 --> 00:07:52,730
+a problem in society. So we'll be taking a close look
+
+126
+00:07:52,750 --> 00:07:55,219
+throughout the course at technology entrepreneurship.
+
+127
+00:07:55,239 --> 00:07:58,159
+This is an important topic, because entrepreneurship is
+
+128
+00:07:58,179 --> 00:08:02,550
+known to be a key driver of economic growth. And according
+
+129
+00:08:02,569 --> 00:08:05,790
+to the Kaufman Foundation, startups create, in the US,
+
+130
+00:08:05,810 --> 00:08:08,810
+approximately three million new jobs per year. So it's
+
+131
+00:08:08,829 --> 00:08:13,149
+important for job creation as well. We'll be talking about
+
+132
+00:08:13,169 --> 00:08:16,569
+the different types of technological advancements, that's,
+
+133
+00:08:16,589 --> 00:08:17,810
+startups use.
+
+134
+00:08:17,829 --> 00:08:20,519
+[inaudible] These can either be revolutionary, something
+
+135
+00:08:20,539 --> 00:08:23,079
+that's totally new to the world, and creates a whole new
+
+136
+00:08:23,079 --> 00:08:26,680
+category, or a whole new industry, or they can be more
+
+137
+00:08:26,699 --> 00:08:30,699
+evolutionary, more incremental, some faster, better, cheaper
+
+138
+00:08:30,719 --> 00:08:36,049
+way of doing something that we're already doing now. We'll
+
+139
+00:08:36,069 --> 00:08:39,129
+talk a little bit in the next video about how we can see
+
+140
+00:08:39,129 --> 00:08:42,659
+certain patterns. Here, you can see various waves of
+
+141
+00:08:42,679 --> 00:08:46,129
+technology that have been commercialized over time. And so
+
+142
+00:08:46,149 --> 00:08:49,149
+we will be talking about whether we can use some of these
+
+143
+00:08:49,149 --> 00:08:52,659
+patterns to inform us about how to go about creating a
+
+144
+00:08:52,679 --> 00:08:57,970
+technology startup. These are some of the startups created
+
+145
+00:08:57,990 --> 00:09:02,059
+by Stanford alumni. And so one thing I hope you get out of
+
+146
+00:09:02,079 --> 00:09:05,230
+this course is that it was previous students who are very
+
+147
+00:09:05,250 --> 00:09:08,980
+similar to you who were able to go on and form the teams
+
+148
+00:09:09,000 --> 00:09:11,700
+that wound up creating these great companies that we all
+
+149
+00:09:11,720 --> 00:09:13,370
+benefit from now.
+
+150
+00:09:13,389 --> 00:09:17,529
+Just these twelve, largest companies out of Stanford created
+
+151
+00:09:17,549 --> 00:09:23,939
+almost half a million new jobs. So let's talk a little bit
+
+152
+00:09:23,959 --> 00:09:27,460
+about the course design and the logistics of how the class
+
+153
+00:09:27,480 --> 00:09:35,710
+will run. Overall, the class is going to be divided up into
+
+154
+00:09:35,730 --> 00:09:40,100
+two main sections. In the first half of the class, we'll be
+
+155
+00:09:40,120 --> 00:09:43,559
+talking about, what's the difference between an idea and an
+
+156
+00:09:43,579 --> 00:09:47,330
+opportunity? We'll be talking a lot about this link between
+
+157
+00:09:47,350 --> 00:09:50,559
+finding some new product or service, and linking it to a
+
+158
+00:09:50,579 --> 00:09:54,259
+need in the market. And we'll be looking at what types of
+
+159
+00:09:54,279 --> 00:09:57,909
+ideas are worth spending time and energy on to pursue as a
+
+160
+00:09:57,929 --> 00:10:02,429
+startup, and which ones are better as a feature. The second
+
+161
+00:10:02,449 --> 00:10:04,949
+half of the class will be more about pursuing these
+
+162
+00:10:04,949 --> 00:10:08,730
+opportunities. Once you've convinced yourselves and us that
+
+163
+00:10:08,750 --> 00:10:11,990
+this is something that's worth pursuing, we'll talk about
+
+164
+00:10:12,009 --> 00:10:15,490
+how you put together the people and the organization, and
+
+165
+00:10:15,509 --> 00:10:18,840
+also raise the resources and capital that you need to
+
+166
+00:10:18,860 --> 00:10:21,990
+exploit those opportunities. And that will be the second
+
+167
+00:10:22,009 --> 00:10:29,899
+half of, of E145. So the broad overview of the class is that
+
+168
+00:10:29,919 --> 00:10:34,319
+we'll first talk about the entrepreneurial perspective and
+
+169
+00:10:34,339 --> 00:10:37,480
+then we'll spend some time on opportunity recognition and
+
+170
+00:10:37,500 --> 00:10:39,139
+evaluation.
+
+171
+00:10:39,159 --> 00:10:42,340
+And so here we'll be talking about creativity, going from
+
+172
+00:10:42,360 --> 00:10:45,679
+the idea to an opportunity. We'll talk a lot about business
+
+173
+00:10:45,699 --> 00:10:50,649
+models and the various pieces of the business model. Later
+
+174
+00:10:50,669 --> 00:10:53,529
+on in this section there will be an opportunity for you to
+
+175
+00:10:53,529 --> 00:10:58,179
+present or to upload your presentations on your, your
+
+176
+00:10:58,199 --> 00:11:01,449
+venture ideas that you're thinking about pursuing. We'll
+
+177
+00:11:01,469 --> 00:11:04,149
+then move into the section that's more about resource
+
+178
+00:11:04,169 --> 00:11:08,429
+assembly and managing growth. And in this section we'll talk
+
+179
+00:11:08,449 --> 00:11:14,419
+a lot about partnerships, legal issues, venture finance, how
+
+180
+00:11:14,439 --> 00:11:17,870
+to build the team and the organization and where to look
+
+181
+00:11:17,889 --> 00:11:21,340
+for, for funding for your venture.
+
+182
+00:11:21,360 --> 00:11:24,460
+We'll talk a little bit also about social entrepreneurship,
+
+183
+00:11:24,480 --> 00:11:27,980
+and the way that you can use the startup processes to
+
+184
+00:11:28,000 --> 00:11:32,330
+benefit society and to even create not for profit ventures,
+
+185
+00:11:32,350 --> 00:11:37,559
+or blends between not for profit and for profit. At the end,
+
+186
+00:11:37,579 --> 00:11:41,679
+we'll do the final OEP presentations, talk a little bit
+
+187
+00:11:41,699 --> 00:11:48,610
+about stock options, and then do a summary of the course. So
+
+188
+00:11:48,629 --> 00:11:52,159
+for the Stanford students who are in the class, you'll work
+
+189
+00:11:52,179 --> 00:11:55,939
+on startup projects, forming teams of three or four people.
+
+190
+00:11:55,959 --> 00:12:00,199
+Each team will be paired up with two mentors related to the
+
+191
+00:12:00,219 --> 00:12:03,659
+industry that you're planning to go into, and you'll provide
+
+192
+00:12:03,679 --> 00:12:07,509
+updates to the class once a week on the progress that you've
+
+193
+00:12:07,529 --> 00:12:10,340
+made in talking to people and beginning to actually build
+
+194
+00:12:10,360 --> 00:12:15,080
+the business. You'll form study groups of two teams each.
+
+195
+00:12:15,100 --> 00:12:19,740
+So, the study groups will be six to eight students, to,
+
+196
+00:12:19,759 --> 00:12:23,740
+discuss the cases that we'll be discussing in class. You
+
+197
+00:12:23,759 --> 00:12:27,000
+also get to benefit from the online forum discussion, from
+
+198
+00:12:27,019 --> 00:12:30,939
+the online students who are taking the class. So for the
+
+199
+00:12:30,959 --> 00:12:34,110
+online students, we want to mirror the class structure as
+
+200
+00:12:34,129 --> 00:12:37,870
+much as possible given the limitations of distance, but
+
+201
+00:12:37,889 --> 00:12:41,590
+taking advantage of the power of the Internet. So, for
+
+202
+00:12:41,610 --> 00:12:44,470
+students taking the class online, you're certainly welcome
+
+203
+00:12:44,490 --> 00:12:47,469
+to just watch the video lectures and get as much out of that
+
+204
+00:12:47,469 --> 00:12:48,669
+as you can.
+
+205
+00:12:48,689 --> 00:12:51,909
+But you'll certainly benefit much more from the class if you
+
+206
+00:12:51,929 --> 00:12:56,049
+also go about creating your own startup teams and working on
+
+207
+00:12:56,069 --> 00:12:59,649
+your own startup ventures as part of it. So I encourage you
+
+208
+00:12:59,669 --> 00:13:03,799
+to try and form teams of three or four as well. And also to
+
+209
+00:13:03,819 --> 00:13:08,129
+network in your own communities to find at least one mentor
+
+210
+00:13:08,149 --> 00:13:10,449
+who knows something about the industry that you're going
+
+211
+00:13:10,449 --> 00:13:15,379
+into, to give you feedback as you go through the process.
+
+212
+00:13:15,399 --> 00:13:19,379
+You'll provide updates via the forum, and can upload your
+
+213
+00:13:19,399 --> 00:13:24,629
+OAP and OEP presentations of your venture ideas there. And I
+
+214
+00:13:24,649 --> 00:13:28,509
+encourage you to also form study groups, and work together,
+
+215
+00:13:28,529 --> 00:13:32,449
+through the case discussions. And to take advantage of the
+
+216
+00:13:32,469 --> 00:13:37,579
+online forum to ask questions. We'll select one question
+
+217
+00:13:37,599 --> 00:13:40,799
+from the online forum that will then be asked of the guest
+
+218
+00:13:40,819 --> 00:13:43,990
+speakers coming into class. And so that will provide some
+
+219
+00:13:44,009 --> 00:13:50,360
+way to have an interaction with the guest speakers as well.
+
+220
+00:13:50,379 --> 00:13:54,079
+So the grading will be based both on individual
+
+221
+00:13:54,099 --> 00:13:59,579
+participation and also on participation as a team. So what
+
+222
+00:13:59,599 --> 00:14:02,559
+other opportunities for entrepreneurship education are there
+
+223
+00:14:02,579 --> 00:14:05,569
+at Stanford?
+
+224
+00:14:05,589 --> 00:14:08,419
+Overall, our program tries to give students the
+
+225
+00:14:08,439 --> 00:14:12,819
+entrepreneurial skills that they need to tackle real world
+
+226
+00:14:12,839 --> 00:14:15,569
+problems, whether they relate to the environment and
+
+227
+00:14:15,589 --> 00:14:19,870
+sustainability, digital and physical infrastructure, human
+
+228
+00:14:19,889 --> 00:14:23,909
+health and education, or security and economic stability.
+
+229
+00:14:23,929 --> 00:14:27,129
+Entrepreneurship is important for solving real world
+
+230
+00:14:27,149 --> 00:14:32,639
+problems. Through these classes we try and create T-Shaped
+
+231
+00:14:32,659 --> 00:14:35,909
+people, so what does this mean? This means that you have
+
+232
+00:14:35,929 --> 00:14:39,740
+some depth of knowledge within a particular discipline. But
+
+233
+00:14:39,759 --> 00:14:42,939
+through classes in entrepreneurship and leadership, you also
+
+234
+00:14:42,959 --> 00:14:46,689
+gain a breadth of knowledge about design, innovation, and
+
+235
+00:14:46,709 --> 00:14:50,970
+entrepreneurship. Each week, we run a series called the DFJ
+
+236
+00:14:50,990 --> 00:14:55,000
+Entrepreneurial Thought Leader Seminar Series. We, this
+
+237
+00:14:55,019 --> 00:14:57,870
+brings in serial entrepreneurs and investors from Silicon
+
+238
+00:14:57,889 --> 00:15:03,629
+Valley and their talks are recorded and presented on the web
+
+239
+00:15:03,649 --> 00:15:07,750
+on the ECorner website. So this is a great resource. I
+
+240
+00:15:07,769 --> 00:15:14,509
+encourage you all to check out ecorner.stanford.edu. For
+
+241
+00:15:14,529 --> 00:15:17,829
+Stanford students, we also have the Mayfield Fellows program
+
+242
+00:15:17,849 --> 00:15:23,139
+which I encourage you to apply to at the end of January. You
+
+243
+00:15:23,159 --> 00:15:31,779
+can learn more about the program at mfp.stanford.edu. And
+
+244
+00:15:31,799 --> 00:15:35,949
+our culture in the class has got to be very important. We
+
+245
+00:15:35,969 --> 00:15:39,220
+want to maintain a lively and productive discussion. So,
+
+246
+00:15:39,240 --> 00:15:42,529
+that includes showing up on time, turning off your cell
+
+247
+00:15:42,549 --> 00:15:47,329
+phones when you in class allowing only one person to speak
+
+248
+00:15:47,349 --> 00:15:51,509
+at a time and try and do everything that you do in class
+
+249
+00:15:51,529 --> 00:15:55,490
+with energy and passion, so this is the culture we want to
+
+250
+00:15:55,509 --> 00:15:58,699
+build.
+
+251
+00:15:58,719 --> 00:16:02,939
+There is a textbook that goes along with the class, which
+
+252
+00:16:02,959 --> 00:16:08,319
+you can, purchase either in e-book form or in hardback. This
+
+253
+00:16:08,339 --> 00:16:13,019
+is Technology Ventures by, Tom Byers and co-authors. This is
+
+254
+00:16:13,039 --> 00:16:16,389
+excellent background reading for each of the topics that we'
+
+255
+00:16:16,409 --> 00:16:20,069
+ll be talking about. And so I give you the option to, choose
+
+256
+00:16:20,089 --> 00:16:23,709
+to purchase this if you'd like, and to follow along with the
+
+257
+00:16:23,729 --> 00:16:30,240
+readings. So a few frequently asked questions, First of all:
+
+258
+00:16:30,259 --> 00:16:32,929
+must I have a start-up idea of my own?
+
+259
+00:16:32,949 --> 00:16:36,409
+In the first couple of class sessions, you'll be going
+
+260
+00:16:36,429 --> 00:16:39,299
+through the process of brainstorming your own venture or
+
+261
+00:16:39,319 --> 00:16:42,470
+idea, and so you don't necessarily need to come to class
+
+262
+00:16:42,490 --> 00:16:45,909
+with an idea already formed. If you do, that's great, but
+
+263
+00:16:45,929 --> 00:16:51,319
+it's not necessary. Do I have to be certain major or an
+
+264
+00:16:51,339 --> 00:16:56,009
+engineer? No this class is open to everybody. We encourage
+
+265
+00:16:56,029 --> 00:16:59,759
+you to form teams that have a mixture of backgrounds but its
+
+266
+00:16:59,779 --> 00:17:02,959
+certain layer to take a class whatever background you might
+
+267
+00:17:02,979 --> 00:17:05,960
+have you're gonna bring some important skill set to the
+
+268
+00:17:05,980 --> 00:17:10,710
+class. The class at Stanford is targeted towards juniors and
+
+269
+00:17:10,730 --> 00:17:14,309
+seniors but for unlined students that are hoping to get a
+
+270
+00:17:14,329 --> 00:17:17,500
+mix of all ages.
+
+271
+00:17:17,519 --> 00:17:21,509
+You don't have to start your venture right now. But we want
+
+272
+00:17:21,529 --> 00:17:24,519
+the class to be a mini startup experience for you, so you
+
+273
+00:17:24,519 --> 00:17:27,859
+can get a taste of what entrepreneurship is like. I
+
+274
+00:17:27,879 --> 00:17:31,639
+encourage you to attend every session. And for the Stanford
+
+275
+00:17:31,659 --> 00:17:34,450
+students, you'll have to make up your mind about the class
+
+276
+00:17:34,450 --> 00:17:37,569
+pretty quickly. Because the class moves fast once we begin.
+
+277
+00:17:37,589 --> 00:17:47,210
+[sound]. Here's to the crazy ones, the misfits, the rebels,
+
+278
+00:17:47,230 --> 00:17:53,220
+the troublemakers. The round pegs in the square holes. The
+
+279
+00:17:53,240 --> 00:17:57,490
+ones who see things differently. They're not fond of rules,
+
+280
+00:17:57,509 --> 00:18:05,190
+and they have no respect for the status quo. You can quote
+
+281
+00:18:05,210 --> 00:18:07,710
+them, disagree with them, glorify or vilify them. About the
+
+282
+00:18:07,710 --> 00:18:09,710
+only thing you can't do is ignore them, because they change
+
+283
+00:18:09,710 --> 00:18:10,710
+things.
+
+284
+00:18:10,710 --> 00:18:12,960
+[sound] And so they pushed the human raise forward. And
+
+285
+00:18:12,960 --> 00:18:22,720
+while some may see them as the crazy ones, we see genius.
+
+286
+00:18:22,740 --> 00:18:28,619
+Because the people who are crazy enough to think they can
+
+287
+00:18:28,639 --> 00:18:41,629
+change the world are the ones who do.
+
+288
+00:18:41,649 --> 00:18:45,409
+[sound] So, that's just a short clip from an old ad that
+
+289
+00:18:45,429 --> 00:18:49,399
+Apple created, that I think really sums up a lot of what I
+
+290
+00:18:49,419 --> 00:18:53,000
+hope to achieve in the class, Which is to help those of you
+
+291
+00:18:53,019 --> 00:18:56,399
+who want to change the world in some way. Who want to change
+
+292
+00:18:56,419 --> 00:19:00,319
+industries and really make a difference? To empower you with
+
+293
+00:19:00,339 --> 00:19:03,799
+some tools and techniques and hopefully some knowledge that
+
+294
+00:19:03,819 --> 00:19:08,029
+will enable you to be more successful in doing that.
+
+295
+00:19:08,049 --> 00:19:12,069
+And so, I encourage you to watch the next video, for those
+
+296
+00:19:12,089 --> 00:19:16,019
+who are taking the class online. For the Stanford students
+
+297
+00:19:16,039 --> 00:19:19,740
+fill out the admissions survey form check out the coursework
+
+298
+00:19:19,759 --> 00:19:24,069
+website and watch the second video before coming to the next
+
+299
+00:19:24,089 --> 00:19:28,369
+class. Go ahead and work on forming your teams. I'll give
+
+300
+00:19:28,389 --> 00:19:31,389
+you some time in class, but you want to quickly form your
+
+301
+00:19:31,389 --> 00:19:34,849
+teams so you can go ahead and get started on brainstorming
+
+302
+00:19:34,869 --> 00:19:42,799
+your venture ideas. The opportunity assessment project will
+
+303
+00:19:42,819 --> 00:19:46,109
+be on one your first deadlines. And we'll be talking about
+
+304
+00:19:46,129 --> 00:19:52,579
+that more in detail in future lectures. We'll also be
+
+305
+00:19:52,599 --> 00:19:56,259
+pairing the Stanford students up with mentors. These mentors
+
+306
+00:19:56,279 --> 00:20:00,129
+are venture capitalists or entrepreneurs, and the mentors'
+
+307
+00:20:00,149 --> 00:20:03,470
+role is to help you with your startup projects, to help
+
+308
+00:20:03,490 --> 00:20:07,059
+prepare you for the OAP and OVEP presentations. They're
+
+309
+00:20:07,079 --> 00:20:11,279
+gonna offer some real world entrepreneurial advice, and help
+
+310
+00:20:11,299 --> 00:20:16,509
+you begin to start networking with Silicon Valley. So a few
+
+311
+00:20:16,529 --> 00:20:20,329
+important tips, for an optimal experience with your mentor.
+
+312
+00:20:20,349 --> 00:20:24,089
+Please arrange your schedule around the schedule of the
+
+313
+00:20:24,109 --> 00:20:26,930
+mentors and not the other way around. These tend to be
+
+314
+00:20:26,950 --> 00:20:30,440
+really busy people and so you want to make this as easy for
+
+315
+00:20:30,460 --> 00:20:34,299
+them as possible. Please contact your mentor right away soon
+
+316
+00:20:34,319 --> 00:20:36,889
+after being assigned for the Sanford students.
+
+317
+00:20:36,909 --> 00:20:39,930
+And try and, meet a mentor quickly if you're taking the
+
+318
+00:20:39,950 --> 00:20:42,809
+class online. Someone who can help you through the course
+
+319
+00:20:42,829 --> 00:20:49,000
+and with your venture. So for the Stanford students your
+
+320
+00:20:49,019 --> 00:20:52,799
+ticket to your introduction to your mentor is gonna be a
+
+321
+00:20:52,819 --> 00:20:56,289
+one-page, maybe two paragraph summary of the initial
+
+322
+00:20:56,309 --> 00:21:01,170
+opportunity market or technology, perhaps a set of customers
+
+323
+00:21:01,190 --> 00:21:04,210
+that you're thinking about addressing in your venture. This
+
+324
+00:21:04,230 --> 00:21:07,710
+will help me to make better matches with mentors who know
+
+325
+00:21:07,730 --> 00:21:10,559
+something about the industry and the type of venture that
+
+326
+00:21:10,579 --> 00:21:13,089
+you wanna start. I encourage you to get started quickly.
+
+327
+00:21:13,109 --> 00:21:17,059
+The quarter is short. That's all for this video which has
+
+328
+00:21:17,079 --> 00:21:19,849
+been an overview of the course on Technology
+
+329
+00:21:19,869 --> 00:21:23,250
+Entrepreneurship. I encourage you to go ahead and start
+
+330
+00:21:23,269 --> 00:21:24,269
+watching the second video.
+
