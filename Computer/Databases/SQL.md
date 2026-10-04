@@ -1,8 +1,12 @@
 # SQL
 
+---
+
 
 
 ## SQL Execution Order
+
+---
 
 ### SQL Execution Order (Logical Processing Order)
 ```text
@@ -21,9 +25,12 @@
 
 ## SQL Commands
 
+---
+
 ### Create SQL User & Grant Permissions
 ```shell
-CREATE USER 'mysql-user'@'localhost' IDENTIFIED BY 'Local!MySql!User';
+CREATE DATABASE posts CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'mysql-user'@'localhost' IDENTIFIED BY 'Password';
 GRANT ALL PRIVILEGES ON *.* TO 'mysql-user'@'localhost';
 FLUSH PRIVILEGES;
 SHOW GRANTS FOR 'mysql-user'@'localhost';
@@ -31,16 +38,28 @@ SHOW GRANTS FOR 'mysql-user'@'localhost';
 
 - Create SQL Example User & Grant Permissions
 ```shell
-CREATE USER 'rslakra'@'localhost' IDENTIFIED BY 'MySql!Password';
-GRANT ALL PRIVILEGES ON posts.* TO 'rslakra'@'localhost';
+CREATE DATABASE posts CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'post_user'@'localhost' IDENTIFIED BY 'Password';
+GRANT ALL PRIVILEGES ON posts.* TO 'post_user'@'localhost';
 FLUSH PRIVILEGES;
-SHOW GRANTS FOR 'rslakra'@'localhost';
+SHOW GRANTS FOR 'post_user'@'localhost';
 ```
+
+- Revoke Privileges
+```shell
+REVOKE ALL PRIVILEGES ON posts.* FROM 'post_user'@'localhost';
+DROP DATABASE IF EXISTS posts;
+DROP USER IF EXISTS 'post_user'@'localhost';
+FLUSH PRIVILEGES;
+SHOW GRANTS FOR 'post_user'@'localhost';
+```
+
 
 
 
 # Reference
 
+---
 
 
 
