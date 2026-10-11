@@ -84,13 +84,13 @@ Foundational, single-concept problems. Master these first — every later interv
 
 ```mermaid
 flowchart LR
-    Client --> LB[Load Balancer]
-    LB --> API[Write API]
-    LB --> Redirect[Redirect Service]
-    API --> IDGen[ID Generator]
-    API --> DB[(URL DB)]
-    Redirect --> Cache[(Redis Cache)]
-    Cache -->|miss| DB
+    client["Client"] --> lb["Load Balancer"]
+    lb --> api["Write API"]
+    lb --> redirect["Redirect Service"]
+    api --> idgen["ID Generator"]
+    api --> db[("URL DB")]
+    redirect --> cache[("Redis Cache")]
+    cache -- "miss" --> db
 ```
 
 
