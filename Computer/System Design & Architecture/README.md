@@ -673,7 +673,7 @@ On add/delete → publish event → all API pods refresh in-memory Set + update 
 
 **High-level architecture**
 
-```
+```mermaid
 flowchart TB
     Client --> LB[Load Balancer]
     LB --> API[API Server]
