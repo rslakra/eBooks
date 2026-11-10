@@ -4,6 +4,10 @@ A browser that supports PAC exposes the helper functions defined in the original
 
 ## Table of Contents
 
+- [What is a PAC file?](#what-is-a-pac-file)
+- [How PAC works](#how-pac-works)
+- [Where PAC is used](#where-pac-is-used)
+- [Deploying a PAC file](#deploying-a-pac-file)
 - [Basic structure](#basic-structure)
 - [Return values](#return-values)
 - [Quick reference](#quick-reference)
@@ -12,7 +16,131 @@ A browser that supports PAC exposes the helper functions defined in the original
 - [Time-based functions](#time-based-functions)
 - [Unsupported functions](#unsupported-functions)
 - [Complete example](#complete-example)
+  - [How the complete example decides](#how-the-complete-example-decides)
 - [Tips](#tips)
+- [Common pitfalls and security](#common-pitfalls-and-security)
+- [Related notes](#related-notes)
+
+---
+
+## What is a PAC file?
+
+A **PAC (Proxy Auto-Config) file** is a small JavaScript file that tells a browser or operating system **which proxy to use for each web request**. Instead of one fixed proxy for everything, the PAC file decides per request, based on the URL, the hostname, the user's network, or even the time of day.
+
+| | Fixed proxy setting | PAC file |
+| :--- | :--- | :--- |
+| **Decision** | Same proxy for every request | Chosen for each request by code |
+| **Internal sites** | Need a manual exceptions list | Handled by rules, e.g. `isPlainHostName` |
+| **Failover** | None | `"PROXY a; PROXY b; DIRECT"` |
+| **Updates** | Change settings on every device | Change one file on a server |
+
+## How PAC works
+
+The browser downloads the PAC file once from a URL, then runs its `FindProxyForURL(url, host)` function for **every request**. The function returns a string that tells the browser how to connect.
+
+```mermaid
+flowchart TB
+    A(["👤 User opens a web page"]) --> B["🌐 Browser has a PAC URL set?"]
+    B -->|"No"| C["Uses the fixed proxy settings<br/>or connects directly"]
+    B -->|"Yes"| D["📥 Downloads the PAC file<br/>(then caches it)"]
+    D --> E["⚙️ Runs FindProxyForURL(url, host)"]
+    E --> F{"What does it return?"}
+    F -->|"DIRECT"| G["🌍 Connects straight to the website"]
+    F -->|"PROXY host:port"| H["🛡️ Sends the request through the proxy"]
+    F -->|"PROXY a; PROXY b; DIRECT"| I["🔁 Tries each option in order<br/>and uses the first that works"]
+
+    classDef start fill:#d6e9ff,stroke:#2b6cb0,stroke-width:2px,color:#102a43;
+    classDef step fill:#fff3bf,stroke:#b7791f,stroke-width:2px,color:#3d2c05;
+    classDef code fill:#ead9ff,stroke:#6b46c1,stroke-width:2px,color:#2d1b55;
+    classDef good fill:#d9f5dd,stroke:#2f855a,stroke-width:2px,color:#12361f;
+    classDef proxy fill:#ffe8cc,stroke:#dd6b20,stroke-width:2px,color:#4a2a07;
+
+    class A start;
+    class B,F step;
+    class D,E code;
+    class C,G good;
+    class H,I proxy;
+```
+
+```mermaid
+sequenceDiagram
+    autonumber
+    actor User as 👤 User
+    participant Browser as 🌐 Browser
+    participant PAC as 📄 PAC server
+    participant Proxy as 🛡️ Proxy
+    participant Site as 🌍 Website
+
+    Browser->>PAC: GET /proxy.pac (once, then cached and refreshed)
+    PAC-->>Browser: PAC file (JavaScript)
+    User->>Browser: Open https://www.example.com
+    Browser->>Browser: Run FindProxyForURL(url, host)
+    alt Returns DIRECT
+        Browser->>Site: Connect directly
+        Site-->>Browser: Response
+    else Returns PROXY host:port
+        Browser->>Proxy: Send the request through the proxy
+        Proxy->>Site: Forward the request
+        Site-->>Proxy: Response
+        Proxy-->>Browser: Response
+    end
+```
+
+Because the function runs in the browser for each request, it must be **fast**. A slow function, or a slow DNS lookup inside it, slows down every page.
+
+## Where PAC is used
+
+```mermaid
+flowchart LR
+    PAC["📄<br/>PAC<br/>file"]
+
+    PAC --> A["🏢 Corporate networks<br/>Internet via the company proxy,<br/>internal sites direct"]
+    PAC --> B["🔐 VPN and split tunneling<br/>Private ranges go direct,<br/>the rest through a proxy"]
+    PAC --> C["🏫 Schools and campuses<br/>Different rules by network or time"]
+    PAC --> D["☁️ Cloud security gateways<br/>Services give you a PAC URL"]
+    PAC --> E["🌍 Multiple offices<br/>Pick the nearest proxy by<br/>the client's IP address"]
+    PAC --> F["⚖️ Failover and spreading<br/>Several proxies, then DIRECT"]
+    PAC --> G["🧪 Testing and development<br/>Send chosen domains through<br/>a debugging proxy"]
+
+    classDef hub fill:#ffe8cc,stroke:#dd6b20,stroke-width:3px,color:#4a2a07;
+    classDef use fill:#d9f5dd,stroke:#2f855a,stroke-width:2px,color:#12361f;
+
+    class PAC hub;
+    class A,B,C,D,E,F,G use;
+```
+
+- 🏢 **Corporate networks:** Send internet traffic through the company proxy and keep internal sites (`intranet`, `*.corp.example.com`) on a direct connection. This is the most common use.
+- 🔐 **VPN and split tunneling:** Keep private ranges (`10.x`, `172.16.x`, `192.168.x`) direct or on the VPN, and send everything else through a proxy.
+- 🏫 **Schools and campuses:** Use different proxies or rules depending on the network the device is on, or on the time of day.
+- ☁️ **Cloud security gateways:** Many cloud web-security services let you point devices at a hosted PAC URL, so traffic goes to their service.
+- 🌍 **Multiple offices:** Use `myIpAddress()` and `isInNet()` to pick the closest proxy for each office.
+- ⚖️ **Failover:** Return `"PROXY a; PROXY b; DIRECT"` so users keep working if one proxy is down.
+- 🧪 **Testing and development:** Route only selected domains through a local debugging proxy while everything else goes direct.
+
+## Deploying a PAC file
+
+1. 📝 Save the file as `proxy.pac`.
+2. 🌐 Host it on a web server that all clients can reach, such as `http://pac.example.com/proxy.pac`.
+3. 📄 Serve it with the MIME type `application/x-ns-proxy-autoconfig`.
+4. 🖥️ Tell the browsers or devices where to find it, using one of these methods:
+
+| Method | How it works |
+| :--- | :--- |
+| ✋ **Manual setting** | In the browser or operating system proxy settings, turn on "Use setup script" or "Automatic proxy configuration URL" and enter the PAC URL. |
+| 🔎 **WPAD (auto-discovery)** | Clients look for the file themselves, for example at `http://wpad.<your-domain>/wpad.dat`, found through DHCP or DNS. The file is a normal PAC file. |
+| 🏢 **Group Policy or device management (MDM)** | Administrators push the PAC URL to all managed devices. |
+| ⌨️ **Command line** | See the examples below. |
+
+```bash
+# macOS: set the PAC URL for the Wi-Fi network service
+networksetup -setautoproxyurl "Wi-Fi" "http://pac.example.com/proxy.pac"
+
+# Linux (GNOME)
+gsettings set org.gnome.system.proxy mode 'auto'
+gsettings set org.gnome.system.proxy autoconfig-url 'http://pac.example.com/proxy.pac'
+```
+
+> The host name and file name above are placeholders. Use your own server and URL.
 
 ---
 
@@ -308,6 +436,33 @@ function FindProxyForURL(url, host) {
 }
 ```
 
+### How the complete example decides
+
+```mermaid
+flowchart TB
+    S(["📨 FindProxyForURL(url, host)"]) --> R1{"1. Plain hostname<br/>or *.local?"}
+    R1 -->|"Yes"| D1["🌍 DIRECT"]
+    R1 -->|"No"| R2{"2. google.com or<br/>vpn.domain.com?"}
+    R2 -->|"Yes"| D2["🌍 DIRECT"]
+    R2 -->|"No"| R3{"3. IP in a private range?<br/>10.x, 172.16.x, 192.168.x, 127.x"}
+    R3 -->|"Yes"| D3["🌍 DIRECT"]
+    R3 -->|"No"| R4{"4. Mon to Fri,<br/>8am to 6pm?"}
+    R4 -->|"Yes"| P["🛡️ PROXY proxy1.example.com:8080<br/>then DIRECT if the proxy is down"]
+    R4 -->|"No"| D5["🌍 5. DIRECT (default)"]
+
+    classDef start fill:#d6e9ff,stroke:#2b6cb0,stroke-width:2px,color:#102a43;
+    classDef rule fill:#fff3bf,stroke:#b7791f,stroke-width:2px,color:#3d2c05;
+    classDef direct fill:#d9f5dd,stroke:#2f855a,stroke-width:2px,color:#12361f;
+    classDef proxy fill:#ffe8cc,stroke:#dd6b20,stroke-width:2px,color:#4a2a07;
+
+    class S start;
+    class R1,R2,R3,R4 rule;
+    class D1,D2,D3,D5 direct;
+    class P proxy;
+```
+
+The first rule that matches returns, so later rules are never reached.
+
 ## Tips
 
 - **Order matters:** The first rule that returns wins, so put the cheapest and most specific checks first.
@@ -316,3 +471,20 @@ function FindProxyForURL(url, host) {
 - **Always end with a default:** Finish with a `return` so every request gets an answer.
 - **Provide a fallback:** Use `"PROXY host:port; DIRECT"` so users aren't cut off if the proxy goes down.
 - **Debugging:** `alert()` doesn't work, so test with a PAC tester or the browser's network and proxy logs.
+
+## Common pitfalls and security
+
+| | Pitfall | What to do |
+| :-: | :--- | :--- |
+| 🐢 | **Slow DNS lookups** | `dnsResolve`, `isResolvable` and `isInNet` with a hostname can stall browsing. Put name-only checks first and resolve once. |
+| 🗃️ | **Caching** | Browsers cache the PAC file and its results, so changes may take time to appear. Restart the browser or wait for the refresh. |
+| 🔒 | **HTTPS URLs** | Some browsers hide the path and query of HTTPS URLs from the PAC file. Rules that match the path (for example `shExpMatch(url, "https://example.com/folder/*")`) may not work. Match the host name instead. |
+| 🕳️ | **Missing default** | If the function ends without a `return`, behavior is undefined. Always end with a default. |
+| 🎣 | **WPAD hijacking** | On an untrusted network, an attacker who answers WPAD lookups could point clients at a malicious PAC file. Prefer an explicit PAC URL over auto-discovery. |
+| 🌐 | **Open hosting** | Anyone who can edit the PAC file can redirect your users' traffic. Restrict write access to the file and serve it over a trusted network. |
+
+## Related notes
+
+- 🗂️ [Proxy overview](../Proxy/README.md)
+- ➡️ [Forward Proxy](../Proxy/Forward%20Proxy/README.md): the kind of proxy a PAC file chooses.
+- 🕵️ [MITM Proxy](../Proxy/MITM%20Proxy/INSTALL_CA.md): often used as a debugging proxy with PAC rules.
